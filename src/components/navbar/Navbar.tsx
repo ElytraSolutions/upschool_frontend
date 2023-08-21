@@ -1,11 +1,12 @@
 import { NavbarBox as Box } from "../../parts/NavbarBox"
+import upschoolLogo from '../../assets/upschool_logo.png';
 export default function Navbar() {
     return (
         <>
             <div className="bg-theme-color">
                 <div className="flex gap-2 md:gap-6  lg:gap-10 xl:gap-12">
-                    <div className="flex flex-1 bg-slate-400">
-                        first
+                    <div className="flex flex-1 ">
+                        <img src={upschoolLogo} alt="" />
 
                     </div>
 
