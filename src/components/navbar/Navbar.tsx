@@ -1,3 +1,4 @@
+import { NavbarBox as Box } from "../../parts/NavbarBox"
 export default function Navbar() {
     return (
         <>
@@ -8,8 +9,14 @@ export default function Navbar() {
 
                     </div>
 
-                    <div className="flex shrink-1 grow-4 bg-blue-600">
-                        second
+                    <div className="flex  justify-start shrink-1 grow-4 bg-blue-600 gap-2 md:gap-4 lg:gap-6 xl:gap-8">
+                        <Box />
+                        <Box />
+                        <Box />
+                        <Box />
+                        <Box />
+                        <Box />
+                        <Box />
                     </div>
 
                     <div className="flex shrink-2 grow-2 bg-orange-500">
