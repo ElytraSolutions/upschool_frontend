@@ -6,14 +6,14 @@ import { data } from "../../data/NavbarBoxData";
 export default function Navbar() {
     return (
         <>
-            <div className="bg-theme-color">
-                <div className="flex gap-2 md:gap-6  lg:gap-10 xl:gap-12">
-                    <div className="flex flex-1 ">
-                        <img src={upschoolLogo} alt="" />
+            <div className="bg-theme-color p-2 md:py-7 md:px-4">
+                <div className="flex gap-2 md:gap-4  lg:gap-5 xl:gap-6">
+                    <div className="flex shrink-2 grow-1">
+                        <img src={upschoolLogo} alt="Logo" width="250" height="60" />
 
                     </div>
 
-                    <div className="flex  justify-start shrink-1 grow-4 bg-blue-600 gap-2 md:gap-4 lg:gap-6 xl:gap-8">
+                    <div className="flex  justify-start shrink-1 grow-5 bg-blue-600 gap-2 md:gap-4 lg:gap-6 xl:gap-8">
                         {data.map(inf => <Box key={inf.id} inf={inf} />)}
                         {/* <Box />
                         <Box />
@@ -22,7 +22,7 @@ export default function Navbar() {
                         <Box /> */}
                     </div>
 
-                    <div className="flex shrink-2 grow-2 bg-orange-500">
+                    <div className="flex shrink-2 grow-3 bg-orange-500">
                         third
                     </div>
                 </div>
