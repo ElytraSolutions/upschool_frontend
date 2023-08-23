@@ -16,6 +16,9 @@ export default {
         2: "2",
         3: "3",
       },
+      gridTemplateColumns: {
+        registration: "repeat(16,minmax(0,1fr))",
+      },
     },
   },
   plugins: [],
