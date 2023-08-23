@@ -1,4 +1,4 @@
-export const data = [
+const data = [
   {
     id: 1,
     title: "Courses",
@@ -95,9 +95,22 @@ export const data = [
       { title: "Request a Tour", path: "test" },
     ],
   },
-  {
-    id: 8,
-    title: "Take a Tour",
-    path: "https://www.youtube.com/",
-  },
 ];
+
+const userData = {
+  id: 1,
+  title: "Upschool",
+  children: [
+    { title: "Register for Upschool", path: "https://www.youtube.com/" },
+    { title: "Bulk Registration", path: "test" },
+    { title: "Request a Tour", path: "test" },
+  ],
+};
+
+const navData = {
+  id: 8,
+  title: "Take a Tour",
+  path: "https://www.youtube.com/",
+};
+
+export { data, userData, navData };

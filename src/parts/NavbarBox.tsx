@@ -35,7 +35,7 @@ export function NavbarBox({ inf }: BoxProps) {
                     </span>
                     }
                 </div >
-                <ul className="bg-white border rounded-md transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top">
+                <ul key={inf.id} className="bg-white border rounded-md transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top">
                     {inf.children?.map(detail => {
                         return (
                             <>
