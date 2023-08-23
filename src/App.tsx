@@ -4,6 +4,7 @@ import Home from "./pages/Homepage/Homepage"
 import Service from "./pages/Services/Service"
 import About from "./pages/About/About"
 import Register from "./pages/Register/Register"
+import OurFramework from "./pages/OurFramework/OurFramework"
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />
+      },
+      {
+        path:"our-framework",
+        element:<OurFramework />
       }
 
     ]
