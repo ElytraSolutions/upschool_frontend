@@ -16,7 +16,7 @@ function footer() {
                 </div>
                 <div className="row justify-center">
                     <div className="flex flex-col text-[#fff] items-center">
-                        <span className='text-center p-6 font-bold text-5xl tracking-wide'>Change Making Communities</span>
+                        <span className='text-center md:p-6 pt-6 text-2xl  font-bold md:text-5xl tracking-wide'>Change Making Communities</span>
                         <p className='text-[14px] tracking-wide max-w-4xl text-center md:max-w-2xl p-2 leading-6 pb-6 lg:max-w-2xl'>Upschool is an <a className='underline text-[#Aeb2c2]' href="https://upschool.co/">online learning platform</a> for students
                             and
                             teachers. Underpinning everything we do at <a className='underline text-[#Aeb2c2]' href="https://upschool.co/">Upschool</a> is a
