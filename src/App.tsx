@@ -3,7 +3,7 @@ import Layout from "./components/layout/Layout"
 import Home from "./pages/Homepage/Homepage"
 import Service from "./pages/Services/Service"
 import About from "./pages/About/About"
-import Register from "./pages/Register/Register"
+import Registration from "./pages/Register/Registration"
 import OurFramework from "./pages/OurFramework/OurFramework"
 
 const router = createBrowserRouter([
@@ -21,11 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: "register",
-        element: <Register />
+        element: <Registration />
       },
       {
-        path:"our-framework",
-        element:<OurFramework />
+        path: "our-framework",
+        element: <OurFramework />
       }
 
     ]
