@@ -28,6 +28,7 @@ const data = [
         title: "Charities",
         path: "/test",
         children: [
+          // TODO charaties should be fetched from backend
           {
             title: "All Charaties",
             path: "https://www.youtube.com/",
