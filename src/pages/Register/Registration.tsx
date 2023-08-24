@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Formik } from "formik"
 import * as yup from "yup"
 
@@ -78,13 +79,19 @@ const register = async (values, onSubmitProps) => {
 
 
 export default function Registration() {
+  const [level1, setLevel1] = useState(true)
+  const [level2, setLevel2] = useState(false)
+  const [level3, setLevel3] = useState(false)
+  // const[formlevel1,setFormlevel1]=useState(false)
+  // const[formlevel2,setFormlevel2]=useState(false)
+  // const[formlevel3,setFormlevel3]=useState(false)
   return (
     <div className="flex justify-center items-center bg-gray-200" style={{ height: "90vh" }}>
 
       {/*Layout*/}
-      <div className="grid grid-cols-registration gap-0" style={{ width: "60vw", height: "70vh" }} >
+      <div className="grid grid-cols-16 gap-0" style={{ width: "60vw", height: "70vh" }} >
         {/* first column:Registration Form*/}
-        <div className=" col-span-11 flex flex-wrap content-center justify-center rounded-l-md bg-white" >
+        <div className=" col-span-11 flex flex-wrap content-center justify-center bg-white" style={{ height: "inherit" }}>
           <div className="w-11/12 ">
             {/* <!-- Heading --> */}
             <h1 className="text-2xl font-bold text-font-color p-2 m-2">Create Your Upschool Account</h1>
@@ -238,11 +245,80 @@ export default function Registration() {
         </div>
 
         {/* Second column*/}
-        <div className=" col-span-5 flex flex-wrap content-center justify-center bg-theme-color">
+        <div className=" col-span-5 flex flex-wrap content-center justify-center bg-theme-color" style={{ height: "inherit" }}>
+          {/* second column layout */}
+          <div className=" relative w-11/12" style={{ height: "inherit" }}>
+            {/* grid of three rows */}
+            <div className="grid grid-rows-13 gap-y-3 max-h-full py-2">
+              {/* first row:progress stepper */}
+              <div className="row-start-3 row-span-5 grid grid-cols-4 grid-rows-5 place-items-center gap-y-3 ">
+                {/* first label */}
+                <div className="col-span-1">
+                  {/* Circle container */}
+                  {/* Circle */}
+                  <div className="border-2 border-pink-600 bg-white w-10 h-10 rounded-full">
+                    {/* tick mark */}
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className=" relative w-8 h-8 mt-1 text-theme-color">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                {/* text information */}
+                <div className="col-span-3  justify-self-start flex flex-row flex-1 justify-start"><h1 className="text-white">Account Information</h1></div>
 
+                {/* first line */}
+                <div className=" col-start-1 col-span-1">
+                  <div className="h-8 max-h-full border w-0 border-white "></div>
+                </div>
+                {/* occupying extra spaces */}
 
+                {/* second label */}
+                <div className=" col-start-1 col-span-1">
+                  {/* Circle container */}
+                  {/* Circle */}
+                  <div className="border-2 border-pink-600 bg-white w-10 h-10 rounded-full">
+                    {/* tick mark */}
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className=" relative w-8 h-8 mt-1 text-theme-color">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                {/* text information */}
+                <div className="col-span-3 justify-self-start flex flex-row flex-1 justify-start"><h1 className="text-white">About You</h1></div>
+                {/* second line */}
+                <div className=" col-start-1 col-span-1 ">
+                  <div className="h-8 max-h-full border w-0 border-white"></div>
+                </div>
+                {/* occupying extra spaces */}
+
+                {/* third label */}
+                <div className=" col-start-1 col-span-1">
+                  {/* Circle container */}
+                  {/* Circle */}
+                  <div className="border-2 border-pink-600 bg-white w-10 h-10 rounded-full">
+                    {/* tick mark */}
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className=" relative w-8 h-8 mt-1 text-theme-color">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                {/* text information */}
+                <div className="col-span-3 justify-self-start flex flex-row flex-1 justify-start"><h1 className="text-white">Your Canva Account</h1></div>
+
+              </div>
+              {/* second row:progress bar */}
+              <div className=" row-start-9 row-span-2"></div>
+              {/* third column:Login link */}
+              <div className=" row-start-12 row-span-2"></div>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   )
