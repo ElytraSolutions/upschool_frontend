@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Formik } from "formik"
 import * as yup from "yup"
 
+import ProgressBar from "../../parts/ProgressBar";
+
 import {
   // Box,
   // Button,
@@ -10,6 +12,7 @@ import {
   // Typography,
   // useTheme,
 } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 
 const registerSchema = yup.object().shape({
@@ -91,7 +94,7 @@ export default function Registration() {
       {/*Layout*/}
       <div className="grid grid-cols-16 gap-0" style={{ width: "60vw", height: "70vh" }} >
         {/* first column:Registration Form*/}
-        <div className=" col-span-11 flex flex-wrap content-center justify-center bg-white" style={{ height: "inherit" }}>
+        <div className=" col-span-10 flex flex-wrap content-center justify-center bg-white" style={{ height: "inherit" }}>
           <div className="w-11/12 ">
             {/* <!-- Heading --> */}
             <h1 className="text-2xl font-bold text-font-color p-2 m-2">Create Your Upschool Account</h1>
@@ -245,13 +248,13 @@ export default function Registration() {
         </div>
 
         {/* Second column*/}
-        <div className=" col-span-5 flex flex-wrap content-center justify-center bg-theme-color" style={{ height: "inherit" }}>
+        <div className=" col-span-6 flex flex-wrap content-center justify-center bg-theme-color" style={{ height: "inherit" }}>
           {/* second column layout */}
           <div className=" relative w-11/12" style={{ height: "inherit" }}>
             {/* grid of three rows */}
-            <div className="grid grid-rows-13 gap-y-3 max-h-full py-2">
+            <div className="grid grid-rows-15 gap-y-3 max-h-full py-2">
               {/* first row:progress stepper */}
-              <div className="row-start-3 row-span-5 grid grid-cols-4 grid-rows-5 place-items-center gap-y-3 ">
+              <div className="row-start-3 row-span-7 grid grid-cols-4 grid-rows-5 place-items-center gap-y-3 ">
                 {/* first label */}
                 <div className="col-span-1">
                   {/* Circle container */}
@@ -313,9 +316,14 @@ export default function Registration() {
 
               </div>
               {/* second row:progress bar */}
-              <div className=" row-start-9 row-span-2"></div>
+              <div className=" row-start-11 row-span-2">
+                <ProgressBar />
+              </div>
               {/* third column:Login link */}
-              <div className=" row-start-12 row-span-2"></div>
+              <div className=" row-start-13 row-span-2 text-white grid grid-cols-10 content-center w-full">
+                <div className="col-start-2 col-end-10 text-sm ">Already have an account ? <NavLink to={"/demo"} className="text-base"><u><b>Log in</b></u></NavLink></div>
+
+              </div>
             </div>
           </div>
         </div>

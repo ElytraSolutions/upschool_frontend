@@ -20,12 +20,24 @@ export default {
       gridTemplateColumns: {
         16: "repeat(16,minmax(0,1fr))",
         12: "repeat(12,minmax(0,1fr))",
-        13: "repeat(12,minmax(0,1fr))",
+        13: "repeat(13,minmax(0,1fr))",
       },
       gridTemplateRows: {
         12: "repeat(12,minmax(0,1fr))",
-        13: "repeat(12,minmax(0,1fr))",
+        13: "repeat(13,minmax(0,1fr))",
+        15: "repeat(15,minmax(0,1fr))",
         16: "repeat(16,minmax(0,1fr))",
+      },
+      gridRow: {
+        "span-7": "span 7/ span 7",
+      },
+      gridRowStart: {
+        8: "8",
+        9: "9",
+        10: "10",
+        11: "11",
+        12: "12",
+        13: "13",
       },
     },
   },
