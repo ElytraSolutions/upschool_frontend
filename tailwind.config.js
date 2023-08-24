@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         "theme-color": "#242254",
+        "font-color": "#03014C",
       },
       flexGrow: {
         2: "2",
