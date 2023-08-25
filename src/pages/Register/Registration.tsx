@@ -140,6 +140,7 @@ export default function Registration() {
   const [formlevel1, setFormlevel1] = useState(true)
   const [formlevel2, setFormlevel2] = useState(false)
   const [formlevel3, setFormlevel3] = useState(false)
+  const values = { completeLevel1, completeLevel2, completeLevel3 }
 
   const handleTogglePasswordVisibility = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
@@ -556,7 +557,7 @@ export default function Registration() {
               </div>
               {/* second row:progress bar */}
               <div className=" row-start-11 row-span-2">
-                <ProgressBar />
+                <ProgressBar values={values} />
               </div>
               {/* third column:Login link */}
               <div className=" row-start-13 row-span-2 text-white grid grid-cols-10 content-center w-full">
