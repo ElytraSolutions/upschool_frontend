@@ -70,34 +70,64 @@ function allCourses() {
             </div>
           </div>
         </div>
-        <div id="10-weeks" className="my-10 max-w-6xl mx-auto">
+        <div id="10-weeks" className="my-10 md:max-w-6xl mx-auto ">
           <div className="p-4">
             <h1 className="text-2xl font-bold text-[#242254]">
               10-week Courses
             </h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 gap-4">
             {datas.map((data) => (
-              <div>
+              <div className="py-4 px-0" >
                 <CourseCard key={data.title} data={data} />
               </div>
             ))}
+            </div>
           </div>
           <div className="p-4">
             <h1 className="text-2xl font-bold text-[#242254]">Short Courses</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 gap-4">
+            {datas.map((data) => (
+              <div className="py-4 px-0" >
+                <CourseCard key={data.title} data={data} />
+              </div>
+            ))}
+            </div>
           </div>
           <div className="p-4">
             <h1 className="text-2xl font-bold text-[#242254]">
               Social Scenarios
             </h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 gap-4">
+            {datas.map((data) => (
+              <div className="py-4 px-0" >
+                <CourseCard key={data.title} data={data} />
+              </div>
+            ))}
+            </div>
           </div>
           <div className="p-4">
             <h1 className="text-2xl font-bold text-[#242254]">
               Comprehension Corners
             </h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 gap-4">
+            {datas.map((data) => (
+              <div className="py-4 px-0" >
+                <CourseCard key={data.title} data={data} />
+              </div>
+            ))}
+            </div>
           </div>
           <div className="p-4">
             <h1 className="text-2xl font-bold text-[#242254]">
               Teacher Trainings
             </h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 gap-4 ">
+            {datas.map((data) => (
+              <div className="py-4 px-0 " >
+                <CourseCard key={data.title} data={data} />
+              </div>
+            ))}
+            </div>
           </div>
         </div>
       </div>
