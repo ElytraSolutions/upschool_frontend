@@ -5,25 +5,21 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { ICourse } from '../../types/ICourse';
 
-interface CourseData {
-  title: string;
-  short_description: string;
-  thumbnail: string;
-}
 interface Props {
-  data: CourseData;
+  data: ICourse;
 }
 
 function courseCard({ data }: Props) {
   return (
     <>
-      <Card sx={{ maxWidth: 345,fontFamily:"lexend",margin:"auto"  }}>
+      <Card sx={{ maxWidth: 345, fontFamily: "lexend", margin: "auto" }}>
         <CardMedia
           component="img"
           height="140"
-          image={data.thumbnail}
-          alt={data.title}
+          image={data.image}
+          alt={data.name}
         />
         <CardContent>
           <Typography
@@ -34,7 +30,7 @@ function courseCard({ data }: Props) {
             fontWeight="bold"
             sx={{ fontFamily: "lexend" }}
           >
-            {data.title}
+            {data.name}
           </Typography>
           <Typography
             variant="body2"
@@ -48,7 +44,7 @@ function courseCard({ data }: Props) {
               fontFamily: "lexend"
             }}
           >
-            {data.short_description}
+            {data.intro}
           </Typography>
         </CardContent>
         <CardActions>
