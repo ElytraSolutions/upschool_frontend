@@ -16,9 +16,40 @@ import {
 
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import MenuItem from '@mui/material/MenuItem';
 import { NavLink } from "react-router-dom";
 import RegisterStepIHeader from "../../parts/partsRegisterPage/RegisterStepIHeader";
 import RegisterStepIIIHeader from "../../parts/partsRegisterPage/RegisterStepIIIHeader";
+
+const yourRole = [
+  {
+    value: 'Parent of Student',
+    label: 'Parent of Student',
+  },
+  {
+    value: 'Student',
+    label: 'Student',
+  },
+  {
+    value: 'School Teacher',
+    label: 'School Teacher',
+  },
+];
+
+const yourCountry = [
+  {
+    value: 'Nepal',
+    label: 'Nepal',
+  },
+  {
+    value: 'America',
+    label: 'America',
+  },
+  {
+    value: 'Australia',
+    label: 'Australia',
+  },
+];
 
 
 const registerSchema = yup.object().shape({
@@ -60,7 +91,7 @@ const initialValuesRegister = {
   email: "",
   password: "",
   confirmPassword: "",
-  contry: "",
+  country: "",
   role: "",
   age: null,
   canvaAccount: null,
@@ -93,9 +124,9 @@ export default function Registration() {
   const [level1, setLevel1] = useState(true)
   const [level2, setLevel2] = useState(false)
   const [level3, setLevel3] = useState(false)
-  // const[formlevel1,setFormlevel1]=useState(false)
-  // const[formlevel2,setFormlevel2]=useState(false)
-  // const[formlevel3,setFormlevel3]=useState(false)
+  const [formlevel1, setFormlevel1] = useState(true)
+  const [formlevel2, setFormlevel2] = useState(false)
+  const [formlevel3, setFormlevel3] = useState(false)
 
   const handleTogglePasswordVisibility = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
@@ -110,7 +141,7 @@ export default function Registration() {
     <div className="flex justify-center items-center bg-gray-200" style={{ height: "90vh" }}>
 
       {/*Layout*/}
-      <div className="grid grid-cols-16 gap-0 w-[90vw] xl:w-[70vw]" style={{ height: "70vh" }} >
+      <div className="grid grid-cols-16 gap-0 w-[90vw] xl:w-[60vw]" style={{ height: "70vh" }} >
         {/* first column:Registration Form*/}
         <div className=" col-span-11 flex flex-wrap content-center  justify-center bg-white" style={{ height: "inherit" }}>
           <div className="w-11/12 ">
@@ -135,115 +166,219 @@ export default function Registration() {
                 resetForm,
               }) => (
                 <form className="" onSubmit={handleSubmit}>
+                  {/* First Step Form */}
+                  <div className={`${formlevel1 ? "" : "hidden"}`} >
+                    <div className="grid grid-cols-4 w-11/12 gap-4 p-2 m-2">
 
+                      <TextField
+                        className=" col-span-2"
+                        type="text"
+                        label="First Name"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.firstName}
+                        name="firstName"
+                        error={
+                          Boolean(touched.firstName) && Boolean(errors.firstName)
+                        }
+                        helperText={touched.firstName && errors.firstName}
 
-                  <div className="grid grid-cols-4 w-11/12 gap-4 p-2 m-2">
+                      />
+                      <TextField
+                        className=" col-span-2"
+                        type="text"
+                        label="Last Name"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.lastName}
+                        name="lastName"
+                        error={
+                          Boolean(touched.lastName) && Boolean(errors.lastName)
+                        }
+                        helperText={touched.lastName && errors.lastName}
+                      />
 
-                    <TextField
-                      className=" col-span-2"
-                      type="text"
-                      label="First Name"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.firstName}
-                      name="firstName"
-                      error={
-                        Boolean(touched.firstName) && Boolean(errors.firstName)
-                      }
-                      helperText={touched.firstName && errors.firstName}
+                      <TextField
+                        className=" col-span-4"
+                        type="email"
+                        label="Email"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.email}
+                        name="email"
+                        error={
+                          Boolean(touched.email) && Boolean(errors.email)
+                        }
+                        helperText={touched.email && errors.email}
+                      />
+                      <TextField
+                        className=" col-span-2"
+                        type={showPassword ? 'text' : 'password'}
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <button onClick={handleTogglePasswordVisibility}>
+                                {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                              </button>
+                            </InputAdornment>
+                          ),
+                        }}
+                        label="Password"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.password}
+                        name="password"
+                        error={
+                          Boolean(touched.password) && Boolean(errors.password)
+                        }
+                        helperText={touched.password && errors.password}
+                      />
+                      <TextField
+                        className=" col-span-2"
+                        type={showPassword ? 'text' : 'password'}
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <button onClick={handleToggleConfirmPasswordVisibility}>
+                                {showConfirmPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                              </button>
+                            </InputAdornment>
+                          ),
+                        }}
+                        label="Confirm password"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.confirmPassword}
+                        name="confirmPassword"
+                        error={
+                          Boolean(touched.confirmPassword) && Boolean(errors.confirmPassword)
+                        }
+                        helperText={touched.confirmPassword && errors.confirmPassword}
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
+                      <button className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12">
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                          </svg>
+                        </span>
+                        <span className="text-xl"><u>Back</u></span>
+                      </button>
 
-                    />
-                    <TextField
-                      className=" col-span-2"
-                      type="text"
-                      label="Last Name"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.lastName}
-                      name="lastName"
-                      error={
-                        Boolean(touched.lastName) && Boolean(errors.lastName)
-                      }
-                      helperText={touched.lastName && errors.lastName}
-                    />
-
-                    <TextField
-                      className=" col-span-4"
-                      type="email"
-                      label="Email"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.email}
-                      name="email"
-                      error={
-                        Boolean(touched.email) && Boolean(errors.email)
-                      }
-                      helperText={touched.email && errors.email}
-                    />
-                    <TextField
-                      className=" col-span-2"
-                      type={showPassword ? 'text' : 'password'}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <button onClick={handleTogglePasswordVisibility}>
-                              {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                            </button>
-                          </InputAdornment>
-                        ),
-                      }}
-                      label="Password"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.password}
-                      name="password"
-                      error={
-                        Boolean(touched.password) && Boolean(errors.password)
-                      }
-                      helperText={touched.password && errors.password}
-                    />
-                    <TextField
-                      className=" col-span-2"
-                      type={showPassword ? 'text' : 'password'}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <button onClick={handleToggleConfirmPasswordVisibility}>
-                              {showConfirmPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                            </button>
-                          </InputAdornment>
-                        ),
-                      }}
-                      label="Confirm password"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.confirmPassword}
-                      name="confirmPassword"
-                      error={
-                        Boolean(touched.confirmPassword) && Boolean(errors.confirmPassword)
-                      }
-                      helperText={touched.confirmPassword && errors.confirmPassword}
-                    />
+                      <button className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                        onClick={e => {
+                          e.preventDefault()
+                          setFormlevel1(false)
+                          setFormlevel2(true)
+                        }}>
+                        <span className="text-xl">Next</span>
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
-                    <button className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1">
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-                        </svg>
-                      </span>
-                      <span><u>Back</u></span>
-                    </button>
+                  {/* Second Step Form */}
+                  <div className={`${formlevel2 ? "" : "hidden"}`} >
+                    <div className="grid grid-rows-3  w-11/12 gap-4 p-2 m-2">
+                      <TextField
+                        className="row-span-1"
+                        id="outlined-select-country"
+                        select
+                        label="Select your country"
+                        defaultValue=""
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.country}
+                        name="country"
+                        error={
+                          Boolean(touched.country) && Boolean(errors.country)
+                        }
+                        helperText={touched.country && errors.country}
 
-                    <button className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white">
-                      <span>Next</span>
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                        </svg>
-                      </span>
-                    </button>
+                      >
+                        {yourCountry.map((option) => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                      <TextField
+                        className="row-span-1"
+                        id="outlined-select-role"
+                        select
+                        label="Select your role"
+                        defaultValue=""
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.role}
+                        name="role"
+                        error={
+                          Boolean(touched.role) && Boolean(errors.role)
+                        }
+                        helperText={touched.role && errors.role}
+
+                      >
+                        {yourRole.map((option) => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                      <TextField
+                        className=" row-span-1"
+                        type="number"
+                        label="Age"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.age}
+                        name="age"
+                        error={
+                          Boolean(touched.age) && Boolean(errors.age)
+                        }
+                        helperText={touched.age && errors.age}
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
+                      <button className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
+                        onClick={e => {
+                          e.preventDefault()
+                          setFormlevel1(true)
+                          setFormlevel2(false)
+                        }}>
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                          </svg>
+                        </span>
+                        <span className="text-xl"><u>Back</u></span>
+                      </button>
+
+                      <button className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                        onClick={e => {
+                          e.preventDefault()
+                          setFormlevel2(false)
+                          setFormlevel3(true)
+                        }}>
+                        <span className="text-xl">Next</span>
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+
                   </div>
+                  {/* Third step Form */}
+                  <div>
+
+
+                  </div>
+
                 </form>
               )
               }
