@@ -11,7 +11,11 @@ import {
   // useMediaQuery,
   // Typography,
   // useTheme,
+  InputAdornment
 } from "@mui/material";
+
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { NavLink } from "react-router-dom";
 
 
@@ -82,12 +86,24 @@ const register = async (values, onSubmitProps) => {
 
 
 export default function Registration() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [level1, setLevel1] = useState(true)
   const [level2, setLevel2] = useState(false)
   const [level3, setLevel3] = useState(false)
   // const[formlevel1,setFormlevel1]=useState(false)
   // const[formlevel2,setFormlevel2]=useState(false)
   // const[formlevel3,setFormlevel3]=useState(false)
+
+  const handleTogglePasswordVisibility = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    setShowPassword(!showPassword);
+  };
+
+  const handleToggleConfirmPasswordVisibility = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    setShowConfirmPassword(!showPassword);
+  };
   return (
     <div className="flex justify-center items-center bg-gray-200" style={{ height: "90vh" }}>
 
@@ -196,7 +212,16 @@ export default function Registration() {
                     />
                     <TextField
                       className=" col-span-2"
-                      type="password"
+                      type={showPassword ? 'text' : 'password'}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <button onClick={handleTogglePasswordVisibility}>
+                              {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                            </button>
+                          </InputAdornment>
+                        ),
+                      }}
                       label="Password"
                       onBlur={handleBlur}
                       onChange={handleChange}
@@ -209,7 +234,16 @@ export default function Registration() {
                     />
                     <TextField
                       className=" col-span-2"
-                      type="password"
+                      type={showPassword ? 'text' : 'password'}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <button onClick={handleToggleConfirmPasswordVisibility}>
+                              {showConfirmPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                            </button>
+                          </InputAdornment>
+                        ),
+                      }}
                       label="Confirm password"
                       onBlur={handleBlur}
                       onChange={handleChange}
