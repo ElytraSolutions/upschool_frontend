@@ -8,7 +8,7 @@ import Footer from "../footer/footer"
 export default function Layout() {
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <Outlet />
             <Footer />
         </>

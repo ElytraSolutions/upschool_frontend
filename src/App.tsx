@@ -7,6 +7,8 @@ import Registration from "./pages/Register/Registration"
 import OurFramework from "./pages/OurFramework/OurFramework"
 import Contact from "./pages/Contact/contact"
 import Acknowledgement from "./pages/Acknowledgement/acknowledgement"
+import Testimonials from "./pages/Testimonials/testimonials"
+import Courses from "./pages/Courses/allCourses"
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
       {
         path:"acknowledgement",
         element: <Acknowledgement />
+      },
+      {
+        path:"testimonials",
+        element: <Testimonials />
+      },
+      {
+        path: "courses",
+        element: <Courses />,
       }
 
     ]
