@@ -86,7 +86,7 @@ export default function About() {
             Read more about our framework
           </a>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
             <div className="md:text-left">
               <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
                 100% Free Education
@@ -102,7 +102,7 @@ export default function About() {
             </div>
             <img src="/images/about/about-us.jpg" alt="" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
             <img
               src="/images/about/about-us-images.jpg"
               alt=""
@@ -124,7 +124,7 @@ export default function About() {
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
             <div className="md:text-left">
               <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
                 We Believe in Student Empowerment
@@ -144,7 +144,7 @@ export default function About() {
             </div>
             <img src="/images/about/about-us-images-1.jpg" alt="" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
             <img
               src="/images/about/about-us-images-3.jpg"
               alt=""
@@ -170,7 +170,7 @@ export default function About() {
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
             <div className="md:text-left">
               <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
                 Our Charity Partners
