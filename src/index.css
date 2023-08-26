@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  scroll-behavior: smooth;
+}
 
 :root {
   font-family: lexend, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -77,4 +80,3 @@ button:focus-visible {
 
 /* In your CSS or a separate CSS file */
 /* This assumes that the carousel component is being used within a parent element with the class "carousel-wrapper" */
-

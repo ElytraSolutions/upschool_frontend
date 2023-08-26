@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 function multiImageCarousel({ images }) {
   return (
-    <Carousel showArrows={true} showStatus={false} showIndicators={false} className=' w-11/12 mx-auto custom-carousel ' >
+    <Carousel showArrows={true} showStatus={false} showIndicators={false} autoPlay={true} interval={3000} infiniteLoop={true}  className=' w-11/12 mx-auto custom-carousel ' >
       {images.map((imageSet, index) => (
         <div key={index} className='  bg-[#24225450] p-4'>
           <div className="flex items-center justify-center">

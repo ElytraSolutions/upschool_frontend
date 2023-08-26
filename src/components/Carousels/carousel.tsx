@@ -11,7 +11,7 @@ function carousel({images: images}: CarouselProps) {
     <>
     <div className='flex justify-center'>
     <div className='max-w-screen-lg w-full sm:w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/1 pt-10'>
-    <Carousel className="w-full" showArrows={true} showStatus={false} showIndicators={false}>
+    <Carousel className="w-full" showArrows={true} showStatus={false} showIndicators={false} >
       {images.map((image, index) => (
         <div  key={index}>
           <img src={image} />

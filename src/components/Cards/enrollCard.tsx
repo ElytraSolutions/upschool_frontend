@@ -14,55 +14,30 @@ interface Props {
 function courseCard({ data }: Props) {
   return (
     <>
-      <Card sx={{ maxWidth: 345, fontFamily: "lexend", margin: "auto" }}>
+      <Card sx={{ maxWidth: 345, fontFamily: "lexend", margin: "auto" ,border :1 }}>
         <CardMedia
           component="img"
           height="140"
           image={data.image}
           alt={data.name}
         />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            color="#242254"
-            fontWeight="bold"
-            sx={{ fontFamily: "lexend" }}
-          >
-            {data.name}
-          </Typography>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{
-              letterSpacing: "1px",
-              lineHeight: "24px",
-              fontSize: "14px",
-              color: "#242254",
-              fontWeight: 300,
-              fontFamily: "lexend"
-            }}
-          >
-            {data.intro}
-          </Typography>
-        </CardContent>
-        <CardActions>
+        <CardActions sx={{padding:"20px 0px"}}>
           <Button
             sx={{
               backgroundColor: "#242254",
               color: "white",
               fontSize: "20px",
-              width: "100%",
+              width: "80%",
               fontFamily: "lexend",
+              margin : "auto",
               "&:hover": {
                 backgroundColor: "#343264",
                 color: "white4",
               },
             }}
-            href={`/course/${data.slug}`}
+            href={`/chapter/${data.id}`}
           >
-            See More
+            ENROLL NOW
           </Button>
         </CardActions>
       </Card>
