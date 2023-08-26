@@ -1,12 +1,14 @@
-export default function RegisterStepIHeader() {
-    const level1 = false
+interface IRegisterStepIHeader {
+    showOauth: boolean;
+}
+
+export default function RegisterStepIHeader({ showOauth }: IRegisterStepIHeader) {
     return (
-        // TODO logic required
-        <div className="hidden">
+        <div>
             <h1 className="text-2xl font-bold text-font-color p-2 m-2">Create Your Upschool Account</h1>
             <h3 className="text-font-color font-normal p-2 m-2">You are a few clicks away from creating your account</h3>
             {/* TODO logic required */}
-            <div className={`${level1 ? "grid" : "hidden"} grid-cols-4 gap-4  p-2 m-2 w-11/12`}>
+            <div className={`${showOauth ? "grid" : "hidden"} grid-cols-4 gap-4  p-2 m-2 w-11/12`}>
                 <button className="col-span-2 flex flex-wrap justify-center gap-1 items-center border border-font-color p-1 rounded-md">
                     <span>
                         <svg
