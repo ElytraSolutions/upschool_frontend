@@ -8,10 +8,11 @@
      if (editorRef.current) {
        console.log(editorRef.current.getContent());
      }
+    }
    return (
      <>
        <Editor
-         onInit={(evt, editor) => editorRef.current = editor}
+         onInit={(_evt, editor) => editorRef.current = editor}
          initialValue="<p>This is the initial content of the editor.</p>"
           tinymceScriptSrc="/tinymce/tinymce/js/tinymce/tinymce.min.js"
          init={{

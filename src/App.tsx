@@ -10,6 +10,8 @@ import Acknowledgement from './pages/Acknowledgement/Acknowledgement';
 import Testimonials from './pages/Testimonials/Testimonials';
 import Courses from './pages/Courses/AllCourses';
 import CourseDetails from './pages/Courses/CourseDetail';
+import FAQ from './pages/FAQ/faq';
+import CourseDetails from './pages/Courses/CourseDetail';
 
 const router = createBrowserRouter([
     {
