@@ -74,4 +74,4 @@ function courseDetail() {
   );
 }
 
-export default courseDetail;
+export default CourseDetail;
