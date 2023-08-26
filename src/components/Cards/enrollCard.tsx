@@ -35,7 +35,7 @@ function courseCard({ data }: Props) {
                 color: "white4",
               },
             }}
-            href={`/chapter/${data.id}`}
+            href={`/chapters/${data.slug}`}
           >
             ENROLL NOW
           </Button>
