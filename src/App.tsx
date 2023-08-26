@@ -10,6 +10,7 @@ import Acknowledgement from "./pages/Acknowledgement/acknowledgement"
 import Testimonials from "./pages/Testimonials/testimonials"
 import Courses from "./pages/Courses/AllCourses"
 import CourseDetails from "./pages/Courses/CourseDetail"
+import FAQ from "./pages/FAQ/faq"
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
       path: "course/:slug",
       element: <CourseDetails />,
+      },
+      {
+        path:"faq",
+        element: <FAQ />
       }
 
     ]
