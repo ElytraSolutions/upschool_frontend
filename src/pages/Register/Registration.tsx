@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Formik } from "formik"
+import { Formik, Field } from "formik"
 import * as yup from "yup"
 
-import ProgressBar from "../../parts/ProgressBar";
+import ProgressBar from "../../parts/partsRegisterPage/ProgressBar";
 
 import {
   // Box,
@@ -11,8 +11,55 @@ import {
   // useMediaQuery,
   // Typography,
   // useTheme,
+  InputAdornment
 } from "@mui/material";
+
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import MenuItem from '@mui/material/MenuItem';
 import { NavLink } from "react-router-dom";
+import RegisterStepIHeader from "../../parts/partsRegisterPage/RegisterStepIHeader";
+import RegisterStepIIIHeader from "../../parts/partsRegisterPage/RegisterStepIIIHeader";
+
+const yourRole = [
+  {
+    value: 'Parent of Student',
+    label: 'Parent of Student',
+  },
+  {
+    value: 'Student',
+    label: 'Student',
+  },
+  {
+    value: 'School Teacher',
+    label: 'School Teacher',
+  },
+];
+
+const yourCountry = [
+  {
+    value: 'Nepal',
+    label: 'Nepal',
+  },
+  {
+    value: 'America',
+    label: 'America',
+  },
+  {
+    value: 'Australia',
+    label: 'Australia',
+  },
+];
+const chooseCanvaAccout = [
+  {
+    value: 'Yes',
+    label: 'Yes',
+  },
+  {
+    value: 'No',
+    label: 'No',
+  },
+];
 
 
 const registerSchema = yup.object().shape({
@@ -35,15 +82,15 @@ const registerSchema = yup.object().shape({
     .oneOf([yup.ref("password")], "Passwords does not match"),
   country: yup.string().required("required").max(255, "Characters too long"),
   role: yup.string().required("required"),
-  age: yup.number().required("required"),
+  age: yup.string().required("required").matches(/^[0-9]+$/, 'Age must be numeric'),
   canvaAccount: yup.bool(),
-  conditin1: yup
+  condition1: yup
     .bool()
     .oneOf([true], 'You need to accept the terms and conditions'),
-  conditin2: yup
+  conditi0n2: yup
     .bool()
     .oneOf([true], 'You need to accept the terms and conditions'),
-  conditin3: yup
+  condition3: yup
     .bool()
     .oneOf([true], 'You need to accept the terms and conditions'),
 });
@@ -54,13 +101,13 @@ const initialValuesRegister = {
   email: "",
   password: "",
   confirmPassword: "",
-  contry: "",
+  country: "",
   role: "",
-  age: null,
-  canvaAccount: null,
-  condition1: null,
-  condition2: null,
-  condition3: null,
+  age: "",
+  canvaAccount: true,
+  condition1: false,
+  condition2: false,
+  condition3: false,
 };
 const register = async (values, onSubmitProps) => {
   const formData = new FormData();
@@ -82,57 +129,41 @@ const register = async (values, onSubmitProps) => {
 
 
 export default function Registration() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [level1, setLevel1] = useState(true)
   const [level2, setLevel2] = useState(false)
   const [level3, setLevel3] = useState(false)
-  // const[formlevel1,setFormlevel1]=useState(false)
-  // const[formlevel2,setFormlevel2]=useState(false)
-  // const[formlevel3,setFormlevel3]=useState(false)
+  const [completeLevel1, setCompleteLevel1] = useState(false)
+  const [completeLevel2, setCompleteLevel2] = useState(false)
+  const [completeLevel3, setCompleteLevel3] = useState(false)
+  const [formlevel1, setFormlevel1] = useState(true)
+  const [formlevel2, setFormlevel2] = useState(false)
+  const [formlevel3, setFormlevel3] = useState(false)
+
+  const handleTogglePasswordVisibility = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    setShowPassword(!showPassword);
+  };
+
+  const handleToggleConfirmPasswordVisibility = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    setShowConfirmPassword(!showPassword);
+  };
   return (
     <div className="flex justify-center items-center bg-gray-200" style={{ height: "90vh" }}>
 
       {/*Layout*/}
-      <div className="grid grid-cols-16 gap-0" style={{ width: "60vw", height: "70vh" }} >
+      <div className={`grid grid-cols-16 gap-0 w-[90vw] xl:w-[60vw] ${formlevel3 ? "h-[80vh]" : "h-[70vh]"}`} >
         {/* first column:Registration Form*/}
-        <div className=" col-span-10 flex flex-wrap content-center justify-center bg-white" style={{ height: "inherit" }}>
+        <div className=" col-span-11 flex flex-wrap content-center  justify-center bg-white" style={{ height: "inherit" }}>
           <div className="w-11/12 ">
             {/* <!-- Heading --> */}
-            <h1 className="text-2xl font-bold text-font-color p-2 m-2">Create Your Upschool Account</h1>
-            <h3 className="text-font-color font-normal p-2 m-2">You are a few clicks away from creating your account</h3>
-            <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12">
-              <button className="col-span-2 flex flex-wrap justify-center gap-1 items-center border border-font-color p-1 rounded-md">
-                <span>
-                  <svg
-                    className="w-8 h-8"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 48 48" fill="#FFC107">
-                    <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
-                    <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" /><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" />
-                    <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z" />
-                  </svg>
-                </span>
-                <span>Continue with Google</span>
-
-              </button>
-              <button className=" col-span-2 flex flex-wrap justify-center gap-1 items-center border border-font-color p-1 rounded-md">
-                <span>
-                  <svg
-                    className="w-8 h-8"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 48 48" fill="url(#CXanuwD9EGkBgTn76_1mxa)">
-                    <linearGradient id="CXanuwD9EGkBgTn76_1mxa" x1="9.993" x2="40.615" y1="-299.993" y2="-330.615" gradientTransform="matrix(1 0 0 -1 0 -290)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2aa4f4" /><stop offset="1" stop-color="#007ad9" /></linearGradient>
-                    <path fill="url(#CXanuwD9EGkBgTn76_1mxa)" d="M24,4C12.954,4,4,12.954,4,24c0,10.028,7.379,18.331,17.004,19.777	C21.981,43.924,22.982,41,24,41c0.919,0,1.824,2.938,2.711,2.818C36.475,42.495,44,34.127,44,24C44,12.954,35.046,4,24,4z" /><path d="M27.707,21.169c0-1.424,0.305-3.121,1.757-3.121h4.283l-0.001-5.617l-0.05-0.852l-0.846-0.114	c-0.608-0.082-1.873-0.253-4.206-0.253c-5.569,0-8.636,3.315-8.636,9.334v2.498H15.06v7.258h4.948V43.6	C21.298,43.861,22.633,44,24,44c1.268,0,2.504-0.131,3.707-0.357V30.301h5.033l1.122-7.258h-6.155V21.169z" opacity=".05" />
-                    <path d="M27.207,21.169c0-1.353,0.293-3.621,2.257-3.621h3.783V12.46l-0.026-0.44l-0.433-0.059	c-0.597-0.081-1.838-0.249-4.143-0.249c-5.323,0-8.136,3.055-8.136,8.834v2.998H15.56v6.258h4.948v13.874	C21.644,43.876,22.806,44,24,44c1.094,0,2.16-0.112,3.207-0.281V29.801h5.104l0.967-6.258h-6.072V21.169z" opacity=".05" />
-                    <path fill="#fff" d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46	c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.475	C21.988,43.923,22.981,44,24,44c0.921,0,1.82-0.062,2.707-0.182V29.301z" />
-                  </svg>
-                </span>
-                <span>Continue with facebook</span>
-
-              </button>
-              <div className="col-span-4 border border-[#DDD2D2] my-2"></div>
-            </div>
+            <RegisterStepIHeader />
+            <RegisterStepIIIHeader />
 
             {/* <!-- Form --> */}
+            {/* First form */}
             <Formik
               onSubmit={register}
               initialValues={initialValuesRegister}
@@ -148,107 +179,315 @@ export default function Registration() {
                 setFieldValue,
                 resetForm,
               }) => (
-                <form className="" onSubmit={handleSubmit}>
+                <>
+                  {/* First step form */}
+                  <form className={`${formlevel1 ? "" : "hidden"}`} onSubmit={handleSubmit}>
+                    <div className="grid grid-cols-4 w-11/12 gap-4 p-2 m-2">
+                      <TextField
+                        className=" col-span-2"
+                        type="text"
+                        label="First Name"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.firstName}
+                        name="firstName"
+                        error={
+                          Boolean(touched.firstName) && Boolean(errors.firstName)
+                        }
+                        helperText={touched.firstName && errors.firstName}
 
+                      />
+                      <TextField
+                        className=" col-span-2"
+                        type="text"
+                        label="Last Name"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.lastName}
+                        name="lastName"
+                        error={
+                          Boolean(touched.lastName) && Boolean(errors.lastName)
+                        }
+                        helperText={touched.lastName && errors.lastName}
+                      />
 
-                  <div className="grid grid-cols-4 w-11/12 gap-4 p-2 m-2">
+                      <TextField
+                        className=" col-span-4"
+                        type="email"
+                        label="Email"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.email}
+                        name="email"
+                        error={
+                          Boolean(touched.email) && Boolean(errors.email)
+                        }
+                        helperText={touched.email && errors.email}
+                      />
+                      <TextField
+                        className=" col-span-2"
+                        type={showPassword ? 'text' : 'password'}
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <button onClick={handleTogglePasswordVisibility}>
+                                {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                              </button>
+                            </InputAdornment>
+                          ),
+                        }}
+                        label="Password"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.password}
+                        name="password"
+                        error={
+                          Boolean(touched.password) && Boolean(errors.password)
+                        }
+                        helperText={touched.password && errors.password}
+                      />
+                      <TextField
+                        className=" col-span-2"
+                        type={showPassword ? 'text' : 'password'}
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <button onClick={handleToggleConfirmPasswordVisibility}>
+                                {showConfirmPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                              </button>
+                            </InputAdornment>
+                          ),
+                        }}
+                        label="Confirm password"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.confirmPassword}
+                        name="confirmPassword"
+                        error={
+                          Boolean(touched.confirmPassword) && Boolean(errors.confirmPassword)
+                        }
+                        helperText={touched.confirmPassword && errors.confirmPassword}
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
+                      {/* flex flex-1 */}
+                      <button className=" hidden col-start-1 col-span-1  flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12">
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                          </svg>
+                        </span>
+                        <span className="text-xl"><u>Back</u></span>
+                      </button>
 
-                    <TextField
-                      className=" col-span-2"
-                      type="text"
-                      label="First Name"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.firstName}
-                      name="firstName"
-                      error={
-                        Boolean(touched.firstName) && Boolean(errors.firstName)
-                      }
-                      helperText={touched.firstName && errors.firstName}
+                      <button className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                        onClick={e => {
+                          e.preventDefault()
+                          setFormlevel1(false)
+                          setFormlevel2(true)
+                          setFormlevel3(false)
+                          setCompleteLevel1(true)
+                          setLevel2(true)
+                        }}>
+                        <span className="text-xl">Next</span>
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
 
-                    />
-                    <TextField
-                      className=" col-span-2"
-                      type="text"
-                      label="Last Name"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.lastName}
-                      name="lastName"
-                      error={
-                        Boolean(touched.lastName) && Boolean(errors.lastName)
-                      }
-                      helperText={touched.lastName && errors.lastName}
-                    />
+                  {/* Second step form */}
+                  <form className={`${formlevel2 ? "" : "hidden"}`} onSubmit={handleSubmit}>
+                    <div className="grid grid-rows-3  w-11/12 gap-4 p-2 m-2">
+                      <TextField
+                        className="row-span-1"
+                        id="outlined-select-country"
+                        select
+                        label="Select your country"
+                        defaultValue=""
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.country}
+                        name="country"
+                        error={
+                          Boolean(touched.country) && Boolean(errors.country)
+                        }
+                        helperText={touched.country && errors.country}
 
-                    <TextField
-                      className=" col-span-4"
-                      type="email"
-                      label="Email"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.email}
-                      name="email"
-                      error={
-                        Boolean(touched.email) && Boolean(errors.email)
-                      }
-                      helperText={touched.email && errors.email}
-                    />
-                    <TextField
-                      className=" col-span-2"
-                      type="password"
-                      label="Password"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.password}
-                      name="password"
-                      error={
-                        Boolean(touched.password) && Boolean(errors.password)
-                      }
-                      helperText={touched.password && errors.password}
-                    />
-                    <TextField
-                      className=" col-span-2"
-                      type="password"
-                      label="Confirm password"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      value={values.confirmPassword}
-                      name="confirmPassword"
-                      error={
-                        Boolean(touched.confirmPassword) && Boolean(errors.confirmPassword)
-                      }
-                      helperText={touched.confirmPassword && errors.confirmPassword}
-                    />
-                  </div>
-                  <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
-                    <button className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1">
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-                        </svg>
-                      </span>
-                      <span><u>Back</u></span>
-                    </button>
+                      >
+                        {yourCountry.map((option) => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                      <TextField
+                        className="row-span-1"
+                        id="outlined-select-role"
+                        select
+                        label="Select your role"
+                        defaultValue=""
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.role}
+                        name="role"
+                        error={
+                          Boolean(touched.role) && Boolean(errors.role)
+                        }
+                        helperText={touched.role && errors.role}
 
-                    <button className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white">
-                      <span>Next</span>
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                </form>
+                      >
+                        {yourRole.map((option) => (
+                          <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                      <TextField
+                        className=" row-span-1"
+                        type="text"
+                        label="Age"
+                        inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.age}
+                        name="age"
+                        error={
+                          Boolean(touched.age) && Boolean(errors.age)
+                        }
+                        helperText={touched.age && errors.age}
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
+                      <button className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
+                        onClick={e => {
+                          e.preventDefault()
+                          setFormlevel1(true)
+                          setFormlevel2(false)
+                          setFormlevel3(false)
+                        }}>
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                          </svg>
+                        </span>
+                        <span className="text-xl"><u>Back</u></span>
+                      </button>
+
+                      <button className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                        onClick={e => {
+                          e.preventDefault()
+                          setFormlevel1(false)
+                          setFormlevel2(false)
+                          setFormlevel3(true)
+                          setCompleteLevel2(true)
+                          setLevel3(true)
+                        }}>
+                        <span className="text-xl">Next</span>
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                  {/* Third step form */}
+                  <form className={`${formlevel3 ? "" : "hidden"}`} onSubmit={handleSubmit}>
+                    <div className="grid grid-rows-5 w-full gap-1 mt-1">
+                      <div className="row-span-2 flex flex-col flex-1 gap-5">
+                        <h2 className=" text-sm xl:text-lg text-font-color">Would you like us to register you for a FREE Canva Pro Account</h2>
+                        <TextField
+                          className=""
+                          id="outlined-select-Canva-Account"
+                          select
+                          label="Yes"
+                          defaultValue="Yes"
+                          onBlur={handleBlur}
+                          onChange={handleChange}
+                          value={values.canvaAccount}
+                          name="canvaAccount"
+                          error={
+                            Boolean(touched.canvaAccount) && Boolean(errors.canvaAccount)
+                          }
+                          helperText={touched.canvaAccount && errors.canvaAccount}
+                        >
+                          {chooseCanvaAccout.map((option) => (
+
+                            <MenuItem key={option.value} value={option.value}>
+                              {option.label}
+                            </MenuItem>
+                          ))}
+                        </TextField>
+                      </div>
+
+                      <label className="row-span-1 flex felex-1 justify-start gap-x-4 items-center">
+                        <Field type="checkbox" name="condition1" error={
+                          Boolean(touched.condition1) && Boolean(errors.condition1)
+                        }
+                          helperText={touched.condition1 && errors.condition1} />
+                        I acknowledge and accept that my personal details (name,email) may be visible to Upschool users registered with Canva.
+                      </label>
+                      <label className="row-span-1 flex felex-1 justify-start gap-x-4  items-center">
+                        <Field type="checkbox" name="condition2" error={
+                          Boolean(touched.condition2) && Boolean(errors.condition2)
+                        }
+                          helperText={touched.condition2 && errors.condition2} />
+                        <div>I acknowledge that should i not wish to have my details visible to others, I can instead sing up for Canva basic <u>here</u></div>
+                      </label>
+                      <label className="row-span-1 flex felex-1 justify-start gap-x-4  items-center">
+                        <Field type="checkbox" name="condition3" error={
+                          Boolean(touched.condition3) && Boolean(errors.condition3)
+                        }
+                          helperText={touched.condition3 && errors.condition3} />
+                        <div>I agree to Upschool's <u>Terms and Conditions</u> and <u>Privacy Policy</u></div>
+
+                      </label>
+                    </div>
+                    <div className="grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base">
+                      <button className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
+                        onClick={e => {
+                          e.preventDefault()
+                          setFormlevel1(false)
+                          setFormlevel2(true)
+                          setFormlevel3(false)
+                        }}>
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                          </svg>
+                        </span>
+                        <span className="text-xl"><u>Back</u></span>
+                      </button>
+
+                      <button className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                        onClick={e => {
+                          e.preventDefault()
+                          setCompleteLevel3(true)
+                        }}
+                      >
+                        <span className="text-xl">Next</span>
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                </>
               )
               }
             </Formik>
           </div>
         </div>
 
+
         {/* Second column*/}
-        <div className=" col-span-6 flex flex-wrap content-center justify-center bg-theme-color" style={{ height: "inherit" }}>
+        <div className=" col-span-5 flex flex-wrap content-center justify-center bg-theme-color" style={{ height: "inherit" }}>
           {/* second column layout */}
           <div className=" relative w-11/12" style={{ height: "inherit" }}>
             {/* grid of three rows */}
@@ -262,7 +501,7 @@ export default function Registration() {
                   <div className="border-2 border-pink-600 bg-white w-10 h-10 rounded-full">
                     {/* tick mark */}
                     <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className=" relative w-8 h-8 mt-1 text-theme-color">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className={`relative w-8 h-8 mt-1 text-theme-color ${completeLevel1 ? "" : "hidden"}`}>
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
                     </span>
@@ -273,7 +512,7 @@ export default function Registration() {
 
                 {/* first line */}
                 <div className=" col-start-1 col-span-1">
-                  <div className="h-8 max-h-full border w-0 border-white "></div>
+                  <div className={`h-8 max-h-full border w-0  ${level2 ? "border-white" : "border-gray-400"} `}></div>
                 </div>
                 {/* occupying extra spaces */}
 
@@ -281,20 +520,20 @@ export default function Registration() {
                 <div className=" col-start-1 col-span-1">
                   {/* Circle container */}
                   {/* Circle */}
-                  <div className="border-2 border-pink-600 bg-white w-10 h-10 rounded-full">
+                  <div className={`${level2 ? "border-pink-600 bg-white " : "border-gray-400"} border-2  w-10 h-10 rounded-full`}>
                     {/* tick mark */}
                     <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className=" relative w-8 h-8 mt-1 text-theme-color">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className={`${completeLevel2 ? "" : "hidden"} relative w-8 h-8 mt-1 text-theme-color`}>
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
                     </span>
                   </div>
                 </div>
                 {/* text information */}
-                <div className="col-span-3 justify-self-start flex flex-row flex-1 justify-start"><h1 className="text-white">About You</h1></div>
+                <div className="col-span-3 justify-self-start flex flex-row flex-1 justify-start"><h1 className={`${level2 ? "text-white" : "text-gray-400"}`}>About You</h1></div>
                 {/* second line */}
                 <div className=" col-start-1 col-span-1 ">
-                  <div className="h-8 max-h-full border w-0 border-white"></div>
+                  <div className={`h-8 max-h-full border w-0 ${level3 ? "border-white" : "border-gray-400"} `}></div>
                 </div>
                 {/* occupying extra spaces */}
 
@@ -302,17 +541,17 @@ export default function Registration() {
                 <div className=" col-start-1 col-span-1">
                   {/* Circle container */}
                   {/* Circle */}
-                  <div className="border-2 border-pink-600 bg-white w-10 h-10 rounded-full">
+                  <div className={`${level3 ? "border-pink-600 bg-white " : "border-gray-400"} border-2 w-10 h-10 rounded-full`}>
                     {/* tick mark */}
                     <span>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className=" relative w-8 h-8 mt-1 text-theme-color">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className={`${completeLevel3 ? "" : "hidden"} relative w-8 h-8 mt-1 text-theme-color`}>
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                       </svg>
                     </span>
                   </div>
                 </div>
                 {/* text information */}
-                <div className="col-span-3 justify-self-start flex flex-row flex-1 justify-start"><h1 className="text-white">Your Canva Account</h1></div>
+                <div className="col-span-3 justify-self-start flex flex-row flex-1 justify-start"><h1 className={`${level3 ? "text-white" : "text-gray-400"}`}>Your Canva Account</h1></div>
 
               </div>
               {/* second row:progress bar */}
