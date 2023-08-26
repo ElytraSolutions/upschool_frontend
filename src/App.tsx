@@ -9,7 +9,7 @@ import Contact from "./pages/Contact/contact"
 import Acknowledgement from "./pages/Acknowledgement/acknowledgement"
 import Testimonials from "./pages/Testimonials/testimonials"
 import Courses from "./pages/Courses/AllCourses"
-import CourseDetails from "./pages/Courses/CourseDetaul"
+import CourseDetails from "./pages/Courses/CourseDetail"
 
 const router = createBrowserRouter([
   {

@@ -7,7 +7,7 @@ interface RouteParams {
   slug: string;
 }
 
-function courseDetail() {
+function CourseDetail() {
   const [isHovered, setIsHovered] = useState(false);
   
   const { slug } = useParams<RouteParams>();
