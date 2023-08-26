@@ -10,6 +10,8 @@ import Acknowledgement from "./pages/Acknowledgement/acknowledgement"
 import Testimonials from "./pages/Testimonials/testimonials"
 import Courses from "./pages/Courses/AllCourses"
 import CourseDetails from "./pages/Courses/CourseDetaul"
+import Login from './pages/Login/Login'
+import Test from './pages/Test'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Registration />
+      },
+      {
+        path: "login",
+        element: <Login />
       },
       {
         path: "our-framework",
@@ -55,13 +61,12 @@ const router = createBrowserRouter([
       {
       path: "course/:id",
       element: <CourseDetails />,
-      }
-
+      },
     ]
   },
   {
     path: "test",
-    element: <About />
+    element: <Test />
   }
 ])
 

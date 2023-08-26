@@ -211,7 +211,7 @@ export default function About() {
               Click here
             </a>
           </div>
-          
+
         </div>
         <div
           className="bg-cover  bg-center"
@@ -238,7 +238,7 @@ export default function About() {
             </p>
         <MultiImageCarousel images={patners} />
         </div>
-        
+
       </div>
     </>
   );
