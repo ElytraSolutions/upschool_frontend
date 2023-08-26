@@ -111,14 +111,14 @@ export default function Registration() {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         className={`relative w-8 h-8 mt-1 text-theme-color ${currentStep > 0 ? "" : "hidden"
                           }`}
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M4.5 12.75l6 6 9-13.5"
                         />
                       </svg>
@@ -144,7 +144,7 @@ export default function Registration() {
                   {/* Circle container */}
                   {/* Circle */}
                   <div
-                    className={`${currentStep == 1
+                    className={`${currentStep > 0
                       ? "border-pink-600 bg-white "
                       : "border-gray-400"
                       } border-2  w-10 h-10 rounded-full`}
@@ -155,14 +155,14 @@ export default function Registration() {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         className={`${currentStep > 1 ? "" : "hidden"
                           } relative w-8 h-8 mt-1 text-theme-color`}
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M4.5 12.75l6 6 9-13.5"
                         />
                       </svg>
@@ -172,7 +172,7 @@ export default function Registration() {
                 {/* text information */}
                 <div className="col-span-3 justify-self-start flex flex-row flex-1 justify-start">
                   <h1
-                    className={`${currentStep == 1 ? "text-white" : "text-gray-400"
+                    className={`${currentStep > 0 ? "text-white" : "text-gray-400"
                       }`}
                   >
                     About You
@@ -181,7 +181,7 @@ export default function Registration() {
                 {/* second line */}
                 <div className=" col-start-1 col-span-1 ">
                   <div
-                    className={`h-8 max-h-full border w-0 ${currentStep == 2 ? "border-white" : "border-gray-400"
+                    className={`h-8 max-h-full border w-0 ${currentStep > 0 ? "border-white" : "border-gray-400"
                       } `}
                   ></div>
                 </div>
@@ -203,14 +203,14 @@ export default function Registration() {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
                         className={`${currentStep > 2 ? "" : "hidden"
                           } relative w-8 h-8 mt-1 text-theme-color`}
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M4.5 12.75l6 6 9-13.5"
                         />
                       </svg>

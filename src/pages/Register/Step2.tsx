@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { TextField } from "@mui/material";
@@ -15,6 +14,7 @@ const registerSchema = yup.object().shape({
 
 interface IStep2Props {
     oldValues: Record<string, any>;
+    backHandler: (values: any) => void;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
 }
 export default function Step2({ oldValues, backHandler, submitHandler }: IStep2Props) {
@@ -71,7 +71,7 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 value={values.country}
                                 name="country"
                                 error={Boolean(touched.country) && Boolean(errors.country)}
-                                helperText={touched.country && errors.country}
+                                helperText={touched.country && errors.country as string}
                             >
                                 {countries.map((country) => (
                                     <MenuItem key={country.name} value={country.name}>
@@ -90,7 +90,7 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 value={values.role}
                                 name="role"
                                 error={Boolean(touched.role) && Boolean(errors.role)}
-                                helperText={touched.role && errors.role}
+                                helperText={touched.role && errors.role as string}
                             >
                                 {roles.map((role) => (
                                     <MenuItem key={role.id} value={role.id}>
@@ -108,7 +108,7 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 value={values.age}
                                 name="age"
                                 error={Boolean(touched.age) && Boolean(errors.age)}
-                                helperText={touched.age && errors.age}
+                                helperText={touched.age && errors.age as string}
                             />
                         </div>
                         <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
@@ -124,13 +124,13 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
                                         viewBox="0 0 24 24"
-                                        stroke-width="1.5"
+                                        strokeWidth="1.5"
                                         stroke="currentColor"
                                         className="w-4 h-4"
                                     >
                                         <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
                                             d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
                                         />
                                     </svg>
@@ -147,13 +147,13 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
                                         viewBox="0 0 24 24"
-                                        stroke-width="1.5"
+                                        strokeWidth="1.5"
                                         stroke="currentColor"
                                         className="w-4 h-4"
                                     >
                                         <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
                                             d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                                         />
                                     </svg>
