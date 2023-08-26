@@ -1,4 +1,4 @@
-import { Carousel as ResponsiveCarousel} from 'react-responsive-carousel';
+import { Carousel as ResponsiveCarousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 interface CarouselProps {

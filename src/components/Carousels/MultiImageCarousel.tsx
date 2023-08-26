@@ -1,6 +1,6 @@
 import { Carousel } from 'react-responsive-carousel';
 
-function multiImageCarousel({ images }) {
+function MultiImageCarousel({ images }) {
     return (
         <Carousel
             showArrows={true}
@@ -27,4 +27,4 @@ function multiImageCarousel({ images }) {
     );
 }
 
-export default multiImageCarousel;
+export default MultiImageCarousel;
