@@ -9,8 +9,10 @@ import Contact from "./pages/Contact/contact"
 import Acknowledgement from "./pages/Acknowledgement/acknowledgement"
 import Testimonials from "./pages/Testimonials/testimonials"
 import Courses from "./pages/Courses/AllCourses"
-import CourseDetails from "./pages/Courses/CourseDetail"
 import FAQ from "./pages/FAQ/faq"
+import CourseDetails from "./pages/Courses/CourseDetail"
+import Login from './pages/Login/Login'
+import Test from './pages/Test'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Registration />
+      },
+      {
+        path: "login",
+        element: <Login />
       },
       {
         path: "our-framework",
@@ -66,7 +72,7 @@ const router = createBrowserRouter([
   },
   {
     path: "test",
-    element: <About />
+    element: <Test />
   }
 ])
 
