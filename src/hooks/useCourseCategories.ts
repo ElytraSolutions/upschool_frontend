@@ -8,7 +8,7 @@ function useCourseCategories() {
     useEffect(() => {
         (async () => {
             try {
-                const res = await axiosInstance.get('/courseCategories');
+                const res = await axiosInstance.get('/api/courseCategories');
                 setCategories(res.data.data);
             } catch (error) {
                 console.log(error);
