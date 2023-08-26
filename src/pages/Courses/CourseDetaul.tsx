@@ -5,7 +5,7 @@ interface RouteParams {
   id?: string;
 }
 
-function courseDetail() {
+function CourseDetail() {
   const { id } = useParams<RouteParams>();
   return (
     <>
@@ -18,4 +18,4 @@ function courseDetail() {
   );
 }
 
-export default courseDetail;
+export default CourseDetail;
