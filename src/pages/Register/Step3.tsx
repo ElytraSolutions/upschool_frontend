@@ -3,8 +3,6 @@ import * as yup from "yup";
 import { TextField } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
-import ProgressBar from "../../parts/partsRegisterPage/ProgressBar";
-
 const registerSchema = yup.object().shape({
     canvaAccount: yup.bool(),
     condition1: yup

@@ -1,17 +1,9 @@
-import React, { useEffect } from "react";
 import CourseCard from "../../components/Cards/courseCard";
-import axiosInstance from '../../config/axios';
 import useCourses from '../../hooks/useCourses';
 import useCourseCategories from '../../hooks/useCourseCategories';
 import { ICourseCategory } from '../../types/ICourseCategory';
 
-interface CourseData {
-  name: string;
-  intro: string;
-  image: string;
-}
-
-function allCourses() {
+function AllCourses() {
   const categories = useCourseCategories();
   const courses = useCourses();
   categories.sort((a, b) => a.id - b.id);
@@ -63,4 +55,4 @@ function allCourses() {
   );
 }
 
-export default allCourses;
+export default AllCourses;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { TextField } from "@mui/material";
@@ -72,7 +71,7 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 value={values.country}
                                 name="country"
                                 error={Boolean(touched.country) && Boolean(errors.country)}
-                                helperText={touched.country && errors.country}
+                                helperText={touched.country && errors.country as string}
                             >
                                 {countries.map((country) => (
                                     <MenuItem key={country.name} value={country.name}>
@@ -91,7 +90,7 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 value={values.role}
                                 name="role"
                                 error={Boolean(touched.role) && Boolean(errors.role)}
-                                helperText={touched.role && errors.role}
+                                helperText={touched.role && errors.role as string}
                             >
                                 {roles.map((role) => (
                                     <MenuItem key={role.id} value={role.id}>
@@ -109,7 +108,7 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 value={values.age}
                                 name="age"
                                 error={Boolean(touched.age) && Boolean(errors.age)}
-                                helperText={touched.age && errors.age}
+                                helperText={touched.age && errors.age as string}
                             />
                         </div>
                         <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
