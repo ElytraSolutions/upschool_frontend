@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ICourse } from '../../types/ICourse';
-import EnrollCard from '../../components/Cards/enrollCard';
+import EnrollCard from '../../components/Cards/EnrollCard';
 
 interface RouteParams {
     slug: string;
