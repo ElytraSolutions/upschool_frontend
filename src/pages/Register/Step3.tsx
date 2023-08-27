@@ -1,19 +1,19 @@
-import { Formik, Field } from "formik";
-import * as yup from "yup";
-import { TextField } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
+import { Formik, Field } from 'formik';
+import * as yup from 'yup';
+import { TextField } from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
 
 const registerSchema = yup.object().shape({
     canvaAccount: yup.bool(),
     condition1: yup
         .bool()
-        .oneOf([true], "You need to accept the terms and conditions"),
+        .oneOf([true], 'You need to accept the terms and conditions'),
     conditi0n2: yup
         .bool()
-        .oneOf([true], "You need to accept the terms and conditions"),
+        .oneOf([true], 'You need to accept the terms and conditions'),
     condition3: yup
         .bool()
-        .oneOf([true], "You need to accept the terms and conditions"),
+        .oneOf([true], 'You need to accept the terms and conditions'),
 });
 
 interface IStep3Props {
@@ -22,7 +22,11 @@ interface IStep3Props {
     backHandler: (values: any) => void;
 }
 
-export default function Step3({ oldValues, submitHandler, backHandler }: IStep3Props) {
+export default function Step3({
+    oldValues,
+    submitHandler,
+    backHandler,
+}: IStep3Props) {
     return (
         <Formik
             onSubmit={submitHandler}
@@ -43,7 +47,8 @@ export default function Step3({ oldValues, submitHandler, backHandler }: IStep3P
                         <div className="grid grid-rows-5 w-full gap-1 mt-1">
                             <div className="row-span-2 flex flex-col flex-1 gap-5">
                                 <h2 className=" text-sm xl:text-lg text-font-color">
-                                    Would you like us to register you for a FREE Canva Pro Account
+                                    Would you like us to register you for a FREE
+                                    Canva Pro Account
                                 </h2>
                                 <TextField
                                     className=""
@@ -59,10 +64,13 @@ export default function Step3({ oldValues, submitHandler, backHandler }: IStep3P
                                         Boolean(touched.canvaAccount) &&
                                         Boolean(errors.canvaAccount)
                                     }
-                                    helperText={touched.canvaAccount && errors.canvaAccount}
+                                    helperText={
+                                        touched.canvaAccount &&
+                                        errors.canvaAccount
+                                    }
                                 >
-                                    <MenuItem value="1">{"Yes"}</MenuItem>
-                                    <MenuItem value="0">{"No"}</MenuItem>
+                                    <MenuItem value="1">{'Yes'}</MenuItem>
+                                    <MenuItem value="0">{'No'}</MenuItem>
                                 </TextField>
                             </div>
 
@@ -71,26 +79,33 @@ export default function Step3({ oldValues, submitHandler, backHandler }: IStep3P
                                     type="checkbox"
                                     name="condition1"
                                     error={
-                                        Boolean(touched.condition1) && Boolean(errors.condition1)
+                                        Boolean(touched.condition1) &&
+                                        Boolean(errors.condition1)
                                     }
-                                    helperText={touched.condition1 && errors.condition1}
+                                    helperText={
+                                        touched.condition1 && errors.condition1
+                                    }
                                 />
-                                I acknowledge and accept that my personal details (name,email)
-                                may be visible to Upschool users registered with Canva.
+                                I acknowledge and accept that my personal
+                                details (name,email) may be visible to Upschool
+                                users registered with Canva.
                             </label>
                             <label className="row-span-1 flex felex-1 justify-start gap-x-4  items-center">
                                 <Field
                                     type="checkbox"
                                     name="condition2"
                                     error={
-                                        Boolean(touched.condition2) && Boolean(errors.condition2)
+                                        Boolean(touched.condition2) &&
+                                        Boolean(errors.condition2)
                                     }
-                                    helperText={touched.condition2 && errors.condition2}
+                                    helperText={
+                                        touched.condition2 && errors.condition2
+                                    }
                                 />
                                 <div>
-                                    I acknowledge that should i not wish to have my details
-                                    visible to others, I can instead sing up for Canva basic{" "}
-                                    <u>here</u>
+                                    I acknowledge that should i not wish to have
+                                    my details visible to others, I can instead
+                                    sing up for Canva basic <u>here</u>
                                 </div>
                             </label>
                             <label className="row-span-1 flex felex-1 justify-start gap-x-4  items-center">
@@ -98,12 +113,16 @@ export default function Step3({ oldValues, submitHandler, backHandler }: IStep3P
                                     type="checkbox"
                                     name="condition3"
                                     error={
-                                        Boolean(touched.condition3) && Boolean(errors.condition3)
+                                        Boolean(touched.condition3) &&
+                                        Boolean(errors.condition3)
                                     }
-                                    helperText={touched.condition3 && errors.condition3}
+                                    helperText={
+                                        touched.condition3 && errors.condition3
+                                    }
                                 />
                                 <div>
-                                    I agree to Upschool's <u>Terms and Conditions</u> and{" "}
+                                    I agree to Upschool's{' '}
+                                    <u>Terms and Conditions</u> and{' '}
                                     <u>Privacy Policy</u>
                                 </div>
                             </label>

@@ -1,7 +1,6 @@
-
 type ProgressBarPorps = {
     currentLevel: number;
-}
+};
 
 export default function ProgressBar({ currentLevel }: ProgressBarPorps) {
     const step = currentLevel + 1;
@@ -13,7 +12,9 @@ export default function ProgressBar({ currentLevel }: ProgressBarPorps) {
                 <span className="text-md">step {step} of 3</span>
                 <span className="text-xl">{`${percent[currentLevel]}% to complete`}</span>
                 <div className="bg-white w-full h-6 rounded-s-md rounded-e-xl mt-2">
-                    <div className={`bg-pink-400 ${width} h-6 rounded-s-md rounded-e-md`}></div>
+                    <div
+                        className={`bg-pink-400 ${width} h-6 rounded-s-md rounded-e-md`}
+                    ></div>
                 </div>
             </div>
         </div>
