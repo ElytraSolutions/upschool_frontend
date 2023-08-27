@@ -24,6 +24,8 @@
     "@types/axios": "^0.14.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "@tinymce/tinymce-react": "^4.3.0",
+    "axios": "^1.4.0",
     "font-awesome": "^4.7.0",
     "formik": "^2.4.3",
     "formik-mui": "^5.0.0-alpha.0",
