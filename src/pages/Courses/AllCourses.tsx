@@ -1,4 +1,4 @@
-import CourseCard from '../../components/Cards/courseCard';
+import CourseCard from '../../components/Cards/CourseCard';
 import useCourses from '../../hooks/useCourses';
 import useCourseCategories from '../../hooks/useCourseCategories';
 import { ICourseCategory } from '../../types/ICourseCategory';

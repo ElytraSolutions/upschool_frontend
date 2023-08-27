@@ -1,5 +1,3 @@
-import { ClassNames } from '@emotion/react';
-
 const RGData = [
     {
         question: 'How do I register for Upschool?',
