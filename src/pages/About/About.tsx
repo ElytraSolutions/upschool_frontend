@@ -1,6 +1,7 @@
 import flyimg from '/images/flyimage.png';
 import 'font-awesome/css/font-awesome.min.css';
 import backgroundVideo from '/videos/background.mp4';
+
 import MultiImageCarousel from '../../components/Carousels/MultiImageCarousel';
 import patners from '../../data/OurPatners';
 

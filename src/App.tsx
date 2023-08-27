@@ -11,6 +11,7 @@ import Testimonials from './pages/Testimonials/Testimonials';
 import Courses from './pages/Courses/AllCourses';
 import FAQ from './pages/FAQ/Faq';
 import CourseDetails from './pages/Courses/CourseDetail';
+import Login from './pages/Login/Login';
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Registration />,
+            },
+            {
+                path: 'login',
+                element: <Login />,
             },
             {
                 path: 'our-framework',
@@ -54,8 +59,12 @@ const router = createBrowserRouter([
                 element: <Courses />,
             },
             {
-                path: 'course/:id',
+                path: 'course/:slug',
                 element: <CourseDetails />,
+            },
+            {
+                path: 'faq',
+                element: <FAQ />,
             },
         ],
     },
