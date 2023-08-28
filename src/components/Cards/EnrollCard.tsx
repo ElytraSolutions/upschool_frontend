@@ -39,7 +39,7 @@ function EnrollCard({ data }: Props) {
                                 color: 'white4',
                             },
                         }}
-                        href={`/chapter/${data.id}`}
+                        href={`/chapter/${data.slug}`}
                     >
                         ENROLL NOW
                     </Button>
