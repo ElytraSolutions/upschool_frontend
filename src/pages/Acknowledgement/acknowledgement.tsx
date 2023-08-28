@@ -1,5 +1,5 @@
 
-function acknowledgement() {
+function Acknowledgement() {
     return (
         <>
             <div
@@ -56,4 +56,4 @@ function acknowledgement() {
     );
 }
 
-export default acknowledgement;
+export default Acknowledgement;

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import useScreenWidth from '../../hooks/useScreenWidth';
 
-import RegisterStepIHeader from '../../parts/partsRegisterPage/RegisterStepIHeader';
-import RegisterStepIIIHeader from '../../parts/partsRegisterPage/RegisterStepIIIHeader';
+import RegisterStepIHeader from '../../parts/PartsRegisterPage/RegisterStepIHeader';
+import RegisterStepIIIHeader from '../../parts/PartsRegisterPage/RegisterStepIIIHeader';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
-import { SecondColumnProgressSection as ProgressSection } from '../../parts/partsRegisterPage/SecondColumnProgressSection';
-import LoginPart from '../../parts/partsRegisterPage/LoginPart';
+import { SecondColumnProgressSection as ProgressSection } from '../../parts/PartsRegisterPage/SecondColumnProgressSection';
+import LoginPart from '../../parts/PartsRegisterPage/LoginPart';
 
 export default function Registration() {
     const isLargeScreen = useScreenWidth();

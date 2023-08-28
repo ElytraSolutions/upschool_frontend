@@ -5,9 +5,9 @@ import Service from './pages/Services/Service';
 import About from './pages/About/About';
 import Registration from './pages/Register/Registration';
 import OurFramework from './pages/OurFramework/OurFramework';
-import Contact from './pages/Contact/contact';
-import Acknowledgement from './pages/Acknowledgement/acknowledgement';
-import Testimonials from './pages/Testimonials/testimonials';
+import Contact from './pages/Contact/Contact';
+import Acknowledgement from './pages/Acknowledgement/Acknowledgement';
+import Testimonials from './pages/Testimonials/Testimonials';
 import Courses from './pages/Courses/AllCourses';
 import CourseDetails from './pages/Courses/CourseDetaul';
 

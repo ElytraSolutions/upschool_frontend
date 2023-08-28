@@ -1,6 +1,4 @@
-import React from 'react';
-
-function contact() {
+function Contact() {
     return (
         <>
             <div className="w-full flex justify-center">
@@ -63,4 +61,4 @@ function contact() {
     );
 }
 
-export default contact;
+export default Contact;
