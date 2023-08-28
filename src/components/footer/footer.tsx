@@ -1,9 +1,8 @@
-import React from 'react';
 import upschoolLogo from '/images/logo.png';
 import footerboy from '/images/footerboy.png';
 import footerbackground from '/images/footerbackground.jpg';
 
-function footer() {
+function Footer() {
     return (
         <>
             <div
@@ -128,4 +127,4 @@ function footer() {
     );
 }
 
-export default footer;
+export default Footer;

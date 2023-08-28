@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -11,7 +10,7 @@ interface Props {
     data: ICourse;
 }
 
-function courseCard({ data }: Props) {
+function CourseCard({ data }: Props) {
     return (
         <>
             <Card sx={{ maxWidth: 345, fontFamily: 'lexend', margin: 'auto' }}>
@@ -69,4 +68,4 @@ function courseCard({ data }: Props) {
     );
 }
 
-export default courseCard;
+export default CourseCard;

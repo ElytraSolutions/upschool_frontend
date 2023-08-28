@@ -21,6 +21,7 @@
     "@heroicons/react": "^2.0.18",
     "@mui/icons-material": "^5.14.6",
     "@mui/material": "^5.14.6",
+    "@types/axios": "^0.14.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "font-awesome": "^4.7.0",

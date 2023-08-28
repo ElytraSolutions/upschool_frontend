@@ -1,5 +1,5 @@
 import flyimg from '/images/flyimage.png';
-import Carousel from '../../components/Carousels/carousel';
+import Carousel from '../../components/Carousels/Carousel';
 import carouselImages from '../../data/FrameworkCarouselData';
 
 export default function OurFramework() {

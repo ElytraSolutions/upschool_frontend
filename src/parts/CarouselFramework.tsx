@@ -1,5 +1,4 @@
-import React from 'react';
-import Carousel from '../components/Carousels/carousel';
+import Carousel from '../components/Carousels/Carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const images = [];

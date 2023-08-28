@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from './components/layout/Layout';
+import Layout from './components/Layout/Layout';
 import Home from './pages/Homepage/Homepage';
 import Service from './pages/Services/Service';
 import About from './pages/About/About';
