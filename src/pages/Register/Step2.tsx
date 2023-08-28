@@ -1,15 +1,15 @@
-import { Formik } from "formik";
-import * as yup from "yup";
-import { TextField } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
+import { Formik } from 'formik';
+import * as yup from 'yup';
+import { TextField } from '@mui/material';
+import MenuItem from '@mui/material/MenuItem';
 
 const registerSchema = yup.object().shape({
-    country: yup.string().required("required").max(255, "Characters too long"),
-    role: yup.string().required("required"),
+    country: yup.string().required('required').max(255, 'Characters too long'),
+    role: yup.string().required('required'),
     age: yup
         .string()
-        .required("required")
-        .matches(/^[0-9]+$/, "Age must be numeric"),
+        .required('required')
+        .matches(/^[0-9]+$/, 'Age must be numeric'),
 });
 
 interface IStep2Props {
@@ -17,30 +17,34 @@ interface IStep2Props {
     backHandler: (values: any) => void;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
 }
-export default function Step2({ oldValues, backHandler, submitHandler }: IStep2Props) {
+export default function Step2({
+    oldValues,
+    backHandler,
+    submitHandler,
+}: IStep2Props) {
     const countries = [
         {
-            name: "Nepal",
+            name: 'Nepal',
         },
         {
-            name: "India",
+            name: 'India',
         },
         {
-            name: "China",
+            name: 'China',
         },
     ];
     const roles = [
         {
             id: 1,
-            name: "School Teacher",
+            name: 'School Teacher',
         },
         {
             id: 2,
-            name: "Student (Over 18)",
+            name: 'Student (Over 18)',
         },
         {
             id: 3,
-            name: "Student (Under 18)",
+            name: 'Student (Under 18)',
         },
     ];
     return (
@@ -70,11 +74,20 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 onChange={handleChange}
                                 value={values.country}
                                 name="country"
-                                error={Boolean(touched.country) && Boolean(errors.country)}
-                                helperText={touched.country && errors.country as string}
+                                error={
+                                    Boolean(touched.country) &&
+                                    Boolean(errors.country)
+                                }
+                                helperText={
+                                    touched.country &&
+                                    (errors.country as string)
+                                }
                             >
                                 {countries.map((country) => (
-                                    <MenuItem key={country.name} value={country.name}>
+                                    <MenuItem
+                                        key={country.name}
+                                        value={country.name}
+                                    >
                                         {country.name}
                                     </MenuItem>
                                 ))}
@@ -89,8 +102,13 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 onChange={handleChange}
                                 value={values.role}
                                 name="role"
-                                error={Boolean(touched.role) && Boolean(errors.role)}
-                                helperText={touched.role && errors.role as string}
+                                error={
+                                    Boolean(touched.role) &&
+                                    Boolean(errors.role)
+                                }
+                                helperText={
+                                    touched.role && (errors.role as string)
+                                }
                             >
                                 {roles.map((role) => (
                                     <MenuItem key={role.id} value={role.id}>
@@ -102,13 +120,20 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 className=" row-span-1"
                                 type="text"
                                 label="Age"
-                                inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+                                inputProps={{
+                                    inputMode: 'numeric',
+                                    pattern: '[0-9]*',
+                                }}
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 value={values.age}
                                 name="age"
-                                error={Boolean(touched.age) && Boolean(errors.age)}
-                                helperText={touched.age && errors.age as string}
+                                error={
+                                    Boolean(touched.age) && Boolean(errors.age)
+                                }
+                                helperText={
+                                    touched.age && (errors.age as string)
+                                }
                             />
                         </div>
                         <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
@@ -140,7 +165,10 @@ export default function Step2({ oldValues, backHandler, submitHandler }: IStep2P
                                 </span>
                             </button>
 
-                            <button type="submit" className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12">
+                            <button
+                                type="submit"
+                                className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                            >
                                 <span className="text-xl">Next</span>
                                 <span>
                                     <svg

@@ -1,7 +1,7 @@
-export default function Service(){
-    return(
+export default function Service() {
+    return (
         <>
-        <h1>I am from servies</h1>
+            <h1>I am from servies</h1>
         </>
-    )
+    );
 }
