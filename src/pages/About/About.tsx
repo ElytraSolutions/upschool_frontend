@@ -43,9 +43,9 @@ export default function About() {
                         className="w-full aspect-video "
                         src="https://www.youtube.com/embed/qWOHWzGHtsA?si=8TDRUl3xHKira0WH"
                         title="YouTube video player"
-                        frameborder="0"
+                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
+                        allowFullScreen
                     ></iframe>
                     <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
                         We exist to empower children to make a difference in the
