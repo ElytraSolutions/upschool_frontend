@@ -47,11 +47,15 @@ export default function Step1({
 }: IStep1Props) {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const handleTogglePasswordVisibility = (e) => {
+    const handleTogglePasswordVisibility = (
+        e: React.MouseEvent<HTMLButtonElement>,
+    ) => {
         e.preventDefault();
         setShowPassword((oldState) => !oldState);
     };
-    const handleToggleConfirmPasswordVisibility = (e) => {
+    const handleToggleConfirmPasswordVisibility = (
+        e: React.MouseEvent<HTMLButtonElement>,
+    ) => {
         e.preventDefault();
         setShowConfirmPassword((oldState) => !oldState);
     };
@@ -133,8 +137,8 @@ export default function Step1({
                                 }
                             />
                             <TextField
-                                className={`col-span-${
-                                    isLargeScreen ? '2' : '4'
+                                className={`${
+                                    isLargeScreen ? 'col-span-2' : 'col-span-4'
                                 }`}
                                 type={showPassword ? 'text' : 'password'}
                                 InputProps={{
@@ -169,10 +173,10 @@ export default function Step1({
                                 }
                             />
                             <TextField
-                                className={`col-span-${
-                                    isLargeScreen ? '2' : '4'
+                                className={`${
+                                    isLargeScreen ? 'col-span-2' : 'col-span-4'
                                 }`}
-                                type={showPassword ? 'text' : 'password'}
+                                type={showConfirmPassword ? 'text' : 'password'}
                                 InputProps={{
                                     endAdornment: (
                                         <InputAdornment position="end">

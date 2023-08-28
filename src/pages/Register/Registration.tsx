@@ -77,16 +77,14 @@ export default function Registration() {
         >
             {/*Layout*/}
             <div
-                id="secondchecking"
                 className={`grid ${
                     isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
-                } gap-0 w-[90vw] xl:w-[60vw] h-[${
-                    isLargeScreen ? '80' : '85'
-                }vh]`}
+                } gap-0 w-[90vw] xl:w-[60vw] ${
+                    isLargeScreen ? 'h-[80vh]' : 'h-[85vh]'
+                }`}
             >
                 {/* first column:Registration Form*/}
                 <div
-                    id="checking"
                     className=" col-span-11 flex flex-wrap content-center  justify-center bg-white"
                     style={{ height: 'inherit' }}
                 >

@@ -36,7 +36,6 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                             className={`relative w-8 h-8 mt-1 text-theme-color ${
                                                 currentStep > 0 ? '' : 'hidden'
                                             }`}
-                                            // className="relative w-8 h-8 mt-1 text-theme-color"
                                         >
                                             <path
                                                 strokeLinecap="round"
