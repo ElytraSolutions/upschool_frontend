@@ -10,7 +10,7 @@ import { SecondColumnProgressSection as ProgressSection } from '../../parts/Part
 import LoginPart from '../../parts/PartsRegisterPage/LoginPart';
 
 export default function Registration() {
-    const isLargeScreen = useScreenWidth();
+    const { isLargeScreen } = useScreenWidth();
     const [currentStep, setCurrentStep] = useState(0);
     const [currentData, setCurrentData] = useState({
         firstName: '',
