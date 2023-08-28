@@ -14,7 +14,7 @@ interface RowData {
     answer: React.ReactNode;
 }
 
-function faq() {
+function Faq() {
     const data: RowData[] = [
         {
             question: 'John Doe',
@@ -112,4 +112,4 @@ function faq() {
     );
 }
 
-export default faq;
+export default Faq;

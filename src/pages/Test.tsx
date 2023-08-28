@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axiosInstance from '../config/axios';
+import { useEffect, useState } from 'react';
+import axiosInstance from '../config/Axios';
 
 function Test() {
     const [data, setData] = useState(null);

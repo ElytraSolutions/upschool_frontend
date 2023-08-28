@@ -12,6 +12,7 @@ import Courses from './pages/Courses/AllCourses';
 import FAQ from './pages/FAQ/Faq';
 import CourseDetails from './pages/Courses/CourseDetail';
 import Login from './pages/Login/Login';
+import Test from './pages/Test';
 
 const router = createBrowserRouter([
     {
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'test',
-        element: <About />,
+        element: <Test />,
     },
 ]);
 

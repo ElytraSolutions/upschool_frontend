@@ -59,6 +59,7 @@ function CourseCard({ data }: Props) {
                                 color: 'white4',
                             },
                         }}
+                        href={`/course/${data.slug}`}
                     >
                         See More
                     </Button>
