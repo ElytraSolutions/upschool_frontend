@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ICourse } from '../../types/ICourse';
 import EnrollCard from '../../components/Cards/EnrollCard';
 
 interface RouteParams {
     slug: string;
+    [key: string]: any;
 }
 
 function CourseDetail() {

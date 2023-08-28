@@ -8,7 +8,7 @@ interface Props {
     data: ICourse;
 }
 
-function CourseCard({ data }: Props) {
+function EnrollCard({ data }: Props) {
     return (
         <>
             <Card
@@ -49,4 +49,4 @@ function CourseCard({ data }: Props) {
     );
 }
 
-export default CourseCard;
+export default EnrollCard;
