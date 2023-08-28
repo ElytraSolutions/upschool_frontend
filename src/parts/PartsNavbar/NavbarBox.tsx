@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import '../NavbarBox.css';
+import '../../NavbarBox.css';
 
 type ChildObject = {
     title: string;

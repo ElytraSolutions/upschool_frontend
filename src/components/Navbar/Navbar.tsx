@@ -1,20 +1,17 @@
-import { NavbarBox as Box } from '../../parts/NavbarBox';
 import upschoolLogo from '../../assets/upschool_logo.png';
-
-import { userData } from '../../data/NavbarBoxData';
 import { NavLink } from 'react-router-dom';
-import CartIcon from '../../parts/CartIcon';
-import ProfileIcon from '../../parts/ProfileIcon';
 import { ComputerMenu } from '../../parts/PartsNavbar/LargeScreenMenuBar';
-
+import CartIcon from '../../parts/PartsNavbar/CartIcon';
+import { LargeScreenRightCornerBarAfterLogin as AfterLoginLS } from '../../parts/PartsNavbar/LargeScreenRightCornerBarAfterLogin';
+import { LargeScreenRightCornerBarBeforeLogin as BeforeLoginLS } from '../../parts/PartsNavbar/LargeScreenRightCornerBarBeforeLogin';
 import useScreenWidth from '../../hooks/useScreenWidth';
 
 export default function Navbar() {
     const styles = {
         minWidth: '150px',
     };
-
-    const { isBigScreen } = useScreenWidth();
+    const isLoggedIn = false;
+    const { isBigScreen } = useScreenWidth(); //min-width=1200px
     return (
         <>
             <div
@@ -42,12 +39,7 @@ export default function Navbar() {
                                 <CartIcon />
                             </NavLink>
                         </span>
-                        <span className="">
-                            <NavLink to="https://www.youtube.com/">
-                                <ProfileIcon />
-                            </NavLink>
-                        </span>
-                        <Box key={userData.id} inf={userData} />
+                        {isLoggedIn ? <AfterLoginLS /> : <BeforeLoginLS />}
                     </div>
                 </div>
             </div>

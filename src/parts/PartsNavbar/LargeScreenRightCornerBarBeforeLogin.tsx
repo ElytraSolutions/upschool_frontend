@@ -1,0 +1,18 @@
+import { NavLink } from 'react-router-dom';
+import LoginIcon from './LoginIcon';
+const LargeScreenRightCornerBarBeforeLogin = () => {
+    return (
+        <>
+            <span className="inline-block">
+                <NavLink to="/login">
+                    <LoginIcon />
+                </NavLink>
+            </span>
+            <span className="inline-block text-sm lg:text-sm text-white">
+                <NavLink to="/register">register</NavLink>
+            </span>
+        </>
+    );
+};
+
+export { LargeScreenRightCornerBarBeforeLogin };

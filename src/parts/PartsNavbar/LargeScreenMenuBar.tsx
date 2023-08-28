@@ -1,6 +1,6 @@
 import { data, navData } from '../../data/NavbarBoxData';
 import { NavLink } from 'react-router-dom';
-import { NavbarBox as Box } from '../../parts/NavbarBox';
+import { NavbarBox as Box } from './NavbarBox';
 
 const LargeScreenMenuBar = () => {
     return (
