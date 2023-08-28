@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axiosInstance from '../config/axios';
+import axiosInstance from '../config/Axios';
 import useCourseCategories from './useCourseCategories';
 import { ICourse } from '../types/ICourse';
 

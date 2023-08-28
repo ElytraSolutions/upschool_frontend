@@ -54,7 +54,7 @@ export default function Step3({
                                     className=""
                                     id="outlined-select-Canva-Account"
                                     select
-                                    label="Yes"
+                                    label=""
                                     defaultValue="Yes"
                                     onBlur={handleBlur}
                                     onChange={handleChange}

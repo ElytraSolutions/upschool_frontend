@@ -36,10 +36,15 @@ const registerSchema = yup.object().shape({
 });
 
 interface IStep1Props {
+    isLargeScreen: boolean;
     oldValues: Record<string, any>;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
 }
-export default function Step1({ oldValues, submitHandler }: IStep1Props) {
+export default function Step1({
+    isLargeScreen,
+    oldValues,
+    submitHandler,
+}: IStep1Props) {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const handleTogglePasswordVisibility = (e) => {
@@ -67,9 +72,15 @@ export default function Step1({ oldValues, submitHandler }: IStep1Props) {
                 <>
                     {/* First step form */}
                     <form onSubmit={handleSubmit}>
-                        <div className="grid grid-cols-4 w-11/12 gap-4 p-2 m-2">
+                        <div
+                            className={`grid grid-cols-4 w-11/12 gap-4 p-2 ${
+                                isLargeScreen ? 'm-2' : 'mx-2 my-0'
+                            }`}
+                        >
                             <TextField
-                                className=" col-span-2"
+                                className={`${
+                                    isLargeScreen ? 'col-span-2' : 'col-span-4'
+                                }`}
                                 type="text"
                                 label="First Name"
                                 onBlur={handleBlur}
@@ -81,11 +92,14 @@ export default function Step1({ oldValues, submitHandler }: IStep1Props) {
                                     Boolean(errors.firstName)
                                 }
                                 helperText={
-                                    touched.firstName && errors.firstName
+                                    touched.firstName &&
+                                    (errors.firstName as string)
                                 }
                             />
                             <TextField
-                                className=" col-span-2"
+                                className={`col-span-${
+                                    isLargeScreen ? '2' : '4'
+                                }`}
                                 type="text"
                                 label="Last Name"
                                 onBlur={handleBlur}
@@ -96,7 +110,10 @@ export default function Step1({ oldValues, submitHandler }: IStep1Props) {
                                     Boolean(touched.lastName) &&
                                     Boolean(errors.lastName)
                                 }
-                                helperText={touched.lastName && errors.lastName}
+                                helperText={
+                                    touched.lastName &&
+                                    (errors.lastName as string)
+                                }
                             />
 
                             <TextField
@@ -111,10 +128,14 @@ export default function Step1({ oldValues, submitHandler }: IStep1Props) {
                                     Boolean(touched.email) &&
                                     Boolean(errors.email)
                                 }
-                                helperText={touched.email && errors.email}
+                                helperText={
+                                    touched.email && (errors.email as string)
+                                }
                             />
                             <TextField
-                                className=" col-span-2"
+                                className={`col-span-${
+                                    isLargeScreen ? '2' : '4'
+                                }`}
                                 type={showPassword ? 'text' : 'password'}
                                 InputProps={{
                                     endAdornment: (
@@ -142,10 +163,15 @@ export default function Step1({ oldValues, submitHandler }: IStep1Props) {
                                     Boolean(touched.password) &&
                                     Boolean(errors.password)
                                 }
-                                helperText={touched.password && errors.password}
+                                helperText={
+                                    touched.password &&
+                                    (errors.password as string)
+                                }
                             />
                             <TextField
-                                className=" col-span-2"
+                                className={`col-span-${
+                                    isLargeScreen ? '2' : '4'
+                                }`}
                                 type={showPassword ? 'text' : 'password'}
                                 InputProps={{
                                     endAdornment: (
@@ -175,16 +201,26 @@ export default function Step1({ oldValues, submitHandler }: IStep1Props) {
                                 }
                                 helperText={
                                     touched.confirmPassword &&
-                                    errors.confirmPassword
+                                    (errors.confirmPassword as string)
                                 }
                             />
                         </div>
-                        <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
+                        <div
+                            className={`grid grid-cols-4 gap-4  p-2 ${
+                                isLargeScreen ? 'm-2 text-base' : 'm-0 text-sm'
+                            } w-11/12 font-normal`}
+                        >
                             <button
                                 type="submit"
                                 className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
                             >
-                                <span className="text-xl">Next</span>
+                                <span
+                                    className={`${
+                                        isLargeScreen ? 'text-xl' : 'text-sm'
+                                    }`}
+                                >
+                                    Next
+                                </span>
                                 <span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

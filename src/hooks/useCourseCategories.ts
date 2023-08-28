@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axiosInstance from '../config/axios';
+import axiosInstance from '../config/Axios';
 import { ICourseCategory } from '../types/ICourseCategory';
 
 function useCourseCategories() {
