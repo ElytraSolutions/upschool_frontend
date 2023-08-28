@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ICourse } from '../../types/ICourse';
-import EnrollCard from '../../components/Cards/EnrollCard';
+import EnrollCard from '../../components/Cards/enrollCard';
 
 interface RouteParams {
     slug: string;
-    [key: string]: any;
+    [any: string]: any;
 }
 
 function CourseDetail() {
@@ -15,7 +15,7 @@ function CourseDetail() {
     const course: ICourse = {
         id: 1,
         name: '10 Weeks to a Better You',
-        intro: 'This is a course that will help you become isHetter you',
+        intro: 'This is a course that will help you become a better you',
         slug: '10-weeks-to-a-better-you',
         image: 'https://upschool.co/wp-content/uploads/2023/05/Power-of-One-Featured-Image-853x1024.png',
         course_category_id: 1,
