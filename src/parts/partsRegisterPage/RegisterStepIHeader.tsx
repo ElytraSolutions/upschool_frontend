@@ -21,10 +21,10 @@ export default function RegisterStepIHeader({
                 } grid-cols-4 gap-4  p-2 m-2 w-11/12`}
             >
                 <button
-                    className={`col-span-${
+                    className={`${
                         isLargeScreen
-                            ? '2 justify-center'
-                            : '4 justify-start pl-2'
+                            ? 'col-span-2 justify-center'
+                            : 'col-span-4 justify-start pl-2'
                     } flex flex-wrap  gap-1 items-center border border-font-color p-1 rounded-md`}
                 >
                     <span>
@@ -57,10 +57,10 @@ export default function RegisterStepIHeader({
                     <span>Continue with Google</span>
                 </button>
                 <button
-                    className={`col-span-${
+                    className={`${
                         isLargeScreen
-                            ? '2 justify-center'
-                            : '4 justify-start pl-2'
+                            ? 'col-span-2 justify-center'
+                            : 'col-span-4 justify-start pl-2'
                     } flex flex-wrap  gap-1 items-center border border-font-color p-1 rounded-md`}
                 >
                     <span>
@@ -105,8 +105,8 @@ export default function RegisterStepIHeader({
                     <span>Continue with facebook</span>
                 </button>
                 <div
-                    className={`col-span-4 border border-[#DDD2D2] my-${
-                        isLargeScreen ? '2' : '0.5'
+                    className={`col-span-4 border border-[#DDD2D2] ${
+                        isLargeScreen ? 'my-2' : 'my-0.5'
                     }`}
                 ></div>
             </div>

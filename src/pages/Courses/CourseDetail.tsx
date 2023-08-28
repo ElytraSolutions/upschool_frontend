@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 
 interface RouteParams {
     id?: string;
-    [key:string]: any;
+    [key: string]: any;
 }
 
 function CourseDetail() {

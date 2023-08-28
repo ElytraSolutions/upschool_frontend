@@ -2,9 +2,7 @@ export default function RegisterStepIIIHeader() {
     return (
         // TODO logic required
         <div
-            className={`mt-5
-                flex flex-col
-            } text-font-color justify-center gap-y-2 xl:gap-y-3 mb-3`}
+            className={`mt-5 flex flex-col text-font-color justify-center gap-y-2 xl:gap-y-3 mb-3`}
         >
             <h1 className="text-xl 2xl:text-3xl font-bold ">
                 Your Canva Account
