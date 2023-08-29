@@ -8,6 +8,8 @@ import { SmallScreenRightCornerBar as RightCornerBarSS } from '../../parts/Parts
 import useScreenWidth from '../../hooks/useScreenWidth';
 import { MobileNavMenubar as MobileMenu } from '../../parts/PartsNavbar/MobileNavMenuBar';
 
+import { createPortal } from 'react-dom';
+
 export default function Navbar() {
     const styles = {
         minWidth: '150px',
@@ -17,9 +19,18 @@ export default function Navbar() {
     const { isBigScreen } = useScreenWidth(); //min-width=1200px
     return (
         <>
-            {!isBigScreen && isOpen && (
-                <MobileMenu isOpen={isOpen} setIsopen={setIsopen} />
-            )}
+            {!isBigScreen &&
+                isOpen &&
+                createPortal(
+                    <MobileMenu
+                        isOpen={isOpen}
+                        onClose={() => {
+                            setIsopen((oldstate) => !oldstate);
+                        }}
+                    />,
+                    document.body,
+                )}
+            {/* createPortal(<MobileMenu isOpen={isOpen} setIsopen={setIsopen} />,document.body) */}
             <div
                 className="bg-theme-color p-1 md:py-7 md:px-2  flex flex-1 items-center"
                 style={{ height: '10vh' }}
