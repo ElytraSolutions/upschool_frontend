@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { data, navData } from '../../data/NavbarBoxData';
 import { NavLink } from 'react-router-dom';
+import upSchoolLogoMobile from '../../assets/Upschool_logo_Mobile_Navbar-300x57.png';
 import './MobileNavMenuBar.css';
 
-const MobileNavMenubar = () => {
-    const [isOpen, setIsopen] = useState(true);
-
+const MobileNavMenubar = ({ isOpen, setIsopen }) => {
     const [isOpen1, setIsOpen1] = useState(false);
     const [isOpen2, setIsOpen2] = useState(false);
     const [isOpen3, setIsOpen3] = useState(false);
@@ -19,11 +18,24 @@ const MobileNavMenubar = () => {
             className={`fixed z-10 bg-theme-color  h-screen  w-1/3 md:w-[32%] lg:w-[22%]  top-0 transition duration-1000 ease-in-out  overflow-y-auto flex justify-center text-white ${
                 isOpen ? 'left-0' : 'left-[-100%]'
             }`}
+            onMouseLeave={() => {
+                function close() {
+                    setIsopen((oldstate) => !oldstate);
+                }
+                setTimeout(close, 1500);
+            }}
         >
             <div className="w-11/12  ">
-                <div className="flex flex-row justify-between items-center  mx-2 h-[10vh]">
+                <div className="flex flex-row justify-between items-center  mx-0.5 h-[10vh]">
                     <span>
-                        <NavLink to="/">upSchool logo</NavLink>
+                        <NavLink to="/">
+                            <img
+                                src={upSchoolLogoMobile}
+                                alt="upSchool"
+                                width="150"
+                                height="50"
+                            />
+                        </NavLink>
                     </span>
                     <button
                         onClick={() => {
@@ -381,7 +393,8 @@ const MobileNavMenubar = () => {
                                 ))}
                             </ul>
                         </li>
-                        <li className="rounded-md m-2">
+                        {/* Eight List */}
+                        <li className="rounded-md m-2 text-sm">
                             <NavLink to={navData.path || '#'}>
                                 {navData.title}
                             </NavLink>

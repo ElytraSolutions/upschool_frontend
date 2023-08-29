@@ -1,25 +1,35 @@
+import { useState } from 'react';
 import upschoolLogo from '../../assets/upschool_logo.png';
 import { NavLink } from 'react-router-dom';
 import { ComputerMenu } from '../../parts/PartsNavbar/LargeScreenMenuBar';
 import CartIcon from '../../parts/PartsNavbar/CartIcon';
-import { LargeScreenRightCornerBarAfterLogin as AfterLoginLS } from '../../parts/PartsNavbar/LargeScreenRightCornerBarAfterLogin';
-import { LargeScreenRightCornerBarBeforeLogin as BeforeLoginLS } from '../../parts/PartsNavbar/LargeScreenRightCornerBarBeforeLogin';
+import { LargeScreenRightCornerBar as RightCornerBarLS } from '../../parts/PartsNavbar/LargeScreenRightCornerBar';
+import { SmallScreenRightCornerBar as RightCornerBarSS } from '../../parts/PartsNavbar/SmallScreenRightCornerBar';
 import useScreenWidth from '../../hooks/useScreenWidth';
+import { MobileNavMenubar as MobileMenu } from '../../parts/PartsNavbar/MobileNavMenuBar';
 
 export default function Navbar() {
     const styles = {
         minWidth: '150px',
     };
-    const isLoggedIn = false;
+    const [isOpen, setIsopen] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true); //TODO logic requird for loggedIn || not
     const { isBigScreen } = useScreenWidth(); //min-width=1200px
     return (
         <>
+            {!isBigScreen && isOpen && (
+                <MobileMenu isOpen={isOpen} setIsopen={setIsopen} />
+            )}
             <div
-                className="bg-theme-color p-1 md:py-7 md:px-2"
+                className="bg-theme-color p-1 md:py-7 md:px-2  flex flex-1 items-center"
                 style={{ height: '10vh' }}
             >
-                <div className="flex gap-2 md:gap-3 items-center lg:gap-10 justify-between">
-                    <div className="flex  flex-1 gap-1 md:gap-1 items-center lg:gap-3">
+                <div className="flex flex-1 gap-2 md:gap-3 items-center lg:gap-10 justify-between">
+                    <div
+                        className={`flex  ${
+                            isBigScreen ? 'grow-2 shrink' : 'flex-1'
+                        } items-center lg:gap-4 xl:gap-6`}
+                    >
                         <div style={styles}>
                             <NavLink to="/">
                                 <img
@@ -32,14 +42,21 @@ export default function Navbar() {
                         </div>
                         {isBigScreen && <ComputerMenu />}
                     </div>
-
-                    <div className="flex gap-1 lg:gap-2 2xl:gap-3 justify-end items-center">
+                    {/* TODO left to maintain CSS properties */}
+                    <div className="flex flex-1 gap-1 lg:gap-2 2xl:gap-3 justify-end items-center mr-3">
                         <span className="">
                             <NavLink to="/">
                                 <CartIcon />
                             </NavLink>
                         </span>
-                        {isLoggedIn ? <AfterLoginLS /> : <BeforeLoginLS />}
+                        {isBigScreen ? (
+                            <RightCornerBarLS isLoggedIn={isLoggedIn} />
+                        ) : (
+                            <RightCornerBarSS
+                                isLoggedIn={isLoggedIn}
+                                setIsopen={setIsopen}
+                            />
+                        )}
                     </div>
                 </div>
             </div>
