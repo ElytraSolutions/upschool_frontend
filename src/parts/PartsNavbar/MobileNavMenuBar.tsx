@@ -16,14 +16,14 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
     return (
         <>
             <div
-                className={`fixed  z-10 grid grid-cols-4 gap-0 w-screen h-screen top-0 transition duration-1000 ease-in-out  overflow-y-auto ${
+                className={`fixed  z-10 grid grid-cols-5 xs:grid-cols-2  sm:grid-cols-3 tab:grid-cols-4 gap-0 w-screen h-screen top-0 transition duration-1000 ease-in-out  overflow-y-auto ${
                     isOpen ? 'left-0' : 'left-[-100%]'
                 }`}
             >
                 <div
-                    className={`col-span-1 bg-theme-color  h-screen  w-full top-0 flex justify-center text-white `}
+                    className={` col-span-3 xs:col-span-1 bg-theme-color  h-screen  w-full top-0 flex justify-center text-white `}
                     onMouseLeave={() => {
-                        setTimeout(onClose, 1500);
+                        setTimeout(onClose, 2000);
                     }}
                 >
                     <div className="w-11/12  ">
@@ -97,6 +97,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         </span>
                                     </div>
                                     <ul
+                                        key={data[0].id}
                                         className={`m-0 w-full border rounded-md transform relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen1 ? 'block' : 'hidden'
                                         } `}
@@ -446,7 +447,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                 </div>
                 {/* Secound column */}
                 <div
-                    className={`col-span-3 h-screen  w-full  top-0 `}
+                    className={`col-span-2 xs:col-start-2 xs:col-span-1 sm:col-span-2 tab:col-span-3 h-screen  w-full  top-0 `}
                     onClick={onClose}
                 >
                     <div className="h-full w-full bg-slate-600/80 "></div>
