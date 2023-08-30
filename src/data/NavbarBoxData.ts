@@ -5,7 +5,7 @@ const data = [
         children: [
             {
                 title: 'Register for Upschool',
-                path: 'https://www.youtube.com/',
+                path: '/regiter',
             },
             { title: 'Bulk Registration', path: 'test' },
             { title: 'Request a Tour', path: 'test' },
@@ -15,7 +15,7 @@ const data = [
         id: 2,
         title: 'Learn',
         children: [
-            { title: 'All Courses', path: 'https://www.youtube.com/' },
+            { title: 'All Courses', path: '/courses' },
             { title: 'Learning Hubs', path: 'test' },
             { title: 'Challenges', path: 'test' },
         ],
@@ -31,7 +31,7 @@ const data = [
                     // TODO charaties should be fetched from backend
                     {
                         title: 'All Charaties',
-                        path: 'https://www.youtube.com/',
+                        path: '/',
                     },
                     { title: 'Blue Dragon', path: 'test' },
                     { title: "Edgar's Mission", path: 'test' },
@@ -39,19 +39,19 @@ const data = [
             },
             {
                 title: 'Projects',
-                path: 'https://www.youtube.com/',
+                path: '/',
             },
             {
                 title: 'Libraries',
-                path: 'https://www.youtube.com/',
+                path: '/',
             },
             {
                 title: 'Apply',
-                path: 'https://www.youtube.com/',
+                path: '/',
                 children: [
                     {
                         title: 'All Charaties',
-                        path: 'https://www.youtube.com/',
+                        path: '/',
                     },
                     { title: 'Blue Dragon', path: 'test' },
                     { title: "Edgar's Mission check apple", path: 'test' },
@@ -62,11 +62,11 @@ const data = [
     {
         id: 4,
         title: 'Library',
-        path: 'https://www.youtube.com/',
+        path: '/',
         children: [
             {
                 title: 'Register for Upschool',
-                path: 'https://www.youtube.com/',
+                path: '/',
             },
             { title: 'Bulk Registration', path: 'test' },
             { title: 'Request a Tour', path: 'test' },
@@ -75,11 +75,11 @@ const data = [
     {
         id: 5,
         title: 'Resource Center',
-        path: 'https://www.youtube.com/',
+        path: '/',
         children: [
             {
                 title: 'Register for Upschool',
-                path: 'https://www.youtube.com/',
+                path: '/',
             },
             { title: 'Bulk Registration', path: 'test' },
             { title: 'Request a Tour', path: 'test' },
@@ -88,11 +88,11 @@ const data = [
     {
         id: 6,
         title: 'Products',
-        path: 'https://www.youtube.com/',
+        path: '/',
         children: [
             {
                 title: 'Register for Upschool',
-                path: 'https://www.youtube.com/',
+                path: '/',
             },
             { title: 'Bulk Registration', path: 'test' },
             { title: 'Request a Tour', path: 'test' },
@@ -101,11 +101,11 @@ const data = [
     {
         id: 7,
         title: 'About',
-        path: 'https://www.youtube.com/',
+        path: '/about',
         children: [
             {
                 title: 'Register for Upschool',
-                path: 'https://www.youtube.com/',
+                path: '/',
             },
             { title: 'Bulk Registration', path: 'test' },
             { title: 'Request a Tour', path: 'test' },
@@ -126,7 +126,7 @@ const userData = {
 const navData = {
     id: 8,
     title: 'Take a Tour',
-    path: 'https://www.youtube.com/',
+    path: '/',
 };
 
 export { data, userData, navData };
