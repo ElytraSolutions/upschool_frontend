@@ -117,7 +117,7 @@ const userData = {
     id: 1,
     title: 'Upschool',
     children: [
-        { title: 'Register for Upschool', path: 'https://www.youtube.com/' },
+        { title: 'Register for Upschool', path: '/register' },
         { title: 'Bulk Registration', path: 'test' },
         { title: 'Request a Tour', path: 'test' },
     ],
