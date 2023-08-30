@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 import { ICourse } from '../../types/ICourse';
 import EnrollCard from '../../components/Cards/EnrollCard';
-
-interface RouteParams {
-    slug: string;
-    [any: string]: any;
-}
 
 function CourseDetail() {
     const [isHovered, setIsHovered] = useState(false);
 
-    const { slug } = useParams<RouteParams>();
     const course: ICourse = {
         id: 1,
         name: '10 Weeks to a Better You',

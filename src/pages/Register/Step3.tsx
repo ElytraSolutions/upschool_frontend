@@ -66,7 +66,7 @@ export default function Step3({
                                     }
                                     helperText={
                                         touched.canvaAccount &&
-                                        errors.canvaAccount
+                                        (errors.canvaAccount as string)
                                     }
                                 >
                                     <MenuItem value="1">{'Yes'}</MenuItem>

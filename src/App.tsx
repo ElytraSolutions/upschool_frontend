@@ -14,8 +14,6 @@ import CourseDetails from './pages/Courses/CourseDetail';
 import Login from './pages/Login/Login';
 import Test from './pages/Test';
 
-import { MobileNavMenubar } from './parts/PartsNavbar/MobileNavMenuBar';
-
 const router = createBrowserRouter([
     {
         path: '/',
@@ -68,10 +66,6 @@ const router = createBrowserRouter([
             {
                 path: 'faq',
                 element: <FAQ />,
-            },
-            {
-                path: 'mobilemenubar',
-                element: <MobileNavMenubar />,
             },
         ],
     },

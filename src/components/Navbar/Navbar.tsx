@@ -15,7 +15,7 @@ export default function Navbar() {
         minWidth: '150px',
     };
     const [isOpen, setIsopen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(true); //TODO logic requird for loggedIn || not
+    const [isLoggedIn, _setIsLoggedIn] = useState(true); //TODO logic requird for loggedIn || not
     const { isBigScreen } = useScreenWidth(); //min-width=1200px
     return (
         <>

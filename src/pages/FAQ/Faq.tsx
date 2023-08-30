@@ -1,5 +1,4 @@
-import React from 'react';
-import ExpandableTable from '../../components/Table/ExpandableTable';
+import ExpandableTable from '../../components/Table/expandableTable';
 import {
     RGData,
     AboutData,
@@ -9,34 +8,34 @@ import {
     CanvaData,
 } from '../../data/FAQdata';
 
-interface RowData {
-    question: string;
-    answer: React.ReactNode;
-}
+// interface RowData {
+//     question: string;
+//     answer: React.ReactNode;
+// }
 
 function Faq() {
-    const data: RowData[] = [
-        {
-            question: 'John Doe',
-            answer: 'Additional answerrmation about John Doe goes here.',
-        },
-        {
-            question: 'Jane Smith',
-            answer: 'Additional answerrmation about Jane Smith goes here.',
-        },
-        {
-            question: 'Bob Johnson',
-            answer: 'Additional answerrmation about Bob Johnson goes here.',
-        },
-        {
-            question: 'Alice Brown',
-            answer: 'Additional answerrmation about Alice Brown goes here.',
-        },
-        {
-            question: 'Eve White',
-            answer: 'Additional answerrmation about Eve White goes here.',
-        },
-    ];
+    // const data: RowData[] = [
+    //     {
+    //         question: 'John Doe',
+    //         answer: 'Additional answerrmation about John Doe goes here.',
+    //     },
+    //     {
+    //         question: 'Jane Smith',
+    //         answer: 'Additional answerrmation about Jane Smith goes here.',
+    //     },
+    //     {
+    //         question: 'Bob Johnson',
+    //         answer: 'Additional answerrmation about Bob Johnson goes here.',
+    //     },
+    //     {
+    //         question: 'Alice Brown',
+    //         answer: 'Additional answerrmation about Alice Brown goes here.',
+    //     },
+    //     {
+    //         question: 'Eve White',
+    //         answer: 'Additional answerrmation about Eve White goes here.',
+    //     },
+    // ];
     return (
         <>
             <div className="bg-[#242254c0]">

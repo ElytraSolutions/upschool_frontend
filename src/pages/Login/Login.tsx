@@ -46,8 +46,8 @@ const Login = () => {
             {' '}
             <div
                 className={`${
-                    isLargeScreen ? 'w-[60vw]' : 'w-[80]'
-                } bg-white flex justify-center items-center`}
+                    isLargeScreen ? 'w-[60vw] max-w-3xl' : 'w-[80vw]'
+                } bg-white flex justify-center items-center h-[80vh]`}
             >
                 <div className="w-11/12">
                     <div className="mt-5">
@@ -71,7 +71,7 @@ const Login = () => {
                                             isLargeScreen
                                                 ? 'w-8 h-8 '
                                                 : 'w-6 h-6'
-                                        }`}
+                                        } `}
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 48 48"
                                         fill="#FFC107"
@@ -268,7 +268,7 @@ const Login = () => {
                                         </div>
                                         <div>
                                             Dont't have an Upschool account yet?
-                                            <span className="text-red-500">
+                                            <span className="text-red-500 inline-block">
                                                 <NavLink to="/register">
                                                     Sign up
                                                 </NavLink>
