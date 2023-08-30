@@ -54,7 +54,9 @@ export default function RegisterStepIHeader({
                             />
                         </svg>
                     </span>
-                    <span>Continue with Google</span>
+                    <span className="text-font-color">
+                        Continue with Google
+                    </span>
                 </button>
                 <button
                     className={`${
@@ -102,7 +104,9 @@ export default function RegisterStepIHeader({
                             />
                         </svg>
                     </span>
-                    <span>Continue with facebook</span>
+                    <span className="text-font-color">
+                        Continue with facebook
+                    </span>
                 </button>
                 <div
                     className={`col-span-4 border border-[#DDD2D2] ${

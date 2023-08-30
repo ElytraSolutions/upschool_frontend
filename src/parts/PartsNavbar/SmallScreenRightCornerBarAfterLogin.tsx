@@ -12,17 +12,17 @@ const SmallScreenRightCornerBarAfterLogin = () => {
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                     ></path>
                 </svg>
             </span>
             <ul className="bg-white border rounded-md transform scale-0 group-hover/bar:scale-100 absolute transition duration-150 ease-in-out origin-top -translate-x-7 overflow-hidden">
-                <li>
+                <li className="hover:bg-red-700">
                     <NavLink to="login">Profile</NavLink>
                 </li>
-                <li>
+                <li className="hover:bg-red-700">
                     <NavLink to="register">upSchool</NavLink>
                 </li>
             </ul>
