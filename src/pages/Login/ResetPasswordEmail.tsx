@@ -15,6 +15,7 @@ const initialValuesResetPasswordEmail = {
     email: '',
 };
 const submitHandler = async (values: any, onSubmitProps: any) => {
+    console.log(values);
     onSubmitProps.setSubmitting(false);
     onSubmitProps.resetForm();
 };
