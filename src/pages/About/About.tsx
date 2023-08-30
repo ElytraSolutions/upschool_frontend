@@ -15,7 +15,7 @@ export default function About() {
                         muted
                         loop
                         id="video-background"
-                        className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 object-cover "
+                        className="absolute top-0 left-0 w-full h-full overflow-hidden z-[-1] object-cover "
                     >
                         <source
                             src={backgroundVideo}
@@ -24,7 +24,7 @@ export default function About() {
                         />
                         Your browser does not support the video tag.
                     </video>
-                    <div className="relative z-10 flex flex-col bg-[#181739C0] justify-center items-center md:h-[60vh] text-center ">
+                    <div className="relative z-[-1] flex flex-col bg-[#181739C0] justify-center items-center md:h-[60vh] text-center ">
                         <img
                             src={flyimg}
                             className="max-h-[150px] pt-50"
