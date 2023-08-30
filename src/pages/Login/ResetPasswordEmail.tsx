@@ -14,7 +14,8 @@ const ResetPasswordEmailSchema = yup.object().shape({
 const initialValuesResetPasswordEmail = {
     email: '',
 };
-const submitHandler = async (_values: any, onSubmitProps: any) => {
+const submitHandler = async (values: any, onSubmitProps: any) => {
+    console.log(values);
     onSubmitProps.setSubmitting(false);
     onSubmitProps.resetForm();
 };
