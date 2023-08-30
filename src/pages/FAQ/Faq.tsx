@@ -1,4 +1,4 @@
-import ExpandableTable from '../../components/Table/expandableTable';
+import ExpandableTable from '../../components/Table/ExpandableTable';
 import {
     RGData,
     AboutData,
