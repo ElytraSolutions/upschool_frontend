@@ -74,7 +74,7 @@ export default function Step3({
                                 </TextField>
                             </div>
 
-                            <label className="row-span-1 flex felex-1 justify-start gap-x-4 items-center">
+                            <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
                                 <Field
                                     type="checkbox"
                                     name="condition1"
@@ -90,7 +90,7 @@ export default function Step3({
                                 details (name,email) may be visible to Upschool
                                 users registered with Canva.
                             </label>
-                            <label className="row-span-1 flex felex-1 justify-start gap-x-4  items-center">
+                            <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
                                 <Field
                                     type="checkbox"
                                     name="condition2"
@@ -108,7 +108,7 @@ export default function Step3({
                                     sing up for Canva basic <u>here</u>
                                 </div>
                             </label>
-                            <label className="row-span-1 flex felex-1 justify-start gap-x-4  items-center">
+                            <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
                                 <Field
                                     type="checkbox"
                                     name="condition3"
