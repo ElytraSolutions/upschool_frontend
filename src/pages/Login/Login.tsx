@@ -4,7 +4,7 @@ import { useState } from 'react';
 import * as yup from 'yup';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import axiosInstance from '../../config/axios';
+import axiosInstance from '../../config/Axios';
 
 const registerSchema = yup.object().shape({
     email: yup
