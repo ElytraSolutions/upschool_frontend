@@ -45,11 +45,12 @@ const Login = () => {
         <div className="relative flex flex-row justify-center items-center bg-gray-200 h-[90vh]">
             {' '}
             <div
-                className={`${
-                    isLargeScreen ? 'w-[60vw] max-w-3xl' : 'w-[80vw]'
-                } bg-white flex justify-center items-center h-[80vh]`}
+                // className={`${
+                //     isLargeScreen ? 'w-[60vw] max-w-3xl' : 'w-[80vw]'
+                // } bg-white flex justify-center items-center h-[80vh]`}
+                className="w-[80vw]  "
             >
-                <div className="w-11/12">
+                <div className="w-11/12 max-h-full">
                     <div className="mt-5">
                         <h1 className="text-2xl font-bold text-font-color md:p-2 md:m-2">
                             Welcome Back to Upschool.co
