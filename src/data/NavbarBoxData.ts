@@ -90,19 +90,19 @@ const data = [
             { title: 'Live Event Recording', path: 'test' },
         ],
     },
-    // {
-    //     id: 6,
-    //     title: 'Products',
-    //     path: '/',
-    //     children: [
-    //         {
-    //             title: 'Register for Upschool',
-    //             path: '/',
-    //         },
-    //         { title: 'Bulk Registration', path: 'test' },
-    //         { title: 'Request a Tour', path: 'test' },
-    //     ],
-    // },
+    {
+        id: 6,
+        title: 'Products',
+        path: '/',
+        children: [
+            {
+                title: 'P1',
+                path: '/',
+            },
+            { title: 'P2', path: 'test' },
+            { title: 'P3', path: 'test' },
+        ],
+    },
     {
         id: 7,
         title: 'About',
