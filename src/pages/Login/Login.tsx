@@ -262,7 +262,7 @@ const Login = () => {
                     </Formik>
                     <div className="flex flex-col w-full items-start justify-around text-font-color gap-y-1 px-2 mx-2 mt-3">
                         <div className=" font-semibold">
-                            <NavLink to="/resetpassword">
+                            <NavLink to="/resetpasswordemail">
                                 Forgot Password?
                             </NavLink>
                         </div>

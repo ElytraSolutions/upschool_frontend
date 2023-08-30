@@ -13,7 +13,7 @@ import FAQ from './pages/FAQ/Faq';
 import CourseDetails from './pages/Courses/CourseDetail';
 import Login from './pages/Login/Login';
 import Test from './pages/Test';
-import ResetPassword from './pages/Login/ResetPassword';
+import ResetPasswordEmail from './pages/Login/ResetPasswordEmail';
 
 const router = createBrowserRouter([
     {
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
                 element: <Login />,
             },
             {
-                path: 'resetpassword',
-                element: <ResetPassword />,
+                path: 'resetpasswordemail',
+                element: <ResetPasswordEmail />,
             },
             {
                 path: 'our-framework',
