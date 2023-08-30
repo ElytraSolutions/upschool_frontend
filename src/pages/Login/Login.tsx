@@ -44,21 +44,16 @@ const Login = () => {
     return (
         <div className="relative flex flex-row justify-center items-center bg-gray-200 h-[90vh]">
             {' '}
-            <div
-                // className={`${
-                //     isLargeScreen ? 'w-[60vw] max-w-3xl' : 'w-[80vw]'
-                // } bg-white flex justify-center items-center h-[80vh]`}
-                className="w-[80vw]  "
-            >
-                <div className="w-11/12 max-h-full">
-                    <div className="mt-5">
-                        <h1 className="text-2xl font-bold text-font-color md:p-2 md:m-2">
+            <div className="w-[80vw] tab:w-[768px] bg-white flex justify-center items-center h-[80vh]  ">
+                <div className="w-11/12 max-h-[90%]">
+                    <div className="  mt-0.5 md:mt-2">
+                        <h1 className="text-2xl font-bold text-font-color  px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
                             Welcome Back to Upschool.co
                         </h1>
-                        <h3 className="text-font-color font-normal md:p-2 md:m-2">
+                        <h3 className="text-font-color font-normal px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
                             Sign in to continue to your account
                         </h3>
-                        <div className=" grid grid-cols-4 gap-4  p-2 m-2 w-11/12">
+                        <div className=" grid grid-cols-4 gap-y-2 gap-x-4   px-2 mx-2 w-full">
                             <button
                                 className={`${
                                     isLargeScreen
@@ -183,7 +178,7 @@ const Login = () => {
                             isSubmitting,
                         }) => (
                             <form onSubmit={handleSubmit}>
-                                <div className="grid grid-rows-6 w-full gap-4">
+                                <div className="grid grid-rows-4 w-full gap-y-2 px-2 mx-2 py-0.5">
                                     <TextField
                                         className="row-span-1"
                                         type="email"
@@ -261,25 +256,23 @@ const Login = () => {
                                     >
                                         Login
                                     </button>
-                                    <div className="row-span-2 flex flex-col w-full  items-start justify-around text-font-color">
-                                        <div className=" font-semibold">
-                                            <NavLink to="/resetpassword">
-                                                Forgot Password?
-                                            </NavLink>
-                                        </div>
-                                        <div>
-                                            Dont't have an Upschool account yet?
-                                            <span className="text-red-500 inline-block">
-                                                <NavLink to="/register">
-                                                    Sign up
-                                                </NavLink>
-                                            </span>
-                                        </div>
-                                    </div>
                                 </div>
                             </form>
                         )}
                     </Formik>
+                    <div className="flex flex-col w-full items-start justify-around text-font-color gap-y-1 px-2 mx-2 mt-3">
+                        <div className=" font-semibold">
+                            <NavLink to="/resetpassword">
+                                Forgot Password?
+                            </NavLink>
+                        </div>
+                        <div>
+                            Dont't have an Upschool account yet?
+                            <span className="text-red-500 inline-block pl-1">
+                                <NavLink to="/register">Sign up</NavLink>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
