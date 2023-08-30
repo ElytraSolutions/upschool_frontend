@@ -14,7 +14,7 @@ const ResetPasswordEmailSchema = yup.object().shape({
 const initialValuesResetPasswordEmail = {
     email: '',
 };
-const submitHandler = async (values: any, onSubmitProps: any) => {
+const submitHandler = async (_values: any, onSubmitProps: any) => {
     onSubmitProps.setSubmitting(false);
     onSubmitProps.resetForm();
 };
@@ -22,7 +22,7 @@ export default function ResetPasswordEmail() {
     return (
         <>
             <div className="  w-full h-[80vh] bg-gray-300 flex justify-center items-start">
-                <div className="flex justify-center bg-white w-10/12 md:w-2/3 lg:w-[768px] h-2/3 md:3/5 lg:h-[60%] mt-10">
+                <div className="flex justify-center bg-white w-10/12 md:w-2/3 lg:w-[768px] h-2/3 md:h-3/5 lg:h-[60%] mt-10">
                     <div className="w-11/12 h-[90%] flex flex-col gap-4">
                         <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
                             <h3 className="text-font-color font-normal text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl">

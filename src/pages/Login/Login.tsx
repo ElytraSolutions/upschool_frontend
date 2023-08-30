@@ -237,14 +237,6 @@ const Login = () => {
                                         <Field
                                             type="checkbox"
                                             name="condition"
-                                            error={
-                                                Boolean(touched.condition) &&
-                                                Boolean(errors.condition)
-                                            }
-                                            helperText={
-                                                touched.condition &&
-                                                errors.condition
-                                            }
                                         />
                                         Keep me signed in until I sign out
                                     </label>
