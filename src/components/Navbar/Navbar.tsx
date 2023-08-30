@@ -30,7 +30,7 @@ export default function Navbar() {
                     />,
                     document.body,
                 )}
-            {/* createPortal(<MobileMenu isOpen={isOpen} setIsopen={setIsopen} />,document.body) */}
+
             <div
                 className="bg-theme-color p-1 md:py-7 md:px-2  flex flex-1 items-center"
                 style={{ height: '10vh' }}

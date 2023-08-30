@@ -83,7 +83,11 @@ function Footer() {
 
                         <div className="flex flex-col md:flex-row items-center justify-between p-4">
                             <div className="flex justify-center items-center">
-                                <img src={upschoolLogo} className=" h-6 mr-4" />
+                                <img
+                                    src={upschoolLogo}
+                                    alt="upSchoolLogo"
+                                    className=" h-6 mr-4"
+                                />
                             </div>
                             <div className="col-md-6">
                                 <div className="mt-2 md:mt-0 flex flex-wrap  justify-center gap-6 ">
