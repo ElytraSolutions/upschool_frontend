@@ -13,6 +13,7 @@ const TestimonialsPage = () => {
                     </p>
                     <div className="mt-4">
                         <iframe
+                            loading="lazy"
                             title="Testimonial Video"
                             width="560"
                             height="315"

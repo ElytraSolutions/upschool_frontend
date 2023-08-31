@@ -15,6 +15,7 @@ import Login from './pages/Login/Login';
 import Test from './pages/Test';
 import ResetPasswordEmail from './pages/Login/ResetPasswordEmail';
 import ResetPassword from './pages/Login/ResetPassword';
+import Dashboard from './pages/User/DashBoard/Dashboard';
 
 const router = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
             {
                 path: 'faq',
                 element: <FAQ />,
+            },
+            {
+                path: 'dashboard',
+                element: <Dashboard />,
             },
         ],
     },
