@@ -25,6 +25,7 @@ function features() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl m-auto py-10">
                 <div>
                     <iframe
+                        loading="lazy"
                         className="w-full  md:h-[315px]"
                         src="https://www.youtube.com/embed/88qNEuTOLEM?si=AYvashJyL-YFPeo7"
                         title="YouTube video player"
@@ -44,6 +45,7 @@ function features() {
                 </div>
                 <div>
                     <iframe
+                        loading="lazy"
                         className="w-full  md:h-[315px]"
                         src="https://www.youtube.com/embed/AF0SILATQ6U?si=mTvCceuRhRxJenjF"
                         title="YouTube video player"
@@ -63,6 +65,7 @@ function features() {
                 </div>
                 <div>
                     <iframe
+                        loading="lazy"
                         className="w-full  md:h-[315px]"
                         src="https://www.youtube.com/embed/SGo7DWBFZLU?si=Nl2YT7M_mnDW0ZEc"
                         title="YouTube video player"

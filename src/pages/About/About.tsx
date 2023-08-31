@@ -41,6 +41,7 @@ export default function About() {
                 </div>
                 <div className="flex flex-col justify-center items-center text-[#242254] m-10 text-center md:max-w-4xl md:mx-auto">
                     <iframe
+                        loading="lazy"
                         className="w-full aspect-video "
                         src="https://www.youtube.com/embed/qWOHWzGHtsA?si=8TDRUl3xHKira0WH"
                         title="YouTube video player"
