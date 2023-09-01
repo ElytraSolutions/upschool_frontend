@@ -3,12 +3,15 @@ import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import { ICourse } from '../../types/ICourse';
+import { useLocation } from 'react-router-dom';
 
 interface Props {
     data: ICourse;
 }
 
 function EnrollCard({ data }: Props) {
+    const location = useLocation();
+
     return (
         <>
             <Card
@@ -39,7 +42,7 @@ function EnrollCard({ data }: Props) {
                                 color: 'white4',
                             },
                         }}
-                        href={`/chapter/${data.slug}`}
+                        href={`${location.pathname}/chapter/${data.slug}`}
                     >
                         ENROLL NOW
                     </Button>
