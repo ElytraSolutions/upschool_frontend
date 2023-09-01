@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import upschoolLogo from '../../assets/upschool_logo.png';
 import { NavLink } from 'react-router-dom';
 import { ComputerMenu } from '../../parts/PartsNavbar/LargeScreenMenuBar';
@@ -17,6 +17,24 @@ export default function Navbar() {
     const [isOpen, setIsopen] = useState(false);
     const [isLoggedIn, _setIsLoggedIn] = useState(true); //TODO logic requird for loggedIn || not
     const { isBigScreen } = useScreenWidth(); //min-width=1200px
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <>
             {!isBigScreen &&
@@ -32,7 +50,9 @@ export default function Navbar() {
                 )}
 
             <div
-                className="bg-theme-color p-1 md:py-7 md:px-2  flex flex-1 items-center"
+                className={`${
+                    isScrolled ? 'fixed' : ''
+                } w-screen bg-theme-color p-1 md:py-7 md:px-2  flex flex-1 items-center `}
                 style={{ height: '10vh' }}
             >
                 <div className="flex flex-1 gap-2 md:gap-3 items-center lg:gap-10 justify-between">
