@@ -57,9 +57,9 @@ function Footer() {
                                         alt=""
                                     />
                                 </div>
-                                <h5 className="font-bold text-xs p-4 tracking-widest">
+                                <p className="font-bold text-xs p-4 tracking-widest">
                                     Acknowledgement of Country
-                                </h5>
+                                </p>
                                 <p className="text-[12px] tracking-wide max-w-2xl font-light text-center md:max-w-3xl lg:max-w-4xl p-2 leading-5 pb-6">
                                     Upschool would like to acknowledge that we
                                     live, work, learn and play on the lands of

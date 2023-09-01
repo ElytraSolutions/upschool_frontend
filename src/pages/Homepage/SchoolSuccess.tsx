@@ -20,6 +20,7 @@ function features() {
                 <img
                     src="/images/homepage/bechange.png"
                     className=" w-[80%] md:w-[40%]"
+                    alt="Be the change image"
                 />
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl m-auto py-10">
