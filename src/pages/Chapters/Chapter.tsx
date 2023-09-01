@@ -1,6 +1,5 @@
 import OpenBook from '../../assets/OpenBook.png';
 import Sidebar from '../../parts/PartsChapters/Sidebar';
-import { useState, useEffect } from 'react';
 const detail = [
     {
         title: 'Lesson Resources',
