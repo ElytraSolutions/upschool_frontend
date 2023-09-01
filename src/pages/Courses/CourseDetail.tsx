@@ -1,23 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ICourse } from '../../types/ICourse';
 import EnrollCard from '../../components/Cards/EnrollCard';
+import axiosInstance from '../../config/Axios';
+import { useParams } from 'react-router-dom';
+import Loading from '../../components/Loading';
 
 function CourseDetail() {
     const [isHovered, setIsHovered] = useState(false);
-
-    const course: ICourse = {
-        id: 1,
-        name: '10 Weeks to a Better You',
-        intro: 'This is a course that will help you become a better you',
-        slug: '10-weeks-to-a-better-you',
-        image: 'https://upschool.co/wp-content/uploads/2023/05/Power-of-One-Featured-Image-853x1024.png',
-        course_category_id: 1,
-        starredText: 'This is a course that will help you become a better you',
-        theme: '#ff0000',
-        description:
-            'This is a course that will help you become a better you lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. lorem bc jackak bcabcajckabckjabcjkab ab cabci acb iabc abicb ajc aub jafwi qb9dhj oq ag rtgbw e hs agc qbqdqi q  ',
-    };
-
+    const [course, setCourse] = useState<ICourse | null>(null);
+    const { slug } = useParams();
+    useEffect(() => {
+        (async () => {
+            const res = await axiosInstance.get(`/api/courses/${slug}`);
+            setCourse(res.data.data);
+        })();
+    }, [slug]);
     const handleHover = () => {
         setIsHovered(true);
     };
@@ -25,6 +22,7 @@ function CourseDetail() {
     const handleMouseLeave = () => {
         setIsHovered(false);
     };
+    if (course === null) return <Loading />;
     return (
         <>
             <div className="flex flex-col gap-10 ">
