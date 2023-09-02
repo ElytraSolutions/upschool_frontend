@@ -9,17 +9,21 @@ import useScreenWidth from '../../hooks/useScreenWidth';
 import { MobileNavMenubar as MobileMenu } from '../../parts/PartsNavbar/MobileNavMenuBar';
 
 import { createPortal } from 'react-dom';
+import useUser from '../../hooks/useUser';
 
 export default function Navbar() {
     const styles = {
         minWidth: '150px',
     };
     const [isOpen, setIsopen] = useState(false);
-    const [isLoggedIn, _setIsLoggedIn] = useState(true); //TODO logic requird for loggedIn || not
+    const { user, refresh } = useUser();
     const { isBigScreen } = useScreenWidth(); //min-width=1200px
     const [isScrolled, setIsScrolled] = useState(false);
 
+    const isLoggedIn = user && user.id ? true : false;
+
     useEffect(() => {
+        refresh();
         const handleScroll = () => {
             if (window.scrollY > 0) {
                 setIsScrolled(true);

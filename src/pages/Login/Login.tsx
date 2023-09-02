@@ -35,7 +35,10 @@ const Login = () => {
         const resp = await axiosInstance.post('/auth/login', values);
         onSubmitProps.setSubmitting(false);
         if (resp.status === 200 && resp.data.status === 'success') {
-            refresh().then(() => navigate('/'));
+            refresh().then(() => {
+                console.log(user);
+                navigate('/');
+            });
             onSubmitProps.resetForm();
         }
     };
@@ -45,6 +48,7 @@ const Login = () => {
         e.preventDefault();
         setShowPassword((oldState) => !oldState);
     };
+    console.log(user);
     if (user?.id) {
         return <Navigate to="/" />;
     }

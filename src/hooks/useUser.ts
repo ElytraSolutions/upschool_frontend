@@ -13,11 +13,11 @@ function useUser() {
     const refresh = useCallback(async () => {
         try {
             const res = await axiosInstance.get('/data/user');
-            let dbUser = null;
+            let dbUser: IUser | null = null;
             if (res.status === 200) {
-                dbUser = res.data;
+                dbUser = res.data as IUser;
             }
-            setUser(dbUser);
+            dbUser ? setUser({ ...dbUser }) : setUser(null);
             localStorage.setItem('user', JSON.stringify(dbUser));
         } catch (error) {
             if ((error as AxiosError).response?.status === 401) {
@@ -29,7 +29,6 @@ function useUser() {
         }
     }, []);
     if (storedUser === 'undefined') {
-        console.log('stored', storedUser);
         refresh();
     }
     return { user, refresh };
