@@ -2,10 +2,13 @@ import CourseCard from '../../components/Cards/CourseCard';
 import useCourses from '../../hooks/useCourses';
 import useCourseCategories from '../../hooks/useCourseCategories';
 import { ICourseCategory } from '../../types/ICourseCategory';
+import Loading from '../../components/Loading';
 
 function AllCourses() {
     const categories = useCourseCategories();
     const courses = useCourses();
+
+    if (!categories || !courses) return <Loading />;
     categories.sort((a, b) => a.id - b.id);
     const getCoursesByCategory = (categoryId: number) => {
         return courses.filter(

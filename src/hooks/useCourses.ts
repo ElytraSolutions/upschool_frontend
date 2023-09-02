@@ -10,7 +10,7 @@ function useCourses(category: string | null = null) {
     useEffect(() => {
         (async () => {
             try {
-                const res = await axiosInstance.get('/api/courses');
+                const res = await axiosInstance.get('/data/courses');
                 setCourses(res.data.data);
             } catch (error) {
                 console.log(error);
@@ -18,6 +18,7 @@ function useCourses(category: string | null = null) {
         })();
     }, []);
 
+    if (!categories.length) return [];
     if (category) {
         const id = categories.find((c) => c.name === category)?.id;
         return courses.filter((c) => c.course_category_id === id);

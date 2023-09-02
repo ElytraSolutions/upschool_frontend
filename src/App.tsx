@@ -17,6 +17,7 @@ import ResetPasswordEmail from './pages/Login/ResetPasswordEmail';
 import ResetPassword from './pages/Login/ResetPassword';
 import Dashboard from './pages/User/DashBoard/Dashboard';
 import Chapters from './pages/Chapters/Chapters';
+import Logout from './pages/Logout/Logout';
 
 const router = createBrowserRouter([
     {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
                 element: <Dashboard />,
             },
         ],
+    },
+    {
+        path: '/logout',
+        element: <Logout />,
     },
     {
         path: 'test',

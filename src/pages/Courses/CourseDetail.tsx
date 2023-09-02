@@ -11,7 +11,7 @@ function CourseDetail() {
     const { slug } = useParams();
     useEffect(() => {
         (async () => {
-            const res = await axiosInstance.get(`/api/courses/${slug}`);
+            const res = await axiosInstance.get(`/data/courses/${slug}`);
             setCourse(res.data.data);
         })();
     }, [slug]);
