@@ -6,10 +6,8 @@ import useUser from '../../hooks/useUser';
 function Logout() {
     const [success, setSuccess] = useState(false);
     const { user, refresh } = useUser();
-    if (!user || !user.id) {
-        return <Navigate to="/" />;
-    }
     useEffect(() => {
+        if (!user || !user.id) return;
         (async () => {
             const resp = await axiosInstance.post('/auth/logout/');
             if (!resp.data?.success) {
@@ -18,7 +16,10 @@ function Logout() {
             setSuccess(true);
             await refresh();
         })();
-    }, [refresh]);
+    }, [refresh, user]);
+    if (!user || !user.id) {
+        return <Navigate to="/" />;
+    }
     if (!success) {
         return <div>Logging out...</div>;
     }
