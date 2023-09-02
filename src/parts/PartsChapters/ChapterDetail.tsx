@@ -14,12 +14,12 @@ export default function ChapterDetail({
     isSidebarOpen,
     setIsSidebarOpen,
 }: ChapterDetailProps) {
-    const { learn } = useParams();
+    const { slug, learn } = useParams();
     const { isBigScreen } = useScreenWidth();
     const [isClicked, setIsClicked] = useState(false);
     return (
         <>
-            <div className="flex flex-col overflow-auto pb-5">
+            <div className="flex flex-col overflow-auto pb-5 h-[90vh]">
                 {/* ChapterDetail Header */}
                 <div className="flex w-full bg-blue-900  mb-5">
                     <div className="flex flex-1 flex-row justify-between items-center p-2 text-white text-sm h-14">
@@ -44,7 +44,7 @@ export default function ChapterDetail({
                             </div>
                             <div className="ml-2">
                                 <NavLink
-                                    to="/courses"
+                                    to={`/course/${slug}`}
                                     className="flex flex-row items-center justify-start gap-0 md:gap-1 tex-xs md:text-base"
                                 >
                                     Goto Course Home{' '}
