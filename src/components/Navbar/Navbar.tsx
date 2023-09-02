@@ -78,7 +78,7 @@ export default function Navbar() {
                         {isBigScreen && <ComputerMenu />}
                     </div>
                     {/* TODO left to maintain CSS properties */}
-                    <div className="flex flex-1 gap-1 lg:gap-2 2xl:gap-3 justify-end items-center mr-3">
+                    <div className="flex flex-1 gap-1 lg:gap-2 2xl:gap-3 justify-end items-center mr-3 z-10">
                         <span className="">
                             <NavLink to="/">
                                 <CartIcon />

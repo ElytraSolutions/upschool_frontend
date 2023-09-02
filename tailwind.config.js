@@ -43,6 +43,7 @@ export default {
                 tab: '900px',
                 // => @media (min-width: 900px) { ... }
                 xs: '420px',
+                xm: '540px',
             },
         },
     },

@@ -1,5 +1,18 @@
 import OpenBook from '../../assets/OpenBook.png';
 import SidebarContent from './SidebarContent';
+// import axiosInstance from '../../config/Axios';
+
+// import { useState, useEffect } from 'react';
+// interface IChapters {
+//     id: number;
+//     created_at: Date;
+//     updated_at: Date;
+//     name: string;
+//     slug: string;
+//     description: string;
+//     course_id: number;
+//     active: boolean;
+// }
 const detail = [
     {
         title: 'Lesson Resources',
@@ -21,6 +34,13 @@ const detail = [
 ];
 
 export default function Sidebar() {
+    // const [chapter, setChapter] = useState<IChapters | null>(null);
+    // useEffect(() => {
+    //     (async () => {
+    //         const res = await axiosInstance.get(`/data/chapters`);
+    //         setChapter(res.data.data);
+    //     })();
+    // }, []);
     return (
         <>
             <div className="flex flex-row justify-center items-center bg-red-600 w-full">
