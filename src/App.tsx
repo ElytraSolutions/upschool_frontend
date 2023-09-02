@@ -16,7 +16,7 @@ import Test from './pages/Test';
 import ResetPasswordEmail from './pages/Login/ResetPasswordEmail';
 import ResetPassword from './pages/Login/ResetPassword';
 import Dashboard from './pages/User/DashBoard/Dashboard';
-import Chapter from './pages/Chapters/Chapter';
+import Chapters from './pages/Chapters/Chapters';
 
 const router = createBrowserRouter([
     {
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'course/:slug/chapter/:learn',
-                element: <Chapter />,
+                element: <Chapters />,
             },
             {
                 path: 'faq',

@@ -4,7 +4,7 @@ import { NavbarBox as Box } from './NavbarBox';
 
 const LargeScreenMenuBar = () => {
     return (
-        <div className="flex justify-start gap-2 md:gap-3 lg:gap-4  xl:gap-5 2xl:gap-8 items-center">
+        <div className="flex justify-start gap-2 md:gap-3 lg:gap-4  xl:gap-5 2xl:gap-8 items-center z-10">
             {data.map((inf) => (
                 <Box key={inf.id} inf={inf} />
             ))}
