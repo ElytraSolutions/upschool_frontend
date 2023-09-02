@@ -6,34 +6,38 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import axiosInstance from '../../config/Axios';
 import useScreenWidth from '../../hooks/useScreenWidth';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate, useNavigate } from 'react-router-dom';
+import useUser from '../../hooks/useUser';
 
 const LoginSchema = yup.object().shape({
     email: yup
         .string()
-        .email('invalid email')
+        .email('Please enter a valid email.')
         .required('required')
-        .max(255, 'Characters too long'),
-    password: yup.string().required('Please enter a password'),
-    condition: yup.bool().oneOf([true]),
+        .max(255, 'Email cannot be more than 255 characters.'),
+    password: yup.string().required('Please enter your password.'),
+    remember: yup.bool().oneOf([true, false]),
 });
 
 const initialValuesLogin = {
     email: '',
     password: '',
-    condition: false,
+    remember: false,
 };
 
 const Login = () => {
+    const navigate = useNavigate();
+    const { user, refresh } = useUser();
     const submitHandler = async (values: any, onSubmitProps: any) => {
         const csrfResp = await axiosInstance.get('/sanctum/csrf-cookie');
         axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
             csrfResp.data.csrfToken;
-        console.log(csrfResp);
-        const resp = await axiosInstance.post('/login', values);
-        console.log(resp.data);
+        const resp = await axiosInstance.post('/auth/login', values);
         onSubmitProps.setSubmitting(false);
-        onSubmitProps.resetForm();
+        if (resp.status === 200 && resp.data.status === 'success') {
+            refresh().then(() => navigate('/'));
+            onSubmitProps.resetForm();
+        }
     };
     const { isLargeScreen } = useScreenWidth();
     const [showPassword, setShowPassword] = useState(false);
@@ -41,10 +45,12 @@ const Login = () => {
         e.preventDefault();
         setShowPassword((oldState) => !oldState);
     };
+    if (user?.id) {
+        return <Navigate to="/" />;
+    }
     return (
-        <div className="relative flex flex-row justify-center items-center bg-gray-200 h-[90vh]">
-            {' '}
-            <div className="w-[80vw] tab:w-[768px] bg-white flex justify-center items-center h-[80vh]  ">
+        <div className="relative flex flex-row justify-center items-center bg-gray-200 min-h-[90vh] py-12">
+            <div className="w-[80vw] tab:w-[768px] bg-white flex justify-center items-center min-h-[80vh]  ">
                 <div className="w-11/12 max-h-[90%]">
                     <div className="  mt-0.5 md:mt-2">
                         <h1 className="text-2xl font-bold text-font-color  px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
@@ -59,7 +65,7 @@ const Login = () => {
                                     isLargeScreen
                                         ? 'col-span-2 justify-center'
                                         : 'col-span-4 justify-start pl-2'
-                                } flex flex-wrap  gap-1 items-center border border-font-color p-1 rounded-md`}
+                                } flex flex-wrap  gap-1 justify-center items-center border border-font-color p-1 rounded-md`}
                             >
                                 <span>
                                     <svg
@@ -99,7 +105,7 @@ const Login = () => {
                                     isLargeScreen
                                         ? 'col-span-2 justify-center'
                                         : 'col-span-4 justify-start pl-2'
-                                } flex flex-wrap  gap-1 items-center border border-font-color p-1 rounded-md`}
+                                } flex flex-wrap  gap-1 justify-center items-center border border-font-color p-1 rounded-md`}
                             >
                                 <span>
                                     <svg
@@ -149,7 +155,7 @@ const Login = () => {
                                     </svg>
                                 </span>
                                 <span className="text-font-color">
-                                    Continue with facebook
+                                    Continue with Facebook
                                 </span>
                             </button>
                             <div
@@ -178,7 +184,7 @@ const Login = () => {
                             isSubmitting,
                         }) => (
                             <form onSubmit={handleSubmit}>
-                                <div className="grid grid-rows-4 w-full gap-y-2 px-2 mx-2 py-0.5">
+                                <div className="grid grid-rows-4 w-full gap-y-4 px-2 mx-2 py-0.5">
                                     <TextField
                                         className="row-span-1"
                                         type="email"
@@ -197,7 +203,7 @@ const Login = () => {
                                         }
                                     />
                                     <TextField
-                                        className=" row-span-1"
+                                        className="row-span-1 !mt-2"
                                         type={
                                             showPassword ? 'text' : 'password'
                                         }
@@ -232,15 +238,13 @@ const Login = () => {
                                             (errors.password as string)
                                         }
                                     />
-
                                     <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
                                         <Field
                                             type="checkbox"
-                                            name="condition"
+                                            name="remember"
                                         />
                                         Keep me signed in until I sign out
                                     </label>
-
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
