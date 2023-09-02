@@ -16,7 +16,7 @@ export default function ChapterDetail({
 }: ChapterDetailProps) {
     const { slug, learn } = useParams();
     const { isBigScreen } = useScreenWidth();
-    const [isClicked, setIsClicked] = useState(false);
+    const [isClicked, setIsClicked] = useState(false); //teacher's note
     return (
         <>
             <div className="flex flex-col overflow-auto pb-5 h-[90vh]">

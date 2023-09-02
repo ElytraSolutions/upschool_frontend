@@ -7,7 +7,7 @@ const LargeScreenRightCornerBarAfterLogin = () => {
     return (
         <>
             <span className="">
-                <NavLink to="https://www.youtube.com/">
+                <NavLink to="/demo">
                     <ProfileIcon />
                 </NavLink>
             </span>

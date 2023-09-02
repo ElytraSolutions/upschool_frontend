@@ -19,8 +19,8 @@ const data = [
         title: 'Learn',
         children: [
             { title: 'All Courses', path: '/courses' },
-            { title: 'Learning Hubs', path: 'test' },
-            { title: 'Challenges', path: 'test' },
+            { title: 'Learning Hubs', path: 'demo' },
+            { title: 'Challenges', path: 'demo' },
         ],
     },
     {
@@ -29,15 +29,15 @@ const data = [
         children: [
             {
                 title: 'Charities',
-                path: '/test',
+                path: '/demo',
                 children: [
                     // TODO charaties should be fetched from backend
                     {
                         title: 'All Charaties',
                         path: '/',
                     },
-                    { title: 'Blue Dragon', path: 'test' },
-                    { title: "Edgar's Mission", path: 'test' },
+                    { title: 'Blue Dragon', path: 'demo' },
+                    { title: "Edgar's Mission", path: 'demo' },
                 ],
             },
             {
@@ -56,8 +56,8 @@ const data = [
                         title: 'Register For Charity',
                         path: '/',
                     },
-                    { title: 'Register For Library', path: 'test' },
-                    { title: 'Sponser a library', path: 'test' },
+                    { title: 'Register For Library', path: 'demo' },
+                    { title: 'Sponser a library', path: 'demo' },
                 ],
             },
         ],
@@ -71,7 +71,7 @@ const data = [
                 title: 'Browse A Book',
                 path: '/',
             },
-            { title: 'Upload Your Book', path: 'test' },
+            { title: 'Upload Your Book', path: 'demo' },
         ],
     },
     {
@@ -83,11 +83,11 @@ const data = [
                 title: 'ALL Resource',
                 path: '/',
             },
-            { title: 'Teacher Resource', path: 'test' },
-            { title: 'Parent Resource', path: 'test' },
-            { title: 'Student Resource', path: 'test' },
-            { title: 'Live Session Recording', path: 'test' },
-            { title: 'Live Event Recording', path: 'test' },
+            { title: 'Teacher Resource', path: 'demo' },
+            { title: 'Parent Resource', path: 'demo' },
+            { title: 'Student Resource', path: 'demo' },
+            { title: 'Live Session Recording', path: 'demo' },
+            { title: 'Live Event Recording', path: 'demo' },
         ],
     },
     {
@@ -99,8 +99,8 @@ const data = [
                 title: 'P1',
                 path: '/',
             },
-            { title: 'P2', path: 'test' },
-            { title: 'P3', path: 'test' },
+            { title: 'P2', path: 'demo' },
+            { title: 'P3', path: 'demo' },
         ],
     },
     {
@@ -126,8 +126,8 @@ const userData = {
     title: 'Upschool',
     children: [
         { title: 'Register for Upschool', path: '/register' },
-        { title: 'Bulk Registration', path: 'test' },
-        { title: 'Request a Tour', path: 'test' },
+        { title: 'Bulk Registration', path: 'demo' },
+        { title: 'Request a Tour', path: 'demo' },
     ],
 };
 
