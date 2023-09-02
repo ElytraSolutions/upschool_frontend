@@ -3,26 +3,49 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import HomeIcon from '@mui/icons-material/Home';
 import { useState } from 'react';
+import useScreenWidth from '../../hooks/useScreenWidth';
 
-export default function ChapterDetail() {
+type ChapterDetailProps = {
+    isSidebarOpen: boolean;
+    setIsSidebarOpen: any;
+};
+
+export default function ChapterDetail({
+    isSidebarOpen,
+    setIsSidebarOpen,
+}: ChapterDetailProps) {
     const { learn } = useParams();
+    const { isBigScreen } = useScreenWidth();
     const [isClicked, setIsClicked] = useState(false);
     return (
         <>
-            <div className="flex flex-col overflow-y-auto">
+            <div className="flex flex-col overflow-auto pb-5">
                 {/* ChapterDetail Header */}
-                <div className="flex flex-1 w-full bg-blue-900  mb-5">
+                <div className="flex w-full bg-blue-900  mb-5">
                     <div className="flex flex-1 flex-row justify-between items-center p-2 text-white text-sm h-14">
                         <div className="flex felx-row justify-between items-center">
-                            <div className="absolute h-8 w-8 rounded-full bg-yellow-400 flex flex-row items-center justify-center text-white -left-6">
+                            {/* Circle sidebar open and close option */}
+                            <div
+                                className={`${
+                                    isSidebarOpen ? 'absolute -left-6' : ''
+                                }  h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 rounded-full bg-yellow-400 flex flex-row items-center justify-center text-white `}
+                            >
                                 <KeyboardArrowLeftIcon
-                                    style={{ width: '40px', height: '40px' }}
+                                    className={`${
+                                        !isSidebarOpen && 'rotate-180'
+                                    } h-3 w-3 md:h-5 md:w-5 lg:h-7 lg:w-7`}
+                                    // style={{ width: '40px', height: '40px' }}
+                                    onClick={() => {
+                                        setIsSidebarOpen(
+                                            (oldState) => !oldState,
+                                        );
+                                    }}
                                 />
                             </div>
                             <div className="ml-2">
                                 <NavLink
                                     to="/courses"
-                                    className="flex flex-row items-center justify-start gap-1"
+                                    className="flex flex-row items-center justify-start gap-0 md:gap-1 tex-xs md:text-base"
                                 >
                                     Goto Course Home{' '}
                                     <span>
@@ -31,17 +54,18 @@ export default function ChapterDetail() {
                                 </NavLink>
                             </div>
                         </div>
-                        <div>{learn}</div>
-                        <button className=" bg-pink-700 text-center px-4 py-2 rounded-md">
+                        {isBigScreen && <div>{learn}</div>}
+                        <button className=" bg-pink-700 text-center px-0.5 md:px-4  py-0.5 md:py-2 rounded-md tex-xs md:text-base ">
                             Compelete Lesson
                         </button>
                     </div>
                 </div>
                 {/* ChapterDetail Chapters Section*/}
-                <div className="divide-y divide-slate-400 ml-6">
+                <div className="flex-1 divide-y divide-slate-400 ml-6">
                     {/* Section I */}
                     <div className="flex flex-col m-4 justify-start gap-2">
                         <div>
+                            {/* TODO Data to be fetched from backend and mange its logic */}
                             <div className="grid grid-cols-2 mt-12">
                                 <div className="col-span-1 flex flex-col gap-6">
                                     {/* Title */}
@@ -136,6 +160,7 @@ export default function ChapterDetail() {
                                         </p>
                                     </div>
                                 </div>
+                                {/* TODO second column: Data to be fetched and manage logic */}
                                 <div className="col-span-1"></div>
                             </div>
                         </div>

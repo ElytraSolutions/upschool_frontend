@@ -19,6 +19,7 @@ const detail = [
         ],
     },
 ];
+
 export default function Sidebar() {
     return (
         <>
@@ -32,10 +33,12 @@ export default function Sidebar() {
                             alt="OpenBook"
                         />
                     </span>
-                    <h3>Lesson List</h3>
+                    <h3 className="text-xs sm:text-sm md:text-base">
+                        Lesson List
+                    </h3>
                 </div>
             </div>
-            <div className="overflow-y-auto">
+            <div className="overflow-auto h-[82vh]">
                 {detail.map((section, index) => (
                     <SidebarContent key={index} section={section} />
                 ))}

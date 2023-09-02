@@ -9,7 +9,7 @@ type ISidebarProps = {
 
 export default function SidebarContent({ section }: ISidebarProps) {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col text-xs sm:text-sm md:text-base">
             <div className="flex flex-row justify-between bg-blue-950 text-white py-5 px-4">
                 <span>{section.title}</span>
                 <span>3/10</span> {/*TODO Logic Required */}
@@ -32,7 +32,10 @@ export default function SidebarContent({ section }: ISidebarProps) {
                             </span>
                             <span>{title}</span>
                         </div>
-                        <div className="bg-red-600 h-5 w-5 rounded-full "></div>
+                        {/* TODO Logic for tick mark */}
+                        <div className="bg-red-600 h-5 w-5 rounded-full ">
+                            {/* TODO tick mark */}
+                        </div>
                     </li>
                 ))}
             </ul>
