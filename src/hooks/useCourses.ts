@@ -10,7 +10,7 @@ function useCourses(category: string | null = null) {
     useEffect(() => {
         (async () => {
             try {
-                const res = await axiosInstance.get('/api/courses');
+                const res = await axiosInstance.get('/data/courses');
                 setCourses(res.data.data);
             } catch (error) {
                 console.log(error);
