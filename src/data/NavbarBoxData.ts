@@ -19,8 +19,19 @@ const data = [
         title: 'Learn',
         children: [
             { title: 'All Courses', path: '/courses' },
-            { title: 'Learning Hubs', path: 'demo' },
-            { title: 'Challenges', path: 'demo' },
+            { title: 'Learning Hubs', path: 'https://upschool.co/hubs' },
+            { title: 'Challenges', path: 'https://upschool.co/challenges' },
+            {
+                title: 'Live Lessons & Events',
+                path: 'https://upschool.co/live',
+            },
+            { title: 'Free Premium Canva', path: 'https://upschool.co/canva' },
+            { title: 'The Global Goals', path: 'https://upschool.co/sdgs' },
+            { title: 'Impact Films', path: 'https://upschool.co/impact-films' },
+            {
+                title: 'Make a Dear World Submission',
+                path: 'https://upschool.co/impact-films',
+            },
         ],
     },
     {
@@ -29,78 +40,157 @@ const data = [
         children: [
             {
                 title: 'Charities',
-                path: '/demo',
+                path: '/https://upschool.co/charities',
                 children: [
-                    // TODO charaties should be fetched from backend
                     {
-                        title: 'All Charaties',
-                        path: '/',
+                        title: 'All Charities',
+                        path: 'https://upschool.co/charities/',
                     },
-                    { title: 'Blue Dragon', path: 'demo' },
-                    { title: "Edgar's Mission", path: 'demo' },
+                    {
+                        title: 'Blue Dragon',
+                        path: 'https://upschool.co/charity/blue-dragon/',
+                    },
+                    {
+                        title: 'Edgar’s Mission',
+                        path: 'https://upschool.co/charity/edgars-mission/',
+                    },
+                    {
+                        title: 'Farmer’s Footprint',
+                        path: 'https://upschool.co/charity/farmers-footprint-australia/',
+                    },
+                    {
+                        title: 'Free To Shine',
+                        path: 'https://upschool.co/charity/free-to-shine/',
+                    },
+                    {
+                        title: 'John Fawcett Foundation',
+                        path: 'https://upschool.co/charity/john-fawcett-foundation/',
+                    },
+                    {
+                        title: 'MicroLoan Foundation',
+                        path: 'https://upschool.co/charity/microloan-foundation/',
+                    },
+                    {
+                        title: 'Ocean Youth',
+                        path: 'https://upschool.co/charity/ocean-youth/',
+                    },
+                    {
+                        title: 'Opportunity International Australia',
+                        path: 'https://upschool.co/charity/opportunity-international-australia/',
+                    },
+                    {
+                        title: 'Rainforest Rescue',
+                        path: 'https://upschool.co/charity/rainforest-rescue/',
+                    },
+                    {
+                        title: 'Seabin Foundation',
+                        path: 'https://upschool.co/charity/seabin-foundation/',
+                    },
+                    {
+                        title: 'So They Can',
+                        path: 'https://upschool.co/charity/so-they-can/',
+                    },
+                    {
+                        title: 'SolarBuddy',
+                        path: 'https://upschool.co/charity/solarbuddy-org/',
+                    },
+                    {
+                        title: 'The Jane Goodall Institute Australia',
+                        path: 'https://upschool.co/charity/jane-goodall-institute-australia/',
+                    },
+                    {
+                        title: 'Women’s Empowerment in Indian Villages',
+                        path: 'https://upschool.co/charity/womens-empowerment-in-indian-villages/',
+                    },
                 ],
             },
             {
                 title: 'Projects',
-                path: '/',
+                path: 'https://upschool.co/projects',
             },
             {
                 title: 'Libraries',
-                path: '/',
+                path: 'https://upschool.co/libraries',
             },
             {
                 title: 'Apply',
                 path: '/',
                 children: [
                     {
-                        title: 'Register For Charity',
-                        path: '/',
+                        title: 'Register Your Charity',
+                        path: 'https://upschool.co/register-your-charity',
                     },
-                    { title: 'Register For Library', path: 'demo' },
-                    { title: 'Sponser a library', path: 'demo' },
+                    {
+                        title: 'Register For Library',
+                        path: 'https://upschool.co/apply-library',
+                    },
+                    {
+                        title: 'Sponser a library',
+                        path: 'https://upschool.co/impact-projects',
+                    },
                 ],
             },
         ],
     },
     {
         id: 4,
-        title: 'Library',
+        title: 'Support',
         path: '/',
         children: [
             {
-                title: 'Browse A Book',
-                path: '/',
+                title: 'Become a Partner',
+                path: 'https://upschool.co/partnerships/',
             },
-            { title: 'Upload Your Book', path: 'demo' },
+            {
+                title: 'Buy a Product',
+                path: 'https://upschool.co/#',
+            },
         ],
     },
     {
         id: 5,
-        title: 'Resource Center',
+        title: 'Online Library',
         path: '/',
         children: [
             {
-                title: 'ALL Resource',
-                path: '/',
+                title: 'Browse Books',
+                path: 'https://upschool.co/library/',
             },
-            { title: 'Teacher Resource', path: 'demo' },
-            { title: 'Parent Resource', path: 'demo' },
-            { title: 'Student Resource', path: 'demo' },
-            { title: 'Live Session Recording', path: 'demo' },
-            { title: 'Live Event Recording', path: 'demo' },
+            {
+                title: 'Upload Your Book',
+                path: 'https://upschool.co/library/upload/',
+            },
         ],
     },
     {
         id: 6,
-        title: 'Products',
-        path: '/',
+        title: 'Resources',
+        path: 'https://upschool.co/blog',
         children: [
             {
-                title: 'P1',
-                path: '/',
+                title: 'All Resources',
+                path: 'https://upschool.co/blog/',
             },
-            { title: 'P2', path: 'demo' },
-            { title: 'P3', path: 'demo' },
+            {
+                title: 'Teacher Resources',
+                path: 'https://upschool.co/blog/category/teacher-resources/',
+            },
+            {
+                title: 'Parent Resources',
+                path: 'https://upschool.co/blog/category/parent-resources/',
+            },
+            {
+                title: 'Student Resources',
+                path: 'https://upschool.co/blog/category/student-resources/',
+            },
+            {
+                title: 'Live Lesson Recordings',
+                path: 'https://upschool.co/blog/category/live-lesson-replays/',
+            },
+            {
+                title: 'Live Event Recordings',
+                path: 'https://upschool.co/blog/category/live-event-replays/',
+            },
         ],
     },
     {
