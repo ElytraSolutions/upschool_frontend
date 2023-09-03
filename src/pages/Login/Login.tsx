@@ -55,7 +55,7 @@ const Login = () => {
     return (
         <div className="relative flex flex-row justify-center items-center bg-gray-200 min-h-[90vh] py-12">
             <div className="w-[80vw] tab:w-[768px] bg-white flex justify-center items-center min-h-[80vh]  ">
-                <div className="w-11/12 max-h-[90%]">
+                <div className="w-11/12 max-h-[90%] py-6">
                     <div className="  mt-0.5 md:mt-2">
                         <h1 className="text-2xl font-bold text-font-color  px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
                             Welcome Back to Upschool.co

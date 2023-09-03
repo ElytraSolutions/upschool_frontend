@@ -5,12 +5,18 @@ import MenuItem from '@mui/material/MenuItem';
 
 const registerSchema = yup.object().shape({
     canvaAccount: yup.bool(),
-    condition1: yup
-        .bool()
-        .oneOf([true], 'You need to accept the terms and conditions'),
-    conditi0n2: yup
-        .bool()
-        .oneOf([true], 'You need to accept the terms and conditions'),
+    condition1: yup.bool().when('canvaAccount', {
+        is: true,
+        then: (schema) =>
+            schema.oneOf([true], 'You need to accept the terms and conditions'),
+        otherwise: (schema) => schema.oneOf([true, false]),
+    }),
+    conditi0n2: yup.bool().when('canvaAccount', {
+        is: true,
+        then: (schema) =>
+            schema.oneOf([true], 'You need to accept the terms and conditions'),
+        otherwise: (schema) => schema.oneOf([true, false]),
+    }),
     condition3: yup
         .bool()
         .oneOf([true], 'You need to accept the terms and conditions'),
@@ -55,22 +61,22 @@ export default function Step3({
                                     id="outlined-select-Canva-Account"
                                     select
                                     label=""
-                                    defaultValue="Yes"
+                                    defaultValue={true}
                                     onBlur={handleBlur}
                                     onChange={handleChange}
                                     value={values.canvaAccount}
                                     name="canvaAccount"
                                     error={
-                                        Boolean(touched.canvaAccount) &&
-                                        Boolean(errors.canvaAccount)
+                                        touched.canvaAccount &&
+                                        errors.canvaAccount
                                     }
                                     helperText={
                                         touched.canvaAccount &&
                                         (errors.canvaAccount as string)
                                     }
                                 >
-                                    <MenuItem value="1">{'Yes'}</MenuItem>
-                                    <MenuItem value="0">{'No'}</MenuItem>
+                                    <MenuItem value="true">{'Yes'}</MenuItem>
+                                    <MenuItem value="false">{'No'}</MenuItem>
                                 </TextField>
                             </div>
 
@@ -79,8 +85,7 @@ export default function Step3({
                                     type="checkbox"
                                     name="condition1"
                                     error={
-                                        Boolean(touched.condition1) &&
-                                        Boolean(errors.condition1)
+                                        touched.condition1 && errors.condition1
                                     }
                                     helperText={
                                         touched.condition1 && errors.condition1
@@ -95,8 +100,7 @@ export default function Step3({
                                     type="checkbox"
                                     name="condition2"
                                     error={
-                                        Boolean(touched.condition2) &&
-                                        Boolean(errors.condition2)
+                                        touched.condition2 && errors.condition2
                                     }
                                     helperText={
                                         touched.condition2 && errors.condition2
@@ -113,8 +117,7 @@ export default function Step3({
                                     type="checkbox"
                                     name="condition3"
                                     error={
-                                        Boolean(touched.condition3) &&
-                                        Boolean(errors.condition3)
+                                        touched.condition3 && errors.condition3
                                     }
                                     helperText={
                                         touched.condition3 && errors.condition3

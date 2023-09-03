@@ -5,10 +5,10 @@ export default function LoginIcon() {
                 <div className="relative w-6 h-6 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
                     <svg //imported from heroicons
                         xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
+                        fill="white"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke="currentColor"
+                        stroke="white"
                         className="w-6 h-6"
                     >
                         <path

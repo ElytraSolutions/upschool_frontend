@@ -5,11 +5,8 @@ import MenuItem from '@mui/material/MenuItem';
 
 const registerSchema = yup.object().shape({
     country: yup.string().required('required').max(255, 'Characters too long'),
-    role: yup.string().required('required'),
-    age: yup
-        .string()
-        .required('required')
-        .matches(/^[0-9]+$/, 'Age must be numeric'),
+    user_type_id: yup.string().required('required'),
+    date_of_birth: yup.date().required('required'),
 });
 
 interface IStep2Props {
@@ -36,7 +33,7 @@ export default function Step2({
     const roles = [
         {
             id: 1,
-            name: 'School Teacher',
+            name: 'Parent of Student',
         },
         {
             id: 2,
@@ -45,6 +42,10 @@ export default function Step2({
         {
             id: 3,
             name: 'Student (Under 18)',
+        },
+        {
+            id: 4,
+            name: 'School Teacher',
         },
     ];
     return (
@@ -101,13 +102,14 @@ export default function Step2({
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 value={values.role}
-                                name="role"
+                                name="user_type_id"
                                 error={
-                                    Boolean(touched.role) &&
-                                    Boolean(errors.role)
+                                    Boolean(touched.user_type_id) &&
+                                    Boolean(errors.user_type_id)
                                 }
                                 helperText={
-                                    touched.role && (errors.role as string)
+                                    touched.user_type_id &&
+                                    (errors.user_type_id as string)
                                 }
                             >
                                 {roles.map((role) => (
@@ -118,18 +120,15 @@ export default function Step2({
                             </TextField>
                             <TextField
                                 className=" row-span-1"
-                                type="text"
-                                label="Age"
-                                inputProps={{
-                                    inputMode: 'numeric',
-                                    pattern: '[0-9]*',
-                                }}
+                                type="data"
+                                label="Date of Birth"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.age}
-                                name="age"
+                                value={values.data_of_birth}
+                                name="date_of_birth"
                                 error={
-                                    Boolean(touched.age) && Boolean(errors.age)
+                                    Boolean(touched.date_of_birth) &&
+                                    Boolean(errors.date_of_birth)
                                 }
                                 helperText={
                                     touched.age && (errors.age as string)

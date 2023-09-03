@@ -8,19 +8,24 @@ import Step2 from './Step2';
 import Step3 from './Step3';
 import { SecondColumnProgressSection as ProgressSection } from '../../parts/PartsRegisterPage/SecondColumnProgressSection';
 import LoginPart from '../../parts/PartsRegisterPage/LoginPart';
+import axiosInstance from '../../config/Axios';
+import { useNavigate } from 'react-router-dom';
+import useUser from '../../hooks/useUser';
 
 export default function Registration() {
+    const { user, refresh } = useUser();
     const { isLargeScreen } = useScreenWidth(); //min-width=768px
     const [currentStep, setCurrentStep] = useState(0);
+    const navigate = useNavigate();
     const [currentData, setCurrentData] = useState({
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        password_confirmation: '',
         country: '',
-        role: '',
-        age: '',
+        user_type_id: '',
+        date_of_birth: '',
         canvaAccount: true,
         condition1: false,
         condition2: false,
@@ -31,6 +36,7 @@ export default function Registration() {
             isLargeScreen={isLargeScreen}
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
+                console.log(data);
                 setCurrentData((oldValue) => {
                     return { ...oldValue, ...data };
                 });
@@ -58,8 +64,15 @@ export default function Registration() {
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
                 const fullData = { ...currentData, ...data };
-                console.log(fullData);
+                const csrfResp = await axiosInstance.get(
+                    '/sanctum/csrf-cookie',
+                );
+                axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
+                    csrfResp.data.csrfToken;
+                await axiosInstance.post('/auth/register', fullData);
+                await refresh();
                 onSubmitProps.resetForm();
+                navigate('/');
             }}
             backHandler={(data) => {
                 setCurrentData((oldValue) => {
@@ -69,18 +82,21 @@ export default function Registration() {
             }}
         />,
     ];
+    if (user && user.id) {
+        navigate('/');
+    }
 
     return (
         <div
-            className="flex justify-center items-center bg-gray-200"
-            style={{ height: '90vh' }}
+            className="flex justify-center items-center bg-gray-200 py-8"
+            style={{ minHeight: '90vh' }}
         >
             {/*Layout*/}
             <div
                 className={`grid ${
                     isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
                 } gap-0 w-[90vw] xl:w-[60vw] ${
-                    isLargeScreen ? 'h-[80vh]' : 'h-[85vh]'
+                    isLargeScreen ? 'min-h-[80vh]' : 'min-h-[85vh]'
                 }`}
             >
                 {/* first column:Registration Form*/}

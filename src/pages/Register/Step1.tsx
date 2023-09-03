@@ -6,11 +6,14 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const registerSchema = yup.object().shape({
-    firstName: yup
+    first_name: yup
         .string()
         .required('required')
         .max(255, 'Characters too long'),
-    lastName: yup.string().required('required').max(255, 'Characters too long'),
+    last_name: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
     email: yup
         .string()
         .email('invalid email')
@@ -27,7 +30,7 @@ const registerSchema = yup.object().shape({
         .matches(/[a-z]/, 'Password requires a lowercase letter')
         .matches(/[A-Z]/, 'Password requires an uppercase letter')
         .matches(/[^\w]/, 'Password requires a symbol'),
-    confirmPassword: yup
+    password_confirmation: yup
         .string()
         .required('Please re-type your password')
         // use oneOf to match one of the values inside the array.
@@ -90,7 +93,7 @@ export default function Step1({
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 value={values.firstName}
-                                name="firstName"
+                                name="first_name"
                                 error={
                                     Boolean(touched.firstName) &&
                                     Boolean(errors.firstName)
@@ -109,7 +112,7 @@ export default function Step1({
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 value={values.lastName}
-                                name="lastName"
+                                name="last_name"
                                 error={
                                     Boolean(touched.lastName) &&
                                     Boolean(errors.lastName)
@@ -198,7 +201,7 @@ export default function Step1({
                                 onBlur={handleBlur}
                                 onChange={handleChange}
                                 value={values.confirmPassword}
-                                name="confirmPassword"
+                                name="password_confirmation"
                                 error={
                                     Boolean(touched.confirmPassword) &&
                                     Boolean(errors.confirmPassword)

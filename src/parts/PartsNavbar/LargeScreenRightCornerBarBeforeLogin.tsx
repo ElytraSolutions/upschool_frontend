@@ -9,7 +9,7 @@ const LargeScreenRightCornerBarBeforeLogin = () => {
                 </NavLink>
             </span>
             <span className="inline-block text-sm lg:text-sm text-white">
-                <NavLink to="/register">register</NavLink>
+                <NavLink to="/register">Register</NavLink>
             </span>
         </>
     );
