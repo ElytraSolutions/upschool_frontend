@@ -30,6 +30,8 @@ export default {
             },
             gridRow: {
                 'span-7': 'span 7/ span 7',
+                'span-8': 'span 8/ span 8',
+                'span-9': 'span 9/ span 9',
                 'span-10': 'span 10/ span 10',
             },
             gridRowStart: {

@@ -1,3 +1,5 @@
+import { UploadBookProgressBar as ProgressBarUB } from './UploadBookProgressBar';
+
 type ProgressSectionUBPorps = {
     currentStep: number;
 };
@@ -18,7 +20,7 @@ export const UploadBookProgressSection = ({
                     {/* grid of three rows */}
                     <div className="grid grid-rows-13 gap-y-3 max-h-full py-2">
                         {/* first row:progress stepper */}
-                        <div className="row-start-2 row-span-10 grid grid-cols-4 grid-rows-9 place-items-center gap-y-3 ">
+                        <div className="row-start-2 row-span-9 grid grid-cols-4 grid-rows-9 place-items-center gap-y-3  mb-2">
                             {/* first label */}
                             <div className="col-span-1">
                                 {/* Circle container */}
@@ -278,7 +280,7 @@ export const UploadBookProgressSection = ({
                         </div>
                         {/* second row:progress bar */}
                         <div className=" row-start-11 row-span-2">
-                            {/* <ProgressBar currentLevel={currentStep} /> */}
+                            <ProgressBarUB currentLevel={currentStep} />
                         </div>
                     </div>
                 </div>
