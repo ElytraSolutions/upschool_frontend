@@ -1,41 +1,11 @@
-import { useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { TextField, InputAdornment } from '@mui/material';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import Dropzone from 'react-dropzone';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import { TextField } from '@mui/material';
 
 const registerSchema = yup.object().shape({
-    first_name: yup
-        .string()
-        .required('required')
-        .max(255, 'Characters too long'),
-    last_name: yup
-        .string()
-        .required('required')
-        .max(255, 'Characters too long'),
-    email: yup
-        .string()
-        .email('invalid email')
-        .required('required')
-        .max(255, 'Characters too long'),
-    password: yup
-        .string()
-        .required('Please enter a password')
-        // check minimum characters
-        .min(8, 'Password must have at least 8 characters')
-        .max(255, 'Characters too long')
-        // different error messages for different requirements
-        .matches(/[0-9]/, 'Password requires a number')
-        .matches(/[a-z]/, 'Password requires a lowercase letter')
-        .matches(/[A-Z]/, 'Password requires an uppercase letter')
-        .matches(/[^\w]/, 'Password requires a symbol'),
-    password_confirmation: yup
-        .string()
-        .required('Please re-type your password')
-        // use oneOf to match one of the values inside the array.
-        // use "ref" to get the value of passwrod.
-        .oneOf([yup.ref('password')], 'Passwords does not match'),
+    file: yup.string().required('required'),
 });
 
 interface IStep1Props {
@@ -48,20 +18,6 @@ export function UploadBookStep1({
     oldValues,
     submitHandler,
 }: IStep1Props) {
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const handleTogglePasswordVisibility = (
-        e: React.MouseEvent<HTMLButtonElement>,
-    ) => {
-        e.preventDefault();
-        setShowPassword((oldState) => !oldState);
-    };
-    const handleToggleConfirmPasswordVisibility = (
-        e: React.MouseEvent<HTMLButtonElement>,
-    ) => {
-        e.preventDefault();
-        setShowConfirmPassword((oldState) => !oldState);
-    };
     return (
         <Formik
             onSubmit={submitHandler}
@@ -75,6 +31,7 @@ export function UploadBookStep1({
                 handleBlur,
                 handleChange,
                 handleSubmit,
+                setFieldValue,
             }) => (
                 <>
                     {/* First step form */}
@@ -139,78 +96,55 @@ export function UploadBookStep1({
                                     touched.email && (errors.email as string)
                                 }
                             />
-                            <TextField
-                                className={`${
-                                    isLargeScreen ? 'col-span-2' : 'col-span-4'
-                                }`}
-                                type={showPassword ? 'text' : 'password'}
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="end">
-                                            <button
-                                                onClick={
-                                                    handleTogglePasswordVisibility
-                                                }
+                            <div className="col-span-4  p-4 border bg-gray-100 rounded-b-lg text-gray-500 text-base font-light hover:border-black">
+                                <Dropzone
+                                    accept={{ 'application/pdf': ['.pdf'] }}
+                                    maxFiles={1}
+                                    multiple={false}
+                                    onDrop={(acceptedFile) => {
+                                        //console.log(acceptedFile[0]);
+                                        // File {
+                                        //     path: 'TestFile.pdf',
+                                        //     name: 'TestFile.pdf',
+                                        //     lastModified: 1693752820129,
+                                        //     lastModifiedDate: new Date('2023-09-03T14:53:40.000Z'),
+                                        //     webkitRelativePath: '',
+                                        //     size: 191843,
+                                        //     type: 'application/pdf'
+                                        //   }
+                                        setFieldValue('file', acceptedFile[0]);
+                                    }}
+                                >
+                                    {({ getRootProps, getInputProps }) => (
+                                        <section>
+                                            <div
+                                                {...getRootProps()}
+                                                className=" rounded-md overflow-hidden "
                                             >
-                                                {showPassword ? (
-                                                    <VisibilityOffIcon />
+                                                <input {...getInputProps()} />
+
+                                                {!values.file ? (
+                                                    <div className="">
+                                                        <p className=" flex items-center justify-center text-center bg-gray-100 border-2 border-gray-300 border-dashed p-4  h-40 w-full">
+                                                            Click to browse or{' '}
+                                                            <br />
+                                                            drag and drop your
+                                                            pdf file
+                                                        </p>
+                                                    </div>
                                                 ) : (
-                                                    <VisibilityIcon />
+                                                    <div className="flex felx-row justify-between">
+                                                        <h4>
+                                                            {values.file?.name}
+                                                        </h4>
+                                                        <EditOutlinedIcon />
+                                                    </div>
                                                 )}
-                                            </button>
-                                        </InputAdornment>
-                                    ),
-                                }}
-                                label="Password"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                value={values.password}
-                                name="password"
-                                error={
-                                    Boolean(touched.password) &&
-                                    Boolean(errors.password)
-                                }
-                                helperText={
-                                    touched.password &&
-                                    (errors.password as string)
-                                }
-                            />
-                            <TextField
-                                className={`${
-                                    isLargeScreen ? 'col-span-2' : 'col-span-4'
-                                }`}
-                                type={showConfirmPassword ? 'text' : 'password'}
-                                InputProps={{
-                                    endAdornment: (
-                                        <InputAdornment position="end">
-                                            <button
-                                                onClick={
-                                                    handleToggleConfirmPasswordVisibility
-                                                }
-                                            >
-                                                {showConfirmPassword ? (
-                                                    <VisibilityOffIcon />
-                                                ) : (
-                                                    <VisibilityIcon />
-                                                )}
-                                            </button>
-                                        </InputAdornment>
-                                    ),
-                                }}
-                                label="Confirm password"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                value={values.confirmPassword}
-                                name="password_confirmation"
-                                error={
-                                    Boolean(touched.confirmPassword) &&
-                                    Boolean(errors.confirmPassword)
-                                }
-                                helperText={
-                                    touched.confirmPassword &&
-                                    (errors.confirmPassword as string)
-                                }
-                            />
+                                            </div>
+                                        </section>
+                                    )}
+                                </Dropzone>
+                            </div>
                         </div>
                         <div
                             className={`grid grid-cols-4 gap-4  p-2 ${
