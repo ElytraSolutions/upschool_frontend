@@ -1,4 +1,3 @@
-import { userData } from '../../data/NavbarBoxData';
 import ProfileIcon from '../../parts/PartsNavbar/ProfileIcon';
 import { NavLink, Navigate } from 'react-router-dom';
 import { NavbarBox as Box } from '../../parts/PartsNavbar/NavbarBox';

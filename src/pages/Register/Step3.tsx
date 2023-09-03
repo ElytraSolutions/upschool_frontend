@@ -67,8 +67,8 @@ export default function Step3({
                                     value={values.canvaAccount}
                                     name="canvaAccount"
                                     error={
-                                        touched.canvaAccount &&
-                                        errors.canvaAccount
+                                        Boolean(touched.canvaAccount) &&
+                                        Boolean(errors.canvaAccount)
                                     }
                                     helperText={
                                         touched.canvaAccount &&
