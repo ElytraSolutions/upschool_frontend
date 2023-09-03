@@ -3,9 +3,9 @@ import useScreenWidth from '../../hooks/useScreenWidth';
 
 import RegisterStepIHeader from '../../parts/PartsRegisterPage/RegisterStepIHeader';
 import RegisterStepIIIHeader from '../../parts/PartsRegisterPage/RegisterStepIIIHeader';
-import Step1 from '../Register/Step1';
-import Step2 from '../Register/Step2';
-import Step3 from '../Register/Step3';
+import { UploadBookStep1 as UBStep1 } from './UploadBookStep1';
+import { UploadBookStep2 as UBStep2 } from './UploadBookStep2';
+import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
 import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/PartsUploadBook/UploadBookProgressSection';
 import LoginPart from '../../parts/PartsRegisterPage/LoginPart';
 import axiosInstance from '../../config/Axios';
@@ -16,19 +16,19 @@ export const UploadBook = () => {
     const [currentData, setCurrentData] = useState({
         first_name: '',
         last_name: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
+        school_name: '',
         country: '',
-        user_type_id: '',
-        date_of_birth: '',
-        canvaAccount: true,
-        condition1: false,
-        condition2: false,
-        condition3: false,
+        age: '',
+        email: '',
+        book_title: '',
+        book_description: '',
+        canva_book_link: '',
+        file: '',
+        categories: '',
+        project: '',
     });
     const components = [
-        <Step1
+        <UBStep1
             isLargeScreen={isLargeScreen}
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
@@ -40,7 +40,7 @@ export const UploadBook = () => {
                 setCurrentStep((oldStep) => oldStep + 1);
             }}
         />,
-        <Step2
+        <UBStep2
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
                 setCurrentData((oldValue) => {
@@ -56,7 +56,7 @@ export const UploadBook = () => {
                 setCurrentStep(0);
             }}
         />,
-        <Step3
+        <UBStep3
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
                 const fullData = { ...currentData, ...data };
