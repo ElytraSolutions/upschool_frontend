@@ -1,5 +1,5 @@
-import { data, navData } from '../../data/NavbarBoxData';
-import { NavLink } from 'react-router-dom';
+import { data } from '../../data/NavbarBoxData';
+
 import { NavbarBox as Box } from './NavbarBox';
 
 const LargeScreenMenuBar = () => {
@@ -8,14 +8,14 @@ const LargeScreenMenuBar = () => {
             {data.map((inf) => (
                 <Box key={inf.id} inf={inf} />
             ))}
-            <span className="pr-1 block w-32 max-w-fit">
+            {/* <span className="pr-1 block w-32 max-w-fit">
                 <NavLink
                     to={navData.path ? navData.path : '#'}
                     className="text-white text-sm"
                 >
                     {navData.title}
                 </NavLink>
-            </span>
+            </span> */}
         </div>
     );
 };

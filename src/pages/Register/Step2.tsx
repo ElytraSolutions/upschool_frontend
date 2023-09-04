@@ -120,7 +120,7 @@ export default function Step2({
                             </TextField>
                             <TextField
                                 className=" row-span-1"
-                                type="data"
+                                type="date"
                                 label="Date of Birth"
                                 onBlur={handleBlur}
                                 onChange={handleChange}

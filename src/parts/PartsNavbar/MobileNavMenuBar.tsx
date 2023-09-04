@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { data, navData } from '../../data/NavbarBoxData';
+import { data } from '../../data/NavbarBoxData';
 import { NavLink } from 'react-router-dom';
 import upSchoolLogoMobile from '../../assets/Upschool_logo_Mobile_Navbar-300x57.png';
 // import './MobileNavMenuBar.css';
@@ -483,11 +483,11 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                     </ul>
                                 </li>
                                 {/* Eight List */}
-                                <li className="rounded-md p-2 text-sm hover:bg-red-500  hover:scale-110">
+                                {/* <li className="rounded-md p-2 text-sm hover:bg-red-500  hover:scale-110">
                                     <NavLink to={navData.path || '#'}>
                                         {navData.title}
                                     </NavLink>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>

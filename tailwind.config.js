@@ -6,6 +6,7 @@ export default {
             colors: {
                 'theme-color': '#242254',
                 'font-color': '#03014C',
+                'red-upschool': '#B81242',
             },
             flexGrow: {
                 2: '2',
