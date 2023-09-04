@@ -63,7 +63,7 @@ export default function Navbar() {
                     <div
                         className={`flex  ${
                             isBigScreen ? 'grow-2 shrink' : 'flex-1'
-                        } items-center lg:gap-4 xl:gap-6`}
+                        } items-center lg:gap-4 xl:gap-6 2xl:gap-8 `}
                     >
                         <div style={styles}>
                             <NavLink to="/">
