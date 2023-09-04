@@ -92,33 +92,12 @@ export const UploadBook = () => {
                 >
                     {/* first column:Registration Form*/}
                     <div
-                        className=" col-span-11 flex flex-wrap content-center  justify-center bg-white"
+                        className="col-span-11 flex  items-center justify-center bg-gray-100"
                         style={{ height: 'inherit' }}
                     >
-                        <div className="w-11/12 ">
-                            {/* <!-- Heading --> */}
-                            {currentStep == 0 && (
-                                <RegisterStepIHeader
-                                    showOauth
-                                    isLargeScreen={isLargeScreen}
-                                />
-                            )}
-                            {currentStep == 1 && (
-                                <RegisterStepIHeader showOauth={false} />
-                            )}
-                            {currentStep == 2 && <RegisterStepIIIHeader />}
-
-                            {/* <!-- Form --> */}
-                            {/* First form */}
+                        <div className="w-11/12 h-[90%]">
                             {components[currentStep]}
                         </div>
-                        {!isLargeScreen && (
-                            <div className="text-black grid grid-cols-10 content-center w-full">
-                                <div className="col-span-10 flex flex-1 flex-wrap justify-center text-sm ">
-                                    <LoginPart />
-                                </div>
-                            </div>
-                        )}
                     </div>
                     {/* Second column*/}
                     {isLargeScreen && (

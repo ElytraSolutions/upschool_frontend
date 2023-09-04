@@ -18,11 +18,11 @@ const SmallScreenRightCornerBarAfterLogin = () => {
                     ></path>
                 </svg>
             </span>
-            <ul className="bg-white border rounded-md transform scale-0 group-hover/bar:scale-100 absolute transition duration-150 ease-in-out origin-top -translate-x-7 overflow-hidden">
-                <li className="hover:bg-red-700">
+            <ul className="bg-white rounded-md transform scale-0 group-hover/bar:scale-100 absolute transition duration-150 ease-in-out origin-top -translate-x-7 overflow-hidden">
+                <li className="hover:bg-red-upschool">
                     <NavLink to="login">Profile</NavLink>
                 </li>
-                <li className="hover:bg-red-700">
+                <li className="hover:bg-red-upschool">
                     <NavLink to="register">upSchool</NavLink>
                 </li>
             </ul>

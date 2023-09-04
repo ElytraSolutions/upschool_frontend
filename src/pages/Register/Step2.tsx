@@ -91,21 +91,6 @@ export default function Step2({
                                     </MenuItem>
                                 ))}
                             </TextField>
-
-                            {/* <div className="">
-                                <select
-                                    className="border border-black h-8"
-                                    value={values.country}
-                                    onChange={handleChange}
-                                    name="country"
-                                >
-                                    {countries.map((country) => (
-                                        <option value={country.name}>
-                                            {country.name}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div> */}
                             <TextField
                                 className="row-span-1"
                                 id="outlined-select-role"
