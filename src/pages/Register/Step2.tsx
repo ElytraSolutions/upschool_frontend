@@ -55,44 +55,43 @@ export default function Step2({
                 <>
                     <form onSubmit={handleSubmit}>
                         <div className="grid grid-rows-3  w-11/12 gap-4 p-2 m-2">
-                            <div className="relative row-span-1">
-                                <TextField
-                                    className="w-full"
-                                    id="outlined-select-country"
-                                    select
-                                    label="Select your country"
-                                    defaultValue=""
-                                    onBlur={handleBlur}
-                                    onChange={handleChange}
-                                    value={values.country}
-                                    name="country"
-                                    error={
-                                        Boolean(touched.country) &&
-                                        Boolean(errors.country)
-                                    }
-                                    helperText={
-                                        touched.country &&
-                                        (errors.country as string)
-                                    }
-                                    SelectProps={{
-                                        MenuProps: {
-                                            style: {
-                                                maxHeight: '40%',
-                                                maxWidth: '80%',
-                                            }, // Set your desired max height and max width for dropdown menu
-                                        },
-                                    }}
-                                >
-                                    {countries.map((country) => (
-                                        <MenuItem
-                                            key={country.name}
-                                            value={country.name}
-                                        >
-                                            {country.name}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
-                            </div>
+                            <TextField
+                                className="w-full row-span-1"
+                                id="outlined-select-country"
+                                select
+                                label="Select your country"
+                                defaultValue=""
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                value={values.country}
+                                name="country"
+                                error={
+                                    Boolean(touched.country) &&
+                                    Boolean(errors.country)
+                                }
+                                helperText={
+                                    touched.country &&
+                                    (errors.country as string)
+                                }
+                                SelectProps={{
+                                    MenuProps: {
+                                        style: {
+                                            maxHeight: '40%',
+                                            maxWidth: '80%',
+                                        }, // Set your desired max height and max width for dropdown menu
+                                    },
+                                }}
+                            >
+                                {countries.map((country) => (
+                                    <MenuItem
+                                        key={country.name}
+                                        value={country.name}
+                                    >
+                                        {country.name}
+                                    </MenuItem>
+                                ))}
+                            </TextField>
+
                             {/* <div className="">
                                 <select
                                     className="border border-black h-8"
