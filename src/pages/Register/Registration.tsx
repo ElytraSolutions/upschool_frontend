@@ -26,10 +26,10 @@ export default function Registration() {
         country: '',
         user_type_id: '',
         date_of_birth: '',
-        canvaAccount: true,
-        condition1: false,
-        condition2: false,
-        condition3: false,
+        canvaAccount: 'true',
+        condition1: true,
+        condition2: true,
+        condition3: true,
     });
     const components = [
         <Step1
