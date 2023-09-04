@@ -2,7 +2,6 @@ import { Formik, Field } from 'formik';
 import * as yup from 'yup';
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react';
 
 const registerSchema = yup.object().shape({
     canvaAccount: yup.string(),

@@ -1,7 +1,8 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { TextField } from '@mui/material';
+import { TextField, FormControl, Select, InputLabel } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
+import { countries } from '../../data/countries';
 
 const registerSchema = yup.object().shape({
     country: yup.string().required('required').max(255, 'Characters too long'),
@@ -19,17 +20,6 @@ export default function Step2({
     backHandler,
     submitHandler,
 }: IStep2Props) {
-    const countries = [
-        {
-            name: 'Nepal',
-        },
-        {
-            name: 'India',
-        },
-        {
-            name: 'China',
-        },
-    ];
     const roles = [
         {
             id: 1,
@@ -65,34 +55,58 @@ export default function Step2({
                 <>
                     <form onSubmit={handleSubmit}>
                         <div className="grid grid-rows-3  w-11/12 gap-4 p-2 m-2">
-                            <TextField
-                                className="row-span-1"
-                                id="outlined-select-country"
-                                select
-                                label="Select your country"
-                                defaultValue=""
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                value={values.country}
-                                name="country"
-                                error={
-                                    Boolean(touched.country) &&
-                                    Boolean(errors.country)
-                                }
-                                helperText={
-                                    touched.country &&
-                                    (errors.country as string)
-                                }
-                            >
-                                {countries.map((country) => (
-                                    <MenuItem
-                                        key={country.name}
-                                        value={country.name}
-                                    >
-                                        {country.name}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
+                            <div className="relative row-span-1">
+                                <TextField
+                                    className="w-full"
+                                    id="outlined-select-country"
+                                    select
+                                    label="Select your country"
+                                    defaultValue=""
+                                    onBlur={handleBlur}
+                                    onChange={handleChange}
+                                    value={values.country}
+                                    name="country"
+                                    error={
+                                        Boolean(touched.country) &&
+                                        Boolean(errors.country)
+                                    }
+                                    helperText={
+                                        touched.country &&
+                                        (errors.country as string)
+                                    }
+                                    SelectProps={{
+                                        MenuProps: {
+                                            style: {
+                                                maxHeight: '40%',
+                                                maxWidth: '80%',
+                                            }, // Set your desired max height and max width for dropdown menu
+                                        },
+                                    }}
+                                >
+                                    {countries.map((country) => (
+                                        <MenuItem
+                                            key={country.name}
+                                            value={country.name}
+                                        >
+                                            {country.name}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </div>
+                            {/* <div className="">
+                                <select
+                                    className="border border-black h-8"
+                                    value={values.country}
+                                    onChange={handleChange}
+                                    name="country"
+                                >
+                                    {countries.map((country) => (
+                                        <option value={country.name}>
+                                            {country.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div> */}
                             <TextField
                                 className="row-span-1"
                                 id="outlined-select-role"
