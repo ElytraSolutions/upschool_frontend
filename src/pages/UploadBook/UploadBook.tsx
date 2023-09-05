@@ -1,13 +1,9 @@
 import { useState } from 'react';
 import useScreenWidth from '../../hooks/useScreenWidth';
-
-import RegisterStepIHeader from '../../parts/PartsRegisterPage/RegisterStepIHeader';
-import RegisterStepIIIHeader from '../../parts/PartsRegisterPage/RegisterStepIIIHeader';
 import { UploadBookStep1 as UBStep1 } from './UploadBookStep1';
 import { UploadBookStep2 as UBStep2 } from './UploadBookStep2';
 import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
 import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/PartsUploadBook/UploadBookProgressSection';
-import LoginPart from '../../parts/PartsRegisterPage/LoginPart';
 import axiosInstance from '../../config/Axios';
 
 export const UploadBook = () => {
