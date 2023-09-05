@@ -2,7 +2,6 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import Dropzone from 'react-dropzone';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import { TextField } from '@mui/material';
 
 const registerSchema = yup.object().shape({
     file: yup.string().required('required'),
@@ -19,13 +18,13 @@ export function UploadBookStep1({
     submitHandler,
 }: IStep1Props) {
     return (
-        <div className=" grid grid-rows-12  gap-1">
-            <div className="row-start-2 row-span-1 flex items-center justify-start">
+        <div className=" grid grid-rows-12  gap-3">
+            <div className="row-start-1 row-span-2 flex items-center justify-start">
                 <h1 className="text-font-color text-xl sm:text-2xl tab:text-3xl xl:text-4xl 2xl:text-5xl  font-medium lg:font-semibold">
                     Upload Your Book!
                 </h1>
             </div>
-            <div className="row-start-4 row-span-8 grid grid-rows-8">
+            <div className="row-start-3 row-span-9 grid grid-rows-8">
                 <div className=" row-span-1 rounded-t-lg bg-white p-4 h-16 flex items-center justify-center">
                     <div className="bg-red-upschool text-white border border-black rounded-full h-10 w-full flex justify-center items-center">
                         <h2>View book Upload Checklist</h2>
@@ -38,10 +37,10 @@ export function UploadBookStep1({
                 >
                     {({
                         values,
-                        errors,
-                        touched,
-                        handleBlur,
-                        handleChange,
+                        // errors,
+                        // touched,
+                        // handleBlur,
+                        // handleChange,
                         handleSubmit,
                         setFieldValue,
                     }) => (
