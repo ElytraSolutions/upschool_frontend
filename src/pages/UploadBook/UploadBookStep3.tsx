@@ -1,8 +1,5 @@
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { TextField } from '@mui/material';
-import MenuItem from '@mui/material/MenuItem';
-
 const registerSchema = yup.object().shape({
     categories: yup
         .array()
