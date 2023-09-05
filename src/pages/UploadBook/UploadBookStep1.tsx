@@ -1,10 +1,10 @@
-import { Formik } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import Dropzone from 'react-dropzone';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 const registerSchema = yup.object().shape({
-    file: yup.string().required('required'),
+    file: yup.string().required("You have'nt uploaded the book"),
 });
 
 interface IStep1Props {
@@ -39,7 +39,7 @@ export function UploadBookStep1({
                 >
                     {({
                         values,
-                        // errors,
+                        //errors,
                         // touched,
                         // handleBlur,
                         // handleChange,
@@ -52,7 +52,7 @@ export function UploadBookStep1({
                                 onSubmit={handleSubmit}
                                 className="row-span-7 grid grid-rows-7"
                             >
-                                <div className="row-span-5 border border-gray-200 p-2 mt-0 bg-gray-200 rounded-b-lg hover:border-black flex items-center h-52 sm:h-60 md:h-72">
+                                <div className="row-span-5 border border-gray-200 p-2 mt-0 bg-gray-200 rounded-b-lg hover:border-black flex flex-col justify-center  h-52 sm:h-60 md:h-72">
                                     <div className="p-4 text-gray-500 text-base font-light w-full">
                                         <Dropzone
                                             accept={{
@@ -118,6 +118,14 @@ export function UploadBookStep1({
                                             )}
                                         </Dropzone>
                                     </div>
+                                    <ErrorMessage
+                                        name="file"
+                                        render={(msg) => (
+                                            <div className="text-center text-red-upschool text-sm md:text-base p-1">
+                                                {msg}
+                                            </div>
+                                        )}
+                                    />
                                 </div>
                                 <div
                                     className={`row-span-2 grid grid-cols-4 gap-4  p-2 ${

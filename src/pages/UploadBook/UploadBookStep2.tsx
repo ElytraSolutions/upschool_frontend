@@ -13,10 +13,7 @@ const registerSchema = yup.object().shape({
         .string()
         .required('required')
         .max(255, 'Characters too long'),
-    school_name: yup
-        .string()
-        .required('required')
-        .max(255, 'Characters too long'),
+    school_name: yup.string().max(255, 'Characters too long'),
     email: yup
         .string()
         .email('invalid email')
@@ -264,7 +261,7 @@ export function UploadBookStep2({
                             }
                         />
 
-                        <div className="col-span-2 grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
+                        <div className="col-span-2 grid grid-cols-4 gap-4  p-2 pr-3  w-full font-normal text-base">
                             <button
                                 className=" invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
                                 onClick={(e) => {

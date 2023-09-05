@@ -6,6 +6,35 @@ import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
 import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/PartsUploadBook/UploadBookProgressSection';
 import axiosInstance from '../../config/Axios';
 
+const options = [
+    'Accepting Differences',
+    'Compassion for Others',
+    'Empathy',
+    'Family',
+    'Generosity and Sharing',
+    'Hard Work',
+    'Honesty and Trust',
+    'Imagination and Exploring Possibiities',
+    'Loss and Grief',
+    'Loyality and Dedication',
+    'Peace on Earth',
+    'Racism and Injustice',
+    'Self-Control',
+    'Value and Power of Friendship',
+    'Bravery and Courage',
+    'Education',
+    'Fairness and Equity',
+    'Friendships',
+    'Growing Up',
+    'Holidays and Traditions',
+    'Hope for the Future',
+    'Perseverance and Persistence',
+    'Kindness',
+    'Love',
+    'Making a Difference',
+    'Teamwork and Collaboration',
+    'School Live',
+];
 export const UploadBook = () => {
     const { isLargeScreen } = useScreenWidth(); //min-width=768px
     const [currentStep, setCurrentStep] = useState(0);
@@ -20,7 +49,7 @@ export const UploadBook = () => {
         book_description: '',
         canva_book_link: '',
         file: '',
-        categories: '',
+        categories: [],
         project: '',
     });
     const components = [
@@ -28,7 +57,7 @@ export const UploadBook = () => {
             isLargeScreen={isLargeScreen}
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
-                console.log(data);
+                // console.log(data);
                 setCurrentData((oldValue) => {
                     return { ...oldValue, ...data };
                 });
@@ -54,6 +83,7 @@ export const UploadBook = () => {
             }}
         />,
         <UBStep3
+            options={options}
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
                 const fullData = { ...currentData, ...data };
