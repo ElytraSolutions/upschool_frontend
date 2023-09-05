@@ -18,16 +18,18 @@ export function UploadBookStep1({
     submitHandler,
 }: IStep1Props) {
     return (
-        <div className=" grid grid-rows-12  gap-3">
-            <div className="row-start-1 row-span-2 flex items-center justify-start">
+        <div className=" grid grid-rows-6  md:grid-rows-11  gap-3">
+            <div className="row-start-1  row-span-1 md:row-span-2 flex items-center justify-start">
                 <h1 className="text-font-color text-xl sm:text-2xl tab:text-3xl xl:text-4xl 2xl:text-5xl  font-medium lg:font-semibold">
                     Upload Your Book!
                 </h1>
             </div>
-            <div className="row-start-3 row-span-9 grid grid-rows-8">
+            <div className="md:row-start-3 row-span-5 md:row-span-9 grid grid-rows-6 md:grid-rows-8">
                 <div className=" row-span-1 rounded-t-lg bg-white p-4 h-16 flex items-center justify-center">
-                    <div className="bg-red-upschool text-white border border-black rounded-full h-10 w-full flex justify-center items-center">
-                        <h2>View book Upload Checklist</h2>
+                    <div className="bg-red-upschool text-white border border-black rounded-full h-10 w-full flex justify-center items-center overflow-hidden">
+                        <h2 className=" inline-block">
+                            View book Upload Checklist
+                        </h2>
                     </div>
                 </div>
                 <Formik
@@ -50,7 +52,7 @@ export function UploadBookStep1({
                                 onSubmit={handleSubmit}
                                 className="row-span-7 grid grid-rows-7"
                             >
-                                <div className="row-span-5 border border-gray-200 p-2 mt-0 bg-gray-200 rounded-b-lg hover:border-black flex items-center">
+                                <div className="row-span-5 border border-gray-200 p-2 mt-0 bg-gray-200 rounded-b-lg hover:border-black flex items-center h-52 sm:h-60 md:h-72">
                                     <div className="p-4 text-gray-500 text-base font-light w-full">
                                         <Dropzone
                                             accept={{
@@ -90,7 +92,7 @@ export function UploadBookStep1({
 
                                                         {!values.file ? (
                                                             <div className="">
-                                                                <p className=" flex items-center justify-center text-center bg-gray-200 border-2 border-gray-400 border-dashed p-4  h-40 w-full">
+                                                                <p className=" flex items-center justify-center text-center bg-gray-200 border-2 border-gray-400 border-dashed p-4 h-28 sm:h-32 md:h-40 w-full">
                                                                     Click to
                                                                     browse or{' '}
                                                                     <br />

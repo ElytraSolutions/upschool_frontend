@@ -2,52 +2,51 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
+import { countries } from '../../data/countries';
 
 const registerSchema = yup.object().shape({
+    first_name: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
+    last_name: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
+    school_name: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
+    email: yup
+        .string()
+        .email('invalid email')
+        .required('required')
+        .max(255, 'Characters too long'),
     country: yup.string().required('required').max(255, 'Characters too long'),
-    user_type_id: yup.string().required('required'),
     date_of_birth: yup.date().required('required'),
+    book_title: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
+    book_description: yup.string().required('required'),
+    canva_book_link: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
 });
 
 interface IStep2Props {
+    isLargeScreen: boolean;
     oldValues: Record<string, any>;
     backHandler: (values: any) => void;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
 }
 export function UploadBookStep2({
+    isLargeScreen,
     oldValues,
     backHandler,
     submitHandler,
 }: IStep2Props) {
-    const countries = [
-        {
-            name: 'Nepal',
-        },
-        {
-            name: 'India',
-        },
-        {
-            name: 'China',
-        },
-    ];
-    const roles = [
-        {
-            id: 1,
-            name: 'Parent of Student',
-        },
-        {
-            id: 2,
-            name: 'Student (Over 18)',
-        },
-        {
-            id: 3,
-            name: 'Student (Under 18)',
-        },
-        {
-            id: 4,
-            name: 'School Teacher',
-        },
-    ];
     return (
         <Formik
             onSubmit={submitHandler}
@@ -63,79 +62,206 @@ export function UploadBookStep2({
                 handleSubmit,
             }) => (
                 <>
-                    <form onSubmit={handleSubmit}>
-                        <div className="grid grid-rows-3  w-11/12 gap-4 p-2 m-2">
-                            <TextField
-                                className="row-span-1"
-                                id="outlined-select-country"
-                                select
-                                label="Select your country"
-                                defaultValue=""
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                value={values.country}
-                                name="country"
-                                error={
-                                    Boolean(touched.country) &&
-                                    Boolean(errors.country)
-                                }
-                                helperText={
-                                    touched.country &&
-                                    (errors.country as string)
-                                }
-                            >
-                                {countries.map((country) => (
-                                    <MenuItem
-                                        key={country.name}
-                                        value={country.name}
-                                    >
-                                        {country.name}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                            <TextField
-                                className="row-span-1"
-                                id="outlined-select-role"
-                                select
-                                label="Select your role"
-                                defaultValue=""
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                value={values.role}
-                                name="user_type_id"
-                                error={
-                                    Boolean(touched.user_type_id) &&
-                                    Boolean(errors.user_type_id)
-                                }
-                                helperText={
-                                    touched.user_type_id &&
-                                    (errors.user_type_id as string)
-                                }
-                            >
-                                {roles.map((role) => (
-                                    <MenuItem key={role.id} value={role.id}>
-                                        {role.name}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                            <TextField
-                                className=" row-span-1"
-                                type="data"
-                                label="Date of Birth"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                value={values.data_of_birth}
-                                name="date_of_birth"
-                                error={
-                                    Boolean(touched.date_of_birth) &&
-                                    Boolean(errors.date_of_birth)
-                                }
-                                helperText={
-                                    touched.age && (errors.age as string)
-                                }
-                            />
+                    <form
+                        onSubmit={handleSubmit}
+                        className="grid grid-cols-2 space-x-4 space-y-4"
+                    >
+                        <div className="col-span-2"></div>
+                        <div className="col-span-2 flex items-center justify-start">
+                            <h1 className="text-font-color text-xl sm:text-2xl tab:text-3xl xl:text-4xl 2xl:text-5xl  font-medium lg:font-semibold">
+                                About Your Book!
+                            </h1>
                         </div>
-                        <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
+                        <TextField
+                            className="col-span-2"
+                            type="text"
+                            label="Book Title"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.school_name}
+                            name="school_name"
+                            error={
+                                Boolean(touched.school_name) &&
+                                Boolean(errors.school_name)
+                            }
+                            helperText={
+                                touched.school_name &&
+                                (errors.school_name as string)
+                            }
+                        />
+                        <TextField
+                            className="col-span-2"
+                            type="text"
+                            label="Book Description"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.school_name}
+                            multiline
+                            rows={4}
+                            name="school_name"
+                            error={
+                                Boolean(touched.school_name) &&
+                                Boolean(errors.school_name)
+                            }
+                            helperText={
+                                touched.school_name &&
+                                (errors.school_name as string)
+                            }
+                        />
+                        <TextField
+                            className="col-span-2"
+                            type="text"
+                            label="Canva Book Link"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.school_name}
+                            name="school_name"
+                            error={
+                                Boolean(touched.school_name) &&
+                                Boolean(errors.school_name)
+                            }
+                            helperText={
+                                touched.school_name &&
+                                (errors.school_name as string)
+                            }
+                        />
+
+                        <div className="col-span-2 flex items-center justify-start">
+                            <h1 className="text-font-color text-sm lg:text-xl font-medium underline underline-offset-2">
+                                View how to get the link from Canva
+                            </h1>
+                        </div>
+                        <TextField
+                            className=" col-span-2"
+                            type="email"
+                            label="Email"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.email}
+                            name="email"
+                            error={
+                                Boolean(touched.email) && Boolean(errors.email)
+                            }
+                            helperText={
+                                touched.email && (errors.email as string)
+                            }
+                        />
+                        <div className="col-span-2 flex items-center justify-start">
+                            <h1 className="text-font-color text-xl sm:text-2xl tab:text-3xl xl:text-4xl 2xl:text-5xl  font-medium lg:font-semibold">
+                                About You
+                            </h1>
+                        </div>
+                        <TextField
+                            className={`${
+                                isLargeScreen ? 'col-span-1' : 'col-span-2'
+                            }`}
+                            type="text"
+                            label="First Name"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.first_name}
+                            name="first_name"
+                            error={
+                                Boolean(touched.first_name) &&
+                                Boolean(errors.first_name)
+                            }
+                            helperText={
+                                touched.first_name &&
+                                (errors.first_name as string)
+                            }
+                        />
+                        <TextField
+                            className={`${
+                                isLargeScreen ? 'col-span-1' : 'col-span-2'
+                            }`}
+                            type="text"
+                            label="Last Name"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.last_name}
+                            name="last_name"
+                            error={
+                                Boolean(touched.last_name) &&
+                                Boolean(errors.last_name)
+                            }
+                            helperText={
+                                touched.last_name &&
+                                (errors.last_name as string)
+                            }
+                        />
+                        <TextField
+                            className="col-span-2"
+                            type="text"
+                            label="Your School Name (Optional)"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.school_name}
+                            name="school_name"
+                            error={
+                                Boolean(touched.school_name) &&
+                                Boolean(errors.school_name)
+                            }
+                            helperText={
+                                touched.school_name &&
+                                (errors.school_name as string)
+                            }
+                        />
+
+                        <TextField
+                            className={`${
+                                isLargeScreen ? 'col-span-1' : 'col-span-2'
+                            }`}
+                            id="outlined-select-country"
+                            select
+                            label="Select your country"
+                            defaultValue=""
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.country}
+                            name="country"
+                            error={
+                                Boolean(touched.country) &&
+                                Boolean(errors.country)
+                            }
+                            helperText={
+                                touched.country && (errors.country as string)
+                            }
+                            SelectProps={{
+                                MenuProps: {
+                                    style: {
+                                        maxHeight: '40%',
+                                        maxWidth: '20%',
+                                    }, // Set your desired max height and max width for dropdown menu
+                                },
+                            }}
+                        >
+                            {countries.map((country) => (
+                                <MenuItem
+                                    key={country.name}
+                                    value={country.name}
+                                >
+                                    {country.name}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+                        <TextField
+                            className={`${
+                                isLargeScreen ? 'col-span-1' : 'col-span-2'
+                            }`}
+                            type="date"
+                            label="Date of Birth"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.data_of_birth}
+                            name="date_of_birth"
+                            error={
+                                Boolean(touched.date_of_birth) &&
+                                Boolean(errors.date_of_birth)
+                            }
+                            helperText={touched.age && (errors.age as string)}
+                        />
+
+                        <div className="col-span-2 grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
                             <button
                                 className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
                                 onClick={(e) => {
@@ -187,6 +313,7 @@ export function UploadBookStep2({
                                 </span>
                             </button>
                         </div>
+                        <div className="col-span-2"></div>
                     </form>
                 </>
             )}

@@ -37,6 +37,7 @@ export const UploadBook = () => {
             }}
         />,
         <UBStep2
+            isLargeScreen={isLargeScreen}
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
                 setCurrentData((oldValue) => {
@@ -75,23 +76,22 @@ export const UploadBook = () => {
     return (
         <>
             <div
-                className="flex justify-center items-center bg-gray-200 py-8"
-                style={{ minHeight: '90vh' }}
+                className={`flex justify-center items-center bg-gray-200 py-4 max-h-[90vh] `}
             >
                 {/*Layout*/}
                 <div
                     className={`grid ${
-                        isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
-                    } gap-0 w-[90vw] xl:w-[60vw] ${
-                        isLargeScreen ? 'min-h-[80vh]' : 'min-h-[85vh]'
-                    }`}
+                        isLargeScreen
+                            ? 'grid-cols-16 h-[75vh] '
+                            : 'grid-cols-11 h-[65vh]'
+                    } gap-0 w-[90vw] xl:w-[60vw] `}
                 >
                     {/* first column:Registration Form*/}
                     <div
-                        className="col-span-11 flex  items-center justify-center bg-gray-100"
+                        className="col-span-11 flex  items-center justify-center  overflow-y-auto bg-gray-100 "
                         style={{ height: 'inherit' }}
                     >
-                        <div className="w-11/12 h-[90%]">
+                        <div className="w-11/12 h-full ">
                             {components[currentStep]}
                         </div>
                     </div>
