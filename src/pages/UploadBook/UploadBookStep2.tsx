@@ -78,15 +78,15 @@ export function UploadBookStep2({
                             label="Book Title"
                             onBlur={handleBlur}
                             onChange={handleChange}
-                            value={values.school_name}
-                            name="school_name"
+                            value={values.book_title}
+                            name="book_title"
                             error={
-                                Boolean(touched.school_name) &&
-                                Boolean(errors.school_name)
+                                Boolean(touched.book_title) &&
+                                Boolean(errors.book_title)
                             }
                             helperText={
-                                touched.school_name &&
-                                (errors.school_name as string)
+                                touched.book_title &&
+                                (errors.book_title as string)
                             }
                         />
                         <TextField
@@ -95,17 +95,17 @@ export function UploadBookStep2({
                             label="Book Description"
                             onBlur={handleBlur}
                             onChange={handleChange}
-                            value={values.school_name}
+                            value={values.book_description}
                             multiline
                             rows={4}
-                            name="school_name"
+                            name="book_description"
                             error={
-                                Boolean(touched.school_name) &&
-                                Boolean(errors.school_name)
+                                Boolean(touched.book_description) &&
+                                Boolean(errors.book_description)
                             }
                             helperText={
-                                touched.school_name &&
-                                (errors.school_name as string)
+                                touched.book_description &&
+                                (errors.book_description as string)
                             }
                         />
                         <TextField
@@ -114,15 +114,15 @@ export function UploadBookStep2({
                             label="Canva Book Link"
                             onBlur={handleBlur}
                             onChange={handleChange}
-                            value={values.school_name}
-                            name="school_name"
+                            value={values.canva_book_link}
+                            name="canva_book_link"
                             error={
-                                Boolean(touched.school_name) &&
-                                Boolean(errors.school_name)
+                                Boolean(touched.canva_book_link) &&
+                                Boolean(errors.canva_book_link)
                             }
                             helperText={
-                                touched.school_name &&
-                                (errors.school_name as string)
+                                touched.canva_book_link &&
+                                (errors.canva_book_link as string)
                             }
                         />
 
@@ -252,18 +252,21 @@ export function UploadBookStep2({
                             label="Date of Birth"
                             onBlur={handleBlur}
                             onChange={handleChange}
-                            value={values.data_of_birth}
+                            value={values.date_of_birth}
                             name="date_of_birth"
                             error={
                                 Boolean(touched.date_of_birth) &&
                                 Boolean(errors.date_of_birth)
                             }
-                            helperText={touched.age && (errors.age as string)}
+                            helperText={
+                                touched.date_of_birth &&
+                                (errors.date_of_birth as string)
+                            }
                         />
 
                         <div className="col-span-2 grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
                             <button
-                                className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
+                                className=" invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     backHandler(values);
@@ -295,7 +298,7 @@ export function UploadBookStep2({
                                 className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
                             >
                                 <span className="text-xl">Next</span>
-                                <span>
+                                <span className="hidden sm:inline">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"

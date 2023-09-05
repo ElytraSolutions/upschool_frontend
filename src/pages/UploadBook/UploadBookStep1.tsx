@@ -139,7 +139,7 @@ export function UploadBookStep1({
                                         >
                                             Next
                                         </span>
-                                        <span>
+                                        <span className="hidden sm:inline">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"

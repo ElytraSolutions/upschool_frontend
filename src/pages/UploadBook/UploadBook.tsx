@@ -83,7 +83,7 @@ export const UploadBook = () => {
                     className={`grid ${
                         isLargeScreen
                             ? 'grid-cols-16 h-[75vh] '
-                            : 'grid-cols-11 h-[65vh]'
+                            : 'grid-cols-11 h-[67vh]'
                     } gap-0 w-[90vw] xl:w-[60vw] `}
                 >
                     {/* first column:Registration Form*/}
