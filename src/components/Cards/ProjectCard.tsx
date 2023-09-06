@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import upschoollogo from '../../assets/upschool_logo.png';
-const Card = () => {
+export const Card = () => {
     return (
         <div className=" rounded-lg text-theme-color text-sm lg:text-base flex flex-col gap-1 overflow-hidden bg-slate-200">
             <div className="bg-yellow-600 max-h-[35%] overflow-hidden">

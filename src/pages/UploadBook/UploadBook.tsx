@@ -3,38 +3,11 @@ import useScreenWidth from '../../hooks/useScreenWidth';
 import { UploadBookStep1 as UBStep1 } from './UploadBookStep1';
 import { UploadBookStep2 as UBStep2 } from './UploadBookStep2';
 import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
+import { UploadBookStep4 as UBStep4 } from './UploadBookStep4';
 import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/PartsUploadBook/UploadBookProgressSection';
 import axiosInstance from '../../config/Axios';
+import { options } from '../../data/UploadBookCategories';
 
-const options = [
-    'Accepting Differences',
-    'Compassion for Others',
-    'Empathy',
-    'Family',
-    'Generosity and Sharing',
-    'Hard Work',
-    'Honesty and Trust',
-    'Imagination and Exploring Possibiities',
-    'Loss and Grief',
-    'Loyality and Dedication',
-    'Peace on Earth',
-    'Racism and Injustice',
-    'Self-Control',
-    'Value and Power of Friendship',
-    'Bravery and Courage',
-    'Education',
-    'Fairness and Equity',
-    'Friendships',
-    'Growing Up',
-    'Holidays and Traditions',
-    'Hope for the Future',
-    'Perseverance and Persistence',
-    'Kindness',
-    'Love',
-    'Making a Difference',
-    'Teamwork and Collaboration',
-    'School Live',
-];
 export const UploadBook = () => {
     const { isLargeScreen } = useScreenWidth(); //min-width=768px
     const [currentStep, setCurrentStep] = useState(0);
@@ -83,6 +56,23 @@ export const UploadBook = () => {
             }}
         />,
         <UBStep3
+            options={options}
+            oldValues={currentData}
+            submitHandler={async (data, onSubmitProps) => {
+                setCurrentData((oldValue) => {
+                    return { ...oldValue, ...data };
+                });
+                onSubmitProps.resetForm();
+                setCurrentStep((oldStep) => oldStep + 1);
+            }}
+            backHandler={(values) => {
+                setCurrentData((oldData) => {
+                    return { ...oldData, ...values };
+                });
+                setCurrentStep(0);
+            }}
+        />,
+        <UBStep4
             options={options}
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
