@@ -1,5 +1,7 @@
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { options } from '../../data/UploadBookCategories';
+
 const registerSchema = yup.object().shape({
     categories: yup
         .array()
@@ -9,14 +11,12 @@ const registerSchema = yup.object().shape({
 });
 
 interface IStep3Props {
-    options: string[];
     oldValues: Record<string, any>;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
     backHandler: (values: any) => void;
 }
 
 export function UploadBookStep3({
-    options,
     oldValues,
     submitHandler,
     backHandler,

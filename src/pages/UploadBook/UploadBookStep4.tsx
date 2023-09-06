@@ -1,27 +1,36 @@
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import { projects } from '../../data/UploadBookProjects';
+import { Card } from '../../components/Cards/ProjectCard';
+
 const registerSchema = yup.object().shape({
-    categories: yup
-        .array()
-        .of(yup.string())
-        .min(5, 'Select at least 5 categories')
-        .max(5, 'Select no more than 5 categories'),
+    project: yup.string().required('required'),
 });
 interface IStep3Props {
-    options: string[];
     oldValues: Record<string, any>;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
     backHandler: (values: any) => void;
 }
 function UploadBookStep4({
-    options,
     oldValues,
     submitHandler,
     backHandler,
 }: IStep3Props) {
     return (
         <>
-            <div>
+            <div className="flex flex-col gap-2 my-4">
+                <div className="col-span-2 flex items-center justify-start py-3">
+                    <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl 2xl:text-3xl  font-medium lg:font-semibold">
+                        Select Your Project
+                    </h1>
+                </div>
+                <div className="py-3">
+                    <input
+                        type="search"
+                        className="w-full h-fit lg:py-3 px-4  text-base tab:text-lg lg:text-xl  font-normal  text-theme-color border rounded-md border-gray-400 focus:outline-none bg-gray-100"
+                        placeholder="Search Your Project"
+                    />
+                </div>
                 <Formik
                     onSubmit={submitHandler}
                     initialValues={oldValues}
@@ -38,33 +47,15 @@ function UploadBookStep4({
                         <>
                             {/* Third step form */}
                             <form onSubmit={handleSubmit}>
-                                <div className="w-full flex flex-col gap-4 md:gap-8  mt-4 sm:mt-6 lg:mt-8 justify-center">
-                                    <h2 className=" text-xl xl:text-2xl font-semibold text-font-color">
-                                        Please select up to 5 categories
-                                    </h2>
-                                    <div className="grid sm:grid-cols-2 gap-2 gap-x-6">
-                                        {options.map((option) => (
-                                            <label className="flex flex-1 justify-start gap-x-4 items-center">
-                                                <Field
-                                                    className="h-4 w-4"
-                                                    type="checkbox"
-                                                    name="categories"
-                                                    value={option}
-                                                />
-                                                {option}
-                                            </label>
-                                        ))}
-                                    </div>
-                                    <ErrorMessage
-                                        name="categories"
-                                        render={(msg) => (
-                                            <div className="text-center text-red-upschool text-sm md:text-base p-1">
-                                                {msg}
-                                            </div>
-                                        )}
-                                    />
+                                <div className="grid sm:grid-cols-2 lg:grid-cols-3  gap-4 w-full">
+                                    {projects.map((project) => (
+                                        <Card
+                                            key={project.id}
+                                            project={project}
+                                        />
+                                    ))}
                                 </div>
-                                <div className="grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base py-1">
+                                <div className="invisible grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base py-1">
                                     <button
                                         className="invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
                                         onClick={(e) => {

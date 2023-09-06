@@ -6,7 +6,6 @@ import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
 import { UploadBookStep4 as UBStep4 } from './UploadBookStep4';
 import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/PartsUploadBook/UploadBookProgressSection';
 import axiosInstance from '../../config/Axios';
-import { options } from '../../data/UploadBookCategories';
 
 export const UploadBook = () => {
     const { isLargeScreen } = useScreenWidth(); //min-width=768px
@@ -56,7 +55,6 @@ export const UploadBook = () => {
             }}
         />,
         <UBStep3
-            options={options}
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
                 setCurrentData((oldValue) => {
@@ -73,16 +71,15 @@ export const UploadBook = () => {
             }}
         />,
         <UBStep4
-            options={options}
             oldValues={currentData}
-            submitHandler={async (data, onSubmitProps) => {
-                const fullData = { ...currentData, ...data };
-                const csrfResp = await axiosInstance.get(
-                    '/sanctum/csrf-cookie',
-                );
-                axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
-                    csrfResp.data.csrfToken;
-                await axiosInstance.post('/auth/register', fullData);
+            submitHandler={async (_data, onSubmitProps) => {
+                // const fullData = { ...currentData, ...data };
+                // const csrfResp = await axiosInstance.get(
+                //     '/sanctum/csrf-cookie',
+                // );
+                // axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
+                //     csrfResp.data.csrfToken;
+                // await axiosInstance.post('/auth/register', fullData);
                 onSubmitProps.resetForm();
             }}
             backHandler={(data) => {
@@ -104,7 +101,7 @@ export const UploadBook = () => {
                         isLargeScreen
                             ? 'grid-cols-16 h-[75vh] '
                             : 'grid-cols-11 h-[67vh]'
-                    } gap-0 w-[90vw] xl:w-[60vw] `}
+                    } gap-0 w-[90vw] xl:w-[75vw] 2xl:w-[60vw] `}
                 >
                     {/* first column:Registration Form*/}
                     <div

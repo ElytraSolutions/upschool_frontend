@@ -19,7 +19,6 @@ import Dashboard from './pages/User/DashBoard/Dashboard';
 import Chapters from './pages/Chapters/Chapters';
 import Logout from './pages/Logout/Logout';
 import { UploadBook } from './pages/UploadBook/UploadBook';
-import { ProjectCard } from './components/Cards/ProjectCard';
 
 const router = createBrowserRouter([
     {
@@ -93,10 +92,6 @@ const router = createBrowserRouter([
             {
                 path: 'uploadbook',
                 element: <UploadBook />,
-            },
-            {
-                path: 'projectcard', //for checking only
-                element: <ProjectCard />,
             },
         ],
     },
