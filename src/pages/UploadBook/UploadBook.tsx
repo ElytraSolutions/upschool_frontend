@@ -5,7 +5,7 @@ import { UploadBookStep2 as UBStep2 } from './UploadBookStep2';
 import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
 import { UploadBookStep4 as UBStep4 } from './UploadBookStep4';
 import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/PartsUploadBook/UploadBookProgressSection';
-import axiosInstance from '../../config/Axios';
+// import axiosInstance from '../../config/Axios';
 
 export const UploadBook = () => {
     const { isLargeScreen } = useScreenWidth(); //min-width=768px
