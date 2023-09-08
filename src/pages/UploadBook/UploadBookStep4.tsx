@@ -1,4 +1,5 @@
 // import { Formik, Field, ErrorMessage } from 'formik';
+import { useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { projects } from '../../data/UploadBookProjects';
@@ -17,6 +18,10 @@ function UploadBookStep4({
     submitHandler,
     backHandler,
 }: IStep3Props) {
+    const [query, setQuery] = useState<string>('');
+    const searchResult = projects.filter((project) =>
+        project.name.toLowerCase().includes(query.toLowerCase()),
+    );
     return (
         <>
             <div className="flex flex-col gap-2 my-4">
@@ -30,6 +35,9 @@ function UploadBookStep4({
                         type="search"
                         className="w-full h-fit lg:py-3 px-4  text-base tab:text-lg lg:text-xl  font-normal  text-theme-color border rounded-md border-gray-400 focus:outline-none bg-gray-100"
                         placeholder="Search Your Project"
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                            setQuery(e.target.value)
+                        }
                     />
                 </div>
                 <Formik
@@ -49,12 +57,19 @@ function UploadBookStep4({
                             {/* Third step form */}
                             <form onSubmit={handleSubmit}>
                                 <div className="grid sm:grid-cols-2 lg:grid-cols-3  gap-4 w-full">
-                                    {projects.map((project) => (
-                                        <Card
-                                            key={project.id}
-                                            project={project}
-                                        />
-                                    ))}
+                                    {query
+                                        ? searchResult.map((project) => (
+                                              <Card
+                                                  key={project.id}
+                                                  project={project}
+                                              />
+                                          ))
+                                        : projects.map((project) => (
+                                              <Card
+                                                  key={project.id}
+                                                  project={project}
+                                              />
+                                          ))}
                                 </div>
                                 <div className="invisible grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base py-1">
                                     <button
