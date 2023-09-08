@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import Dropzone from 'react-dropzone';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
-const registerSchema = yup.object().shape({
+const uploadBookSchema = yup.object().shape({
     file: yup.string().required("You have'nt uploaded the book"),
 });
 
@@ -35,7 +35,7 @@ export function UploadBookStep1({
                 <Formik
                     onSubmit={submitHandler}
                     initialValues={oldValues}
-                    validationSchema={registerSchema}
+                    validationSchema={uploadBookSchema}
                 >
                     {({
                         values,

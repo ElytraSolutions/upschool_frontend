@@ -4,6 +4,7 @@ import { UploadBookStep1 as UBStep1 } from './UploadBookStep1';
 import { UploadBookStep2 as UBStep2 } from './UploadBookStep2';
 import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
 import { UploadBookStep4 as UBStep4 } from './UploadBookStep4';
+import { UploadBookStep5 as UBStep5 } from './UploadBookStep5';
 import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/PartsUploadBook/UploadBookProgressSection';
 // import axiosInstance from '../../config/Axios';
 
@@ -72,7 +73,7 @@ export const UploadBook = () => {
         />,
         <UBStep4
             oldValues={currentData}
-            submitHandler={async (_data, onSubmitProps) => {
+            submitHandler={async (data, onSubmitProps) => {
                 // const fullData = { ...currentData, ...data };
                 // const csrfResp = await axiosInstance.get(
                 //     '/sanctum/csrf-cookie',
@@ -80,6 +81,31 @@ export const UploadBook = () => {
                 // axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
                 //     csrfResp.data.csrfToken;
                 // await axiosInstance.post('/auth/register', fullData);
+                // onSubmitProps.resetForm();
+                setCurrentData((oldValue) => {
+                    return { ...oldValue, ...data };
+                });
+                onSubmitProps.resetForm();
+                setCurrentStep((oldStep) => oldStep + 1);
+            }}
+            backHandler={(data) => {
+                setCurrentData((oldValue) => {
+                    return { ...oldValue, ...data };
+                });
+                setCurrentStep(1);
+            }}
+        />,
+        <UBStep5
+            oldValues={currentData}
+            submitHandler={async (data, onSubmitProps) => {
+                const fullData = { ...currentData, ...data };
+                // const csrfResp = await axiosInstance.get(
+                //     '/sanctum/csrf-cookie',
+                // );
+                // axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
+                //     csrfResp.data.csrfToken;
+                // await axiosInstance.post('/auth/register', fullData);
+                console.log(fullData);
                 onSubmitProps.resetForm();
             }}
             backHandler={(data) => {

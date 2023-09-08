@@ -1,14 +1,13 @@
-// import { Formik, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { projects } from '../../data/UploadBookProjects';
 import { Card } from '../../components/Cards/ProjectCard';
 
-const registerSchema = yup.object().shape({
+const uploadBookSchema = yup.object().shape({
     project: yup.string().required('required'),
 });
-interface IStep3Props {
+interface IStep4Props {
     oldValues: Record<string, any>;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
     backHandler: (values: any) => void;
@@ -17,7 +16,7 @@ function UploadBookStep4({
     oldValues,
     submitHandler,
     backHandler,
-}: IStep3Props) {
+}: IStep4Props) {
     const [query, setQuery] = useState<string>('');
     const searchResult = projects.filter((project) =>
         project.name.toLowerCase().includes(query.toLowerCase()),
@@ -43,7 +42,7 @@ function UploadBookStep4({
                 <Formik
                     onSubmit={submitHandler}
                     initialValues={oldValues}
-                    validationSchema={registerSchema}
+                    validationSchema={uploadBookSchema}
                 >
                     {({
                         values,
@@ -52,6 +51,8 @@ function UploadBookStep4({
                         // handleBlur,
                         // handleChange,
                         handleSubmit,
+                        setFieldValue,
+                        submitForm,
                     }) => (
                         <>
                             {/* Third step form */}
@@ -62,12 +63,18 @@ function UploadBookStep4({
                                               <Card
                                                   key={project.id}
                                                   project={project}
+                                                  setFieldValue={setFieldValue}
+                                                  submitForm={submitForm}
+                                                  values={values}
                                               />
                                           ))
                                         : projects.map((project) => (
                                               <Card
                                                   key={project.id}
                                                   project={project}
+                                                  setFieldValue={setFieldValue}
+                                                  submitForm={submitForm}
+                                                  values={values}
                                               />
                                           ))}
                                 </div>

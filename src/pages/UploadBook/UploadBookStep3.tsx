@@ -2,7 +2,7 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { options } from '../../data/UploadBookCategories';
 
-const registerSchema = yup.object().shape({
+const uploadBookSchema = yup.object().shape({
     categories: yup
         .array()
         .of(yup.string())
@@ -25,7 +25,7 @@ export function UploadBookStep3({
         <Formik
             onSubmit={submitHandler}
             initialValues={oldValues}
-            validationSchema={registerSchema}
+            validationSchema={uploadBookSchema}
         >
             {({
                 values,

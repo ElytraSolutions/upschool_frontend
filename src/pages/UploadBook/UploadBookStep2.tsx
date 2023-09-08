@@ -4,7 +4,7 @@ import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { countries } from '../../data/countries';
 
-const registerSchema = yup.object().shape({
+const uploadBookSchema = yup.object().shape({
     first_name: yup
         .string()
         .required('required')
@@ -48,7 +48,7 @@ export function UploadBookStep2({
         <Formik
             onSubmit={submitHandler}
             initialValues={oldValues}
-            validationSchema={registerSchema}
+            validationSchema={uploadBookSchema}
         >
             {({
                 values,
