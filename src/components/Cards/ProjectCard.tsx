@@ -7,15 +7,9 @@ type CardProps = {
     };
     setFieldValue: any;
     submitForm: any;
-    values: Record<string, any>;
 };
 
-export const Card = ({
-    project,
-    setFieldValue,
-    submitForm,
-    values,
-}: CardProps) => {
+export const Card = ({ project, setFieldValue, submitForm }: CardProps) => {
     return (
         <div className=" rounded-lg text-theme-color text-sm lg:text-base flex flex-col gap-1 overflow-hidden bg-slate-200 max-h-72">
             <div className="bg-yellow-600 h-[35%] overflow-hidden flex-1">

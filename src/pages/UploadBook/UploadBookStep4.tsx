@@ -65,7 +65,6 @@ function UploadBookStep4({
                                                   project={project}
                                                   setFieldValue={setFieldValue}
                                                   submitForm={submitForm}
-                                                  values={values}
                                               />
                                           ))
                                         : projects.map((project) => (
@@ -74,7 +73,6 @@ function UploadBookStep4({
                                                   project={project}
                                                   setFieldValue={setFieldValue}
                                                   submitForm={submitForm}
-                                                  values={values}
                                               />
                                           ))}
                                 </div>
