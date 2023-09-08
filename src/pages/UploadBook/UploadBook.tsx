@@ -12,9 +12,9 @@ import BookUpdated from './BookUpdated';
 export const UploadBook = () => {
     const { isLargeScreen } = useScreenWidth(); //min-width=768px
     const [isUploadBookCompleted, setIsUploadBookCompleted] =
-        useState<boolean>(true);
-    const [currentStep, setCurrentStep] = useState(0);
-    const [currentData, setCurrentData] = useState({
+        useState<boolean>(false);
+    const [currentStep, setCurrentStep] = useState<number>(0);
+    const [currentData, setCurrentData] = useState<Record<string, any>>({
         first_name: '',
         last_name: '',
         school_name: '',
@@ -77,14 +77,6 @@ export const UploadBook = () => {
         <UBStep4
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
-                // const fullData = { ...currentData, ...data };
-                // const csrfResp = await axiosInstance.get(
-                //     '/sanctum/csrf-cookie',
-                // );
-                // axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
-                //     csrfResp.data.csrfToken;
-                // await axiosInstance.post('/auth/register', fullData);
-                // onSubmitProps.resetForm();
                 setCurrentData((oldValue) => {
                     return { ...oldValue, ...data };
                 });
@@ -117,7 +109,11 @@ export const UploadBook = () => {
     return (
         <>
             {isUploadBookCompleted ? (
-                <BookUpdated />
+                <BookUpdated
+                    setIsUploadBookCompleted={setIsUploadBookCompleted}
+                    setCurrentStep={setCurrentStep}
+                    setCurrentData={setCurrentData}
+                />
             ) : (
                 <div
                     className={`flex justify-center items-center bg-gray-200 py-4 max-h-[90vh] `}
@@ -130,7 +126,7 @@ export const UploadBook = () => {
                                 : 'grid-cols-11 h-[67vh]'
                         } gap-0 w-[90vw] xl:w-[75vw] 2xl:w-[60vw] `}
                     >
-                        {/* first column:Registration Form*/}
+                        {/* first column:Upload Book Form*/}
                         <div
                             className="col-span-11 flex  items-center justify-center  overflow-y-auto bg-gray-100 "
                             style={{ height: 'inherit' }}
