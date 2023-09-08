@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { projects } from '../../data/UploadBookProjects';
+import { projects } from '../../data/UploadBookProjects'; // TODO Project list needs to fetched from backend
 import { Card } from '../../components/Cards/ProjectCard';
 
 const uploadBookSchema = yup.object().shape({
@@ -18,13 +18,14 @@ function UploadBookStep4({
     backHandler,
 }: IStep4Props) {
     const [query, setQuery] = useState<string>('');
+    // TODO searchResult should be performed in  backend if there are large numbers of project in the list.
     const searchResult = projects.filter((project) =>
         project.name.toLowerCase().includes(query.toLowerCase()),
     );
     return (
         <>
             <div className="flex flex-col gap-2 my-4">
-                <div className="col-span-2 flex items-center justify-start py-3">
+                <div className="flex items-center justify-start py-3">
                     <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl 2xl:text-3xl  font-medium lg:font-semibold">
                         Select Your Project
                     </h1>
@@ -55,7 +56,6 @@ function UploadBookStep4({
                         submitForm,
                     }) => (
                         <>
-                            {/* Third step form */}
                             <form onSubmit={handleSubmit}>
                                 <div className="grid sm:grid-cols-2 lg:grid-cols-3  gap-4 w-full">
                                     {query
@@ -76,6 +76,7 @@ function UploadBookStep4({
                                               />
                                           ))}
                                 </div>
+                                {/* TODO decide back and next button */}
                                 <div className="invisible grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base py-1">
                                     <button
                                         className="invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"

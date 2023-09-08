@@ -96,24 +96,18 @@ export const UploadBook = () => {
             }}
         />,
         <UBStep5
-        // oldValues={currentData}
-        // submitHandler={async (data, onSubmitProps) => {
-        //     const fullData = { ...currentData, ...data };
-        //     // const csrfResp = await axiosInstance.get(
-        //     //     '/sanctum/csrf-cookie',
-        //     // );
-        //     // axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
-        //     //     csrfResp.data.csrfToken;
-        //     // await axiosInstance.post('/auth/register', fullData);
-        //     console.log(fullData);
-        //     onSubmitProps.resetForm();
-        // }}
-        // backHandler={(data) => {
-        //     setCurrentData((oldValue) => {
-        //         return { ...oldValue, ...data };
-        //     });
-        //     setCurrentStep(1);
-        // }}
+            oldValues={currentData}
+            submitHandler={async (data, onSubmitProps) => {
+                const fullData = { ...currentData, ...data };
+                // const csrfResp = await axiosInstance.get(
+                //     '/sanctum/csrf-cookie',
+                // );
+                // axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
+                //     csrfResp.data.csrfToken;
+                // await axiosInstance.post('/auth/register', fullData);
+                console.log(fullData);
+                onSubmitProps.resetForm();
+            }}
         />,
     ];
     return (

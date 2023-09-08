@@ -241,6 +241,7 @@ export function UploadBookStep2({
                                 </MenuItem>
                             ))}
                         </TextField>
+                        {/* TODO shows error in console for inputting date of birth */}
                         <TextField
                             className={`${
                                 isLargeScreen ? 'col-span-1' : 'col-span-2'
@@ -262,6 +263,7 @@ export function UploadBookStep2({
                         />
 
                         <div className="col-span-2 grid grid-cols-4 gap-4  p-2 pr-3  w-full font-normal text-base">
+                            {/* TODO decide back button */}
                             <button
                                 className=" invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
                                 onClick={(e) => {

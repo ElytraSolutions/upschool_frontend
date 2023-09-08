@@ -27,6 +27,7 @@ export const Card = ({ project, setFieldValue, submitForm }: CardProps) => {
                 {project.organization}
             </div>
             <button
+                type="submit"
                 className="px-1 py-2 bg-red-upschool text-white text-xs self-center m-2 w-10/12 hover:cursor-pointer"
                 onClick={() => {
                     setFieldValue('project', project.name);

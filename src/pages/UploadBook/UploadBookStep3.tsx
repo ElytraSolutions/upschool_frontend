@@ -43,8 +43,11 @@ export function UploadBookStep3({
                                 Please select up to 5 categories
                             </h2>
                             <div className="grid sm:grid-cols-2 gap-2 gap-x-6">
-                                {options.map((option) => (
-                                    <label className="flex flex-1 justify-start gap-x-4 items-center">
+                                {options.map((option, index) => (
+                                    <label
+                                        key={index}
+                                        className="flex flex-1 justify-start gap-x-4 items-center"
+                                    >
                                         <Field
                                             className="h-4 w-4"
                                             type="checkbox"
@@ -65,6 +68,7 @@ export function UploadBookStep3({
                             />
                         </div>
                         <div className="grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base py-1">
+                            {/* TODO decide back button */}
                             <button
                                 className="invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
                                 onClick={(e) => {
