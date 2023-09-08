@@ -24,29 +24,30 @@ export function UploadBookStep1({
                     Upload Your Book!
                 </h1>
             </div>
-            <div className="md:row-start-3 row-span-5 md:row-span-9 grid grid-rows-6 md:grid-rows-8">
-                <div className=" row-span-1 rounded-t-lg bg-white p-4 h-16 flex items-center justify-center">
-                    <div className="bg-red-upschool text-white border border-black rounded-full h-10 w-full flex justify-center items-center overflow-hidden">
-                        <h2 className=" inline-block">
-                            View book Upload Checklist
-                        </h2>
-                    </div>
-                </div>
-                <Formik
-                    onSubmit={submitHandler}
-                    initialValues={oldValues}
-                    validationSchema={uploadBookSchema}
-                >
-                    {({
-                        values,
-                        //errors,
-                        // touched,
-                        // handleBlur,
-                        // handleChange,
-                        handleSubmit,
-                        setFieldValue,
-                    }) => (
-                        <>
+            <Formik
+                onSubmit={submitHandler}
+                initialValues={oldValues}
+                validationSchema={uploadBookSchema}
+            >
+                {({
+                    values,
+                    //errors,
+                    // touched,
+                    // handleBlur,
+                    // handleChange,
+                    handleSubmit,
+                    setFieldValue,
+                }) => (
+                    <>
+                        <div className="md:row-start-3 row-span-5 md:row-span-9 grid grid-rows-6 md:grid-rows-8">
+                            <div className=" row-span-1 rounded-t-lg bg-white p-4 h-16 flex items-center justify-center">
+                                <div className="bg-red-upschool text-white border border-black rounded-full h-10 w-full flex justify-center items-center overflow-hidden">
+                                    <h2 className=" inline-block">
+                                        View book Upload Checklist
+                                    </h2>
+                                </div>
+                            </div>
+
                             {/* First step form */}
                             <form
                                 onSubmit={handleSubmit}
@@ -166,10 +167,10 @@ export function UploadBookStep1({
                                     </button>
                                 </div>
                             </form>
-                        </>
-                    )}
-                </Formik>
-            </div>
+                        </div>
+                    </>
+                )}
+            </Formik>
         </div>
     );
 }

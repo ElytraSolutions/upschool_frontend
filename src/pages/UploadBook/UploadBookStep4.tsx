@@ -1,140 +1,127 @@
-import { useState } from 'react';
-import { Formik } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { projects } from '../../data/UploadBookProjects'; // TODO Project list needs to fetched from backend
-import { Card } from '../../components/Cards/ProjectCard';
+import { options } from '../../data/UploadBookCategories';
 
 const uploadBookSchema = yup.object().shape({
-    project: yup.string().required('required'),
+    categories: yup
+        .array()
+        .of(yup.string())
+        .min(5, 'Select at least 5 categories')
+        .max(5, 'Select no more than 5 categories'),
 });
+
 interface IStep4Props {
     oldValues: Record<string, any>;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
     backHandler: (values: any) => void;
 }
-function UploadBookStep4({
+
+export function UploadBookStep4({
     oldValues,
     submitHandler,
     backHandler,
 }: IStep4Props) {
-    const [query, setQuery] = useState<string>('');
-    // TODO searchResult should be performed in  backend if there are large numbers of project in the list.
-    const searchResult = projects.filter((project) =>
-        project.name.toLowerCase().includes(query.toLowerCase()),
-    );
     return (
-        <>
-            <div className="flex flex-col gap-2 my-4">
-                <div className="flex items-center justify-start py-3">
-                    <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl 2xl:text-3xl  font-medium lg:font-semibold">
-                        Select Your Project
-                    </h1>
-                </div>
-                <div className="py-3">
-                    <input
-                        type="search"
-                        className="w-full h-fit lg:py-3 px-4  text-base tab:text-lg lg:text-xl  font-normal  text-theme-color border rounded-md border-gray-400 focus:outline-none bg-gray-100"
-                        placeholder="Search Your Project"
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                            setQuery(e.target.value)
-                        }
-                    />
-                </div>
-                <Formik
-                    onSubmit={submitHandler}
-                    initialValues={oldValues}
-                    validationSchema={uploadBookSchema}
-                >
-                    {({
-                        values,
-                        // errors,
-                        // touched,
-                        // handleBlur,
-                        // handleChange,
-                        handleSubmit,
-                        setFieldValue,
-                        submitForm,
-                    }) => (
-                        <>
-                            <form onSubmit={handleSubmit}>
-                                <div className="grid sm:grid-cols-2 lg:grid-cols-3  gap-4 w-full">
-                                    {query
-                                        ? searchResult.map((project) => (
-                                              <Card
-                                                  key={project.id}
-                                                  project={project}
-                                                  setFieldValue={setFieldValue}
-                                                  submitForm={submitForm}
-                                              />
-                                          ))
-                                        : projects.map((project) => (
-                                              <Card
-                                                  key={project.id}
-                                                  project={project}
-                                                  setFieldValue={setFieldValue}
-                                                  submitForm={submitForm}
-                                              />
-                                          ))}
-                                </div>
-                                {/* TODO decide back and next button */}
-                                <div className="invisible grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base py-1">
-                                    <button
-                                        className="invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            backHandler(values);
-                                        }}
+        <Formik
+            onSubmit={submitHandler}
+            initialValues={oldValues}
+            validationSchema={uploadBookSchema}
+        >
+            {({
+                values,
+                // errors,
+                // touched,
+                // handleBlur,
+                // handleChange,
+                handleSubmit,
+            }) => (
+                <>
+                    <form onSubmit={handleSubmit}>
+                        <div className="w-full flex flex-col gap-4 md:gap-8  mt-4 sm:mt-6 lg:mt-8 justify-center">
+                            <h2 className=" text-xl xl:text-2xl font-semibold text-font-color">
+                                Please select up to 5 categories
+                            </h2>
+                            <div className="grid sm:grid-cols-2 gap-2 gap-x-6">
+                                {options.map((option, index) => (
+                                    <label
+                                        key={index}
+                                        className="flex flex-1 justify-start gap-x-4 items-center"
                                     >
-                                        <span>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                strokeWidth="1.5"
-                                                stroke="currentColor"
-                                                className="w-4 h-4"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                                                />
-                                            </svg>
-                                        </span>
-                                        <span className="text-xl">
-                                            <u>Back</u>
-                                        </span>
-                                    </button>
+                                        <Field
+                                            className="h-4 w-4"
+                                            type="checkbox"
+                                            name="categories"
+                                            value={option}
+                                        />
+                                        {option}
+                                    </label>
+                                ))}
+                            </div>
+                            <ErrorMessage
+                                name="categories"
+                                render={(msg) => (
+                                    <div className="text-center text-red-upschool text-sm md:text-base p-1">
+                                        {msg}
+                                    </div>
+                                )}
+                            />
+                        </div>
+                        <div className="grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base py-1">
+                            {/* TODO decide back button */}
+                            <button
+                                className="invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    backHandler(values);
+                                }}
+                            >
+                                <span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className="w-4 h-4"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                                        />
+                                    </svg>
+                                </span>
+                                <span className="text-xl">
+                                    <u>Back</u>
+                                </span>
+                            </button>
 
-                                    <button
-                                        className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
-                                        type="submit"
+                            <button
+                                className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                                type="submit"
+                            >
+                                <span className="text-xl">Next</span>
+                                <span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className="w-4 h-4"
                                     >
-                                        <span className="text-xl">Next</span>
-                                        <span>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                strokeWidth="1.5"
-                                                stroke="currentColor"
-                                                className="w-4 h-4"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                                                />
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </div>
-                            </form>
-                        </>
-                    )}
-                </Formik>
-            </div>
-        </>
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </>
+            )}
+        </Formik>
     );
 }
-export { UploadBookStep4 };

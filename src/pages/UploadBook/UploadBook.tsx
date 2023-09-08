@@ -5,6 +5,7 @@ import { UploadBookStep2 as UBStep2 } from './UploadBookStep2';
 import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
 import { UploadBookStep4 as UBStep4 } from './UploadBookStep4';
 import { UploadBookStep5 as UBStep5 } from './UploadBookStep5';
+import { UploadBookStep6 as UBStep6 } from './UploadBookStep6';
 import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/PartsUploadBook/UploadBookProgressSection';
 import BookUpdated from './BookUpdated';
 // import axiosInstance from '../../config/Axios';
@@ -41,24 +42,9 @@ export const UploadBook = () => {
                 setCurrentStep((oldStep) => oldStep + 1);
             }}
         />,
-        <UBStep2
-            isLargeScreen={isLargeScreen}
-            oldValues={currentData}
-            submitHandler={async (data, onSubmitProps) => {
-                setCurrentData((oldValue) => {
-                    return { ...oldValue, ...data };
-                });
-                onSubmitProps.resetForm();
-                setCurrentStep((oldStep) => oldStep + 1);
-            }}
-            backHandler={(values) => {
-                setCurrentData((oldData) => {
-                    return { ...oldData, ...values };
-                });
-                setCurrentStep(0);
-            }}
-        />,
+        <UBStep2 />,
         <UBStep3
+            isLargeScreen={isLargeScreen}
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
                 setCurrentData((oldValue) => {
@@ -83,6 +69,22 @@ export const UploadBook = () => {
                 onSubmitProps.resetForm();
                 setCurrentStep((oldStep) => oldStep + 1);
             }}
+            backHandler={(values) => {
+                setCurrentData((oldData) => {
+                    return { ...oldData, ...values };
+                });
+                setCurrentStep(0);
+            }}
+        />,
+        <UBStep5
+            oldValues={currentData}
+            submitHandler={async (data, onSubmitProps) => {
+                setCurrentData((oldValue) => {
+                    return { ...oldValue, ...data };
+                });
+                onSubmitProps.resetForm();
+                setCurrentStep((oldStep) => oldStep + 1);
+            }}
             backHandler={(data) => {
                 setCurrentData((oldValue) => {
                     return { ...oldValue, ...data };
@@ -90,7 +92,7 @@ export const UploadBook = () => {
                 setCurrentStep(1);
             }}
         />,
-        <UBStep5
+        <UBStep6
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
                 const fullData = { ...currentData, ...data };
