@@ -6,10 +6,13 @@ import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
 import { UploadBookStep4 as UBStep4 } from './UploadBookStep4';
 import { UploadBookStep5 as UBStep5 } from './UploadBookStep5';
 import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/PartsUploadBook/UploadBookProgressSection';
+import BookUpdated from './BookUpdated';
 // import axiosInstance from '../../config/Axios';
 
 export const UploadBook = () => {
     const { isLargeScreen } = useScreenWidth(); //min-width=768px
+    const [isUploadBookCompleted, setIsUploadBookCompleted] =
+        useState<boolean>(true);
     const [currentStep, setCurrentStep] = useState(0);
     const [currentData, setCurrentData] = useState({
         first_name: '',
@@ -107,37 +110,42 @@ export const UploadBook = () => {
                 // await axiosInstance.post('/auth/register', fullData);
                 console.log(fullData);
                 onSubmitProps.resetForm();
+                setIsUploadBookCompleted(true);
             }}
         />,
     ];
     return (
         <>
-            <div
-                className={`flex justify-center items-center bg-gray-200 py-4 max-h-[90vh] `}
-            >
-                {/*Layout*/}
+            {isUploadBookCompleted ? (
+                <BookUpdated />
+            ) : (
                 <div
-                    className={`grid ${
-                        isLargeScreen
-                            ? 'grid-cols-16 h-[75vh] '
-                            : 'grid-cols-11 h-[67vh]'
-                    } gap-0 w-[90vw] xl:w-[75vw] 2xl:w-[60vw] `}
+                    className={`flex justify-center items-center bg-gray-200 py-4 max-h-[90vh] `}
                 >
-                    {/* first column:Registration Form*/}
+                    {/*Layout*/}
                     <div
-                        className="col-span-11 flex  items-center justify-center  overflow-y-auto bg-gray-100 "
-                        style={{ height: 'inherit' }}
+                        className={`grid ${
+                            isLargeScreen
+                                ? 'grid-cols-16 h-[75vh] '
+                                : 'grid-cols-11 h-[67vh]'
+                        } gap-0 w-[90vw] xl:w-[75vw] 2xl:w-[60vw] `}
                     >
-                        <div className="w-11/12 h-full ">
-                            {components[currentStep]}
+                        {/* first column:Registration Form*/}
+                        <div
+                            className="col-span-11 flex  items-center justify-center  overflow-y-auto bg-gray-100 "
+                            style={{ height: 'inherit' }}
+                        >
+                            <div className="w-11/12 h-full ">
+                                {components[currentStep]}
+                            </div>
                         </div>
+                        {/* Second column*/}
+                        {isLargeScreen && (
+                            <ProgressSectionUB currentStep={currentStep} />
+                        )}
                     </div>
-                    {/* Second column*/}
-                    {isLargeScreen && (
-                        <ProgressSectionUB currentStep={currentStep} />
-                    )}
                 </div>
-            </div>
+            )}
         </>
     );
 };

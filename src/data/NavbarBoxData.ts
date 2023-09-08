@@ -410,7 +410,7 @@ const data = [
             {
                 id: 2,
                 title: 'Upload Your Book',
-                path: 'https://upschool.co/library/upload/',
+                path: 'uploadbook',
             },
         ],
     },
