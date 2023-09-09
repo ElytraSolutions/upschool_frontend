@@ -2,11 +2,9 @@ import { UploadBookProgressBar as ProgressBarUB } from './UploadBookProgressBar'
 
 type ProgressSectionUBPorps = {
     currentStep: number;
-    isFileCheck: boolean;
 };
 export const UploadBookProgressSection = ({
     currentStep,
-    isFileCheck,
 }: ProgressSectionUBPorps) => {
     return (
         <>
