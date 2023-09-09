@@ -42,7 +42,18 @@ export const UploadBook = () => {
                 setCurrentStep((oldStep) => oldStep + 1);
             }}
         />,
-        <UBStep2 />,
+        <UBStep2
+            isLargeScreen={isLargeScreen}
+            oldValues={currentData}
+            submitHandler={async (data, onSubmitProps) => {
+                // console.log(data);
+                setCurrentData((oldValue) => {
+                    return { ...oldValue, ...data };
+                });
+                onSubmitProps.resetForm();
+                setCurrentStep((oldStep) => oldStep + 1);
+            }}
+        />,
         <UBStep3
             isLargeScreen={isLargeScreen}
             oldValues={currentData}
