@@ -18,7 +18,8 @@ import ResetPassword from './pages/Login/ResetPassword';
 import Dashboard from './pages/User/DashBoard/Dashboard';
 import Chapters from './pages/Chapters/Chapters';
 import Logout from './pages/Logout/Logout';
-import { UploadBook } from './pages/UploadBook/UploadBook';
+import UploadBook from './pages/UploadBook/UploadBook';
+import Library from './pages/Library/Library';
 
 const router = createBrowserRouter([
     {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
             {
                 path: 'uploadbook',
                 element: <UploadBook />,
+            },
+            {
+                path: 'library',
+                element: <Library />,
             },
         ],
     },

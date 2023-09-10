@@ -10,7 +10,7 @@ import { UploadBookProgressSection as ProgressSectionUB } from '../../parts/Part
 import BookUpdated from './BookUpdated';
 // import axiosInstance from '../../config/Axios';
 
-export const UploadBook = () => {
+export default function UploadBook() {
     const { isLargeScreen } = useScreenWidth(); //min-width=768px
     const [isUploadBookCompleted, setIsUploadBookCompleted] =
         useState<boolean>(false);
@@ -157,4 +157,4 @@ export const UploadBook = () => {
             )}
         </>
     );
-};
+}
