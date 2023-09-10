@@ -45,7 +45,7 @@ export function UploadBookStep4({
                                 {options.map((option, index) => (
                                     <label
                                         key={index}
-                                        className="flex flex-1 justify-start gap-x-4 items-center"
+                                        className="flex flex-1 justify-start gap-x-4 items-center hover:cursor-pointer"
                                     >
                                         <Field
                                             className="h-4 w-4"

@@ -31,53 +31,57 @@ export default function BookUpdated({
                         </div>
                     </div>
                     <div className="flex  flex-col m-3  xs:mx-3 xs:my-6 lg:my-12  xs:flex-row xs:justify-around  md:justify-evenly w-10/12 xs:w-full">
-                        <button
-                            className=" bg-red-upschool text-white py-2 px-4 my-4 sm:py-4 sm:px-8 "
-                            onClick={() => {
-                                setIsUploadBookCompleted(false);
-                                setCurrentStep(0);
-                                setCurrentData({
-                                    first_name: '',
-                                    last_name: '',
-                                    school_name: '',
-                                    country: '',
-                                    age: '',
-                                    email: '',
-                                    book_title: '',
-                                    book_description: '',
-                                    canva_book_link: '',
-                                    file: '',
-                                    categories: [],
-                                    project: '',
-                                });
-                            }}
-                        >
-                            {/*TODO Add link to go to Dashboard */}
-                            <NavLink to="#">Go To Dashboard</NavLink>
-                        </button>
-                        <button
-                            className="bg-red-upschool text-white  py-2 px-4 my-4 sm:py-4 sm:px-8"
-                            onClick={() => {
-                                setIsUploadBookCompleted(false);
-                                setCurrentStep(0);
-                                setCurrentData({
-                                    first_name: '',
-                                    last_name: '',
-                                    school_name: '',
-                                    country: '',
-                                    age: '',
-                                    email: '',
-                                    book_title: '',
-                                    book_description: '',
-                                    canva_book_link: '',
-                                    file: '',
-                                    categories: [],
-                                    project: '',
-                                });
-                            }}
-                        >
-                            <NavLink to=".">Upload a New Book</NavLink>
-                        </button>
+                        <NavLink to="/dashboard" className="my-4">
+                            <div
+                                className=" bg-red-upschool text-white py-2 px-4  sm:py-4 sm:px-8  "
+                                onClick={() => {
+                                    setIsUploadBookCompleted(false);
+                                    setCurrentStep(0);
+                                    setCurrentData({
+                                        first_name: '',
+                                        last_name: '',
+                                        school_name: '',
+                                        country: '',
+                                        age: '',
+                                        email: '',
+                                        book_title: '',
+                                        book_description: '',
+                                        canva_book_link: '',
+                                        file: '',
+                                        categories: [],
+                                        project: '',
+                                    });
+                                }}
+                            >
+                                Go To Dashboard
+                            </div>
+                        </NavLink>
+
+                        <NavLink to="." className="my-4 ">
+                            <div
+                                className="bg-red-upschool text-white  py-2 px-4 sm:py-4 sm:px-8"
+                                onClick={() => {
+                                    setIsUploadBookCompleted(false);
+                                    setCurrentStep(0);
+                                    setCurrentData({
+                                        first_name: '',
+                                        last_name: '',
+                                        school_name: '',
+                                        country: '',
+                                        age: '',
+                                        email: '',
+                                        book_title: '',
+                                        book_description: '',
+                                        canva_book_link: '',
+                                        file: '',
+                                        categories: [],
+                                        project: '',
+                                    });
+                                }}
+                            >
+                                Upload a New Book
+                            </div>
+                        </NavLink>
                     </div>
                 </div>
             </div>
