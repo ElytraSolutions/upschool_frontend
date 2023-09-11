@@ -11,6 +11,9 @@ export default function Library() {
         search: '',
         category: '',
     });
+    const [searchTitle, setSearchTitle] = useState<string>(
+        searchParameters.search,
+    );
     const handleChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     ) => {
@@ -19,14 +22,11 @@ export default function Library() {
             [event.target.name]: event.target.value,
         }));
     };
-    console.log(searchParameters);
     const result = () => {
         if (searchParameters.category.length > 0) {
-            const searchResultByCategory = (searchParameters.category &&
-                books.filter(
-                    (book) =>
-                        book.categories?.includes(searchParameters.category),
-                )) as Array<{
+            const searchResultByCategory = books.filter(
+                (book) => book.categories?.includes(searchParameters.category),
+            ) as Array<{
                 id: number;
                 image: string;
                 writer: string;
@@ -34,29 +34,27 @@ export default function Library() {
                 country: string;
                 categories: string[];
             }>;
-            if (searchParameters.search.length > 0) {
+            if (searchTitle.length > 0) {
                 return searchResultByCategory.filter((book) =>
                     book.title
                         .toLowerCase()
-                        .includes(searchParameters.search.toLowerCase()),
+                        .includes(searchTitle.toLowerCase()),
                 );
             } else {
                 return searchResultByCategory;
             }
         } else {
-            if (searchParameters.search.length > 0) {
+            if (searchTitle.length > 0) {
                 return books.filter((book) =>
                     book.title
                         .toLowerCase()
-                        .includes(searchParameters.search.toLowerCase()),
+                        .includes(searchTitle.toLowerCase()),
                 );
             }
             return books;
         }
     };
-
     const searchResult = result();
-    console.log(searchResult);
     const BookNotFound = () => {
         return (
             <div className=" text-theme-color font-normal text-xs xs:text-base sm:text-lg lg:text-xl">
@@ -73,10 +71,10 @@ export default function Library() {
             <div className="flex flex-row justify-center">
                 <div className="w-[95%] lg:w-5/6 xl:w-2/3 flex flex-col gap-6">
                     <div className=" w-full py-1 px-2 xs:px-5 sm:px-6 lg:px-7 ">
-                        <div className="flex flex-col  sm:flex-row border border-black items-center">
+                        <div className="flex flex-col gap-4 py-2  sm:grid sm:grid-cols-7 border border-black items-center sm:gap-1">
                             <input
                                 id="search"
-                                className=" focus:outline-none flex-1 p-4 md:pl-8  text-xs xs:text-sm md:text-base w-[95%] xs:w-fit sm:w-full "
+                                className=" text-theme-color sm:col-span-4 md:col-span-3 focus:outline-none p-2  sm:p-4 md:pl-8  text-xs  xs:text-base sm:text-sm md:text-base w-[95%] xs:w-fit sm:w-full "
                                 type="text"
                                 placeholder="Search book by tiltle..."
                                 onChange={handleChange}
@@ -84,7 +82,7 @@ export default function Library() {
                                 value={searchParameters.search}
                             ></input>
                             <select
-                                className=" focus:outline-none text-xs xs:text-sm  md:text-base w-[95%]  xs:w-fit sm:w-[40%] md:w-fit"
+                                className=" text-theme-color sm:col-span-2 md:col-span-3 focus:outline-none text-xs xs:text-base sm:text-sm tab:text-base w-[90%]  xs:w-fit sm:w-[80%] md:w-fit"
                                 id="category"
                                 value={searchParameters.category}
                                 onChange={handleChange}
@@ -97,12 +95,17 @@ export default function Library() {
                                     </option>
                                 ))}
                             </select>
-                            <button className="px-6 py-2 text-xs xs:text-sm  md:text-base">
+                            <button
+                                className="sm:col-span-1  sm:mr-2 px-4  sm:px-3 md:px-6  py-2 sm:py-1 lg:py-2 text-sm xs:text-base  sm:text-sm  lg:text-base w-fit justify-self-center  rounded-2xl bg-theme-color text-white"
+                                onClick={() => {
+                                    setSearchTitle(searchParameters.search);
+                                }}
+                            >
                                 Search
                             </button>
                         </div>
                     </div>
-                    <div className="grid w-full py-1 px-2 xs:px-5 sm:px-6 lg:px-7 gap-4 xs:grid-cols-2 xs:gap-3 justify-items-center sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-4">
+                    <div className="grid w-full py-3 px-2 xs:px-5 sm:px-6 lg:px-7 gap-4 xs:grid-cols-2 xs:gap-3 justify-items-center sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-4">
                         {searchResult.length > 0 ? (
                             searchResult.map((book, index) => (
                                 <BookCard key={index} book={book} />
