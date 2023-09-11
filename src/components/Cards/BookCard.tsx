@@ -21,10 +21,11 @@ export const BookCard = ({ book }: BookCardProps) => {
                 <div className="block text-gray-500  font-light">
                     {book.writer}
                 </div>
-                <div className="block text-lg lg:text-xl">{book.title}</div>
+                <div className="block text-base lg:text-lg">{book.title}</div>
                 <div className="block text-gray-500 font-light">
                     {book.country}
                 </div>
+                {/*  TODO link to read book */}
                 <button
                     type="button"
                     className="p-3 my-1 bg-red-upschool text-white text-xs md:text-sm hover:cursor-pointer w-fit"

@@ -1,6 +1,6 @@
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { options } from '../../data/UploadBookCategories';
+import { categories } from '../../data/UploadBookCategories';
 
 const uploadBookSchema = yup.object().shape({
     categories: yup
@@ -42,7 +42,7 @@ export function UploadBookStep4({
                                 Please select up to 5 categories
                             </h2>
                             <div className="grid sm:grid-cols-2 gap-2 gap-x-6">
-                                {options.map((option, index) => (
+                                {categories.map((category, index) => (
                                     <label
                                         key={index}
                                         className="flex flex-1 justify-start gap-x-4 items-center hover:cursor-pointer"
@@ -51,15 +51,15 @@ export function UploadBookStep4({
                                             className="h-4 w-4"
                                             type="checkbox"
                                             name="categories"
-                                            value={option}
+                                            value={category}
                                         />
-                                        {option}
+                                        {category}
                                     </label>
                                 ))}
                             </div>
                             <ErrorMessage
                                 name="categories"
-                                render={(msg) => (
+                                render={(msg: string) => (
                                     <div className="text-center text-red-upschool text-sm md:text-base p-1">
                                         {msg}
                                     </div>

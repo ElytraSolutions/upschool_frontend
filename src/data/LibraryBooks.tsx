@@ -5,6 +5,11 @@ export const books = [
         writer: 'Susannah',
         title: 'Imagine',
         country: 'Australia',
+        categories: [
+            'Accepting Differences',
+            'Compassion for Others',
+            'Empathy',
+        ],
     },
     {
         id: 2,
@@ -12,6 +17,7 @@ export const books = [
         writer: 'William',
         title: 'The Somme',
         country: 'Australia',
+        categories: ['Empathy', 'Family', 'Generosity and Sharing'],
     },
     {
         id: 3,
@@ -19,6 +25,11 @@ export const books = [
         writer: 'Adrian',
         title: 'Prof and Stan',
         country: 'United Arab Emirates',
+        categories: [
+            'Generosity and Sharing',
+            'Hard Work',
+            'Accepting Differences',
+        ],
     },
     {
         id: 4,
@@ -26,6 +37,12 @@ export const books = [
         writer: 'Amalia',
         title: 'So Much Rubbish!',
         country: 'Australia',
+        categories: [
+            'Racism and Injustice',
+            'Self-Control',
+            'Value and Power of Friendship',
+            'Bravery and Courage',
+        ],
     },
     {
         id: 5,
@@ -33,6 +50,7 @@ export const books = [
         writer: 'Luka',
         title: 'R.U.O.K',
         country: 'Australia',
+        categories: ['Peace on Earth', 'Racism and Injustice', 'Self-Control'],
     },
     {
         id: 6,
@@ -40,6 +58,11 @@ export const books = [
         writer: 'Marie-Chantal',
         title: "Don't Play In The Toilet",
         country: 'Australia',
+        categories: [
+            'Value and Power of Friendship',
+            'Bravery and Courage',
+            'Education',
+        ],
     },
     {
         id: 7,
@@ -47,6 +70,7 @@ export const books = [
         writer: 'Akshandha',
         title: 'The Lively Sea',
         country: 'India',
+        categories: ['Bravery and Courage', 'Education', 'Fairness and Equity'],
     },
     {
         id: 8,
@@ -54,6 +78,11 @@ export const books = [
         writer: 'Nicholas',
         title: 'Can and Banjo',
         country: 'Australia',
+        categories: [
+            'Self-Control',
+            'Value and Power of Friendship',
+            'Bravery and Courage',
+        ],
     },
     {
         id: 9,
@@ -61,6 +90,11 @@ export const books = [
         writer: 'Susannah',
         title: 'Imagine',
         country: 'Australia',
+        categories: [
+            'Bravery and Courage',
+            'Fairness and Equity',
+            'Value and Power of Friendship',
+        ],
     },
     {
         id: 10,
@@ -68,6 +102,7 @@ export const books = [
         writer: 'William',
         title: 'The Somme',
         country: 'Australia',
+        categories: ['Peace on Earth', 'Racism and Injustice', 'Empathy'],
     },
     {
         id: 11,
@@ -75,6 +110,7 @@ export const books = [
         writer: 'Adrian',
         title: 'Prof and Stan',
         country: 'United Arab Emirates',
+        categories: ['Generosity and Sharing', 'Hard Work', 'Self-Control'],
     },
     {
         id: 12,
@@ -82,6 +118,7 @@ export const books = [
         writer: 'Amalia',
         title: 'So Much Rubbish!',
         country: 'Australia',
+        categories: ['Hard Work', 'Accepting Differences', 'Education'],
     },
     {
         id: 13,
@@ -89,6 +126,11 @@ export const books = [
         writer: 'Luka',
         title: 'R.U.O.K',
         country: 'Australia',
+        categories: [
+            'Self-Control',
+            'Value and Power of Friendship',
+            'Bravery and Courage',
+        ],
     },
     {
         id: 14,
@@ -96,6 +138,11 @@ export const books = [
         writer: 'Marie-Chantal',
         title: "Don't Play In The Toilet",
         country: 'Australia',
+        categories: [
+            'Value and Power of Friendship',
+            'Bravery and Courage',
+            'Accepting Differences',
+        ],
     },
     {
         id: 15,
@@ -103,6 +150,7 @@ export const books = [
         writer: 'Akshandha',
         title: 'The Lively Sea',
         country: 'India',
+        categories: ['Education', 'Fairness and Equity', 'Peace on Earth'],
     },
     {
         id: 16,
@@ -110,5 +158,6 @@ export const books = [
         writer: 'Nicholas',
         title: 'Can and Banjo',
         country: 'Australia',
+        categories: ['Racism and Injustice', 'Self-Control', 'Hard Work'],
     },
 ];

@@ -1,4 +1,4 @@
-export const options = [
+export const categories = [
     'Accepting Differences',
     'Compassion for Others',
     'Empathy',
