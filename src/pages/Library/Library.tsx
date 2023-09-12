@@ -123,10 +123,10 @@ export default function Library() {
                         <div className="p-4 bg-theme-color/75">
                             <div className="grid grid-cols-3 gap-2 justify-items-center md:ml-4 lg:ml-6">
                                 <div className=" col-span-2 flex flex-col gap-2">
-                                    <h1 className="sm:text-base sm:font-medium md:text-xl md:font-semibold lg:text-2xl lg:font-bold">
+                                    <h1 className="md:text-lg md:font-semibold lg:text-2xl lg:font-bold">
                                         Values for a Better Tomorrow Book Bundle
                                     </h1>
-                                    <p className="font-light">
+                                    <p className="font-light md:text-sm lg:text-base">
                                         Enjoy a handpicked selection of 10 books
                                         from the Upschool Library that explore
                                         essential values through the eyes of a
@@ -136,7 +136,7 @@ export default function Library() {
                                     </p>
                                     <button
                                         type="button"
-                                        className="bg-white text-theme-color rounded-2xl p-2 w-fit md:text-sm"
+                                        className="bg-white text-theme-color rounded-2xl p-2 w-fit md:text-xs lg:text-sm"
                                     >
                                         {/*  TODO add link here */}
                                         <NavLink to="#">Learn More</NavLink>
@@ -148,13 +148,13 @@ export default function Library() {
                                                     key={index}
                                                     className="col-span-2 bg-red-upschool flex flex-col gap-2 w-full p-2 "
                                                 >
-                                                    <p className="text-sm">
+                                                    <p className="md:text-xs lg:text-sm">
                                                         Buy in {inf.tiltle}
                                                     </p>
-                                                    <p className=" text-sm lg:text-base font-semibold">
+                                                    <p className="md:text-xs lg:text-base font-semibold">
                                                         AU ${inf.price}
                                                     </p>
-                                                    <p className=" text-sm">
+                                                    <p className="md:text-xs lg:text-sm">
                                                         Donation: AU $
                                                         {inf.donation}
                                                     </p>
@@ -166,10 +166,10 @@ export default function Library() {
                                 <table className=" col-span-1 border-collapse text-xs text-left w-fit h-full">
                                     <thead>
                                         <tr>
-                                            <th className="border border-b-4 border-white p-2 ">
+                                            <th className="border border-b-4 border-white md:px-0.5 lg:p-2 ">
                                                 Book Name
                                             </th>
-                                            <th className="border border-b-4 border-white p-2 ">
+                                            <th className="border border-b-4 border-white md:px-0.5 lg:p-2 ">
                                                 Value Explored
                                             </th>
                                         </tr>
@@ -180,10 +180,10 @@ export default function Library() {
                                                 key={index}
                                                 className=" last:border-b border-white font-light "
                                             >
-                                                <td className="border-x  border-white px-2">
+                                                <td className="border-x  border-white md:p-0.5 lg:px-2">
                                                     {index + 1}. {book.name}
                                                 </td>
-                                                <td className="border-x  border-white px-2">
+                                                <td className="border-x  border-white md:p-0.5 lg:px-2">
                                                     {book.category}
                                                 </td>
                                             </tr>
