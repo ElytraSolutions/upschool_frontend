@@ -169,7 +169,7 @@ export default function Library() {
                                             })}
                                         </div>
                                     </div>
-                                    <table className=" col-span-1 border-collapse text-xs text-left w-fit h-full">
+                                    <table className=" col-span-1 border-collapse text-xs text-left w-full h-full">
                                         <thead>
                                             <tr>
                                                 <th className="border border-b-4 border-white md:px-0.5 lg:p-2 ">
@@ -200,7 +200,54 @@ export default function Library() {
                             </div>
                         </div>
                     ) : (
-                        <h1>hello world</h1>
+                        <div className="bg-theme-color/80 flex justify-center text-white">
+                            <div className="w-11/12 flex flex-col gap-4 py-8">
+                                <h1 className=" font-semibold text-xl xs:text-2xl">
+                                    Book Bundle
+                                </h1>
+                                <p className=" font-light text-base mb-3">
+                                    Explore the world of children's stories with
+                                    our Upschool book bundle of 10 handpicked
+                                    tales for sparking imagination and journey
+                                    of discovery and adventure
+                                </p>
+                                <ul className="font-light text-base">
+                                    {BookList.map((book, index) => (
+                                        <li key={index} className="mb-2">
+                                            {index + 1}. {book.name} -{' '}
+                                            {book.category}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <button
+                                    type="button"
+                                    className="bg-white text-theme-color rounded-2xl p-2 px-4 w-fit text-sm"
+                                >
+                                    {/*  TODO add link here */}
+                                    <NavLink to="#">Learn More</NavLink>
+                                </button>
+                                <div className="grid gap-3">
+                                    {information.map((inf, index) => {
+                                        return (
+                                            <div
+                                                key={index}
+                                                className=" bg-red-upschool flex flex-col gap-2 w-full p-2 text-sm "
+                                            >
+                                                <p className="">
+                                                    Buy in {inf.tiltle}
+                                                </p>
+                                                <p className=" text-base font-semibold">
+                                                    AU ${inf.price}
+                                                </p>
+                                                <p className="">
+                                                    Donation: AU ${inf.donation}
+                                                </p>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </div>
                     )}
                     {/* Grid Display of book */}
                     <div className="grid w-full py-3  gap-4 xs:grid-cols-2 xs:gap-3 justify-items-center sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-4">
