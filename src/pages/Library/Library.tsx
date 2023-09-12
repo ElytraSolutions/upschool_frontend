@@ -5,6 +5,7 @@ import { BookList } from '../../data/BookBundleList';
 import { categories } from '../../data/UploadBookCategories';
 import LibraryBackground from '../../assets/LibraryBackground.png';
 import { NavLink } from 'react-router-dom';
+import useScreenWidth from '../../hooks/useScreenWidth';
 
 const information = [
     { tiltle: 'Paperback', price: 399, donation: 0 },
@@ -23,6 +24,7 @@ export default function Library() {
     const [searchTitle, setSearchTitle] = useState<string>(
         searchParameters.search,
     );
+    const { isLargeScreen } = useScreenWidth();
     const handleChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     ) => {
@@ -116,83 +118,90 @@ export default function Library() {
                         </div>
                     </div>
                     {/* Book Bundle */}
-                    <div
-                        className="bg-local bg-cover bg-center  w-full h-fit text-white"
-                        style={{ backgroundImage: `url(${LibraryBackground})` }}
-                    >
-                        <div className="p-4 bg-theme-color/75">
-                            <div className="grid grid-cols-3 gap-2 justify-items-center md:ml-4 lg:ml-6">
-                                <div className=" col-span-2 flex flex-col gap-2">
-                                    <h1 className="md:text-lg md:font-semibold lg:text-2xl lg:font-bold">
-                                        Values for a Better Tomorrow Book Bundle
-                                    </h1>
-                                    <p className="font-light md:text-sm lg:text-base">
-                                        Enjoy a handpicked selection of 10 books
-                                        from the Upschool Library that explore
-                                        essential values through the eyes of a
-                                        child. Each book comes with downloadable
-                                        resources that can be used in any
-                                        learning setting.
-                                    </p>
-                                    <button
-                                        type="button"
-                                        className="bg-white text-theme-color rounded-2xl p-2 w-fit md:text-xs lg:text-sm"
-                                    >
-                                        {/*  TODO add link here */}
-                                        <NavLink to="#">Learn More</NavLink>
-                                    </button>
-                                    <div className="grid grid-cols-7  gap-3">
-                                        {information.map((inf, index) => {
-                                            return (
-                                                <div
-                                                    key={index}
-                                                    className="col-span-2 bg-red-upschool flex flex-col gap-2 w-full p-2 "
-                                                >
-                                                    <p className="md:text-xs lg:text-sm">
-                                                        Buy in {inf.tiltle}
-                                                    </p>
-                                                    <p className="md:text-xs lg:text-base font-semibold">
-                                                        AU ${inf.price}
-                                                    </p>
-                                                    <p className="md:text-xs lg:text-sm">
-                                                        Donation: AU $
-                                                        {inf.donation}
-                                                    </p>
-                                                </div>
-                                            );
-                                        })}
+                    {isLargeScreen ? (
+                        <div
+                            className="bg-local bg-cover bg-center  w-full h-fit text-white"
+                            style={{
+                                backgroundImage: `url(${LibraryBackground})`,
+                            }}
+                        >
+                            <div className="p-4 bg-theme-color/75">
+                                <div className="grid grid-cols-3 gap-2 justify-items-center md:ml-4 lg:ml-6">
+                                    <div className=" col-span-2 flex flex-col gap-2">
+                                        <h1 className="md:text-lg md:font-semibold lg:text-2xl lg:font-bold">
+                                            Values for a Better Tomorrow Book
+                                            Bundle
+                                        </h1>
+                                        <p className="font-light md:text-sm lg:text-base">
+                                            Enjoy a handpicked selection of 10
+                                            books from the Upschool Library that
+                                            explore essential values through the
+                                            eyes of a child. Each book comes
+                                            with downloadable resources that can
+                                            be used in any learning setting.
+                                        </p>
+                                        <button
+                                            type="button"
+                                            className="bg-white text-theme-color rounded-2xl p-2 w-fit md:text-xs lg:text-sm"
+                                        >
+                                            {/*  TODO add link here */}
+                                            <NavLink to="#">Learn More</NavLink>
+                                        </button>
+                                        <div className="grid grid-cols-7  gap-3">
+                                            {information.map((inf, index) => {
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        className="col-span-2 bg-red-upschool flex flex-col gap-2 w-full p-2 "
+                                                    >
+                                                        <p className="md:text-xs lg:text-sm">
+                                                            Buy in {inf.tiltle}
+                                                        </p>
+                                                        <p className="md:text-xs lg:text-base font-semibold">
+                                                            AU ${inf.price}
+                                                        </p>
+                                                        <p className="md:text-xs lg:text-sm">
+                                                            Donation: AU $
+                                                            {inf.donation}
+                                                        </p>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
                                     </div>
-                                </div>
-                                <table className=" col-span-1 border-collapse text-xs text-left w-fit h-full">
-                                    <thead>
-                                        <tr>
-                                            <th className="border border-b-4 border-white md:px-0.5 lg:p-2 ">
-                                                Book Name
-                                            </th>
-                                            <th className="border border-b-4 border-white md:px-0.5 lg:p-2 ">
-                                                Value Explored
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {BookList.map((book, index) => (
-                                            <tr
-                                                key={index}
-                                                className=" last:border-b border-white font-light "
-                                            >
-                                                <td className="border-x  border-white md:p-0.5 lg:px-2">
-                                                    {index + 1}. {book.name}
-                                                </td>
-                                                <td className="border-x  border-white md:p-0.5 lg:px-2">
-                                                    {book.category}
-                                                </td>
+                                    <table className=" col-span-1 border-collapse text-xs text-left w-fit h-full">
+                                        <thead>
+                                            <tr>
+                                                <th className="border border-b-4 border-white md:px-0.5 lg:p-2 ">
+                                                    Book Name
+                                                </th>
+                                                <th className="border border-b-4 border-white md:px-0.5 lg:p-2 ">
+                                                    Value Explored
+                                                </th>
                                             </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            {BookList.map((book, index) => (
+                                                <tr
+                                                    key={index}
+                                                    className=" last:border-b border-white font-light "
+                                                >
+                                                    <td className="border-x  border-white md:p-0.5 lg:px-2">
+                                                        {index + 1}. {book.name}
+                                                    </td>
+                                                    <td className="border-x  border-white md:p-0.5 lg:px-2">
+                                                        {book.category}
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    ) : (
+                        <h1>hello world</h1>
+                    )}
                     {/* Grid Display of book */}
                     <div className="grid w-full py-3  gap-4 xs:grid-cols-2 xs:gap-3 justify-items-center sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-4">
                         {searchResult.length > 0 ? (
