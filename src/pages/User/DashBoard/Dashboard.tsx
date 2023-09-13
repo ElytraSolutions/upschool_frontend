@@ -88,9 +88,11 @@ const Dashboard: React.FC<DashboardProps> = () => {
             </div>
 
             {/* Content */}
-            <div className="w-4/5 lg:w-5/6 p-4 bg-[#cecece]/20">
+            <div className="w-4/5 lg:w-5/6 p-4 pt-8 bg-[#cecece]/20 h-screen overflow-scroll">
                 {/* Content specific to the selected option */}
-                {selectedOption === 'Dashboard' && <DashboardContent />}
+                {selectedOption === 'Dashboard' && (
+                    <DashboardContent handleOptionClick={handleOptionClick} />
+                )}
                 {selectedOption === 'My Courses' && <MyCourses />}
                 {selectedOption === 'My Books' && <MyBooks />}
                 {selectedOption === 'My Donations & Purchase' && (

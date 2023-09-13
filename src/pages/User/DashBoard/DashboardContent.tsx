@@ -9,7 +9,9 @@ import book4 from '../../../assets/Books/book4.png';
 import book5 from '../../../assets/Books/book5.png';
 
 import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
+import BookBox from '../../../parts/UserDashboard/Boxes/BookBox';
 
+// TODO fetch data from backend according to the need (3 courses and books respectively)
 const courses = [
     {
         id: 1,
@@ -17,6 +19,7 @@ const courses = [
         completedLessons: 20,
         totalLessons: 40,
         image: `${book5}`,
+        url: '/dashboard',
         status: 'In review',
     },
     {
@@ -25,6 +28,7 @@ const courses = [
         completedLessons: 30,
         totalLessons: 50,
         image: `${book4}`,
+        url: '/dashboard',
         status: 'Published',
     },
     {
@@ -33,15 +37,20 @@ const courses = [
         completedLessons: 10,
         totalLessons: 70,
         image: `${book3}`,
+        url: '/dashboard',
         status: 'Book Not Print Ready',
     },
 ];
 
-function DashboardContent() {
+type DashboardContentProps = {
+    handleOptionClick: (option: string) => void;
+};
+
+function DashboardContent({ handleOptionClick }: DashboardContentProps) {
     return (
         <>
             <div>
-                <div className="flex flex-col gap-4 w-full text-theme-color">
+                <div className="flex flex-col gap-8 w-full text-theme-color">
                     {/* First row : Enrolled, Active and Completed courses and Books uploaded by User */}
                     <div className="flex flex-row w-full gap-3 justify-start">
                         {/* TODO fetch number for each BoardBox as of User from backend */}
@@ -67,19 +76,42 @@ function DashboardContent() {
                         />
                     </div>
                     {/* Second row : Active courses section */}
-                    <div className="flex flex-col items-start w-full">
+                    <div className="flex flex-col items-start w-full gap-3">
                         <h1 className="text-2xl font-bold">
                             Continue Learning
                         </h1>
-                        <div className="flex flex-row gap-2 w-full ">
+                        <div className="flex flex-row gap-2 lg:gap-4 w-full ">
                             {courses.map((course, index) => (
                                 <CourseBox key={index} detail={course} />
                             ))}
                         </div>
+                        <div
+                            className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center hover:cursor-pointer"
+                            onClick={() => {
+                                handleOptionClick('My Courses');
+                            }}
+                        >
+                            See more {'>>'}
+                        </div>
                     </div>
 
                     {/* Third row : Books uploaded by user */}
-                    <div></div>
+                    <div className="flex flex-col items-start w-full gap-3">
+                        <h1 className="text-2xl font-bold">Your Books</h1>
+                        <div className="flex flex-row gap-2 lg:gap-4 w-full ">
+                            {courses.map((course, index) => (
+                                <BookBox key={index} detail={course} />
+                            ))}
+                        </div>
+                        <div
+                            className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center hover:cursor-pointer"
+                            onClick={() => {
+                                handleOptionClick('My Books');
+                            }}
+                        >
+                            See more {'>>'}
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

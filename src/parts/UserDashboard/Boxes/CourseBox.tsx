@@ -1,3 +1,6 @@
+import { NavLink } from 'react-router-dom';
+
+// TODO change type as requrired variables
 type CourseBoxProps = {
     detail: {
         id: number;
@@ -5,10 +8,12 @@ type CourseBoxProps = {
         completedLessons: number;
         totalLessons: number;
         image: string;
+        url: string;
         status?: string;
     };
 };
 export default function CourseBox({ detail }: CourseBoxProps) {
+    // TODO implement better logic if possible
     const widthCalculate = () => {
         const calculate = Math.floor(
             (detail.completedLessons / detail.totalLessons) * 100,
@@ -23,6 +28,7 @@ export default function CourseBox({ detail }: CourseBoxProps) {
         else if (calculate < 80) return 'w-[72%]';
         else if (calculate < 90) return 'w-[82%]';
         else if (calculate < 100) return 'w-[92%]';
+        else if (calculate === 100) return 'w-[100%]';
         else return 'w-0';
     };
     const width = widthCalculate();
@@ -30,17 +36,18 @@ export default function CourseBox({ detail }: CourseBoxProps) {
         <>
             <div className="p-4 bg-white w-fit">
                 <div className="flex flex-col w-full gap-4">
-                    <div className="">
+                    <div className="flex justify-center">
                         <img
                             src={detail.image}
                             alt={detail.name}
                             width="350px"
-                            height="350px"
+                            height="250px"
                         />
                     </div>
+
                     <h1 className="text-xl font-bold">{detail.name}</h1>
-                    <div className="flex flex-col w-full">
-                        <div>
+                    <div className="flex flex-col w-full gap-1">
+                        <div className="text-lg">
                             {detail.completedLessons}/{detail.totalLessons}{' '}
                             Lessons
                         </div>
@@ -50,6 +57,13 @@ export default function CourseBox({ detail }: CourseBoxProps) {
                             ></div>
                         </div>
                     </div>
+
+                    <NavLink
+                        to={detail.url}
+                        className="text-white bg-theme-color px-4 py-2 w-fit"
+                    >
+                        Continue Learning
+                    </NavLink>
                 </div>
             </div>
         </>
