@@ -54,6 +54,9 @@ export default {
                 xs: '420px',
                 xm: '540px',
             },
+            aspectRatio: {
+                '2/1': '2 / 1',
+            },
         },
     },
     plugins: [],

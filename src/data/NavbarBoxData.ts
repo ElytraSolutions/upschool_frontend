@@ -405,7 +405,7 @@ const data = [
             {
                 id: 1,
                 title: 'Browse Books',
-                path: 'https://upschool.co/library/',
+                path: 'library',
             },
             {
                 id: 2,
