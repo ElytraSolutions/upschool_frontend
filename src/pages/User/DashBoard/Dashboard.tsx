@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DashboardContent from './DashboardContent';
 import MyCourses from './MyCourses';
 import MyBooks from './MyBooks';
-import MyDonations from './MyDonations';
+import MyDonationsAndPurchases from './MyDonationsAndPurchases';
 import Logout from './Logout';
 import Setting from './Setting';
 
@@ -96,7 +96,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
                 {selectedOption === 'My Courses' && <MyCourses />}
                 {selectedOption === 'My Books' && <MyBooks />}
                 {selectedOption === 'My Donations & Purchase' && (
-                    <MyDonations />
+                    <MyDonationsAndPurchases />
                 )}
                 {selectedOption === 'Setting' && <Setting />}
                 {selectedOption === 'Logout' && <Logout />}

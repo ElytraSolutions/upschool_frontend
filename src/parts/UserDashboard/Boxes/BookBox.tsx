@@ -39,7 +39,11 @@ export default function BookBox({ detail }: BookBoxProps) {
 
                     <NavLink
                         to={detail.url}
-                        className="text-white bg-theme-color px-4 py-2 w-fit"
+                        className={`text-white bg-theme-color px-4 py-2 w-fit ${
+                            detail.status === 'In review'
+                                ? 'opacity-50 cursor-not-allowed'
+                                : ''
+                        } `}
                     >
                         View Book
                     </NavLink>
