@@ -4,6 +4,8 @@ import book3 from '../../../assets/Books/book3.png';
 import book4 from '../../../assets/Books/book4.png';
 import book5 from '../../../assets/Books/book5.png';
 import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
+
+// TODO fetch data from backend according to the need
 const courses = [
     {
         id: 1,

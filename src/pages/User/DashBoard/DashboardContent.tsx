@@ -53,7 +53,7 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                 <div className="flex flex-col gap-8 w-full text-theme-color">
                     {/* First row : Enrolled, Active and Completed courses and Books uploaded by User */}
                     <div className="flex flex-row w-full gap-3 justify-start">
-                        {/* TODO fetch number for each BoardBox as of User from backend */}
+                        {/* TODO fetch number for each BoardBox as of particular User from backend */}
                         <BoardBox
                             icon={Enrolled}
                             text="Enrolled Courses"
