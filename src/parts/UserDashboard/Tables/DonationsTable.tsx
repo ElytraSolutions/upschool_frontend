@@ -1,4 +1,6 @@
+import React from 'react';
 import DownloadIcon from '../../../assets/DownloadIcon.png';
+
 // TODO fetch 'donations' from backend
 const donations = [
     {
@@ -40,10 +42,9 @@ export default function DonationsTable() {
                 </thead>
                 <tbody>
                     {donations.map((donation, index) => (
-                        <>
+                        <React.Fragment key={index}>
                             {/* First row */}
                             <tr
-                                key={index}
                                 className={` font-normal w-full ${
                                     index % 2 === 0 ? 'bg-stone-200/50' : ''
                                 }`} //Gives same background for pair of corresponding rows
@@ -83,7 +84,6 @@ export default function DonationsTable() {
                             {/* Second row */}
                             {donation.upschoolTip && (
                                 <tr
-                                    key={donation.id}
                                     className={` font-normal w-full border-t border-theme-color/20 ${
                                         index % 2 === 0 ? 'bg-stone-200/50' : ''
                                     }`} //Gives same background for pair of corresponding rows
@@ -100,7 +100,7 @@ export default function DonationsTable() {
                                     <td>&nbsp;</td>
                                 </tr>
                             )}
-                        </>
+                        </React.Fragment>
                     ))}
                 </tbody>
             </table>

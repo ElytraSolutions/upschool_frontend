@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 type ChildObject = {
@@ -38,7 +39,7 @@ export function NavbarBox({ inf }: BoxProps) {
                 <ul className="bg-white  rounded-md scale-0 group-hover/navmenu:scale-100 absolute transition duration-150 ease-in-out origin-top ">
                     {inf.children?.map((detail, index) => {
                         return (
-                            <>
+                            <React.Fragment key={index}>
                                 {detail.children ? (
                                     <li
                                         key={index}
@@ -99,7 +100,7 @@ export function NavbarBox({ inf }: BoxProps) {
                                         </NavLink>
                                     </li>
                                 )}
-                            </>
+                            </React.Fragment>
                         );
                     })}
                 </ul>
