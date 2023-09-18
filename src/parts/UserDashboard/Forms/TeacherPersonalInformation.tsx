@@ -85,19 +85,20 @@ export const TeacherPersonalInformation = () => {
                                                     onBlur={handleBlur}
                                                     value={values.first_name}
                                                 />
-                                                {errors.first_name ? (
+                                                {touched.first_name &&
+                                                errors.first_name ? (
                                                     <ErrorMessage
                                                         name="first_name"
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool">
+                                                            <div className="text-left text-xs text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
                                                     />
                                                 ) : (
-                                                    <div className="h-4 w-full bg-inherit"></div>
+                                                    <div className="h-6 w-full bg-inherit"></div>
                                                 )}
                                             </div>
                                         </>
@@ -125,7 +126,8 @@ export const TeacherPersonalInformation = () => {
                                                     onBlur={handleBlur}
                                                     value={values.last_name}
                                                 />
-                                                {errors.last_name ? (
+                                                {touched.last_name &&
+                                                errors.last_name ? (
                                                     <ErrorMessage
                                                         name="last_name"
                                                         render={(
@@ -137,7 +139,7 @@ export const TeacherPersonalInformation = () => {
                                                         )}
                                                     />
                                                 ) : (
-                                                    <div className="h-4 w-full bg-inherit"></div>
+                                                    <div className="h-6 w-full bg-inherit"></div>
                                                 )}
                                             </div>
                                         </>
@@ -165,7 +167,8 @@ export const TeacherPersonalInformation = () => {
                                                     onBlur={handleBlur}
                                                     value={values.email}
                                                 />
-                                                {errors.email ? (
+                                                {touched.email &&
+                                                errors.email ? (
                                                     <ErrorMessage
                                                         name="email"
                                                         render={(
@@ -177,7 +180,7 @@ export const TeacherPersonalInformation = () => {
                                                         )}
                                                     />
                                                 ) : (
-                                                    <div className="h-4 w-full bg-inherit"></div>
+                                                    <div className="h-6 w-full bg-inherit"></div>
                                                 )}
                                             </div>
                                         </>
@@ -205,7 +208,8 @@ export const TeacherPersonalInformation = () => {
                                                     onBlur={handleBlur}
                                                     value={values.date_of_birth}
                                                 />
-                                                {errors.date_of_birth ? (
+                                                {touched.date_of_birth &&
+                                                errors.date_of_birth ? (
                                                     <ErrorMessage
                                                         name="date_of_birth"
                                                         render={(
@@ -217,7 +221,7 @@ export const TeacherPersonalInformation = () => {
                                                         )}
                                                     />
                                                 ) : (
-                                                    <div className="h-4 w-full bg-inherit"></div>
+                                                    <div className="h-6 w-full bg-inherit"></div>
                                                 )}
                                             </div>
                                         </>
@@ -233,7 +237,7 @@ export const TeacherPersonalInformation = () => {
                                                 <select
                                                     id="country"
                                                     name="country"
-                                                    className={`w-full focus:outline-none bg-white border rounded-md py-1 px-3  ${
+                                                    className={`w-full focus:outline-none bg-white border rounded-md py-1 px-3 ${
                                                         touched.country &&
                                                         errors.country
                                                             ? 'border-red-upschool'
@@ -258,9 +262,10 @@ export const TeacherPersonalInformation = () => {
                                                         ),
                                                     )}
                                                 </select>
-                                                {errors.country ? (
+                                                {touched.country &&
+                                                errors.country ? (
                                                     <ErrorMessage
-                                                        name="contry"
+                                                        name="country"
                                                         render={(
                                                             msg: string,
                                                         ) => (
@@ -270,7 +275,7 @@ export const TeacherPersonalInformation = () => {
                                                         )}
                                                     />
                                                 ) : (
-                                                    <div className="h-4 w-full bg-inherit"></div>
+                                                    <div className="h-6 w-full bg-inherit"></div>
                                                 )}
                                             </div>
                                         </>
