@@ -2,6 +2,7 @@ import SettingBoardBox from '../../../parts/UserDashboard/Boxes/SettingBoardBox'
 import TeacherIcon from '../../../assets/TeacherIcon.png';
 import Active from '../../../assets/Active.png';
 import AddIcon from '../../../assets/AddIcon.png';
+import { TeacherPersonalInformation as PersonalInformation } from '../../../parts/UserDashboard/Forms/TeacherPersonalInformation';
 
 import { useState } from 'react';
 function Setting() {
@@ -72,7 +73,9 @@ function Setting() {
                 <div className="w-full xl:w-10/12">
                     {/* My Profile section */}
                     {selectedOption === 'My Profile' && (
-                        <div className="">My Profile</div>
+                        <div className="">
+                            <PersonalInformation />
+                        </div>
                     )}
                     {/* Students section */}
                     {selectedOption === 'Students' && (
