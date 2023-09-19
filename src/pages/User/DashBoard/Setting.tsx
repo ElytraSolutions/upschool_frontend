@@ -6,6 +6,7 @@ import { TeacherPersonalInformation as PersonalInformation } from '../../../part
 
 import { useState } from 'react';
 import { TeacherBillingDetails } from '../../../parts/UserDashboard/Forms/TeacherBiilingDetails';
+import { TeacherChangePassword } from '../../../parts/UserDashboard/Forms/TeacherChangePassword';
 function Setting() {
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
@@ -77,6 +78,7 @@ function Setting() {
                         <div className="flex flex-col gap-12">
                             <PersonalInformation />
                             <TeacherBillingDetails />
+                            <TeacherChangePassword />
                         </div>
                     )}
                     {/* Students section */}

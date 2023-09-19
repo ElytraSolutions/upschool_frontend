@@ -5,8 +5,7 @@ import { countries } from '../../../data/countries';
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 
-// TODO Shema for image(avtar) of user
-const PersonalInformationSchema = yup.object().shape({
+const BillingSchema = yup.object().shape({
     first_name: yup
         .string()
         .required('required')
@@ -47,11 +46,13 @@ const InitialValues = {
     shippingDetails: true,
 };
 
+const submitHandler = (data, onSubmitProps) => {
+    // TODO implement logic for submmited data
+    console.log(data);
+    onSubmitProps.resetForm();
+};
+
 export const TeacherBillingDetails = () => {
-    const submitHandler = (data, onSubmitProps) => {
-        console.log(data);
-        onSubmitProps.resetForm();
-    };
     return (
         <div className="w-full">
             <div className="w-full h-full border border-theme-color/50 rounded-md  flex flex-col gap-2">
@@ -72,7 +73,7 @@ export const TeacherBillingDetails = () => {
                         <Formik
                             onSubmit={submitHandler}
                             initialValues={InitialValues}
-                            validationSchema={PersonalInformationSchema}
+                            validationSchema={BillingSchema}
                         >
                             {({
                                 values,
@@ -315,7 +316,7 @@ export const TeacherBillingDetails = () => {
                                                     <TextField
                                                         size="small"
                                                         fullWidth
-                                                        id="address"
+                                                        id="city"
                                                         type="text"
                                                         hiddenLabel
                                                         placeholder="City"
@@ -358,7 +359,7 @@ export const TeacherBillingDetails = () => {
                                                     <TextField
                                                         size="small"
                                                         fullWidth
-                                                        id="address"
+                                                        id="postcode"
                                                         type="text"
                                                         hiddenLabel
                                                         placeholder="Post Code"
@@ -552,6 +553,7 @@ export const TeacherBillingDetails = () => {
                                         {/* Save button */}
                                         <button
                                             type="submit"
+                                            id="form2"
                                             className=" col-start-5 col-span-2 px-8 py-3 w-fit h-fit bg-theme-color text-white block  justify-self-end text-xs xm:text-base text-center"
                                         >
                                             Save
