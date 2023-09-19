@@ -8,6 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
+// TODO Shema for image(avtar) of user
 const PersonalInformationSchema = yup.object().shape({
     first_name: yup
         .string()
@@ -102,7 +103,7 @@ export const TeacherPersonalInformation = () => {
                                         {/* Profile Photo */}
                                         <>
                                             <label
-                                                className="row-span-2 col-span-2 md:col-span-1 w-full text-left cursor-pointer  self-start pt-2 md:pt-0 md:self-center"
+                                                className="row-span-2 col-span-2 md:col-span-1 w-full text-left cursor-pointer  self-start pt-2 md:pt-0 md:self-center font-semibold"
                                                 htmlFor="profile"
                                             >
                                                 Profile Photo
@@ -152,7 +153,7 @@ export const TeacherPersonalInformation = () => {
                                         {/* First Name */}
                                         <>
                                             <label
-                                                className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer"
+                                                className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="firstName"
                                             >
                                                 First Name
@@ -219,7 +220,7 @@ export const TeacherPersonalInformation = () => {
                                         {/* Last Name */}
                                         <>
                                             <label
-                                                className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer"
+                                                className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="lastName"
                                             >
                                                 Last Name
@@ -271,7 +272,7 @@ export const TeacherPersonalInformation = () => {
                                         {/* Email */}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer"
+                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="email"
                                             >
                                                 Email Address
@@ -321,7 +322,7 @@ export const TeacherPersonalInformation = () => {
                                         {/*Country */}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer"
+                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="country"
                                             >
                                                 Country
@@ -395,7 +396,7 @@ export const TeacherPersonalInformation = () => {
                                         {/*Date of Birth */}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer"
+                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="dob"
                                             >
                                                 Date of Birth

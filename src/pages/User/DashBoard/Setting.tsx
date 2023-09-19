@@ -5,6 +5,7 @@ import AddIcon from '../../../assets/AddIcon.png';
 import { TeacherPersonalInformation as PersonalInformation } from '../../../parts/UserDashboard/Forms/TeacherPersonalInformation';
 
 import { useState } from 'react';
+import { TeacherBillingDetails } from '../../../parts/UserDashboard/Forms/TeacherBiilingDetails';
 function Setting() {
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
@@ -73,8 +74,9 @@ function Setting() {
                 <div className="w-full xl:w-10/12">
                     {/* My Profile section */}
                     {selectedOption === 'My Profile' && (
-                        <div className="">
+                        <div className="flex flex-col gap-12">
                             <PersonalInformation />
+                            <TeacherBillingDetails />
                         </div>
                     )}
                     {/* Students section */}
