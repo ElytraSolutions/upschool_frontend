@@ -99,7 +99,7 @@ export const TeacherPersonalInformation = () => {
                                 <>
                                     <form
                                         onSubmit={handleSubmit}
-                                        className="grid grid-cols-6 grid-rows-8 gap-y-1 gap-x-2 p-0.5 "
+                                        className="grid grid-cols-6 grid-rows-8 gap-y-1 gap-x-2  p-0.5 "
                                     >
                                         {/* Profile Photo */}
                                         <>
@@ -274,7 +274,7 @@ export const TeacherPersonalInformation = () => {
                                         <>
                                             <label
                                                 className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
-                                                htmlFor="email"
+                                                htmlFor="emailAddress"
                                             >
                                                 Email Address
                                             </label>
@@ -282,7 +282,7 @@ export const TeacherPersonalInformation = () => {
                                                 <TextField
                                                     size="small"
                                                     fullWidth
-                                                    id="email"
+                                                    id="emailAddress"
                                                     type="email"
                                                     hiddenLabel
                                                     onBlur={handleBlur}
@@ -324,7 +324,7 @@ export const TeacherPersonalInformation = () => {
                                         <>
                                             <label
                                                 className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
-                                                htmlFor="country"
+                                                htmlFor="country_info"
                                             >
                                                 Country
                                             </label>
@@ -332,7 +332,7 @@ export const TeacherPersonalInformation = () => {
                                                 <TextField
                                                     size="small"
                                                     fullWidth
-                                                    id="country"
+                                                    id="country_info"
                                                     select
                                                     hiddenLabel
                                                     defaultValue=""

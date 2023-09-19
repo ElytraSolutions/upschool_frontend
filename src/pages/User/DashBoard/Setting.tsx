@@ -5,8 +5,8 @@ import AddIcon from '../../../assets/AddIcon.png';
 import { TeacherPersonalInformation as PersonalInformation } from '../../../parts/UserDashboard/Forms/TeacherPersonalInformation';
 
 import { useState } from 'react';
-import { TeacherBillingDetails } from '../../../parts/UserDashboard/Forms/TeacherBiilingDetails';
-import { TeacherChangePassword } from '../../../parts/UserDashboard/Forms/TeacherChangePassword';
+import { TeacherBillingDetails as BillingDetails } from '../../../parts/UserDashboard/Forms/TeacherBiilingDetails';
+import { TeacherChangePassword as ChangePassword } from '../../../parts/UserDashboard/Forms/TeacherChangePassword';
 function Setting() {
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
@@ -77,8 +77,8 @@ function Setting() {
                     {selectedOption === 'My Profile' && (
                         <div className="flex flex-col gap-12">
                             <PersonalInformation />
-                            <TeacherBillingDetails />
-                            <TeacherChangePassword />
+                            <BillingDetails />
+                            <ChangePassword />
                         </div>
                     )}
                     {/* Students section */}

@@ -87,7 +87,7 @@ export const TeacherBillingDetails = () => {
                                 <>
                                     <form
                                         onSubmit={handleSubmit}
-                                        className="grid grid-cols-6 grid-rows-8 gap-y-1 gap-x-2 p-0.5 "
+                                        className="grid grid-cols-6 grid-rows-8 gap-y-1 gap-x-2  p-0.5 "
                                     >
                                         {/* First Name */}
                                         <>
@@ -316,7 +316,7 @@ export const TeacherBillingDetails = () => {
                                                     <TextField
                                                         size="small"
                                                         fullWidth
-                                                        id="city"
+                                                        id="city_info"
                                                         type="text"
                                                         hiddenLabel
                                                         placeholder="City"
@@ -359,7 +359,7 @@ export const TeacherBillingDetails = () => {
                                                     <TextField
                                                         size="small"
                                                         fullWidth
-                                                        id="postcode"
+                                                        id="postcode_info"
                                                         type="text"
                                                         hiddenLabel
                                                         placeholder="Post Code"
@@ -404,7 +404,7 @@ export const TeacherBillingDetails = () => {
                                                     <TextField
                                                         size="small"
                                                         fullWidth
-                                                        id="country"
+                                                        id="country_info"
                                                         select
                                                         hiddenLabel
                                                         defaultValue=""
@@ -477,7 +477,7 @@ export const TeacherBillingDetails = () => {
                                         <>
                                             <label
                                                 className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
-                                                htmlFor="organization"
+                                                htmlFor="organization_info"
                                             >
                                                 Organization
                                             </label>
@@ -485,7 +485,7 @@ export const TeacherBillingDetails = () => {
                                                 <TextField
                                                     size="small"
                                                     fullWidth
-                                                    id="organization"
+                                                    id="organization_info"
                                                     type="text"
                                                     hiddenLabel
                                                     placeholder="Company/Organization"
@@ -530,13 +530,13 @@ export const TeacherBillingDetails = () => {
                                             <div className="row-span-1 col-span-full ">
                                                 <label
                                                     className="p-1 w-full text-left cursor-pointer font-semibold"
-                                                    htmlFor="shippingDetails"
+                                                    htmlFor="shippingDetails_info"
                                                 >
                                                     Shipping Details
                                                 </label>
                                                 <div className="p-1 w-full text-left cursor-pointer">
                                                     <label
-                                                        id="shippingDetails"
+                                                        id="shippingDetails_info"
                                                         className="flex flex-1 justify-start gap-x-4 items-center hover:cursor-pointer"
                                                     >
                                                         <Field

@@ -81,13 +81,13 @@ export const TeacherChangePassword = () => {
                                 <>
                                     <form
                                         onSubmit={handleSubmit}
-                                        className="grid grid-cols-6 grid-rows-3 gap-y-1 gap-x-2 p-0.5 "
+                                        className="grid grid-cols-6 grid-rows-3 gap-y-1 gap-x-2  p-0.5 "
                                     >
                                         {/* Password*/}
                                         <>
                                             <label
                                                 className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
-                                                htmlFor="newPassword"
+                                                htmlFor="newPassword_info"
                                             >
                                                 New Password
                                             </label>
@@ -95,7 +95,8 @@ export const TeacherChangePassword = () => {
                                                 <TextField
                                                     size="small"
                                                     fullWidth
-                                                    id="newPassword"
+                                                    id="newPassword_info"
+                                                    placeholder="at least 8 characters, with at least (1 uppercase, 1 lowercase, 1 number and 1 symbol)"
                                                     type={
                                                         showPassword
                                                             ? 'text'
@@ -156,8 +157,8 @@ export const TeacherChangePassword = () => {
                                         {/* Confirm Password*/}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
-                                                htmlFor="confirmPassword"
+                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold inline"
+                                                htmlFor="confirmPassword_info"
                                             >
                                                 Confirmation
                                             </label>
@@ -165,7 +166,7 @@ export const TeacherChangePassword = () => {
                                                 <TextField
                                                     size="small"
                                                     fullWidth
-                                                    id="confirmPassword"
+                                                    id="confirmPassword_info"
                                                     hiddenLabel
                                                     placeholder="Repeat new password"
                                                     type={
