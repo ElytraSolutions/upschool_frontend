@@ -8,6 +8,8 @@ import Avatar from '@mui/material/Avatar';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
+import stringAvatar from '../../../utlis/AvatarColor/avatar_color';
+
 // TODO Shema for image(avtar) of user
 const PersonalInformationSchema = yup.object().shape({
     first_name: yup
@@ -35,36 +37,6 @@ const InitialValues = {
     date_of_birth: '',
 };
 
-function stringToColor(string) {
-    let hash = 0;
-    let i;
-
-    //  eslint-disable no-bitwise
-    for (i = 0; i < string.length; i += 1) {
-        hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
-
-    let color = '#';
-
-    for (i = 0; i < 3; i += 1) {
-        const value = (hash >> (i * 8)) & 0xff;
-        color += `00${value.toString(16)}`.slice(-2);
-    }
-    //eslint-enable no-bitwise
-
-    return color;
-}
-
-function stringAvatar(name) {
-    return {
-        sx: {
-            bgcolor: stringToColor(name),
-            width: 80,
-            height: 80,
-        },
-        children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-    };
-}
 const submitHandler = (data, onSubmitProps) => {
     // TODO implement logic for submmited data
     console.log(data);
@@ -115,6 +87,8 @@ export const TeacherPersonalInformation = () => {
                                                     <Avatar
                                                         {...stringAvatar(
                                                             'Kent Dodds',
+                                                            80,
+                                                            80,
                                                         )}
                                                     />
                                                     {/* <Avatar
