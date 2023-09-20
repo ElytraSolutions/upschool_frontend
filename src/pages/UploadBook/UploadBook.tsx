@@ -20,7 +20,7 @@ export default function UploadBook() {
         last_name: '',
         school_name: '',
         country: '',
-        age: '',
+        date_of_birth: '',
         email: '',
         book_title: '',
         book_description: '',

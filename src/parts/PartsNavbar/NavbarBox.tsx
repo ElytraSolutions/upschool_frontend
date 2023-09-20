@@ -43,7 +43,7 @@ export function NavbarBox({ inf }: BoxProps) {
                                 {detail.children ? (
                                     <li
                                         key={index}
-                                        className="relative  px-6 py-3 hover:bg-red-upschool  group/list first:rounded-t-md last:rounded-b-md "
+                                        className="relative  px-6 py-3 hover:bg-red-upschool hover:text-white   group/list first:rounded-t-md last:rounded-b-md "
                                     >
                                         <div className="w-full text-left flex items-center">
                                             <span className="pr-1 flex-1  text-sm">
@@ -67,12 +67,12 @@ export function NavbarBox({ inf }: BoxProps) {
                                                 </svg>
                                             </span>
                                         </div>
-                                        <ul className=" scale-0 translate-x-[100%] group-hover/list:translate-x-[100.1%] group-hover/list:scale-100 bg-white rounded-md absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left w-96 max-w-max">
+                                        <ul className=" scale-0 translate-x-[100%] group-hover/list:translate-x-[100.1%] group-hover/list:scale-100 text-black bg-white rounded-md absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left w-96 max-w-max">
                                             {detail.children.map(
                                                 (child, index) => (
                                                     <li
                                                         key={index}
-                                                        className="px-6 py-3 text-sm  hover:bg-red-upschool first:rounded-t-md last:rounded-b-md"
+                                                        className="px-6 py-3 text-sm  hover:bg-red-upschool hover:text-white first:rounded-t-md last:rounded-b-md"
                                                     >
                                                         <NavLink
                                                             to={
@@ -91,7 +91,7 @@ export function NavbarBox({ inf }: BoxProps) {
                                 ) : (
                                     <li
                                         key={index}
-                                        className="first:rounded-t-md last:rounded-b-md px-6 py-3  text-sm  hover:bg-red-upschool"
+                                        className="first:rounded-t-md last:rounded-b-md px-6 py-3  text-sm  hover:bg-red-upschool hover:text-white"
                                     >
                                         <NavLink
                                             to={detail.path ? detail.path : '#'}
