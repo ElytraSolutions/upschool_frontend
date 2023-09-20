@@ -7,6 +7,7 @@ import { TeacherPersonalInformation as PersonalInformation } from '../../../part
 import { useState } from 'react';
 import { TeacherBillingDetails as BillingDetails } from '../../../parts/UserDashboard/Forms/TeacherBiilingDetails';
 import { TeacherChangePassword as ChangePassword } from '../../../parts/UserDashboard/Forms/TeacherChangePassword';
+import StudentList from '../../../parts/UserDashboard/TestFolder/StudentList';
 function Setting() {
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
@@ -85,7 +86,7 @@ function Setting() {
                     {selectedOption === 'Students' && (
                         <div className=" ">
                             {/* TODO fetch Students data from backend and use it inside this componet */}
-                            Students
+                            <StudentList />
                         </div>
                     )}
                 </div>
