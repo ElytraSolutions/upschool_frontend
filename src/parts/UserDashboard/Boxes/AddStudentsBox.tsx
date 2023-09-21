@@ -19,6 +19,8 @@ const AddStudentsBox: React.FC<BoxProps> = ({
                     <AddStudentsPortal
                         onClose={() => {
                             setShowAddStudentsModal(false);
+                            // enables scrolling when modal is closed
+                            document.body.style.overflow = 'unset';
                         }}
                     />,
                     document.body,
@@ -28,6 +30,10 @@ const AddStudentsBox: React.FC<BoxProps> = ({
                     className="flex flex-col justify-center items-center gap-2 py-4 px-1"
                     onClick={() => {
                         setShowAddStudentsModal(true);
+                        // disables background scrolling when modal is opened
+                        if (typeof window != 'undefined' && window.document) {
+                            document.body.style.overflow = 'hidden';
+                        }
                     }}
                 >
                     <img src={icon} alt="logo " width="49px" height="49px" />

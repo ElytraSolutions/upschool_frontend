@@ -48,6 +48,8 @@ export default function Navbar() {
                         isOpen={isOpen}
                         onClose={() => {
                             setIsopen(false);
+                            // enables scrolling when modal is closed
+                            document.body.style.overflow = 'unset';
                         }}
                     />,
                     document.body,
