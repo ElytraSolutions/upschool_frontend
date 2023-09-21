@@ -103,7 +103,7 @@ const StudentList: React.FC = () => {
                 {data.map((detail) => (
                     <div
                         key={detail.id}
-                        className=" odd:bg-stone-200/50 py-2 flex flex-row items-center gap-4 md:gap-8 w-full"
+                        className=" odd:bg-stone-200/50 py-2 px-1 flex flex-row items-center gap-2  md:gap-4 lg:gap-8 w-full"
                     >
                         {/* CrossMark image */}
                         <div className="w-6 h-6">
@@ -123,7 +123,7 @@ const StudentList: React.FC = () => {
                             } justify-items-start items-center w-full gap-1 md:gap-2 pr-0.5 md:pr-2 lg:pr-4`}
                         >
                             {/* Avatar , first name , last name and emial */}
-                            <div className="col-span-1 flex flex-row gap-2 items-center w-fit ">
+                            <div className="col-span-1 flex flex-row gap-0.5 md:gap-1 lg:gap-2 items-center w-fit ">
                                 {/* Avatar image */}
                                 <div className="cursor-pointer">
                                     <Avatar
