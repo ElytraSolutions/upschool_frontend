@@ -43,9 +43,9 @@ export function UploadBookStep1({
                             <div className="md:row-start-3 row-span-5 md:row-span-8 grid grid-rows-6">
                                 <div className=" row-span-1 rounded-t-lg bg-white p-4 h-full flex items-center justify-center">
                                     <div className="bg-red-upschool text-white border text-xs sm:text-sm lg:text-base xl:text-lg border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden">
-                                        <h2 className="text-center">
+                                        <p className="text-center truncate">
                                             View book Upload Checklist
-                                        </h2>
+                                        </p>
                                     </div>
                                 </div>
 

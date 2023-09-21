@@ -522,10 +522,10 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                 </div>
                 {/* Secound column */}
                 <div
-                    className={`col-span-2 xs:col-start-2 xs:col-span-1 sm:col-span-2 tab:col-span-3 h-screen  w-full  top-0 `}
+                    className={`col-span-2 xs:col-start-2 xs:col-span-1 sm:col-span-2 tab:col-span-3 h-screen  w-full  top-0  bg-black/70`}
                     onClick={onClose}
                 >
-                    <div className="h-full w-full bg-slate-600/80 "></div>
+                    <div className="h-full w-full "></div>
                 </div>
             </div>
         </>

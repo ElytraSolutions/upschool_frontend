@@ -47,7 +47,7 @@ export default function Navbar() {
                     <MobileMenu
                         isOpen={isOpen}
                         onClose={() => {
-                            setIsopen((oldstate) => !oldstate);
+                            setIsopen(false);
                         }}
                     />,
                     document.body,

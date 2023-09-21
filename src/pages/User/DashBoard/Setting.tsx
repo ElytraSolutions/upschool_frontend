@@ -1,4 +1,5 @@
 import SettingBoardBox from '../../../parts/UserDashboard/Boxes/SettingBoardBox';
+import AddStudentsBox from '../../../parts/UserDashboard/Boxes/AddStudentsBox';
 import TeacherIcon from '../../../assets/TeacherIcon.png';
 import ParentIcon from '../../../assets/ParentIcon.png';
 import StudentIcon from '../../../assets/StudentIcon.png';
@@ -26,7 +27,7 @@ function Setting() {
                 <div className="flex flex-row w-full gap-3 justify-start h-full">
                     <SettingBoardBox
                         icon={iconBadge}
-                        text={[`${userType} Account`, '', `${userType}Icon`]}
+                        text={[`${userType} Account`, '']}
                     />
 
                     {/* displays only if account/user is  'Teacher' */}
@@ -34,12 +35,12 @@ function Setting() {
                         <>
                             <SettingBoardBox
                                 icon={Active}
-                                text={['', 'students', 'Active']}
+                                text={['', 'students']}
                                 number={295} // TODO fetch number of students from backend
                             />
-                            <SettingBoardBox
+                            <AddStudentsBox
                                 icon={AddIcon}
-                                text={['', 'Add student(s)', 'AddIcon']}
+                                text={'Add student(s)'}
                             />
                         </>
                     )}
