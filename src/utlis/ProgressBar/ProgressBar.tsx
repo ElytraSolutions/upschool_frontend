@@ -9,7 +9,8 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     // TODO implement better logic if possible
     const widthCalculate = () => {
         const calculate = Math.floor((completedLessons / totalLessons) * 100);
-        if (calculate < 10) return 'w-[5%]';
+        if (calculate === 0) return 'w-0';
+        else if (calculate < 10) return 'w-[5%]';
         else if (calculate < 20) return 'w-[12%]';
         else if (calculate < 30) return 'w-[22%]';
         else if (calculate < 40) return 'w-[32%]';
@@ -24,8 +25,8 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     };
     const width = widthCalculate();
     return (
-        <div className="bg-slate-400 rounded-lg h-2 w-[225px]">
-            <div className={`bg-theme-color h-2 rounded-lg ${width}`}></div>
+        <div className="bg-slate-400 rounded-lg  h-1 lg:h-[5px] xl:h-2 w-full">
+            <div className={`bg-theme-color h-full rounded-lg ${width}`}></div>
         </div>
     );
 };

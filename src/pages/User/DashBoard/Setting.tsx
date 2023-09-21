@@ -7,7 +7,7 @@ import { TeacherPersonalInformation as PersonalInformation } from '../../../part
 import { useState } from 'react';
 import { TeacherBillingDetails as BillingDetails } from '../../../parts/UserDashboard/Forms/TeacherBiilingDetails';
 import { TeacherChangePassword as ChangePassword } from '../../../parts/UserDashboard/Forms/TeacherChangePassword';
-import StudentList from '../../../parts/UserDashboard/TestFolder/StudentList';
+import StudentList from '../../../parts/UserDashboard/StudentList/StudentList';
 function Setting() {
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
