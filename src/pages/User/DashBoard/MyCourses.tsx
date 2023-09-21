@@ -48,8 +48,8 @@ function MyCourses() {
     const [selectedOption, setSelectedOption] =
         useState<string>('Active Courses');
     return (
-        <>
-            <div className="p-4 w-full">
+        <div className="h-full overflow-auto">
+            <div className="p-4 w-full ">
                 <div className="flex flex-col gap-10 w-full">
                     <div className="flex flex-row justify-start w-full gap-4">
                         {/* Active courses option */}
@@ -154,7 +154,7 @@ function MyCourses() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

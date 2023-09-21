@@ -22,7 +22,7 @@ function Setting() {
             : StudentIcon;
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
-        <div>
+        <div className="h-full overflow-auto">
             <div className="flex flex-col gap-8 w-full text-theme-color">
                 <div className="flex flex-row w-full gap-3 justify-start h-full">
                     <SettingBoardBox

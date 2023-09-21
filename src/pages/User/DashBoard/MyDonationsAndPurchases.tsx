@@ -6,7 +6,7 @@ export default function MyDonationsAndPurchases() {
     const [selectedOption, setSelectedOption] = useState<string>('Donations');
 
     return (
-        <>
+        <div className="h-full overflow-auto">
             <div className="p-4 w-full">
                 <div className="flex flex-col gap-10 w-full">
                     {/* Options section */}
@@ -73,6 +73,6 @@ export default function MyDonationsAndPurchases() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

@@ -47,7 +47,7 @@ const courses = [
 function MyBooks() {
     const [selectedOption, setSelectedOption] = useState<string>('All Books');
     return (
-        <>
+        <div className="h-full overflow-auto">
             <div className="p-4 w-full">
                 <div className="flex flex-col gap-10 w-full">
                     <div className="flex flex-row justify-start w-full gap-4">
@@ -147,7 +147,7 @@ function MyBooks() {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
