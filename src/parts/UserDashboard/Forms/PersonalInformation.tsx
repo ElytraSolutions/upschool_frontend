@@ -43,7 +43,7 @@ const submitHandler = (data, onSubmitProps) => {
     onSubmitProps.resetForm();
 };
 
-export const TeacherPersonalInformation = () => {
+export const PersonalInformation = () => {
     return (
         <div className="w-full">
             <div className="w-full h-full border border-theme-color/50 rounded-md  flex flex-col gap-2 divide-y divide-slate-400">

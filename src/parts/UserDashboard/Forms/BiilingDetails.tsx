@@ -52,7 +52,7 @@ const submitHandler = (data, onSubmitProps) => {
     onSubmitProps.resetForm();
 };
 
-export const TeacherBillingDetails = () => {
+export const BillingDetails = () => {
     return (
         <div className="w-full">
             <div className="w-full h-full border border-theme-color/50 rounded-md  flex flex-col gap-2">

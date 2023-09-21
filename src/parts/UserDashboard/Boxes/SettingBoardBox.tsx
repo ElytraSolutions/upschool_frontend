@@ -16,9 +16,10 @@ const SettingBoardBox: React.FC<BoardBoxProps> = ({
                     <img
                         src={icon}
                         alt="logo "
-                        width={`${text[2] === 'AddIcon' ? '40px' : '60px'}`}
-                        height={`${text[2] === 'AddIcon' ? '40px' : '60px'}`}
+                        width={`${text[2] === 'AddIcon' ? '40px' : '60px'}`} // makes AddIcon's width smaller than normal
+                        height={`${text[2] === 'AddIcon' ? '40px' : '60px'}`} // makes AddIcon's height smaller than normal
                     />
+                    {/* selects between number or text[0] props to display for generalization purpose */}
                     {number ? (
                         <h1 className="text-3xl text-center">{number}</h1>
                     ) : (
@@ -26,6 +27,7 @@ const SettingBoardBox: React.FC<BoardBoxProps> = ({
                             <h1 className="text-2xl text-center ">{text[0]}</h1>
                         )
                     )}
+                    {/* display if text[1] props has anything */}
                     {text[1] && (
                         <h1 className="text-center text-lg">{text[1]}</h1>
                     )}

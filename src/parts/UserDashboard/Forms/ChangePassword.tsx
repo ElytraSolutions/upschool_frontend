@@ -36,7 +36,7 @@ const submitHandler = (data, onSubmitProps) => {
     onSubmitProps.resetForm();
 };
 
-export const TeacherChangePassword = () => {
+export const ChangePassword = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const handleTogglePasswordVisibility = (
