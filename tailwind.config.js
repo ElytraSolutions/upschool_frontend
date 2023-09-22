@@ -6,6 +6,8 @@ export default {
             colors: {
                 'theme-color': '#242254',
                 'font-color': '#03014C',
+                'red-upschool': '#B81242',
+                'red-custom': '#BC0D4D',
             },
             flexGrow: {
                 2: '2',
@@ -18,11 +20,17 @@ export default {
                 3: '3',
             },
             gridTemplateColumns: {
-                16: 'repeat(16,minmax(0,1fr))',
                 12: 'repeat(12,minmax(0,1fr))',
                 13: 'repeat(13,minmax(0,1fr))',
+                14: 'repeat(14,minmax(0,1fr))',
+                16: 'repeat(16,minmax(0,1fr))',
             },
             gridTemplateRows: {
+                7: 'repeat(7,minmax(0,1fr))',
+                8: 'repeat(8,minmax(0,1fr))',
+                9: 'repeat(9,minmax(0,1fr))',
+                10: 'repeat(10,minmax(0,1fr))',
+                11: 'repeat(11,minmax(0,1fr))',
                 12: 'repeat(12,minmax(0,1fr))',
                 13: 'repeat(13,minmax(0,1fr))',
                 15: 'repeat(15,minmax(0,1fr))',
@@ -47,6 +55,9 @@ export default {
                 // => @media (min-width: 900px) { ... }
                 xs: '420px',
                 xm: '540px',
+            },
+            aspectRatio: {
+                '2/1': '2 / 1',
             },
         },
     },

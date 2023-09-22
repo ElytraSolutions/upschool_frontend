@@ -4,7 +4,7 @@ import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 
 const registerSchema = yup.object().shape({
-    canvaAccount: yup.bool(),
+    canvaAccount: yup.string(),
     condition1: yup.bool().when('canvaAccount', {
         is: true,
         then: (schema) =>
@@ -79,56 +79,67 @@ export default function Step3({
                                     <MenuItem value="false">{'No'}</MenuItem>
                                 </TextField>
                             </div>
-
-                            <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
-                                <Field
-                                    type="checkbox"
-                                    name="condition1"
-                                    error={
-                                        touched.condition1 && errors.condition1
-                                    }
-                                    helperText={
-                                        touched.condition1 && errors.condition1
-                                    }
-                                />
-                                I acknowledge and accept that my personal
-                                details (name,email) may be visible to Upschool
-                                users registered with Canva.
-                            </label>
-                            <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
-                                <Field
-                                    type="checkbox"
-                                    name="condition2"
-                                    error={
-                                        touched.condition2 && errors.condition2
-                                    }
-                                    helperText={
-                                        touched.condition2 && errors.condition2
-                                    }
-                                />
-                                <div>
-                                    I acknowledge that should i not wish to have
-                                    my details visible to others, I can instead
-                                    sing up for Canva basic <u>here</u>
-                                </div>
-                            </label>
-                            <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
-                                <Field
-                                    type="checkbox"
-                                    name="condition3"
-                                    error={
-                                        touched.condition3 && errors.condition3
-                                    }
-                                    helperText={
-                                        touched.condition3 && errors.condition3
-                                    }
-                                />
-                                <div>
-                                    I agree to Upschool's{' '}
-                                    <u>Terms and Conditions</u> and{' '}
-                                    <u>Privacy Policy</u>
-                                </div>
-                            </label>
+                            {values.canvaAccount === 'true' && (
+                                <>
+                                    <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
+                                        <Field
+                                            type="checkbox"
+                                            name="condition1"
+                                            error={
+                                                touched.condition1 &&
+                                                errors.condition1
+                                            }
+                                            helperText={
+                                                touched.condition1 &&
+                                                errors.condition1
+                                            }
+                                        />
+                                        I acknowledge and accept that my
+                                        personal details (name,email) may be
+                                        visible to Upschool users registered
+                                        with Canva.
+                                    </label>
+                                    <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
+                                        <Field
+                                            type="checkbox"
+                                            name="condition2"
+                                            error={
+                                                touched.condition2 &&
+                                                errors.condition2
+                                            }
+                                            helperText={
+                                                touched.condition2 &&
+                                                errors.condition2
+                                            }
+                                        />
+                                        <div>
+                                            I acknowledge that should i not wish
+                                            to have my details visible to
+                                            others, I can instead sing up for
+                                            Canva basic <u>here</u>
+                                        </div>
+                                    </label>
+                                    <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
+                                        <Field
+                                            type="checkbox"
+                                            name="condition3"
+                                            error={
+                                                touched.condition3 &&
+                                                errors.condition3
+                                            }
+                                            helperText={
+                                                touched.condition3 &&
+                                                errors.condition3
+                                            }
+                                        />
+                                        <div>
+                                            I agree to Upschool's{' '}
+                                            <u>Terms and Conditions</u> and{' '}
+                                            <u>Privacy Policy</u>
+                                        </div>
+                                    </label>
+                                </>
+                            )}
                         </div>
                         <div className="grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base">
                             <button

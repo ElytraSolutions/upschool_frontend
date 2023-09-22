@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DashboardContent from './DashboardContent';
 import MyCourses from './MyCourses';
 import MyBooks from './MyBooks';
-import MyDonations from './MyDonations';
+import MyDonationsAndPurchases from './MyDonationsAndPurchases';
 import Logout from './Logout';
 import Setting from './Setting';
 
@@ -21,7 +21,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
             <div className="md:w-1/5 p-4 border text-[#cecece] xl:w-1/6">
                 <ul className="mt-4 flex flex-col gap-4">
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg ${
+                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
                             selectedOption === 'Dashboard'
                                 ? 'text-[#242254] border-[#242254]'
                                 : 'hover:text-[#242254] hover:border-[#242254]'
@@ -32,7 +32,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
                         <i className="fa fa-dashboard"></i> Dashboard
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg ${
+                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
                             selectedOption === 'My Courses'
                                 ? 'text-[#242254] border-[#242254]'
                                 : 'hover:text-[#242254] hover:border-[#242254]'
@@ -43,7 +43,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
                         <i className="fa fa-desktop"></i> My Courses
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg ${
+                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
                             selectedOption === 'My Books'
                                 ? 'text-[#242254] border-[#242254]'
                                 : 'hover:text-[#242254] hover:border-[#242254]'
@@ -53,7 +53,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
                         <i className="fa fa-book"></i> My Books
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg ${
+                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
                             selectedOption === 'My Donations & Purchase'
                                 ? 'text-[#242254] border-[#242254]'
                                 : 'hover:text-[#242254] hover:border-[#242254]'
@@ -65,7 +65,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
                         <i className="fa fa-table"></i> My Donations & Purchase
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg ${
+                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
                             selectedOption === 'Setting'
                                 ? 'text-[#242254] border-[#242254]'
                                 : 'hover:text-[#242254] hover:border-[#242254]'
@@ -75,7 +75,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
                         <i className="fa fa-gear"></i> Setting
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg ${
+                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
                             selectedOption === 'Logout'
                                 ? 'text-[#242254] border-[#242254]'
                                 : 'hover:text-[#242254] hover:border-[#242254]'
@@ -88,13 +88,15 @@ const Dashboard: React.FC<DashboardProps> = () => {
             </div>
 
             {/* Content */}
-            <div className="w-4/5 lg:w-5/6 p-4 bg-[#cecece]">
+            <div className="w-4/5 lg:w-5/6 p-4 pt-8 bg-[#cecece]/20 h-screen">
                 {/* Content specific to the selected option */}
-                {selectedOption === 'Dashboard' && <DashboardContent />}
+                {selectedOption === 'Dashboard' && (
+                    <DashboardContent handleOptionClick={handleOptionClick} />
+                )}
                 {selectedOption === 'My Courses' && <MyCourses />}
                 {selectedOption === 'My Books' && <MyBooks />}
                 {selectedOption === 'My Donations & Purchase' && (
-                    <MyDonations />
+                    <MyDonationsAndPurchases />
                 )}
                 {selectedOption === 'Setting' && <Setting />}
                 {selectedOption === 'Logout' && <Logout />}

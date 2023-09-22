@@ -1,43 +1,54 @@
-import { Formik, Field } from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup';
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
+import { countries } from '../../data/countries';
 
-const registerSchema = yup.object().shape({
-    canvaAccount: yup.bool(),
-    condition1: yup.bool().when('canvaAccount', {
-        is: true,
-        then: (schema) =>
-            schema.oneOf([true], 'You need to accept the terms and conditions'),
-        otherwise: (schema) => schema.oneOf([true, false]),
-    }),
-    conditi0n2: yup.bool().when('canvaAccount', {
-        is: true,
-        then: (schema) =>
-            schema.oneOf([true], 'You need to accept the terms and conditions'),
-        otherwise: (schema) => schema.oneOf([true, false]),
-    }),
-    condition3: yup
-        .bool()
-        .oneOf([true], 'You need to accept the terms and conditions'),
+const uploadBookSchema = yup.object().shape({
+    first_name: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
+    last_name: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
+    school_name: yup.string().max(255, 'Characters too long'),
+    email: yup
+        .string()
+        .email('invalid email')
+        .required('required')
+        .max(255, 'Characters too long'),
+    country: yup.string().required('required').max(255, 'Characters too long'),
+    date_of_birth: yup.date().required('required'),
+    book_title: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
+    book_description: yup.string().required('required'),
+    canva_book_link: yup
+        .string()
+        .required('required')
+        .max(255, 'Characters too long'),
 });
 
 interface IStep3Props {
+    isLargeScreen: boolean;
     oldValues: Record<string, any>;
-    submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
     backHandler: (values: any) => void;
+    submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
 }
-
 export function UploadBookStep3({
+    isLargeScreen,
     oldValues,
-    submitHandler,
     backHandler,
+    submitHandler,
 }: IStep3Props) {
     return (
         <Formik
             onSubmit={submitHandler}
             initialValues={oldValues}
-            validationSchema={registerSchema}
+            validationSchema={uploadBookSchema}
         >
             {({
                 values,
@@ -48,91 +59,213 @@ export function UploadBookStep3({
                 handleSubmit,
             }) => (
                 <>
-                    {/* Third step form */}
-                    <form onSubmit={handleSubmit}>
-                        <div className="grid grid-rows-5 w-full gap-1 mt-1">
-                            <div className="row-span-2 flex flex-col flex-1 gap-5">
-                                <h2 className=" text-sm xl:text-lg text-font-color">
-                                    Would you like us to register you for a FREE
-                                    Canva Pro Account
-                                </h2>
-                                <TextField
-                                    className=""
-                                    id="outlined-select-Canva-Account"
-                                    select
-                                    label=""
-                                    defaultValue={true}
-                                    onBlur={handleBlur}
-                                    onChange={handleChange}
-                                    value={values.canvaAccount}
-                                    name="canvaAccount"
-                                    error={
-                                        Boolean(touched.canvaAccount) &&
-                                        Boolean(errors.canvaAccount)
-                                    }
-                                    helperText={
-                                        touched.canvaAccount &&
-                                        (errors.canvaAccount as string)
-                                    }
-                                >
-                                    <MenuItem value="true">{'Yes'}</MenuItem>
-                                    <MenuItem value="false">{'No'}</MenuItem>
-                                </TextField>
-                            </div>
-
-                            <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
-                                <Field
-                                    type="checkbox"
-                                    name="condition1"
-                                    error={
-                                        touched.condition1 && errors.condition1
-                                    }
-                                    helperText={
-                                        touched.condition1 && errors.condition1
-                                    }
-                                />
-                                I acknowledge and accept that my personal
-                                details (name,email) may be visible to Upschool
-                                users registered with Canva.
-                            </label>
-                            <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
-                                <Field
-                                    type="checkbox"
-                                    name="condition2"
-                                    error={
-                                        touched.condition2 && errors.condition2
-                                    }
-                                    helperText={
-                                        touched.condition2 && errors.condition2
-                                    }
-                                />
-                                <div>
-                                    I acknowledge that should i not wish to have
-                                    my details visible to others, I can instead
-                                    sing up for Canva basic <u>here</u>
-                                </div>
-                            </label>
-                            <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
-                                <Field
-                                    type="checkbox"
-                                    name="condition3"
-                                    error={
-                                        touched.condition3 && errors.condition3
-                                    }
-                                    helperText={
-                                        touched.condition3 && errors.condition3
-                                    }
-                                />
-                                <div>
-                                    I agree to Upschool's{' '}
-                                    <u>Terms and Conditions</u> and{' '}
-                                    <u>Privacy Policy</u>
-                                </div>
-                            </label>
+                    <form
+                        onSubmit={handleSubmit}
+                        className="grid grid-cols-2 space-x-4 space-y-4"
+                    >
+                        <div className="col-span-2"></div>
+                        <div className="col-span-2 flex items-center justify-start">
+                            <h1 className="text-font-color text-xl sm:text-2xl tab:text-3xl xl:text-4xl 2xl:text-5xl  font-medium lg:font-semibold">
+                                About Your Book!
+                            </h1>
                         </div>
-                        <div className="grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base">
+                        <TextField
+                            className="col-span-2"
+                            type="text"
+                            label="Book Title"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.book_title}
+                            name="book_title"
+                            error={
+                                Boolean(touched.book_title) &&
+                                Boolean(errors.book_title)
+                            }
+                            helperText={
+                                touched.book_title &&
+                                (errors.book_title as string)
+                            }
+                        />
+                        <TextField
+                            className="col-span-2"
+                            type="text"
+                            label="Book Description"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.book_description}
+                            multiline
+                            rows={4}
+                            name="book_description"
+                            error={
+                                Boolean(touched.book_description) &&
+                                Boolean(errors.book_description)
+                            }
+                            helperText={
+                                touched.book_description &&
+                                (errors.book_description as string)
+                            }
+                        />
+                        <TextField
+                            className="col-span-2"
+                            type="text"
+                            label="Canva Book Link"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.canva_book_link}
+                            name="canva_book_link"
+                            error={
+                                Boolean(touched.canva_book_link) &&
+                                Boolean(errors.canva_book_link)
+                            }
+                            helperText={
+                                touched.canva_book_link &&
+                                (errors.canva_book_link as string)
+                            }
+                        />
+
+                        <div className="col-span-2 flex items-center justify-start">
+                            <h1 className="text-font-color text-sm lg:text-xl font-medium underline underline-offset-2">
+                                View how to get the link from Canva
+                            </h1>
+                        </div>
+                        <TextField
+                            className=" col-span-2"
+                            type="email"
+                            label="Email"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.email}
+                            name="email"
+                            error={
+                                Boolean(touched.email) && Boolean(errors.email)
+                            }
+                            helperText={
+                                touched.email && (errors.email as string)
+                            }
+                        />
+                        <div className="col-span-2 flex items-center justify-start">
+                            <h1 className="text-font-color text-xl sm:text-2xl tab:text-3xl xl:text-4xl 2xl:text-5xl  font-medium lg:font-semibold">
+                                About You
+                            </h1>
+                        </div>
+                        <TextField
+                            className={`${
+                                isLargeScreen ? 'col-span-1' : 'col-span-2'
+                            }`}
+                            type="text"
+                            label="First Name"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.first_name}
+                            name="first_name"
+                            error={
+                                Boolean(touched.first_name) &&
+                                Boolean(errors.first_name)
+                            }
+                            helperText={
+                                touched.first_name &&
+                                (errors.first_name as string)
+                            }
+                        />
+                        <TextField
+                            className={`${
+                                isLargeScreen ? 'col-span-1' : 'col-span-2'
+                            }`}
+                            type="text"
+                            label="Last Name"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.last_name}
+                            name="last_name"
+                            error={
+                                Boolean(touched.last_name) &&
+                                Boolean(errors.last_name)
+                            }
+                            helperText={
+                                touched.last_name &&
+                                (errors.last_name as string)
+                            }
+                        />
+                        <TextField
+                            className="col-span-2"
+                            type="text"
+                            label="Your School Name (Optional)"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.school_name}
+                            name="school_name"
+                            error={
+                                Boolean(touched.school_name) &&
+                                Boolean(errors.school_name)
+                            }
+                            helperText={
+                                touched.school_name &&
+                                (errors.school_name as string)
+                            }
+                        />
+
+                        <TextField
+                            className={`${
+                                isLargeScreen ? 'col-span-1' : 'col-span-2'
+                            }`}
+                            id="outlined-select-country"
+                            select
+                            label="Select your country"
+                            defaultValue=""
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.country}
+                            name="country"
+                            error={
+                                Boolean(touched.country) &&
+                                Boolean(errors.country)
+                            }
+                            helperText={
+                                touched.country && (errors.country as string)
+                            }
+                            SelectProps={{
+                                MenuProps: {
+                                    style: {
+                                        maxHeight: '40%',
+                                        maxWidth: '20%',
+                                    }, // Set your desired max height and max width for dropdown menu
+                                },
+                            }}
+                        >
+                            {countries.map((country) => (
+                                <MenuItem
+                                    key={country.name}
+                                    value={country.name}
+                                >
+                                    {country.name}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+                        {/* TODO shows error in console for inputting date of birth */}
+                        <TextField
+                            className={`${
+                                isLargeScreen ? 'col-span-1' : 'col-span-2'
+                            }`}
+                            type="date"
+                            label="Date of Birth"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.date_of_birth}
+                            name="date_of_birth"
+                            error={
+                                Boolean(touched.date_of_birth) &&
+                                Boolean(errors.date_of_birth)
+                            }
+                            helperText={
+                                touched.date_of_birth &&
+                                (errors.date_of_birth as string)
+                            }
+                        />
+
+                        <div className="col-span-2 grid grid-cols-4 gap-4  p-2 pr-3  w-full font-normal text-base">
+                            {/* TODO decide back button */}
                             <button
-                                className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
+                                className=" invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     backHandler(values);
@@ -160,11 +293,11 @@ export function UploadBookStep3({
                             </button>
 
                             <button
-                                className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
                                 type="submit"
+                                className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
                             >
                                 <span className="text-xl">Next</span>
-                                <span>
+                                <span className="hidden sm:inline">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
@@ -182,6 +315,7 @@ export function UploadBookStep3({
                                 </span>
                             </button>
                         </div>
+                        <div className="col-span-2"></div>
                     </form>
                 </>
             )}

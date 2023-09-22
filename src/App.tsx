@@ -18,7 +18,9 @@ import ResetPassword from './pages/Login/ResetPassword';
 import Dashboard from './pages/User/DashBoard/Dashboard';
 import Chapters from './pages/Chapters/Chapters';
 import Logout from './pages/Logout/Logout';
-import { UploadBook } from './pages/UploadBook/UploadBook';
+import UploadBook from './pages/UploadBook/UploadBook';
+import BrowseBooks from './pages/BrowseBooks/BrowseBooks';
+import BookBundle from './pages/BrowseBooks/BookBundle';
 
 const router = createBrowserRouter([
     {
@@ -92,6 +94,14 @@ const router = createBrowserRouter([
             {
                 path: 'uploadbook',
                 element: <UploadBook />,
+            },
+            {
+                path: 'library',
+                element: <BrowseBooks />,
+            },
+            {
+                path: '/book/values-for-a-better-tomorrow-book-bundle',
+                element: <BookBundle />,
             },
         ],
     },

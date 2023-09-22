@@ -1,7 +1,5 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-
-// import styles from './NavbarBox.module.css';
-// import { css } from '@emotion/react';
 
 type ChildObject = {
     title: string;
@@ -21,7 +19,7 @@ type BoxProps = {
 export function NavbarBox({ inf }: BoxProps) {
     return (
         <>
-            <div className="group/navmenu inline-block">
+            <div className="group/navmenu inline-block font-light">
                 <div className=" py-1 text-white rounded-sm flex items-center">
                     <span className="pr-1  text-sm ">
                         <NavLink to={inf.path ? inf.path : '#'}>
@@ -38,14 +36,14 @@ export function NavbarBox({ inf }: BoxProps) {
                         </svg>
                     </span>
                 </div>
-                <ul className="bg-white border rounded-md scale-0 group-hover/navmenu:scale-100 absolute transition duration-150 ease-in-out origin-top">
+                <ul className="bg-white  rounded-md scale-0 group-hover/navmenu:scale-100 absolute transition duration-150 ease-in-out origin-top ">
                     {inf.children?.map((detail, index) => {
                         return (
-                            <>
+                            <React.Fragment key={index}>
                                 {detail.children ? (
                                     <li
                                         key={index}
-                                        className="relative rounded-md px-2 py-1 hover:bg-red-700  group/list"
+                                        className="relative  px-6 py-3 hover:bg-red-upschool hover:text-white   group/list first:rounded-t-md last:rounded-b-md "
                                     >
                                         <div className="w-full text-left flex items-center">
                                             <span className="pr-1 flex-1  text-sm">
@@ -69,12 +67,12 @@ export function NavbarBox({ inf }: BoxProps) {
                                                 </svg>
                                             </span>
                                         </div>
-                                        <ul className=" scale-0 translate-x-[100%] group-hover/list:translate-x-[101%] group-hover/list:scale-100 bg-white border rounded-md absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left w-96 max-w-max">
+                                        <ul className=" scale-0 translate-x-[100%] group-hover/list:translate-x-[100.1%] group-hover/list:scale-100 text-black bg-white rounded-md absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left w-96 max-w-max">
                                             {detail.children.map(
                                                 (child, index) => (
                                                     <li
                                                         key={index}
-                                                        className=" px-2 py-1 text-sm  hover:bg-red-700 rounded-md"
+                                                        className="px-6 py-3 text-sm  hover:bg-red-upschool hover:text-white first:rounded-t-md last:rounded-b-md"
                                                     >
                                                         <NavLink
                                                             to={
@@ -93,7 +91,7 @@ export function NavbarBox({ inf }: BoxProps) {
                                 ) : (
                                     <li
                                         key={index}
-                                        className="rounded-md px-2 py-1  text-sm  hover:bg-red-700"
+                                        className="first:rounded-t-md last:rounded-b-md px-6 py-3  text-sm  hover:bg-red-upschool hover:text-white"
                                     >
                                         <NavLink
                                             to={detail.path ? detail.path : '#'}
@@ -102,7 +100,7 @@ export function NavbarBox({ inf }: BoxProps) {
                                         </NavLink>
                                     </li>
                                 )}
-                            </>
+                            </React.Fragment>
                         );
                     })}
                 </ul>

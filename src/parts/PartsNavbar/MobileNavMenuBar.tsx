@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { data, navData } from '../../data/NavbarBoxData';
+import { data } from '../../data/NavbarBoxData';
 import { NavLink } from 'react-router-dom';
 import upSchoolLogoMobile from '../../assets/Upschool_logo_Mobile_Navbar-300x57.png';
 // import './MobileNavMenuBar.css';
@@ -21,12 +21,12 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                 }`}
             >
                 <div
-                    className={` col-span-3 xs:col-span-1 bg-theme-color  h-screen  w-full top-0 flex justify-center text-white `}
+                    className={` col-span-3 xs:col-span-1 bg-theme-color  h-screen  w-full top-0 flex justify-center`}
                     onMouseLeave={() => {
-                        setTimeout(onClose, 2000);
+                        setTimeout(onClose, 5000);
                     }}
                 >
-                    <div className="w-11/12  ">
+                    <div className="w-11/12 text-white ">
                         <div className="flex flex-row justify-between items-center  mx-0.5 h-[10vh]">
                             <span>
                                 <NavLink to="/">
@@ -39,7 +39,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                 </NavLink>
                             </span>
                             <button onClick={onClose}>
-                                <svg
+                                <svg //cross symbol
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     viewBox="0 0 24 24"
@@ -56,9 +56,13 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                             </button>
                         </div>
                         <div>
-                            <ul className="rounded-md text-base p-2">
+                            <ul className="rounded-md text-base p-2 max-w-full">
                                 {/* First list */}
-                                <li className="rounded-md p-2 hover:bg-red-500  hover:scale-110">
+                                <li
+                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
+                                        !isOpen1 && 'hover:scale-110'
+                                    } max-w-full`}
+                                >
                                     <div className="w-full text-left flex items-center">
                                         <span className="pr-1 flex-1  text-sm">
                                             <NavLink
@@ -98,7 +102,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                     </div>
                                     <ul
                                         key={data[0].id}
-                                        className={`m-0 bg-gray-500 p-3 w-full border rounded-md relative transition duration-1000 ease-in-out origin-top ${
+                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full  rounded-md relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen1 ? 'block' : 'hidden'
                                         } `}
                                     >
@@ -106,7 +110,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             (detail, index) => (
                                                 <li
                                                     key={index}
-                                                    className="hover:bg-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    className="hover:text-font-color hover:scale-110 rounded-md p-0.5"
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -119,7 +123,11 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                     </ul>
                                 </li>
                                 {/* second list */}
-                                <li className="rounded-md p-2 hover:bg-red-500  hover:scale-110">
+                                <li
+                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
+                                        !isOpen2 && 'hover:scale-110'
+                                    } max-w-full`}
+                                >
                                     <div className="w-full text-left flex items-center">
                                         <span className="pr-1 flex-1  text-sm">
                                             <NavLink
@@ -158,7 +166,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         </span>
                                     </div>
                                     <ul
-                                        className={`m-0 bg-gray-500 p-3 w-full border rounded-md relative transition duration-1000 ease-in-out origin-top ${
+                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen2 ? 'block' : 'hidden'
                                         } `}
                                     >
@@ -166,7 +174,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             (detail, index) => (
                                                 <li
                                                     key={index}
-                                                    className="hover:bg-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -180,7 +188,11 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                 </li>
 
                                 {/* Third list */}
-                                <li className="rounded-md p-2 hover:bg-red-500  hover:scale-110">
+                                <li
+                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
+                                        !isOpen3 && 'hover:scale-110'
+                                    } max-w-full`}
+                                >
                                     <div className="w-full text-left flex items-center">
                                         <span className="pr-1 flex-1  text-sm">
                                             <NavLink
@@ -219,7 +231,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         </span>
                                     </div>
                                     <ul
-                                        className={`m-0 bg-gray-500 p-3 w-full border rounded-md relative transition duration-1000 ease-in-out origin-top ${
+                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen3 ? 'block' : 'hidden'
                                         } `}
                                     >
@@ -227,7 +239,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             (detail, index) => (
                                                 <li
                                                     key={index}
-                                                    className="hover:bg-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -241,7 +253,11 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                 </li>
 
                                 {/* Fourth list */}
-                                <li className="rounded-md p-2 hover:bg-red-500  hover:scale-110">
+                                <li
+                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
+                                        !isOpen4 && 'hover:scale-110'
+                                    } max-w-full`}
+                                >
                                     <div className="w-full text-left flex items-center">
                                         <span className="pr-1 flex-1  text-sm">
                                             <NavLink
@@ -280,7 +296,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         </span>
                                     </div>
                                     <ul
-                                        className={`m-0 bg-gray-500 p-3 w-full border rounded-md relative transition duration-1000 ease-in-out origin-top ${
+                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full  rounded-md relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen4 ? 'block' : 'hidden'
                                         } `}
                                     >
@@ -288,7 +304,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             (detail, index) => (
                                                 <li
                                                     key={index}
-                                                    className="hover:bg-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -302,7 +318,11 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                 </li>
 
                                 {/* Fifth list */}
-                                <li className="rounded-md p-2  hover:bg-red-500  hover:scale-110">
+                                <li
+                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
+                                        !isOpen5 && 'hover:scale-110'
+                                    } max-w-full`}
+                                >
                                     <div className="w-full text-left flex items-center">
                                         <span className="pr-1 flex-1  text-sm">
                                             <NavLink
@@ -341,7 +361,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         </span>
                                     </div>
                                     <ul
-                                        className={`m-0 bg-gray-500 p-3 w-full border rounded-md relative transition duration-1000 ease-in-out origin-top ${
+                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen5 ? 'block' : 'hidden'
                                         } `}
                                     >
@@ -349,7 +369,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             (detail, index) => (
                                                 <li
                                                     key={index}
-                                                    className="hover:bg-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -363,7 +383,11 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                 </li>
 
                                 {/* Sixth list */}
-                                <li className="rounded-md p-2 hover:bg-red-500  hover:scale-110 ">
+                                <li
+                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
+                                        !isOpen6 && 'hover:scale-110'
+                                    } max-w-full`}
+                                >
                                     <div className="w-full text-left flex items-center">
                                         <span className="pr-1 flex-1  text-sm">
                                             <NavLink
@@ -402,7 +426,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         </span>
                                     </div>
                                     <ul
-                                        className={`m-0 bg-gray-500 p-3 w-full border rounded-md relative transition duration-1000 ease-in-out origin-top ${
+                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen6 ? 'block' : 'hidden'
                                         } `}
                                     >
@@ -410,7 +434,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             (detail, index) => (
                                                 <li
                                                     key={index}
-                                                    className="hover:bg-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -423,7 +447,11 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                     </ul>
                                 </li>
                                 {/* seventh list */}
-                                <li className="rounded-md p-2 hover:bg-red-500  hover:scale-110">
+                                <li
+                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
+                                        !isOpen7 && 'hover:scale-110'
+                                    } max-w-full`}
+                                >
                                     <div className="w-full text-left flex items-center">
                                         <span className="pr-1 flex-1  text-sm">
                                             <NavLink
@@ -462,7 +490,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         </span>
                                     </div>
                                     <ul
-                                        className={`m-0 bg-gray-500 p-3 w-full border rounded-md relative transition duration-1000 ease-in-out origin-top ${
+                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen7 ? 'block' : 'hidden'
                                         } `}
                                     >
@@ -470,7 +498,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             (detail, index) => (
                                                 <li
                                                     key={index}
-                                                    className="hover:bg-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
                                                 >
                                                     <NavLink
                                                         to={detail.path || '#'}
@@ -483,21 +511,21 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                     </ul>
                                 </li>
                                 {/* Eight List */}
-                                <li className="rounded-md p-2 text-sm hover:bg-red-500  hover:scale-110">
+                                {/* <li className="rounded-md p-2 text-sm hover:bg-red-upschool  hover:scale-110">
                                     <NavLink to={navData.path || '#'}>
                                         {navData.title}
                                     </NavLink>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>
                 </div>
                 {/* Secound column */}
                 <div
-                    className={`col-span-2 xs:col-start-2 xs:col-span-1 sm:col-span-2 tab:col-span-3 h-screen  w-full  top-0 `}
+                    className={`col-span-2 xs:col-start-2 xs:col-span-1 sm:col-span-2 tab:col-span-3 h-screen  w-full  top-0  bg-black/70`}
                     onClick={onClose}
                 >
-                    <div className="h-full w-full bg-slate-600/80 "></div>
+                    <div className="h-full w-full "></div>
                 </div>
             </div>
         </>

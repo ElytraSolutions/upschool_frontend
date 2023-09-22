@@ -16,7 +16,8 @@ export default function Layout() {
             {isDashboardRoute ? <DashboardNavbar /> : <Navbar />}
 
             <Outlet />
-            {isDashboardRoute ? null : <Footer />}
+            {/* {isDashboardRoute ? null : <Footer />} */}
+            {!isDashboardRoute && <Footer />}
         </>
     );
 }

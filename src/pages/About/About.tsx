@@ -110,7 +110,7 @@ export default function About() {
                             </p>
                             <button className="bg-[#b81242] text-[#fff] font-bold mx-5 px-5 py-2 tracking-widest hover:transform hover:scale-110 transform transition-transform ease-in-out">
                                 GET FREE ACCESS{' '}
-                                <i className="fa fa-arrow-right"></i>{' '}
+                                <i className="fa fa-arrow-right"></i>
                             </button>
                         </div>
                         <img src="/images/about/about-us.jpg" alt="" />
