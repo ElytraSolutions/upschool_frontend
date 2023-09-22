@@ -16,7 +16,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
             {/* Container */}
             <div className="fixed top-0 z-20 h-full w-full flex flex-col justify-center items-center bg-black/60">
                 {/* Layout */}
-                <div className="w-[95%] lg:w-11/12 xl:w-3/4 bg-white text-theme-color">
+                <div className="mt-7 w-[95%] lg:w-11/12 xl:w-3/4 bg-white text-theme-color overflow-auto">
                     {/* Sections  */}
                     <div className="grid grid-cols-3 divide-x divide-theme-color/50">
                         {/* First Section */}
