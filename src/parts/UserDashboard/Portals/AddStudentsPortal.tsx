@@ -4,7 +4,7 @@ import EmailIcon from '../../../assets/EmailIcon.png';
 import DownloadIcon from '../../../assets/DownloadIcon.png';
 import InviteViaLink from './InviteViaLink';
 import InviteViaEmail from './InviteViaEmail';
-import InviteViaCSVFile from './InviteViaCSVFile';
+import InviteViaCSVFile from './InviteViaCSVFile/InviteViaCSVFile';
 type AddStudentsPortalProps = {
     onClose: () => void;
 };
@@ -20,17 +20,17 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                     {/* Sections  */}
                     <div className="grid grid-cols-3 divide-x divide-theme-color/50">
                         {/* First Section */}
-                        <div className="col-span-1 p-5 w-full flex flex-row justify-center items-center">
+                        <div className="col-span-1 p-5 w-full flex flex-row justify-center h-full">
                             {/* First Section Container */}
-                            <div className="w-[95%] lg:w-10/12">
+                            <div className="w-[95%] lg:w-10/12 pt-12 pb-6">
                                 {/* First Section Layout */}
                                 <div className="flex flex-col gap-2 sm:gap-4 md:gap-6 lg:gap-9">
                                     {/* First two rows */}
                                     <div className="flex flex-col w-full">
-                                        <p className="font-semibold text-base lg:text-xl">
+                                        <p className="font-semibold text-xl lg:text-2xl">
                                             Invite Students
                                         </p>
-                                        <p className=" font-light text-sm lg:text-base truncate">
+                                        <p className=" font-light text-base lg:text-lg truncate">
                                             Invite students from your class
                                         </p>
                                     </div>
@@ -110,8 +110,9 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                             </div>
                         </div>
                         {/* Second Section */}
-                        <div className="col-span-2 p-5  w-full flex flex-row justify-center items-center">
-                            <div className="w-[95%] lg:w-10/12">
+                        <div className="col-span-2 p-5  w-full flex flex-row justify-center h-full">
+                            {/* First Section Container */}
+                            <div className="w-[95%] lg:w-10/12 pt-14 pb-6">
                                 {selectedOption === 'Link' && <InviteViaLink />}
                                 {selectedOption === 'Email' && (
                                     <InviteViaEmail />

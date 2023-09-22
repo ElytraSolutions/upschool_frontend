@@ -5,10 +5,10 @@ const InviteViaLink = () => {
     return (
         <>
             <div className="flex  flex-col gap-3 w-full">
-                <p className="font-semibold text-lg md:text-xl lg:text-2xl text-left w-full">
+                <p className="font-semibold text-base md:text-lg lg:text-xl text-left w-full">
                     Invite with a Share Link
                 </p>
-                <p className=" font-light text-base md:text-lglg:text-xl text-left w-full">
+                <p className=" font-light text-md md:text-base lg:text-lg text-left w-full">
                     Anyone with this link can join Upschool as your student.{' '}
                     <br />
                     This link will expire in 120 minutes.
@@ -25,7 +25,7 @@ const InviteViaLink = () => {
                         Copy
                     </button>
                 </div>
-                <p className="font-semibold text-lg md:text-xl lg:text-2xl text-left w-full">
+                <p className="font-semibold text-base md:text-lg lg:text-xl text-left w-full">
                     Share invite link:
                 </p>
                 <div className="flex flex-row gap-4">

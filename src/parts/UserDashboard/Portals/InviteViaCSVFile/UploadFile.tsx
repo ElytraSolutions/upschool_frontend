@@ -1,22 +1,24 @@
-import { useState } from 'react';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import Dropzone from 'react-dropzone';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import React from 'react';
 
 const uploadBookSchema = yup.object().shape({
     file: yup.string().required("You have'nt uploaded the book"),
 });
-const InitialValues: Record<string, any> = { file: '' };
+type UploadFileProps = {
+    InitialValues: Record<string, any>;
+    submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
+};
 
-const UploadFile = ({ setSelectComponent }) => {
-    const submitHandler = (data, onSubmitProps) => {
-        console.log(data);
-        onSubmitProps.resetForm();
-        setSelectComponent(1);
-    };
+const UploadFile: React.FC<UploadFileProps> = ({
+    InitialValues,
+    submitHandler,
+}) => {
     return (
         <>
+            {/* Form to take csv file */}
             <Formik
                 onSubmit={submitHandler}
                 initialValues={InitialValues}
@@ -32,10 +34,11 @@ const UploadFile = ({ setSelectComponent }) => {
                     setFieldValue,
                 }) => (
                     <>
-                        <div className="flex flex-col w-full">
-                            <div className="rounded-t-lg  bg-stone-50 p-4 flex items-center justify-center w-full ">
-                                <div className="bg-red-upschool  px-4 py-2 border  border-black rounded-full w-full flex justify-center items-center">
-                                    <p className="text-center text-white text-lg md:text-xl lg:text-2xl  truncate w-full">
+                        <div className="flex w-full flex-col">
+                            {/* displays 'Download sample CSV File' */}
+                            <div className="flex  w-full items-center justify-center rounded-t-lg bg-stone-50 p-4 ">
+                                <div className="flex  w-full items-center justify-center  rounded-full border border-black bg-red-upschool px-4 py-2">
+                                    <p className="w-full truncate text-center text-lg text-white  md:text-xl lg:text-2xl">
                                         Download sample CSV File
                                     </p>
                                 </div>
@@ -44,8 +47,9 @@ const UploadFile = ({ setSelectComponent }) => {
                                 onSubmit={handleSubmit}
                                 className="grid grid-rows-4"
                             >
-                                <div className="row-span-3 p-2 border bg-gray-200 rounded-b-lg hover:border-black flex flex-col justify-center h-full ">
-                                    <div className="p-4 text-gray-500 text-base font-light w-full h-full">
+                                <div className="row-span-3 flex h-full flex-col justify-center rounded-b-lg border bg-gray-200 p-2 hover:border-black ">
+                                    <div className="h-full w-full p-4 text-base font-light text-gray-500">
+                                        {/* file upload is managed by Dropzone */}
                                         <Dropzone
                                             accept={{
                                                 'application/csv': ['.csv'],
@@ -76,14 +80,14 @@ const UploadFile = ({ setSelectComponent }) => {
                                                 <section className="h-full w-full">
                                                     <div
                                                         {...getRootProps()}
-                                                        className="w-full h-full flex flex-row items-center "
+                                                        className="flex h-full w-full flex-row items-center "
                                                     >
                                                         <input
                                                             {...getInputProps()}
                                                         />
 
                                                         {!values.file ? (
-                                                            <p className=" flex items-center justify-center text-center bg-gray-200 border-2 border-gray-400 border-dashed p-4  w-full h-full">
+                                                            <p className=" flex h-full w-full items-center justify-center border-2 border-dashed border-gray-400 bg-gray-200  p-4 text-center">
                                                                 Click to browse
                                                                 or
                                                                 <br />
@@ -91,7 +95,7 @@ const UploadFile = ({ setSelectComponent }) => {
                                                                 your file
                                                             </p>
                                                         ) : (
-                                                            <div className="flex felx-row justify-between  bg-gray-100 border-2 border-gray-300 border-dashed p-4  w-full ">
+                                                            <div className="flex-row flex w-full  justify-between border-2 border-dashed border-gray-300 bg-gray-100  p-4 ">
                                                                 <p>
                                                                     {
                                                                         values
@@ -110,20 +114,20 @@ const UploadFile = ({ setSelectComponent }) => {
                                     <ErrorMessage
                                         name="file"
                                         render={(msg) => (
-                                            <div className="text-center text-red-upschool text-sm md:text-base p-1">
+                                            <div className="p-1 text-center text-sm text-red-upschool md:text-base">
                                                 {msg}
                                             </div>
                                         )}
                                     />
                                 </div>
                                 <div
-                                    className={`row-span-1 grid grid-cols-4 gap-4  p-2  w-full font-normal content-center`}
+                                    className={`row-span-1 grid  grid-cols-4 w-full  content-center  gap-4 p-2 font-normal`}
                                 >
                                     <button
                                         type="submit"
-                                        className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                                        className="col-span-1 col-start-4 m-1 flex h-12 flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color p-1 text-white"
                                     >
-                                        <span>Next</span>
+                                        <span>Upload</span>
                                         <span className="hidden sm:inline">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +135,7 @@ const UploadFile = ({ setSelectComponent }) => {
                                                 viewBox="0 0 24 24"
                                                 strokeWidth="1.5"
                                                 stroke="currentColor"
-                                                className="w-4 h-4"
+                                                className="h-4 w-4"
                                             >
                                                 <path
                                                     strokeLinecap="round"
@@ -150,38 +154,5 @@ const UploadFile = ({ setSelectComponent }) => {
         </>
     );
 };
-const FileUploadProcess = () => {
-    return (
-        <>
-            <p>Upload File progress</p>
-        </>
-    );
-};
-const ImportProcess = () => {
-    return (
-        <>
-            <p>ImportProcess</p>
-        </>
-    );
-};
-const InviteViaCSVFile = () => {
-    const [selectComponenent, setSelectComponent] = useState<number>(0);
-    const components = [
-        <UploadFile setSelectComponent={setSelectComponent} />,
-        <FileUploadProcess />,
-        <ImportProcess />,
-    ];
 
-    return (
-        <>
-            <div className="flex  flex-col gap-3 w-full">
-                <p className="font-semibold text-lg md:text-xl lg:text-2xl text-left w-full">
-                    Import from CSV file
-                </p>
-                {components[selectComponenent]}
-            </div>
-        </>
-    );
-};
-
-export default InviteViaCSVFile;
+export default UploadFile;
