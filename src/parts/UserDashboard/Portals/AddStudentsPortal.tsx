@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import LinkIcon from '../../../assets/LinkIcon.png';
 import EmailIcon from '../../../assets/EmailIcon.png';
 import DownloadIcon from '../../../assets/DownloadIcon.png';
+import InviteViaLink from './InviteViaLink';
+import InviteViaEmail from './InviteViaEmail';
+import InviteViaCSVFile from './InviteViaCSVFile';
 type AddStudentsPortalProps = {
     onClose: () => void;
 };
@@ -106,8 +109,17 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-span-2 p-5">
-                            Invite a Share Link
+                        {/* Second Section */}
+                        <div className="col-span-2 p-5  w-full flex flex-row justify-center items-center">
+                            <div className="w-[95%] lg:w-10/12">
+                                {selectedOption === 'Link' && <InviteViaLink />}
+                                {selectedOption === 'Email' && (
+                                    <InviteViaEmail />
+                                )}
+                                {selectedOption === 'File' && (
+                                    <InviteViaCSVFile />
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
