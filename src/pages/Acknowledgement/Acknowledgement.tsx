@@ -2,14 +2,14 @@ function Acknowledgement() {
     return (
         <>
             <div
-                className="bg-cover  bottom-0  "
+                className="bottom-0  bg-cover  "
                 style={{ backgroundImage: `url('/images/ack/back.jpg')` }}
             >
-                <div className="bg-[#462615F0] flex  justify-center">
+                <div className="flex justify-center  bg-[#462615F0]">
                     <div className="container max-w-4xl ">
                         <div className="row justify-center">
-                            <div className="flex flex-col text-[#fff] items-center p-14 gap-4">
-                                <span className="text-center md:p-6 font-bold text-2xl md:text-5xl tracking-wide ">
+                            <div className="flex flex-col items-center gap-4 p-14 text-[#fff]">
+                                <span className="text-center text-2xl font-bold tracking-wide md:p-6 md:text-5xl ">
                                     Acknowledgement of Country
                                 </span>
                                 <img
@@ -21,8 +21,8 @@ function Acknowledgement() {
                                     src="/images/ack/flag.png"
                                     className="max-h-[50px]"
                                 />
-                                <div className=" flex justify-center w-[50vw] md:w-[30vw] "></div>
-                                <p className="text-[16px] tracking-wide max-w-2xl font-light text-center md:max-w-3xl lg:max-w-4xl  leading-6 pb-6">
+                                <div className=" flex w-[50vw] justify-center md:w-[30vw] "></div>
+                                <p className="max-w-2xl pb-6 text-center text-[16px] font-light leading-6 tracking-wide  md:max-w-3xl lg:max-w-4xl">
                                     Upschool would like to acknowledge that we
                                     live, work, learn and play on Upschool would
                                     like to acknowledge that we live, work,

@@ -80,7 +80,7 @@ export default function Step1({
                     {/* First step form */}
                     <form onSubmit={handleSubmit}>
                         <div
-                            className={`grid grid-cols-4 w-11/12 gap-4 p-2 ${
+                            className={`grid w-11/12 grid-cols-4 gap-4 p-2 ${
                                 isLargeScreen ? 'm-2' : 'mx-2 my-0'
                             }`}
                         >
@@ -104,8 +104,8 @@ export default function Step1({
                                 }
                             />
                             <TextField
-                                className={`col-span-${
-                                    isLargeScreen ? '2' : '4'
+                                className={`${
+                                    isLargeScreen ? 'col-span-2' : 'col-span-4'
                                 }`}
                                 type="text"
                                 label="Last Name"
@@ -219,7 +219,7 @@ export default function Step1({
                         >
                             <button
                                 type="submit"
-                                className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                                className="col-span-1 col-start-4 m-1 flex h-12 flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color p-1 text-white"
                             >
                                 <span
                                     className={`${
@@ -235,7 +235,7 @@ export default function Step1({
                                         viewBox="0 0 24 24"
                                         strokeWidth="1.5"
                                         stroke="currentColor"
-                                        className="w-4 h-4"
+                                        className="h-4 w-4"
                                     >
                                         <path
                                             strokeLinecap="round"

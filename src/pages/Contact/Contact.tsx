@@ -1,7 +1,7 @@
 function Contact() {
     return (
         <>
-            <div className="w-full flex justify-center">
+            <div className="flex w-full justify-center">
                 <div className="m-20 text-[#242254] ">
                     <p className="">We are here to help!</p>
                     <span className="text-[28px] font-bold">
@@ -13,8 +13,8 @@ function Contact() {
                         our <br />
                         social media accounts!
                     </p>
-                    <div className="flex gap-1 pt-4 text-[#fff] text-[30px]">
-                        <span className="bg-[#0e76a8] px-2 rounded-md hover:bg-[#1e86b8]">
+                    <div className="flex gap-1 pt-4 text-[30px] text-[#fff]">
+                        <span className="rounded-md bg-[#0e76a8] px-2 hover:bg-[#1e86b8]">
                             <a
                                 className=""
                                 href="https://www.linkedin.com/company/upschool.co/"
@@ -24,7 +24,7 @@ function Contact() {
                                 <i className="fa fa-linkedin-square"></i>
                             </a>
                         </span>
-                        <span className="bg-[#C13584] px-2 rounded-md hover:bg-[#D14594]">
+                        <span className="rounded-md bg-[#C13584] px-2 hover:bg-[#D14594]">
                             <a
                                 className=""
                                 href="https://www.instagram.com/upschoolofficial/"
@@ -34,7 +34,7 @@ function Contact() {
                                 <i className="fa fa-instagram"></i>
                             </a>
                         </span>
-                        <span className="bg-[#405DE6] px-2 rounded-md hover:bg-[#506df6]">
+                        <span className="rounded-md bg-[#405DE6] px-2 hover:bg-[#506df6]">
                             <a
                                 className=""
                                 href="https://www.facebook.com/Upschool.co"
@@ -44,7 +44,7 @@ function Contact() {
                                 <i className="fa fa-facebook-square"></i>
                             </a>
                         </span>
-                        <span className="bg-[#EE0000] px-2  rounded-md hover:bg-[#FF0000]">
+                        <span className="rounded-md bg-[#EE0000]  px-2 hover:bg-[#FF0000]">
                             <a
                                 className=""
                                 href="https://www.youtube.com/channel/UC5kweQ5J5eOl30WrjXfO1IA/videos"

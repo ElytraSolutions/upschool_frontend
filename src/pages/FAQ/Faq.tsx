@@ -39,10 +39,10 @@ function Faq() {
     return (
         <>
             <div className="bg-[#242254c0]">
-                <div className="max-w-6xl m-auto ">
-                    <div className="flex flex-col gap-6 p-6 text-white items-center text-center">
-                        <p className="text-5xl font-bold ]">FAQ</p>
-                        <p className="text-[#b7b3fb] text-xl font-bold">
+                <div className="m-auto max-w-6xl ">
+                    <div className="flex flex-col items-center gap-6 p-6 text-center text-white">
+                        <p className="text-5xl font-bold">FAQ</p>
+                        <p className="text-xl font-bold text-[#b7b3fb]">
                             NEED HELP?
                         </p>
                         <span className="leading-8">
@@ -51,25 +51,25 @@ function Faq() {
                             further help, please email us at hello@upschool.co.
                         </span>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 text-white ">
-                        <div className="p-4 flex flex-col gap-4">
-                            <div className="border-l-2 border-red-700 pl-2 py-0 font-bold text-2xl">
+                    <div className="grid grid-cols-1 text-white md:grid-cols-2 ">
+                        <div className="flex flex-col gap-4 p-4">
+                            <div className="border-l-2 border-red-700 py-0 pl-2 text-2xl font-bold">
                                 REGISTRATION & ENROLLMENT
                             </div>
                             <div>
                                 <ExpandableTable data={RGData} />
                             </div>
                         </div>
-                        <div className="p-4 flex flex-col gap-4">
-                            <div className="border-l-2 border-red-700 pl-2 py-0 font-bold text-2xl">
+                        <div className="flex flex-col gap-4 p-4">
+                            <div className="border-l-2 border-red-700 py-0 pl-2 text-2xl font-bold">
                                 ABOUT UPSCHOOL
                             </div>
                             <div>
                                 <ExpandableTable data={AboutData} />
                             </div>
                         </div>
-                        <div className="p-4 flex flex-col gap-4">
-                            <div className="border-l-2 border-red-700 pl-2 py-0 font-bold text-2xl">
+                        <div className="flex flex-col gap-4 p-4">
+                            <div className="border-l-2 border-red-700 py-0 pl-2 text-2xl font-bold">
                                 PARTNERSHIPS & DONATIONS
                             </div>
                             <div>
@@ -78,8 +78,8 @@ function Faq() {
                                 />
                             </div>
                         </div>
-                        <div className="p-4 flex flex-col gap-4">
-                            <div className="border-l-2 border-red-700 pl-2 py-0 font-bold text-2xl">
+                        <div className="flex flex-col gap-4 p-4">
+                            <div className="border-l-2 border-red-700 py-0 pl-2 text-2xl font-bold">
                                 UPDATES & COMMUNICATIONS
                             </div>
                             <div>
@@ -88,16 +88,16 @@ function Faq() {
                                 />
                             </div>
                         </div>
-                        <div className="p-4 flex flex-col gap-4">
-                            <div className="border-l-2 border-red-700 pl-2 py-0 font-bold text-2xl">
+                        <div className="flex flex-col gap-4 p-4">
+                            <div className="border-l-2 border-red-700 py-0 pl-2 text-2xl font-bold">
                                 HELP
                             </div>
                             <div>
                                 <ExpandableTable data={HelpData} />
                             </div>
                         </div>
-                        <div className="p-4 flex flex-col gap-4">
-                            <div className="border-l-2 border-red-700 pl-2 py-0 font-bold text-2xl">
+                        <div className="flex flex-col gap-4 p-4">
+                            <div className="border-l-2 border-red-700 py-0 pl-2 text-2xl font-bold">
                                 CANVA & THE UPSCHOOL LIBRARY
                             </div>
                             <div>

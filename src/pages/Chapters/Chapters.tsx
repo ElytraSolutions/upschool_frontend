@@ -15,9 +15,9 @@ export default function Chapters() {
     }, [isBigScreen]);
 
     return (
-        <div className="grid  grid-cols-2 xm:grid-cols-5 lg:grid-cols-4 h-[90vh] mb-6">
+        <div className="mb-6  grid h-[90vh] grid-cols-2 xm:grid-cols-5 lg:grid-cols-4">
             {isSidebarOpen && (
-                <div className=" grid-col-1 xm:col-span-2 lg:col-span-1 w-full pb-5 h-[90vh]">
+                <div className=" h-[90vh] w-full pb-5 xm:col-span-2 lg:col-span-1">
                     <Sidebar />
                 </div>
             )}
@@ -26,7 +26,7 @@ export default function Chapters() {
                     isSidebarOpen
                         ? ' col-span-1 xm:col-span-3'
                         : 'col-span-5 lg:col-span-4'
-                } w-full relative h-[90vh]`}
+                } relative h-[90vh] w-full`}
             >
                 <ChapterDetail
                     isSidebarOpen={isSidebarOpen}

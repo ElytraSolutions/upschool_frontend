@@ -15,7 +15,7 @@ export default function About() {
                         muted
                         loop
                         id="video-background"
-                        className="absolute top-0 left-0 w-full h-full overflow-hidden  object-cover "
+                        className="absolute left-0 top-0 h-full w-full overflow-hidden  object-cover "
                     >
                         <source
                             src={backgroundVideo}
@@ -24,32 +24,32 @@ export default function About() {
                         />
                         Your browser does not support the video tag.
                     </video>
-                    <div className="relative flex flex-col bg-[#181739C0] justify-center items-center md:h-[60vh] text-center ">
+                    <div className="relative flex flex-col items-center justify-center bg-[#181739C0] text-center md:h-[60vh] ">
                         <img
                             src={flyimg}
-                            className="max-h-[150px] pt-50"
+                            className="pt-50 max-h-[150px]"
                             alt=""
                         />
-                        <span className="text-[#fff] text-[69px]  font-bold tracking-wide ">
+                        <span className="text-[69px] font-bold  tracking-wide text-[#fff] ">
                             About Upschool
                         </span>
-                        <span className="text-[#fff] text-[16px] pb-10 ">
+                        <span className="pb-10 text-[16px] text-[#fff] ">
                             We're changing the world through purposeful
                             education.
                         </span>
                     </div>
                 </div>
-                <div className="flex flex-col justify-center items-center text-[#242254] m-10 text-center md:max-w-4xl md:mx-auto">
+                <div className="m-10 flex flex-col items-center justify-center text-center text-[#242254] md:mx-auto md:max-w-4xl">
                     <iframe
                         loading="lazy"
-                        className="w-full aspect-video "
+                        className="aspect-video w-full "
                         src="https://www.youtube.com/embed/qWOHWzGHtsA?si=8TDRUl3xHKira0WH"
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
                     ></iframe>
-                    <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
+                    <p className="p-4 text-[22px] font-bold leading-normal tracking-tight md:text-[28px] ">
                         We exist to empower children to make a difference in the
                         world by providing them with the skills, inspiration and
                         support to solve real world problems that have impact.
@@ -61,10 +61,10 @@ export default function About() {
                         collaborate with each other so that they can create the
                         change they want to see in the world.
                     </p>
-                    <button className="bg-[#b81242] text-[#fff] font-bold px-5 py-2 tracking-widest hover:transform hover:scale-110 transform transition-transform ease-in-out">
+                    <button className="bg-[#b81242] px-5 py-2 font-bold tracking-widest text-[#fff] transition-transform ease-in-out hover:scale-110">
                         GET FREE ACCESS <i className="fa fa-arrow-right"></i>{' '}
                     </button>
-                    <p className="font-semibold text-[22px] md:text-[28px] tracking-tight leading-normal pt-6">
+                    <p className="pt-6 text-[22px] font-semibold leading-normal tracking-tight md:text-[28px]">
                         {' '}
                         Our mission...
                     </p>
@@ -72,7 +72,7 @@ export default function About() {
                         …is to provide purposeful education for a better
                         tomorrow.
                     </p>
-                    <p className="font-semibold text-[22px] md:text-[28px] tracking-tight leading-normal pt-6">
+                    <p className="pt-6 text-[22px] font-semibold leading-normal tracking-tight md:text-[28px]">
                         {' '}
                         Our vision...
                     </p>
@@ -81,7 +81,7 @@ export default function About() {
                         education that inspires them to realise their potential
                         to improve the world.
                     </p>
-                    <p className="font-semibold text-[22px] md:text-[28px] tracking-tight leading-normal pt-6">
+                    <p className="pt-6 text-[22px] font-semibold leading-normal tracking-tight md:text-[28px]">
                         Our framework…
                     </p>
                     <p className="p-4">
@@ -92,14 +92,14 @@ export default function About() {
                     </p>
                     <a
                         href="/our-framework/"
-                        className="underline text-[#b81242] decoration-none"
+                        className="decoration-none text-[#b81242] underline"
                     >
                         Read more about our framework
                     </a>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
+                    <div className="grid grid-cols-1 gap-4 pt-20 md:grid-cols-2">
                         <div className="md:text-left">
-                            <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
+                            <p className="p-4 text-[22px] font-bold leading-normal tracking-tight md:text-[28px] ">
                                 100% Free Education
                             </p>
                             <p className="p-4">
@@ -108,21 +108,21 @@ export default function About() {
                                 beyond traditional education by emphasising the
                                 importance of intention-based learning.
                             </p>
-                            <button className="bg-[#b81242] text-[#fff] font-bold mx-5 px-5 py-2 tracking-widest hover:transform hover:scale-110 transform transition-transform ease-in-out">
+                            <button className="mx-5 bg-[#b81242] px-5 py-2 font-bold tracking-widest text-[#fff] transition-transform ease-in-out hover:scale-110">
                                 GET FREE ACCESS{' '}
                                 <i className="fa fa-arrow-right"></i>
                             </button>
                         </div>
                         <img src="/images/about/about-us.jpg" alt="" />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
+                    <div className="grid grid-cols-1 gap-4 pt-20 md:grid-cols-2">
                         <img
                             src="/images/about/about-us-images.jpg"
                             alt=""
                             className="order-last md:order-first"
                         />
                         <div className="md:text-left">
-                            <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
+                            <p className="p-4 text-[22px] font-bold leading-normal tracking-tight md:text-[28px] ">
                                 We're in the Business of Education With Purpose
                             </p>
                             <p className="p-4">
@@ -134,15 +134,15 @@ export default function About() {
                                 long-term impacts on communities across the
                                 world.
                             </p>
-                            <button className="bg-[#b81242] text-[#fff] font-bold mx-5 px-5 py-2 tracking-widest hover:transform hover:scale-110 transform transition-transform ease-in-out">
+                            <button className="mx-5 bg-[#b81242] px-5 py-2 font-bold tracking-widest text-[#fff] transition-transform ease-in-out hover:scale-110">
                                 GET FREE ACCESS{' '}
                                 <i className="fa fa-arrow-right"></i>{' '}
                             </button>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
+                    <div className="grid grid-cols-1 gap-4 pt-20 md:grid-cols-2">
                         <div className="md:text-left">
-                            <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
+                            <p className="p-4 text-[22px] font-bold leading-normal tracking-tight md:text-[28px] ">
                                 We Believe in Student Empowerment
                             </p>
                             <p className="p-4">
@@ -157,21 +157,21 @@ export default function About() {
                                 constant in education is change, and that change
                                 starts with you!
                             </p>
-                            <button className="bg-[#b81242] text-[#fff] font-bold mx-5 px-5 py-2 tracking-widest hover:transform hover:scale-110 transform transition-transform ease-in-out">
+                            <button className="mx-5 bg-[#b81242] px-5 py-2 font-bold tracking-widest text-[#fff] transition-transform ease-in-out hover:scale-110">
                                 GET FREE ACCESS{' '}
                                 <i className="fa fa-arrow-right"></i>{' '}
                             </button>
                         </div>
                         <img src="/images/about/about-us-images-1.jpg" alt="" />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
+                    <div className="grid grid-cols-1 gap-4 pt-20 md:grid-cols-2">
                         <img
                             src="/images/about/about-us-images-3.jpg"
                             alt=""
                             className="order-last md:order-first"
                         />
                         <div className="md:text-left">
-                            <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
+                            <p className="p-4 text-[22px] font-bold leading-normal tracking-tight md:text-[28px] ">
                                 Sustainable Development Goals Aligned
                             </p>
                             <p className="p-4">
@@ -186,15 +186,15 @@ export default function About() {
                                 work toward solving problems associated with the
                                 goals that they are passionate about.
                             </p>
-                            <button className="bg-[#b81242] text-[#fff] font-bold mx-5 px-5 py-2 tracking-widest hover:transform hover:scale-110 transform transition-transform ease-in-out">
+                            <button className="mx-5 bg-[#b81242] px-5 py-2 font-bold tracking-widest text-[#fff] transition-transform ease-in-out hover:scale-110">
                                 GET FREE ACCESS{' '}
                                 <i className="fa fa-arrow-right"></i>{' '}
                             </button>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-20">
+                    <div className="grid grid-cols-1 gap-4 pt-20 md:grid-cols-2">
                         <div className="md:text-left">
-                            <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
+                            <p className="p-4 text-[22px] font-bold leading-normal tracking-tight md:text-[28px] ">
                                 Our Charity Partners
                             </p>
                             <p className="p-4">
@@ -208,7 +208,7 @@ export default function About() {
                                 Upschool supports these charities to do the work
                                 that they do.
                             </p>
-                            <button className="bg-[#b81242] text-[#fff] font-bold mx-5 px-5 py-2 tracking-widest hover:transform hover:scale-110 transform transition-transform ease-in-out">
+                            <button className="mx-5 bg-[#b81242] px-5 py-2 font-bold tracking-widest text-[#fff] transition-transform ease-in-out hover:scale-110">
                                 GET FREE ACCESS{' '}
                                 <i className="fa fa-arrow-right"></i>{' '}
                             </button>
@@ -216,7 +216,7 @@ export default function About() {
                         <img src="/images/about/about-us-images-4.jpg" alt="" />
                     </div>
                     <div>
-                        <p className="font-bold text-[32px] md:text-[48px] tracking-tight leading-normal pt-24 ">
+                        <p className="pt-24 text-[32px] font-bold leading-normal tracking-tight md:text-[48px] ">
                             Our Team
                         </p>
                         <img
@@ -224,7 +224,7 @@ export default function About() {
                             className="py-6"
                             alt=""
                         />
-                        <p className="font-bold text-[22px] md:text-[28px] tracking-tight leading-normal p-4 ">
+                        <p className="p-4 text-[22px] font-bold leading-normal tracking-tight md:text-[28px] ">
                             We're Experienced Change Makers!
                         </p>
                         <p>
@@ -232,12 +232,12 @@ export default function About() {
                             of our team is mission driven and passionate about
                             creating global change.
                         </p>
-                        <p className="font-semibold text-[22px] md:text-[22px] tracking-tight leading-normal p-4 ">
+                        <p className="p-4 text-[22px] font-semibold leading-normal tracking-tight md:text-[22px] ">
                             Visit Our Team Page
                         </p>
                         <a
                             href="/our-framework/"
-                            className="underline text-[#b81242] decoration-none"
+                            className="decoration-none text-[#b81242] underline"
                         >
                             Click here
                         </a>
@@ -249,15 +249,15 @@ export default function About() {
                         backgroundImage: `url('/images/about/back.jpg')`,
                     }}
                 >
-                    <div className="flex flex-col bg-[#181739C0] justify-center items-center p-10 text-center">
-                        <span className="text-[#Fff] text-[22px] md:text-[36px] font-bold max-w-xl p-4 ">
+                    <div className="flex flex-col items-center justify-center bg-[#181739C0] p-10 text-center">
+                        <span className="max-w-xl p-4 text-[22px] font-bold text-[#Fff] md:text-[36px] ">
                             Students From Over 100 Countries Are Learning With
                             Upschool.
                         </span>
-                        <span className="text-[#fff] text-[16px] md:text-[16px] font-light tracking-wide pb-10">
+                        <span className="pb-10 text-[16px] font-light tracking-wide text-[#fff] md:text-[16px]">
                             Join the movement today!
                         </span>
-                        <button className="bg-[#b81242] text-[#fff] font-bold mx-5 px-10 py-3 tracking-widest hover:transform hover:scale-110 transform transition-transform ease-in-out">
+                        <button className="mx-5 bg-[#b81242] px-10 py-3 font-bold tracking-widest text-[#fff] transition-transform ease-in-out hover:scale-110">
                             GET FREE ACCESS{' '}
                             <i className="fa fa-arrow-right"></i>{' '}
                         </button>
@@ -265,7 +265,7 @@ export default function About() {
                 </div>
 
                 <div className="hidden md:block ">
-                    <p className="text-[#242254] font-bold text-[24px] md:text-[48px] tracking-tight leading-normal pt-10 text-center p-10 ">
+                    <p className="p-10 text-center text-[24px] font-bold leading-normal tracking-tight text-[#242254] md:text-[48px]">
                         Our Partners & Collaborators
                     </p>
                     <MultiImageCarousel images={patners} />

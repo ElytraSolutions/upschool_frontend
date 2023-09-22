@@ -1,12 +1,12 @@
 const TestimonialsPage = () => {
     return (
         <div className="container mx-auto p-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <div className="p-4">
                     <div className="bg-gray-100 p-4">
                         <i className="fas fa-comment-dots text-5xl text-blue-500"></i>
                     </div>
-                    <h1 className="text-3xl font-bold mt-4">Testimonials</h1>
+                    <h1 className="mt-4 text-3xl font-bold">Testimonials</h1>
                     <p className="mt-4">
                         The kind words we are getting about our program make it
                         all worth while!
@@ -32,7 +32,7 @@ const TestimonialsPage = () => {
                         <img
                             src="https://upschool.co/wp-content/uploads/2022/04/1557523365061-180x180.jpeg"
                             alt="Matthew Panayotopoulos"
-                            className="w-16 h-16 rounded-full"
+                            className="h-16 w-16 rounded-full"
                         />
                         <div>
                             <h2 className="text-2xl font-bold">

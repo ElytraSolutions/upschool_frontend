@@ -3,7 +3,7 @@ import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 function features() {
     return (
         <div className="bg-[#f4f4f4] text-[#757783] ">
-            <div className="max-w-6xl text-[#242254] grid md:grid-cols-2 lg:grid-cols-3 m-auto">
+            <div className="m-auto grid max-w-6xl text-[#242254] md:grid-cols-2 lg:grid-cols-3">
                 <div className="p-10 ">
                     <i className="fa fa-globe text-6xl"></i>
                     <h1 className="text-2xl font-bold">
