@@ -23,9 +23,13 @@ function CourseDetail() {
         setIsHovered(false);
     };
     if (course === null) return <Loading />;
+    const descriptionURL = new URL(
+        `/richContentView/${course.description}`,
+        axiosInstance.defaults.baseURL,
+    ).toString();
     return (
         <>
-            <div className="flex flex-col gap-10 ">
+            <div className="flex flex-col">
                 <div
                     className="bg-cover"
                     style={{ backgroundImage: `url('/images/ack/back.jpg')` }}
@@ -79,8 +83,8 @@ function CourseDetail() {
                         </div>
                     </div>
                 </div>
-                <div className="max-w-6xl m-auto py-10">
-                    {course.description}
+                <div>
+                    {course.description && <iframe src={descriptionURL} />}
                 </div>
             </div>
         </>
