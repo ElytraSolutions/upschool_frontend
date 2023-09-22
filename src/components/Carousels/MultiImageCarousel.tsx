@@ -6,7 +6,7 @@ function MultiImageCarousel({ images }) {
             showArrows={true}
             showStatus={false}
             showIndicators={false}
-            className=" w-11/12 mx-auto custom-carousel "
+            className=" custom-carousel w-11/12 mx-auto custom-carousel "
         >
             {images.map((imageSet, index) => (
                 <div key={index} className="  bg-[#24225450] p-4">

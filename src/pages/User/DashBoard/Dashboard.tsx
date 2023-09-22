@@ -18,13 +18,13 @@ const Dashboard: React.FC<DashboardProps> = () => {
     return (
         <div className="flex h-screen">
             {/* Sidebar */}
-            <div className="md:w-1/5 p-4 border text-[#cecece] xl:w-1/6">
+            <div className="border p-4 text-[#cecece] md:w-1/5 xl:w-1/6">
                 <ul className="mt-4 flex flex-col gap-4">
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
                             selectedOption === 'Dashboard'
-                                ? 'text-[#242254] border-[#242254]'
-                                : 'hover:text-[#242254] hover:border-[#242254]'
+                                ? 'border-[#242254] text-[#242254]'
+                                : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => handleOptionClick('Dashboard')}
                     >
@@ -32,10 +32,10 @@ const Dashboard: React.FC<DashboardProps> = () => {
                         <i className="fa fa-dashboard"></i> Dashboard
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
                             selectedOption === 'My Courses'
-                                ? 'text-[#242254] border-[#242254]'
-                                : 'hover:text-[#242254] hover:border-[#242254]'
+                                ? 'border-[#242254] text-[#242254]'
+                                : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => handleOptionClick('My Courses')}
                     >
@@ -43,20 +43,20 @@ const Dashboard: React.FC<DashboardProps> = () => {
                         <i className="fa fa-desktop"></i> My Courses
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
                             selectedOption === 'My Books'
-                                ? 'text-[#242254] border-[#242254]'
-                                : 'hover:text-[#242254] hover:border-[#242254]'
+                                ? 'border-[#242254] text-[#242254]'
+                                : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => handleOptionClick('My Books')}
                     >
                         <i className="fa fa-book"></i> My Books
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
                             selectedOption === 'My Donations & Purchase'
-                                ? 'text-[#242254] border-[#242254]'
-                                : 'hover:text-[#242254] hover:border-[#242254]'
+                                ? 'border-[#242254] text-[#242254]'
+                                : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() =>
                             handleOptionClick('My Donations & Purchase')
@@ -65,20 +65,20 @@ const Dashboard: React.FC<DashboardProps> = () => {
                         <i className="fa fa-table"></i> My Donations & Purchase
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
                             selectedOption === 'Setting'
-                                ? 'text-[#242254] border-[#242254]'
-                                : 'hover:text-[#242254] hover:border-[#242254]'
+                                ? 'border-[#242254] text-[#242254]'
+                                : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => handleOptionClick('Setting')}
                     >
                         <i className="fa fa-gear"></i> Setting
                     </li>
                     <li
-                        className={`cursor-pointer p-2 border-2 border-white rounded-lg flex flex-row gap-3 items-center ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
                             selectedOption === 'Logout'
-                                ? 'text-[#242254] border-[#242254]'
-                                : 'hover:text-[#242254] hover:border-[#242254]'
+                                ? 'border-[#242254] text-[#242254]'
+                                : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => handleOptionClick('Logout')}
                     >
@@ -88,7 +88,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
             </div>
 
             {/* Content */}
-            <div className="w-4/5 lg:w-5/6 p-4 pt-8 bg-[#cecece]/20 h-screen">
+            <div className="h-screen w-4/5 bg-[#cecece]/20 p-4 pt-8 lg:w-5/6">
                 {/* Content specific to the selected option */}
                 {selectedOption === 'Dashboard' && (
                     <DashboardContent handleOptionClick={handleOptionClick} />

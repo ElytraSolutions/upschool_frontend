@@ -1,7 +1,7 @@
 export default function CartIcon() {
     return (
         <div
-            className="flex items-center justify-cente"
+            className="justify-center flex items-center"
             style={{ minWidth: '34px' }}
         >
             <div className="relative scale-75">

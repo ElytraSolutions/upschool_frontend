@@ -19,16 +19,16 @@ export default function ChapterDetail({
     const [isClicked, setIsClicked] = useState(false); //teacher's note
     return (
         <>
-            <div className="flex flex-col overflow-auto pb-5 h-[90vh]">
+            <div className="flex h-[90vh] flex-col overflow-auto pb-5">
                 {/* ChapterDetail Header */}
-                <div className="flex w-full bg-blue-900  mb-5">
-                    <div className="flex flex-1 flex-row justify-between items-center p-2 text-white text-sm h-14">
-                        <div className="flex felx-row justify-between items-center">
+                <div className="mb-5 flex w-full  bg-blue-900">
+                    <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
+                        <div className="flex-row flex items-center justify-between">
                             {/* Circle sidebar open and close option */}
                             <div
                                 className={`${
                                     isSidebarOpen ? 'absolute -left-6' : ''
-                                }  h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 rounded-full bg-yellow-400 flex flex-row items-center justify-center text-white `}
+                                }  flex h-4 w-4 flex-row items-center justify-center rounded-full bg-yellow-400 text-white md:h-6 md:w-6 lg:h-8 lg:w-8 `}
                             >
                                 <KeyboardArrowLeftIcon
                                     className={`${
@@ -45,7 +45,7 @@ export default function ChapterDetail({
                             <div className="ml-2">
                                 <NavLink
                                     to={`/course/${slug}`}
-                                    className="flex flex-row items-center justify-start gap-0 md:gap-1 tex-xs md:text-base"
+                                    className="text-xs flex flex-row items-center justify-start gap-0 md:gap-1 md:text-base"
                                 >
                                     Goto Course Home{' '}
                                     <span>
@@ -55,18 +55,18 @@ export default function ChapterDetail({
                             </div>
                         </div>
                         {isBigScreen && <div>{learn}</div>}
-                        <button className=" bg-pink-700 text-center px-0.5 md:px-4  py-0.5 md:py-2 rounded-md tex-xs md:text-base ">
+                        <button className=" text-xs rounded-md bg-pink-700 p-0.5  text-center md:px-4 md:py-2 md:text-base ">
                             Compelete Lesson
                         </button>
                     </div>
                 </div>
                 {/* ChapterDetail Chapters Section*/}
-                <div className="flex-1 divide-y divide-slate-400 ml-6">
+                <div className="ml-6 flex-1 divide-y divide-slate-400">
                     {/* Section I */}
-                    <div className="flex flex-col m-4 justify-start gap-2">
+                    <div className="m-4 flex flex-col justify-start gap-2">
                         <div>
                             {/* TODO Data to be fetched from backend and mange its logic */}
-                            <div className="grid grid-cols-2 mt-12">
+                            <div className="mt-12 grid grid-cols-2">
                                 <div className="col-span-1 flex flex-col gap-6">
                                     {/* Title */}
                                     <div className="text-2xl font-semibold text-theme-color">
@@ -75,14 +75,14 @@ export default function ChapterDetail({
                                     {/* teacher's note */}
                                     <div className="flex flex-col gap-3">
                                         <div
-                                            className={` text-base font-semibold w-full ml-2 flex flex-col gap-6 ${
+                                            className={` ml-2 flex w-full flex-col gap-6 text-base font-semibold ${
                                                 isClicked
                                                     ? 'text-red-600'
                                                     : 'text-theme-color'
                                             }`}
                                         >
                                             <div
-                                                className="flex flex-row items-center justify-start hover:cursor-pointer max-w-fit"
+                                                className="flex max-w-fit flex-row items-center justify-start hover:cursor-pointer"
                                                 onClick={() => {
                                                     setIsClicked(
                                                         (oldState) => !oldState,
@@ -164,7 +164,7 @@ export default function ChapterDetail({
                                 <div className="col-span-1"></div>
                             </div>
                         </div>
-                        <button className="bg-pink-700 text-center px-3 py-1 max-w-fit rounded-md">
+                        <button className="max-w-fit rounded-md bg-pink-700 px-3 py-1 text-center">
                             Download
                         </button>
                     </div>
