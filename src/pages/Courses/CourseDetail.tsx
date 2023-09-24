@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ICourse } from '../../types/ICourse';
 import EnrollCard from '../../components/Cards/EnrollCard';
 import axiosInstance from '../../config/Axios';
@@ -9,12 +9,24 @@ function CourseDetail() {
     const [isHovered, setIsHovered] = useState(false);
     const [course, setCourse] = useState<ICourse | null>(null);
     const { slug } = useParams();
+    const containerRef = useRef<HTMLDivElement | null>(null);
+    const iframeRef = useRef<HTMLIFrameElement | null>(null);
+
     useEffect(() => {
         (async () => {
             const res = await axiosInstance.get(`/data/courses/${slug}`);
             setCourse(res.data.data);
         })();
     }, [slug]);
+
+    const setContainerSize = () => {
+        const iframe = iframeRef.current;
+        const container = containerRef.current;
+        if (!iframe || !container) return;
+        container.style.height =
+            (iframe.contentDocument?.body.scrollHeight || '20') + 'px';
+    };
+
     const handleHover = () => {
         setIsHovered(true);
     };
@@ -83,8 +95,21 @@ function CourseDetail() {
                         </div>
                     </div>
                 </div>
-                <div>
-                    {course.description && <iframe src={descriptionURL} />}
+                <div
+                    className="h-max"
+                    ref={containerRef}
+                    id="courseContainerId"
+                >
+                    {course.description && (
+                        <iframe
+                            src={descriptionURL}
+                            className="w-screen h-full"
+                            ref={iframeRef}
+                            id="courseIframeId"
+                            onLoad={setContainerSize}
+                            onResize={setContainerSize}
+                        />
+                    )}
                 </div>
             </div>
         </>
