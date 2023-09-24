@@ -6,16 +6,18 @@ import DownloadIcon from '../../../assets/DownloadIcon.png';
 import InviteViaLink from './InviteViaLink';
 import InviteViaEmail from './InviteViaEmail';
 import InviteViaCSVFile from './InviteViaCSVFile/InviteViaCSVFile';
+
+import CrossMark from '../../../assets/CrossMark.png';
+
 type AddStudentsPortalProps = {
     onClose: () => void;
 };
 
 const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
-    // TODO prevent modal if user has imported/typed some data and has not finished importing or submmited typed data
-    // closes modal when 'Esc' key is pressed after confirming if user wants to close it.
+    // closes modal when 'Esc' key is pressed
     useHotkeys('esc', (event) => {
         event.preventDefault();
-        window.confirm('Do you want to close portal?') && onClose();
+        onClose();
     });
     const [selectedOption, setSelectedOption] = useState<string>('Link');
     return (
@@ -117,28 +119,32 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                             </div>
                         </div>
                         {/* Second Section */}
-                        <div className="col-span-2 p-5  w-full flex flex-row justify-center h-full">
+                        <div className="col-span-2 p-2 w-full flex flex-col h-full">
+                            <div className="flex flex-row justify-end">
+                                <img
+                                    src={CrossMark}
+                                    alt="cross mark"
+                                    className="h-10 w-10 cursor-pointer"
+                                    onClick={onClose}
+                                />
+                            </div>
                             {/* First Section Container */}
-                            <div className="w-[95%] lg:w-10/12 pt-14 pb-6">
-                                {selectedOption === 'Link' && <InviteViaLink />}
-                                {selectedOption === 'Email' && (
-                                    <InviteViaEmail />
-                                )}
-                                {selectedOption === 'File' && (
-                                    <InviteViaCSVFile />
-                                )}
+                            <div className="p-3 w-full flex flex-row justify-center h-full">
+                                <div className="w-[95%] lg:w-10/12 pt-14 pb-6">
+                                    {selectedOption === 'Link' && (
+                                        <InviteViaLink />
+                                    )}
+                                    {selectedOption === 'Email' && (
+                                        <InviteViaEmail />
+                                    )}
+                                    {selectedOption === 'File' && (
+                                        <InviteViaCSVFile />
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* TODO determine if close button is necessary or not */}
-                <button
-                    type="button"
-                    className="bg-theme-color text-white"
-                    onClick={onClose}
-                >
-                    Close
-                </button>
             </div>
         </>
     );

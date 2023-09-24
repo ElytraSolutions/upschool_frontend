@@ -8,6 +8,8 @@ const InviteViaEmail = () => {
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         console.log(emailAddresses);
+        //reset form to default
+        setEmailAddresses('');
     };
 
     return (
