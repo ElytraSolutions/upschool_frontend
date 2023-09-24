@@ -1,10 +1,33 @@
-const ImportProcess = () => {
+import React, { useState, useEffect } from 'react';
+
+type ImportProcessProps = {
+    values: Record<string, any>;
+};
+const ImportProcess: React.FC<ImportProcessProps> = ({ values }) => {
     // TODO implement logic to receive status(importing... || Import Complete)
     const status = 'importing...';
-    // TODO get totalStudentsINFile by reading/accessing uploaded csv File
-    const totalStudentsInFile = 120;
-    // TODO get number of impoeted students from the file form backend status
-    const importedStudentsFromFile = 20;
+    // TODO get number of imported students from the file form backend status
+    const importedStudentsFromFile = 21;
+    // get totalStudentsInFile by reading/accessing uploaded csv File
+    const [totalStudentsInFile, setTotalStudentsInFile] = useState<number>(0);
+    useEffect(() => {
+        if (values.file) {
+            // Read the CSV file and count records
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const content = e.target?.result as string;
+                const lines = content?.split('\n');
+                // Check if the last line is empty
+                const recordCount =
+                    lines[lines.length - 1].trim() === ''
+                        ? lines.length - 2 // Subtract 1 for the header row and 1 for last empty line
+                        : lines.length - 1; // Subtract 1 for the header row
+                setTotalStudentsInFile(recordCount);
+            };
+            reader.readAsText(values.file);
+        }
+    }, [values.file]);
+
     return (
         <>
             <div className="flex flex-col gap-3">
@@ -23,7 +46,7 @@ const ImportProcess = () => {
                 {/* TODO implement necessary logic to display response/result obtained after import process has been completed */}
                 <div>
                     <p className=" text-green-600 py-4 text-base md:text-lg">
-                        Students Imported : 27
+                        Students Imported : 20
                     </p>
                 </div>
             </div>

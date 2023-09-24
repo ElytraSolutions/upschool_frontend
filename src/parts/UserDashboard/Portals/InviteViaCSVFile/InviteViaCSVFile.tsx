@@ -28,7 +28,7 @@ const InviteViaCSVFile = () => {
                 setSelectComponent(2);
             }}
         />,
-        <ImportProcess />,
+        <ImportProcess values={currentData} />,
     ];
 
     return (
