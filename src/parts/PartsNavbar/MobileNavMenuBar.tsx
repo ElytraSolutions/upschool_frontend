@@ -1,10 +1,15 @@
 import { useState } from 'react';
+import { useHotkeys } from 'react-hotkeys-hook';
 import { data } from '../../data/NavbarBoxData';
 import { NavLink } from 'react-router-dom';
 import upSchoolLogoMobile from '../../assets/Upschool_logo_Mobile_Navbar-300x57.png';
 // import './MobileNavMenuBar.css';
 
 const MobileNavMenubar = ({ isOpen, onClose }) => {
+    useHotkeys('esc', (event) => {
+        event.preventDefault();
+        onClose();
+    });
     const [isOpen1, setIsOpen1] = useState(false);
     const [isOpen2, setIsOpen2] = useState(false);
     const [isOpen3, setIsOpen3] = useState(false);

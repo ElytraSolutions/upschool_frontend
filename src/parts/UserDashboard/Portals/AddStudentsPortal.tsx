@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHotkeys } from 'react-hotkeys-hook';
 import LinkIcon from '../../../assets/LinkIcon.png';
 import EmailIcon from '../../../assets/EmailIcon.png';
 import DownloadIcon from '../../../assets/DownloadIcon.png';
@@ -10,6 +11,10 @@ type AddStudentsPortalProps = {
 };
 
 const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
+    useHotkeys('esc', (event) => {
+        event.preventDefault();
+        onClose();
+    });
     const [selectedOption, setSelectedOption] = useState<string>('Link');
     return (
         <>
