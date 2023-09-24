@@ -12,10 +12,10 @@ type AddStudentsPortalProps = {
 
 const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
     // TODO prevent modal if user has imported/typed some data and has not finished importing or submmited typed data
-    // closes modal when 'Esc' key is pressed
+    // closes modal when 'Esc' key is pressed after confirming if user wants to close it.
     useHotkeys('esc', (event) => {
         event.preventDefault();
-        onClose();
+        window.confirm('Do you want to close portal?') && onClose();
     });
     const [selectedOption, setSelectedOption] = useState<string>('Link');
     return (

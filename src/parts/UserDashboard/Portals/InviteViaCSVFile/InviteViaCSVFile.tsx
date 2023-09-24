@@ -7,6 +7,7 @@ const InviteViaCSVFile = () => {
     const [currentData, setCurrentData] = useState<Record<string, any>>({
         file: '',
     });
+
     const [selectComponenent, setSelectComponent] = useState<number>(0);
     const components = [
         <UploadFile
@@ -17,7 +18,6 @@ const InviteViaCSVFile = () => {
                     return { ...oldValue, ...data };
                 });
                 onSubmitProps.resetForm();
-                console.log('Updating value');
                 setSelectComponent(1);
             }}
         />,

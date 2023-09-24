@@ -14,6 +14,9 @@ const ImportProcess: React.FC<ImportProcessProps> = ({ values }) => {
         if (values.file) {
             // Read the CSV file and count records
             const reader = new FileReader();
+            // Instruct FileReader to read the file as text
+            reader.readAsText(values.file);
+            // Event handler for when the file reading is complete
             reader.onload = (e) => {
                 const content = e.target?.result as string;
                 const lines = content?.split('\n');
@@ -24,7 +27,6 @@ const ImportProcess: React.FC<ImportProcessProps> = ({ values }) => {
                         : lines.length - 1; // Subtract 1 for the header row
                 setTotalStudentsInFile(recordCount);
             };
-            reader.readAsText(values.file);
         }
     }, [values.file]);
 
