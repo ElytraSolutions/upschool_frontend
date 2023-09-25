@@ -33,7 +33,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                 >
                     <div className="w-11/12 text-white ">
                         <div className="flex flex-row justify-between items-center  mx-0.5 h-[10vh]">
-                            <span>
+                            <span onClick={onClose}>
                                 <NavLink to="/">
                                     <img
                                         src={upSchoolLogoMobile}
@@ -116,6 +116,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 <li
                                                     key={index}
                                                     className="hover:text-font-color hover:scale-110 rounded-md p-0.5"
+                                                    onClick={onClose}
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -180,6 +181,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 <li
                                                     key={index}
                                                     className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    onClick={onClose}
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -245,6 +247,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 <li
                                                     key={index}
                                                     className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    onClick={onClose}
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -310,6 +313,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 <li
                                                     key={index}
                                                     className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    onClick={onClose}
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -375,6 +379,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 <li
                                                     key={index}
                                                     className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    onClick={onClose}
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -440,6 +445,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 <li
                                                     key={index}
                                                     className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    onClick={onClose}
                                                 >
                                                     <NavLink
                                                         to={detail.path || ''}
@@ -504,6 +510,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 <li
                                                     key={index}
                                                     className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    onClick={onClose}
                                                 >
                                                     <NavLink
                                                         to={detail.path || '#'}
