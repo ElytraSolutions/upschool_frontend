@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 import stringAvatar from '../../../utlis/AvatarColor/avatar_color';
+import useScreenWidth from '../../../hooks/useScreenWidth';
 
 // TODO Shema for image(avtar) of user
 const PersonalInformationSchema = yup.object().shape({
@@ -44,6 +45,9 @@ const submitHandler = (data, onSubmitProps) => {
 };
 
 export const PersonalInformation = () => {
+    const { isLargeScreen } = useScreenWidth();
+    const AvatarHeight = isLargeScreen ? 80 : 40;
+    const AvatarWidth = isLargeScreen ? 80 : 40;
     return (
         <div className="w-full">
             <div className="w-full h-full border border-theme-color/50 rounded-md  flex flex-col gap-2 divide-y divide-slate-400">
@@ -53,7 +57,7 @@ export const PersonalInformation = () => {
                     </span>
                 </div>
                 <div className="p-2 w-full">
-                    <div className="w-full md:w-11/12 ">
+                    <div className="w-full md:w-11/12 text-xs xs:text-base">
                         <Formik
                             onSubmit={submitHandler}
                             initialValues={InitialValues}
@@ -87,9 +91,12 @@ export const PersonalInformation = () => {
                                                     <Avatar
                                                         {...stringAvatar(
                                                             'Kent Dodds',
-                                                            80,
-                                                            80,
+                                                            AvatarHeight,
+                                                            AvatarWidth,
                                                         )}
+                                                        style={{
+                                                            fontSize: '15px',
+                                                        }}
                                                     />
                                                     {/* <Avatar
                                                     alt="Apple Sharp"
@@ -101,7 +108,7 @@ export const PersonalInformation = () => {
                                                 /> */}
                                                 </div>
                                                 <div className="flex flex-col items-start gap-2 px-2">
-                                                    <p className="text-sm">
+                                                    <p className="text-xs xs:text-sm">
                                                         It can be PNG, JPG or
                                                         GIF file. The size
                                                         should not exceed 2Mb

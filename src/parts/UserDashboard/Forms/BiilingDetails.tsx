@@ -69,7 +69,7 @@ export const BillingDetails = () => {
                 </div>
 
                 <div className="p-2 w-full">
-                    <div className="w-full md:w-11/12 ">
+                    <div className="w-full md:w-11/12 text-xs xs:text-base">
                         <Formik
                             onSubmit={submitHandler}
                             initialValues={InitialValues}

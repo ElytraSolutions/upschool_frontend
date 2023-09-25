@@ -120,12 +120,12 @@ const StudentList: React.FC = () => {
                                 isLargeScreen
                                     ? 'grid grid-cols-3'
                                     : 'grid grid-cols-2'
-                            } justify-items-start items-center w-full gap-1 md:gap-2 pr-0.5 md:pr-2 lg:pr-4`}
+                            } justify-items-start items-center w-full gap-1.5 md:gap-2 pr-0.5 md:pr-2 lg:pr-4`}
                         >
                             {/* Avatar , first name , last name and emial */}
-                            <div className="col-span-1 flex flex-row gap-0.5 md:gap-1 lg:gap-2 items-center w-fit ">
+                            <div className="col-span-1 flex flex-row gap-1 sm:gap-1.5 md:gap-2 lg:gap-3 items-center w-full ">
                                 {/* Avatar image */}
-                                <div className="cursor-pointer">
+                                <div className="hidden sm:block cursor-pointer">
                                     <Avatar
                                         {...stringAvatar(
                                             `${detail.first_name} ${detail.last_name}`,
@@ -145,21 +145,21 @@ const StudentList: React.FC = () => {
                                 /> */}
                                 </div>
                                 {/* first name , last name and email */}
-                                <div className="flex flex-col w-fit gap-0.5 justify-center">
-                                    <span className="text-xs  md:text-base font-semibold">
+                                <div className="flex flex-col w-full gap-0.5 justify-center overflow-hidden">
+                                    <span className="text-xs xm:text-sm md:text-base font-semibold">
                                         {detail.first_name} {detail.last_name}
                                     </span>
-                                    <span className="text-xs md:text-sm">
+                                    <p className="text-xs xm:text-sm md:text-sm truncate">
                                         {detail.email}
-                                    </span>
+                                    </p>
                                 </div>
                             </div>
                             {/* Name of recent course */}
                             <div className="col-span-1 flex flex-col gap-1 justify-center w-full">
-                                <span className="text-xs  md:text-base font-semibold w-fit">
+                                <span className="text-xs xm:text-sm  md:text-base font-semibold w-fit">
                                     Recent Course
                                 </span>
-                                <span className="text-xs md:text-sm max-w-[250px] overflow-hidden">
+                                <span className="text-xs xm:text-sm md:text-sm max-w-[250px] overflow-hidden">
                                     {detail.recent_course}
                                 </span>
                             </div>

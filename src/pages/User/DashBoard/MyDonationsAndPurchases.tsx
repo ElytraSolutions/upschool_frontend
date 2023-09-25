@@ -7,7 +7,7 @@ export default function MyDonationsAndPurchases() {
 
     return (
         <div className="h-full overflow-auto">
-            <div className="p-4 w-full">
+            <div className="sm:p-4 w-full">
                 <div className="flex flex-col gap-10 w-full">
                     {/* Options section */}
                     <div className="flex flex-row justify-start w-full gap-4">

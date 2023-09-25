@@ -27,14 +27,14 @@ const purchases = [
 export default function PurchasesTable() {
     return (
         <>
-            <table className="text-sm md:text-base text-theme-color w-fit xl:w-full">
+            <table className="text-xs sm:text-sm md:text-base text-theme-color w-fit xl:w-full">
                 <thead className="bg-white text-center font-semibold">
                     <tr>
-                        <th className="p-4">Order ID</th>
-                        <th className="p-4">Product Name</th>
-                        <th className="p-4">Qty</th>
-                        <th className="p-4">Price</th>
-                        <th className="p-4">Invoice</th>
+                        <th className="p-1 xs:p-4">Order ID</th>
+                        <th className="p-1 xs:p-4">Product Name</th>
+                        <th className="p-1 xs:p-4">Qty</th>
+                        <th className="p-1 xs:p-4">Price</th>
+                        <th className="p-1 xs:p-4">Invoice</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,25 +45,26 @@ export default function PurchasesTable() {
                                 className={` font-normal w-full odd:bg-stone-200/50`}
                             >
                                 {/* Purchse Id */}
-                                <td className="p-4 font-semibold align-top">
+                                <td className="p-1 xs:p-4 font-semibold ">
+                                    {/* align-top */}
                                     <div className="flex justify-center">
                                         <span>#{purchase.id}</span>
                                     </div>
                                 </td>
                                 {/* Name */}
-                                <td className=" max-w-lg p-4  text-left font-light">
+                                <td className=" max-w-lg p-1 xs:p-4  text-left font-light">
                                     <span>{purchase.name}</span>
                                 </td>
                                 {/* Quantity */}
-                                <td className=" p-4  text-center  font-light">
+                                <td className=" p-1 xs:p-4  text-center  font-light">
                                     <span>{purchase.quantity}</span>
                                 </td>
                                 {/* Price */}
-                                <td className="p-4 text-center font-semibold">
+                                <td className="p-1 xs:p-4 text-center font-semibold">
                                     AU ${purchase.price}
                                 </td>
                                 {/* Invoice download */}
-                                <td className="p-4">
+                                <td className="p-1 xs:p-4">
                                     <div className="flex flex-row justify-center cursor-pointer">
                                         {/* TODO implement download of invoice */}
                                         <img

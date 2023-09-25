@@ -31,13 +31,13 @@ const donations = [
 export default function DonationsTable() {
     return (
         <>
-            <table className="text-sm md:text-base text-theme-color w-fit xl:w-full">
+            <table className="text-xs sm:text-sm md:text-base text-theme-color w-fit xl:w-full">
                 <thead className="bg-white text-center font-semibold">
                     <tr>
-                        <th className="p-4">Donation ID</th>
-                        <th className="p-4">Project Name</th>
-                        <th className="p-4">Donation Amount</th>
-                        <th className="p-4">Invoice</th>
+                        <th className="p-1 xs:p-4">Donation ID</th>
+                        <th className="p-1 xs:p-4">Project Name</th>
+                        <th className="p-1 xs:p-4">Donation Amount</th>
+                        <th className="p-1 xs:p-4">Invoice</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,13 +50,13 @@ export default function DonationsTable() {
                                 }`} //Gives same background for pair of corresponding rows
                             >
                                 {/* Donation Id */}
-                                <td className="p-4 font-semibold align-top">
+                                <td className="p-1 xs:p-4 font-semibold align-top">
                                     <div className="flex justify-center">
                                         <span>#{donation.id}</span>
                                     </div>
                                 </td>
                                 {/* Project name and its organization */}
-                                <td className=" max-w-lg p-4 flex flex-col gap-1.5 text-left">
+                                <td className=" max-w-lg p-1 xs:p-4 flex flex-col gap-1.5 text-left">
                                     <span className="font-light">
                                         {donation.name}
                                     </span>
@@ -65,11 +65,11 @@ export default function DonationsTable() {
                                     </span>
                                 </td>
                                 {/* Donation amount */}
-                                <td className="p-4 text-center font-semibold">
+                                <td className="p-1 xs:p-4 text-center font-semibold">
                                     AU ${donation.tips}
                                 </td>
                                 {/* Invoice download */}
-                                <td className="p-4">
+                                <td className="p-1 xs:p-4">
                                     <div className="flex flex-row justify-center cursor-pointer">
                                         {/* TODO implement download of invoice */}
                                         <img
@@ -90,11 +90,11 @@ export default function DonationsTable() {
                                 >
                                     <td>&nbsp;</td>
                                     {/* Upschool tip */}
-                                    <td className=" max-w-lg p-4 flex flex-col gap-1 text-left font-light">
+                                    <td className=" max-w-lg p-1 xs:p-4 flex flex-col gap-1 text-left font-light">
                                         Upschool Tip
                                     </td>
                                     {/* Upschool tip amount */}
-                                    <td className="p-4 text-center font-semibold">
+                                    <td className="p-1 xs:p-4 text-center font-semibold">
                                         AU ${donation.upschoolTip}
                                     </td>
                                     <td>&nbsp;</td>
