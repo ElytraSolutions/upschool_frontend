@@ -22,7 +22,7 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
         <>
             <div
                 className={`${
-                    isTabScreen ? '' : ' fixed'
+                    isTabScreen ? '' : 'absolute z-20'
                 }  bg-white border p-4 text-[#cecece] w-[80%]  xs:w-2/3 xm:w-1/3 tab:w-1/5 xl:w-1/6 h-screen flex flex-row justify-between`}
             >
                 <ul className="mt-4 flex flex-col gap-4">
@@ -32,9 +32,13 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                                 ? 'border-[#242254] text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
-                        onClick={() => handleClick('Dashboard')}
+                        onClick={() => {
+                            handleClick('Dashboard');
+                            {
+                                !isTabScreen && setIsDashboardNavbarOpen(false);
+                            }
+                        }}
                     >
-                        {' '}
                         <i className="fa fa-dashboard"></i> Dashboard
                     </li>
                     <li
@@ -43,7 +47,12 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                                 ? 'border-[#242254] text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
-                        onClick={() => handleClick('My Courses')}
+                        onClick={() => {
+                            handleClick('My Courses');
+                            {
+                                !isTabScreen && setIsDashboardNavbarOpen(false);
+                            }
+                        }}
                     >
                         {' '}
                         <i className="fa fa-desktop"></i> My Courses
@@ -54,7 +63,12 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                                 ? 'border-[#242254] text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
-                        onClick={() => handleClick('My Books')}
+                        onClick={() => {
+                            handleClick('My Books');
+                            {
+                                !isTabScreen && setIsDashboardNavbarOpen(false);
+                            }
+                        }}
                     >
                         <i className="fa fa-book"></i> My Books
                     </li>
@@ -64,7 +78,12 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                                 ? 'border-[#242254] text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
-                        onClick={() => handleClick('My Donations & Purchase')}
+                        onClick={() => {
+                            handleClick('My Donations & Purchase');
+                            {
+                                !isTabScreen && setIsDashboardNavbarOpen(false);
+                            }
+                        }}
                     >
                         <i className="fa fa-table"></i> My Donations & Purchase
                     </li>
@@ -74,7 +93,12 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                                 ? 'border-[#242254] text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
-                        onClick={() => handleClick('Setting')}
+                        onClick={() => {
+                            handleClick('Setting');
+                            {
+                                !isTabScreen && setIsDashboardNavbarOpen(false);
+                            }
+                        }}
                     >
                         <i className="fa fa-gear"></i> Setting
                     </li>
@@ -84,7 +108,12 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                                 ? 'border-[#242254] text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
-                        onClick={() => handleClick('Logout')}
+                        onClick={() => {
+                            handleClick('Logout');
+                            {
+                                !isTabScreen && setIsDashboardNavbarOpen(false);
+                            }
+                        }}
                     >
                         <i className="fa fa-power-off"></i> Logout
                     </li>

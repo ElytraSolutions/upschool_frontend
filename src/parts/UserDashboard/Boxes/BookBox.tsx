@@ -41,7 +41,7 @@ export default function BookBox({ detail }: BookBoxProps) {
                         to={detail.url}
                         className={`text-white bg-theme-color px-4 py-2 w-fit ${
                             detail.status === 'In review'
-                                ? 'opacity-50 cursor-not-allowed'
+                                ? 'bg-theme-color/50  cursor-not-allowed'
                                 : ''
                         } `}
                     >

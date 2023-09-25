@@ -5,9 +5,8 @@ type NavbarProps = {
 function Navbar({ setIsopen }: NavbarProps) {
     return (
         <>
-            <div className="z-10 flex justify-between p-4 border items-center h-[10vh] w-full">
+            <div className="z-10 flex justify-between p-4 border items-center h-[10vh] w-full bg-white">
                 <div>
-                    {' '}
                     <img src="/images/logo.png" className="h-10" alt="" />
                 </div>
                 <div className="flex items-center gap-4">
@@ -22,13 +21,6 @@ function Navbar({ setIsopen }: NavbarProps) {
                         className="block tab:hidden hover:cursor-pointer"
                         onClick={() => {
                             setIsopen((oldstate) => !oldstate);
-                            // disables background scrolling when modal is opened
-                            if (
-                                typeof window != 'undefined' &&
-                                window.document
-                            ) {
-                                document.body.style.overflow = 'hidden';
-                            }
                         }}
                     >
                         <svg //hamburger
