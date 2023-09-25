@@ -32,7 +32,9 @@ export default function BookBox({ detail }: BookBoxProps) {
                         />
                     </div>
 
-                    <h1 className=" text-xl font-bold">{detail.name}</h1>
+                    <h1 className="  text -lg md:text-xl font-bold">
+                        {detail.name}
+                    </h1>
                     <h1 className={`text-base ${text_color}`}>
                         {detail.status}
                     </h1>

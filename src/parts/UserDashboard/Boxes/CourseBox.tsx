@@ -27,7 +27,9 @@ export default function CourseBox({ detail }: CourseBoxProps) {
                         />
                     </div>
 
-                    <h1 className="text-xl font-bold">{detail.name}</h1>
+                    <h1 className=" text-lg md:text-xl font-bold">
+                        {detail.name}
+                    </h1>
                     <div className="flex flex-col w-full gap-1">
                         <div className="text-lg">
                             {detail.completedLessons}/{detail.totalLessons}{' '}

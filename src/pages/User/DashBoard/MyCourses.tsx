@@ -51,7 +51,7 @@ function MyCourses() {
         <div className="h-full overflow-auto">
             <div className="p-4 w-full ">
                 <div className="flex flex-col gap-10 w-full">
-                    <div className="flex flex-row justify-start w-full gap-4">
+                    <div className="flex flex-row sm:justify-center md:justify-start w-full gap-4">
                         {/* Active courses option */}
                         <div className="flex flex-col w-fit  gap-2">
                             <div
@@ -126,7 +126,7 @@ function MyCourses() {
                     <div className="w-full">
                         {/* Active courses section */}
                         {selectedOption === 'Active Courses' && (
-                            <div className="grid md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
+                            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
                                 {/* TODO fetch active courses data from backend and use it */}
                                 {courses.map((course, index) => (
                                     <CourseBox key={index} detail={course} />
@@ -135,7 +135,7 @@ function MyCourses() {
                         )}
                         {/* Enrolled courses section */}
                         {selectedOption === 'Enrolled Courses' && (
-                            <div className="grid md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
+                            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
                                 {/* TODO fetch enrolled courses data from backend and use it */}
                                 {courses.map((course, index) => (
                                     <CourseBox key={index} detail={course} />
@@ -144,7 +144,7 @@ function MyCourses() {
                         )}
                         {/* Completed courses section */}
                         {selectedOption === 'Completed Courses' && (
-                            <div className="grid md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
+                            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
                                 {/* TODO fetch completed courses data from backend and use it */}
                                 {courses.map((course, index) => (
                                     <CourseBox key={index} detail={course} />
