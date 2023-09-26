@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useScreenWidth from '../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import { UploadBookStep1 as UBStep1 } from './UploadBookStep1';
 import { UploadBookStep2 as UBStep2 } from './UploadBookStep2';
 import { UploadBookStep3 as UBStep3 } from './UploadBookStep3';
@@ -11,7 +11,7 @@ import BookUpdated from './BookUpdated';
 // import axiosInstance from '../../config/Axios';
 
 export default function UploadBook() {
-    const { isLargeScreen } = useScreenWidth(); //min-width=768px
+    const { isLargeScreen } = useScreenWidthAndHeight(); //min-width=768px
     const [isUploadBookCompleted, setIsUploadBookCompleted] =
         useState<boolean>(false);
     const [currentStep, setCurrentStep] = useState<number>(0);

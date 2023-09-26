@@ -7,14 +7,14 @@ import Logout from './Logout';
 import Setting from './Setting';
 import { useOutletContext } from 'react-router-dom';
 import { UserDashboardSidebar as Sidebar } from '../../../parts/UserDashboard/UserDashboardSidebar';
-import useScreenWidth from '../../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 interface DashboardProps {}
 
 type OutletContextType = {
     isDashboardNavbarOpen: boolean;
 };
 const Dashboard: React.FC<DashboardProps> = () => {
-    const { isTabScreen } = useScreenWidth();
+    const { isTabScreen } = useScreenWidthAndHeight();
 
     const { isDashboardNavbarOpen } = useOutletContext<OutletContextType>();
     const [selectedOption, setSelectedOption] = useState<string>('Dashboard');

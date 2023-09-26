@@ -5,7 +5,7 @@ import { books } from '../../data/LibraryBooks';
 import { categories } from '../../data/UploadBookCategories';
 import LibraryBackground from '../../assets/LibraryBackground.png';
 import { NavLink } from 'react-router-dom';
-import useScreenWidth from '../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import BuyOptionBox from '../../parts/PartsLibraryBookBundle/BuyOptionBox';
 import BookBundleTable from '../../parts/PartsLibraryBookBundle/BookBundleTable';
 
@@ -26,7 +26,7 @@ export default function BrowseBooks() {
     const [searchTitle, setSearchTitle] = useState<string>(
         searchParameters.search,
     );
-    const { isLargeScreen } = useScreenWidth();
+    const { isLargeScreen } = useScreenWidthAndHeight();
     const handleChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     ) => {

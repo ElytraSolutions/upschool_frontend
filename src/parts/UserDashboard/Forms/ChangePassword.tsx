@@ -63,7 +63,7 @@ export const ChangePassword = () => {
                 <div className="w-full h-[1px] bg-slate-400"></div>
 
                 <div className="p-2 w-full">
-                    <div className="w-full md:w-11/12 text-xs xs:text-base ">
+                    <div className="w-full md:w-11/12 ">
                         <Formik
                             onSubmit={submitHandler}
                             initialValues={InitialValues}
@@ -81,17 +81,17 @@ export const ChangePassword = () => {
                                 <>
                                     <form
                                         onSubmit={handleSubmit}
-                                        className="grid grid-cols-6 grid-rows-3 gap-y-1 gap-x-2  p-0.5 "
+                                        className="flex flex-col sm:grid sm:grid-cols-6 sm:grid-rows-3 gap-y-1 gap-x-2  p-0.5 "
                                     >
                                         {/* Password*/}
                                         <>
                                             <label
-                                                className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="newPassword_info"
                                             >
                                                 New Password
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 <TextField
                                                     size="small"
                                                     fullWidth
@@ -157,12 +157,12 @@ export const ChangePassword = () => {
                                         {/* Confirm Password*/}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold inline"
+                                                className="sm:col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold inline"
                                                 htmlFor="confirmPassword_info"
                                             >
                                                 Confirmation
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 <TextField
                                                     size="small"
                                                     fullWidth
@@ -231,7 +231,7 @@ export const ChangePassword = () => {
                                         <button
                                             type="submit"
                                             id="form3"
-                                            className="col-start-4 col-span-3  md:col-start-5  md:col-span-2 px-4 md:px-8  py-2 md:py-3 w-full h-fit bg-theme-color text-white block  justify-self-end text-xs xm:text-base text-center"
+                                            className="sm:col-start-4 sm:col-span-3  md:col-start-5  md:col-span-2 px-4 md:px-8  py-2 md:py-3 w-full h-fit bg-theme-color text-white block  justify-self-end text-xs xm:text-base text-center"
                                         >
                                             Change Password
                                         </button>

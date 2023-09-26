@@ -25,7 +25,7 @@ const AddStudentsBox: React.FC<BoxProps> = ({
                     />,
                     document.body,
                 )}
-            <div className="border rounded-md border-theme-color hover:cursor-pointer  px-0 md:px-4 w-60 text-theme-color flex flex-row justify-center items-center">
+            <div className="border rounded-md border-theme-color hover:cursor-pointer  px-0 md:px-4 w-full xs:w-60 text-theme-color flex flex-row justify-center items-center">
                 <div
                     className="flex flex-col justify-center items-center gap-2 py-4 px-1"
                     onClick={() => {

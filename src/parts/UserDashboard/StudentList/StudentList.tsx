@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import stringAvatar from '../../../utlis/AvatarColor/avatar_color';
 import { ProgressBar } from '../../../utlis/ProgressBar/ProgressBar';
-import useScreenWidth from '../../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 
 interface StudentListType {
     id: number;
@@ -18,7 +18,7 @@ interface StudentListType {
 }
 
 const StudentList: React.FC = () => {
-    const { isLargeScreen } = useScreenWidth();
+    const { isLargeScreen } = useScreenWidthAndHeight();
     const AvatarHeight = isLargeScreen ? 40 : 30;
     const AvatarWidth = isLargeScreen ? 40 : 30;
     // takes Students data for display

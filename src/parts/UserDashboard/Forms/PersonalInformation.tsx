@@ -9,7 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 import stringAvatar from '../../../utlis/AvatarColor/avatar_color';
-import useScreenWidth from '../../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 
 // TODO Shema for image(avtar) of user
 const PersonalInformationSchema = yup.object().shape({
@@ -45,9 +45,24 @@ const submitHandler = (data, onSubmitProps) => {
 };
 
 export const PersonalInformation = () => {
-    const { isLargeScreen } = useScreenWidth();
+    const {
+        isLargeScreen,
+        isMobileHeight,
+        isTabHeight,
+        isSmallHeight,
+        isLgHeight,
+    } = useScreenWidthAndHeight();
     const AvatarHeight = isLargeScreen ? 80 : 40;
     const AvatarWidth = isLargeScreen ? 80 : 40;
+    const SelectCountryHeight = isSmallHeight
+        ? '70%'
+        : isMobileHeight
+        ? '50%'
+        : isTabHeight
+        ? '40%'
+        : isLgHeight
+        ? '35%'
+        : '28%';
     return (
         <div className="w-full">
             <div className="w-full h-full border border-theme-color/50 rounded-md  flex flex-col gap-2 divide-y divide-slate-400">
@@ -57,7 +72,7 @@ export const PersonalInformation = () => {
                     </span>
                 </div>
                 <div className="p-2 w-full">
-                    <div className="w-full md:w-11/12 text-xs xs:text-base">
+                    <div className="w-full md:w-11/12 ">
                         <Formik
                             onSubmit={submitHandler}
                             initialValues={InitialValues}
@@ -75,18 +90,18 @@ export const PersonalInformation = () => {
                                 <>
                                     <form
                                         onSubmit={handleSubmit}
-                                        className="grid grid-cols-6 grid-rows-8 gap-y-1 gap-x-2  p-0.5 "
+                                        className=" flex flex-col sm:grid sm:grid-cols-6 sm:grid-rows-8 gap-y-1 gap-x-2  p-0.5 "
                                     >
                                         {/* Profile Photo */}
                                         <>
                                             <label
-                                                className="row-span-2 col-span-2 md:col-span-1 w-full text-left cursor-pointer  self-start pt-2 md:pt-0 md:self-center font-semibold"
+                                                className="sm:row-span-2 sm:col-span-2 md:col-span-1 w-full text-left cursor-pointer  xs:self-start pt-2 md:pt-0 md:self-center font-semibold"
                                                 htmlFor="profile"
                                             >
                                                 Profile Photo
                                             </label>
                                             {/* TODO add functionality for profile photo */}
-                                            <div className="row-span-2 col-span-4 md:col-span-5 w-full flex flex-row gap-2 self-center ">
+                                            <div className="sm:row-span-2 sm:col-span-4 md:col-span-5 w-full flex flex-row gap-2 xs:self-center ">
                                                 <div className="cursor-pointer">
                                                     <Avatar
                                                         {...stringAvatar(
@@ -135,12 +150,12 @@ export const PersonalInformation = () => {
                                         {/* First Name */}
                                         <>
                                             <label
-                                                className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="firstName"
                                             >
                                                 First Name
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 {/* TODO remove comments */}
                                                 {/* <input
                                                     id="firstName"
@@ -202,12 +217,12 @@ export const PersonalInformation = () => {
                                         {/* Last Name */}
                                         <>
                                             <label
-                                                className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="lastName"
                                             >
                                                 Last Name
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 <TextField
                                                     size="small"
                                                     fullWidth
@@ -254,12 +269,12 @@ export const PersonalInformation = () => {
                                         {/* Email */}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="emailAddress"
                                             >
                                                 Email Address
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 <TextField
                                                     size="small"
                                                     fullWidth
@@ -304,12 +319,12 @@ export const PersonalInformation = () => {
                                         {/*Country */}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="country_info"
                                             >
                                                 Country
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 <TextField
                                                     size="small"
                                                     fullWidth
@@ -331,7 +346,7 @@ export const PersonalInformation = () => {
                                                         MenuProps: {
                                                             style: {
                                                                 maxHeight:
-                                                                    '28%',
+                                                                    SelectCountryHeight,
                                                                 maxWidth: '20%',
                                                             }, // Set your desired max height and max width for dropdown menu
                                                         },
@@ -378,12 +393,12 @@ export const PersonalInformation = () => {
                                         {/*Date of Birth */}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="dob"
                                             >
                                                 Date of Birth
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 <TextField
                                                     size="small"
                                                     fullWidth
@@ -430,7 +445,7 @@ export const PersonalInformation = () => {
                                         <button
                                             type="submit"
                                             id="form1"
-                                            className=" col-start-5 col-span-2 px-8 py-3 w-fit h-fit bg-theme-color text-white block  justify-self-end text-xs xm:text-base text-center"
+                                            className=" sm:col-start-5 sm:col-span-2 px-8 py-3 w-fit h-fit bg-theme-color text-white block  xs:justify-self-end text-xs xm:text-base text-center"
                                         >
                                             Save
                                         </button>

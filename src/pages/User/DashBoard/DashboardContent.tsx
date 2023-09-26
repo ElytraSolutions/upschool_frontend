@@ -11,7 +11,7 @@ import book5 from '../../../assets/Books/book5.png';
 import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
 import BookBox from '../../../parts/UserDashboard/Boxes/BookBox';
 
-import useScreenWidth from '../../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 
 // TODO fetch data from backend according to the need (3 courses and books respectively)
 const courses = [
@@ -49,7 +49,7 @@ type DashboardContentProps = {
 };
 
 function DashboardContent({ handleOptionClick }: DashboardContentProps) {
-    const { isSmallScreen } = useScreenWidth();
+    const { isSmallScreen } = useScreenWidthAndHeight();
     return (
         <>
             <div className="h-full overflow-auto">

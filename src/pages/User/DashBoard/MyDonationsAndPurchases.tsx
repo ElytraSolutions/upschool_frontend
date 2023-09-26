@@ -10,7 +10,7 @@ export default function MyDonationsAndPurchases() {
             <div className="sm:p-4 w-full">
                 <div className="flex flex-col gap-10 w-full">
                     {/* Options section */}
-                    <div className="flex flex-row justify-start w-full gap-4">
+                    <div className="flex flex-row justify-start w-full gap-2 xs:gap-4">
                         {/* Donations option */}
                         <div className="flex flex-col w-fit  gap-2">
                             <div

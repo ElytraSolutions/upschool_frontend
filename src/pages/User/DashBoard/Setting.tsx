@@ -24,7 +24,7 @@ function Setting() {
     return (
         <div className="h-full overflow-auto">
             <div className="flex flex-col gap-8 w-full text-theme-color">
-                <div className="flex flex-row w-full gap-3 justify-start h-full">
+                <div className="flex flex-col xs:flex-row w-full gap-3 xs:justify-start h-full">
                     <SettingBoardBox
                         icon={iconBadge}
                         text={[`${userType} Account`, '']}

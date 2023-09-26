@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import ChapterDetail from '../../parts/PartsChapters/ChapterDetail';
 import Sidebar from '../../parts/PartsChapters/Sidebar';
-import useScreenWidth from '../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 
 export default function Chapters() {
-    const { isBigScreen } = useScreenWidth();
+    const { isBigScreen } = useScreenWidthAndHeight();
     const [isSidebarOpen, setIsSiderbarOpen] = useState<boolean>(true);
     useEffect(() => {
         if (isBigScreen) {

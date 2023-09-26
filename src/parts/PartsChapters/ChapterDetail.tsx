@@ -3,7 +3,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import HomeIcon from '@mui/icons-material/Home';
 import { useState } from 'react';
-import useScreenWidth from '../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 
 type ChapterDetailProps = {
     isSidebarOpen: boolean;
@@ -15,7 +15,7 @@ export default function ChapterDetail({
     setIsSidebarOpen,
 }: ChapterDetailProps) {
     const { slug, learn } = useParams();
-    const { isBigScreen } = useScreenWidth();
+    const { isBigScreen } = useScreenWidthAndHeight();
     const [isClicked, setIsClicked] = useState(false); //teacher's note
     return (
         <>

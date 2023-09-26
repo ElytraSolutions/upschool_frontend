@@ -1,7 +1,7 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import CrossMark from '../../assets/CrossMark.png';
-import useScreenWidth from '../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 
 type SidebarProps = {
     selectedOption: string;
@@ -16,14 +16,14 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
     selectedOption,
     handleClick,
 }) => {
-    const { isTabScreen } = useScreenWidth();
+    const { isTabScreen } = useScreenWidthAndHeight();
     const { setIsDashboardNavbarOpen } = useOutletContext<OutletContextType>();
     return (
         <>
             <div
                 className={`${
-                    isTabScreen ? '' : 'absolute z-20'
-                }  bg-white border p-4 text-[#cecece] w-[80%]  xs:w-2/3 xm:w-1/3 tab:w-1/5 xl:w-1/6 h-screen flex flex-row justify-between`}
+                    isTabScreen ? '' : 'absolute z-20 overflow-auto'
+                }  bg-white border p-4 text-[#cecece] w-[80%]  xs:w-2/3 xm:w-1/3 tab:w-1/5 xl:w-1/6 h-full flex flex-row justify-between`}
             >
                 <ul className="mt-4 flex flex-col gap-4">
                     <li

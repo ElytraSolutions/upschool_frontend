@@ -1,6 +1,7 @@
 import { Formik, ErrorMessage, Field } from 'formik';
 import * as yup from 'yup';
 import { countries } from '../../../data/countries';
+import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
@@ -53,6 +54,18 @@ const submitHandler = (data, onSubmitProps) => {
 };
 
 export const BillingDetails = () => {
+    const { isMobileHeight, isTabHeight, isSmallHeight, isLgHeight } =
+        useScreenWidthAndHeight();
+
+    const SelectCountryHeight = isSmallHeight
+        ? '70%'
+        : isMobileHeight
+        ? '50%'
+        : isTabHeight
+        ? '40%'
+        : isLgHeight
+        ? '35%'
+        : '28%';
     return (
         <div className="w-full">
             <div className="w-full h-full border border-theme-color/50 rounded-md  flex flex-col gap-2">
@@ -69,7 +82,7 @@ export const BillingDetails = () => {
                 </div>
 
                 <div className="p-2 w-full">
-                    <div className="w-full md:w-11/12 text-xs xs:text-base">
+                    <div className="w-full md:w-11/12  ">
                         <Formik
                             onSubmit={submitHandler}
                             initialValues={InitialValues}
@@ -87,17 +100,17 @@ export const BillingDetails = () => {
                                 <>
                                     <form
                                         onSubmit={handleSubmit}
-                                        className="grid grid-cols-6 grid-rows-8 gap-y-1 gap-x-2  p-0.5 "
+                                        className=" flex flex-col sm:grid sm:grid-cols-6 sm:grid-rows-8 gap-y-1 gap-x-2  p-0.5 "
                                     >
                                         {/* First Name */}
                                         <>
                                             <label
-                                                className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="firstNameform2"
                                             >
                                                 First Name
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 {/* TODO remove comments */}
                                                 {/* <input
                                                     id="firstName"
@@ -158,12 +171,12 @@ export const BillingDetails = () => {
                                         {/* Last Name */}
                                         <>
                                             <label
-                                                className="col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="lastNameform2"
                                             >
                                                 Last Name
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 <TextField
                                                     size="small"
                                                     fullWidth
@@ -209,12 +222,12 @@ export const BillingDetails = () => {
                                         {/* Email */}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="emailform2"
                                             >
                                                 Email Address
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 <TextField
                                                     size="small"
                                                     fullWidth
@@ -258,14 +271,14 @@ export const BillingDetails = () => {
                                         {/* Address */}
                                         <>
                                             <label
-                                                className="row-span-2 col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:row-span-2 sm:col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="address"
                                             >
                                                 Address
                                             </label>
-                                            <div className="row-span-2 col-span-4 md:col-span-5 w-full grid grid-cols-4 md:grid-cols-5 grid-rows-2 gap-x-2 md:gap-x-5">
+                                            <div className="sm:row-span-2 sm:col-span-4 md:col-span-5 w-full flex flex-col sm:grid sm:grid-cols-4 md:grid-cols-5 sm:grid-rows-2 gap-x-2 md:gap-x-5">
                                                 {/* Street Address */}
-                                                <div className="row-span-1 col-span-full w-full">
+                                                <div className="sm:row-span-1 sm:col-span-full w-full">
                                                     <TextField
                                                         size="small"
                                                         fullWidth
@@ -312,7 +325,7 @@ export const BillingDetails = () => {
                                                     )}
                                                 </div>
                                                 {/* City */}
-                                                <div className="col-span-1 md:col-span-2 w-full">
+                                                <div className="xs:col-span-1 md:col-span-2 w-full">
                                                     <TextField
                                                         size="small"
                                                         fullWidth
@@ -355,7 +368,7 @@ export const BillingDetails = () => {
                                                     )}
                                                 </div>
                                                 {/* Post Code */}
-                                                <div className="col-span-1 w-full">
+                                                <div className="sm:col-span-1 w-full">
                                                     <TextField
                                                         size="small"
                                                         fullWidth
@@ -400,7 +413,7 @@ export const BillingDetails = () => {
                                                     )}
                                                 </div>
                                                 {/* Country */}
-                                                <div className="col-span-2 w-full">
+                                                <div className="sm:col-span-2 w-full">
                                                     <TextField
                                                         size="small"
                                                         fullWidth
@@ -424,7 +437,7 @@ export const BillingDetails = () => {
                                                             MenuProps: {
                                                                 style: {
                                                                     maxHeight:
-                                                                        '28%',
+                                                                        SelectCountryHeight,
                                                                     maxWidth:
                                                                         '20%',
                                                                 }, // Set your desired max height and max width for dropdown menu
@@ -476,12 +489,12 @@ export const BillingDetails = () => {
                                         {/* Organization */}
                                         <>
                                             <label
-                                                className="col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                className="sm:col-span-2 md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
                                                 htmlFor="organization_info"
                                             >
                                                 Organization
                                             </label>
-                                            <div className="col-span-4 md:col-span-5 w-full">
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
                                                 <TextField
                                                     size="small"
                                                     fullWidth
@@ -527,7 +540,7 @@ export const BillingDetails = () => {
                                         </>
                                         {/* Shipping Details */}
                                         <>
-                                            <div className="row-span-1 col-span-full ">
+                                            <div className="sm:row-span-1 sm:col-span-full ">
                                                 <label
                                                     className="p-1 w-full text-left cursor-pointer font-semibold"
                                                     htmlFor="shippingDetails_info"
@@ -554,7 +567,7 @@ export const BillingDetails = () => {
                                         <button
                                             type="submit"
                                             id="form2"
-                                            className=" col-start-5 col-span-2 px-8 py-3 w-fit h-fit bg-theme-color text-white block  justify-self-end text-xs xm:text-base text-center"
+                                            className=" sm:col-start-5 sm:col-span-2 px-8 py-3 w-fit h-fit bg-theme-color text-white block  xs:justify-self-end text-xs xm:text-base text-center"
                                         >
                                             Save
                                         </button>

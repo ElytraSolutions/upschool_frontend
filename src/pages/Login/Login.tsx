@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import axiosInstance from '../../config/Axios';
-import useScreenWidth from '../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 
@@ -42,7 +42,7 @@ const Login = () => {
             onSubmitProps.resetForm();
         }
     };
-    const { isLargeScreen } = useScreenWidth();
+    const { isLargeScreen } = useScreenWidthAndHeight();
     const [showPassword, setShowPassword] = useState(false);
     const handleTogglePasswordVisibility = (e) => {
         e.preventDefault();

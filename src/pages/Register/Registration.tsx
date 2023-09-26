@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useScreenWidth from '../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 
 import RegisterStepIHeader from '../../parts/PartsRegisterPage/RegisterStepIHeader';
 import RegisterStepIIIHeader from '../../parts/PartsRegisterPage/RegisterStepIIIHeader';
@@ -14,7 +14,7 @@ import useUser from '../../hooks/useUser';
 
 export default function Registration() {
     const { user, refresh } = useUser();
-    const { isLargeScreen } = useScreenWidth(); //min-width=768px
+    const { isLargeScreen } = useScreenWidthAndHeight(); //min-width=768px
     const [currentStep, setCurrentStep] = useState(0);
     const navigate = useNavigate();
     const [currentData, setCurrentData] = useState({

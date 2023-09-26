@@ -5,7 +5,7 @@ import { ComputerMenu } from '../../parts/PartsNavbar/LargeScreenMenuBar';
 import CartIcon from '../../parts/PartsNavbar/CartIcon';
 import { LargeScreenRightCornerBar as RightCornerBarLS } from '../../parts/PartsNavbar/LargeScreenRightCornerBar';
 import { SmallScreenRightCornerBar as RightCornerBarSS } from '../../parts/PartsNavbar/SmallScreenRightCornerBar';
-import useScreenWidth from '../../hooks/useScreenWidth';
+import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import { MobileNavMenubar as MobileMenu } from '../../parts/PartsNavbar/MobileNavMenuBar';
 
 import { createPortal } from 'react-dom';
@@ -17,7 +17,7 @@ export default function Navbar() {
     };
     const [isOpen, setIsopen] = useState(false);
     const { user, refresh } = useUser();
-    const { isBigScreen } = useScreenWidth(); //min-width=1200px
+    const { isBigScreen } = useScreenWidthAndHeight(); //min-width=1200px
     const [isScrolled, setIsScrolled] = useState(false);
 
     const isLoggedIn = user && user.id ? true : false;
