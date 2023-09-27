@@ -8,12 +8,12 @@ const InviteViaLink = () => {
                 <p className="font-semibold text-base md:text-lg lg:text-xl text-left w-full">
                     Invite with a Share Link
                 </p>
-                <p className=" font-light text-md md:text-base lg:text-lg text-left w-full">
+                <p className=" font-light text-sm md:text-base lg:text-lg text-left w-full">
                     Anyone with this link can join Upschool as your student.{' '}
                     <br />
                     This link will expire in 120 minutes.
                 </p>
-                <div className="flex flex-row gap-3 justify-between w-full">
+                <div className="flex flex-col md:flex-row gap-3 md:justify-between w-full">
                     <div className="border border-theme-color/50 w-full flex items-center">
                         {/* TODO implement logic to get invite link backend */}
                         <p className="font-light p-2 text-base md:text-lglg:text-xl text-left truncate w-full">

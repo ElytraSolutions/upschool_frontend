@@ -18,7 +18,7 @@ const InviteViaEmail = () => {
                 <p className="font-semibold text-base md:text-lg lg:text-xl text-left w-full">
                     Invite via Email
                 </p>
-                <p className=" font-light text-md md:text-base lg:text-lg text-left w-full">
+                <p className=" font-light text-sm md:text-base lg:text-lg text-left w-full">
                     Students will be able to access Upschool Courses once they
                     create an account from the link on the email.
                 </p>

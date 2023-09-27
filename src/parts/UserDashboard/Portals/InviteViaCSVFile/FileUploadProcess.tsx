@@ -25,7 +25,11 @@ const FileUploadProcess: React.FC<FileUploadProcessProps> = ({
                                     loading="lazy"
                                 />
                             </span>
-                            <span>{values.file.name}</span>
+                            <span>
+                                <p className="truncate w-16 xs:max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl ">
+                                    {values.file.name}
+                                </p>
+                            </span>
                         </div>
                         {/* Display file size */}
                         <div className="border border-theme-color p-1 text-xs xs:text-base">

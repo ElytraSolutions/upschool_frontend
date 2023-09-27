@@ -35,11 +35,11 @@ const UploadFile: React.FC<UploadFileProps> = ({
                 }) => (
                     <>
                         <div className="flex w-full flex-col">
-                            {/* displays 'Download sample CSV File' */}
+                            {/* displays 'Upload  CSV File' */}
                             <div className="flex  w-full items-center justify-center rounded-t-lg bg-stone-50 p-4 ">
                                 <div className="flex  w-full items-center justify-center  rounded-full border border-black bg-red-upschool px-4 py-2">
                                     <p className="w-full truncate text-center text-lg text-white  md:text-xl lg:text-2xl">
-                                        Download sample CSV File
+                                        Upload CSV File
                                     </p>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@ const UploadFile: React.FC<UploadFileProps> = ({
                                 className="grid grid-rows-4"
                             >
                                 <div className="row-span-3 flex h-full flex-col justify-center rounded-b-lg border bg-gray-200 p-2 hover:border-black ">
-                                    <div className="h-full w-full p-4 text-base font-light text-gray-500">
+                                    <div className="h-full w-full p-1 xs:p-4 text-base font-light text-gray-500">
                                         {/* file upload is managed by Dropzone */}
                                         <Dropzone
                                             accept={{
@@ -95,8 +95,8 @@ const UploadFile: React.FC<UploadFileProps> = ({
                                                                 your file
                                                             </p>
                                                         ) : (
-                                                            <div className="flex-row flex w-full  justify-between border-2 border-dashed border-gray-300 bg-gray-100  p-4 ">
-                                                                <p>
+                                                            <div className="flex-row flex w-full justify-between border-2 border-dashed border-gray-300 bg-gray-100  p-1 xs:p-4 ">
+                                                                <p className="truncate w-16 xs:max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl ">
                                                                     {
                                                                         values
                                                                             .file
@@ -113,7 +113,7 @@ const UploadFile: React.FC<UploadFileProps> = ({
                                     </div>
                                     <ErrorMessage
                                         name="file"
-                                        render={(msg) => (
+                                        render={(msg: string) => (
                                             <div className="p-1 text-center text-sm text-red-upschool md:text-base">
                                                 {msg}
                                             </div>
@@ -121,29 +121,13 @@ const UploadFile: React.FC<UploadFileProps> = ({
                                     />
                                 </div>
                                 <div
-                                    className={`row-span-1 grid  grid-cols-4 w-full  content-center  gap-4 p-2 font-normal`}
+                                    className={`row-span-1 block sm:grid  sm:grid-cols-4 w-full  content-center  gap-4 p-2 font-normal`}
                                 >
                                     <button
                                         type="submit"
-                                        className="col-span-1 col-start-4 m-1 flex h-12 flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color p-1 text-white"
+                                        className=" sm:col-start-3 sm:col-span-2  md:col-start-4 md:col-span-1 m-1 h-12 w-fit sm:w-full text-center  bg-theme-color p-2 text-white"
                                     >
-                                        <span>Upload</span>
-                                        <span className="hidden sm:inline">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                strokeWidth="1.5"
-                                                stroke="currentColor"
-                                                className="h-4 w-4"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                                                />
-                                            </svg>
-                                        </span>
+                                        Upload
                                     </button>
                                 </div>
                             </form>
