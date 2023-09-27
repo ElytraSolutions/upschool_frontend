@@ -10,8 +10,11 @@ function Navbar({ setIsopen }: NavbarProps) {
                     <img src="/images/logo.png" className="h-10" alt="" />
                 </div>
                 <div className="flex items-center gap-4">
-                    <i className="fa fa-heart hidden tab:block "></i>
-                    <i className="fa fa-bell hidden tab:block"></i>
+                    <div className="tab:flex tab:items-center hidden">
+                        <i className="fa fa-heart  "></i>
+                        <i className="fa fa-bell "></i>
+                    </div>
+
                     <p className="p-2 bg-black rounded-[50%] h-8 w-8"></p>
                     <div className="hidden tab:block">
                         <p>Ram Lal</p>
