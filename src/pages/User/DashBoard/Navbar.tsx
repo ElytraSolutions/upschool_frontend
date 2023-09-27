@@ -7,12 +7,12 @@ function Navbar({ setIsopen }: NavbarProps) {
         <>
             <div className="z-10 flex justify-between p-4 border items-center h-[10dvh] w-full bg-white">
                 <div>
-                    <img src="/images/logo.png" className="h-10" alt="" />
+                    <img src="/images/logo.png" className="h-10 w-32" alt="" />
                 </div>
-                <div className="flex items-center gap-4">
-                    <div className="tab:flex tab:items-center hidden">
-                        <i className="fa fa-heart  "></i>
-                        <i className="fa fa-bell "></i>
+                <div className="flex items-center gap-2 sm:gap-4">
+                    <div className="tab:flex tab:items-center gap-4  hidden">
+                        <i className="fa fa-heart"></i>
+                        <i className="fa fa-bell"></i>
                     </div>
 
                     <p className="p-2 bg-black rounded-[50%] h-8 w-8"></p>
