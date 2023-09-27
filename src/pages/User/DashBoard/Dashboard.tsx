@@ -24,7 +24,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
     };
 
     return (
-        <div className="flex fixed h-[90vh] w-full">
+        <div className="flex fixed h-[90dvh] w-full">
             {/* Sidebar */}
             {isTabScreen ? (
                 <Sidebar
@@ -41,7 +41,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
             )}
 
             {/* Content */}
-            <div className=" w-full tab:w-4/5 bg-[#cecece]/20 p-4 pt-8 pb-5 lg:w-5/6">
+            <div className=" h-full w-full tab:w-4/5 bg-[#cecece]/20 p-4 pt-8 pb-5 lg:w-5/6">
                 {/* Content specific to the selected option */}
                 {selectedOption === 'Dashboard' && (
                     <DashboardContent handleOptionClick={handleOptionClick} />

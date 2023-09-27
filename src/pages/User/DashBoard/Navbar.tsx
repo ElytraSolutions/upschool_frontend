@@ -5,7 +5,7 @@ type NavbarProps = {
 function Navbar({ setIsopen }: NavbarProps) {
     return (
         <>
-            <div className="z-10 flex justify-between p-4 border items-center h-[10vh] w-full bg-white">
+            <div className="z-10 flex justify-between p-4 border items-center h-[10dvh] w-full bg-white">
                 <div>
                     <img src="/images/logo.png" className="h-10" alt="" />
                 </div>
