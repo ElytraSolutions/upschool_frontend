@@ -77,7 +77,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                                 <span className="hidden sm:inline-block">
                                                     Invite via Share
                                                 </span>
-                                                <span>Link</span>
+                                                <span> Link</span>
                                             </p>
                                         </button>
                                         {/* Button: Invite via Email */}
@@ -103,7 +103,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                                 <span className="hidden sm:inline-block">
                                                     Invite via
                                                 </span>
-                                                <span>Email</span>
+                                                <span> Email</span>
                                             </p>
                                         </button>
                                         {/* Button: Invite from CSV file */}
@@ -129,7 +129,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                                 <span className="hidden sm:inline-block">
                                                     Invite from
                                                 </span>
-                                                <span>CSV file</span>
+                                                <span> CSV file</span>
                                             </p>
                                         </button>
                                     </div>
@@ -140,9 +140,11 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                         <div className="col-span-2 p-1 md:p-2 w-full flex flex-col h-full">
                             <div className="flex flex-row justify-end">
                                 <img
-                                    src={CrossMark}
+                                    src="/images/CrossIcon.png"
                                     alt="cross mark"
-                                    className="h-10 w-10 cursor-pointer"
+                                    width="29px"
+                                    height="29px"
+                                    className="  sm:opacity-50 hover:opacity-100 cursor-pointer"
                                     onClick={onClose}
                                 />
                             </div>
