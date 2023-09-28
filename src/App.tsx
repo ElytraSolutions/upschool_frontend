@@ -21,6 +21,7 @@ import Logout from './pages/Logout/Logout';
 import UploadBook from './pages/UploadBook/UploadBook';
 import BrowseBooks from './pages/BrowseBooks/BrowseBooks';
 import BookBundle from './pages/BrowseBooks/BookBundle';
+import NewBrowseBooks from './pages/BrowseBooks/NewBrowseBooks';
 
 const router = createBrowserRouter([
     {
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
             {
                 path: 'library',
                 element: <BrowseBooks />,
+            },
+            {
+                path: 'library-test',
+                element: <NewBrowseBooks />,
             },
             {
                 path: '/book/values-for-a-better-tomorrow-book-bundle',
