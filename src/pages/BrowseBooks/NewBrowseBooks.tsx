@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import NewBookCard from '../../components/Cards/NewBookCard';
 
 const NewBrowseBooks = () => {
     return (
@@ -7,7 +8,7 @@ const NewBrowseBooks = () => {
                 {/* Grid container */}
                 <div className="grid grid-cols-3 w-full gap-3">
                     {/* First colum: search and filter options */}
-                    <div className="col-span-1">
+                    <div className="col-span-1 ">
                         <div className="block lg:grid lg:grid-cols-3">
                             <div className="flex flex-col gap-6 lg:col-start-2 lg:col-span-2 p-2 ">
                                 <div className="flex flex-col gap-2 text-theme-color">
@@ -33,8 +34,10 @@ const NewBrowseBooks = () => {
                     </div>
                     {/* Second and third column: Books categories with carousel */}
                     <div className="col-span-2 justify-self-start">
-                        <div className="p-2">
-                            <p>Best Sellers</p>
+                        <div className="grid grid-cols-3 gap-2 md:gap-3 lg:gap-5 w-fit p-2 md:pl-7">
+                            <NewBookCard />
+                            <NewBookCard />
+                            <NewBookCard />
                         </div>
                     </div>
                 </div>
