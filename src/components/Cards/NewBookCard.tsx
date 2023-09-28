@@ -1,28 +1,59 @@
-const NewBookCard = () => {
+import React from 'react';
+
+type BookCardProps = {
+    book: {
+        id: number;
+        image: string;
+        writer: string;
+        title: string;
+        country: string;
+        categories: string[];
+    };
+};
+
+const NewBookCard: React.FC<BookCardProps> = ({ book }) => {
     return (
         <>
-            <div className=" rounded-lg text-sm lg:text-base overflow-hidden bg-white border border-gray-300  max-w-[270px] max-h-[450px] ">
-                <img
-                    className="w-full max-h-[190px] rounded-lg"
-                    src="https://source.unsplash.com/NO00uszgx_0"
-                    alt="logo"
-                    loading="lazy"
-                />
+            <div className=" flex flex-col justify-between rounded-lg text-sm lg:text-base bg-white border border-gray-300 text-theme-color  max-w-[270px] h-full ">
+                <div>
+                    <img
+                        className="rounded-lg w-full h-44"
+                        src={book.image}
+                        alt="logo"
+                        loading="lazy"
+                        width="270px"
+                        height="180px"
+                    />
+                    <div className="flex flex-col gap-1 p-4 h-fit w-fit">
+                        <p className="font-semibold">{book.writer}</p>
+                        <div className="flex flex-row items-center  bg-theme-color py-1  px-3 rounded-xl w-fit h-full ">
+                            <p className=" text-white font-light text-center text-sm ">
+                                {book.country}
+                            </p>
+                        </div>
+                        <p className=" font-bold text-base lg:text-lg">
+                            {book.title}
+                        </p>
+                        <div className="flex flex-row items-center text-black text-sm">
+                            <p className="font-semibold">
+                                Values this book explores: &nbsp;
+                                {book.categories.map((category, index) => (
+                                    <span key={index} className="font-normal">
+                                        {category}{' '}
+                                        {index < book.categories.length - 1 &&
+                                            ','}
+                                    </span>
+                                ))}
+                            </p>
+                        </div>
 
-                <div className="flex flex-col gap-1 m-4 max-h-[164] w-full">
-                    <div className="block text-gray-500  font-light">
-                        {'Susannah'}
+                        {/*  TODO link to read book */}
                     </div>
-                    <div className="block text-base lg:text-lg">
-                        {'Imagine'}
-                    </div>
-                    <div className="block text-gray-500 font-light">
-                        {'Australia'}
-                    </div>
-                    {/*  TODO link to read book */}
+                </div>
+                <div className="px-4 py-1">
                     <button
                         type="button"
-                        className="p-3 my-1 bg-red-upschool text-white text-xs md:text-sm hover:cursor-pointer w-fit"
+                        className="p-3 my-1 bg-red-upschool text-white text-xs md:text-sm hover:cursor-pointer w-full"
                     >
                         Read More
                     </button>

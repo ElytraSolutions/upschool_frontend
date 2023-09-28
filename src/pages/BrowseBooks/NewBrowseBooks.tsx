@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import NewBookCard from '../../components/Cards/NewBookCard';
+import { books } from '../../data/LibraryBooks';
 
 const NewBrowseBooks = () => {
     return (
@@ -35,9 +36,9 @@ const NewBrowseBooks = () => {
                     {/* Second and third column: Books categories with carousel */}
                     <div className="col-span-2 justify-self-start">
                         <div className="grid grid-cols-3 gap-2 md:gap-3 lg:gap-5 w-fit p-2 md:pl-7">
-                            <NewBookCard />
-                            <NewBookCard />
-                            <NewBookCard />
+                            {books.map((book, index) => (
+                                <NewBookCard key={index} book={book} />
+                            ))}
                         </div>
                     </div>
                 </div>
