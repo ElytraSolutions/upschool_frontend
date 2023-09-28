@@ -112,9 +112,9 @@ export const ChangePassword = () => {
                                                                     }
                                                                 >
                                                                     {showPassword ? (
-                                                                        <VisibilityOffIcon />
-                                                                    ) : (
                                                                         <VisibilityIcon />
+                                                                    ) : (
+                                                                        <VisibilityOffIcon />
                                                                     )}
                                                                 </button>
                                                             </InputAdornment>
@@ -183,9 +183,9 @@ export const ChangePassword = () => {
                                                                     }
                                                                 >
                                                                     {showConfirmPassword ? (
-                                                                        <VisibilityOffIcon />
-                                                                    ) : (
                                                                         <VisibilityIcon />
+                                                                    ) : (
+                                                                        <VisibilityOffIcon />
                                                                     )}
                                                                 </button>
                                                             </InputAdornment>

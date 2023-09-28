@@ -220,9 +220,9 @@ const Login = () => {
                                                         }
                                                     >
                                                         {showPassword ? (
-                                                            <VisibilityOffIcon />
-                                                        ) : (
                                                             <VisibilityIcon />
+                                                        ) : (
+                                                            <VisibilityOffIcon />
                                                         )}
                                                     </button>
                                                 </InputAdornment>

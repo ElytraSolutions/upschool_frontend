@@ -153,9 +153,9 @@ export default function Step1({
                                                 }
                                             >
                                                 {showPassword ? (
-                                                    <VisibilityOffIcon />
-                                                ) : (
                                                     <VisibilityIcon />
+                                                ) : (
+                                                    <VisibilityOffIcon />
                                                 )}
                                             </button>
                                         </InputAdornment>
@@ -189,9 +189,9 @@ export default function Step1({
                                                 }
                                             >
                                                 {showConfirmPassword ? (
-                                                    <VisibilityOffIcon />
-                                                ) : (
                                                     <VisibilityIcon />
+                                                ) : (
+                                                    <VisibilityOffIcon />
                                                 )}
                                             </button>
                                         </InputAdornment>

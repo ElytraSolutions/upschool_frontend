@@ -97,9 +97,9 @@ export default function ResetPassword() {
                                                                 }
                                                             >
                                                                 {showPassword ? (
-                                                                    <VisibilityOffIcon />
-                                                                ) : (
                                                                     <VisibilityIcon />
+                                                                ) : (
+                                                                    <VisibilityOffIcon />
                                                                 )}
                                                             </button>
                                                         </InputAdornment>
