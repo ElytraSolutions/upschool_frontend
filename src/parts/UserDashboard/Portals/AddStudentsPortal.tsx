@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
-import LinkIcon from '../../../assets/LinkIcon.png';
-import EmailIcon from '../../../assets/EmailIcon.png';
-import DownloadIcon from '../../../assets/DownloadIcon.png';
+
 import InviteViaLink from './InviteViaLink';
 import InviteViaEmail from './InviteViaEmail';
 import InviteViaCSVFile from './InviteViaCSVFile/InviteViaCSVFile';
-
-import CrossMark from '../../../assets/CrossMark.png';
 
 type AddStudentsPortalProps = {
     onClose: () => void;
@@ -68,7 +64,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                         >
                                             <img
                                                 className="hidden xs:inline-block"
-                                                src={LinkIcon}
+                                                src="/images/AddStudents/LinkIcon.png"
                                                 width="20px"
                                                 alt="Link"
                                                 height="20px"
@@ -94,7 +90,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                         >
                                             <img
                                                 className="hidden xs:inline-block"
-                                                src={EmailIcon}
+                                                src="/images/AddStudents/EmailIcon.png"
                                                 width="20px"
                                                 alt="Email"
                                                 height="20px"
@@ -120,7 +116,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                         >
                                             <img
                                                 className="hidden xs:inline-block"
-                                                src={DownloadIcon}
+                                                src="/images/AddStudents/DownloadIcon.png"
                                                 width="20px"
                                                 alt="File"
                                                 height="20px"

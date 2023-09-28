@@ -5,9 +5,13 @@ type NavbarProps = {
 function Navbar({ setIsopen }: NavbarProps) {
     return (
         <>
-            <div className="z-10 flex justify-between p-4 border items-center h-[10dvh] w-full bg-white">
-                <div>
-                    <img src="/images/logo.png" className="h-10 w-32" alt="" />
+            <div className="z-10 flex justify-between p-4 border items-center h-[10dvh] w-full bg-white gap-2">
+                <div className=" max-w-xs">
+                    <img
+                        src="/images/logo.png"
+                        className="h-10 w-full"
+                        alt=""
+                    />
                 </div>
                 <div className="flex items-center gap-2 sm:gap-4">
                     <div className="tab:flex tab:items-center gap-4  hidden">
