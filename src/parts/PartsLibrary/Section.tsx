@@ -33,9 +33,7 @@ const Section: React.FC<SectionProps> = ({ topic, books }) => {
                     <BookCardSlider page={page} setPage={setPage} />
                 </div>
                 {/* Books */}
-                {/* className="grid grid-cols-3 gap-2 md:gap-3 lg:gap-5 w-fit p-2 md:pl-7" */}
-                {/* className="relative flex flex-row gap-5 w-fit p-2 h-full" */}
-                <div className="grid grid-cols-3 gap-2 md:gap-3 lg:gap-5 w-fit p-2 md:pl-7">
+                <div className="grid grid-cols-3 lg:gap-3 xl:gap-6 2xl:gap-10 w-fit p-2 md:pl-7">
                     {/* it slices books array and get only three elements to display varying with currentIndex */}
                     {books
                         .slice(currentIndex, currentIndex + 3)

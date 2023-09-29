@@ -7,13 +7,13 @@ import SearchAndFilter from '../../parts/PartsLibrary/SearchAndFilter';
 const NewBrowseBooks = () => {
     return (
         <>
-            <div className="h-full w-full bg-white p-3 sm:py-6 sm:px-12">
+            <div className="h-full w-full bg-white p-3 sm:py-6 xl:px-12">
                 {/* Grid container */}
                 <div className="grid grid-cols-3 w-full gap-3">
                     {/* First colum: search and filter options */}
-                    <div className="col-span-1 ">
-                        <div className="block lg:grid lg:grid-cols-3">
-                            <div className="flex flex-col gap-6 lg:col-start-2 lg:col-span-2 p-2 ">
+                    <div className="col-span-1">
+                        <div className="block pl-0 xl:pl-10 2xl:pl-0 2xl:grid 2xl:grid-cols-4">
+                            <div className="flex flex-col gap-6 2xl:col-start-2 2xl:col-span-3 p-2 ">
                                 <div className="flex flex-col gap-2 text-theme-color">
                                     <p className="font-semibold text-xl lg:text-2xl">
                                         Welcome to Upschool Library
@@ -51,7 +51,7 @@ const NewBrowseBooks = () => {
                                     Explore All Books
                                 </p>
                             </div>
-                            <div className="grid grid-cols-3 gap-2 md:gap-3 lg:gap-5 w-fit p-2">
+                            <div className="grid grid-cols-3 lg:gap-3 xl:gap-6 2xl:gap-10 w-fit p-2">
                                 {books.map((book, index) => (
                                     <div key={index} className="">
                                         <NewBookCard book={book} />
