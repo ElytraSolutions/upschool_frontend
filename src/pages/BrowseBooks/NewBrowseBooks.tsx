@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import Section from '../../parts/PartsLibrary/Section';
 import { books, BestSellers, FeaturedBooks } from '../../data/LibraryBooks';
 import NewBookCard from '../../components/Cards/NewBookCard';
+import SearchAndFilter from '../../parts/PartsLibrary/SearchAndFilter';
 
 const NewBrowseBooks = () => {
     return (
@@ -30,7 +31,10 @@ const NewBrowseBooks = () => {
                                         </p>
                                     </NavLink>
                                 </div>
-                                <div></div>
+                                {/* Search and Filter Component */}
+                                <div>
+                                    <SearchAndFilter />
+                                </div>
                             </div>
                         </div>
                     </div>
