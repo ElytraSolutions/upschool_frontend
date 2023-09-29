@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import NewBookCard from '../../components/Cards/NewBookCard';
-import { books } from '../../data/LibraryBooks';
 import BookCardSlider from '../../components/Slider/BookCardSlider';
 
 type SectionProps = {
     topic: string;
+    books: {
+        id: number;
+        image: string;
+        writer: string;
+        title: string;
+        country: string;
+        categories: string[];
+    }[];
 };
-const Section: React.FC<SectionProps> = ({ topic }) => {
-    const [page, setPage] = useState(1);
+const Section: React.FC<SectionProps> = ({ topic, books }) => {
+    const [page, setPage] = useState(0);
+    const currentIndex = page;
     return (
         <>
             <div className="flex flex-col gap-2 text-theme-color">
@@ -25,10 +33,17 @@ const Section: React.FC<SectionProps> = ({ topic }) => {
                     <BookCardSlider page={page} setPage={setPage} />
                 </div>
                 {/* Books */}
+                {/* className="grid grid-cols-3 gap-2 md:gap-3 lg:gap-5 w-fit p-2 md:pl-7" */}
+                {/* className="relative flex flex-row gap-5 w-fit p-2 h-full" */}
                 <div className="grid grid-cols-3 gap-2 md:gap-3 lg:gap-5 w-fit p-2 md:pl-7">
-                    {books.map((book, index) => (
-                        <NewBookCard key={index} book={book} />
-                    ))}
+                    {/* it slices books array and get only three elements to display varying with currentIndex */}
+                    {books
+                        .slice(currentIndex, currentIndex + 3)
+                        .map((book, index) => (
+                            <div key={index} className="">
+                                <NewBookCard book={book} />
+                            </div>
+                        ))}
                 </div>
             </div>
         </>

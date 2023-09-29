@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import Section from '../../parts/PartsLibrary/Section';
+import { books, BestSellers, FeaturedBooks } from '../../data/LibraryBooks';
+import NewBookCard from '../../components/Cards/NewBookCard';
 
 const NewBrowseBooks = () => {
     return (
@@ -33,9 +35,26 @@ const NewBrowseBooks = () => {
                         </div>
                     </div>
                     {/* Second and third column: Books categories with carousel */}
-                    <div className="col-span-2 justify-self-start">
+                    <div className="col-span-2 justify-self-start flex flex-col gap-12">
                         {/* Best Sellers Section */}
-                        <Section topic="Best Sellers" />
+                        <Section topic="Best Sellers" books={BestSellers} />
+                        {/* Featured Books Section */}
+                        <Section topic="Featured Books" books={FeaturedBooks} />
+                        {/* All Books Section */}
+                        <div className=" flex flex-col gap-2  md:pl-7 text-theme-color">
+                            <div className="flex flex-row  items-center gap-4 w-fit font-semibold p-2">
+                                <p className="text-2xl lg:text-3xl">
+                                    Explore All Books
+                                </p>
+                            </div>
+                            <div className="grid grid-cols-3 gap-2 md:gap-3 lg:gap-5 w-fit p-2">
+                                {books.map((book, index) => (
+                                    <div key={index} className="">
+                                        <NewBookCard book={book} />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

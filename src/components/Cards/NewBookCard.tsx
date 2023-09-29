@@ -14,12 +14,12 @@ type BookCardProps = {
 const NewBookCard: React.FC<BookCardProps> = ({ book }) => {
     return (
         <>
-            <div className=" flex flex-col justify-between rounded-lg text-sm lg:text-base bg-white border border-gray-300 text-theme-color  max-w-[270px] h-full ">
+            <div className=" flex flex-col justify-between rounded-lg text-sm lg:text-base bg-white border border-gray-300 text-theme-color  max-w-[270px] h-full max-h-[500px] ">
                 <div>
                     <img
                         className="rounded-lg w-full h-44"
                         src={book.image}
-                        alt="logo"
+                        alt="book"
                         loading="lazy"
                         width="270px"
                         height="180px"
@@ -34,9 +34,9 @@ const NewBookCard: React.FC<BookCardProps> = ({ book }) => {
                         <p className=" font-bold text-base lg:text-lg">
                             {book.title}
                         </p>
-                        <div className="flex flex-row items-center text-black text-sm">
+                        <div className="flex flex-row items-center text-black text-sm h-full">
                             <p className="font-semibold">
-                                Values this book explores: &nbsp;
+                                Values this book explores:{' '}
                                 {book.categories.map((category, index) => (
                                     <span key={index} className="font-normal">
                                         {category}{' '}
@@ -53,9 +53,9 @@ const NewBookCard: React.FC<BookCardProps> = ({ book }) => {
                 <div className="px-4 py-1">
                     <button
                         type="button"
-                        className="p-3 my-1 bg-red-upschool text-white text-xs md:text-sm hover:cursor-pointer w-full"
+                        className="p-3 my-1 bg-[#BB3860] text-white text-xs md:text-sm hover:cursor-pointer w-full"
                     >
-                        Read More
+                        View Book
                     </button>
                 </div>
             </div>
