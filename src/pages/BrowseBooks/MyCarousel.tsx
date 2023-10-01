@@ -19,6 +19,7 @@ const createItems = ([handleClick]) => {
     return books.map((book, index) => (
         <div
             key={index}
+            className="item"
             onMouseDown={(e) => (deltaX = e.pageX)}
             onMouseUp={(e) => (difference = Math.abs(e.pageX - deltaX))}
             onClick={() => difference < swipeDelta && handleClick(index)}
@@ -43,15 +44,17 @@ const MyCarousel = () => {
     const syncActiveIndex = ({ item }) => setActiveIndex(item);
 
     return [
-        <AliceCarousel
-            mouseTracking
-            disableDotsControls
-            disableButtonsControls
-            items={items}
-            activeIndex={activeIndex}
-            responsive={responsive}
-            onSlideChanged={syncActiveIndex}
-        />,
+        <div className="w-[900px] h-full">
+            <AliceCarousel
+                mouseTracking
+                disableDotsControls
+                disableButtonsControls
+                items={items}
+                activeIndex={activeIndex}
+                responsive={responsive}
+                onSlideChanged={syncActiveIndex}
+            />
+        </div>,
 
         <div className="b-refs-buttons">
             <button onClick={slidePrev}>Prev</button>
