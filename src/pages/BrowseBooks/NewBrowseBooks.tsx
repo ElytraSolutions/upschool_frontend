@@ -3,8 +3,8 @@ import Section from '../../parts/PartsLibrary/Section';
 import { books, BestSellers, FeaturedBooks } from '../../data/LibraryBooks';
 import NewBookCard from '../../components/Cards/NewBookCard';
 import SearchAndFilter from '../../parts/PartsLibrary/SearchAndFilter';
-import MyCarousel from './MyCarousel';
-import BookCardSlider from '../../components/Slider/BookCardSlider';
+// import MyCarousel from './MyCarousel';
+// import BookCardSlider from '../../components/Slider/BookCardSlider';
 import { useState, useEffect } from 'react';
 
 const NewBrowseBooks = () => {
