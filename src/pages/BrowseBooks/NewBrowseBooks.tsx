@@ -3,6 +3,7 @@ import Section from '../../parts/PartsLibrary/Section';
 import { books, BestSellers, FeaturedBooks } from '../../data/LibraryBooks';
 import NewBookCard from '../../components/Cards/NewBookCard';
 import SearchAndFilter from '../../parts/PartsLibrary/SearchAndFilter';
+import MyCarousel from './MyCarousel';
 
 const NewBrowseBooks = () => {
     return (
@@ -39,9 +40,11 @@ const NewBrowseBooks = () => {
                         </div>
                     </div>
                     {/* Second and third column: Books categories with carousel */}
-                    <div className="col-span-2 justify-self-start flex flex-col gap-12">
+                    <div className="col-span-2 justify-self-start flex flex-col gap-12 w-fit">
                         {/* Best Sellers Section */}
                         <Section topic="Best Sellers" books={BestSellers} />
+                        <MyCarousel />
+
                         {/* Featured Books Section */}
                         <Section topic="Featured Books" books={FeaturedBooks} />
                         {/* All Books Section */}

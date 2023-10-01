@@ -14,7 +14,7 @@ type BookCardProps = {
 const NewBookCard: React.FC<BookCardProps> = ({ book }) => {
     return (
         <>
-            <div className=" flex flex-col justify-between rounded-lg text-sm lg:text-base bg-white border border-gray-300 text-theme-color  max-w-[270px] h-full max-h-[500px] ">
+            <div className=" flex flex-col justify-between rounded-lg text-sm lg:text-base bg-white border border-gray-300 text-theme-color  max-w-[270px] h-full ">
                 <div>
                     <img
                         className="rounded-lg w-full h-44"
