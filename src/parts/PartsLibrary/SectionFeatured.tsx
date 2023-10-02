@@ -97,10 +97,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
                         id="sliderContainerFeatured"
                         className="w-[900px] overflow-hidden "
                     >
-                        <ul
-                            id="SliderFeatured"
-                            className="flex w-full transition duration-700"
-                        >
+                        <ul id="SliderFeatured" className="flex w-full">
                             {books.slice(0, 6).map((book, index) => (
                                 <li key={index} className="w-full">
                                     <div className="flex flex-row justify-center h-full">

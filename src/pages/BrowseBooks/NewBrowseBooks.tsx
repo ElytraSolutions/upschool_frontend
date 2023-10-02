@@ -33,7 +33,7 @@ const NewBrowseBooks = () => {
                                     </NavLink>
                                 </div>
                                 {/* Search and Filter Component */}
-                                <div>
+                                <div className="">
                                     <SearchAndFilter />
                                 </div>
                             </div>
