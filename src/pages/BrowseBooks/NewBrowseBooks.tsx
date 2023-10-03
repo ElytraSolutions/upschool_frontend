@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import SectionBestSellers from '../../parts/PartsLibrary/SectionBestSellers';
-import SectionFeatured from '../../parts/PartsLibrary/SectionFeatured';
-import SectionAllBooks from '../../parts/PartsLibrary/SectionAllBooks';
+import SectionBestSellers from '../../parts/PartsLibrary/Sections/SectionBestSellers';
+import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
+import SectionAllBooks from '../../parts/PartsLibrary/Sections/SectionAllBooks';
 import { books, BestSellers, FeaturedBooks } from '../../data/LibraryBooks';
-import SearchAndFilter from '../../parts/PartsLibrary/SearchAndFilter';
+import SearchAndFilter from '../../parts/PartsLibrary/SearchAndFilter/SearchAndFilter';
 
 const NewBrowseBooks = () => {
     return (

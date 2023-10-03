@@ -2,10 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import { ICourse } from '../../types/ICourse';
 import EnrollCard from '../../components/Cards/EnrollCard';
 import axiosInstance from '../../config/Axios';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
+import useUser from '../../hooks/useUser';
 
 function CourseDetail() {
+    const { user } = useUser();
     const [isHovered, setIsHovered] = useState(false);
     const [course, setCourse] = useState<ICourse | null>(null);
     const { slug } = useParams();
@@ -68,27 +70,29 @@ function CourseDetail() {
                                     <div style={{ color: course.theme }}>
                                         * {course.starredText}
                                     </div>
-                                    <div className="flex flex-col  flex-start gap-6">
-                                        <a
-                                            style={{
-                                                backgroundColor: !isHovered
-                                                    ? course.theme
-                                                    : '#ca7491',
-                                            }}
-                                            className="px-8 py-2 w-[160px] text-white rounded-sm hover:scale-90 transition-transform duration-300 ease-in-out "
-                                            onMouseEnter={handleHover}
-                                            onMouseLeave={handleMouseLeave}
-                                            href="/register"
-                                        >
-                                            REGISTER
-                                            <i className="fa fa-angle-right ml-2"></i>
-                                        </a>
+                                    {(!user || !user.id) && (
+                                        <div className="flex flex-col  flex-start gap-6">
+                                            <NavLink
+                                                style={{
+                                                    backgroundColor: !isHovered
+                                                        ? course.theme
+                                                        : '#ca7491',
+                                                }}
+                                                className="px-8 py-2 w-[160px] text-white rounded-sm hover:scale-90 transition-transform duration-300 ease-in-out "
+                                                onMouseEnter={handleHover}
+                                                onMouseLeave={handleMouseLeave}
+                                                to="/register"
+                                            >
+                                                REGISTER
+                                                <i className="fa fa-angle-right ml-2"></i>
+                                            </NavLink>
 
-                                        <p className="font-semibold text-white">
-                                            Register for a FREE Upschool account
-                                            to enrol in this course.
-                                        </p>
-                                    </div>
+                                            <p className="font-semibold text-white">
+                                                Register for a FREE Upschool
+                                                account to enrol in this course.
+                                            </p>
+                                        </div>
+                                    )}
                                 </div>
                                 <EnrollCard data={course} />
                             </div>

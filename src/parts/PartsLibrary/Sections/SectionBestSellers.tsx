@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import NewBookCard from '../../components/Cards/NewBookCard';
-import BookCardSlider from '../../components/Slider/BookCardSlider';
+import NewBookCard from '../../../components/Cards/NewBookCard';
+import BookCardSlider from '../../../components/Slider/BookCardSlider';
 
 type SectionProps = {
     topic: string;

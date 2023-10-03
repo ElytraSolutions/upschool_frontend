@@ -1,5 +1,5 @@
 import React from 'react';
-import NewBookCard from '../../components/Cards/NewBookCard';
+import NewBookCard from '../../../components/Cards/NewBookCard';
 
 type SectionProps = {
     topic: string;
