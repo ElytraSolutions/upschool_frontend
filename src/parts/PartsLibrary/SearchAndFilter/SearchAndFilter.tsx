@@ -246,9 +246,9 @@ const SearchAndFilter = () => {
                                             </div>
                                             {/* Filter list */}
                                             {showFilterOptions && (
-                                                <div className="h-full w-fit p-2">
-                                                    <div className="w-fit h-52  overflow-auto">
-                                                        <div className="w-fit flex flex-col gap-2 p-4 ">
+                                                <div className="h-full w-full p-2">
+                                                    <div className="w-full h-52  overflow-auto">
+                                                        <div className="w-full flex flex-col gap-2 p-4 ">
                                                             <label
                                                                 className={`flex justify-start gap-x-4 items-center ${
                                                                     values
