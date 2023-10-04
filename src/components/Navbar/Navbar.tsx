@@ -20,10 +20,14 @@ export default function Navbar() {
     const { isBigScreen } = useScreenWidthAndHeight(); //min-width=1200px
     const [isScrolled, setIsScrolled] = useState(false);
 
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
     const isLoggedIn = user && user.id ? true : false;
+    // console.log(user);
+    // console.log(isLoggedIn);
 
     useEffect(() => {
         refresh();
+        console.log(isLoggedIn);
         const handleScroll = () => {
             if (window.scrollY > 0) {
                 setIsScrolled(true);

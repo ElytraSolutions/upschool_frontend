@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { Formik, Field } from 'formik';
 
@@ -65,6 +65,10 @@ const data = [
 ];
 
 const SearchAndFilter = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+    // console.log(Array.from(searchParams.entries()));
+    console.log(searchParams.get('query'));
+    console.log(searchParams.getAll('categories'));
     // maintains the search query of search bar
     const [searchQuery, setSearchQuery] = useState<string>('');
     // maintains the state to show sections below search bar
@@ -77,6 +81,7 @@ const SearchAndFilter = () => {
     const submitSearchForm = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log(searchQuery);
+        setSearchParams({ query: searchQuery });
         // TODO: send request to backend to search for books
     };
 
@@ -87,6 +92,7 @@ const SearchAndFilter = () => {
             categories: values.categories,
         };
         console.log(searchParameters);
+        setSearchParams(searchParameters);
         onSubmitProps.setSubmitting(false);
         // TODO: send request to backend to search for books
     };

@@ -4,6 +4,7 @@ import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import HomeIcon from '@mui/icons-material/Home';
 import { useState } from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
+import axiosInstance from '../../config/Axios';
 
 type ChapterDetailProps = {
     isSidebarOpen: boolean;
@@ -47,7 +48,7 @@ export default function ChapterDetail({
                                     to={`/course/${slug}`}
                                     className="text-xs flex flex-row items-center justify-start gap-0 md:gap-1 md:text-base"
                                 >
-                                    Goto Course Home{' '}
+                                    Goto Course Home
                                     <span>
                                         <HomeIcon />
                                     </span>
@@ -55,8 +56,17 @@ export default function ChapterDetail({
                             </div>
                         </div>
                         {isBigScreen && <div>{learn}</div>}
-                        <button className=" text-xs rounded-md bg-pink-700 p-0.5  text-center md:px-4 md:py-2 md:text-base ">
-                            Compelete Lesson
+                        {/* TODO check if chapter is already completed */}
+                        <button
+                            className=" text-xs rounded-md bg-pink-700 p-0.5  text-center md:px-4 md:py-2 md:text-base "
+                            onClick={async () => {
+                                const res = await axiosInstance.post(
+                                    `/data/chapters/${learn}/complete`,
+                                );
+                                console.log(res.data);
+                            }}
+                        >
+                            Complete Lesson
                         </button>
                     </div>
                 </div>
