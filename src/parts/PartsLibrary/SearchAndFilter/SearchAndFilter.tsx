@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { Formik, Field } from 'formik';
-// import { Checkbox } from '@material-tailwind/react';
 
 import { categories } from '../../../data/UploadBookCategories';
 
@@ -65,42 +64,68 @@ const data = [
     },
 ];
 
-const submitHandler = (values: any, onSubmitProps: any) => {
-    console.log(values);
-    onSubmitProps.setSubmitting(false);
-};
-
 const SearchAndFilter = () => {
+    // maintains the search query of search bar
+    const [searchQuery, setSearchQuery] = useState<string>('');
+    // maintains the state to show sections below search bar
     const [selectedOption, setSelectedOption] =
         useState<string>('Best Sellers');
-    // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+    // TODO Determine to show filter options or not by default
+    const [showFilterOptions, setShowFilterOptions] = useState<boolean>(false);
+
+    const submitSearchForm = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        console.log(searchQuery);
+        // TODO: send request to backend to search for books
+    };
+
+    const submitHandler = (values: any, onSubmitProps: any) => {
+        console.log(values);
+        const searchParameters = {
+            query: searchQuery,
+            categories: values.categories,
+        };
+        console.log(searchParameters);
+        onSubmitProps.setSubmitting(false);
+        // TODO: send request to backend to search for books
+    };
     return (
         <>
             <div className=" flex flex-col gap-4 text-theme-color">
                 {/* Search Section */}
                 <div className="bg-white border border-t-0 border-theme-color/50 shadow-lg shadow-gray-300 rounded-lg">
                     {/* Search Box */}
-                    <div className="flex flex-row divide-x divide-theme-color/50 border border-theme-color/50  rounded-md text-sm 2xl:text-base w-full">
-                        <div className=" flex items-center p-2 w-full ">
-                            <input
-                                type="text"
-                                placeholder="search by title, author name or country"
-                                className="focus:outline-none  w-full"
-                            ></input>
-                        </div>
+                    <form onSubmit={submitSearchForm}>
+                        <div className="flex flex-row divide-x divide-theme-color/50 border border-theme-color/50  rounded-md text-sm 2xl:text-base w-full">
+                            <div className=" flex items-center p-2 w-full ">
+                                <input
+                                    type="text"
+                                    placeholder="search by title, author name or country"
+                                    className=" autofill:bg-white  focus:outline-none  w-full"
+                                    value={searchQuery}
+                                    onChange={(
+                                        event: React.ChangeEvent<HTMLInputElement>,
+                                    ) => {
+                                        setSearchQuery(event.target.value);
+                                    }}
+                                />
+                            </div>
 
-                        <div className="p-2 w-fit">
-                            <img
-                                src="/images/Library/SearchIcon.png"
-                                alt="search"
-                                height="30px"
-                                width="30px"
-                            />
+                            <button type="submit" className="p-2 w-fit">
+                                <img
+                                    src="/images/Library/SearchIcon.png"
+                                    alt="search"
+                                    height="30px"
+                                    width="30px"
+                                />
+                            </button>
                         </div>
-                    </div>
+                    </form>
+
                     {/* Information Section */}
                     <div>
-                        <ul className="p-4 pb-6">
+                        <ul className=" p-6">
                             {data.map((category, index) => (
                                 <li
                                     key={index}
@@ -161,170 +186,151 @@ const SearchAndFilter = () => {
                     </div>
                 </div>
                 {/* Filter Section */}
-                <div className="bg-white border border-theme-color/50 shadow-lg shadow-gray-300 rounded-lg divide-y divide-theme-color/50  text-font-color">
-                    <div>
-                        <div className="flex flex-row justify-between items-end w-full p-5 text-2xl font-semibold h-full">
-                            <p>Filter by Category</p>
-                            <div>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth={1.5}
-                                    stroke="currentColor"
-                                    className="w-6 h-6"
+                <div className="">
+                    <Formik
+                        onSubmit={submitHandler}
+                        initialValues={{
+                            categories: [],
+                            allCategory: true,
+                        }}
+                    >
+                        {({
+                            values,
+                            // errors,
+                            // touched,
+                            // handleBlur,
+                            // handleChange,
+                            handleSubmit,
+                        }) => (
+                            <>
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="w-full h-full"
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M4.5 15.75l7.5-7.5 7.5 7.5"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <Formik
-                            onSubmit={submitHandler}
-                            initialValues={{
-                                categories: [],
-                                allCategory: true,
-                            }}
-                        >
-                            {({
-                                values,
-                                // errors,
-                                // touched,
-                                // handleBlur,
-                                // handleChange,
-                                handleSubmit,
-                            }) => (
-                                <>
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="w-full flex flex-col gap-2 ">
-                                            <label
-                                                className={`flex flex-1 justify-start gap-x-4 items-center ${
-                                                    values.categories.length ===
-                                                    0
-                                                        ? 'hover:cursor-not-allowed pointer-events-none'
-                                                        : 'hover:cursor-pointer pointer-events-auto'
-                                                }`}
-                                            >
-                                                <Field
-                                                    className="h-5 w-5  checked:accent-theme-color"
-                                                    type="checkbox"
-                                                    name="allCategory"
-                                                    onClick={() => {
-                                                        values.categories = [];
-                                                    }}
-                                                />
-                                                All Category
-                                            </label>
-                                            {/* <Checkbox
-                                                crossOrigin
-                                                name="allCategory"
-                                                checked={values.allCategory}
-                                                onClick={() => {
-                                                    values.categories = [];
-                                                    values.allCategory = true;
-                                                }}
-                                                disabled={
-                                                    values.categories.length ===
-                                                    0
-                                                        ? true
-                                                        : false
-                                                }
-                                                className=" bg-gray-900/10 transition-all  hover:before:opacity-0"
-                                                ripple={false}
-                                                color="theme-color"
-                                                label={
-                                                    <p className="text-theme-color font-normal">
-                                                        All Category
-                                                    </p>
-                                                }
-                                            /> */}
-
-                                            {categories.map(
-                                                (category, index) => (
-                                                    <label
-                                                        key={index}
-                                                        className="flex flex-1 justify-start gap-x-4 items-center hover:cursor-pointer"
+                                    <div>
+                                        <div className="bg-white border border-theme-color/50 shadow-lg shadow-gray-300 rounded-lg divide-y divide-theme-color/50  text-font-color w-full">
+                                            {/* Heading Section */}
+                                            <div>
+                                                <div className="flex flex-row justify-between items-end w-full p-3 px-5 text-2xl font-semibold h-full">
+                                                    <p>Filter by Category</p>
+                                                    {/* Up Arrow */}
+                                                    <div
+                                                        className="hover:cursor-pointer"
+                                                        onClick={() => {
+                                                            setShowFilterOptions(
+                                                                (prevState) =>
+                                                                    !prevState,
+                                                            );
+                                                        }}
                                                     >
-                                                        <Field
-                                                            className="h-5 w-5 checked:accent-theme-color"
-                                                            color="theme-color"
-                                                            type="checkbox"
-                                                            name="categories"
-                                                            value={category}
-                                                            onClick={() => {
-                                                                values.allCategory =
-                                                                    false;
-                                                            }}
-                                                        />
-                                                        {category}
-                                                    </label>
-                                                ),
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            strokeWidth={1.5}
+                                                            stroke="currentColor"
+                                                            className={`w-6 h-6 ${
+                                                                showFilterOptions
+                                                                    ? ''
+                                                                    : 'transform rotate-180'
+                                                            }`}
+                                                        >
+                                                            <path
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                                                            />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/* Filter list */}
+                                            {showFilterOptions && (
+                                                <div className="h-full w-fit p-2">
+                                                    <div className="w-fit h-52  overflow-auto">
+                                                        <div className="w-fit flex flex-col gap-2 p-4 ">
+                                                            <label
+                                                                className={`flex justify-start gap-x-4 items-center ${
+                                                                    values
+                                                                        .categories
+                                                                        .length ===
+                                                                    0
+                                                                        ? 'pointer-events-none'
+                                                                        : 'hover:cursor-pointer pointer-events-auto'
+                                                                }`}
+                                                            >
+                                                                <Field
+                                                                    className="h-5 w-5  checked:accent-theme-color"
+                                                                    type="checkbox"
+                                                                    name="allCategory"
+                                                                    onClick={() => {
+                                                                        values.categories =
+                                                                            [];
+                                                                    }}
+                                                                />
+                                                                All Category
+                                                            </label>
+                                                            {categories.map(
+                                                                (
+                                                                    category,
+                                                                    index,
+                                                                ) => (
+                                                                    <label
+                                                                        key={
+                                                                            index
+                                                                        }
+                                                                        className="flex  justify-start gap-x-4 items-center hover:cursor-pointer"
+                                                                    >
+                                                                        <Field
+                                                                            className="h-5 w-5 checked:accent-theme-color"
+                                                                            color="theme-color"
+                                                                            type="checkbox"
+                                                                            name="categories"
+                                                                            value={
+                                                                                category
+                                                                            }
+                                                                            onClick={() => {
+                                                                                values.allCategory =
+                                                                                    false;
+                                                                            }}
+                                                                        />
+                                                                        {
+                                                                            category
+                                                                        }
+                                                                    </label>
+                                                                ),
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             )}
                                         </div>
-                                        <div className="grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base py-1">
-                                            {/* TODO decide back button */}
+                                        {/* Buttons */}
+                                        <div className="w-full h-full flex flex-col gap-3 mt-3">
+                                            {/* Refine Search Button */}
                                             <button
-                                                className="invisible col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                }}
-                                            >
-                                                <span>
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        strokeWidth="1.5"
-                                                        stroke="currentColor"
-                                                        className="w-4 h-4"
-                                                    >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                                                        />
-                                                    </svg>
-                                                </span>
-                                                <span className="text-xl">
-                                                    <u>Back</u>
-                                                </span>
-                                            </button>
-
-                                            <button
-                                                className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                                                className=" flex flex-1 justify-center items-center h-full w-full bg-theme-color rounded-md p-2 px-4"
                                                 type="submit"
                                             >
-                                                <span className="text-xl">
-                                                    Next
-                                                </span>
-                                                <span>
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        strokeWidth="1.5"
-                                                        stroke="currentColor"
-                                                        className="w-4 h-4"
-                                                    >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                                                        />
-                                                    </svg>
-                                                </span>
+                                                <p className="text-xl text-white">
+                                                    Refine Search
+                                                </p>
+                                            </button>
+                                            {/* Reset Filter Button */}
+                                            <button
+                                                className="flex flex-1 justify-center items-center h-full w-full bg-white border border-gray-900/20 rounded-md p-2 px-4"
+                                                type="reset"
+                                            >
+                                                <p className="text-xl text-gray-950/30">
+                                                    Reset Filter
+                                                </p>
                                             </button>
                                         </div>
-                                    </form>
-                                </>
-                            )}
-                        </Formik>
-                    </div>
+                                    </div>
+                                </form>
+                            </>
+                        )}
+                    </Formik>
                 </div>
             </div>
         </>
