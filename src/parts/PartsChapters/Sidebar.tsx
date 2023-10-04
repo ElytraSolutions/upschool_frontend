@@ -34,7 +34,7 @@ interface IChapter {
 //     },
 // ];
 
-type SidebarProps = { courseSlug: string };
+type SidebarProps = { courseSlug: string | undefined };
 export default function Sidebar({ courseSlug }: SidebarProps) {
     const [chapters, setChapters] = useState<IChapter[] | null>(null);
     useEffect(() => {

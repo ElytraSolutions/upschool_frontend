@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import axiosInstance from '../../config/Axios';
 
 type ISidebarProps = {
-    courseSlug: string;
+    courseSlug: string | undefined;
     chapter: {
         id: number;
         created_at: Date;
