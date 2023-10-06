@@ -19,9 +19,9 @@ import Dashboard from './pages/User/DashBoard/Dashboard';
 import Chapters from './pages/Chapters/Chapters';
 import Logout from './pages/Logout/Logout';
 import UploadBook from './pages/UploadBook/UploadBook';
-import BrowseBooks from './pages/BrowseBooks/BrowseBooks';
-import BookBundle from './pages/BrowseBooks/BookBundle';
-import NewBrowseBooks from './pages/BrowseBooks/NewBrowseBooks';
+import BrowseBooks from './pages/Library/OldBrowseBooks';
+import BookBundle from './pages/Library/OldBookBundle';
+import NewBrowseBooks from './pages/Library/DefaultPage';
 import Experiment from './pages/ZExperiment/Experiment';
 
 const router = createBrowserRouter([
@@ -99,11 +99,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'library',
-                element: <BrowseBooks />,
+                element: <NewBrowseBooks />,
             },
             {
                 path: 'library-test',
-                element: <NewBrowseBooks />,
+                element: <BrowseBooks />,
             },
             {
                 path: 'experiment',

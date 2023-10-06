@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NewBookCard from '../../../components/Cards/NewBookCard';
 import BookCardSlider from '../../../components/Slider/BookCardSlider';
+import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 
 type SectionProps = {
     topic: string;
@@ -12,9 +13,15 @@ type SectionProps = {
         country: string;
         categories: string[];
     }[];
+    setSelectSection: (value: string) => void;
 };
-const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
+const SectionFeatured: React.FC<SectionProps> = ({
+    topic,
+    books,
+    setSelectSection,
+}) => {
     const [page, setPage] = useState(0); // For showing progress dots in slider
+    const { isXtraLarge } = useScreenWidthAndHeight();
     const [sliderContainer, setSliderContainer] = useState<HTMLElement | null>(
         null,
     ); // For getting the width of the slider container
@@ -33,7 +40,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
         document.getElementById('SliderFeatured');
     const cards: HTMLCollectionOf<HTMLLIElement> | undefined =
         slider?.getElementsByTagName('li');
-    const elementsToShow: number = 3; // Number of cards to show in the slider
+    const elementsToShow: number = isXtraLarge ? 3 : 2; // Number of cards to show in the slider
     const sliderContainerWidth: number = sliderContainer?.clientWidth || 0;
     const cardWidth: number = sliderContainerWidth / elementsToShow;
     if (slider) {
@@ -69,15 +76,20 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
     };
     return (
         <>
-            <div className="flex flex-col gap-2 text-theme-color">
+            <div className="flex flex-col gap-2 text-theme-color w-fit">
                 {/* Header */}
-                <div className="p-2 pl-7">
+                <div className="p-2 pl-2 lg:pl-6">
                     <div className="flex flex-row gap-2  items-center justify-between ">
                         {/* Title */}
                         <div className="flex flex-row  items-center gap-4 w-fit font-semibold">
-                            <p className="text-2xl lg:text-3xl">{topic}</p>
+                            <p className="text-xl lg:text-2xl">{topic}</p>
                             {/* TODO determine where it goes when pressed */}
-                            <p className="underline underline-offset-4 text-sm lg:text-base ">
+                            <p
+                                className="underline underline-offset-4 hover:cursor-pointer text-sm lg:text-base "
+                                onClick={() => {
+                                    setSelectSection('Featured Books');
+                                }}
+                            >
                                 View All {`>`}
                             </p>
                         </div>
@@ -92,10 +104,10 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
                         </div>
                     </div>
                 </div>
-                <div className="pl-7 p-2">
+                <div className="pl-2 lg:pl-6 p-2">
                     <div
                         id="sliderContainerFeatured"
-                        className="w-[900px] overflow-hidden "
+                        className="w-[570px] lg:w-[600px] xl:w-[900px] overflow-hidden "
                     >
                         <ul id="SliderFeatured" className="flex w-full">
                             {books.slice(0, 6).map((book, index) => (
@@ -113,4 +125,4 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
     );
 };
 
-export default SectionBestSellers;
+export default SectionFeatured;

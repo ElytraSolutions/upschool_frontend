@@ -3,8 +3,9 @@ const useScreenWidthAndHeight = () => {
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerWidth);
     const isLargeScreen = width > 768 ? true : false; //For responsive mobile registration and login page
-    const isTabScreen = width > 900 ? true : false; //For responsive navbar of user dashboard
+    const isTabScreen = width >= 900 ? true : false; //For responsive navbar of user dashboard
     const isBigScreen = width > 1200 ? true : false; //For Responsive navbar
+    const isXtraLarge = width >= 1280 ? true : false; // For determining number of books to be show in carousel of library page
     const isSmallScreen = width < 420 ? true : false; //For responsive dashboard design
     const isSmallHeight = height < 420 ? true : false; //For responsive select country box design
     const isMobileHeight = height < 540 ? true : false; //For responsive select country box design
@@ -22,6 +23,7 @@ const useScreenWidthAndHeight = () => {
     }, []);
 
     return {
+        isXtraLarge,
         isLargeScreen,
         isBigScreen,
         isTabScreen,

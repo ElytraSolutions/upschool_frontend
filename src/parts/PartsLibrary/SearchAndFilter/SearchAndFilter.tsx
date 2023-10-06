@@ -1,5 +1,5 @@
 import { NavLink, useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Formik, Field } from 'formik';
 
 import { categories } from '../../../data/UploadBookCategories';
@@ -64,7 +64,13 @@ const data = [
     },
 ];
 
-const SearchAndFilter = () => {
+type SearchAndFilterProps = {
+    setSelectSection: (value: string) => void;
+};
+
+const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
+    setSelectSection,
+}) => {
     const [searchParams, setSearchParams] = useSearchParams();
     // console.log(Array.from(searchParams.entries()));
     console.log(searchParams.get('query'));
@@ -137,9 +143,9 @@ const SearchAndFilter = () => {
                                     key={index}
                                     className="flex flex-col gap-2 pb-3"
                                 >
-                                    <div className="flex flex-row  items-center gap-1 font-semibold text-lg">
+                                    <div className="flex flex-row  items-center gap-1 font-semibold">
                                         <p
-                                            className="hover:cursor-pointer text-xl pb-0.5"
+                                            className="hover:cursor-pointer text-lg pb-0.5"
                                             onClick={() => {
                                                 setSelectedOption(
                                                     category.title,
@@ -161,14 +167,17 @@ const SearchAndFilter = () => {
                                                 : 'hidden'
                                         } max-h-36 px-8  overflow-auto`}
                                     >
-                                        <NavLink
-                                            to="/"
-                                            className="text-theme-color font-semibold"
+                                        <p
+                                            className="underline underline-offset-4 hover:cursor-pointer text-sm text-theme-color font-semibold lg:text-base py-1 "
+                                            onClick={() => {
+                                                setSelectSection(
+                                                    category.title,
+                                                );
+                                            }}
                                         >
-                                            <p className="underline underline-offset-4 text-sm lg:text-base py-1 ">
-                                                View All {`>`}
-                                            </p>
-                                        </NavLink>
+                                            View All {`>`}
+                                        </p>
+
                                         <ul className="h-full">
                                             {category.books.map(
                                                 (book, index) => (
@@ -217,7 +226,7 @@ const SearchAndFilter = () => {
                                         <div className="bg-white border border-theme-color/50 shadow-lg shadow-gray-300 rounded-lg divide-y divide-theme-color/50  text-font-color w-full">
                                             {/* Heading Section */}
                                             <div>
-                                                <div className="flex flex-row justify-between items-end w-full p-3 px-5 text-2xl font-semibold h-full">
+                                                <div className="flex flex-row justify-between items-end w-full p-3 px-5 text-lg font-semibold h-full">
                                                     <p>Filter by Category</p>
                                                     {/* Up Arrow */}
                                                     <div
@@ -318,7 +327,7 @@ const SearchAndFilter = () => {
                                                 className=" flex flex-1 justify-center items-center h-full w-full bg-theme-color rounded-md p-2 px-4"
                                                 type="submit"
                                             >
-                                                <p className="text-xl text-white">
+                                                <p className="text-lg text-white">
                                                     Refine Search
                                                 </p>
                                             </button>
@@ -327,7 +336,7 @@ const SearchAndFilter = () => {
                                                 className="flex flex-1 justify-center items-center h-full w-full bg-white border border-gray-900/20 rounded-md p-2 px-4"
                                                 type="reset"
                                             >
-                                                <p className="text-xl text-gray-950/30">
+                                                <p className="text-lg text-gray-950/30">
                                                     Reset Filter
                                                 </p>
                                             </button>
