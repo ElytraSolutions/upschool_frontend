@@ -4,11 +4,17 @@ import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
 import SectionShowBooks from '../../parts/PartsLibrary/Sections/SectionAllBooks';
 import { books, BestSellers, FeaturedBooks } from '../../data/LibraryBooks';
 import SearchAndFilter from '../../parts/PartsLibrary/SearchAndFilter/SearchAndFilter';
-import { useState } from 'react';
+import React from 'react';
 
-const LibraryLargeScreen = () => {
-    // it maintains state for selected section (such as: Best Sellers , Featured Books, Book Bundles and Recently Viewed)
-    const [selectSection, setSelectSection] = useState<string>('All Sections');
+type LibraryLargeScreenProps = {
+    selectSection: string;
+    setSelectSection: (value: string) => void;
+};
+
+const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
+    selectSection,
+    setSelectSection,
+}) => {
     return (
         <>
             {/* "h-full w-full bg-white p-3 sm:py-6 xl:px-12" */}
