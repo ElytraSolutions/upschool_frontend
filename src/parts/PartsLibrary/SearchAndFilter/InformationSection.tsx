@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 
 // TODO Replace this data with data from the backend
 const data = [
@@ -62,15 +63,19 @@ const data = [
 ];
 type InformationSectionProps = {
     setSelectSection: (value: string) => void;
+    setIsFilterClicked?: (value: boolean) => void;
 };
 
 const InformationSection: React.FC<InformationSectionProps> = ({
     setSelectSection,
+    setIsFilterClicked,
 }) => {
     // maintains the state to expand sections (Best Sellers, Featured Books, Book Bundles and Recently Viewed) below search bar
     // by clicking on '+' or '-' sign
     const [selectedOption, setSelectedOption] =
         useState<string>('Best Sellers');
+
+    const { isTabScreen } = useScreenWidthAndHeight();
     return (
         <>
             <div>
@@ -102,6 +107,9 @@ const InformationSection: React.FC<InformationSectionProps> = ({
                                 <p
                                     className="underline underline-offset-4 hover:cursor-pointer text-sm text-theme-color font-semibold lg:text-base py-1 "
                                     onClick={() => {
+                                        !isTabScreen &&
+                                            setIsFilterClicked &&
+                                            setIsFilterClicked(false);
                                         setSelectSection(category.title);
                                     }}
                                 >

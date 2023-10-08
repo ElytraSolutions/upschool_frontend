@@ -9,7 +9,7 @@ type LibrarySmallScreenProps = {
     setSelectSection: (value: string) => void;
 };
 const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
-    // selectSection,
+    selectSection,
     setSelectSection,
 }) => {
     // maintains the search query of search bar
@@ -32,11 +32,13 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
 
     const submitSearchForm = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        setIsFilterClicked(false);
         console.log(searchQuery);
         setSearchParams({ query: searchQuery });
         // TODO: send request to backend to search for books
     };
     const submitHandler = (values: any, onSubmitProps: any) => {
+        setIsFilterClicked(false);
         console.log(values);
         const searchParameters = {
             query: searchQuery,
@@ -103,23 +105,32 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                 <div
                                     className={`${
                                         isFilterClicked ? 'hidden' : ''
-                                    }`}
+                                    } flex items-center h-full w-fit`}
                                 >
                                     <button
-                                        className="h-fit w-fit p-3 bg-theme-color"
+                                        type="button"
+                                        className="h-full w-full"
                                         onClick={() => {
                                             setIsFilterClicked(true);
                                         }}
                                     >
-                                        <p className="text-white h-8 w-8">
+                                        {/* <p className="text-white h-8 w-8">
                                             Filter
-                                        </p>
+                                        </p> */}
+                                        <img
+                                            src="/images/Library/btnFilter.png"
+                                            alt="Filter"
+                                            height="50px"
+                                            width="50px"
+                                            loading="lazy"
+                                        />
                                     </button>
                                 </div>
                             </div>
                             {isFilterClicked && (
                                 <InformationSection
                                     setSelectSection={setSelectSection}
+                                    setIsFilterClicked={setIsFilterClicked}
                                 />
                             )}
                         </div>
@@ -132,7 +143,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                 {/* Books Display Section */}
                 <div className="flex justify-center w-full mt-24">
                     <BooksDisplay
-                        selectSection={'All Sections'}
+                        selectSection={selectSection}
                         setSelectSection={setSelectSection}
                     />
                 </div>
