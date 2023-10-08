@@ -41,10 +41,6 @@ const router = createBrowserRouter([
                 element: <Registration />,
             },
             {
-                path: 'login',
-                element: <Login />,
-            },
-            {
                 path: 'resetpasswordemail',
                 element: <ResetPasswordEmail />,
             },
@@ -113,6 +109,10 @@ const router = createBrowserRouter([
     {
         path: '/logout',
         element: <Logout />,
+    },
+    {
+        path: '/login',
+        element: <Login />,
     },
     {
         path: 'test',
