@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import ChapterDetail from '../../parts/PartsChapters/ChapterDetail';
 import Sidebar from '../../parts/PartsChapters/Sidebar';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
+import { useParams } from 'react-router-dom';
 
 export default function Chapters() {
     const { isBigScreen } = useScreenWidthAndHeight();
     const [isSidebarOpen, setIsSiderbarOpen] = useState<boolean>(true);
+    const { slug } = useParams();
     useEffect(() => {
         if (isBigScreen) {
             setIsSiderbarOpen(true);
@@ -18,7 +20,7 @@ export default function Chapters() {
         <div className="mb-6  grid h-[90vh] grid-cols-2 xm:grid-cols-5 lg:grid-cols-4">
             {isSidebarOpen && (
                 <div className=" h-[90vh] w-full pb-5 xm:col-span-2 lg:col-span-1">
-                    <Sidebar />
+                    <Sidebar courseSlug={slug} />
                 </div>
             )}
             <div

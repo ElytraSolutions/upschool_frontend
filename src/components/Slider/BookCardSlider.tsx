@@ -3,8 +3,15 @@ import React from 'react';
 type BookCardSliderProps = {
     page: number;
     setPage: React.Dispatch<React.SetStateAction<number>>;
+    next: () => void;
+    prev: () => void;
 };
-const BookCardSlider: React.FC<BookCardSliderProps> = ({ page, setPage }) => {
+const BookCardSlider: React.FC<BookCardSliderProps> = ({
+    page,
+    setPage,
+    next,
+    prev,
+}) => {
     return (
         <>
             <div className="flex flex-row items-center gap-4 w-fit">
@@ -16,6 +23,7 @@ const BookCardSlider: React.FC<BookCardSliderProps> = ({ page, setPage }) => {
                     } `}
                     onClick={() => {
                         page > 0 && setPage((page) => page - 1);
+                        prev();
                     }}
                 >
                     <svg
@@ -61,6 +69,7 @@ const BookCardSlider: React.FC<BookCardSliderProps> = ({ page, setPage }) => {
                     } `}
                     onClick={() => {
                         page < 3 && setPage((page) => page + 1);
+                        next();
                     }}
                 >
                     <svg

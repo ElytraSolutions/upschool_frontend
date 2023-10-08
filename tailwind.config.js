@@ -55,6 +55,7 @@ export default {
                 // => @media (min-width: 900px) { ... }
                 xs: '420px',
                 xm: '540px',
+                1450: '1450px',
             },
             aspectRatio: {
                 '2/1': '2 / 1',
