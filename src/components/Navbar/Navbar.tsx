@@ -62,7 +62,7 @@ export default function Navbar() {
             <div
                 className={`${
                     isScrolled ? 'fixed w-full' : ''
-                } z-10  bg-theme-color p-1 md:py-7 md:px-2  flex flex-1 items-center `}
+                } z-20  bg-theme-color p-1 md:py-7 md:px-2  flex flex-1 items-center `}
                 style={{ height: '10vh' }}
             >
                 <div className="flex flex-1 gap-2 md:gap-3 items-center lg:gap-10 justify-between">
