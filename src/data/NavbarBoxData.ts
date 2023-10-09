@@ -245,16 +245,53 @@ const data = [
             },
             {
                 id: 6,
+                title: 'Resources',
+                path: 'https://upschool.co/blog',
+                children: [
+                    {
+                        id: 1,
+                        title: 'All Resources',
+                        path: 'https://upschool.co/blog/',
+                    },
+                    {
+                        id: 2,
+                        title: 'Teacher Resources',
+                        path: 'https://upschool.co/blog/category/teacher-resources/',
+                    },
+                    {
+                        id: 3,
+                        title: 'Parent Resources',
+                        path: 'https://upschool.co/blog/category/parent-resources/',
+                    },
+                    {
+                        id: 4,
+                        title: 'Student Resources',
+                        path: 'https://upschool.co/blog/category/student-resources/',
+                    },
+                    {
+                        id: 5,
+                        title: 'Live Lesson Recordings',
+                        path: 'https://upschool.co/blog/category/live-lesson-replays/',
+                    },
+                    {
+                        id: 6,
+                        title: 'Live Event Recordings',
+                        path: 'https://upschool.co/blog/category/live-event-replays/',
+                    },
+                ],
+            },
+            {
+                id: 7,
                 title: 'The Global Goals',
                 path: 'https://upschool.co/sdgs',
             },
             {
-                id: 7,
+                id: 8,
                 title: 'Impact Films',
                 path: 'https://upschool.co/impact-films',
             },
             {
-                id: 8,
+                id: 9,
                 title: 'Make a Dear World Submission',
                 path: 'https://upschool.co/impact-films',
             },
@@ -374,37 +411,59 @@ const data = [
                     },
                 ],
             },
-        ],
-    },
-    {
-        id: 4,
-        title: 'Support',
-        path: '/',
-        children: [
             {
-                id: 1,
-                title: 'Become a Partner',
-                path: 'https://upschool.co/partnerships/',
-            },
-            {
-                id: 2,
-                title: 'Buy a Product',
-                path: 'https://upschool.co/#',
+                id: 5,
+                title: 'Support',
+                path: '/',
                 children: [
-                    { title: 'Buy an Impact Film', path: '/' },
-                    { title: 'Impact Projects', path: '/' },
+                    {
+                        id: 1,
+                        title: 'Become a Partner',
+                        path: 'https://upschool.co/partnerships/',
+                    },
+                    {
+                        id: 2,
+                        title: 'Buy a Product',
+                        path: 'https://upschool.co/#',
+                        children: [
+                            { title: 'Buy an Impact Film', path: '/' },
+                            { title: 'Impact Projects', path: '/' },
+                        ],
+                    },
                 ],
             },
         ],
     },
+    // TODO clear out comments if not necessary
+    // {
+    //     id: 4,
+    //     title: 'Support',
+    //     path: '/',
+    //     children: [
+    //         {
+    //             id: 1,
+    //             title: 'Become a Partner',
+    //             path: 'https://upschool.co/partnerships/',
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Buy a Product',
+    //             path: 'https://upschool.co/#',
+    //             children: [
+    //                 { title: 'Buy an Impact Film', path: '/' },
+    //                 { title: 'Impact Projects', path: '/' },
+    //             ],
+    //         },
+    //     ],
+    // },
     {
         id: 5,
-        title: 'Online Library',
+        title: 'Books',
         path: '/',
         children: [
             {
                 id: 1,
-                title: 'Browse Books',
+                title: 'Online Library',
                 path: 'library',
             },
             {
@@ -412,45 +471,51 @@ const data = [
                 title: 'Upload Your Book',
                 path: 'uploadbook',
             },
-        ],
-    },
-    {
-        id: 6,
-        title: 'Resources',
-        path: 'https://upschool.co/blog',
-        children: [
-            {
-                id: 1,
-                title: 'All Resources',
-                path: 'https://upschool.co/blog/',
-            },
-            {
-                id: 2,
-                title: 'Teacher Resources',
-                path: 'https://upschool.co/blog/category/teacher-resources/',
-            },
             {
                 id: 3,
-                title: 'Parent Resources',
-                path: 'https://upschool.co/blog/category/parent-resources/',
-            },
-            {
-                id: 4,
-                title: 'Student Resources',
-                path: 'https://upschool.co/blog/category/student-resources/',
-            },
-            {
-                id: 5,
-                title: 'Live Lesson Recordings',
-                path: 'https://upschool.co/blog/category/live-lesson-replays/',
-            },
-            {
-                id: 6,
-                title: 'Live Event Recordings',
-                path: 'https://upschool.co/blog/category/live-event-replays/',
+                title: 'Dear World Book',
+                path: '/',
             },
         ],
     },
+    // TODO clear out comments if not necessary
+    // {
+    //     id: 6,
+    //     title: 'Resources',
+    //     path: 'https://upschool.co/blog',
+    //     children: [
+    //         {
+    //             id: 1,
+    //             title: 'All Resources',
+    //             path: 'https://upschool.co/blog/',
+    //         },
+    //         {
+    //             id: 2,
+    //             title: 'Teacher Resources',
+    //             path: 'https://upschool.co/blog/category/teacher-resources/',
+    //         },
+    //         {
+    //             id: 3,
+    //             title: 'Parent Resources',
+    //             path: 'https://upschool.co/blog/category/parent-resources/',
+    //         },
+    //         {
+    //             id: 4,
+    //             title: 'Student Resources',
+    //             path: 'https://upschool.co/blog/category/student-resources/',
+    //         },
+    //         {
+    //             id: 5,
+    //             title: 'Live Lesson Recordings',
+    //             path: 'https://upschool.co/blog/category/live-lesson-replays/',
+    //         },
+    //         {
+    //             id: 6,
+    //             title: 'Live Event Recordings',
+    //             path: 'https://upschool.co/blog/category/live-event-replays/',
+    //         },
+    //     ],
+    // },
     {
         id: 7,
         title: 'About',

@@ -17,8 +17,8 @@ export default function Navbar() {
     };
     const [isOpen, setIsopen] = useState(false);
     const { user, refresh } = useUser();
-    const { isBigScreen, isMobileHeight } = useScreenWidthAndHeight(); //min-width=1200px  //min-height=600px //min-height=540px //min-height=420px
-    const heightNavbar = isMobileHeight ? 'max-h-[15dvh]' : 'max-h-[10dvh]';
+    const { isBigScreen } = useScreenWidthAndHeight(); //min-width=1200px  //min-height=600px //min-height=540px //min-height=420px
+
     const [isScrolled, setIsScrolled] = useState(false);
 
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -63,7 +63,7 @@ export default function Navbar() {
             <div
                 className={`${
                     isScrolled ? 'fixed' : ''
-                } ${heightNavbar} z-20 w-full bg-theme-color px-1 py-2 md:py-3 md:px-2  flex flex-1 items-center `}
+                } h-fit z-20 w-full bg-theme-color px-1 py-2 md:py-3 md:px-2  flex flex-1 items-center `}
             >
                 <div className="flex flex-1 gap-2 md:gap-3 items-center lg:gap-10 justify-between w-full">
                     <div
