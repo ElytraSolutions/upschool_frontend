@@ -52,13 +52,13 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
     return (
         <>
             <div className="h-full w-full bg-gray-200 text-font-color ">
-                <div className="relative flex flex-row justify-center px-2 py-4 h-full w-full ">
+                <div className="relative flex flex-row justify-center px-2 py-2 xs:py-4 h-full w-full ">
                     {/* search box and filter box */}
                     <div
-                        className={`fixed z-10 flex flex-col items-center gap-3 overflow-auto ${
+                        className={`flex flex-col items-center gap-3 overflow-auto ${
                             isFilterClicked &&
-                            'bg-gray-200 shadow-lg shadow-theme-color rounded-md p-2'
-                        } max-h-[85dvh] xs:w-11/12`}
+                            'fixed z-10 bg-gray-200 shadow-lg shadow-theme-color rounded-md p-2 '
+                        } max-h-[85dvh] w-[95%] xs:w-11/12`}
                     >
                         {/* search box */}
                         <div
@@ -66,21 +66,21 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                 isFilterClicked && 'bg-white rounded-lg'
                             } `}
                         >
-                            <div className="flex flex-row gap-2 items-center w-full">
+                            <div className="flex flex-row gap-2 items-center h-full w-full">
                                 <form
                                     onSubmit={submitSearchForm}
-                                    className={`flex flex-row rounded-lg ${
+                                    className={`flex flex-row items-center rounded-lg ${
                                         isFilterClicked
                                             ? 'border border-theme-color/50'
                                             : 'bg-white'
                                     }   h-full w-full`}
                                 >
                                     {/* Search Box */}
-                                    <div className=" flex items-center py-3 px-5  w-full ">
+                                    <div className=" flex items-center py-1 sm:py-3 px-2 sm:px-5  w-full ">
                                         <input
                                             type="text"
                                             placeholder="search by title, author name or country"
-                                            className=" autofill:bg-white  focus:outline-none  w-full"
+                                            className=" autofill:bg-white  focus:outline-none  w-full text-xs sm:text-base"
                                             value={searchQuery}
                                             onChange={(
                                                 event: React.ChangeEvent<HTMLInputElement>,
@@ -92,7 +92,10 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                         />
                                     </div>
                                     {/* Search Button */}
-                                    <button type="submit" className="p-2 w-fit">
+                                    <button
+                                        type="submit"
+                                        className="flex  flex-row  items-center p-0.5 md:p-2 w-fit h-full"
+                                    >
                                         <img
                                             src="/images/Library/SearchIcon.png"
                                             alt="search"
@@ -114,9 +117,6 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                             setIsFilterClicked(true);
                                         }}
                                     >
-                                        {/* <p className="text-white h-8 w-8">
-                                            Filter
-                                        </p> */}
                                         <img
                                             src="/images/Library/btnFilter.png"
                                             alt="Filter"
@@ -141,7 +141,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                     </div>
                 </div>
                 {/* Books Display Section */}
-                <div className="flex justify-center w-full mt-24">
+                <div className="flex justify-center w-full  py-2 sm:py-3 md:py-5">
                     <BooksDisplay
                         selectSection={selectSection}
                         setSelectSection={setSelectSection}

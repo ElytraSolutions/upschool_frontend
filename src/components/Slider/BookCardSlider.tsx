@@ -14,9 +14,9 @@ const BookCardSlider: React.FC<BookCardSliderProps> = ({
 }) => {
     return (
         <>
-            <div className="flex flex-row items-center gap-4 w-fit">
+            <div className="flex flex-row items-center gap-2 xm:gap-4 w-fit">
                 <div
-                    className={`flex flex-row justify-center items-center h-7 w-7 rounded-full hover:cursor-pointer ${
+                    className={`flex flex-row justify-center items-center h-5 xm:h-7 w-5 xm:w-7 rounded-full hover:cursor-pointer ${
                         page === 0
                             ? 'bg-gray-300 text-theme-color'
                             : 'bg-theme-color text-white '
@@ -32,7 +32,7 @@ const BookCardSlider: React.FC<BookCardSliderProps> = ({
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="w-5 h-5 "
+                        className="w-4 h-4 xm:w-5 xm:h-5 "
                     >
                         <path
                             strokeLinecap="round"
@@ -42,27 +42,27 @@ const BookCardSlider: React.FC<BookCardSliderProps> = ({
                     </svg>
                 </div>
                 <div
-                    className={`h-2 w-2 rounded-full ${
+                    className={` h-1 w-1 xm:h-2 xm:w-2 rounded-full ${
                         page === 0 ? 'bg-theme-color ' : 'bg-gray-300'
                     }`}
                 ></div>
                 <div
-                    className={`h-2 w-2 rounded-full ${
+                    className={`h-1 w-1 xm:h-2 xm:w-2 rounded-full ${
                         page === 1 ? 'bg-theme-color ' : 'bg-gray-300'
                     }`}
                 ></div>
                 <div
-                    className={`h-2 w-2 rounded-full ${
+                    className={`h-1 w-1 xm:h-2 xm:w-2 rounded-full ${
                         page === 2 ? 'bg-theme-color ' : 'bg-gray-300'
                     }`}
                 ></div>
                 <div
-                    className={`h-2 w-2 rounded-full ${
+                    className={`h-1 w-1 xm:h-2 xm:w-2 rounded-full ${
                         page === 3 ? 'bg-theme-color ' : 'bg-gray-300'
                     }`}
                 ></div>
                 <div
-                    className={`flex flex-row justify-center items-center h-7 w-7 rounded-full hover:cursor-pointer ${
+                    className={`flex flex-row justify-center items-center h-5 xm:h-7 w-5 xm:w-7 rounded-full hover:cursor-pointer ${
                         page === 3
                             ? 'bg-gray-300 text-theme-color'
                             : 'bg-theme-color text-white '
@@ -78,7 +78,7 @@ const BookCardSlider: React.FC<BookCardSliderProps> = ({
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="w-5 h-5 "
+                        className="w-4 h-4 xm:w-5 xm:h-5 "
                     >
                         <path
                             strokeLinecap="round"

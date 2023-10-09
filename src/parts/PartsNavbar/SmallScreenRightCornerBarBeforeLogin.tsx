@@ -2,12 +2,12 @@ import { NavLink } from 'react-router-dom';
 
 const SmallScreenRightCornerBarBeforeLogin = () => {
     return (
-        <span className="group/bar w-9 h-9">
-            <span className="relative w-full h-full overflow-hidden bg-gray-100 rounded-full hover:cursor-pointer ">
+        <span className="group/bar w-7 h-7 xm:w-9 xm:h-9">
+            <span className="relative w-full h-full overflow-hidden  rounded-full hover:cursor-pointer ">
                 {' '}
                 {/* dark:bg-gray-600*/}
                 <svg //imported from tailwind components templates user
-                    className="w-8 h-8 text-white -left-0.5"
+                    className="h-5 w-5 xm:w-8 xm:h-8  text-white -left-0.5"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"

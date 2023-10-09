@@ -12,7 +12,7 @@ const SmallScreenRightCornerBar = ({ isLoggedIn, setIsopen }: LogInProps) => {
             {isLoggedIn ? <AfterLoginSS /> : <BeforeLoginSS />}
             <span
                 onClick={() => {
-                    setIsopen((oldstate) => !oldstate);
+                    setIsopen((oldstate: boolean) => !oldstate);
                     // disables background scrolling when modal is opened
                     if (typeof window != 'undefined' && window.document) {
                         document.body.style.overflow = 'hidden';
@@ -25,7 +25,7 @@ const SmallScreenRightCornerBar = ({ isLoggedIn, setIsopen }: LogInProps) => {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-8 h-8 text-white hover:cursor-pointer"
+                    className="h-5 w-5 xm:w-8 xm:h-8 text-white hover:cursor-pointer"
                 >
                     <path
                         strokeLinecap="round"

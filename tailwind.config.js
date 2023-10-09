@@ -53,6 +53,7 @@ export default {
             screens: {
                 tab: '900px',
                 // => @media (min-width: 900px) { ... }
+                xss: '340px',
                 xs: '420px',
                 xm: '540px',
                 1450: '1450px',

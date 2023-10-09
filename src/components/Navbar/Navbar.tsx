@@ -13,11 +13,12 @@ import useUser from '../../hooks/useUser';
 
 export default function Navbar() {
     const styles = {
-        minWidth: '150px',
+        minWidth: '145px',
     };
     const [isOpen, setIsopen] = useState(false);
     const { user, refresh } = useUser();
-    const { isBigScreen } = useScreenWidthAndHeight(); //min-width=1200px
+    const { isBigScreen, isMobileHeight } = useScreenWidthAndHeight(); //min-width=1200px  //min-height=600px //min-height=540px //min-height=420px
+    const heightNavbar = isMobileHeight ? 'max-h-[15dvh]' : 'max-h-[10dvh]';
     const [isScrolled, setIsScrolled] = useState(false);
 
     // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -61,11 +62,10 @@ export default function Navbar() {
 
             <div
                 className={`${
-                    isScrolled ? 'fixed w-full' : ''
-                } z-20  bg-theme-color p-1 md:py-7 md:px-2  flex flex-1 items-center `}
-                style={{ height: '10vh' }}
+                    isScrolled ? 'fixed' : ''
+                } ${heightNavbar} z-20 w-full bg-theme-color px-1 py-2 md:py-3 md:px-2  flex flex-1 items-center `}
             >
-                <div className="flex flex-1 gap-2 md:gap-3 items-center lg:gap-10 justify-between">
+                <div className="flex flex-1 gap-2 md:gap-3 items-center lg:gap-10 justify-between w-full">
                     <div
                         className={`flex  ${
                             isBigScreen ? 'grow-2 shrink' : 'flex-1'
@@ -84,7 +84,7 @@ export default function Navbar() {
                         {isBigScreen && <ComputerMenu />}
                     </div>
                     {/* TODO left to maintain CSS properties */}
-                    <div className="flex flex-1 gap-1 lg:gap-2 2xl:gap-3 justify-end items-center mr-3 z-10">
+                    <div className="flex flex-1  xm:gap-1 lg:gap-2 2xl:gap-3 justify-end items-center mr-3 z-10">
                         <span className="">
                             <NavLink to="/">
                                 <CartIcon />
