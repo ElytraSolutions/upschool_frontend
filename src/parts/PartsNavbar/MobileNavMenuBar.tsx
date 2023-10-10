@@ -18,23 +18,22 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
     // TODO remove comments if not necessary
     // const [isOpen6, setIsOpen6] = useState(false);
     // const [isOpen7, setIsOpen7] = useState(false);
-    console.log(data);
     return (
         <>
             <div
-                className={`fixed  z-10 grid grid-cols-5 xs:grid-cols-2  sm:grid-cols-3 tab:grid-cols-4 gap-0 w-screen h-screen top-0 transition duration-1000 ease-in-out  overflow-y-auto ${
+                className={`fixed  z-30 grid grid-cols-5 xs:grid-cols-2  sm:grid-cols-3 tab:grid-cols-4 gap-0 w-screen h-screen top-0 transition duration-1000 ease-in-out  overflow-y-auto ${
                     isOpen ? 'left-0' : 'left-[-100%]'
                 }`}
             >
                 <div
                     className={` col-span-3 xs:col-span-1 bg-theme-color  h-screen  w-full top-0 flex justify-center`}
-                    onMouseLeave={() => {
-                        setTimeout(onClose, 5000);
-                    }}
+                    // onMouseLeave={() => {
+                    //     setTimeout(onClose, 5000);
+                    // }}
                 >
                     <div className="w-11/12 text-white ">
-                        <div className="flex flex-row justify-between items-center  mx-0.5 h-[10vh]">
-                            <span onClick={onClose}>
+                        <div className="flex flex-row gap-3 justify-between items-center py-4 lg:py-6  mx-1 h-fit">
+                            <span onClick={onClose} className="">
                                 <NavLink to="/">
                                     <img
                                         src={upSchoolLogoMobile}
@@ -51,7 +50,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                     viewBox="0 0 24 24"
                                     strokeWidth="1.5"
                                     stroke="currentColor"
-                                    className="w-8 h-8 text-white"
+                                    className="h-5 w-5 md:h-6 md:w-6 lg:w-8 lg:h-8 text-white"
                                 >
                                     <path
                                         strokeLinecap="round"
@@ -62,15 +61,15 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                             </button>
                         </div>
                         <div>
-                            <ul className="rounded-md text-base p-2 max-w-full">
+                            <ul className="rounded-md text-xs sm:text-sm p-2 w-full">
                                 {/* First list */}
                                 <li
-                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen1 && 'hover:scale-110'
-                                    } max-w-full`}
+                                    className={`rounded-md p-2 hover:bg-red-upschool w-full ${
+                                        !isOpen1 && 'hover:scale-105'
+                                    } `}
                                 >
-                                    <div className="w-full text-left flex items-center">
-                                        <span className="pr-1 flex-1  text-sm">
+                                    <div className="w-full text-left flex items-center pb-2">
+                                        <span className="pr-1 flex-1">
                                             <NavLink
                                                 to={
                                                     data[0].path
@@ -106,37 +105,44 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             </svg>
                                         </span>
                                     </div>
-                                    <ul
-                                        key={data[0].id}
-                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full  rounded-md relative transition duration-1000 ease-in-out origin-top ${
-                                            isOpen1 ? 'block' : 'hidden'
-                                        } `}
-                                    >
-                                        {data[0].children.map(
-                                            (detail, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="hover:text-font-color hover:scale-110 rounded-md p-0.5"
-                                                    onClick={onClose}
-                                                >
-                                                    <NavLink
-                                                        to={detail.path || ''}
+                                    <div className="pl-4 w-full">
+                                        <ul
+                                            key={data[0].id}
+                                            className={` bg-gray-500 p-3 w-full  rounded-md  ${
+                                                isOpen1 ? '' : 'hidden'
+                                            } `}
+                                        >
+                                            {data[0].children.map(
+                                                (detail, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="hover:text-font-color hover:scale-105 border border-theme-color rounded-md m-1 w-full"
+                                                        onClick={onClose}
                                                     >
-                                                        {detail.title}
-                                                    </NavLink>
-                                                </li>
-                                            ),
-                                        )}
-                                    </ul>
+                                                        <NavLink
+                                                            to={
+                                                                detail.path ||
+                                                                ''
+                                                            }
+                                                        >
+                                                            <p className="p-1 hyphens-auto  break-words  w-full">
+                                                                {detail.title}
+                                                            </p>
+                                                        </NavLink>
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ul>
+                                    </div>
                                 </li>
                                 {/* second list */}
                                 <li
                                     className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen2 && 'hover:scale-110'
-                                    } max-w-full`}
+                                        !isOpen2 && 'hover:scale-105'
+                                    } w-full`}
                                 >
-                                    <div className="w-full text-left flex items-center">
-                                        <span className="pr-1 flex-1  text-sm">
+                                    <div className="w-full text-left flex items-center pb-2">
+                                        <span className="pr-1 flex-1  ">
                                             <NavLink
                                                 to={
                                                     data[1].path
@@ -172,37 +178,44 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             </svg>
                                         </span>
                                     </div>
-                                    <ul
-                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
-                                            isOpen2 ? 'block' : 'hidden'
-                                        } `}
-                                    >
-                                        {data[1].children.map(
-                                            (detail, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
-                                                    onClick={onClose}
-                                                >
-                                                    <NavLink
-                                                        to={detail.path || ''}
+                                    <div className="pl-4 w-full">
+                                        <ul
+                                            className={` bg-gray-500 p-3 w-full border border-theme-color rounded-md ${
+                                                isOpen2 ? 'block' : 'hidden'
+                                            } `}
+                                        >
+                                            {data[1].children.map(
+                                                (detail, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="hover:text-font-color hover:scale-105 border border-theme-color rounded-md  m-1 w-full"
+                                                        onClick={onClose}
                                                     >
-                                                        {detail.title}
-                                                    </NavLink>
-                                                </li>
-                                            ),
-                                        )}
-                                    </ul>
+                                                        <NavLink
+                                                            to={
+                                                                detail.path ||
+                                                                ''
+                                                            }
+                                                        >
+                                                            <p className="p-1 hyphens-auto break-words  w-full">
+                                                                {detail.title}
+                                                            </p>
+                                                        </NavLink>
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ul>
+                                    </div>
                                 </li>
 
                                 {/* Third list */}
                                 <li
                                     className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen3 && 'hover:scale-110'
-                                    } max-w-full`}
+                                        !isOpen3 && 'hover:scale-105'
+                                    } w-full`}
                                 >
-                                    <div className="w-full text-left flex items-center">
-                                        <span className="pr-1 flex-1  text-sm">
+                                    <div className="w-full text-left flex items-center pb-2">
+                                        <span className="pr-1 flex-1  ">
                                             <NavLink
                                                 to={
                                                     data[2].path
@@ -238,37 +251,44 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             </svg>
                                         </span>
                                     </div>
-                                    <ul
-                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
-                                            isOpen3 ? 'block' : 'hidden'
-                                        } `}
-                                    >
-                                        {data[2].children.map(
-                                            (detail, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
-                                                    onClick={onClose}
-                                                >
-                                                    <NavLink
-                                                        to={detail.path || ''}
+                                    <div className="pl-4 w-full">
+                                        <ul
+                                            className={` bg-gray-500 p-3 w-full rounded-md ${
+                                                isOpen3 ? 'block' : 'hidden'
+                                            } `}
+                                        >
+                                            {data[2].children.map(
+                                                (detail, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="hover:text-theme-color hover:scale-105 border border-theme-color rounded-md  m-1 w-full"
+                                                        onClick={onClose}
                                                     >
-                                                        {detail.title}
-                                                    </NavLink>
-                                                </li>
-                                            ),
-                                        )}
-                                    </ul>
+                                                        <NavLink
+                                                            to={
+                                                                detail.path ||
+                                                                ''
+                                                            }
+                                                        >
+                                                            <p className="p-1 hyphens-auto break-words  w-full">
+                                                                {detail.title}
+                                                            </p>
+                                                        </NavLink>
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ul>
+                                    </div>
                                 </li>
 
                                 {/* Fourth list */}
                                 <li
                                     className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen4 && 'hover:scale-110'
-                                    } max-w-full`}
+                                        !isOpen4 && 'hover:scale-105'
+                                    } w-full`}
                                 >
-                                    <div className="w-full text-left flex items-center">
-                                        <span className="pr-1 flex-1  text-sm">
+                                    <div className="w-full text-left flex items-center pb-2">
+                                        <span className="pr-1 flex-1  ">
                                             <NavLink
                                                 to={
                                                     data[3].path
@@ -304,37 +324,44 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             </svg>
                                         </span>
                                     </div>
-                                    <ul
-                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full  rounded-md relative transition duration-1000 ease-in-out origin-top ${
-                                            isOpen4 ? 'block' : 'hidden'
-                                        } `}
-                                    >
-                                        {data[3].children.map(
-                                            (detail, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
-                                                    onClick={onClose}
-                                                >
-                                                    <NavLink
-                                                        to={detail.path || ''}
+                                    <div className="pl-4 w-full">
+                                        <ul
+                                            className={` bg-gray-500 p-3 w-full  rounded-md  ${
+                                                isOpen4 ? 'block' : 'hidden'
+                                            } `}
+                                        >
+                                            {data[3].children.map(
+                                                (detail, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="hover:text-font-color hover:scale-105 border border-theme-color rounded-md  m-1 w-full"
+                                                        onClick={onClose}
                                                     >
-                                                        {detail.title}
-                                                    </NavLink>
-                                                </li>
-                                            ),
-                                        )}
-                                    </ul>
+                                                        <NavLink
+                                                            to={
+                                                                detail.path ||
+                                                                ''
+                                                            }
+                                                        >
+                                                            <p className="p-1 hyphens-auto break-words  w-full">
+                                                                {detail.title}
+                                                            </p>
+                                                        </NavLink>
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ul>
+                                    </div>
                                 </li>
 
                                 {/* Fifth list */}
                                 <li
                                     className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen5 && 'hover:scale-110'
-                                    } max-w-full`}
+                                        !isOpen5 && 'hover:scale-105'
+                                    } w-full`}
                                 >
-                                    <div className="w-full text-left flex items-center">
-                                        <span className="pr-1 flex-1  text-sm">
+                                    <div className="w-full text-left flex items-center pb-2">
+                                        <span className="pr-1 flex-1  ">
                                             <NavLink
                                                 to={
                                                     data[4].path
@@ -370,37 +397,44 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             </svg>
                                         </span>
                                     </div>
-                                    <ul
-                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
-                                            isOpen5 ? 'block' : 'hidden'
-                                        } `}
-                                    >
-                                        {data[4].children.map(
-                                            (detail, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
-                                                    onClick={onClose}
-                                                >
-                                                    <NavLink
-                                                        to={detail.path || ''}
+                                    <div className="pl-4 w-full">
+                                        <ul
+                                            className={` bg-gray-500 p-3 w-full rounded-md  ${
+                                                isOpen5 ? 'block' : 'hidden'
+                                            } `}
+                                        >
+                                            {data[4].children.map(
+                                                (detail, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="hover:text-font-color hover:scale-105 border border-theme-color rounded-md  m-1 w-full"
+                                                        onClick={onClose}
                                                     >
-                                                        {detail.title}
-                                                    </NavLink>
-                                                </li>
-                                            ),
-                                        )}
-                                    </ul>
+                                                        <NavLink
+                                                            to={
+                                                                detail.path ||
+                                                                ''
+                                                            }
+                                                        >
+                                                            <p className="p-1 hyphens-auto break-words  w-full">
+                                                                {detail.title}
+                                                            </p>
+                                                        </NavLink>
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ul>
+                                    </div>
                                 </li>
                                 {/* TODO remove comments if not necessary */}
                                 {/* Sixth list */}
                                 {/* <li
                                     className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen6 && 'hover:scale-110'
-                                    } max-w-full`}
+                                        !isOpen6 && 'hover:scale-105'
+                                    } w-full`}
                                 >
                                     <div className="w-full text-left flex items-center">
-                                        <span className="pr-1 flex-1  text-sm">
+                                        <span className="pr-1 flex-1  ">
                                             <NavLink
                                                 to={
                                                     data[5].path
@@ -437,7 +471,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         </span>
                                     </div>
                                     <ul
-                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
+                                        className={`m-0 ml-4 bg-gray-500 p-3 w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen6 ? 'block' : 'hidden'
                                         } `}
                                     >
@@ -445,7 +479,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             (detail, index) => (
                                                 <li
                                                     key={index}
-                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    className="hover:text-theme-color hover:scale-105 rounded-md p-0.5"
                                                     onClick={onClose}
                                                 >
                                                     <NavLink
@@ -461,11 +495,11 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                 {/* seventh list */}
                                 {/* <li
                                     className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen7 && 'hover:scale-110'
-                                    } max-w-full`}
+                                        !isOpen7 && 'hover:scale-105'
+                                    } w-full`}
                                 >
                                     <div className="w-full text-left flex items-center">
-                                        <span className="pr-1 flex-1  text-sm">
+                                        <span className="pr-1 flex-1  ">
                                             <NavLink
                                                 to={
                                                     data[6].path
@@ -502,7 +536,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         </span>
                                     </div>
                                     <ul
-                                        className={`m-0 ml-4 bg-gray-500 p-3 max-w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
+                                        className={`m-0 ml-4 bg-gray-500 p-3 w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
                                             isOpen7 ? 'block' : 'hidden'
                                         } `}
                                     >
@@ -510,7 +544,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             (detail, index) => (
                                                 <li
                                                     key={index}
-                                                    className="hover:text-theme-color hover:scale-110 rounded-md p-0.5"
+                                                    className="hover:text-theme-color hover:scale-105 rounded-md p-0.5"
                                                     onClick={onClose}
                                                 >
                                                     <NavLink
@@ -524,7 +558,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                     </ul>
                                 </li> */}
                                 {/* Eight List */}
-                                {/* <li className="rounded-md p-2 text-sm hover:bg-red-upschool  hover:scale-110">
+                                {/* <li className="rounded-md p-2  hover:bg-red-upschool  hover:scale-105">
                                     <NavLink to={navData.path || '#'}>
                                         {navData.title}
                                     </NavLink>
