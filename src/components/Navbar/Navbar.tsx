@@ -17,7 +17,7 @@ export default function Navbar() {
     };
     const [isOpen, setIsopen] = useState(false);
     const { user, refresh } = useUser();
-    const { isBigScreen } = useScreenWidthAndHeight(); //min-width=1200px  //min-height=600px //min-height=540px //min-height=420px
+    const { isBigScreen } = useScreenWidthAndHeight(); //min-width=1200px
 
     const [isScrolled, setIsScrolled] = useState(false);
 

@@ -2,7 +2,7 @@ export default function LoginIcon() {
     return (
         <>
             <div className="flex flex-row gap-1 flex-1 items-center">
-                <div className="relative w-6 h-6 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                <div className="relative w-6 h-6 overflow-hidden rounded-full">
                     <svg //imported from heroicons
                         xmlns="http://www.w3.org/2000/svg"
                         fill="white"
@@ -18,7 +18,7 @@ export default function LoginIcon() {
                         />
                     </svg>
                 </div>
-                <span className="text-sm lg:text-sm text-white">Login</span>
+                <span className="text-sm  text-white">Login</span>
             </div>
         </>
     );

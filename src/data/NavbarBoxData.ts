@@ -536,13 +536,31 @@ const data = [
         ],
     },
 ];
+
+// TODO change path to the correct path
 const userData = {
     id: 1,
-    title: 'Upschool',
     children: [
-        { id: 1, title: 'Register for Upschool', path: '/register' },
-        { id: 2, title: 'Bulk Registration', path: 'demo' },
-        { id: 3, title: 'Request a Tour', path: 'demo' },
+        {
+            title: 'Dashboard',
+            path: 'dashboard',
+            image: '/images/NavbarProfile/dashboard.png',
+        },
+        {
+            title: 'My Profile',
+            path: 'dashboard',
+            image: '/images/NavbarProfile/administrator.png',
+        },
+        {
+            title: 'Enrolled Courses',
+            path: 'dashboard',
+            image: '/images/NavbarProfile/graduated.png',
+        },
+        {
+            title: 'Logout',
+            path: 'logout',
+            image: '/images/NavbarProfile/log-out.png',
+        },
     ],
 };
 

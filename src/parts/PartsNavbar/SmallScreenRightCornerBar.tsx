@@ -1,5 +1,7 @@
-import { SmallScreenRightCornerBarAfterLogin as AfterLoginSS } from './SmallScreenRightCornerBarAfterLogin';
+import LoggedProfileBox from './LoggedProfileBox';
+// import { SmallScreenRightCornerBarAfterLogin as AfterLoginSS } from './SmallScreenRightCornerBarAfterLogin';
 import { SmallScreenRightCornerBarBeforeLogin as BeforeLoginSS } from './SmallScreenRightCornerBarBeforeLogin';
+import { userData } from '../../data/NavbarBoxData';
 
 type LogInProps = {
     isLoggedIn: boolean;
@@ -9,7 +11,11 @@ type LogInProps = {
 const SmallScreenRightCornerBar = ({ isLoggedIn, setIsopen }: LogInProps) => {
     return (
         <>
-            {isLoggedIn ? <AfterLoginSS /> : <BeforeLoginSS />}
+            {isLoggedIn ? (
+                <LoggedProfileBox inf={userData} />
+            ) : (
+                <BeforeLoginSS />
+            )}
             <span
                 onClick={() => {
                     setIsopen((oldstate: boolean) => !oldstate);
