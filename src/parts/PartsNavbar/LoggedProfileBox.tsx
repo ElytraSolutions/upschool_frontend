@@ -86,7 +86,7 @@ const LoggedProfileBox: React.FC<BoxProps> = ({ inf, name }) => {
                         return (
                             <li
                                 key={index}
-                                className="first:rounded-t-md last:rounded-b-md  text-xs sm:text-sm  hover:bg-red-upschool hover:text-white"
+                                className="first:rounded-t-md last:rounded-b-md  text-sm  hover:bg-red-upschool hover:text-white"
                             >
                                 <NavLink to={detail.path ? detail.path : '#'}>
                                     <div className="flex flex-row gap-2 items-center p-1 sm:p-2 sm:pr-4 md:pl-6 md:pr-12 md:py-3 ">

@@ -11,7 +11,7 @@ export default function CartIcon() {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="h-6 xm:h-10  w-6 xm:w-10 text-white"
+                    className="h-7 xm:h-10  w-7 xm:w-10 text-white"
                 >
                     <path
                         strokeLinecap="round"
@@ -20,7 +20,7 @@ export default function CartIcon() {
                     />
                 </svg>
                 {/* TODO cart items should be fetched from backend */}
-                <span className="absolute -top-2 left-4 rounded-full  bg-red-upschool p-0.5 px-1 xm:px-2 text-xs xm:text-sm text-white">
+                <span className="absolute -top-2 left-4 rounded-full  bg-red-upschool p-0.5 px-1 xm:px-2 text-sm text-white">
                     4
                 </span>
             </div>

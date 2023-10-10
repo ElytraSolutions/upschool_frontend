@@ -26,15 +26,15 @@ const SmallScreenRightCornerBarBeforeLogin = () => {
                 </svg>
             </span>
             <ul
-                className={`bg-white text-font-color text-xs sm:text-sm rounded-md transform scale-0 ${
+                className={`bg-white text-font-color text-sm rounded-md transform scale-0 ${
                     isClicked && 'scale-100'
                 }  absolute transition duration-150 ease-in-out origin-top -translate-x-4 sm:-translate-x-5  md:-translate-x-7  overflow-hidden`}
             >
                 <li className="hover:bg-red-upschool  hover:text-white p-1 sm:p-2 md:px-6 md:py-3">
-                    <NavLink to="login">Login</NavLink>
+                    <NavLink to="/login">Login</NavLink>
                 </li>
                 <li className="hover:bg-red-upschool hover:text-white p-1 sm:p-2 md:px-6 md:py-3">
-                    <NavLink to="register">register</NavLink>
+                    <NavLink to="/register">register</NavLink>
                 </li>
             </ul>
         </div>

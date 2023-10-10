@@ -21,12 +21,12 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
     return (
         <>
             <div
-                className={`fixed  z-30 grid grid-cols-5 xs:grid-cols-2  sm:grid-cols-3 tab:grid-cols-4 gap-0 w-screen h-screen top-0 transition duration-1000 ease-in-out  overflow-y-auto ${
+                className={`fixed  z-30 grid grid-cols-5 xs:grid-cols-2  sm:grid-cols-3 tab:grid-cols-4 gap-0 w-screen h-full top-0 transition duration-1000 ease-in-out  overflow-y-auto ${
                     isOpen ? 'left-0' : 'left-[-100%]'
                 }`}
             >
                 <div
-                    className={` col-span-3 xs:col-span-1 bg-theme-color  h-screen  w-full top-0 flex justify-center`}
+                    className={` col-span-3 xs:col-span-1 bg-theme-color  h-full  w-full top-0 flex justify-center`}
                     // onMouseLeave={() => {
                     //     setTimeout(onClose, 5000);
                     // }}
@@ -61,7 +61,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                             </button>
                         </div>
                         <div>
-                            <ul className="rounded-md text-xs sm:text-sm p-2 w-full">
+                            <ul className="rounded-md  text-sm p-2 w-full">
                                 {/* First list */}
                                 <li
                                     className={`rounded-md p-2 hover:bg-red-upschool w-full ${
@@ -569,7 +569,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                 </div>
                 {/* Secound column */}
                 <div
-                    className={`col-span-2 xs:col-start-2 xs:col-span-1 sm:col-span-2 tab:col-span-3 h-screen  w-full  top-0  bg-black/70`}
+                    className={`col-span-2 xs:col-start-2 xs:col-span-1 sm:col-span-2 tab:col-span-3 h-full w-full  top-0  bg-black/70`}
                     onClick={onClose}
                 >
                     <div className="h-full w-full "></div>
