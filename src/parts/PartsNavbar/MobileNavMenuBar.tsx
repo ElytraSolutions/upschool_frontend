@@ -17,7 +17,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
     const [isOpen5, setIsOpen5] = useState(false);
     const [isOpen6, setIsOpen6] = useState(false);
     const [isOpen7, setIsOpen7] = useState(false);
-
+    console.log(data);
     return (
         <>
             <div
@@ -391,9 +391,9 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                         )}
                                     </ul>
                                 </li>
-
+                                {/* TODO remove comments if not necessary */}
                                 {/* Sixth list */}
-                                <li
+                                {/* <li
                                     className={`rounded-md p-2 hover:bg-red-upschool  ${
                                         !isOpen6 && 'hover:scale-110'
                                     } max-w-full`}
@@ -456,9 +456,9 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             ),
                                         )}
                                     </ul>
-                                </li>
+                                </li> */}
                                 {/* seventh list */}
-                                <li
+                                {/* <li
                                     className={`rounded-md p-2 hover:bg-red-upschool  ${
                                         !isOpen7 && 'hover:scale-110'
                                     } max-w-full`}
@@ -521,7 +521,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             ),
                                         )}
                                     </ul>
-                                </li>
+                                </li> */}
                                 {/* Eight List */}
                                 {/* <li className="rounded-md p-2 text-sm hover:bg-red-upschool  hover:scale-110">
                                     <NavLink to={navData.path || '#'}>
