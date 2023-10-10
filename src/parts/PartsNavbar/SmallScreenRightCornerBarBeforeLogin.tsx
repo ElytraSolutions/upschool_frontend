@@ -30,11 +30,15 @@ const SmallScreenRightCornerBarBeforeLogin = () => {
                     isClicked && 'scale-100'
                 }  absolute transition duration-150 ease-in-out origin-top -translate-x-4 sm:-translate-x-5  md:-translate-x-7  overflow-hidden`}
             >
-                <li className="hover:bg-red-upschool  hover:text-white p-1 sm:p-2 md:px-6 md:py-3">
-                    <NavLink to="/login">Login</NavLink>
+                <li className="hover:bg-red-upschool  hover:text-white ">
+                    <NavLink to="/login">
+                        <p className="p-1 sm:p-2 md:px-6 md:py-3">Login</p>
+                    </NavLink>
                 </li>
-                <li className="hover:bg-red-upschool hover:text-white p-1 sm:p-2 md:px-6 md:py-3">
-                    <NavLink to="/register">register</NavLink>
+                <li className="hover:bg-red-upschool hover:text-white">
+                    <NavLink to="/register">
+                        <p className="p-1 sm:p-2 md:px-6 md:py-3">register</p>
+                    </NavLink>
                 </li>
             </ul>
         </div>

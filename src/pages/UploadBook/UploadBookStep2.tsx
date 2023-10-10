@@ -11,9 +11,9 @@ export function UploadBookStep2({
     submitHandler,
 }: IStep2Props) {
     return (
-        <div className="flex flex-col gap-12 pt-10 text-font-color ">
+        <div className="flex flex-col gap-9 pt-10 pb-5 text-font-color ">
             <div className="flex items-center justify-start">
-                <h1 className="text-xl sm:text-2xl tab:text-3xl xl:text-4xl 2xl:text-5xl  font-medium lg:font-semibold">
+                <h1 className="text-font-color text-base lg:text-xl   font-medium lg:font-semibold">
                     Upload Your Book!
                 </h1>
             </div>
@@ -30,7 +30,7 @@ export function UploadBookStep2({
                     <>
                         <form
                             onSubmit={handleSubmit}
-                            className="flex flex-col gap-1 md:gap-8"
+                            className="flex flex-col gap-1 md:gap-4"
                         >
                             <div className="flex flex-col gap-4">
                                 <div className="flex flex-row items-center justify-between">
@@ -54,13 +54,13 @@ export function UploadBookStep2({
                                 </div>
                                 {/* Display progress for checking uploaded file for uploading it as the book */}
                                 {/*  TODO logic for showing progress after checking file */}
-                                <div className="w-full rounded-lg bg-gray-200 h-4">
+                                <div className="w-full rounded-lg bg-gray-200 h-3">
                                     <div className="w-1/2 h-full rounded-lg bg-theme-color"></div>
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-10 md:gap-20">
+                            <div className="flex flex-col gap-10 md:gap-10">
                                 <div className="flex flex-col gap-1 md:gap-3 items-start mt-5 text-xs tab:text-sm ">
-                                    <div className="text-sm sm:text-base tab:text-xl font-medium lg:font-semibold">
+                                    <div className="text-sm sm:text-base 2xl:text-lg  font-medium lg:font-semibold">
                                         Checking your book for the following:
                                     </div>
                                     {/*  TODO logic after checking file criteria and finding error or not and showing respective comments or text for following options */}
@@ -176,18 +176,18 @@ export function UploadBookStep2({
                                 >
                                     <button
                                         type="submit"
-                                        className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                                        className="col-start-4 col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
                                     >
                                         <span
                                             className={`${
                                                 isLargeScreen
-                                                    ? 'text-xl'
+                                                    ? 'text-base'
                                                     : 'text-sm'
                                             }`}
                                         >
                                             Next
                                         </span>
-                                        <span className="hidden sm:inline">
+                                        <span className="hidden  sm:flex sm:items-center pt-1">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"

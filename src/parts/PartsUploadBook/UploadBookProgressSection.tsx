@@ -8,23 +8,17 @@ export const UploadBookProgressSection = ({
 }: ProgressSectionUBPorps) => {
     return (
         <>
-            <div
-                className=" col-span-5 flex flex-wrap content-center justify-center bg-theme-color"
-                style={{ height: 'inherit' }}
-            >
+            <div className=" col-span-5 flex flex-wrap content-center justify-center bg-theme-color h-full w-full">
                 {/* second column layout */}
-                <div
-                    className=" relative w-11/12"
-                    style={{ height: 'inherit' }}
-                >
-                    <div className="grid grid-rows-13 gap-y-3 max-h-full py-2">
+                <div className=" relative w-11/12 h-fit">
+                    <div className="grid grid-rows-11 gap-y-3 h-fit py-6">
                         {/* first row:progress stepper */}
-                        <div className="row-start-2 row-span-9 grid grid-cols-4 grid-rows-9 place-items-center gap-y-3  mb-2">
+                        <div className="row-span-9 grid grid-cols-4 place-items-center mb-2">
                             {/* first label */}
                             <div className="col-span-1">
                                 {/* Circle container */}
                                 {/* Circle */}
-                                <div className="border-2 border-pink-600 bg-white w-10 h-10 rounded-full">
+                                <div className="border-2 border-pink-600 bg-white w-8 h-8 rounded-full">
                                     {/* tick mark */}
                                     <span>
                                         <svg
@@ -33,7 +27,7 @@ export const UploadBookProgressSection = ({
                                             viewBox="0 0 24 24"
                                             strokeWidth="1.5"
                                             stroke="currentColor"
-                                            className={`relative w-8 h-8 mt-1 text-theme-color ${
+                                            className={`relative w-6 h-6 mt-1 text-theme-color ${
                                                 currentStep > 0 ? '' : 'hidden'
                                             }`}
                                         >
@@ -54,7 +48,7 @@ export const UploadBookProgressSection = ({
                             {/* first line */}
                             <div className=" col-start-1 col-span-1">
                                 <div
-                                    className={`h-8 max-h-full border w-0  ${
+                                    className={`h-6  max-h-full border w-0  ${
                                         currentStep > 0
                                             ? 'border-white'
                                             : 'border-gray-400'
@@ -72,7 +66,7 @@ export const UploadBookProgressSection = ({
                                         currentStep > 1
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2  w-10 h-10 rounded-full`}
+                                    } border-2  w-8 h-8 rounded-full`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -84,7 +78,7 @@ export const UploadBookProgressSection = ({
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 2 ? '' : 'hidden'
-                                            } relative w-8 h-8 mt-1 text-theme-color`}
+                                            } relative w-6 h-6 mt-1 text-theme-color`}
                                         >
                                             <path
                                                 strokeLinecap="round"
@@ -110,7 +104,7 @@ export const UploadBookProgressSection = ({
                             {/* second line */}
                             <div className=" col-start-1 col-span-1 ">
                                 <div
-                                    className={`h-8 max-h-full border w-0 ${
+                                    className={`h-6  max-h-full border w-0 ${
                                         currentStep > 2
                                             ? 'border-white'
                                             : 'border-gray-400'
@@ -128,7 +122,7 @@ export const UploadBookProgressSection = ({
                                         currentStep > 2
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2 w-10 h-10 rounded-full`}
+                                    } border-2 w-8 h-8 rounded-full`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -140,7 +134,7 @@ export const UploadBookProgressSection = ({
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 3 ? '' : 'hidden'
-                                            } relative w-8 h-8 mt-1 text-theme-color`}
+                                            } relative w-6 h-6 mt-1 text-theme-color`}
                                         >
                                             <path
                                                 strokeLinecap="round"
@@ -167,7 +161,7 @@ export const UploadBookProgressSection = ({
                             {/* fourth line */}
                             <div className=" col-start-1 col-span-1">
                                 <div
-                                    className={`h-8 max-h-full border w-0  ${
+                                    className={`h-6  max-h-full border w-0  ${
                                         currentStep > 3
                                             ? 'border-white'
                                             : 'border-gray-400'
@@ -185,7 +179,7 @@ export const UploadBookProgressSection = ({
                                         currentStep > 3
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2  w-10 h-10 rounded-full`}
+                                    } border-2  w-8 h-8 rounded-full`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -197,7 +191,7 @@ export const UploadBookProgressSection = ({
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 4 ? '' : 'hidden'
-                                            } relative w-8 h-8 mt-1 text-theme-color`}
+                                            } relative w-6 h-6 mt-1 text-theme-color`}
                                         >
                                             <path
                                                 strokeLinecap="round"
@@ -223,7 +217,7 @@ export const UploadBookProgressSection = ({
                             {/* fourth line*/}
                             <div className=" col-start-1 col-span-1">
                                 <div
-                                    className={`h-8 max-h-full border w-0  ${
+                                    className={`h-6  max-h-full border w-0  ${
                                         currentStep > 4
                                             ? 'border-white'
                                             : 'border-gray-400'
@@ -241,7 +235,7 @@ export const UploadBookProgressSection = ({
                                         currentStep > 4
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2  w-10 h-10 rounded-full`}
+                                    } border-2  w-8 h-8 rounded-full`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -253,7 +247,7 @@ export const UploadBookProgressSection = ({
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 5 ? '' : 'hidden'
-                                            } relative w-8 h-8 mt-1 text-theme-color`}
+                                            } relative w-6 h-6 mt-1 text-theme-color`}
                                         >
                                             <path
                                                 strokeLinecap="round"
@@ -278,7 +272,7 @@ export const UploadBookProgressSection = ({
                             </div>
                         </div>
                         {/* second row:progress bar */}
-                        <div className=" row-start-11 row-span-2">
+                        <div className=" row-start-10 row-span-2">
                             <ProgressBarUB currentLevel={currentStep} />
                         </div>
                     </div>

@@ -129,22 +129,20 @@ export default function UploadBook() {
                 />
             ) : (
                 <div
-                    className={`flex justify-center items-center bg-gray-200 py-4 max-h-[90vh] `}
+                    className={`flex justify-center items-center bg-gray-200 py-4 h-full w-full`}
                 >
+                    {/* w-[90vw] xl:w-[75vw] 2xl:w-[60vw] h-[67vh] xs:h-[60vh] xm:h-[65vh] md:h-[70vh] tab:h-[75vh] */}
                     {/*Layout*/}
                     <div
                         className={`grid ${
                             isLargeScreen
                                 ? 'grid-cols-16 ' // h-[75vh]
                                 : 'grid-cols-11' // h-[67vh]
-                        } gap-0 w-[90vw] xl:w-[75vw] 2xl:w-[60vw] h-[67vh] xs:h-[60vh] xm:h-[65vh] md:h-[70vh] tab:h-[75vh]`}
+                        } gap-0 w-fit h-fit`}
                     >
                         {/* first column:Upload Book Form*/}
-                        <div
-                            className="col-span-11 flex  items-center justify-center  overflow-y-auto bg-gray-100 "
-                            style={{ height: 'inherit' }}
-                        >
-                            <div className="w-11/12 h-full ">
+                        <div className="col-span-11 flex  items-center justify-center w-full h-full  bg-gray-100 ">
+                            <div className="relative w-11/12 h-fit py-3 ">
                                 {components[currentStep]}
                             </div>
                         </div>

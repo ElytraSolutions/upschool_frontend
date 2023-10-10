@@ -18,10 +18,10 @@ export function UploadBookStep1({
     submitHandler,
 }: IStep1Props) {
     return (
-        <div className="flex  flex-row items-center w-full justify-center h-full">
-            <div className=" grid grid-rows-6  md:grid-rows-11  gap-3 w-full h-full">
-                <div className="row-start-1  row-span-1 md:row-span-2 flex items-center justify-start">
-                    <h1 className="text-font-color text-xl sm:text-2xl tab:text-3xl xl:text-4xl 2xl:text-5xl  font-medium lg:font-semibold">
+        <div className="flex  flex-row items-center w-full justify-center h-fit">
+            <div className=" grid grid-rows-6  md:grid-rows-7  gap-5 w-full h-full">
+                <div className="row-start-1  row-span-1  flex items-center justify-start">
+                    <h1 className="text-font-color text-base lg:text-xl  py-3  font-medium lg:font-semibold">
                         Upload Your Book!
                     </h1>
                 </div>
@@ -40,9 +40,9 @@ export function UploadBookStep1({
                         setFieldValue,
                     }) => (
                         <>
-                            <div className="md:row-start-3 row-span-5 md:row-span-8 grid grid-rows-6">
+                            <div className="md:row-start-2 row-span-5 md:row-span-6 grid grid-rows-6">
                                 <div className=" row-span-1 rounded-t-lg bg-white p-4 h-full flex items-center justify-center">
-                                    <div className="bg-red-upschool text-white border text-xs sm:text-sm lg:text-base xl:text-lg border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden">
+                                    <div className="bg-red-upschool text-white border text-xs sm:text-sm lg:text-base   2xl:text-xl border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden">
                                         <p className="text-center truncate">
                                             View book Upload Checklist
                                         </p>
@@ -94,7 +94,7 @@ export function UploadBookStep1({
 
                                                             {!values.file ? (
                                                                 <div className="">
-                                                                    <p className=" flex items-center justify-center text-center bg-gray-200 border-2 border-gray-400 border-dashed p-4 h-28 sm:h-32 md:h-40 w-full">
+                                                                    <p className=" flex items-center justify-center text-center text-sm bg-gray-200 border-2 border-gray-400 border-dashed p-4 h-28 sm:h-32 md:h-40 w-full">
                                                                         Click to
                                                                         browse
                                                                         or{' '}
@@ -106,7 +106,7 @@ export function UploadBookStep1({
                                                                     </p>
                                                                 </div>
                                                             ) : (
-                                                                <div className="flex felx-row justify-between bg-gray-100 border-2 border-gray-300 border-dashed p-4  ">
+                                                                <div className="flex felx-row justify-between  bg-gray-100 border-2 border-gray-300 border-dashed p-4  ">
                                                                     <h4>
                                                                         {
                                                                             values
@@ -140,18 +140,18 @@ export function UploadBookStep1({
                                     >
                                         <button
                                             type="submit"
-                                            className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                                            className="col-start-4 col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
                                         >
                                             <span
                                                 className={`${
                                                     isLargeScreen
-                                                        ? 'text-xl'
+                                                        ? 'text-base'
                                                         : 'text-sm'
                                                 }`}
                                             >
                                                 Next
                                             </span>
-                                            <span className="hidden sm:inline">
+                                            <span className="hidden  sm:flex sm:items-center pt-1">
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"

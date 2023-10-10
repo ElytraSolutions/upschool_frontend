@@ -11,12 +11,12 @@ type CardProps = {
 
 export const Card = ({ project, setFieldValue, submitForm }: CardProps) => {
     return (
-        <div className=" rounded-lg text-theme-color text-sm lg:text-base flex flex-col gap-1 overflow-hidden bg-slate-200 max-h-72">
-            <div className="bg-yellow-600 h-[35%] overflow-hidden flex-1">
+        <div className=" rounded-lg text-theme-color text-sm lg:text-base flex flex-col gap-1  bg-slate-200 h-full">
+            <div className="bg-yellow-600 h-32 rounded-t-lg overflow-hidden">
                 <img
                     src={project.image}
                     alt="logo"
-                    className="w-full h-full"
+                    className="w-full h-full "
                     loading="lazy"
                 />
             </div>

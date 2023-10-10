@@ -24,16 +24,16 @@ function UploadBookStep5({
     );
     return (
         <>
-            <div className="flex flex-col gap-2 my-4">
+            <div className="flex flex-col gap-2 my-4  w-[600px] h-[500px] overflow-y-scroll overflow-x-hidden ">
                 <div className="flex items-center justify-start py-3">
-                    <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl 2xl:text-3xl  font-medium lg:font-semibold">
+                    <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl font-medium lg:font-semibold">
                         Select Your Project
                     </h1>
                 </div>
-                <div className="py-3">
+                <div className="py-2">
                     <input
                         type="search"
-                        className="w-full h-fit lg:py-3 px-4  text-base tab:text-lg lg:text-xl  font-normal  text-theme-color border rounded-md border-gray-400 focus:outline-none bg-gray-100"
+                        className="w-full h-fit lg:py-1.5 px-4  text-sm sm:text-base  font-normal  text-theme-color border rounded-md border-gray-400 focus:outline-none bg-gray-100"
                         placeholder="Search Your Project"
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             setQuery(e.target.value)

@@ -8,13 +8,13 @@ function UploadBookProgressBar({ currentLevel }: ProgressBarUBPorps) {
     return (
         <div className="grid w-full grid-cols-10">
             <div className=" col-start-2 col-end-11 flex  w-full flex-col text-white ">
-                <span className="text-base">step {step} of 5</span>
-                <span className="text-xl">{`${
+                <span className="text-sm">step {step} of 5</span>
+                <span className="text-base">{`${
                     percent[step - 1]
                 }% to complete`}</span>
-                <div className="mt-2 h-6 w-full rounded-e-xl rounded-s-md bg-white">
+                <div className="mt-2 h-5 w-full rounded-e-xl rounded-s-md bg-white">
                     <div
-                        className={`h-6 bg-pink-400 ${
+                        className={`h-5 bg-pink-400 ${
                             currentLevel === 2
                                 ? 'w-1/5'
                                 : currentLevel === 3

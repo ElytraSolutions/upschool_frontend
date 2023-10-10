@@ -28,7 +28,6 @@ export default function Navbar() {
 
     useEffect(() => {
         refresh();
-        console.log(isLoggedIn);
         const handleScroll = () => {
             if (window.scrollY > 0) {
                 setIsScrolled(true);
@@ -63,7 +62,7 @@ export default function Navbar() {
             <div
                 className={`${
                     isScrolled ? 'fixed' : ''
-                } h-fit z-20 w-screen bg-theme-color px-1 py-2 md:py-3 md:px-2  flex flex-1 items-center `}
+                } h-fit z-20 w-full bg-theme-color px-1 py-2 md:py-3 md:px-2  flex flex-1 items-center `}
             >
                 <div className="flex flex-1 gap-2 md:gap-3 items-center lg:gap-10 justify-between w-full">
                     <div
@@ -84,7 +83,7 @@ export default function Navbar() {
                         {isBigScreen && <ComputerMenu />}
                     </div>
                     {/* TODO left to maintain CSS properties */}
-                    <div className="flex flex-1  xm:gap-1 lg:gap-2 2xl:gap-3 justify-end items-center mr-3 z-10">
+                    <div className="flex flex-1  xm:gap-1 lg:gap-2 2xl:gap-3 justify-end items-center pr-3 z-10">
                         <span className="">
                             <NavLink to="/">
                                 <CartIcon />
