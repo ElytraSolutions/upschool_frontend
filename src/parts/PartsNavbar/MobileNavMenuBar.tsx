@@ -15,8 +15,9 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
     const [isOpen3, setIsOpen3] = useState(false);
     const [isOpen4, setIsOpen4] = useState(false);
     const [isOpen5, setIsOpen5] = useState(false);
-    const [isOpen6, setIsOpen6] = useState(false);
-    const [isOpen7, setIsOpen7] = useState(false);
+    // TODO remove comments if not necessary
+    // const [isOpen6, setIsOpen6] = useState(false);
+    // const [isOpen7, setIsOpen7] = useState(false);
     console.log(data);
     return (
         <>
@@ -92,8 +93,8 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 setIsOpen3(false);
                                                 setIsOpen4(false);
                                                 setIsOpen5(false);
-                                                setIsOpen6(false);
-                                                setIsOpen7(false);
+                                                // setIsOpen6(false);
+                                                // setIsOpen7(false);
                                             }}
                                         >
                                             <svg
@@ -158,8 +159,8 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 setIsOpen3(false);
                                                 setIsOpen4(false);
                                                 setIsOpen5(false);
-                                                setIsOpen6(false);
-                                                setIsOpen7(false);
+                                                // setIsOpen6(false);
+                                                // setIsOpen7(false);
                                             }}
                                         >
                                             <svg
@@ -224,8 +225,8 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 );
                                                 setIsOpen4(false);
                                                 setIsOpen5(false);
-                                                setIsOpen6(false);
-                                                setIsOpen7(false);
+                                                // setIsOpen6(false);
+                                                // setIsOpen7(false);
                                             }}
                                         >
                                             <svg
@@ -290,8 +291,8 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                     (oldstate) => !oldstate,
                                                 );
                                                 setIsOpen5(false);
-                                                setIsOpen6(false);
-                                                setIsOpen7(false);
+                                                // setIsOpen6(false);
+                                                // setIsOpen7(false);
                                             }}
                                         >
                                             <svg
@@ -356,8 +357,8 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 setIsOpen5(
                                                     (oldstate) => !oldstate,
                                                 );
-                                                setIsOpen6(false);
-                                                setIsOpen7(false);
+                                                // setIsOpen6(false);
+                                                // setIsOpen7(false);
                                             }}
                                         >
                                             <svg
