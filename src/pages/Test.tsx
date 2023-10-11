@@ -13,7 +13,7 @@ function Test() {
     return (
         <div>
             {JSON.stringify(data)}
-            <br /> rand
+            <br />
             <br />
             {JSON.stringify(user)}
         </div>
