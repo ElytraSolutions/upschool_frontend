@@ -129,7 +129,7 @@ export default function UploadBook() {
                 />
             ) : (
                 <div
-                    className={`flex justify-center items-center bg-gray-200 py-4 h-full w-full`}
+                    className={`flex justify-center items-center bg-gray-200 py-4 px-2 h-full w-full`}
                 >
                     {/* w-[90vw] xl:w-[75vw] 2xl:w-[60vw] h-[67vh] xs:h-[60vh] xm:h-[65vh] md:h-[70vh] tab:h-[75vh] */}
                     {/*Layout*/}

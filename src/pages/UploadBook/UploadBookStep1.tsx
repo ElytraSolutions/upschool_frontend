@@ -18,7 +18,7 @@ export function UploadBookStep1({
     submitHandler,
 }: IStep1Props) {
     return (
-        <div className="flex  flex-row items-center w-full justify-center h-fit">
+        <div className="flex  flex-row items-center w-full justify-center h-[565px]">
             <div className=" grid grid-rows-6  md:grid-rows-7  gap-5 w-full h-full">
                 <div className="row-start-1  row-span-1  flex items-center justify-start">
                     <h1 className="text-font-color text-base lg:text-xl  py-3  font-medium lg:font-semibold">

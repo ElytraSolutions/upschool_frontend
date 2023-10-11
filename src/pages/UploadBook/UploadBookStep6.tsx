@@ -9,7 +9,7 @@ const style =
     'flex items-start justify-start py-1 gap-1 md:gap-2 lg:gap-3 text-sm tab:text-base 2xl:text-xl ';
 const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
     return (
-        <div className="flex flex-row justify-center items-center h-fit w-[600px]">
+        <div className="flex flex-row justify-center items-center h-[565px] w-[600px]">
             <div className="flex flex-col items-start text-font-color font-medium lg:font-semibold ">
                 <div className="flex items-center justify-start py-3">
                     <h1 className="text-base tab:text-xl xl:text-2xl 2xl:text-3xl">

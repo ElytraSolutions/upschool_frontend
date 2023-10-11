@@ -24,7 +24,7 @@ function UploadBookStep5({
     );
     return (
         <>
-            <div className="flex flex-col gap-2 my-4  w-[600px] h-[500px] overflow-y-scroll overflow-x-hidden ">
+            <div className="flex flex-col gap-2 my-4  w-[600px] h-[535px] overflow-y-scroll overflow-x-hidden ">
                 <div className="flex items-center justify-start py-3">
                     <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl font-medium lg:font-semibold">
                         Select Your Project

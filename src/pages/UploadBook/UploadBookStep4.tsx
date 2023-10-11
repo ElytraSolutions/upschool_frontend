@@ -22,7 +22,7 @@ export function UploadBookStep4({
     backHandler,
 }: IStep4Props) {
     return (
-        <div className="h-[500px] overflow-y-scroll overflow-x-hidden">
+        <div className="h-[565px] overflow-y-scroll overflow-x-hidden">
             <Formik
                 onSubmit={submitHandler}
                 initialValues={oldValues}
