@@ -18,10 +18,10 @@ export function UploadBookStep1({
     submitHandler,
 }: IStep1Props) {
     return (
-        <div className="flex  flex-row items-center w-full justify-center h-[565px]">
+        <div className="flex  flex-row items-center w-full justify-center h-full xm:h-[565px]">
             <div className=" grid grid-rows-6  md:grid-rows-7  gap-5 w-full h-full">
                 <div className="row-start-1  row-span-1  flex items-center justify-start">
-                    <h1 className="text-font-color text-base lg:text-xl  py-3  font-medium lg:font-semibold">
+                    <h1 className="text-font-color text-base lg:text-xl  py-3  font-medium lg:font-semibold font-lexend">
                         Upload Your Book!
                     </h1>
                 </div>
@@ -140,7 +140,7 @@ export function UploadBookStep1({
                                     >
                                         <button
                                             type="submit"
-                                            className="col-start-4 col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
+                                            className="col-start-3 xm:col-start-4 col-span-2 xm:col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
                                         >
                                             <span
                                                 className={`${

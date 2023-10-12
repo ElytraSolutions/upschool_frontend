@@ -24,13 +24,13 @@ function UploadBookStep5({
     );
     return (
         <>
-            <div className="flex flex-col gap-2 my-4  w-[600px] h-[535px] overflow-y-scroll overflow-x-hidden ">
-                <div className="flex items-center justify-start py-3">
-                    <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl font-medium lg:font-semibold">
+            <div className="flex flex-col gap-2 p-3 pt-4  w-full  h-full xm:h-[565px] overflow-y-scroll overflow-x-hidden ">
+                <div className="flex items-center justify-start w-fit">
+                    <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl font-medium lg:font-semibold w-full font-lexend ">
                         Select Your Project
                     </h1>
                 </div>
-                <div className="py-2">
+                <div className="py-2 w-full">
                     <input
                         type="search"
                         className="w-full h-fit lg:py-1.5 px-4  text-sm sm:text-base  font-normal  text-theme-color border rounded-md border-gray-400 focus:outline-none bg-gray-100"
@@ -56,8 +56,11 @@ function UploadBookStep5({
                         submitForm,
                     }) => (
                         <>
-                            <form onSubmit={handleSubmit}>
-                                <div className="grid sm:grid-cols-2 lg:grid-cols-3  gap-4 w-full">
+                            <form
+                                onSubmit={handleSubmit}
+                                className="w-fit h-fit"
+                            >
+                                <div className="flex flex-wrap gap-6 w-fit justify-center">
                                     {query
                                         ? searchResult.map((project) => (
                                               <Card

@@ -30,10 +30,10 @@ export default function BookUpdated({
                             </p>
                         </div>
                     </div>
-                    <div className="flex  flex-col m-3  xs:mx-3 xs:my-6   xs:flex-row xs:justify-around  md:justify-evenly w-10/12 xs:w-full">
+                    <div className="flex  flex-col m-3  xs:mx-3 xs:my-6   xs:flex-row xs:justify-around  md:justify-evenly text-sm w-10/12 xs:w-full">
                         <NavLink to="/dashboard" className="my-1 xs:my-0">
                             <div
-                                className=" bg-red-upschool text-white py-2 px-4  sm:py-4 sm:px-8  "
+                                className=" bg-red-upschool  text-white py-2 px-4  sm:py-4 sm:px-8  "
                                 onClick={() => {
                                     setIsUploadBookCompleted(false);
                                     setCurrentStep(0);
