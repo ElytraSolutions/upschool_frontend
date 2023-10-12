@@ -17,6 +17,7 @@ function Test() {
             <h1>heheh</h1>
             <br />
             <>This is the test</>
+            <>This is the test</>
             <br />
             {JSON.stringify(user)}
         </div>
