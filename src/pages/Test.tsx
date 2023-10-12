@@ -14,6 +14,7 @@ function Test() {
         <div>
             {JSON.stringify(data)}
             <br />
+            <>This is the test</>
             <br />
             {JSON.stringify(user)}
         </div>
