@@ -26,7 +26,7 @@ function UploadBookStep5({
         <>
             <div className="flex flex-col gap-2 p-3 pt-4  w-full  h-full xm:h-[565px] overflow-y-scroll overflow-x-hidden ">
                 <div className="flex items-center justify-start w-fit">
-                    <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl font-medium lg:font-semibold w-full">
+                    <h1 className="text-font-color text-sm sm:text-base tab:text-xl xl:text-2xl font-medium lg:font-semibold w-full font-lexend ">
                         Select Your Project
                     </h1>
                 </div>

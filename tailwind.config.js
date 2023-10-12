@@ -9,6 +9,10 @@ export default {
                 'red-upschool': '#B81342',
                 'red-custom': '#BC0D4D',
             },
+            fontFamily: {
+                lexend: ['Lexend', 'sans-serif'],
+                check: ['"Pixelify Sans"', 'sans-serif'],
+            },
             flexGrow: {
                 2: '2',
                 3: '3',
