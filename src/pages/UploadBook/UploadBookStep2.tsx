@@ -11,7 +11,7 @@ export function UploadBookStep2({
     submitHandler,
 }: IStep2Props) {
     return (
-        <div className="flex flex-col gap-9 pt-10 pb-5 text-font-color h-[565px] w-fit">
+        <div className="flex flex-col gap-9 pt-10 pb-5 text-font-color  h-full xm:h-[565px] w-fit">
             <div className="flex items-center justify-start">
                 <h1 className="text-font-color text-base lg:text-xl   font-medium lg:font-semibold">
                     Upload Your Book!
@@ -176,7 +176,7 @@ export function UploadBookStep2({
                                 >
                                     <button
                                         type="submit"
-                                        className="col-start-4 col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
+                                        className="col-start-3 xm:col-start-4 col-span-2 xm:col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
                                     >
                                         <span
                                             className={`${

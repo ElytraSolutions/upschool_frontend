@@ -45,7 +45,7 @@ export function UploadBookStep3({
     submitHandler,
 }: IStep3Props) {
     return (
-        <div className="h-[565px] overflow-y-scroll overflow-x-hidden">
+        <div className=" h-full xm:h-[565px] overflow-y-scroll overflow-x-hidden">
             <Formik
                 onSubmit={submitHandler}
                 initialValues={oldValues}
@@ -297,7 +297,7 @@ export function UploadBookStep3({
 
                                 <button
                                     type="submit"
-                                    className="col-start-4 col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
+                                    className="col-start-3 xm:col-start-4 col-span-2 xm:col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
                                 >
                                     <span
                                         className={`${

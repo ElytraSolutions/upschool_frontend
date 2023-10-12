@@ -138,7 +138,7 @@ export default function UploadBook() {
                             isLargeScreen
                                 ? 'grid-cols-16 ' // h-[75vh]
                                 : 'grid-cols-11' // h-[67vh]
-                        } gap-0 w-fit h-fit`}
+                        } gap-0  w-[95%] sm:w-[90vw] md:w-[80vw]  lg:w-[75vw] 2xl:w-[65vw] h-fit`}
                     >
                         {/* first column:Upload Book Form*/}
                         <div className="col-span-11 flex  items-center justify-center w-full h-full  bg-gray-100 ">
