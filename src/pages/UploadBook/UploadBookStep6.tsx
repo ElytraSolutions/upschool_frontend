@@ -12,7 +12,7 @@ const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
         <div className="flex flex-row justify-center  h-full xm:h-[565px] w-fit  overflow-y-auto overflow-x-hidden ">
             <div className="text-font-color font-medium lg:font-semibold w-full ">
                 <div className="flex items-center justify-start py-3 w-full">
-                    <p className="text-sm sm:text-base tab:text-xl xl:text-2xl  ">
+                    <p className="text-sm sm:text-base tab:text-xl xl:text-2xl  font-lexend">
                         Book Summary and Preview
                     </p>
                 </div>

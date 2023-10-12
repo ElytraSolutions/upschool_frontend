@@ -42,7 +42,7 @@ export function UploadBookStep4({
                             className="w-full h-fit p-2 py-4"
                         >
                             <div className="w-full flex flex-col gap-4 justify-center">
-                                <h2 className=" text-lg xl:text-xl font-semibold text-font-color py-2">
+                                <h2 className=" text-lg xl:text-xl font-semibold text-font-color py-2 font-lexend ">
                                     Please select up to 5 categories
                                 </h2>
                                 <div className="grid sm:grid-cols-2 gap-2 gap-x-6">

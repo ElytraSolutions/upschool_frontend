@@ -13,7 +13,7 @@ export function UploadBookStep2({
     return (
         <div className="flex flex-col gap-9 pt-10 pb-5 text-font-color  h-full xm:h-[565px] w-fit">
             <div className="flex items-center justify-start">
-                <h1 className="text-font-color text-base lg:text-xl   font-medium lg:font-semibold">
+                <h1 className="text-font-color text-base lg:text-xl   font-medium lg:font-semibold font-lexend">
                     Upload Your Book!
                 </h1>
             </div>
