@@ -85,7 +85,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                     <div className="flex flex-row gap-2  items-center justify-between">
                         {/* Title */}
                         <div className="flex flex-row  items-center gap-2 xm:gap-4 w-fit font-semibold">
-                            <p className=" text-base xm:text-xl lg:text-2xl">
+                            <p className=" text-base xm:text-xl lg:text-2xl font-lexend">
                                 {topic}
                             </p>
                             {!isXtraSmall && (
