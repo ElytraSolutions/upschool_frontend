@@ -13,6 +13,7 @@ function Test() {
     return (
         <div>
             {JSON.stringify(data)}
+            <p>hello</p>
             <br />
             <br />
             {JSON.stringify(user)}
