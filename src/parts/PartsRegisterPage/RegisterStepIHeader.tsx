@@ -8,24 +8,25 @@ export default function RegisterStepIHeader({
     isLargeScreen,
 }: IRegisterStepIHeader) {
     return (
-        <div className="mt-5">
-            <h1 className="text-2xl font-bold text-font-color md:p-2 md:m-2">
+        <div className=" flex flex-col gap-4">
+            <h1 className=" text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-font-color  font-lexend">
                 Create Your Upschool Account
             </h1>
-            <h3 className="text-font-color font-normal md:p-2 md:m-2">
+            <h3 className="text-font-color text-sm  lg:text-base font-normal  ">
                 You are a few clicks away from creating your account
             </h3>
             <div
                 className={`${
                     showOauth ? 'grid' : 'hidden'
-                } grid-cols-4 gap-4  p-2 m-2 w-11/12`}
+                } grid-cols-4 gap-3 w-full`}
             >
                 <button
+                    type="button"
                     className={`${
                         isLargeScreen
                             ? 'col-span-2 justify-center'
                             : 'col-span-4 justify-start pl-2'
-                    } flex flex-wrap  gap-1 items-center border border-font-color p-1 rounded-md`}
+                    } flex flex-wrap  gap-1 justify-center items-center border border-font-color p-1 rounded-md`}
                 >
                     <span>
                         <svg
@@ -59,11 +60,12 @@ export default function RegisterStepIHeader({
                     </span>
                 </button>
                 <button
+                    type="button"
                     className={`${
                         isLargeScreen
                             ? 'col-span-2 justify-center'
                             : 'col-span-4 justify-start pl-2'
-                    } flex flex-wrap  gap-1 items-center border border-font-color p-1 rounded-md`}
+                    } flex flex-wrap  gap-1 justify-center items-center border border-font-color p-1 rounded-md`}
                 >
                     <span>
                         <svg

@@ -41,9 +41,9 @@ export function UploadBookStep1({
                     }) => (
                         <>
                             <div className="md:row-start-2 row-span-5 md:row-span-6 grid grid-rows-6">
-                                <div className=" row-span-1 rounded-t-lg bg-white p-4 h-full flex items-center justify-center">
-                                    <div className="bg-red-upschool text-white border text-xs sm:text-sm lg:text-base   2xl:text-xl border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden">
-                                        <p className="text-center truncate">
+                                <div className=" row-span-1 rounded-t-lg bg-white p-2 sm:p-4 h-full flex items-center justify-center">
+                                    <div className="bg-red-upschool text-white border text-sm lg:text-base   2xl:text-xl border-theme-color rounded-full h-full w-full flex justify-center items-center overflow-hidden p-1">
+                                        <p className="text-center break-words">
                                             View book Upload Checklist
                                         </p>
                                     </div>
@@ -54,7 +54,7 @@ export function UploadBookStep1({
                                     onSubmit={handleSubmit}
                                     className="row-span-5 grid grid-rows-4"
                                 >
-                                    <div className="row-span-3 border border-gray-200 p-2 mt-0 bg-gray-200 rounded-b-lg hover:border-black flex flex-col justify-center h-full ">
+                                    <div className="row-span-3 border border-gray-200 p-2 mt-0 bg-gray-200 rounded-b-lg hover:border-theme-color flex flex-col justify-center h-full ">
                                         <div className="p-4 text-gray-500 text-base font-light w-full">
                                             <Dropzone
                                                 accept={{

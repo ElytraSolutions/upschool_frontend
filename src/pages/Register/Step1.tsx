@@ -50,6 +50,7 @@ export default function Step1({
 }: IStep1Props) {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const size = isLargeScreen ? 'medium' : 'small';
     const handleTogglePasswordVisibility = (
         e: React.MouseEvent<HTMLButtonElement>,
     ) => {
@@ -78,13 +79,13 @@ export default function Step1({
             }) => (
                 <>
                     {/* First step form */}
-                    <form onSubmit={handleSubmit}>
-                        <div
-                            className={`grid w-11/12 grid-cols-4 gap-4 p-2 ${
-                                isLargeScreen ? 'm-2' : 'mx-2 my-0'
-                            }`}
-                        >
+                    <form
+                        onSubmit={handleSubmit}
+                        className="w-full h-fit md:h-full flex flex-col gap-3 justify-between"
+                    >
+                        <div className={`grid w-full grid-cols-4 gap-4`}>
                             <TextField
+                                size={size}
                                 className={`${
                                     isLargeScreen ? 'col-span-2' : 'col-span-4'
                                 }`}
@@ -104,6 +105,7 @@ export default function Step1({
                                 }
                             />
                             <TextField
+                                size={size}
                                 className={`${
                                     isLargeScreen ? 'col-span-2' : 'col-span-4'
                                 }`}
@@ -124,6 +126,7 @@ export default function Step1({
                             />
 
                             <TextField
+                                size={size}
                                 className=" col-span-4"
                                 type="email"
                                 label="Email"
@@ -140,6 +143,7 @@ export default function Step1({
                                 }
                             />
                             <TextField
+                                size={size}
                                 className={`${
                                     isLargeScreen ? 'col-span-2' : 'col-span-4'
                                 }`}
@@ -176,6 +180,7 @@ export default function Step1({
                                 }
                             />
                             <TextField
+                                size={size}
                                 className={`${
                                     isLargeScreen ? 'col-span-2' : 'col-span-4'
                                 }`}
@@ -213,21 +218,13 @@ export default function Step1({
                             />
                         </div>
                         <div
-                            className={`grid grid-cols-4 gap-4  p-2 ${
-                                isLargeScreen ? 'm-2 text-base' : 'm-0 text-sm'
-                            } w-11/12 font-normal`}
+                            className={`grid grid-cols-4  justify-items-end gap-4  text-sm md:text-base w-full h-fit font-normal`}
                         >
                             <button
                                 type="submit"
-                                className="col-span-1 col-start-4 m-1 flex h-12 flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color p-1 text-white"
+                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1  flex  flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
                             >
-                                <span
-                                    className={`${
-                                        isLargeScreen ? 'text-xl' : 'text-sm'
-                                    }`}
-                                >
-                                    Next
-                                </span>
+                                <span>Next</span>
                                 <span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

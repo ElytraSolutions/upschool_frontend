@@ -69,6 +69,7 @@ const Login = () => {
                             </h3>
                             <div className=" grid grid-cols-4 gap-y-2 gap-x-4   px-2 mx-2 w-full">
                                 <button
+                                    type="button"
                                     className={`${
                                         isLargeScreen
                                             ? 'col-span-2 justify-center'
@@ -109,6 +110,7 @@ const Login = () => {
                                     </span>
                                 </button>
                                 <button
+                                    type="button"
                                     className={`${
                                         isLargeScreen
                                             ? 'col-span-2 justify-center'

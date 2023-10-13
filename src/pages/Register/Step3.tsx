@@ -49,7 +49,10 @@ export default function Step3({
             }) => (
                 <>
                     {/* Third step form */}
-                    <form onSubmit={handleSubmit}>
+                    <form
+                        onSubmit={handleSubmit}
+                        className="w-full h-fit md:h-full flex flex-col gap-3 justify-between"
+                    >
                         <div className="grid grid-rows-5 w-full gap-1 mt-1">
                             <div className="row-span-2 flex flex-col flex-1 gap-5">
                                 <h2 className=" text-sm xl:text-lg text-font-color">
@@ -57,7 +60,8 @@ export default function Step3({
                                     Canva Pro Account
                                 </h2>
                                 <TextField
-                                    className=""
+                                    size="small"
+                                    className="w-full"
                                     id="outlined-select-Canva-Account"
                                     select
                                     label=""
@@ -81,69 +85,72 @@ export default function Step3({
                             </div>
                             {values.canvaAccount === 'true' && (
                                 <>
-                                    <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
-                                        <Field
-                                            type="checkbox"
-                                            name="condition1"
-                                            error={
-                                                touched.condition1 &&
-                                                errors.condition1
-                                            }
-                                            helperText={
-                                                touched.condition1 &&
-                                                errors.condition1
-                                            }
-                                        />
-                                        I acknowledge and accept that my
-                                        personal details (name,email) may be
-                                        visible to Upschool users registered
-                                        with Canva.
-                                    </label>
-                                    <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
-                                        <Field
-                                            type="checkbox"
-                                            name="condition2"
-                                            error={
-                                                touched.condition2 &&
-                                                errors.condition2
-                                            }
-                                            helperText={
-                                                touched.condition2 &&
-                                                errors.condition2
-                                            }
-                                        />
-                                        <div>
-                                            I acknowledge that should i not wish
-                                            to have my details visible to
-                                            others, I can instead sing up for
-                                            Canva basic <u>here</u>
-                                        </div>
-                                    </label>
-                                    <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
-                                        <Field
-                                            type="checkbox"
-                                            name="condition3"
-                                            error={
-                                                touched.condition3 &&
-                                                errors.condition3
-                                            }
-                                            helperText={
-                                                touched.condition3 &&
-                                                errors.condition3
-                                            }
-                                        />
-                                        <div>
-                                            I agree to Upschool's{' '}
-                                            <u>Terms and Conditions</u> and{' '}
-                                            <u>Privacy Policy</u>
-                                        </div>
-                                    </label>
+                                    <div className="row-span-3 grid grid-rows-3  text-sm text-font-color w-full h-fit">
+                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
+                                            <Field
+                                                type="checkbox"
+                                                name="condition1"
+                                                error={
+                                                    touched.condition1 &&
+                                                    errors.condition1
+                                                }
+                                                helperText={
+                                                    touched.condition1 &&
+                                                    errors.condition1
+                                                }
+                                            />
+                                            I acknowledge and accept that my
+                                            personal details (name,email) may be
+                                            visible to Upschool users registered
+                                            with Canva.
+                                        </label>
+                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
+                                            <Field
+                                                type="checkbox"
+                                                name="condition2"
+                                                error={
+                                                    touched.condition2 &&
+                                                    errors.condition2
+                                                }
+                                                helperText={
+                                                    touched.condition2 &&
+                                                    errors.condition2
+                                                }
+                                            />
+                                            <div>
+                                                I acknowledge that should i not
+                                                wish to have my details visible
+                                                to others, I can instead sing up
+                                                for Canva basic <u>here</u>
+                                            </div>
+                                        </label>
+                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
+                                            <Field
+                                                type="checkbox"
+                                                name="condition3"
+                                                error={
+                                                    touched.condition3 &&
+                                                    errors.condition3
+                                                }
+                                                helperText={
+                                                    touched.condition3 &&
+                                                    errors.condition3
+                                                }
+                                            />
+                                            <div>
+                                                I agree to Upschool's{' '}
+                                                <u>Terms and Conditions</u> and{' '}
+                                                <u>Privacy Policy</u>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </>
                             )}
                         </div>
-                        <div className="grid grid-cols-4 gap-4  px-2 mx-2 w-full font-normal text-base">
+                        <div className="grid grid-cols-4 gap-4  text-sm md:text-base w-full h-fit font-normal ">
                             <button
-                                className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
+                                type="button"
+                                className="col-start-1 col-span-2 sm:col-span-1 justify-self-start  flex flex-1 flex-wrap items-center justify-start gap-x-0.5 px-3 py-2  w-fit h-full"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     backHandler(values);
@@ -165,16 +172,16 @@ export default function Step3({
                                         />
                                     </svg>
                                 </span>
-                                <span className="text-xl">
+                                <span>
                                     <u>Back</u>
                                 </span>
                             </button>
 
                             <button
-                                className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex  flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
                                 type="submit"
                             >
-                                <span className="text-xl">Next</span>
+                                <span>Next</span>
                                 <span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

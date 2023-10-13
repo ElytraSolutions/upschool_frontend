@@ -87,24 +87,16 @@ export default function Registration() {
     }
 
     return (
-        <div
-            className="flex justify-center items-center bg-gray-200 py-8"
-            style={{ minHeight: '90vh' }}
-        >
+        <div className="flex justify-center items-center bg-gray-200 py-3 px-2 sm:py-4 md:py-6 lg:py-8 h-full w-full">
             {/*Layout*/}
             <div
                 className={`grid ${
                     isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
-                } gap-0 w-[90vw] xl:w-[60vw] ${
-                    isLargeScreen ? 'min-h-[80vh]' : 'min-h-[85vh]'
-                }`}
+                } gap-0 w-[97vw] sm:w-[90vw] lg:w-[70vw] xl:w-[60vw] h-fit md:h-[465px]`}
             >
                 {/* first column:Registration Form*/}
-                <div
-                    className=" col-span-11 flex flex-wrap content-center  justify-center bg-white"
-                    style={{ height: 'inherit' }}
-                >
-                    <div className="w-11/12 ">
+                <div className=" col-span-11 flex justify-center bg-white py-4 w-full h-full">
+                    <div className="w-11/12 flex flex-col gap-2">
                         {/* <!-- Heading --> */}
                         {currentStep == 0 && (
                             <RegisterStepIHeader
@@ -120,14 +112,14 @@ export default function Registration() {
                         {/* <!-- Form --> */}
                         {/* First form */}
                         {components[currentStep]}
-                    </div>
-                    {!isLargeScreen && (
-                        <div className="text-black grid grid-cols-10 content-center w-full">
-                            <div className="col-span-10 flex flex-1 flex-wrap justify-center text-sm ">
-                                <LoginPart />
+                        {!isLargeScreen && (
+                            <div className="text-font-color grid grid-cols-10 content-center w-full">
+                                <div className="col-span-10 flex flex-1 flex-wrap justify-center text-sm ">
+                                    <LoginPart />
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
                 {/* Second column*/}
                 {isLargeScreen && <ProgressSection currentStep={currentStep} />}

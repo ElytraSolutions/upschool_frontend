@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { countries } from '../../data/countries';
+import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 
 const registerSchema = yup.object().shape({
     country: yup.string().required('required').max(255, 'Characters too long'),
@@ -38,6 +39,9 @@ export default function Step2({
             name: 'School Teacher',
         },
     ];
+
+    const { isLargeScreen } = useScreenWidthAndHeight();
+    const size = isLargeScreen ? 'medium' : 'small';
     return (
         <Formik
             onSubmit={submitHandler}
@@ -53,9 +57,13 @@ export default function Step2({
                 handleSubmit,
             }) => (
                 <>
-                    <form onSubmit={handleSubmit}>
-                        <div className="grid grid-rows-3  w-11/12 gap-4 p-2 m-2">
+                    <form
+                        onSubmit={handleSubmit}
+                        className="w-full h-fit md:h-full flex flex-col gap-3 justify-between"
+                    >
+                        <div className="grid grid-rows-3  w-full gap-4 ">
                             <TextField
+                                size={size}
                                 className="w-full row-span-1"
                                 id="outlined-select-country"
                                 select
@@ -92,6 +100,7 @@ export default function Step2({
                                 ))}
                             </TextField>
                             <TextField
+                                size={size}
                                 className="row-span-1"
                                 id="outlined-select-role"
                                 select
@@ -117,6 +126,7 @@ export default function Step2({
                                 ))}
                             </TextField>
                             <TextField
+                                size={size}
                                 className=" row-span-1"
                                 type="date"
                                 label="Date of Birth"
@@ -133,9 +143,10 @@ export default function Step2({
                                 }
                             />
                         </div>
-                        <div className="grid grid-cols-4 gap-4  p-2 m-2 w-11/12 font-normal text-base">
+                        <div className="grid grid-cols-4 gap-4 text-sm md:text-base w-full font-normal h-fit ">
                             <button
-                                className="col-start-1 col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 m-1 p-1 h-12"
+                                type="button"
+                                className="col-start-1 col-span-2  justify-self-start sm:col-span-1 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 px-3 py-2  w-fit h-full"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     backHandler(values);
@@ -157,16 +168,16 @@ export default function Step2({
                                         />
                                     </svg>
                                 </span>
-                                <span className="text-xl">
+                                <span>
                                     <u>Back</u>
                                 </span>
                             </button>
 
                             <button
                                 type="submit"
-                                className="col-start-4 col-span-1 flex flex-1 flex-wrap items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-12"
+                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex  flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
                             >
-                                <span className="text-xl">Next</span>
+                                <span>Next</span>
                                 <span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
