@@ -11,7 +11,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                 {/* second column layout */}
                 <div className=" relative w-11/12 h-fit">
                     {/* grid of three rows */}
-                    <div className="grid grid-rows-9 gap-y-3 h-fit py-6">
+                    <div className="grid grid-rows-9 gap-y-1 h-fit py-6">
                         {/* first row:progress stepper */}
                         <div className="row-span-5 grid grid-cols-4 grid-rows-5 place-items-center gap-y-3 ">
                             {/* first label */}
@@ -161,7 +161,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                             </div>
                         </div>
                         {/* second row:progress bar */}
-                        <div className=" row-start-7 row-span-2 content-center">
+                        <div className=" row-start-7 row-span-2 flex items-center">
                             <ProgressBar currentLevel={currentStep} />
                         </div>
                         {/* third column:Login link */}

@@ -54,7 +54,7 @@ export default function Step3({
                         className="w-full h-fit md:h-full flex flex-col gap-3 justify-between"
                     >
                         <div className="grid grid-rows-5 w-full gap-1 mt-1">
-                            <div className="row-span-2 flex flex-col flex-1 gap-5">
+                            <div className="row-span-2 flex flex-col flex-1 gap-3 justify-center">
                                 <h2 className=" text-sm xl:text-lg text-font-color">
                                     Would you like us to register you for a FREE
                                     Canva Pro Account

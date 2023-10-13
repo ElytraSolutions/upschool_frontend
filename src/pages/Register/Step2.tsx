@@ -108,7 +108,7 @@ export default function Step2({
                                 defaultValue=""
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.role}
+                                value={values.user_type_id}
                                 name="user_type_id"
                                 error={
                                     Boolean(touched.user_type_id) &&
@@ -132,7 +132,7 @@ export default function Step2({
                                 label="Date of Birth"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.data_of_birth}
+                                value={values.date_of_birth}
                                 name="date_of_birth"
                                 error={
                                     Boolean(touched.date_of_birth) &&

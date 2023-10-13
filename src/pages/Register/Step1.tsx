@@ -93,15 +93,15 @@ export default function Step1({
                                 label="First Name"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.firstName}
+                                value={values.first_name}
                                 name="first_name"
                                 error={
-                                    Boolean(touched.firstName) &&
-                                    Boolean(errors.firstName)
+                                    Boolean(touched.first_name) &&
+                                    Boolean(errors.first_name)
                                 }
                                 helperText={
-                                    touched.firstName &&
-                                    (errors.firstName as string)
+                                    touched.first_name &&
+                                    (errors.first_name as string)
                                 }
                             />
                             <TextField
@@ -113,15 +113,15 @@ export default function Step1({
                                 label="Last Name"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.lastName}
+                                value={values.last_name}
                                 name="last_name"
                                 error={
-                                    Boolean(touched.lastName) &&
-                                    Boolean(errors.lastName)
+                                    Boolean(touched.last_name) &&
+                                    Boolean(errors.last_name)
                                 }
                                 helperText={
-                                    touched.lastName &&
-                                    (errors.lastName as string)
+                                    touched.last_name &&
+                                    (errors.last_name as string)
                                 }
                             />
 
@@ -205,15 +205,15 @@ export default function Step1({
                                 label="Confirm password"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.confirmPassword}
+                                value={values.password_confirmation}
                                 name="password_confirmation"
                                 error={
-                                    Boolean(touched.confirmPassword) &&
-                                    Boolean(errors.confirmPassword)
+                                    Boolean(touched.password_confirmation) &&
+                                    Boolean(errors.password_confirmation)
                                 }
                                 helperText={
-                                    touched.confirmPassword &&
-                                    (errors.confirmPassword as string)
+                                    touched.password_confirmation &&
+                                    (errors.password_confirmation as string)
                                 }
                             />
                         </div>
