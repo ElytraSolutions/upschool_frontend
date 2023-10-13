@@ -21,17 +21,17 @@ const submitHandler = async (_values: any, onSubmitProps: any) => {
 export default function ResetPasswordEmail() {
     return (
         <>
-            <div className="  w-full h-[80vh] bg-gray-300 flex justify-center items-start">
-                <div className="flex justify-center bg-white w-10/12 md:w-2/3 lg:w-[768px] h-2/3 md:h-3/5 lg:h-[60%] mt-10">
-                    <div className="w-11/12 h-[90%] flex flex-col gap-4">
+            <div className="  w-full h-fit bg-gray-200 flex justify-center items-start py-3 sm:py-4 md:py-6 xl:py-10">
+                <div className="flex justify-center bg-white w-10/12 md:w-2/3 lg:w-[768px]  ">
+                    <div className="w-11/12 flex flex-col gap-4">
                         <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
-                            <h3 className="text-font-color font-normal text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl">
+                            <h3 className="text-font-color font-normal text-sm sm:text-base md:text-xl ">
                                 we'll sen password reset instructions to the
                                 email address associated with your account.
                             </h3>
                         </div>
                         <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
-                            <h1 className="text-font-color font-semibold text-sm xs:text-base sm:text-xl md:text-2xl lg:text-3xl">
+                            <h1 className="text-font-color font-semibold text-sm xs:text-base md:text-xl  font-lexend">
                                 Enter Email Address
                             </h1>
                         </div>
@@ -72,9 +72,9 @@ export default function ResetPasswordEmail() {
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className=" row-span-1 col-span-1 m-auto p-4 bg-theme-color text-white text-center w-full  overflow-hidden"
+                                                className=" row-span-1 col-span-2 xm:col-span-1 m-auto p-4 bg-theme-color text-white text-center  w-fit xm:w-full  overflow-hidden"
                                             >
-                                                <span className="inline-block  text-xs xs:text-sm md:text-base">
+                                                <span className="inline-block  text-sm md:text-base">
                                                     Reset Password
                                                 </span>
                                             </button>

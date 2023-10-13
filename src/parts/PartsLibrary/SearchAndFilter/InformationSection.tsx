@@ -85,7 +85,7 @@ const InformationSection: React.FC<InformationSectionProps> = ({
                             key={index}
                             className="flex flex-col gap-2 pb-1 sm:pb-3"
                         >
-                            <div className="flex flex-row  items-center gap-1 font-semibold text-sm md:text-base">
+                            <div className="flex flex-row  items-center gap-1 font-semibold text-sm md:text-base font-lexend">
                                 <p
                                     className="hover:cursor-pointer text-xs md:text-sm lg:text-lg pb-0.5"
                                     onClick={() => {

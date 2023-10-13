@@ -51,20 +51,20 @@ export default function ResetPassword() {
     };
     return (
         <>
-            <div className="  w-full h-[80vh] bg-gray-300 flex justify-center items-start">
-                <div className="flex justify-center bg-white w-10/12 md:w-2/3 lg:w-[768px] h-2/3 md:h-3/5 lg:h-[60%] mt-10">
-                    <div className="w-11/12 h-[90%] flex flex-col gap-4 my-1 sm:my-2 md:my-3 lg:my-6">
-                        <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
-                            <h1 className="text-font-color font-semibold text-base xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+            <div className="  w-full h-fit bg-gray-200 flex justify-center items-start py-3 sm:py-4 md:py-6 xl:py-10">
+                <div className="flex justify-center bg-white w-10/12 md:w-2/3 lg:w-[768px] ">
+                    <div className="w-11/12 flex flex-col gap-1">
+                        <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 ">
+                            <h1 className="text-font-color font-semibold text-base md:text-xl  xl:text-2xl font-lexend">
                                 Reset Your Upschool.co Password
                             </h1>
                         </div>
-                        <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
-                            <h3 className="text-font-color font-normal text-xs xs:text-sm sm:text-base md:text-xl lg:text-2xl">
+                        <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 ">
+                            <h3 className="text-font-color font-normal text-base md:text-lg  xl:text-xl">
                                 select a new password, minimum 8 characters
                             </h3>
                         </div>
-                        <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
+                        <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 ">
                             <Formik
                                 onSubmit={submitHandler}
                                 initialValues={initialValuesResetPasswordEmail}
@@ -164,9 +164,9 @@ export default function ResetPassword() {
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className=" row-span-1 col-span-1 m-auto p-4 bg-theme-color text-white text-center w-full  overflow-hidden"
+                                                className=" row-span-1 col-span-2 xm:col-span-1 m-auto p-4 bg-theme-color text-white text-center w-fit xm:w-full  overflow-hidden"
                                             >
-                                                <span className="inline-block  text-xs xs:text-sm md:text-base">
+                                                <span className=" text-sm md:text-base">
                                                     Reset and Login
                                                 </span>
                                             </button>

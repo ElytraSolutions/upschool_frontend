@@ -7,24 +7,18 @@ type ProgressSectionPorps = {
 function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
     return (
         <>
-            <div
-                className=" col-span-5 flex flex-wrap content-center justify-center bg-theme-color"
-                style={{ height: 'inherit' }}
-            >
+            <div className=" col-span-5 flex items-center bg-theme-color h-full w-full">
                 {/* second column layout */}
-                <div
-                    className=" relative w-11/12"
-                    style={{ height: 'inherit' }}
-                >
+                <div className=" relative w-11/12 h-fit">
                     {/* grid of three rows */}
-                    <div className="grid grid-rows-15 gap-y-3 max-h-full py-2">
+                    <div className="grid grid-rows-9 gap-y-1 h-fit py-6">
                         {/* first row:progress stepper */}
-                        <div className="row-start-3 row-span-7 grid grid-cols-4 grid-rows-5 place-items-center gap-y-3 ">
+                        <div className="row-span-5 grid grid-cols-4 grid-rows-5 place-items-center gap-y-3 ">
                             {/* first label */}
                             <div className="col-span-1">
                                 {/* Circle container */}
                                 {/* Circle */}
-                                <div className="border-2 border-pink-600 bg-white w-10 h-10 rounded-full">
+                                <div className="border-2 border-pink-600 bg-white w-8 h-8 rounded-full">
                                     {/* tick mark */}
                                     <span>
                                         <svg
@@ -33,7 +27,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                             viewBox="0 0 24 24"
                                             strokeWidth="1.5"
                                             stroke="currentColor"
-                                            className={`relative w-8 h-8 mt-1 text-theme-color ${
+                                            className={`relative w-6 h-6  mt-1 text-theme-color ${
                                                 currentStep > 0 ? '' : 'hidden'
                                             }`}
                                         >
@@ -56,7 +50,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                             {/* first line */}
                             <div className=" col-start-1 col-span-1">
                                 <div
-                                    className={`h-8 max-h-full border w-0  ${
+                                    className={`h-6 max-h-full border w-0  ${
                                         currentStep > 0
                                             ? 'border-white'
                                             : 'border-gray-400'
@@ -74,7 +68,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                         currentStep > 0
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2  w-10 h-10 rounded-full`}
+                                    } border-2  w-8 h-8 rounded-full`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -86,7 +80,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 1 ? '' : 'hidden'
-                                            } relative w-8 h-8 mt-1 text-theme-color`}
+                                            } relative w-6 h-6  mt-1 text-theme-color`}
                                         >
                                             <path
                                                 strokeLinecap="round"
@@ -112,7 +106,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                             {/* second line */}
                             <div className=" col-start-1 col-span-1 ">
                                 <div
-                                    className={`h-8 max-h-full border w-0 ${
+                                    className={`h-6 max-h-full border w-0 ${
                                         currentStep > 1
                                             ? 'border-white'
                                             : 'border-gray-400'
@@ -130,7 +124,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                         currentStep == 2
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2 w-10 h-10 rounded-full`}
+                                    } border-2 w-8 h-8 rounded-full`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -142,7 +136,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 2 ? '' : 'hidden'
-                                            } relative w-8 h-8 mt-1 text-theme-color`}
+                                            } relative w-6 h-6  mt-1 text-theme-color`}
                                         >
                                             <path
                                                 strokeLinecap="round"
@@ -167,11 +161,11 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                             </div>
                         </div>
                         {/* second row:progress bar */}
-                        <div className=" row-start-11 row-span-2">
+                        <div className=" row-start-7 row-span-2 flex items-center">
                             <ProgressBar currentLevel={currentStep} />
                         </div>
                         {/* third column:Login link */}
-                        <div className=" row-start-13 row-span-2 text-white grid grid-cols-10 content-center w-full">
+                        <div className="row-start-9 row-span-1 text-white grid grid-cols-10 content-center w-full">
                             <div className="col-start-2 col-end-10 text-sm ">
                                 <LoginPart />
                             </div>
