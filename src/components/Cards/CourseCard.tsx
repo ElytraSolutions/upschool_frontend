@@ -80,12 +80,15 @@ function CourseCard({ data }: Props) {
             </div> */}
             <div className="w-fit border rounded-md overflow-hidden">
                 <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 w-fit max-w-[270px] m-auto">
-                    <img
-                        src={data.image}
-                        height="140px"
-                        alt="data.name"
-                        className=" h-44 w-full"
-                    />
+                    <div className="bg-stone-200">
+                        <img
+                            src={data.image}
+                            height="140px"
+                            alt="data.name"
+                            className=" h-44 w-full"
+                        />
+                    </div>
+
                     <div className="flex flex-col gap-3 justify-between px-3">
                         <div className="flex flex-col gap-2 text-font-color">
                             <p className=" font-bold text-xl">{data.name}</p>
