@@ -36,7 +36,7 @@ function features() {
                     </p>
                 </div>
                 <div className="p-10 ">
-                    <i className="fa fa-bolt text-6xl"></i>
+                    <i className="fa fa-bolt fa-3x"></i>
                     <h1 className="text-2xl font-bold">
                         Inspiring Creativity & Problem Solving
                     </h1>
@@ -46,7 +46,7 @@ function features() {
                     </p>
                 </div>
                 <div className="p-10 ">
-                    <i className="fa fa-rocket text-6xl"></i>
+                    <i className="fa fa-rocket fa-3x"></i>
                     <h1 className="text-2xl font-bold">Skill Based Learning</h1>
                     <p className="font-light">
                         From graphic design & film making through to creative
@@ -54,7 +54,7 @@ function features() {
                     </p>
                 </div>
                 <div className="p-10 ">
-                    <i className="fa fa-cubes text-6xl"></i>
+                    <i className="fa fa-cubes fa-3x"></i>
                     <h1 className="text-2xl font-bold">
                         Team Players & Collaborators
                     </h1>
