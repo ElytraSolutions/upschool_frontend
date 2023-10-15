@@ -60,7 +60,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                 <div className="px-4 py-1">
                     <button
                         type="button"
-                        className="p-3 my-1 bg-[#BB3860] text-white text-sm hover:cursor-pointer w-full"
+                        className="p-3 my-1 bg-pink-upschool text-white text-center text-sm hover:cursor-pointer w-full"
                     >
                         View Book
                     </button>

@@ -66,10 +66,10 @@ export function UploadBookStep1({
                             <div className="md:row-start-2 row-span-5 md:row-span-6 grid grid-rows-6">
                                 <div className=" row-span-1 rounded-t-lg bg-white p-4 h-full flex items-center justify-center">
                                     <div
-                                        className="bg-red-upschool text-white border text-xs sm:text-sm lg:text-base   2xl:text-xl border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden"
+                                        className="bg-red-upschool text-white border hover:cursor-pointer text-sm lg:text-base   2xl:text-xl border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden"
                                         onClick={() => setShowCheck(!showCheck)}
                                     >
-                                        <p className="text-center truncate">
+                                        <p className="text-center break words">
                                             View book Upload Checklist
                                         </p>
                                     </div>
