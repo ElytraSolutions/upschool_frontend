@@ -90,9 +90,9 @@ function CourseCard({ data }: Props) {
                     </div>
 
                     <div className="flex flex-col gap-3 justify-between px-3">
-                        <div className="flex flex-col gap-2 text-font-color">
+                        <div className="flex flex-col gap-5 text-font-color">
                             <p className=" font-bold text-xl">{data.name}</p>
-                            <p className="text-sm md:text-base line-clamp-4 ">
+                            <p className="text-sm md:text-base line-clamp-3 ">
                                 {data.intro}
                             </p>
                         </div>

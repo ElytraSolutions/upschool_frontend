@@ -40,7 +40,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                             {book.title}
                         </p>
                         {!isTabWidth && (
-                            <div className="flex flex-row items-center text-black text-sm h-full">
+                            <div className="flex flex-row items-center text-theme-color text-sm h-full">
                                 <p className="font-semibold">
                                     Values this book explores:{' '}
                                     {book.categories.map((category, index) => (
