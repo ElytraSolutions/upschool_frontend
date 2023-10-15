@@ -78,7 +78,7 @@ function CourseCard({ data }: Props) {
                     </div>
                 </Card>
             </div> */}
-            <div className="w-fit border rounded-md overflow-hidden">
+            <div className="w-fit h-full border rounded-md overflow-hidden">
                 <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 w-fit max-w-[270px] m-auto">
                     <div className="bg-stone-200">
                         <img
@@ -89,8 +89,8 @@ function CourseCard({ data }: Props) {
                         />
                     </div>
 
-                    <div className="flex flex-col gap-3 justify-between px-3">
-                        <div className="flex flex-col gap-5 text-font-color">
+                    <div className="flex flex-col gap-3 h-full justify-between px-3">
+                        <div className="flex flex-col gap-5 text-font-color h-full justify-between">
                             <p className=" font-bold text-xl">{data.name}</p>
                             <p className="text-sm md:text-base line-clamp-3 ">
                                 {data.intro}
