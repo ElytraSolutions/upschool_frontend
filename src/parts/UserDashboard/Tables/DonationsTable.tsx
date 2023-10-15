@@ -31,7 +31,7 @@ const donations = [
 export default function DonationsTable() {
     return (
         <>
-            <table className="text-xs sm:text-sm md:text-base text-theme-color w-fit xl:w-full">
+            <table className="text-sm md:text-base text-theme-color w-fit xl:w-full">
                 <thead className="bg-white text-center font-semibold">
                     <tr>
                         <th className="p-1 xs:p-4">Donation ID</th>
@@ -60,7 +60,7 @@ export default function DonationsTable() {
                                     <span className="font-light">
                                         {donation.name}
                                     </span>
-                                    <span className="font-semibold text-xs md:text-sm">
+                                    <span className="font-semibold text-sm">
                                         {donation.organization}
                                     </span>
                                 </td>

@@ -80,7 +80,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                         <input
                                             type="text"
                                             placeholder="search by title, author name or country"
-                                            className=" autofill:bg-white  focus:outline-none  w-full text-xs sm:text-base"
+                                            className=" autofill:bg-white  focus:outline-none  w-full text-sm sm:text-base"
                                             value={searchQuery}
                                             onChange={(
                                                 event: React.ChangeEvent<HTMLInputElement>,

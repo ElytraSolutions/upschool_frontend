@@ -32,7 +32,7 @@ const FileUploadProcess: React.FC<FileUploadProcessProps> = ({
                             </span>
                         </div>
                         {/* Display file size */}
-                        <div className="border border-theme-color p-1 text-xs xs:text-base">
+                        <div className="border border-theme-color p-1 text-sm xs:text-base">
                             {Math.floor(values.file.size / 1024)} KB
                         </div>
                     </div>

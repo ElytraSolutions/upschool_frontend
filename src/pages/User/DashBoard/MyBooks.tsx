@@ -50,7 +50,7 @@ function MyBooks() {
         <div className="h-full overflow-auto">
             <div className="sm:p-4 w-full">
                 <div className="flex flex-col gap-10 w-full">
-                    <div className="grid grid-cols-3 justify-items-center xs:flex xs:flex-row xs:justify-center md:justify-start text-xs xs:text-sm sm:text-base lg:text-lg w-full gap-0 xs:gap-2  sm:gap-4">
+                    <div className="grid grid-cols-3 justify-items-center xs:flex xs:flex-row xs:justify-center md:justify-start text-sm sm:text-base lg:text-lg w-full gap-0 xs:gap-2  sm:gap-4">
                         {/* All Books option */}
                         <div className="flex flex-col w-fit  gap-2">
                             <div
@@ -58,7 +58,7 @@ function MyBooks() {
                                     selectedOption === 'All Books'
                                         ? 'text-theme-color'
                                         : 'text-gray-400'
-                                } hover:cursor-pointer w-full h-full text-center px-1 sm:px-4 md:px-6 lg:px-10`}
+                                } hover:cursor-pointer w-full h-full text-center px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('All Books')}
                             >
                                 {/* TODO fetch number form backend */}
@@ -79,7 +79,7 @@ function MyBooks() {
                                     selectedOption === 'In Review'
                                         ? 'text-theme-color'
                                         : 'text-gray-400'
-                                } hover:cursor-pointer text-center w-full h-full px-1 sm:px-4 md:px-6 lg:px-10`}
+                                } hover:cursor-pointer text-center w-full h-full px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('In Review')}
                             >
                                 {/* TODO fetch number form backend */}
@@ -100,7 +100,7 @@ function MyBooks() {
                                     selectedOption === 'Published'
                                         ? 'text-theme-color'
                                         : 'text-gray-400'
-                                } hover:cursor-pointer text-center w-full h-full px-1 sm:px-4 md:px-6 lg:px-10`}
+                                } hover:cursor-pointer text-center w-full h-full px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('Published')}
                             >
                                 {/* TODO fetch number form backend */}
