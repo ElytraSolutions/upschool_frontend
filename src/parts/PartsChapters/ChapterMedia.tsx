@@ -124,9 +124,30 @@ const ChapterMedia = ({ contentType, chapter }) => {
                     <HTMLFlipBook
                         width={250}
                         height={300}
-                        showCover={false}
-                        mobileScrollSupport={true}
+                        style={{}}
+                        startPage={0}
                         usePortrait={false}
+                        drawShadow={true}
+                        flippingTime={10}
+                        startZIndex={0}
+                        autoSize={false}
+                        clickEventForward={false}
+                        useMouseEvents={false}
+                        swipeDistance={0}
+                        showPageCorners={false}
+                        disableFlipByClick={false}
+                        size="stretch"
+                        minWidth={315}
+                        maxWidth={1000}
+                        minHeight={400}
+                        maxHeight={1533}
+                        maxShadowOpacity={0.5}
+                        showCover={true}
+                        mobileScrollSupport={true}
+                        onFlip={() => {}}
+                        onChangeOrientation={() => {}}
+                        onChangeState={() => {}}
+                        className="demo-book"
                     >
                         {chapter.media.images.map((image, index) => (
                             <div>
