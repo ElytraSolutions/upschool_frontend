@@ -56,7 +56,7 @@ function CourseDetail() {
                                         className="text-3xl"
                                         style={{ color: course.theme }}
                                     >
-                                        This tagline
+                                        {course.tagline}
                                     </div>
                                     <div
                                         className="text-5xl font-bold"
