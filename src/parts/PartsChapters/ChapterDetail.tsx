@@ -1,28 +1,90 @@
 import { NavLink, useParams } from 'react-router-dom';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import HomeIcon from '@mui/icons-material/Home';
-import { useState } from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import axiosInstance from '../../config/Axios';
+import ChapterText from './ChapterText';
+import ChapterMedia from './ChapterMedia';
 
 type ChapterDetailProps = {
     isSidebarOpen: boolean;
     setIsSidebarOpen: any;
 };
+const tempData = [
+    {
+        id: 1,
+        name: 'Chapter 1',
+        type: 'video',
+        media: {
+            youtubeId: 'https://www.youtube.com/embed/2g811Eo7K8U',
+            vimeoId: 'https://player.vimeo.com/video/76979871',
+        },
+        content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.
 
+We will learn about the deep ice sheet that covers the landmass, its isolated location, and the impact it has on the surrounding environment and ecosystem.`,
+        teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.
+
+Hopefully we can all enjoy the journey together and your children may like to conduct further research as they move from place to place.`,
+    },
+    {
+        id: 2,
+        name: 'Chapter 2',
+        type: 'image',
+        media: {
+            image: 'https://source.unsplash.com/random',
+        },
+        content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.`,
+        teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.
+
+Hopefully we can all enjoy the journey together and your children may like to conduct further research as they move from place to place. `,
+    },
+    {
+        id: 3,
+        name: 'Chapter 3',
+        type: 'flipbook',
+        media: {
+            images: [
+                'https://source.unsplash.com/random',
+                'https://source.unsplash.com/random',
+                'https://source.unsplash.com/random',
+                'https://source.unsplash.com/random',
+                'https://source.unsplash.com/random',
+                'https://source.unsplash.com/random',
+                'https://source.unsplash.com/random',
+            ],
+        },
+        content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.`,
+        teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.`,
+    },
+    {
+        id: 4,
+        name: 'Chapter 4',
+        type: 'carousel',
+        media: {
+            images: [
+                'https://source.unsplash.com/random',
+                'https://source.unsplash.com/random',
+                'https://source.unsplash.com/random',
+                'https://source.unsplash.com/random',
+            ],
+        },
+        content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.`,
+        teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.`,
+    },
+];
 export default function ChapterDetail({
     isSidebarOpen,
     setIsSidebarOpen,
 }: ChapterDetailProps) {
     const { slug, learn } = useParams();
     const { isBigScreen } = useScreenWidthAndHeight();
-    const [isClicked, setIsClicked] = useState(false); //teacher's note
+
+    // const contentType = 'carousel'; //type of chapter [video,image, flipbook, carousel]
     return (
         <>
             <div className="flex h-[90vh] flex-col overflow-auto pb-5">
                 {/* ChapterDetail Header */}
-                <div className="mb-5 flex w-full  bg-blue-900">
+                <div className="mb-5 flex w-full bg-blue-900">
                     <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
                         <div className="flex-row flex items-center justify-between">
                             {/* Circle sidebar open and close option */}
@@ -71,113 +133,28 @@ export default function ChapterDetail({
                     </div>
                 </div>
                 {/* ChapterDetail Chapters Section*/}
-                <div className="ml-6 flex-1 divide-y divide-slate-400">
-                    {/* Section I */}
-                    <div className="m-4 flex flex-col justify-start gap-2">
-                        <div>
-                            {/* TODO Data to be fetched from backend and mange its logic */}
-                            <div className="mt-12 grid grid-cols-2">
-                                <div className="col-span-1 flex flex-col gap-6">
-                                    {/* Title */}
-                                    <div className="text-2xl font-semibold text-theme-color">
-                                        Introduction with Gavin
-                                    </div>
-                                    {/* teacher's note */}
-                                    <div className="flex flex-col gap-3">
-                                        <div
-                                            className={` ml-2 flex w-full flex-col gap-6 text-base font-semibold ${
-                                                isClicked
-                                                    ? 'text-red-600'
-                                                    : 'text-theme-color'
-                                            }`}
-                                        >
-                                            <div
-                                                className="flex max-w-fit flex-row items-center justify-start hover:cursor-pointer"
-                                                onClick={() => {
-                                                    setIsClicked(
-                                                        (oldState) => !oldState,
-                                                    );
-                                                }}
-                                            >
-                                                <PlayArrowIcon
-                                                    className={`${
-                                                        isClicked
-                                                            ? '-rotate-90'
-                                                            : ''
-                                                    }`}
-                                                    style={{
-                                                        width: '15px',
-                                                        height: '25px',
-                                                    }}
-                                                />
-                                                Teacher's node
-                                            </div>
-                                            <div
-                                                className={`${
-                                                    isClicked
-                                                        ? 'block text-sm'
-                                                        : 'hidden'
-                                                } transition duration-150 ease-in-out`}
-                                            >
-                                                <p>
-                                                    Watch the video with John
-                                                    and Gavin on the wandering
-                                                    albatross. In this lesson,
-                                                    we explore the rich
-                                                    biodiversity of birds in the
-                                                    Great Southern Ocean,
-                                                    highlighting their unique
-                                                    adaptations for survival. We
-                                                    focus on the wandering
-                                                    albatross, known for its
-                                                    incredible flying abilities,
-                                                    and draw connections between
-                                                    their physiological features
-                                                    and sustainable living. By
-                                                    studying these remarkable
-                                                    creatures, we can gain
-                                                    valuable insights into
-                                                    innovative ways to adapt and
-                                                    thrive in challenging
-                                                    environments.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="h-0 w-full border border-gray-400"></div>
-                                    </div>
-
-                                    {/* Chapter description */}
-                                    <div className="text-sm text-theme-color">
-                                        <p>
-                                            Lorem ipsum dolor sit, amet
-                                            consectetur adipisicing elit.
-                                            Perspiciatis asperiores nulla in
-                                            excepturi quo explicabo error
-                                            laborum officia odit eveniet, quam
-                                            maxime pariatur. Commodi itaque
-                                            numquam minima sint nihil officiis!
-                                        </p>
-                                        <br />
-                                        <p>
-                                            Lorem ipsum dolor, sit amet
-                                            consectetur adipisicing elit.
-                                            Quibusdam animi, temporibus quam
-                                            inventore ipsam earum blanditiis.
-                                            Nulla ipsa perferendis impedit nemo
-                                            totam quisquam voluptate consectetur
-                                            quibusdam exercitationem eaque! Est,
-                                            mollitia!
-                                        </p>
-                                    </div>
-                                </div>
-                                {/* TODO second column: Data to be fetched and manage logic */}
-                                <div className="col-span-1"></div>
+                <div className="flex flex-col ">
+                    {tempData.map((chapter) => (
+                        <div className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-8 border-b-[1px] border-black">
+                            <ChapterText key={chapter.id} chapter={chapter} />
+                            <div className="col-span-1">
+                                <ChapterMedia
+                                    contentType={chapter.type}
+                                    chapter={chapter}
+                                />
                             </div>
                         </div>
-                        <button className="max-w-fit rounded-md bg-pink-700 px-3 py-1 text-center">
-                            Download
-                        </button>
-                    </div>
+                    ))}
+
+                    {/* TODO Data to be fetched from backend and mange its logic */}
+                    {/* <ChapterText
+                        isClicked={isClicked}
+                        setIsClicked={setIsClicked}
+                    /> */}
+                    {/* TODO second column: Data to be fetched and manage logic */}
+                    {/* <div className="col-span-1">
+                        <ChapterMedia contentType={contentType} />
+                    </div> */}
                 </div>
             </div>
         </>
