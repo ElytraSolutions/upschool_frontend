@@ -22,7 +22,7 @@ export function UploadBookStep4({
     backHandler,
 }: IStep4Props) {
     return (
-        <div className="h-[565px] overflow-y-scroll overflow-x-hidden">
+        <div className=" h-full xm:h-[565px] overflow-y-scroll overflow-x-hidden">
             <Formik
                 onSubmit={submitHandler}
                 initialValues={oldValues}
@@ -37,9 +37,12 @@ export function UploadBookStep4({
                     handleSubmit,
                 }) => (
                     <>
-                        <form onSubmit={handleSubmit}>
-                            <div className="w-full flex flex-col gap-4   justify-center">
-                                <h2 className=" text-lg xl:text-xl font-semibold text-font-color">
+                        <form
+                            onSubmit={handleSubmit}
+                            className="w-full h-fit p-2 py-4"
+                        >
+                            <div className="w-full flex flex-col gap-4 justify-center">
+                                <h2 className=" text-lg xl:text-xl font-semibold text-font-color py-2 font-lexend ">
                                     Please select up to 5 categories
                                 </h2>
                                 <div className="grid sm:grid-cols-2 gap-2 gap-x-6">
@@ -101,7 +104,7 @@ export function UploadBookStep4({
 
                                 <button
                                     type="submit"
-                                    className="col-start-4 col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
+                                    className="col-start-3 xm:col-start-4 col-span-2 xm:col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
                                 >
                                     <span className="text-sm md:text-base">
                                         Next

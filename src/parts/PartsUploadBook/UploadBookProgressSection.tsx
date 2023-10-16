@@ -8,7 +8,7 @@ export const UploadBookProgressSection = ({
 }: ProgressSectionUBPorps) => {
     return (
         <>
-            <div className=" col-span-5 flex flex-wrap content-center justify-center bg-theme-color h-full w-full">
+            <div className=" col-span-5 flex items-center  bg-theme-color h-full w-full">
                 {/* second column layout */}
                 <div className=" relative w-11/12 h-fit">
                     <div className="grid grid-rows-11 gap-y-3 h-fit py-6">

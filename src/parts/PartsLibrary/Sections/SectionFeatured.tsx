@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import NewBookCard from '../../../components/Cards/NewBookCard';
+import BookCard from '../../../components/Cards/BookCard';
 import BookCardSlider from '../../../components/Slider/BookCardSlider';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 
@@ -83,12 +83,12 @@ const SectionFeatured: React.FC<SectionProps> = ({
                     <div className="flex flex-row gap-2  items-center justify-between ">
                         {/* Title */}
                         <div className="flex flex-row  items-center gap-2 xm:gap-4 w-fit font-semibold">
-                            <p className=" text-base xm:text-xl lg:text-2xl">
+                            <p className=" text-base xm:text-xl lg:text-2xl font-lexend">
                                 {topic}
                             </p>
                             {!isXtraSmall && (
                                 <p
-                                    className="underline underline-offset-4 hover:cursor-pointer text-xs xm:text-sm lg:text-base "
+                                    className="underline underline-offset-4 hover:cursor-pointer text-sm lg:text-base "
                                     onClick={() => {
                                         setSelectSection('Featured Books');
                                     }}
@@ -113,7 +113,7 @@ const SectionFeatured: React.FC<SectionProps> = ({
                 {isXtraSmall && (
                     <div className="flex flex-row justify-between items-center px-2 pl-2">
                         <p
-                            className="underline underline-offset-4 hover:cursor-pointer text-xs xm:text-sm lg:text-base "
+                            className="underline underline-offset-4 hover:cursor-pointer text-sm lg:text-base "
                             onClick={() => {
                                 setSelectSection('Featured Books');
                             }}
@@ -139,7 +139,7 @@ const SectionFeatured: React.FC<SectionProps> = ({
                             {books.slice(0, 6).map((book, index) => (
                                 <li key={index} className="w-full">
                                     <div className="flex flex-row justify-center h-full">
-                                        <NewBookCard book={book} />
+                                        <BookCard book={book} />
                                     </div>
                                 </li>
                             ))}

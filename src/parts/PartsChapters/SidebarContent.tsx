@@ -29,7 +29,7 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
         })();
     }, []);
     return (
-        <div className="flex flex-col text-xs sm:text-sm md:text-base">
+        <div className="flex flex-col text-sm sm:text-sm md:text-base">
             <div className="flex flex-row justify-between bg-blue-950 text-white py-5 px-4">
                 <span>{chapter.name}</span>
                 <span>3/10</span> {/*TODO Logic Required */}

@@ -80,7 +80,7 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                     </div>
                     {/* Second row : Active courses section */}
                     <div className="flex flex-col items-start w-full gap-3">
-                        <h1 className="text-2xl font-bold">
+                        <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
                             Continue Learning
                         </h1>
                         {isSmallScreen ? (
@@ -103,7 +103,7 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                         )}
 
                         <div
-                            className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center hover:cursor-pointer"
+                            className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer "
                             onClick={() => {
                                 handleOptionClick('My Courses');
                             }}
@@ -114,7 +114,9 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
 
                     {/* Third row : Books uploaded by user */}
                     <div className="flex flex-col items-start w-full gap-3">
-                        <h1 className="text-2xl font-bold">Your Books</h1>
+                        <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
+                            Your Books
+                        </h1>
                         {isSmallScreen ? (
                             <div className="flex flex-col items-center gap-3">
                                 <BookBox
@@ -134,7 +136,7 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                             </div>
                         )}
                         <div
-                            className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center hover:cursor-pointer"
+                            className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer"
                             onClick={() => {
                                 handleOptionClick('My Books');
                             }}

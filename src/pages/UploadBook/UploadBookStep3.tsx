@@ -45,7 +45,7 @@ export function UploadBookStep3({
     submitHandler,
 }: IStep3Props) {
     return (
-        <div className="h-[565px] overflow-y-scroll overflow-x-hidden">
+        <div className=" h-full xm:h-[565px] overflow-y-scroll overflow-x-hidden">
             <Formik
                 onSubmit={submitHandler}
                 initialValues={oldValues}
@@ -66,7 +66,7 @@ export function UploadBookStep3({
                         >
                             <div className="col-span-2 "></div>
                             <div className="col-span-2 flex items-center justify-start w-fit">
-                                <h1 className="text-font-color text-lg md:text-xl xl:text-2xl  font-medium lg:font-semibold">
+                                <h1 className="text-font-color text-lg md:text-xl xl:text-2xl  font-medium lg:font-semibold font-lexend">
                                     About Your Book!
                                 </h1>
                             </div>
@@ -125,7 +125,7 @@ export function UploadBookStep3({
                             />
 
                             <div className="col-span-2 flex items-center justify-start">
-                                <h1 className="text-font-color text-sm lg:text-lg font-medium underline underline-offset-2">
+                                <h1 className="text-font-color text-sm lg:text-lg font-medium underline underline-offset-2 font-lexend">
                                     View how to get the link from Canva
                                 </h1>
                             </div>
@@ -146,7 +146,7 @@ export function UploadBookStep3({
                                 }
                             />
                             <div className="col-span-2 flex items-center justify-start">
-                                <h1 className="text-font-color text-lg md:text-xl 2xl:text-2xl  font-medium lg:font-semibold">
+                                <h1 className="text-font-color text-lg md:text-xl 2xl:text-2xl  font-medium lg:font-semibold font-lexend">
                                     About You
                                 </h1>
                             </div>
@@ -297,7 +297,7 @@ export function UploadBookStep3({
 
                                 <button
                                     type="submit"
-                                    className="col-start-4 col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
+                                    className="col-start-3 xm:col-start-4 col-span-2 xm:col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
                                 >
                                     <span
                                         className={`${

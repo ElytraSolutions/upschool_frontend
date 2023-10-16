@@ -27,7 +27,7 @@ const purchases = [
 export default function PurchasesTable() {
     return (
         <>
-            <table className="text-xs sm:text-sm md:text-base text-theme-color w-fit xl:w-full">
+            <table className="text-sm md:text-base text-theme-color w-fit xl:w-full">
                 <thead className="bg-white text-center font-semibold">
                     <tr>
                         <th className="p-1 xs:p-4">Order ID</th>

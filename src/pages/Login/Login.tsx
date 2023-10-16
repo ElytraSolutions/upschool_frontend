@@ -50,25 +50,26 @@ const Login = () => {
         e.preventDefault();
         setShowPassword((oldState) => !oldState);
     };
-    console.log(user);
+    // console.log(user);
     if (user?.id) {
         return <Navigate to="/" />;
     }
     return (
         <>
             <Navbar />
-            <div className="relative flex flex-row justify-center items-center bg-gray-200 min-h-[90vh] py-12">
-                <div className="w-[80vw] tab:w-[768px] bg-white flex justify-center items-center min-h-[80vh]  ">
-                    <div className="w-11/12 max-h-[90%] py-6">
+            <div className="relative flex flex-row justify-center  bg-gray-200 h-full py-4">
+                <div className="w-[95%] sm:w-[80vw] tab:w-[768px] bg-white flex justify-center items-center h-fit ">
+                    <div className="w-11/12 h-fit py-3">
                         <div className="  mt-0.5 md:mt-2">
-                            <h1 className="text-2xl font-bold text-font-color  px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
+                            <h1 className="text-2xl font-semibold text-font-color font-lexend  px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
                                 Welcome Back to Upschool.co
                             </h1>
-                            <h3 className="text-font-color font-normal px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
+                            <h3 className="text-font-color text-base font-normal px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
                                 Sign in to continue to your account
                             </h3>
                             <div className=" grid grid-cols-4 gap-y-2 gap-x-4   px-2 mx-2 w-full">
                                 <button
+                                    type="button"
                                     className={`${
                                         isLargeScreen
                                             ? 'col-span-2 justify-center'
@@ -109,6 +110,7 @@ const Login = () => {
                                     </span>
                                 </button>
                                 <button
+                                    type="button"
                                     className={`${
                                         isLargeScreen
                                             ? 'col-span-2 justify-center'
@@ -248,7 +250,7 @@ const Login = () => {
                                                 (errors.password as string)
                                             }
                                         />
-                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
+                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center text-font-color">
                                             <Field
                                                 type="checkbox"
                                                 name="remember"

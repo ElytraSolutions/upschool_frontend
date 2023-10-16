@@ -3,7 +3,6 @@ import DashboardContent from './DashboardContent';
 import MyCourses from './MyCourses';
 import MyBooks from './MyBooks';
 import MyDonationsAndPurchases from './MyDonationsAndPurchases';
-import Logout from './Logout';
 import Setting from './Setting';
 import { useOutletContext } from 'react-router-dom';
 import { UserDashboardSidebar as Sidebar } from '../../../parts/UserDashboard/UserDashboardSidebar';
@@ -13,8 +12,9 @@ interface DashboardProps {}
 type OutletContextType = {
     isDashboardNavbarOpen: boolean;
 };
+
 const Dashboard: React.FC<DashboardProps> = () => {
-    const { isTabScreen } = useScreenWidthAndHeight();
+    const { isSmallHeight, isTabScreen } = useScreenWidthAndHeight();
 
     const { isDashboardNavbarOpen } = useOutletContext<OutletContextType>();
     const [selectedOption, setSelectedOption] = useState<string>('Dashboard');
@@ -24,7 +24,11 @@ const Dashboard: React.FC<DashboardProps> = () => {
     };
 
     return (
-        <div className="flex fixed h-[90dvh] w-full">
+        <div
+            className={`flex fixed ${
+                isSmallHeight ? 'h-[85dvh]' : 'h-[90dvh]'
+            }  w-full`}
+        >
             {/* Sidebar */}
             {isTabScreen ? (
                 <Sidebar
@@ -52,7 +56,6 @@ const Dashboard: React.FC<DashboardProps> = () => {
                     <MyDonationsAndPurchases />
                 )}
                 {selectedOption === 'Setting' && <Setting />}
-                {selectedOption === 'Logout' && <Logout />}
             </div>
         </div>
     );

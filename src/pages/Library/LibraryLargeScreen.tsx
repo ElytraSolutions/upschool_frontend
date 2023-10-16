@@ -23,7 +23,7 @@ const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
                         <div className=" tab:max-w-xs  xl:max-w-md">
                             <div className="flex flex-col gap-6 p-2 w-full ">
                                 <div className="flex flex-col gap-2 text-theme-color">
-                                    <p className="font-semibold text-lg lg:text-xl">
+                                    <p className="font-semibold text-lg lg:text-xl font-lexend">
                                         Welcome to Upschool Library
                                     </p>
                                     <p className="font-light text-sm lg:text-base">

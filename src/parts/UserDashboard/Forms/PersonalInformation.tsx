@@ -67,7 +67,7 @@ export const PersonalInformation = () => {
         <div className="w-full">
             <div className="w-full h-full border border-theme-color/50 rounded-md  flex flex-col gap-2 divide-y divide-slate-400">
                 <div className="p-2 pb-0 flex items-center justify-start font-semibold">
-                    <span className="text-lg md:text-xl lg:text-2xl">
+                    <span className="text-lg md:text-xl lg:text-2xl font-lexend">
                         Personal Information
                     </span>
                 </div>
@@ -123,7 +123,7 @@ export const PersonalInformation = () => {
                                                 /> */}
                                                 </div>
                                                 <div className="flex flex-col items-start gap-2 px-2">
-                                                    <p className="text-xs xs:text-sm">
+                                                    <p className="text-sm xs:text-sm">
                                                         It can be PNG, JPG or
                                                         GIF file. The size
                                                         should not exceed 2Mb
@@ -203,7 +203,7 @@ export const PersonalInformation = () => {
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool p-1">
+                                                            <div className="text-left text-sm text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
@@ -255,7 +255,7 @@ export const PersonalInformation = () => {
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool p-1">
+                                                            <div className="text-left text-sm text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
@@ -305,7 +305,7 @@ export const PersonalInformation = () => {
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool p-1">
+                                                            <div className="text-left text-sm text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
@@ -380,7 +380,7 @@ export const PersonalInformation = () => {
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool p-1">
+                                                            <div className="text-left text-sm text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
@@ -431,7 +431,7 @@ export const PersonalInformation = () => {
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool p-1">
+                                                            <div className="text-left text-sm text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
@@ -445,7 +445,7 @@ export const PersonalInformation = () => {
                                         <button
                                             type="submit"
                                             id="form1"
-                                            className=" sm:col-start-5 sm:col-span-2 px-8 py-3 w-fit h-fit bg-theme-color text-white block  xs:justify-self-end text-xs xm:text-base text-center"
+                                            className=" sm:col-start-5 sm:col-span-2 px-8 py-3 w-fit h-fit bg-theme-color text-white block  xs:justify-self-end text-sm xm:text-base text-center"
                                         >
                                             Save
                                         </button>

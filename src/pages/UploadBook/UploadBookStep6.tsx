@@ -6,41 +6,44 @@ interface IStep6Props {
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
 }
 const style =
-    'flex items-start justify-start py-1 gap-1 md:gap-2 lg:gap-3 text-sm tab:text-base 2xl:text-xl ';
+    'flex items-start justify-start py-1 gap-1 md:gap-2 lg:gap-3 text-sm tab:text-base 2xl:text-xl  ';
 const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
     return (
-        <div className="flex flex-row justify-center items-center h-[565px] w-[600px]">
-            <div className="flex flex-col items-start text-font-color font-medium lg:font-semibold ">
-                <div className="flex items-center justify-start py-3">
-                    <h1 className="text-base tab:text-xl xl:text-2xl 2xl:text-3xl">
+        <div className="flex flex-row justify-center  h-full xm:h-[565px] w-fit  overflow-y-auto overflow-x-hidden ">
+            <div className="text-font-color font-medium lg:font-semibold w-full ">
+                <div className="flex items-center justify-start py-3 w-full">
+                    <p className="text-sm sm:text-base tab:text-xl xl:text-2xl  font-lexend">
                         Book Summary and Preview
-                    </h1>
+                    </p>
                 </div>
                 <Formik onSubmit={submitHandler} initialValues={oldValues}>
                     {({ values, handleSubmit }) => (
                         <>
-                            <form onSubmit={handleSubmit}>
+                            <form
+                                onSubmit={handleSubmit}
+                                className="w-[95%] h-fit"
+                            >
                                 <div className={style}>
-                                    <h1 className=" ">Book Title:</h1>
-                                    <h3 className="font-normal ">
+                                    <p className="">Book Title:</p>
+                                    <p className="font-light ">
                                         {values.book_title}
-                                    </h3>
+                                    </p>
                                 </div>
                                 <div className={style}>
-                                    <h1 className=" ">Book Description:</h1>
-                                    <h3 className="font-normal ">
+                                    <p className="">Book Description:</p>
+                                    <p className="font-light">
                                         {values.book_description}
-                                    </h3>
+                                    </p>
                                 </div>
                                 <div className={style}>
-                                    <h1 className=" ">Project:</h1>
-                                    <h3 className="font-normal ">
+                                    <p className=" ">Project:</p>
+                                    <p className="font-light ">
                                         {values.project}
-                                    </h3>
+                                    </p>
                                 </div>
                                 <div className={style}>
-                                    <h1 className=" ">Category:</h1>
-                                    <h3 className="font-normal ">
+                                    <p className=" ">Category:</p>
+                                    <p className="font-light ">
                                         {values.categories.map(
                                             (category, index) => (
                                                 <span key={index}>
@@ -52,33 +55,33 @@ const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
                                                 </span>
                                             ),
                                         )}
-                                    </h3>
+                                    </p>
                                 </div>
                                 {values.school_name && (
                                     <div className={style}>
-                                        <h1 className=" ">School:</h1>
-                                        <h3 className="font-normal ">
+                                        <p className=" ">School:</p>
+                                        <p className="font-light ">
                                             {values.school_name}
-                                        </h3>
+                                        </p>
                                     </div>
                                 )}
                                 <div className={style}>
-                                    <h1 className=" ">
-                                        Guardian/Teacher/Parents Email:
-                                    </h1>
-                                    <h3 className="font-normal ">
+                                    <p className=" ">
+                                        Guardian/&shy;Teacher&shy;/Parents
+                                        Email:
+                                    </p>
+                                    <p className="font-light break-all">
                                         {values.email}
-                                    </h3>
+                                    </p>
                                 </div>
                                 <div className={style}>
-                                    <h1 className=" ">Canva Link:</h1>
-                                    <h3 className="font-normal ">
+                                    <p className=" ">Canva Link:</p>
+                                    <p className="font-light break-all ">
                                         {values.canva_book_link}
-                                    </h3>
+                                    </p>
                                 </div>
                                 <div className="rounded-md w-fit h-fit bg-white my-4 lg:my-6">
                                     <NavLink to="#">
-                                        {' '}
                                         {/* TODO url or link to view the uploaded book */}
                                         <img
                                             src={UBStepVImg}
@@ -92,7 +95,7 @@ const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
                                     type="submit"
                                     className="text-center px-8 py-4 bg-red-upschool text-white"
                                 >
-                                    <span className="inline-block">
+                                    <span className="inline-block text-sm">
                                         Upload Your Book
                                     </span>
                                 </button>

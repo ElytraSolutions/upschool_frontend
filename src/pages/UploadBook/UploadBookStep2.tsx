@@ -11,9 +11,9 @@ export function UploadBookStep2({
     submitHandler,
 }: IStep2Props) {
     return (
-        <div className="flex flex-col gap-9 pt-10 pb-5 text-font-color h-[565px] w-fit">
+        <div className="flex flex-col gap-9 pt-10 pb-5 text-font-color  h-full xm:h-[565px] w-fit">
             <div className="flex items-center justify-start">
-                <h1 className="text-font-color text-base lg:text-xl   font-medium lg:font-semibold">
+                <h1 className="text-font-color text-base lg:text-xl   font-medium lg:font-semibold font-lexend">
                     Upload Your Book!
                 </h1>
             </div>
@@ -48,7 +48,7 @@ export function UploadBookStep2({
                                         <span>{values.file.name}</span>
                                     </div>
                                     {/* Display file size */}
-                                    <div className="border border-theme-color p-1 text-xs xs:text-base">
+                                    <div className="border border-theme-color p-1 text-sm xs:text-base">
                                         {Math.floor(values.file.size / 1024)} KB
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@ export function UploadBookStep2({
                                 </div>
                             </div>
                             <div className="flex flex-col gap-10 md:gap-10">
-                                <div className="flex flex-col gap-1 md:gap-3 items-start mt-5 text-xs tab:text-sm ">
+                                <div className="flex flex-col gap-1 md:gap-3 items-start mt-5 text-sm tab:text-sm ">
                                     <div className="text-sm sm:text-base 2xl:text-lg  font-medium lg:font-semibold">
                                         Checking your book for the following:
                                     </div>
@@ -176,7 +176,7 @@ export function UploadBookStep2({
                                 >
                                     <button
                                         type="submit"
-                                        className="col-start-4 col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
+                                        className="col-start-3 xm:col-start-4 col-span-2 xm:col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
                                     >
                                         <span
                                             className={`${

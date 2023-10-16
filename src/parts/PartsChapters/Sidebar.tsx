@@ -57,7 +57,7 @@ export default function Sidebar({ courseSlug }: SidebarProps) {
                             alt="OpenBook"
                         />
                     </span>
-                    <h3 className="text-xs sm:text-sm md:text-base">
+                    <h3 className="text-sm sm:text-sm md:text-base">
                         Lesson List
                     </h3>
                 </div>

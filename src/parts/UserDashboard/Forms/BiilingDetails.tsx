@@ -70,7 +70,7 @@ export const BillingDetails = () => {
         <div className="w-full">
             <div className="w-full h-full border border-theme-color/50 rounded-md  flex flex-col gap-2">
                 <div className="p-2 flex items-center justify-start font-semibold">
-                    <span className="text-lg md:text-xl lg:text-2xl">
+                    <span className="text-lg md:text-xl lg:text-2xl font-lexend">
                         Billing & Shipping Details
                     </span>
                 </div>
@@ -158,7 +158,7 @@ export const BillingDetails = () => {
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool p-1">
+                                                            <div className="text-left text-sm text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
@@ -209,7 +209,7 @@ export const BillingDetails = () => {
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool p-1">
+                                                            <div className="text-left text-sm text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
@@ -258,7 +258,7 @@ export const BillingDetails = () => {
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool p-1">
+                                                            <div className="text-left text-sm text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
@@ -315,7 +315,7 @@ export const BillingDetails = () => {
                                                             render={(
                                                                 msg: string,
                                                             ) => (
-                                                                <div className="text-left text-xs text-red-upschool p-1">
+                                                                <div className="text-left text-sm text-red-upschool p-1">
                                                                     {msg}
                                                                 </div>
                                                             )}
@@ -358,7 +358,7 @@ export const BillingDetails = () => {
                                                             render={(
                                                                 msg: string,
                                                             ) => (
-                                                                <div className="text-left text-xs text-red-upschool p-1">
+                                                                <div className="text-left text-sm text-red-upschool p-1">
                                                                     {msg}
                                                                 </div>
                                                             )}
@@ -403,7 +403,7 @@ export const BillingDetails = () => {
                                                             render={(
                                                                 msg: string,
                                                             ) => (
-                                                                <div className="text-left text-xs text-red-upschool p-1">
+                                                                <div className="text-left text-sm text-red-upschool p-1">
                                                                     {msg}
                                                                 </div>
                                                             )}
@@ -475,7 +475,7 @@ export const BillingDetails = () => {
                                                             render={(
                                                                 msg: string,
                                                             ) => (
-                                                                <div className="text-left text-xs text-red-upschool p-1">
+                                                                <div className="text-left text-sm text-red-upschool p-1">
                                                                     {msg}
                                                                 </div>
                                                             )}
@@ -528,7 +528,7 @@ export const BillingDetails = () => {
                                                         render={(
                                                             msg: string,
                                                         ) => (
-                                                            <div className="text-left text-xs text-red-upschool p-1">
+                                                            <div className="text-left text-sm text-red-upschool p-1">
                                                                 {msg}
                                                             </div>
                                                         )}
@@ -567,7 +567,7 @@ export const BillingDetails = () => {
                                         <button
                                             type="submit"
                                             id="form2"
-                                            className=" sm:col-start-5 sm:col-span-2 px-8 py-3 w-fit h-fit bg-theme-color text-white block  xs:justify-self-end text-xs xm:text-base text-center"
+                                            className=" sm:col-start-5 sm:col-span-2 px-8 py-3 w-fit h-fit bg-theme-color text-white block  xs:justify-self-end text-sm xm:text-base text-center"
                                         >
                                             Save
                                         </button>

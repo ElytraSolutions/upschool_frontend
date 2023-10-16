@@ -1,7 +1,16 @@
+import React from 'react';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import Dropzone from 'react-dropzone';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Safe1 from '../../assets/Safe/safe1.png';
+import Safe2 from '../../assets/Safe/safe2.png';
+import Safe3 from '../../assets/Safe/safe3.png';
+import Safe4 from '../../assets/Safe/safe4.png';
+import Safe5 from '../../assets/Safe/safe5.png';
+import Cross from '../../assets/CrossMark.png';
 
 const uploadBookSchema = yup.object().shape({
     file: yup.string().required("You have'nt uploaded the book"),
@@ -12,16 +21,30 @@ interface IStep1Props {
     oldValues: Record<string, any>;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
 }
+
 export function UploadBookStep1({
     isLargeScreen,
     oldValues,
     submitHandler,
 }: IStep1Props) {
+    const [showCheck, setShowCheck] = React.useState(false);
+
+    const getConfigurableProps = () => ({
+        showArrows: true,
+        showIndicators: true,
+        infiniteLoop: true,
+        useKeyboardArrows: true,
+        autoPlay: true,
+        swipeable: true,
+        showThumbs: false,
+        showStatus: false,
+        emulateTouch: true,
+    });
     return (
-        <div className="flex  flex-row items-center w-full justify-center h-[565px]">
+        <div className="flex  flex-row items-center w-full justify-center h-full xm:h-[565px]">
             <div className=" grid grid-rows-6  md:grid-rows-7  gap-5 w-full h-full">
                 <div className="row-start-1  row-span-1  flex items-center justify-start">
-                    <h1 className="text-font-color text-base lg:text-xl  py-3  font-medium lg:font-semibold">
+                    <h1 className="text-font-color text-base lg:text-xl  py-3  font-medium lg:font-semibold font-lexend">
                         Upload Your Book!
                     </h1>
                 </div>
@@ -42,8 +65,11 @@ export function UploadBookStep1({
                         <>
                             <div className="md:row-start-2 row-span-5 md:row-span-6 grid grid-rows-6">
                                 <div className=" row-span-1 rounded-t-lg bg-white p-4 h-full flex items-center justify-center">
-                                    <div className="bg-red-upschool text-white border text-xs sm:text-sm lg:text-base   2xl:text-xl border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden">
-                                        <p className="text-center truncate">
+                                    <div
+                                        className="bg-red-upschool text-white border hover:cursor-pointer text-sm lg:text-base   2xl:text-xl border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden"
+                                        onClick={() => setShowCheck(!showCheck)}
+                                    >
+                                        <p className="text-center break words">
                                             View book Upload Checklist
                                         </p>
                                     </div>
@@ -140,7 +166,7 @@ export function UploadBookStep1({
                                     >
                                         <button
                                             type="submit"
-                                            className="col-start-4 col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
+                                            className="col-start-3 xm:col-start-4 col-span-2 xm:col-span-1 flex flex-1 flex-wrap  items-center justify-center gap-x-0.5 m-1 p-1 bg-theme-color text-white h-10"
                                         >
                                             <span
                                                 className={`${
@@ -175,6 +201,58 @@ export function UploadBookStep1({
                     )}
                 </Formik>
             </div>
+            {showCheck ? (
+                <>
+                    <div
+                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                        style={{ userSelect: 'none' }}
+                    >
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                            {/*content*/}
+                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                {/*header*/}
+                                <div className="absolute right-5 mt-5 z-10">
+                                    <button onClick={() => setShowCheck(false)}>
+                                        <img src={Cross} />
+                                        {/* <span className="text-xl">×</span> */}
+                                    </button>
+                                </div>
+                                {/*body*/}
+                                <div className="relative flex-auto">
+                                    <Carousel
+                                        // showStatus={false}
+                                        // swipeable={true}
+                                        // useKeyboardArrows={true}
+                                        // showThumbs={false}
+                                        // autoPlay={true}
+                                        {...getConfigurableProps()}
+                                    >
+                                        <div>
+                                            <img src={Safe1} />
+                                        </div>
+                                        <div>
+                                            <img src={Safe2} />
+                                        </div>
+                                        <div>
+                                            <img src={Safe3} />
+                                        </div>
+                                        <div>
+                                            <img src={Safe3} />
+                                        </div>
+                                        <div>
+                                            <img src={Safe4} />
+                                        </div>
+                                        <div>
+                                            <img src={Safe5} />
+                                        </div>
+                                    </Carousel>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                </>
+            ) : null}
         </div>
     );
 }

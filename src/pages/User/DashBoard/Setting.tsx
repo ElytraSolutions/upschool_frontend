@@ -54,7 +54,7 @@ function Setting() {
                                 selectedOption === 'My Profile'
                                     ? 'text-theme-color'
                                     : 'text-gray-400'
-                            } hover:cursor-pointer w-full text-center px-1 sm:px-4 md:px-6 lg:px-10`}
+                            } hover:cursor-pointer w-full text-center px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                             onClick={() => setSelectedOption('My Profile')}
                         >
                             My Profile
@@ -76,7 +76,7 @@ function Setting() {
                                     selectedOption === 'Students'
                                         ? 'text-theme-color'
                                         : 'text-gray-400'
-                                } hover:cursor-pointer text-center w-full px-1 sm:px-4 md:px-6 lg:px-10`}
+                                } hover:cursor-pointer text-center w-full px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('Students')}
                             >
                                 {/* TODO fetch number form backend */}

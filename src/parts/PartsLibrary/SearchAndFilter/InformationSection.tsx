@@ -85,9 +85,9 @@ const InformationSection: React.FC<InformationSectionProps> = ({
                             key={index}
                             className="flex flex-col gap-2 pb-1 sm:pb-3"
                         >
-                            <div className="flex flex-row  items-center gap-1 font-semibold text-sm md:text-base">
+                            <div className="flex flex-row  items-center gap-1 font-semibold text-sm md:text-base font-lexend">
                                 <p
-                                    className="hover:cursor-pointer text-xs md:text-sm lg:text-lg pb-0.5"
+                                    className="hover:cursor-pointer text-sm lg:text-lg pb-0.5"
                                     onClick={() => {
                                         setSelectedOption(category.title);
                                     }}
@@ -108,7 +108,7 @@ const InformationSection: React.FC<InformationSectionProps> = ({
                                 } max-h-36 px-8  overflow-auto`}
                             >
                                 <p
-                                    className="underline underline-offset-4 hover:cursor-pointer text-xs md:text-sm text-theme-color font-semibold lg:text-base py-1 "
+                                    className="underline underline-offset-4 hover:cursor-pointer text-sm text-theme-color font-semibold lg:text-base py-1 "
                                     onClick={() => {
                                         !isTabScreen &&
                                             setIsFilterClicked &&
@@ -123,7 +123,7 @@ const InformationSection: React.FC<InformationSectionProps> = ({
                                     {category.books.map((book, index) => (
                                         <li
                                             key={index}
-                                            className="py-1  font-light text-xs md:text-sm w-fit"
+                                            className="py-1  font-light text-sm w-fit"
                                         >
                                             <NavLink to={book.path}>
                                                 <p className="">{book.title}</p>

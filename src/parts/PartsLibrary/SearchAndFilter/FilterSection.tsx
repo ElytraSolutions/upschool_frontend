@@ -37,7 +37,9 @@ const FilterSection: React.FC<FilterSectionProps> = ({ submitHandler }) => {
                                         {/* Heading Section */}
                                         <div>
                                             <div className="flex flex-row justify-between items-end w-full p-1 md:p-3 px-2 md:px-5 text-sm lg:text-base font-semibold h-full">
-                                                <p>Filter by Category</p>
+                                                <p className=" font-lexend">
+                                                    Filter by Category
+                                                </p>
                                                 {/* Up Arrow */}
                                                 <div
                                                     className="hover:cursor-pointer"
@@ -73,7 +75,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({ submitHandler }) => {
                                         {showFilterOptions && (
                                             <div className="h-full w-full p-2">
                                                 <div className="w-full h-32 sm:h-40 md:h-52  overflow-auto">
-                                                    <div className="w-full flex flex-col gap-0.5 sm:gap-1 md:gap-2 p-4 text-xs sm:text-sm lg:text-base ">
+                                                    <div className="w-full flex flex-col gap-0.5 sm:gap-1 md:gap-2 p-4 text-sm lg:text-base ">
                                                         <label
                                                             className={`flex justify-start gap-x-4 items-center ${
                                                                 values
@@ -133,7 +135,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({ submitHandler }) => {
                                             className=" flex flex-1 justify-center items-center h-full w-full bg-theme-color rounded-md p-0.5 md:p-2 px-4"
                                             type="submit"
                                         >
-                                            <p className="text-xs sm:text-sm md:text-base xl:text-lg text-white">
+                                            <p className="text-sm md:text-base xl:text-lg text-white">
                                                 Refine Search
                                             </p>
                                         </button>
@@ -142,7 +144,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({ submitHandler }) => {
                                             className="flex flex-1 justify-center items-center h-full w-full bg-white border border-gray-900/20 rounded-md p-0.5 md:p-2  px-4"
                                             type="reset"
                                         >
-                                            <p className="text-xs sm:text-sm md:text-base xl:text-lg text-gray-950/30">
+                                            <p className="text-sm md:text-base xl:text-lg text-gray-950/30">
                                                 Reset Filter
                                             </p>
                                         </button>
