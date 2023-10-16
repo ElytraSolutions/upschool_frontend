@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink, useOutletContext } from 'react-router-dom';
-import CrossMark from '../../assets/CrossMark.png';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 
 type SidebarProps = {
@@ -124,7 +123,7 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                     onClick={() => setIsDashboardNavbarOpen(false)}
                 >
                     <img
-                        src={CrossMark}
+                        src="images/CrossMark.png"
                         width="40px"
                         height="40px"
                         alt="close"

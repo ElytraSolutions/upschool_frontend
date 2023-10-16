@@ -1,8 +1,4 @@
 import { useState } from 'react';
-
-import book3 from '../../../assets/Books/book3.png';
-import book4 from '../../../assets/Books/book4.png';
-import book5 from '../../../assets/Books/book5.png';
 import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
 
 // TODO fetch data from backend according to the need
@@ -12,7 +8,7 @@ const courses = [
         name: 'Build a Library & Change the world',
         completedLessons: 20,
         totalLessons: 40,
-        image: `${book5}`,
+        image: 'images/Books/book5.png',
         url: '/dashboard',
         status: 'In review',
     },
@@ -21,7 +17,7 @@ const courses = [
         name: 'Write a Book to Change the World',
         completedLessons: 30,
         totalLessons: 50,
-        image: `${book4}`,
+        image: 'images/Books/book4.png',
         url: '/dashboard',
         status: 'Published',
     },
@@ -30,7 +26,7 @@ const courses = [
         name: 'The Mission',
         completedLessons: 10,
         totalLessons: 70,
-        image: `${book3}`,
+        image: 'images/Books/book3.png',
         url: '/dashboard',
         status: 'Book Not Print Ready',
     },
@@ -39,7 +35,7 @@ const courses = [
         name: 'Write a Book to Change the World',
         completedLessons: 40,
         totalLessons: 50,
-        image: `${book4}`,
+        image: 'images/Books/book4.png',
         url: '/dashboard',
         status: 'Published',
     },

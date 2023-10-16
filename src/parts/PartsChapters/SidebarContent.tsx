@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import FileIcon from '../../assets/FileIcon.png';
 import DoneIcon from '@mui/icons-material/Done';
 import { useEffect, useState } from 'react';
 import axiosInstance from '../../config/Axios';
@@ -46,7 +45,7 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
                             <div className="flex flex-row gap-1 lg:gap-2  2xl:gap-3 items-center justify-start p-2  ">
                                 <span className="h-8 w-8 rounded-full bg-blue-950 flex justify-center items-center">
                                     <img
-                                        src={FileIcon}
+                                        src="images/FileIcon.png"
                                         alt="file"
                                         height="20"
                                         width="20"
