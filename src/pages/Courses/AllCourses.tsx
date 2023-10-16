@@ -53,11 +53,11 @@ function AllCourses() {
                             <h1 className="text-2xl font-bold text-font-color">
                                 {category.name}
                             </h1>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 gap-4">
+                            <div className="grid justify-items-center xm:justify-items-start xm:grid-cols-2 lg:grid-cols-3 py-4 gap-2 xm:gap-4">
                                 {getCoursesByCategory(category.id).map(
                                     (data) => (
                                         <div
-                                            className="py-4 px-0"
+                                            className="py-4 px-0 w-fit"
                                             key={data.id}
                                         >
                                             <CourseCard
