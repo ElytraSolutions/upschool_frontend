@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import LibraryBackground from '../../assets/LibraryBackground.png';
 import { BookList } from '../../data/BookBundleList';
 
 // TODO This needs to be fetched from backend
@@ -16,7 +15,7 @@ export default function BookBundle() {
                     {/* photo */}
                     <div className="w-full h-full">
                         <img
-                            src={LibraryBackground}
+                            src="/images/LibraryBackground.png"
                             alt="LibraryBackground"
                             loading="lazy"
                         />

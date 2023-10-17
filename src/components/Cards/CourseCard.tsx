@@ -101,7 +101,7 @@ function CourseCard({ data }: Props) {
                                 type="button"
                                 className="p-3 my-1 bg-theme-color text-white text-center text-sm md:text-base hover:cursor-pointer w-full"
                             >
-                                View Book
+                                View Course
                             </button>
                         </NavLink>
                     </div>

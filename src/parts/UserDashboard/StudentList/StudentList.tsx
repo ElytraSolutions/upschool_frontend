@@ -1,5 +1,5 @@
 import StudentDetails from './data.json'; // TODO fetch data from backend
-import CrossMark from '../../../assets/CrossMark.png';
+
 import React, { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import stringAvatar from '../../../utlis/AvatarColor/avatar_color';
@@ -109,7 +109,7 @@ const StudentList: React.FC = () => {
                         {/* TODO it should delete the record of student in database and again fetch the updated list of student */}
                         <div className="w-6 h-6">
                             <img
-                                src={CrossMark}
+                                src="images/CrossMark.png"
                                 alt="crossmark"
                                 width="24px"
                                 height="24px"

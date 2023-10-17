@@ -1,4 +1,3 @@
-import flyimg from '/images/flyimage.png';
 import 'font-awesome/css/font-awesome.min.css';
 import backgroundVideo from '/videos/background.mp4';
 
@@ -26,7 +25,7 @@ export default function About() {
                     </video>
                     <div className="relative flex flex-col items-center justify-center bg-[#181739C0] text-center md:h-[60vh] ">
                         <img
-                            src={flyimg}
+                            src="images/flyimage.png"
                             className="pt-50 max-h-[150px]"
                             alt=""
                         />

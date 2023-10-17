@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import upschoolLogo from '../../assets/upschool_logo.png';
 import { NavLink } from 'react-router-dom';
 import { ComputerMenu } from '../../parts/PartsNavbar/LargeScreenMenuBar';
 import CartIcon from '../../parts/PartsNavbar/CartIcon';
@@ -73,7 +72,7 @@ export default function Navbar() {
                         <div style={styles}>
                             <NavLink to="/">
                                 <img
-                                    src={upschoolLogo}
+                                    src="/images/upschool_logo.png"
                                     alt="Logo"
                                     width="200"
                                     height="50"

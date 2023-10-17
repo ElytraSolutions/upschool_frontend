@@ -1,4 +1,3 @@
-import OpenBook from '../../assets/OpenBook.png';
 import SidebarContent from './SidebarContent';
 import axiosInstance from '../../config/Axios';
 
@@ -51,7 +50,7 @@ export default function Sidebar({ courseSlug }: SidebarProps) {
                 <div className="flex flex-row items-center justify-center text-white w-fit gap-1  h-14">
                     <span className=" ">
                         <img
-                            src={OpenBook}
+                            src="images/OpenBook.png"
                             width="25"
                             height="25"
                             alt="OpenBook"

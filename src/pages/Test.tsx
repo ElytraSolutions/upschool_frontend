@@ -13,8 +13,8 @@ function Test() {
     return (
         <div>
             {JSON.stringify(data)}
-            <p>hello</p>
-            <h1>heheh</h1>
+            <p>hello </p>
+            <h1>hehgfdgeh</h1>
             <br />
             <>This</>
             <>This is the test</>

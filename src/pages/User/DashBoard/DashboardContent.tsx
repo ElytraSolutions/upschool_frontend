@@ -1,16 +1,6 @@
 import BoardBox from '../../../parts/UserDashboard/Boxes/BoardBox';
-import Enrolled from '../../../assets/Enrolled.png';
-import Active from '../../../assets/Active.png';
-import Completed from '../../../assets/Completed.png';
-import Book from '../../../assets/Book.png';
-
-import book3 from '../../../assets/Books/book3.png';
-import book4 from '../../../assets/Books/book4.png';
-import book5 from '../../../assets/Books/book5.png';
-
 import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
 import BookBox from '../../../parts/UserDashboard/Boxes/BookBox';
-
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 import { useEffect, useState } from 'react';
 import axiosInstance from '../../../config/Axios';
@@ -22,7 +12,7 @@ const courses = [
         name: 'Build a Library & Change the world',
         completedLessons: 20,
         totalLessons: 40,
-        image: `${book5}`,
+        image: 'images/Books/book5.png',
         url: '/dashboard',
         status: 'In review',
     },
@@ -31,7 +21,7 @@ const courses = [
         name: 'Write a Book to Change the World',
         completedLessons: 30,
         totalLessons: 50,
-        image: `${book4}`,
+        image: 'images/Books/book4.png',
         url: '/dashboard',
         status: 'Published',
     },
@@ -40,7 +30,7 @@ const courses = [
         name: 'The Mission',
         completedLessons: 10,
         totalLessons: 70,
-        image: `${book3}`,
+        image: 'images/Books/book3.png',
         url: '/dashboard',
         status: 'Book Not Print Ready',
     },
@@ -79,22 +69,22 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                     <div className="flex flex-col xs:grid xs:grid-cols-2 sm:flex sm:flex-row w-full gap-3 justify-start">
                         {/* TODO fetch number for each BoardBox as of particular User from backend */}
                         <BoardBox
-                            icon={Enrolled}
+                            icon="images/Dashboard/Enrolled.png"
                             text="Enrolled Courses"
                             number={userCourseData?.enrolled?.length || 0}
                         />
                         <BoardBox
-                            icon={Active}
+                            icon="images/Dashboard/Active.png"
                             text="Active Courses"
                             number={userCourseData?.enrolled?.length || 0}
                         />
                         <BoardBox
-                            icon={Completed}
+                            icon="images/Dashboard/Completed.png"
                             text="Completed Courses"
                             number={userCourseData?.completed?.length || 0}
                         />
                         <BoardBox
-                            icon={Book}
+                            icon="images/Dashboard/Book.png"
                             text="Books Uploaded"
                             number={7}
                         />
