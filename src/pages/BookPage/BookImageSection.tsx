@@ -1,8 +1,16 @@
-const BookImageSection = ({ book }) => {
-    const { id, writer, image, categories, country, title } = book;
-
-    console.log(categories);
-
+import React from 'react';
+type BookCardProps = {
+    book: {
+        id: number;
+        image: string;
+        writer: string;
+        title: string;
+        country: string;
+        categories: string[];
+    };
+};
+const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
+    const { writer, title, country, image, categories } = book;
     return (
         <>
             <div className="flex flex-col md:flex-row md:justify-between text-blue-950">
@@ -43,10 +51,10 @@ const BookImageSection = ({ book }) => {
                     className="flex justify-center items-center flex-wrap text-blue-900 font-bold"
                     id="categoryElement"
                 >
-                    {categories.map((category) => (
+                    {categories?.map((category, index) => (
                         <div
                             className="mx-2 my-1 px-2 py-1 bg-white text-center text-xs rounded-xl"
-                            key={id}
+                            key={index}
                         >
                             {category}
                         </div>

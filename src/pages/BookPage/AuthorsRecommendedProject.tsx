@@ -11,7 +11,7 @@ const AuthorsRecommendedProject = () => {
     const generatedAmount = 'AU $20.0';
 
     return (
-        <div className="md:w-1/3">
+        <div className="">
             <div className="bg-gray-100 rounded-xl p-4 px-4">
                 <div className="font-bold text-xl border-b pb-2 border-gray-300">
                     <h1>Author's Recommended Project</h1>

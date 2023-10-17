@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BookCard } from '../../components/Cards/BookCard';
+import { OldBookCard } from '../../components/Cards/OldBookCard';
 import { BookList } from '../../data/BookBundleList';
 import { books } from '../../data/LibraryBooks';
 import { categories } from '../../data/UploadBookCategories';
@@ -209,7 +209,7 @@ export default function BrowseBooks() {
                     <div className="grid w-full py-3  gap-4 xs:grid-cols-2 xs:gap-3 justify-items-center sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-4">
                         {searchResult.length > 0 ? (
                             searchResult.map((book, index) => (
-                                <BookCard key={index} book={book} />
+                                <OldBookCard key={index} book={book} />
                             ))
                         ) : (
                             <div className="xs:col-span-full mt-10 mb-20 h-[40vh]">

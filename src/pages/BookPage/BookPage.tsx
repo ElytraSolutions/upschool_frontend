@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import BookImageSection from './BookImageSection';
 import BookDescriptionSection from './BookDescriptionSection';
 
 const BookPage = () => {
     const location = useLocation();
-    const [book, setBook] = useState(location.state);
-    console.log(book);
+    // console.log(location.state);
+    const book = location.state;
+    // console.log(book);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -20,9 +21,9 @@ const BookPage = () => {
                         <b>/ Home / Online Books / </b> {book.title}
                     </div>
                 </div>
-                <div className="mx-auto w-4/5 mt-6 sm:w-2/3">
+                <div className="mx-auto md:10/12 xl:w-4/5 mt-6 sm:w-2/3">
                     <BookImageSection book={book} />
-                    <BookDescriptionSection setBook={setBook} />
+                    <BookDescriptionSection />
                 </div>
             </div>
         </>

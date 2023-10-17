@@ -1,6 +1,18 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const RelatedBooksCard = ({ book, setBook }) => {
+type BookCardProps = {
+    book: {
+        id: number;
+        image: string;
+        writer: string;
+        title: string;
+        country: string;
+        categories: string[];
+    };
+};
+
+const RelatedBooksCard: React.FC<BookCardProps> = ({ book }) => {
     const navigate = useNavigate();
 
     const convertToSlug = (title: string) => {
@@ -12,7 +24,6 @@ const RelatedBooksCard = ({ book, setBook }) => {
 
     const handleButtonClick = () => {
         const slugTitle = convertToSlug(book.title);
-        setBook(book);
         navigate(`/library/${slugTitle}`, { state: book });
     };
 

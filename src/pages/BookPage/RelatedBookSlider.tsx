@@ -1,9 +1,24 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import RelatedBooksCard from './RelatedBooksCard';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import BookCardSlider from '../../components/Slider/BookCardSlider';
 
-const RelatedBookSlider = ({ topic, books, setBook }) => {
+type RelatedBookSliderProps = {
+    topic: string;
+    books: {
+        id: number;
+        image: string;
+        writer: string;
+        title: string;
+        country: string;
+        categories: string[];
+    }[];
+};
+
+const RelatedBookSlider: React.FC<RelatedBookSliderProps> = ({
+    topic,
+    books,
+}) => {
     const [page, setPage] = useState(0); // For showing progress dots in slider
     const { isXtraLarge, isXtraMedium, isXtraSmall } =
         useScreenWidthAndHeight();
@@ -78,10 +93,7 @@ const RelatedBookSlider = ({ topic, books, setBook }) => {
                         {books.slice(0, 6).map((book, index) => (
                             <li key={index} className="w-full">
                                 <div className="flex flex-row h-full">
-                                    <RelatedBooksCard
-                                        book={book}
-                                        setBook={setBook}
-                                    />
+                                    <RelatedBooksCard book={book} />
                                 </div>
                             </li>
                         ))}

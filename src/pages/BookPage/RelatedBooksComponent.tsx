@@ -1,14 +1,10 @@
 import { RelatedBooks } from '../../data/LibraryBooks';
 import RelatedBookSlider from './RelatedBookSlider';
 
-const RelatedBooksComponent = ({ setBook }) => {
+const RelatedBooksComponent = () => {
     return (
-        <div className="md:w-2/3 p-4 px-4">
-            <RelatedBookSlider
-                topic="Related Books"
-                books={RelatedBooks}
-                setBook={setBook}
-            />
+        <div className=" p-4 px-4">
+            <RelatedBookSlider topic="Related Books" books={RelatedBooks} />
         </div>
     );
 };
