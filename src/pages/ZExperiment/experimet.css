@@ -1,0 +1,25 @@
+.custom-carousel-item {
+    background-color: #ffffff;
+    /* Custom background color */
+    /* border: 1px solid #333; */
+    /* Custom border */
+    will-change: transform;
+    flex-shrink: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+    /* Custom padding */
+    /* Add more custom styles as needed */
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .custom-dot-list-style button {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+
+        /* Add more custom styles as needed */
+    }
+}
