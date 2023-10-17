@@ -1,5 +1,6 @@
 import React from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
+import { useNavigate } from 'react-router-dom';
 
 type BookCardProps = {
     book: {
@@ -14,6 +15,20 @@ type BookCardProps = {
 
 const NewBookCard: React.FC<BookCardProps> = ({ book }) => {
     const { isTabWidth } = useScreenWidthAndHeight();
+    const navigate = useNavigate();
+
+    const convertToSlug = (title) => {
+        const words = title.toLowerCase().split(' ');
+        const slugTitle = words.join('-');
+
+        return slugTitle;
+    };
+
+    const handleButtonClick = (book) => {
+        const slugTitle = convertToSlug(book.title);
+        navigate(`/library/${slugTitle}`, { state: book });
+    };
+
     return (
         <>
             <div className=" flex flex-col justify-between rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[195px] xss:w-[250px] xm:w-[235px] sm:w-[270px] h-full ">
@@ -61,6 +76,7 @@ const NewBookCard: React.FC<BookCardProps> = ({ book }) => {
                     <button
                         type="button"
                         className="p-3 my-1 bg-[#BB3860] text-white text-sm hover:cursor-pointer w-full"
+                        onClick={() => handleButtonClick(book)}
                     >
                         View Book
                     </button>
