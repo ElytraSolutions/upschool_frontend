@@ -17,14 +17,14 @@ const NewBookCard: React.FC<BookCardProps> = ({ book }) => {
     const { isTabWidth } = useScreenWidthAndHeight();
     const navigate = useNavigate();
 
-    const convertToSlug = (title) => {
+    const convertToSlug = (title: string) => {
         const words = title.toLowerCase().split(' ');
         const slugTitle = words.join('-');
 
         return slugTitle;
     };
 
-    const handleButtonClick = (book) => {
+    const handleButtonClick = () => {
         const slugTitle = convertToSlug(book.title);
         navigate(`/library/${slugTitle}`, { state: book });
     };
@@ -76,7 +76,7 @@ const NewBookCard: React.FC<BookCardProps> = ({ book }) => {
                     <button
                         type="button"
                         className="p-3 my-1 bg-[#BB3860] text-white text-sm hover:cursor-pointer w-full"
-                        onClick={() => handleButtonClick(book)}
+                        onClick={handleButtonClick}
                     >
                         View Book
                     </button>

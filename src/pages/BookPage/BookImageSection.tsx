@@ -25,7 +25,7 @@ const BookImageSection = ({ book }) => {
                 </div>
                 <div className="text-left md:text-right">
                     <div>Author's Location: </div>
-                    <div className="inline-block bg-white pl-5 pr-3 py-2 rounded-xl flex">
+                    <div className=" bg-white pl-5 pr-3 py-2 rounded-xl flex">
                         <img
                             src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/2560px-Flag_of_Australia.svg.png"
                             alt="flag"

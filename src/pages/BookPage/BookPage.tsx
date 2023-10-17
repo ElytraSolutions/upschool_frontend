@@ -6,6 +6,7 @@ import BookDescriptionSection from './BookDescriptionSection';
 const BookPage = () => {
     const location = useLocation();
     const [book, setBook] = useState(location.state);
+    console.log(book);
 
     useEffect(() => {
         window.scrollTo(0, 0);

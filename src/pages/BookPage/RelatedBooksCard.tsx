@@ -3,17 +3,17 @@ import { useNavigate } from 'react-router-dom';
 const RelatedBooksCard = ({ book, setBook }) => {
     const navigate = useNavigate();
 
-    const convertToSlug = (title) => {
+    const convertToSlug = (title: string) => {
         const words = title.toLowerCase().split(' ');
         const slugTitle = words.join('-');
 
         return slugTitle;
     };
 
-    const handleButtonClick = (book_) => {
-        const slugTitle = convertToSlug(book_.title);
-        setBook(book_);
-        navigate(`/library/${slugTitle}`, { state: book_ });
+    const handleButtonClick = () => {
+        const slugTitle = convertToSlug(book.title);
+        setBook(book);
+        navigate(`/library/${slugTitle}`, { state: book });
     };
 
     return (
@@ -45,9 +45,7 @@ const RelatedBooksCard = ({ book, setBook }) => {
                         <div className="mt-5 flex justify-center mx-2 mb-3">
                             <button
                                 className="h-10 bg-[#BB3860] text-white text-sm hover:cursor-pointer w-full"
-                                onClick={() => {
-                                    handleButtonClick(book);
-                                }}
+                                onClick={handleButtonClick}
                             >
                                 Read More
                             </button>
