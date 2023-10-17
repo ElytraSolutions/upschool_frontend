@@ -36,6 +36,12 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
         onSubmitProps.setSubmitting(false);
         // TODO: send request to backend to search for books
     };
+
+    const resetHandler = (values: any) => {
+        values.categories = [];
+        values.allCategory = true;
+        setSearchParams('');
+    };
     return (
         <>
             <div className=" flex flex-col gap-4 text-theme-color">
@@ -73,7 +79,10 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                     <InformationSection setSelectSection={setSelectSection} />
                 </div>
                 {/* Filter Section */}
-                <FilterSection submitHandler={submitHandler} />
+                <FilterSection
+                    submitHandler={submitHandler}
+                    resetHandler={resetHandler}
+                />
             </div>
         </>
     );

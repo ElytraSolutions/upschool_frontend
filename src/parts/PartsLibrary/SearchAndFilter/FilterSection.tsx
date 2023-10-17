@@ -4,9 +4,13 @@ import React, { useState } from 'react';
 
 type FilterSectionProps = {
     submitHandler: (values: any, onSubmitProps: any) => void;
+    resetHandler: (values: any) => void;
 };
 
-const FilterSection: React.FC<FilterSectionProps> = ({ submitHandler }) => {
+const FilterSection: React.FC<FilterSectionProps> = ({
+    submitHandler,
+    resetHandler,
+}) => {
     // TODO Determine to show filter options or not by default
     const [showFilterOptions, setShowFilterOptions] = useState<boolean>(false);
     return (
@@ -18,6 +22,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({ submitHandler }) => {
                         categories: [],
                         allCategory: true,
                     }}
+                    onReset={resetHandler}
                 >
                     {({
                         values,
@@ -26,10 +31,12 @@ const FilterSection: React.FC<FilterSectionProps> = ({ submitHandler }) => {
                         // handleBlur,
                         // handleChange,
                         handleSubmit,
+                        handleReset,
                     }) => (
                         <>
                             <form
                                 onSubmit={handleSubmit}
+                                onReset={handleReset}
                                 className="w-full h-full"
                             >
                                 <div>
@@ -141,11 +148,17 @@ const FilterSection: React.FC<FilterSectionProps> = ({ submitHandler }) => {
                                         </button>
                                         {/* Reset Filter Button */}
                                         <button
-                                            className="flex flex-1 justify-center items-center h-full w-full bg-white border border-gray-900/20 rounded-md p-0.5 md:p-2  px-4"
+                                            className={`flex flex-1 justify-center items-center h-full w-full ${
+                                                values.categories.length > 0
+                                                    ? ' bg-theme-color text-white'
+                                                    : 'bg-white text-gray-900/40'
+                                            }   border border-gray-900/20 rounded-md p-0.5 md:p-2  px-4`}
                                             type="reset"
                                         >
-                                            <p className="text-sm md:text-base xl:text-lg text-gray-950/30">
+                                            <p className="text-sm md:text-base xl:text-lg">
                                                 Reset Filter
+                                                {values.categories.length > 0 &&
+                                                    ` (${values.categories.length})`}
                                             </p>
                                         </button>
                                     </div>
