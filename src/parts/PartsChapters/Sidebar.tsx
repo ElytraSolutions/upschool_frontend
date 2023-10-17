@@ -43,7 +43,7 @@ export default function Sidebar({ courseSlug }: SidebarProps) {
             );
             setChapters(res.data.data);
         })();
-    }, []);
+    }, [courseSlug, setChapters]);
     return (
         <>
             <div className="flex flex-row justify-center items-center bg-red-600 w-full">

@@ -2,6 +2,8 @@ import BoardBox from '../../../parts/UserDashboard/Boxes/BoardBox';
 import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
 import BookBox from '../../../parts/UserDashboard/Boxes/BookBox';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+import { useEffect, useState } from 'react';
+import axiosInstance from '../../../config/Axios';
 
 // TODO fetch data from backend according to the need (3 courses and books respectively)
 const courses = [
@@ -34,12 +36,31 @@ const courses = [
     },
 ];
 
+interface Course {
+    id: string;
+    slug: string;
+    name: string;
+}
+
+interface CourseEnrollment {
+    enrolled: Course[];
+    completed: Course[];
+}
+
 type DashboardContentProps = {
     handleOptionClick: (option: string) => void;
 };
 
 function DashboardContent({ handleOptionClick }: DashboardContentProps) {
     const { isSmallScreen } = useScreenWidthAndHeight();
+    const [userCourseData, setUserCourseData] =
+        useState<CourseEnrollment | null>(null);
+    useEffect(() => {
+        (async () => {
+            const resp = await axiosInstance.get('/data/user/courses');
+            setUserCourseData(resp.data.data);
+        })();
+    }, []);
     return (
         <>
             <div className="h-full overflow-auto">
@@ -50,17 +71,17 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                         <BoardBox
                             icon="images/Dashboard/Enrolled.png"
                             text="Enrolled Courses"
-                            number={1}
+                            number={userCourseData?.enrolled?.length || 0}
                         />
                         <BoardBox
                             icon="images/Dashboard/Active.png"
                             text="Active Courses"
-                            number={5}
+                            number={userCourseData?.enrolled?.length || 0}
                         />
                         <BoardBox
                             icon="images/Dashboard/Completed.png"
                             text="Completed Courses"
-                            number={3}
+                            number={userCourseData?.completed?.length || 0}
                         />
                         <BoardBox
                             icon="images/Dashboard/Book.png"
