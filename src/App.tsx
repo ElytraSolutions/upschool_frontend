@@ -24,6 +24,7 @@ import BookBundle from './pages/Library/OldBookBundle';
 import NewBrowseBooks from './pages/Library/DefaultPage';
 import Experiment from './pages/ZExperiment/Experiment';
 import Certificate from './pages/Certificate/Certificate';
+import BookPage from './pages/BookPage/BookPage';
 
 const router = createBrowserRouter([
     {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
             {
                 path: 'library',
                 element: <NewBrowseBooks />,
+            },
+            {
+                path: 'library/:slug',
+                element: <BookPage />,
             },
             {
                 path: 'library-test',

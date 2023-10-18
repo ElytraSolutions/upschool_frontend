@@ -5,7 +5,7 @@ function features() {
         <div className="bg-[#f4f4f4] text-[#757783] ">
             <div className="m-auto grid max-w-6xl text-[#242254] md:grid-cols-2 lg:grid-cols-3">
                 <div className="p-10 ">
-                    <i className="fa fa-globe text-6xl"></i>
+                    <i className="fa fa-globe fa-3x"></i>
                     <h1 className="text-2xl font-bold">
                         Change Making Communities
                     </h1>
@@ -15,7 +15,7 @@ function features() {
                     </p>
                 </div>
                 <div className="p-10 ">
-                    <i className="fa fa-cart-arrow-down text-6xl"></i>
+                    <i className="fa fa-cart-arrow-down fa-3x"></i>
                     <h1 className="text-2xl font-bold">
                         Real-World Learning Opportunities
                     </h1>
@@ -26,7 +26,7 @@ function features() {
                 </div>
                 <div className="p-10 ">
                     <LightbulbOutlinedIcon style={{ fontSize: '64px' }} />
-                    <i className="fa fa-lightbulb text-6xl"></i>
+                    <i className="fa fa-lightbulb fa-3x"></i>
                     <h1 className="text-2xl font-bold">
                         Entrepreneurship With Purpose
                     </h1>
@@ -36,7 +36,7 @@ function features() {
                     </p>
                 </div>
                 <div className="p-10 ">
-                    <i className="fa fa-bolt text-6xl"></i>
+                    <i className="fa fa-bolt fa-3x"></i>
                     <h1 className="text-2xl font-bold">
                         Inspiring Creativity & Problem Solving
                     </h1>
@@ -46,7 +46,7 @@ function features() {
                     </p>
                 </div>
                 <div className="p-10 ">
-                    <i className="fa fa-rocket text-6xl"></i>
+                    <i className="fa fa-rocket fa-3x"></i>
                     <h1 className="text-2xl font-bold">Skill Based Learning</h1>
                     <p className="font-light">
                         From graphic design & film making through to creative
@@ -54,7 +54,7 @@ function features() {
                     </p>
                 </div>
                 <div className="p-10 ">
-                    <i className="fa fa-cubes text-6xl"></i>
+                    <i className="fa fa-cubes fa-3x"></i>
                     <h1 className="text-2xl font-bold">
                         Team Players & Collaborators
                     </h1>

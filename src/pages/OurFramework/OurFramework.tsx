@@ -1,8 +1,12 @@
 import flyimg from '/images/flyimage.png';
 import Carousel from '../../components/Carousels/Carousel';
 import carouselImages from '../../data/FrameworkCarouselData';
+import { useEffect } from 'react';
 
 export default function OurFramework() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div>

@@ -18,7 +18,7 @@ export default function MyDonationsAndPurchases() {
                                     selectedOption === 'Donations'
                                         ? 'text-theme-color'
                                         : 'text-gray-400'
-                                } hover:cursor-pointer w-full text-center px-1 sm:px-4 md:px-6 lg:px-10`}
+                                } hover:cursor-pointer w-full text-center px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('Donations')}
                             >
                                 {/* TODO fetch number form backend */}
@@ -39,7 +39,7 @@ export default function MyDonationsAndPurchases() {
                                     selectedOption === 'Purchases'
                                         ? 'text-theme-color'
                                         : 'text-gray-400'
-                                } hover:cursor-pointer text-center w-full px-1 sm:px-4 md:px-6 lg:px-10`}
+                                } hover:cursor-pointer text-center w-full px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('Purchases')}
                             >
                                 {/* TODO fetch number form backend */}

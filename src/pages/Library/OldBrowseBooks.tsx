@@ -3,7 +3,6 @@ import { OldBookCard } from '../../components/Cards/OldBookCard';
 import { BookList } from '../../data/BookBundleList';
 import { books } from '../../data/LibraryBooks';
 import { categories } from '../../data/UploadBookCategories';
-import LibraryBackground from '../../assets/LibraryBackground.png';
 import { NavLink } from 'react-router-dom';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import BuyOptionBox from '../../parts/PartsLibraryBookBundle/BuyOptionBox';
@@ -124,7 +123,7 @@ export default function BrowseBooks() {
                         <div
                             className="bg-local bg-cover bg-center  w-full h-fit text-white"
                             style={{
-                                backgroundImage: `url(${LibraryBackground})`,
+                                backgroundImage: `url('images/LibraryBackground.png')`,
                             }}
                         >
                             <div className="p-4 bg-theme-color/75">

@@ -1,5 +1,4 @@
 import React from 'react';
-import PDFlogo from '../../../../assets/PDF_logo.png';
 
 type FileUploadProcessProps = {
     values: Record<string, any>;
@@ -18,7 +17,7 @@ const FileUploadProcess: React.FC<FileUploadProcessProps> = ({
                         <div className="flex flex-row gap-2 justify-start items-center  font-light">
                             <span>
                                 <img
-                                    src={PDFlogo}
+                                    src="images/PDF_logo.png"
                                     alt="PDF"
                                     width="full"
                                     height="full"
@@ -32,7 +31,7 @@ const FileUploadProcess: React.FC<FileUploadProcessProps> = ({
                             </span>
                         </div>
                         {/* Display file size */}
-                        <div className="border border-theme-color p-1 text-xs xs:text-base">
+                        <div className="border border-theme-color p-1 text-sm xs:text-base">
                             {Math.floor(values.file.size / 1024)} KB
                         </div>
                     </div>

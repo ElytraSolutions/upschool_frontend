@@ -1,5 +1,5 @@
 import StudentDetails from './data.json'; // TODO fetch data from backend
-import CrossMark from '../../../assets/CrossMark.png';
+
 import React, { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import stringAvatar from '../../../utlis/AvatarColor/avatar_color';
@@ -109,7 +109,7 @@ const StudentList: React.FC = () => {
                         {/* TODO it should delete the record of student in database and again fetch the updated list of student */}
                         <div className="w-6 h-6">
                             <img
-                                src={CrossMark}
+                                src="images/CrossMark.png"
                                 alt="crossmark"
                                 width="24px"
                                 height="24px"
@@ -147,20 +147,20 @@ const StudentList: React.FC = () => {
                                 </div>
                                 {/* first name , last name and email */}
                                 <div className="flex flex-col w-full gap-0.5 justify-center">
-                                    <span className="text-xs xm:text-sm md:text-base font-semibold w-full">
+                                    <span className="text-sm md:text-base font-semibold w-full">
                                         {detail.first_name} {detail.last_name}
                                     </span>
-                                    <p className="text-xs xm:text-sm break-all w-full">
+                                    <p className="text-sm break-all w-full">
                                         {detail.email}
                                     </p>
                                 </div>
                             </div>
                             {/* Name of recent course */}
                             <div className="col-span-1 flex flex-col gap-1 justify-center w-full">
-                                <span className="text-xs xm:text-sm  md:text-base font-semibold w-full">
+                                <span className="text-sm  md:text-base font-semibold w-full">
                                     Recent Course
                                 </span>
-                                <span className="text-xs xm:text-sm  w-full  ">
+                                <span className="text-sm  w-full  ">
                                     {/* max-w-[250px] */}
                                     {detail.recent_course}
                                 </span>
@@ -208,13 +208,13 @@ const StudentList: React.FC = () => {
             {/* current page and total pages */}
             {/* TODO position and ui  of elements needs to be determined */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center p-1">
-                <div className="flex flex-row gap-1 text-xs md:text-sm items-center">
+                <div className="flex flex-row gap-1 text-sm items-center">
                     <span>Current page</span>
                     <span className="border-theme-color border p-1">
                         {currentPage}
                     </span>
                 </div>
-                <div className="flex flex-row gap-1 text-xs md:text-sm items-center">
+                <div className="flex flex-row gap-1 text-sm items-center">
                     <span>Total page</span>
                     <span className="border-theme-color border p-1">
                         {totalPages}

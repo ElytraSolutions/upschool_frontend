@@ -1,5 +1,6 @@
 import React from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
+import { useNavigate } from 'react-router-dom';
 
 type BookCardProps = {
     book: {
@@ -14,6 +15,20 @@ type BookCardProps = {
 
 const BookCard: React.FC<BookCardProps> = ({ book }) => {
     const { isTabWidth } = useScreenWidthAndHeight();
+    const navigate = useNavigate();
+
+    const convertToSlug = (title: string) => {
+        const words = title.toLowerCase().split(' ');
+        const slugTitle = words.join('-');
+
+        return slugTitle;
+    };
+
+    const handleButtonClick = () => {
+        const slugTitle = convertToSlug(book.title);
+        navigate(`/library/${slugTitle}`, { state: book });
+    };
+
     return (
         <>
             <div className=" flex flex-col justify-between rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[195px] xss:w-[250px] xm:w-[235px] sm:w-[270px] h-full ">
@@ -37,7 +52,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                             {book.title}
                         </p>
                         {!isTabWidth && (
-                            <div className="flex flex-row items-center text-black text-sm h-full">
+                            <div className="flex flex-row items-center text-theme-color text-sm h-full">
                                 <p className="font-semibold">
                                     Values this book explores:{' '}
                                     {book.categories.map((category, index) => (
@@ -60,7 +75,8 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                 <div className="px-4 py-1">
                     <button
                         type="button"
-                        className="p-3 my-1 bg-[#BB3860] text-white text-sm hover:cursor-pointer w-full"
+                        className="p-3 my-1 bg-red-upschool text-white text-sm hover:cursor-pointer w-full"
+                        onClick={handleButtonClick}
                     >
                         View Book
                     </button>

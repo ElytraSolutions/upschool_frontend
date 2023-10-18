@@ -10,7 +10,7 @@ function CourseTypes() {
     return (
         <div className="py-[40px]">
             <div className="flex flex-col items-center">
-                <span className="text-[38px] md:text-[48px] text-[#242254] font-bold">
+                <span className="text-[38px] md:text-[48px] text-[#242254] font-bold font-lexend">
                     Get Started With Upschool
                 </span>
                 <p className="mb-[1rem] text-[18px] leading-9 text-center max-w-4xl text-[#242254] ">

@@ -49,6 +49,11 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
         onSubmitProps.setSubmitting(false);
         // TODO: send request to backend to search for books
     };
+    const resetHandler = (values: any) => {
+        values.categories = [];
+        values.allCategory = true;
+        setSearchParams('');
+    };
     return (
         <>
             <div className="h-full w-full bg-gray-200 text-font-color ">
@@ -80,7 +85,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                         <input
                                             type="text"
                                             placeholder="search by title, author name or country"
-                                            className=" autofill:bg-white  focus:outline-none  w-full text-xs sm:text-base"
+                                            className=" autofill:bg-white  focus:outline-none  w-full text-sm sm:text-base"
                                             value={searchQuery}
                                             onChange={(
                                                 event: React.ChangeEvent<HTMLInputElement>,
@@ -136,7 +141,10 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                         </div>
                         {/* Filter box */}
                         {isFilterClicked && (
-                            <FilterSection submitHandler={submitHandler} />
+                            <FilterSection
+                                submitHandler={submitHandler}
+                                resetHandler={resetHandler}
+                            />
                         )}
                     </div>
                 </div>

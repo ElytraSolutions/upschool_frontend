@@ -8,10 +8,15 @@ export default {
                 'font-color': '#03014C',
                 'red-upschool': '#B81342',
                 'red-custom': '#BC0D4D',
+                'pink-upschool': '#BB3860',
             },
             fontFamily: {
                 lexend: ['Lexend', 'sans-serif'],
                 check: ['"Pixelify Sans"', 'sans-serif'],
+                annieUseYourTelescope: [
+                    '"Annie Use Your Telescope"',
+                    'cursive',
+                ],
             },
             flexGrow: {
                 2: '2',

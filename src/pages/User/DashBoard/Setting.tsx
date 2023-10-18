@@ -1,25 +1,20 @@
+import { useState } from 'react';
 import SettingBoardBox from '../../../parts/UserDashboard/Boxes/SettingBoardBox';
 import AddStudentsBox from '../../../parts/UserDashboard/Boxes/AddStudentsBox';
-import TeacherIcon from '../../../assets/TeacherIcon.png';
-import ParentIcon from '../../../assets/ParentIcon.png';
-import StudentIcon from '../../../assets/StudentIcon.png';
-import Active from '../../../assets/Active.png';
-import AddIcon from '../../../assets/AddIcon.png';
 import { PersonalInformation } from '../../../parts/UserDashboard/Forms/PersonalInformation';
-
-import { useState } from 'react';
 import { BillingDetails } from '../../../parts/UserDashboard/Forms/BiilingDetails';
 import { ChangePassword } from '../../../parts/UserDashboard/Forms/ChangePassword';
 import StudentList from '../../../parts/UserDashboard/StudentList/StudentList';
+
 function Setting() {
     // TODO logic to determine whether user is (Teacher/Student/Parent)
     const userType: string = 'Teacher';
     const iconBadge =
         userType === 'Teacher'
-            ? TeacherIcon
+            ? 'images/Dashboard/TeacherIcon.png'
             : userType === 'Parent'
-            ? ParentIcon
-            : StudentIcon;
+            ? 'images/Dashboard/ParentIcon.png'
+            : 'images/Dashboard/StudentIcon.png';
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
         <div className="h-full overflow-auto">
@@ -34,12 +29,12 @@ function Setting() {
                     {userType === 'Teacher' && (
                         <>
                             <SettingBoardBox
-                                icon={Active}
+                                icon="images/Dashboard/Active.png"
                                 text={['', 'students']}
                                 number={295} // TODO fetch number of students from backend
                             />
                             <AddStudentsBox
-                                icon={AddIcon}
+                                icon="images/Dashboard/AddIcon.png"
                                 text={'Add student(s)'}
                             />
                         </>
@@ -54,7 +49,7 @@ function Setting() {
                                 selectedOption === 'My Profile'
                                     ? 'text-theme-color'
                                     : 'text-gray-400'
-                            } hover:cursor-pointer w-full text-center px-1 sm:px-4 md:px-6 lg:px-10`}
+                            } hover:cursor-pointer w-full text-center px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                             onClick={() => setSelectedOption('My Profile')}
                         >
                             My Profile
@@ -76,7 +71,7 @@ function Setting() {
                                     selectedOption === 'Students'
                                         ? 'text-theme-color'
                                         : 'text-gray-400'
-                                } hover:cursor-pointer text-center w-full px-1 sm:px-4 md:px-6 lg:px-10`}
+                                } hover:cursor-pointer text-center w-full px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('Students')}
                             >
                                 {/* TODO fetch number form backend */}

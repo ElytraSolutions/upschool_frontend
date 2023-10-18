@@ -1,6 +1,5 @@
 import React from 'react';
-import { useOutletContext } from 'react-router-dom';
-import CrossMark from '../../assets/CrossMark.png';
+import { NavLink, useOutletContext } from 'react-router-dom';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 
 type SidebarProps = {
@@ -22,8 +21,8 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
         <>
             <div
                 className={`${
-                    isTabScreen ? '' : 'absolute z-20 overflow-auto'
-                }  bg-white border p-4 text-[#cecece] w-[80%]  xs:w-2/3 xm:w-1/3 tab:w-1/5 xl:w-1/6 h-full flex flex-row justify-between`}
+                    isTabScreen ? '' : 'absolute z-20'
+                }  bg-white border p-4 text-[#cecece] w-[80%]  xs:w-2/3 xm:w-1/3 tab:w-1/5 xl:w-1/6 h-full flex flex-row justify-between  overflow-auto`}
             >
                 <ul className="mt-4 flex flex-col gap-4">
                     <li
@@ -115,7 +114,8 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                             }
                         }}
                     >
-                        <i className="fa fa-power-off"></i> Logout
+                        <i className="fa fa-power-off"></i>{' '}
+                        <NavLink to="/logout">Logout</NavLink>
                     </li>
                 </ul>
                 <div
@@ -123,7 +123,7 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                     onClick={() => setIsDashboardNavbarOpen(false)}
                 >
                     <img
-                        src={CrossMark}
+                        src="images/CrossMark.png"
                         width="40px"
                         height="40px"
                         alt="close"

@@ -26,7 +26,7 @@ function CourseDetail() {
         const container = containerRef.current;
         if (!iframe || !container) return;
         container.style.height =
-            (iframe.contentDocument?.body.scrollHeight || '20') + 'px';
+            (iframe.contentDocument?.body.scrollHeight || '300') + 'px';
     };
 
     const handleHover = () => {
@@ -56,7 +56,7 @@ function CourseDetail() {
                                         className="text-3xl"
                                         style={{ color: course.theme }}
                                     >
-                                        This tagline
+                                        {course.tagline}
                                     </div>
                                     <div
                                         className="text-5xl font-bold"

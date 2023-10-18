@@ -1,4 +1,3 @@
-import OpenBook from '../../assets/OpenBook.png';
 import SidebarContent from './SidebarContent';
 import axiosInstance from '../../config/Axios';
 
@@ -44,20 +43,20 @@ export default function Sidebar({ courseSlug }: SidebarProps) {
             );
             setChapters(res.data.data);
         })();
-    }, []);
+    }, [courseSlug, setChapters]);
     return (
         <>
             <div className="flex flex-row justify-center items-center bg-red-600 w-full">
                 <div className="flex flex-row items-center justify-center text-white w-fit gap-1  h-14">
                     <span className=" ">
                         <img
-                            src={OpenBook}
+                            src="images/OpenBook.png"
                             width="25"
                             height="25"
                             alt="OpenBook"
                         />
                     </span>
-                    <h3 className="text-xs sm:text-sm md:text-base">
+                    <h3 className="text-sm sm:text-sm md:text-base">
                         Lesson List
                     </h3>
                 </div>

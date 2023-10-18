@@ -1,17 +1,47 @@
+import { useEffect, useState } from 'react';
+import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+import { NavLink } from 'react-router-dom';
+
 type NavbarProps = {
     setIsopen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 function Navbar({ setIsopen }: NavbarProps) {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const { isSmallHeight } = useScreenWidthAndHeight();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
         <>
-            <div className="z-10 flex justify-between p-4 border items-center h-[10dvh] w-full bg-white gap-2">
+            <div
+                className={`${
+                    isScrolled && 'fixed'
+                } z-10 flex justify-between px-1 py-2 sm:p-4 border items-center ${
+                    isSmallHeight ? 'h-[15dvh]' : 'h-[10dvh]'
+                }  w-full bg-white gap-2`}
+            >
                 <div className=" max-w-xs">
-                    <img
-                        src="/images/logo.png"
-                        className="h-10 w-full"
-                        alt=""
-                    />
+                    <NavLink to="/">
+                        <img
+                            src="/images/logo.png"
+                            className="h-10 w-full"
+                            alt=""
+                        />
+                    </NavLink>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-4">
                     <div className="tab:flex tab:items-center gap-4  hidden">

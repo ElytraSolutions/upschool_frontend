@@ -90,7 +90,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                             </p>
                             {!isXtraSmall && (
                                 <p
-                                    className="inline-block underline underline-offset-4 text-xs xm:text-sm lg:text-base hover:cursor-pointer"
+                                    className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
                                     onClick={() => {
                                         setSelectSection('Best Sellers');
                                     }}
@@ -115,7 +115,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                 {isXtraSmall && (
                     <div className="flex flex-row justify-between items-center px-2 pl-2">
                         <p
-                            className="inline-block underline underline-offset-4 text-xs xm:text-sm lg:text-base hover:cursor-pointer"
+                            className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
                             onClick={() => {
                                 setSelectSection('Best Sellers');
                             }}

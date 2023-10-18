@@ -5,12 +5,6 @@ import Dropzone from 'react-dropzone';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Safe1 from '../../assets/Safe/safe1.png';
-import Safe2 from '../../assets/Safe/safe2.png';
-import Safe3 from '../../assets/Safe/safe3.png';
-import Safe4 from '../../assets/Safe/safe4.png';
-import Safe5 from '../../assets/Safe/safe5.png';
-import Cross from '../../assets/CrossMark.png';
 
 const uploadBookSchema = yup.object().shape({
     file: yup.string().required("You have'nt uploaded the book"),
@@ -66,10 +60,10 @@ export function UploadBookStep1({
                             <div className="md:row-start-2 row-span-5 md:row-span-6 grid grid-rows-6">
                                 <div className=" row-span-1 rounded-t-lg bg-white p-4 h-full flex items-center justify-center">
                                     <div
-                                        className="bg-red-upschool text-white border text-xs sm:text-sm lg:text-base   2xl:text-xl border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden cursor-pointer"
+                                        className="bg-red-upschool text-white border hover:cursor-pointer text-sm lg:text-base   2xl:text-xl border-black rounded-full h-full w-full flex justify-center items-center overflow-hidden"
                                         onClick={() => setShowCheck(!showCheck)}
                                     >
-                                        <p className="text-center truncate">
+                                        <p className="text-center break words">
                                             View book Upload Checklist
                                         </p>
                                     </div>
@@ -211,9 +205,9 @@ export function UploadBookStep1({
                             {/*content*/}
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 {/*header*/}
-                                <div className="absolute right-5 mt-5 z-10">
+                                <div className="absolute right-3 mt-3 z-10">
                                     <button onClick={() => setShowCheck(false)}>
-                                        <img src={Cross} />
+                                        <img src="images/CrossMark.png" />
                                         {/* <span className="text-xl">×</span> */}
                                     </button>
                                 </div>
@@ -228,22 +222,22 @@ export function UploadBookStep1({
                                         {...getConfigurableProps()}
                                     >
                                         <div>
-                                            <img src={Safe1} />
+                                            <img src="images/Safe/safe1.png" />
                                         </div>
                                         <div>
-                                            <img src={Safe2} />
+                                            <img src="images/Safe/safe2.png" />
                                         </div>
                                         <div>
+                                            <img src="images/Safe/safe3.png" />
+                                        </div>
+                                        {/* <div>
                                             <img src={Safe3} />
+                                        </div> */}
+                                        <div>
+                                            <img src="images/Safe/safe4.png" />
                                         </div>
                                         <div>
-                                            <img src={Safe3} />
-                                        </div>
-                                        <div>
-                                            <img src={Safe4} />
-                                        </div>
-                                        <div>
-                                            <img src={Safe5} />
+                                            <img src="images/Safe/safe5.png" />
                                         </div>
                                     </Carousel>
                                 </div>

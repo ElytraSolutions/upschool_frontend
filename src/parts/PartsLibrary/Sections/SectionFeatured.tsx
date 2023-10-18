@@ -88,7 +88,7 @@ const SectionFeatured: React.FC<SectionProps> = ({
                             </p>
                             {!isXtraSmall && (
                                 <p
-                                    className="underline underline-offset-4 hover:cursor-pointer text-xs xm:text-sm lg:text-base "
+                                    className="underline underline-offset-4 hover:cursor-pointer text-sm lg:text-base "
                                     onClick={() => {
                                         setSelectSection('Featured Books');
                                     }}
@@ -113,7 +113,7 @@ const SectionFeatured: React.FC<SectionProps> = ({
                 {isXtraSmall && (
                     <div className="flex flex-row justify-between items-center px-2 pl-2">
                         <p
-                            className="underline underline-offset-4 hover:cursor-pointer text-xs xm:text-sm lg:text-base "
+                            className="underline underline-offset-4 hover:cursor-pointer text-sm lg:text-base "
                             onClick={() => {
                                 setSelectSection('Featured Books');
                             }}
