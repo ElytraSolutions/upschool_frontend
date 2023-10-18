@@ -11,7 +11,7 @@ const Announcement = () => {
                 }}
             >
                 <div className="flex justify-center px-2 py-5 lg:py-8 h-full w-full bg-[#2B9FC5F7]/80">
-                    <div className="w-full sm:p-2  lg:w-10/12 h-full ">
+                    <div className="w-full sm:p-2  lg:w-10/12 xl:w-3/5 h-full ">
                         <div className="flex flex-col gap-5 items-center h-full w-full">
                             <div className="">
                                 <p className="text-center font-annieUseYourTelescope text-yellow-300 text-2xl lg:text-4xl">
@@ -33,18 +33,21 @@ const Announcement = () => {
                                     more!
                                 </p>
                             </div>
-                            <div className="h-full w-full aspect-video">
+                            <div className="w-full aspect-video">
                                 <iframe
                                     // TODO provide correct video path
                                     src="https://www.youtube.com/embed/o1D-pvo8n1o?controls=1&rel=0&playsinline=0&modestbranding=0&autoplay=0&enablejsapi=1&origin=https%3A%2F%2Fupschool.co&widgetid=7"
-                                    className=" w-full aspect-video"
+                                    className="w-full  aspect-video"
                                     width="1090"
                                     title="Iframe Example"
                                     allowFullScreen
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;web-share"
                                 ></iframe>
                             </div>
-                            <button className="w-fit h-full px-4 py-2 border rounded-md border-white">
+                            <button
+                                type="button"
+                                className="w-fit h-full px-4 py-2 border rounded-md border-white"
+                            >
                                 {/* TODO provide the correct route path */}
                                 <NavLink to="https://upschool.co/blog/category/travel-diary/antarctica/">
                                     <div className="flex justify-center items-center gap-2">
