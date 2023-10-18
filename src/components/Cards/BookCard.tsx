@@ -1,5 +1,6 @@
 import React from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
+import { useNavigate } from 'react-router-dom';
 
 type BookCardProps = {
     book: {
@@ -14,21 +15,32 @@ type BookCardProps = {
 
 const BookCard: React.FC<BookCardProps> = ({ book }) => {
     const { isTabWidth } = useScreenWidthAndHeight();
+    const navigate = useNavigate();
+
+    const convertToSlug = (title: string) => {
+        const words = title.toLowerCase().split(' ');
+        const slugTitle = words.join('-');
+
+        return slugTitle;
+    };
+
+    const handleButtonClick = () => {
+        const slugTitle = convertToSlug(book.title);
+        navigate(`/library/${slugTitle}`, { state: book });
+    };
+
     return (
         <>
             <div className=" flex flex-col justify-between rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[195px] xss:w-[250px] xm:w-[235px] sm:w-[270px] h-full ">
                 <div className="">
-                    <div className="rounded-t-lg bg-stone-200">
-                        <img
-                            className="rounded-t-lg w-full h-32 sm:h-44"
-                            src={book.image}
-                            alt="book"
-                            loading="lazy"
-                            width="270px"
-                            height="180px"
-                        />
-                    </div>
-
+                    <img
+                        className="rounded-t-lg w-full h-32 sm:h-44"
+                        src={book.image}
+                        alt="book"
+                        loading="lazy"
+                        width="270px"
+                        height="180px"
+                    />
                     <div className="flex flex-col gap-1 p-4 h-fit w-fit">
                         <p className="font-semibold">{book.writer}</p>
                         <div className="flex flex-row items-center  bg-theme-color py-1  px-3 rounded-xl w-fit h-full ">
@@ -63,7 +75,8 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                 <div className="px-4 py-1">
                     <button
                         type="button"
-                        className="p-3 my-1 bg-pink-upschool text-white text-center text-sm hover:cursor-pointer w-full"
+                        className="p-3 my-1 bg-red-upschool text-white text-sm hover:cursor-pointer w-full"
+                        onClick={handleButtonClick}
                     >
                         View Book
                     </button>
