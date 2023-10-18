@@ -49,7 +49,7 @@ function EnrollCard({ data }: Props) {
         );
         if (resp.data.success) {
             navigate(
-                `${location.pathname}/${resp.data.data.chapter.slug}/${resp.data.data.lesson.slug}`,
+                `${location.pathname}/${resp.data.data.firstChapter.slug}/${resp.data.data.firstLesson.slug}`,
             );
         }
     };
