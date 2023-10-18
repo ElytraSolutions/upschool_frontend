@@ -13,6 +13,10 @@ export default {
             fontFamily: {
                 lexend: ['Lexend', 'sans-serif'],
                 check: ['"Pixelify Sans"', 'sans-serif'],
+                annieUseYourTelescope: [
+                    '"Annie Use Your Telescope"',
+                    'cursive',
+                ],
             },
             flexGrow: {
                 2: '2',

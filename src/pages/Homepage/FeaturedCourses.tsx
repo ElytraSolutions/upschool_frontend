@@ -9,7 +9,7 @@ const FeaturedCourses = () => {
         <>
             <div className="flex justify-center w-full h-fit py-6">
                 <div className="flex flex-col gap-5 w-full lg:w-11/12 h-fit ">
-                    <p className="p-2 text-font-color text-2xl sm:text-4xl  lg:text-5xl font-bold font-lexend">
+                    <p className="p-2 text-font-color text-2xl sm:text-4xl  lg:text-5xl  font-medium font-lexend">
                         Featured Courses
                     </p>
                     <div className="relative p-1 md:px-10 pb-10  ">
