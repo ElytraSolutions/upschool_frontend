@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+import { NavLink } from 'react-router-dom';
 
 type NavbarProps = {
     setIsopen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -34,11 +35,13 @@ function Navbar({ setIsopen }: NavbarProps) {
                 }  w-full bg-white gap-2`}
             >
                 <div className=" max-w-xs">
-                    <img
-                        src="/images/logo.png"
-                        className="h-10 w-full"
-                        alt=""
-                    />
+                    <NavLink to="/">
+                        <img
+                            src="/images/logo.png"
+                            className="h-10 w-full"
+                            alt=""
+                        />
+                    </NavLink>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-4">
                     <div className="tab:flex tab:items-center gap-4  hidden">

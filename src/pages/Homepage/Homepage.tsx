@@ -130,7 +130,7 @@ export default function Home() {
                     <LearningFramework />
                     {/* Collaboraters List */}
                     <div className=" p-2 py-10 flex justify-center w-full text-font-color">
-                        <div className="flex flex-col gap-6 w-full tab:w-3/4 xl:w-3/5">
+                        <div className="flex flex-col items-center gap-6 w-full tab:w-3/4 xl:w-3/5">
                             <p className="text-center text-2xl sm:text-3xl lg:text-4xl font-medium font-lexend">
                                 Some of our Collaborators
                             </p>
