@@ -20,8 +20,7 @@ const RelatedBookSlider: React.FC<RelatedBookSliderProps> = ({
     books,
 }) => {
     const [page, setPage] = useState(0); // For showing progress dots in slider
-    const { isXtraLarge, isXtraMedium, isXtraSmall } =
-        useScreenWidthAndHeight();
+    const { isXtraLarge, isXtraSmall } = useScreenWidthAndHeight();
     const [sliderContainer, setSliderContainer] = useState<HTMLElement | null>(
         null,
     ); // For getting the width of the slider container
@@ -42,7 +41,7 @@ const RelatedBookSlider: React.FC<RelatedBookSliderProps> = ({
         document.getElementById('SliderBestSellers');
     const cards: HTMLCollectionOf<HTMLLIElement> | undefined =
         slider?.getElementsByTagName('li');
-    const elementsToShow: number = isXtraLarge ? 3 : !isXtraMedium ? 2 : 1; // Number of cards to show in the slider
+    const elementsToShow: number = isXtraLarge ? 3 : 2; // Number of cards to show in the slider
     const sliderContainerWidth: number = sliderContainer?.clientWidth || 0;
     const cardWidth: number = sliderContainerWidth / elementsToShow;
     if (slider) {
@@ -91,8 +90,8 @@ const RelatedBookSlider: React.FC<RelatedBookSliderProps> = ({
                 >
                     <ul id="SliderBestSellers" className="flex w-full">
                         {books.slice(0, 6).map((book, index) => (
-                            <li key={index} className="w-full">
-                                <div className="flex flex-row h-full">
+                            <li key={index} className="w-[126px] sm:w-full">
+                                <div className="flex flex-row  h-full">
                                     <RelatedBooksCard book={book} />
                                 </div>
                             </li>

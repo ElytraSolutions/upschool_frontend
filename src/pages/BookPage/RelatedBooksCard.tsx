@@ -29,12 +29,13 @@ const RelatedBooksCard: React.FC<BookCardProps> = ({ book }) => {
 
     return (
         <>
-            <div className="flex flex-col rounded-xl  text-sm lg:text-base bg-white text-theme-color  w-[100px] xss:w-[150px] xm:w-[175px] sm:w-[200px] h-full overflow-hidden">
-                <div className="flex flex-col justify-between h-full">
+            {/*w-[100px] xss:w-[150px] xm:w-[175px] sm:w-[200px] */}
+            <div className="flex flex-col rounded-xl  text-sm lg:text-base bg-white text-theme-color  w-[80px] xss:w-[120px] xm:w-[140px] sm:w-[200px] h-full overflow-hidden">
+                <div className="flex flex-col justify-between h-[200px] sm:h-full">
                     <div>
                         <div className="">
                             <img
-                                className="w-full h-32 rounded-xl"
+                                className="w-full h-[80px] sm:h-32 rounded-xl"
                                 src={book.image}
                                 alt="book"
                                 loading="lazy"
@@ -42,20 +43,22 @@ const RelatedBooksCard: React.FC<BookCardProps> = ({ book }) => {
                                 height="10px"
                             />
                         </div>
-                        <div className="font-bold ml-2 mt-2">{book.writer}</div>
-                        <div className="text-xl font-black ml-2">
+                        <div className="font-bold ml-2 mt-2 text-xs sm:text-sm">
+                            {book.writer}
+                        </div>
+                        <div className="font-black ml-2 text-md sm:text-xl">
                             {book.title}
                         </div>
                     </div>
                     <div>
                         <div className="ml-2">
-                            <div className="bg-gray-100 inline-block px-2 rounded-xl mt-1">
+                            <div className="bg-gray-100 inline-block px-2 rounded-xl sm:mt-1 text-xs sm:text-sm">
                                 {book.country}
                             </div>
                         </div>
-                        <div className="mt-5 flex justify-center mx-2 mb-3">
+                        <div className=" flex justify-center mx-2 mb-3 mt-2 sm:mt-5">
                             <button
-                                className="h-10 bg-[#BB3860] text-white text-sm hover:cursor-pointer w-full"
+                                className="bg-[#BB3860] text-white text-sm hover:cursor-pointer w-full sm:h-10"
                                 onClick={handleButtonClick}
                             >
                                 Read More

@@ -21,7 +21,7 @@ const BookPage = () => {
                         <b>/ Home / Online Books / </b> {book.title}
                     </div>
                 </div>
-                <div className="mx-auto md:10/12 xl:w-4/5 mt-6 sm:w-2/3">
+                <div className="mx-auto md:10/12 w-4/5 mt-6 sm:w-2/3">
                     <BookImageSection book={book} />
                     <BookDescriptionSection />
                 </div>
