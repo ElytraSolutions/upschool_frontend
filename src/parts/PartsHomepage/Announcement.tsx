@@ -12,14 +12,14 @@ const Announcement = () => {
             >
                 <div className="flex justify-center px-2 py-5 lg:py-8 h-full w-full bg-[#2B9FC5F7]/80">
                     <div className="w-full sm:p-2  lg:w-10/12 xl:w-3/5 h-full ">
-                        <div className="flex flex-col gap-5 items-center h-full w-full">
+                        <div className="flex flex-col gap-6  items-center h-full w-full">
                             <div className="">
                                 <p className="text-center font-annieUseYourTelescope text-yellow-300 text-2xl lg:text-4xl">
                                     Announcement!
                                 </p>
                             </div>
                             <div className="">
-                                <p className="text-center text-white text-3xl lg:text-5xl">
+                                <p className="text-center text-white text-3xl lg:text-5xl font-lexend">
                                     Upschool has returned from filming in
                                     Antarctica
                                 </p>
@@ -44,10 +44,7 @@ const Announcement = () => {
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;web-share"
                                 ></iframe>
                             </div>
-                            <button
-                                type="button"
-                                className="w-fit h-full px-4 py-2 border rounded-md border-white"
-                            >
+                            <div className="w-fit h-full px-4 py-2 my-6 border rounded-md border-white">
                                 {/* TODO provide the correct route path */}
                                 <NavLink to="https://upschool.co/blog/category/travel-diary/antarctica/">
                                     <div className="flex justify-center items-center gap-2">
@@ -60,7 +57,7 @@ const Announcement = () => {
                                         </p>
                                     </div>
                                 </NavLink>
-                            </button>
+                            </div>
                             <div className="flex flex-col items-center aspect-video">
                                 <img
                                     // TODO provide correct image path
