@@ -13,7 +13,7 @@ const ChapterMedia = ({ contentType, chapter }) => {
 
     useEffect(() => {
         setVideoUrl(chapter.media.youtubeId);
-    }, []);
+    }, [chapter]);
 
     //disable scroll
     useEffect(() => {

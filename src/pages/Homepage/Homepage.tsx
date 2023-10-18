@@ -1,4 +1,5 @@
 import CourseTypes from './CourseTypes';
+import FeaturedCourses from './FeaturedCourses';
 import Features from './Features';
 import SchoolSuccess from './SchoolSuccess';
 
@@ -32,6 +33,7 @@ export default function Home() {
                     </div>
                 </div>
                 <CourseTypes />
+                <FeaturedCourses />
                 <Features />
                 <SchoolSuccess />
             </div>

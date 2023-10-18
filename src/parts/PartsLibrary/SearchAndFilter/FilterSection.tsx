@@ -157,8 +157,6 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                         >
                                             <p className="text-sm md:text-base xl:text-lg">
                                                 Reset Filter
-                                                {values.categories.length > 0 &&
-                                                    ` (${values.categories.length})`}
                                             </p>
                                         </button>
                                     </div>
