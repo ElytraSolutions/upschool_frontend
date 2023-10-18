@@ -6,29 +6,31 @@ import CertificateStep2 from './CertificateStep2';
 import CertificateStep3 from './CertificateStep3';
 
 const Certificate = () => {
-
     const [formData, setFormData] = useState({
-        course : "",
-        firstName : "",
-        lastName : "",
-        email:"",
-        county:"",
-        age:"",
-        school:""
-    })
+        course: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        county: '',
+        age: '',
+        school: '',
+    });
     const { isLargeScreen } = useScreenWidthAndHeight();
     const [currentStep, setCurrentStep] = useState(0);
 
     const changeCurrentStep = () => {
-        setCurrentStep(currentStep+1)
-    }
+        setCurrentStep(currentStep + 1);
+    };
 
     const components = [
-        <CertificateStep1 formData = {formData} setFormData = {setFormData} changeCurrentStep = {changeCurrentStep}/>,
-        <CertificateStep2 changeCurrentStep = {changeCurrentStep}/>,
-        <CertificateStep3 formData = {formData} setFormData={setFormData}/>
-        ]
-
+        <CertificateStep1
+            formData={formData}
+            setFormData={setFormData}
+            changeCurrentStep={changeCurrentStep}
+        />,
+        <CertificateStep2 changeCurrentStep={changeCurrentStep} />,
+        <CertificateStep3 formData={formData} setFormData={setFormData} />,
+    ];
 
     // console.log("CurrentS Step is : ",currentStep)
     return (
@@ -51,7 +53,9 @@ const Certificate = () => {
                             {components[currentStep]}
                         </div>
                     </div>
-                    {isLargeScreen && <CertificateProgressSection currentStep={currentStep}/>}
+                    {isLargeScreen && (
+                        <CertificateProgressSection currentStep={currentStep} />
+                    )}
                 </div>
             </div>
         </div>

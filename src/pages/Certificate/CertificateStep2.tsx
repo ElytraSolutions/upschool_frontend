@@ -23,18 +23,18 @@ const data = [
     },
 ];
 
-const CertificateStep2 = ({changeCurrentStep}) => {
+const CertificateStep2 = ({ changeCurrentStep }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [marks, setMarks] = useState(0);
     const [value, setValue] = useState('');
-    const [answer, setAnswer] = useState<(number | String)[]>([])
-    const [submit, setSubmit] = useState(false)
+    const [answer, setAnswer] = useState<(number | string)[]>([]);
+    const [submit, setSubmit] = useState(false);
 
     const handleRadioChange = (event) => {
         setValue(event.target.value);
     };
 
-    const correctAnswer = data.map((data) => data.correct)
+    const correctAnswer = data.map((data) => data.correct);
 
     // const handleSubmit = (e, value) => {
     //     e.preventDefault();
@@ -72,62 +72,63 @@ const CertificateStep2 = ({changeCurrentStep}) => {
     //     }
     // };
 
-
     const handleSubmit = (e, value) => {
         e.preventDefault();
-        if (value !== ""){
-
+        if (value !== '') {
             if (currentQuestion + 1 < data.length) {
                 setCurrentQuestion(currentQuestion + 1);
                 if (
                     value ===
                     data[currentQuestion].options[data[currentQuestion].correct]
-                    ) {
-                        let new_val = data[currentQuestion].correct
-                        setAnswer(prev => [...prev, new_val])
-                    } else {
-                        let new_val = 10
-                        setAnswer(prev => [...prev, new_val])
-                    }
-            setValue('');
-        }
-        else {
-            if (
-                value ===
-                data[currentQuestion].options[data[currentQuestion].correct]
                 ) {
-                    let new_val = data[currentQuestion].correct
-                setAnswer(prev => [...prev, new_val])
+                    const new_val = data[currentQuestion].correct;
+                    setAnswer((prev) => [...prev, new_val]);
+                } else {
+                    const new_val = 10;
+                    setAnswer((prev) => [...prev, new_val]);
+                }
+                setValue('');
             } else {
-                let new_val = 10
-                setAnswer(prev => [...prev, new_val])
+                if (
+                    value ===
+                    data[currentQuestion].options[data[currentQuestion].correct]
+                ) {
+                    const new_val = data[currentQuestion].correct;
+                    setAnswer((prev) => [...prev, new_val]);
+                } else {
+                    const new_val = 10;
+                    setAnswer((prev) => [...prev, new_val]);
+                }
+                setValue('');
+                setSubmit(true);
             }
-            setValue('');
-            setSubmit(true);
         }
-    }
-    }
+    };
 
     useEffect(() => {
-        if(submit === true){
+        if (submit === true) {
             correctAnswer.map((ans, i) => {
-                console.log("The answer is", ans, "The correct answer is ", answer[i], ans === answer[i])
-                if (ans === answer[i]){
-                    setMarks(prev => prev + 1)
+                console.log(
+                    'The answer is',
+                    ans,
+                    'The correct answer is ',
+                    answer[i],
+                    ans === answer[i],
+                );
+                if (ans === answer[i]) {
+                    setMarks((prev) => prev + 1);
                     // console.log("Marks", marks, "correct")
                 }
-            })
+            });
         }
-    }, [submit])
-
+    }, [submit]);
 
     useEffect(() => {
-        console.log("Marks", marks);
-        if (marks > Math.floor(data.length/2)){
+        console.log('Marks', marks);
+        if (marks > Math.floor(data.length / 2)) {
             changeCurrentStep();
         }
-    }, [marks])
-
+    }, [marks]);
 
     const radioIconStyle = {
         color: 'black',

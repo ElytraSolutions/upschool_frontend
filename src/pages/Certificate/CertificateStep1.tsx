@@ -7,40 +7,43 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
+const coursesName = [
+    {
+        course: 'A',
+        course_id: '1',
+    },
+    {
+        course: 'B',
+        course_id: '2',
+    },
+    {
+        course: 'C',
+        course_id: '3',
+    },
+];
 
-const coursesName =  [
-    {
-        course: "A",
-        course_id : "1"
-    },
-    {
-        course: "B",
-        course_id : "2"
-    },
-    {
-        course: "C",
-        course_id : "3"
-    },
-]
-
-const CertificateStep1 = ({formData, setFormData, changeCurrentStep}) => {
+const CertificateStep1 = ({ formData, setFormData, changeCurrentStep }) => {
     const { isLargeScreen } = useScreenWidthAndHeight();
 
     const handleChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.name] : e.target.value
-        })
-        console.log(formData)
+            [e.target.name]: e.target.value,
+        });
+        console.log(formData);
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        if (formData.course !== "" && formData.firstName !=="" && formData.age !== "" && formData.email !== ""){
-            changeCurrentStep()
+        e.preventDefault();
+        if (
+            formData.course !== '' &&
+            formData.firstName !== '' &&
+            formData.age !== '' &&
+            formData.email !== ''
+        ) {
+            changeCurrentStep();
         }
-    }
-
+    };
 
     return (
         <div>
@@ -76,7 +79,9 @@ const CertificateStep1 = ({formData, setFormData, changeCurrentStep}) => {
                                 )}
                             >
                                 {coursesName.map((course, id) => (
-                                    <MenuItem key = {id} value={course.course_id}>{course.course}</MenuItem>
+                                    <MenuItem key={id} value={course.course_id}>
+                                        {course.course}
+                                    </MenuItem>
                                 ))}
                             </Select>
                         </FormControl>

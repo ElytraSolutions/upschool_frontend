@@ -116,8 +116,8 @@ const router = createBrowserRouter([
                 element: <BookBundle />,
             },
             {
-            path: '/certificate',
-            element: <Certificate />,
+                path: '/certificate',
+                element: <Certificate />,
             },
         ],
     },
@@ -133,7 +133,6 @@ const router = createBrowserRouter([
         path: 'test',
         element: <Test />,
     },
-
 ]);
 
 function App() {
