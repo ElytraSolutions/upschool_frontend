@@ -5,6 +5,7 @@ import Features from './Features';
 import SchoolSuccess from './SchoolSuccess';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import Announcement from '../../parts/PartsHomepage/Announcement';
+import LearningFramework from '../../parts/PartsHomepage/LearningFramework';
 
 export default function Home() {
     const { isXtraLargeScreen } = useScreenWidthAndHeight();
@@ -126,6 +127,21 @@ export default function Home() {
                     <Features />
                     <SchoolSuccess />
                     <Announcement />
+                    <LearningFramework />
+                    {/* Collaboraters List */}
+                    <div className=" p-2 py-10 flex justify-center w-full text-font-color">
+                        <div className="flex flex-col items-center gap-6 w-full tab:w-3/4 xl:w-3/5">
+                            <p className="text-center text-2xl sm:text-3xl lg:text-4xl font-medium font-lexend">
+                                Some of our Collaborators
+                            </p>
+                            <img
+                                // TODO provide correct image path
+                                src="https://upschool.co/wp-content/uploads/2023/04/Partner-Logo-Wall-600x338.png"
+                                width="900"
+                                alt="collaborators list"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
