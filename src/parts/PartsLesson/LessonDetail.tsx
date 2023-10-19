@@ -82,8 +82,7 @@ export default function LessonDetail({
     const { courseSlug, lessonSlug } = useParams();
     const { isBigScreen } = useScreenWidthAndHeight();
 
-    // const [lesson, setLesson] = useState<any>(null);
-    const [lesson, setLesson] = useState<any>(tempData);
+    const [lesson, setLesson] = useState<any>(null);
     useEffect(() => {
         (async () => {
             const res = await axiosInstance.get(`/data/lessons/${lessonSlug}`);
