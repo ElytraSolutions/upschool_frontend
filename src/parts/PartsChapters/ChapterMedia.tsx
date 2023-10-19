@@ -6,14 +6,8 @@ import crossmark from '../../assets/CrossMark.png';
 
 const ChapterMedia = ({ contentType, chapter }) => {
     const [videoPlatform, setVideoPlatform] = useState('youtube'); //type of video platform [youtube, vimeo]
-    const [videoUrl, setVideoUrl] = useState(
-        'https://www.youtube.com/embed/2g811Eo7K8U',
-    ); //video url
+    const [videoUrl, setVideoUrl] = useState(chapter.media.youtubeId); //video url
     const [showPopUp, setShowPopUp] = useState(false); //show pop up when click on image or caurosel
-
-    useEffect(() => {
-        setVideoUrl(chapter.media.youtubeId);
-    }, []);
 
     //disable scroll
     useEffect(() => {
@@ -122,39 +116,39 @@ const ChapterMedia = ({ contentType, chapter }) => {
             ) : contentType === 'flipbook' ? (
                 <div>
                     <HTMLFlipBook
+                        minWidth={150}
                         width={250}
-                        height={300}
+                        maxWidth={200}
+                        minHeight={250}
+                        height={250}
+                        maxHeight={250}
                         style={{}}
                         startPage={0}
                         usePortrait={false}
                         drawShadow={false}
                         flippingTime={1000}
                         startZIndex={0}
-                        autoSize={false}
+                        autoSize={true}
                         clickEventForward={false}
                         useMouseEvents={true}
                         swipeDistance={30}
                         showPageCorners={false}
                         disableFlipByClick={false}
                         size="stretch"
-                        minWidth={250}
-                        maxWidth={250}
-                        minHeight={400}
-                        maxHeight={400}
                         maxShadowOpacity={0.5}
-                        showCover={true}
-                        mobileScrollSupport={true}
+                        showCover={false}
+                        mobileScrollSupport={false}
                         onFlip={() => {}}
                         onChangeOrientation={() => {}}
                         onChangeState={() => {}}
                         className="demo-book"
                     >
-                        {chapter.media.images.map((image, index) => (
-                            <div>
-                                <h1>page {index + 1}</h1>
+                        {chapter.media.images.map((image) => (
+                            <div className="h-full w-full">
+                                {/* <h1>page {index + 1}</h1> */}
                                 <img
                                     src={image}
-                                    className="object-cover h-[300px] w-[250px] "
+                                    className="object-cover h-full w-full "
                                 />
                             </div>
                         ))}

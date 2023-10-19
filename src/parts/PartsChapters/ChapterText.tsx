@@ -13,8 +13,8 @@ const ChapterText = ({ chapter }) => {
                 {/* teacher's note */}
                 <div className="flex flex-col gap-3">
                     <div
-                        className={` ml-2 flex w-full flex-col gap-6 text-base font-semibold ${
-                            isClicked ? 'text-red-600' : 'text-theme-color'
+                        className={` ml-2 flex w-full flex-col gap-6 text-base font-bold ${
+                            isClicked ? 'text-red-upschool' : 'text-theme-color'
                         }`}
                     >
                         <div
@@ -39,7 +39,7 @@ const ChapterText = ({ chapter }) => {
                                     : 'hidden opacity-0 '
                             } transition-opacity ease-in-out delay-100 duration-200`}
                         >
-                            <p className="text-base leading-7 font-normal text-red-400 transition-opacity  duration-75 ">
+                            <p className="text-base leading-7 font-normal text-red-custom transition-opacity  duration-75 ">
                                 {chapter.teacherNotes}
                             </p>
                         </div>
