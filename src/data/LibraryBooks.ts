@@ -300,3 +300,62 @@ export const FeaturedBooks = [
         ],
     },
 ];
+
+export const RelatedBooks = [
+    {
+        id: 10,
+        image: 'https://source.unsplash.com/tloFnD-7EpI',
+        writer: 'William',
+        title: 'The Somme',
+        country: 'Australia',
+        categories: ['Peace on Earth', 'Racism and Injustice', 'Empathy'],
+    },
+    {
+        id: 11,
+        image: 'https://source.unsplash.com/dABKxsPTAEk',
+        writer: 'Adrian',
+        title: 'Prof and Stan',
+        country: 'United Arab Emirates',
+        categories: ['Generosity and Sharing', 'Hard Work', 'Self-Control'],
+    },
+    {
+        id: 12,
+        image: 'https://source.unsplash.com/WtolM5hsj14',
+        writer: 'Amalia',
+        title: 'So Much Rubbish!',
+        country: 'Australia',
+        categories: ['Hard Work', 'Accepting Differences', 'Education'],
+    },
+    {
+        id: 13,
+        image: 'https://source.unsplash.com/ZiKTSf8BFj0',
+        writer: 'Luka',
+        title: 'R.U.O.K',
+        country: 'Australia',
+        categories: [
+            'Self-Control',
+            'Value and Power of Friendship',
+            'Bravery and Courage',
+        ],
+    },
+    {
+        id: 14,
+        image: 'https://source.unsplash.com/BiqGck0lbhI',
+        writer: 'Marie-Chantal',
+        title: "Don't Play In The Toilet",
+        country: 'Australia',
+        categories: [
+            'Value and Power of Friendship',
+            'Bravery and Courage',
+            'Accepting Differences',
+        ],
+    },
+    {
+        id: 15,
+        image: 'https://source.unsplash.com/RAtKWVlfdf4',
+        writer: 'Akshandha',
+        title: 'The Lively Sea',
+        country: 'India',
+        categories: ['Education', 'Fairness and Equity', 'Peace on Earth'],
+    },
+];

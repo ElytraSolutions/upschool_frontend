@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-import UBStepVImg from '../../assets/UBStepVImg.png';
 import { NavLink } from 'react-router-dom';
 interface IStep6Props {
     oldValues: Record<string, any>;
@@ -84,7 +83,7 @@ const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
                                     <NavLink to="#">
                                         {/* TODO url or link to view the uploaded book */}
                                         <img
-                                            src={UBStepVImg}
+                                            src="images/UBStepVImg.png"
                                             alt="Click here to view your book"
                                             width="full"
                                             height="full"

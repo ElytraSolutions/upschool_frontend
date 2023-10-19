@@ -3,8 +3,12 @@ import useCourses from '../../hooks/useCourses';
 import useCourseCategories from '../../hooks/useCourseCategories';
 import { ICourseCategory } from '../../types/ICourseCategory';
 import Loading from '../../components/Loading';
+import { useEffect } from 'react';
 
 function AllCourses() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const categories = useCourseCategories();
     const courses = useCourses();
 

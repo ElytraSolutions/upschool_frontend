@@ -20,14 +20,12 @@ function EnrollCard({ data }: Props) {
         enrolled: boolean;
         course: number | null;
         firstChapter: string | null;
-        lastChapter: string | null;
-        lastCompletedChapter: string | null;
+        firstLesson: string | null;
     }>({
         enrolled: false,
         course: null,
         firstChapter: null,
-        lastChapter: null,
-        lastCompletedChapter: null,
+        firstLesson: null,
     });
     useEffect(() => {
         if (enrollmentStatus.course === data.id) return;
@@ -40,8 +38,7 @@ function EnrollCard({ data }: Props) {
                 enrolled: resp.data.data.enrolled,
                 course: data.id,
                 firstChapter: resp.data.data.firstChapter?.slug,
-                lastChapter: resp.data.data.lastChapter?.slug,
-                lastCompletedChapter: resp.data.data.lastCompletedChapter?.slug,
+                firstLesson: resp.data.data.firstLesson?.slug,
             });
         })();
     }, [data.id, data.slug, enrollmentStatus.course]);
@@ -52,14 +49,14 @@ function EnrollCard({ data }: Props) {
         );
         if (resp.data.success) {
             navigate(
-                `${location.pathname}/chapter/${resp.data.data.chapter.slug}}`,
+                `${location.pathname}/${resp.data.data.firstChapter.slug}/${resp.data.data.firstLesson.slug}`,
             );
         }
     };
     //  TODO handle cases where courses have no chapters
     const handleGoToCourse = async () => {
         navigate(
-            `${location.pathname}/chapter/${enrollmentStatus.firstChapter}`,
+            `${location.pathname}/${enrollmentStatus.firstChapter}/${enrollmentStatus.firstLesson}`,
         );
     };
     return (

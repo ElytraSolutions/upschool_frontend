@@ -26,7 +26,7 @@ function CourseDetail() {
         const container = containerRef.current;
         if (!iframe || !container) return;
         container.style.height =
-            (iframe.contentDocument?.body.scrollHeight || '20') + 'px';
+            (iframe.contentDocument?.body.scrollHeight || '300') + 'px';
     };
 
     const handleHover = () => {

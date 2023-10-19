@@ -9,9 +9,9 @@ const ChapterMedia = ({ contentType, chapter }) => {
     const [videoUrl, setVideoUrl] = useState(chapter.media.youtubeId); //video url
     const [showPopUp, setShowPopUp] = useState(false); //show pop up when click on image or caurosel
 
-    // useEffect(() => {
-    //     setVideoUrl(chapter.media.youtubeId);
-    // }, []);
+    useEffect(() => {
+        setVideoUrl(chapter.media.youtubeId);
+    }, [chapter]);
 
     //disable scroll
     useEffect(() => {

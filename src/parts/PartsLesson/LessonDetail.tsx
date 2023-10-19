@@ -3,12 +3,14 @@ import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import HomeIcon from '@mui/icons-material/Home';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import axiosInstance from '../../config/Axios';
-import ChapterText from './ChapterText';
-import ChapterMedia from './ChapterMedia';
+import ChapterText from './LessonText';
+import ChapterMedia from './LessonMedia';
+import { useEffect, useState } from 'react';
 
 type ChapterDetailProps = {
     isSidebarOpen: boolean;
     setIsSidebarOpen: any;
+    updateChapters: () => Promise<any>;
 };
 const tempData = [
     {
@@ -72,91 +74,109 @@ Hopefully we can all enjoy the journey together and your children may like to co
         teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.`,
     },
 ];
-export default function ChapterDetail({
+export default function LessonDetail({
     isSidebarOpen,
     setIsSidebarOpen,
+    updateChapters,
 }: ChapterDetailProps) {
-    const { slug, learn } = useParams();
+    const { courseSlug, lessonSlug } = useParams();
     const { isBigScreen } = useScreenWidthAndHeight();
+
+    // const [lesson, setLesson] = useState<any>(null);
+    const [lesson, setLesson] = useState<any>(tempData);
+    useEffect(() => {
+        (async () => {
+            const res = await axiosInstance.get(`/data/lessons/${lessonSlug}`);
+            setLesson(res.data.data);
+        })();
+    }, [lessonSlug, setLesson]);
 
     // const contentType = 'carousel'; //type of chapter [video,image, flipbook, carousel]
     return (
-        <>
-            <div className="flex h-[90vh] flex-col overflow-auto pb-5">
-                {/* ChapterDetail Header */}
-                <div className="mb-5 flex w-full bg-blue-900">
-                    <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
-                        <div className="flex-row flex items-center justify-between">
-                            {/* Circle sidebar open and close option */}
-                            <div
-                                className={`${
-                                    isSidebarOpen ? 'absolute -left-6' : ''
-                                }  flex h-4 w-4 flex-row items-center justify-center rounded-full bg-yellow-400 text-white md:h-6 md:w-6 lg:h-8 lg:w-8 `}
-                            >
-                                <KeyboardArrowLeftIcon
+        lesson && (
+            <>
+                <div className="flex h-[90vh] flex-col overflow-auto pb-5">
+                    {/* ChapterDetail Header */}
+                    <div className="mb-5 flex w-full bg-blue-900">
+                        <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
+                            <div className="flex-row flex items-center justify-between">
+                                {/* Circle sidebar open and close option */}
+                                <div
                                     className={`${
-                                        !isSidebarOpen && 'rotate-180'
-                                    } h-3 w-3 md:h-5 md:w-5 lg:h-7 lg:w-7`}
-                                    // style={{ width: '40px', height: '40px' }}
-                                    onClick={() => {
-                                        setIsSidebarOpen(
-                                            (oldState) => !oldState,
-                                        );
-                                    }}
-                                />
-                            </div>
-                            <div className="ml-2">
-                                <NavLink
-                                    to={`/course/${slug}`}
-                                    className="text-xs flex flex-row items-center justify-start gap-0 md:gap-1 md:text-base"
+                                        isSidebarOpen ? 'absolute -left-6' : ''
+                                    }  flex h-4 w-4 flex-row items-center justify-center rounded-full bg-yellow-400 text-white md:h-6 md:w-6 lg:h-8 lg:w-8 `}
                                 >
-                                    Goto Course Home
-                                    <span>
-                                        <HomeIcon />
-                                    </span>
-                                </NavLink>
+                                    <KeyboardArrowLeftIcon
+                                        className={`${
+                                            !isSidebarOpen && 'rotate-180'
+                                        } h-3 w-3 md:h-5 md:w-5 lg:h-7 lg:w-7`}
+                                        // style={{ width: '40px', height: '40px' }}
+                                        onClick={() => {
+                                            setIsSidebarOpen(
+                                                (oldState) => !oldState,
+                                            );
+                                        }}
+                                    />
+                                </div>
+                                <div className="ml-2">
+                                    <NavLink
+                                        to={`/course/${courseSlug}`}
+                                        className="text-xs flex flex-row items-center justify-start gap-0 md:gap-1 md:text-base"
+                                    >
+                                        Goto Course Home
+                                        <span>
+                                            <HomeIcon />
+                                        </span>
+                                    </NavLink>
+                                </div>
                             </div>
+                            {isBigScreen && <div>{lesson.name}</div>}
+                            {/* TODO check if chapter is already completed */}
+                            <button
+                                className=" text-xs rounded-md bg-pink-700 p-0.5  text-center md:px-4 md:py-2 md:text-base "
+                                onClick={async () => {
+                                    const res = await axiosInstance.post(
+                                        `/data/lessons/${lessonSlug}/complete`,
+                                    );
+                                    if (res.status === 200) {
+                                        await updateChapters();
+                                    }
+                                    console.log(res.data);
+                                }}
+                            >
+                                Complete Lesson
+                            </button>
                         </div>
-                        {isBigScreen && <div>{learn}</div>}
-                        {/* TODO check if chapter is already completed */}
-                        <button
-                            className=" text-xs rounded-md bg-pink-700 p-0.5  text-center md:px-4 md:py-2 md:text-base "
-                            onClick={async () => {
-                                const res = await axiosInstance.post(
-                                    `/data/chapters/${learn}/complete`,
-                                );
-                                console.log(res.data);
-                            }}
-                        >
-                            Complete Lesson
-                        </button>
                     </div>
-                </div>
-                {/* ChapterDetail Chapters Section*/}
-                <div className="flex flex-col ">
-                    {tempData.map((chapter) => (
-                        <div className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-8 border-b-[1px] border-black">
-                            <ChapterText key={chapter.id} chapter={chapter} />
-                            <div className="col-span-1">
-                                <ChapterMedia
-                                    contentType={chapter.type}
+                    {/* ChapterDetail Chapters Section*/}
+                    <div className="flex flex-col ">
+                        {tempData.map((chapter) => (
+                            <div className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-8 border-b-[1px] border-black">
+                                <ChapterText
+                                    key={chapter.id}
                                     chapter={chapter}
                                 />
+                                <div className="col-span-1">
+                                    <ChapterMedia
+                                        contentType={chapter.type}
+                                        chapter={chapter}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
 
-                    {/* TODO Data to be fetched from backend and mange its logic */}
-                    {/* <ChapterText
+                        {/* TODO Data to be fetched from backend and mange its logic */}
+                        {/* <ChapterText
                         isClicked={isClicked}
                         setIsClicked={setIsClicked}
                     /> */}
-                    {/* TODO second column: Data to be fetched and manage logic */}
-                    {/* <div className="col-span-1">
+                        {/* TODO second column: Data to be fetched and manage logic */}
+                        {/* <div className="col-span-1">
                         <ChapterMedia contentType={contentType} />
                     </div> */}
+                    </div>
                 </div>
-            </div>
-        </>
+            </>
+        )
     );
 }

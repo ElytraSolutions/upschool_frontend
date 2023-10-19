@@ -1,5 +1,4 @@
 import { Formik } from 'formik';
-import PDFlogo from '../../assets/PDF_logo.png';
 interface IStep2Props {
     isLargeScreen: boolean;
     oldValues: Record<string, any>;
@@ -38,7 +37,7 @@ export function UploadBookStep2({
                                     <div className="flex flex-row gap-2 justify-start items-center  font-light">
                                         <span>
                                             <img
-                                                src={PDFlogo}
+                                                src="images/PDF_logo.png"
                                                 alt="PDF"
                                                 width="full"
                                                 height="full"

@@ -1,4 +1,3 @@
-import DownloadIcon from '../../../assets/DownloadIcon.png';
 // TODO fetch 'purchases from backend
 const purchases = [
     {
@@ -68,7 +67,7 @@ export default function PurchasesTable() {
                                     <div className="flex flex-row justify-center cursor-pointer">
                                         {/* TODO implement download of invoice */}
                                         <img
-                                            src={DownloadIcon}
+                                            src="images/DownloadIcon.png"
                                             alt="Download"
                                             width="23px"
                                             height="22px"

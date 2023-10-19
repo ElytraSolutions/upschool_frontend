@@ -1,6 +1,3 @@
-import WhatsAppIcon from '../../../assets/WhatsappIcon.png';
-import EmailBiggerIcon from '../../../assets/EmailBiggerIcon.png';
-
 const InviteViaLink = () => {
     return (
         <>
@@ -32,7 +29,7 @@ const InviteViaLink = () => {
                     {/* TODO implement necessary logic */}
                     {/* WhatsAppIcon */}
                     <img
-                        src={WhatsAppIcon}
+                        src="images/Dashboard/InviteViaLink/WhatsappIcon.png"
                         alt="Whatsapp"
                         width="40px"
                         height="40px"
@@ -40,7 +37,7 @@ const InviteViaLink = () => {
                     {/* TODO implement necessary logic */}
                     {/* EmailIcon */}
                     <img
-                        src={EmailBiggerIcon}
+                        src="images/Dashboard/InviteViaLink/EmailBiggerIcon.png"
                         alt="Email"
                         width="40px"
                         height="40px"
