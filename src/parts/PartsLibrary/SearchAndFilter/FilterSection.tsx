@@ -139,7 +139,10 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                     <div className="w-full h-full flex flex-col gap-1 md:gap-3 mt-1 md:mt-3">
                                         {/* Refine Search Button */}
                                         <button
-                                            className=" flex flex-1 justify-center items-center h-full w-full bg-theme-color rounded-md p-0.5 md:p-2 px-4"
+                                            className={`flex flex-1 justify-center items-center h-full w-full bg-theme-color rounded-md p-0.5 md:p-2 px-4 ${
+                                                values.categories.length ===
+                                                    0 && 'pointer-events-none'
+                                            }`}
                                             type="submit"
                                         >
                                             <p className="text-sm md:text-base xl:text-lg text-white">
@@ -151,7 +154,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                             className={`flex flex-1 justify-center items-center h-full w-full ${
                                                 values.categories.length > 0
                                                     ? ' bg-theme-color text-white'
-                                                    : 'bg-white text-gray-900/40'
+                                                    : 'bg-white text-gray-900/40 pointer-events-none'
                                             }   border border-gray-900/20 rounded-md p-0.5 md:p-2  px-4`}
                                             type="reset"
                                         >

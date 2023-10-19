@@ -13,7 +13,7 @@ type SectionProps = {
         country: string;
         categories: string[];
     }[];
-    setSelectSection: (value: string) => void;
+    setSelectSection: (value: any) => void;
 };
 const SectionFeatured: React.FC<SectionProps> = ({
     topic,
@@ -42,6 +42,7 @@ const SectionFeatured: React.FC<SectionProps> = ({
     const cards: HTMLCollectionOf<HTMLLIElement> | undefined =
         slider?.getElementsByTagName('li');
     const elementsToShow: number = isXtraLarge ? 3 : !isXtraMedium ? 2 : 1; // Number of cards to show in the slider
+    const totalElementsToShow: number = isXtraLarge ? 6 : !isXtraMedium ? 5 : 4; // Total number of cards to show in the slider
     const sliderContainerWidth: number = sliderContainer?.clientWidth || 0;
     const cardWidth: number = sliderContainerWidth / elementsToShow;
     if (slider) {
@@ -90,7 +91,9 @@ const SectionFeatured: React.FC<SectionProps> = ({
                                 <p
                                     className="underline underline-offset-4 hover:cursor-pointer text-sm lg:text-base "
                                     onClick={() => {
-                                        setSelectSection('Featured Books');
+                                        setSelectSection({
+                                            section: 'Featured Books',
+                                        });
                                     }}
                                 >
                                     View All {`>`}
@@ -136,13 +139,15 @@ const SectionFeatured: React.FC<SectionProps> = ({
                         className="w-[220px] xss:w-[270px] xm:w-[510px] sm:w-[600px] tab:w-[570px] lg:w-[600px] xl:w-[900px] overflow-hidden "
                     >
                         <ul id="SliderFeatured" className="flex w-full">
-                            {books.slice(0, 6).map((book, index) => (
-                                <li key={index} className="w-full">
-                                    <div className="flex flex-row justify-center h-full">
-                                        <BookCard book={book} />
-                                    </div>
-                                </li>
-                            ))}
+                            {books
+                                .slice(0, totalElementsToShow)
+                                .map((book, index) => (
+                                    <li key={index} className="w-full">
+                                        <div className="flex flex-row justify-center h-full">
+                                            <BookCard book={book} />
+                                        </div>
+                                    </li>
+                                ))}
                         </ul>
                     </div>
                 </div>

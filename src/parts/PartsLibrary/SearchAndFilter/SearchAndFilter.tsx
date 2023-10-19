@@ -1,54 +1,34 @@
-import { useSearchParams } from 'react-router-dom';
-import React, { useState } from 'react';
 import InformationSection from './InformationSection';
 import FilterSection from './FilterSection';
 
 type SearchAndFilterProps = {
-    setSelectSection: (value: string) => void;
+    setSearchParams: (value: any) => void;
+    selectSection: string;
+    searchQuery: string;
+    setSearchQuery: (value: string) => void;
+    submitHandler: (values: any, onSubmitProps: any) => void;
+    resetHandler: (values: any) => void;
+    resetForm: (event: React.FormEvent<HTMLFormElement>) => void;
+    submitSearchForm: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
 const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
-    setSelectSection,
+    setSearchParams,
+    selectSection,
+    searchQuery,
+    setSearchQuery,
+    submitHandler,
+    resetHandler,
+    resetForm,
+    submitSearchForm,
 }) => {
-    const [searchParams, setSearchParams] = useSearchParams();
-    // console.log(Array.from(searchParams.entries()));
-    console.log(searchParams.get('query'));
-    console.log(searchParams.getAll('categories'));
-    // maintains the search query of search bar
-    const [searchQuery, setSearchQuery] = useState<string>('');
-
-    // handles submit process of search bar only without filter options
-    const submitSearchForm = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log(searchQuery);
-        setSearchParams({ query: searchQuery });
-        // TODO: send request to backend to search for books
-    };
-    // handles submit process of search bar and filter options at once
-    const submitHandler = (values: any, onSubmitProps: any) => {
-        console.log(values);
-        const searchParameters = {
-            query: searchQuery,
-            categories: values.categories,
-        };
-        console.log(searchParameters);
-        setSearchParams(searchParameters);
-        onSubmitProps.setSubmitting(false);
-        // TODO: send request to backend to search for books
-    };
-
-    const resetHandler = (values: any) => {
-        values.categories = [];
-        values.allCategory = true;
-        setSearchParams('');
-    };
     return (
         <>
             <div className=" flex flex-col gap-4 text-theme-color">
                 {/* Search Section */}
                 <div className="bg-white border border-t-0 border-theme-color/50 shadow-lg shadow-gray-300 rounded-lg">
                     {/* Search Box */}
-                    <form onSubmit={submitSearchForm}>
+                    <form onSubmit={submitSearchForm} onReset={resetForm}>
                         <div className="flex flex-row divide-x divide-theme-color/50 border border-theme-color/50  rounded-md text-sm 2xl:text-base w-full">
                             <div className=" flex items-center p-2 w-full ">
                                 <input
@@ -68,15 +48,32 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                                 <img
                                     src="/images/Library/SearchIcon.png"
                                     alt="search"
-                                    height="30px"
-                                    width="30px"
+                                    height="30"
+                                    width="30"
+                                />
+                            </button>
+                            <button
+                                type="reset"
+                                className={`p-2 w-fit ${
+                                    searchQuery.length === 0 &&
+                                    'pointer-events-none'
+                                }`}
+                            >
+                                <img
+                                    src="/images/CrossIcon.png"
+                                    alt="reset"
+                                    height="30"
+                                    width="30"
                                 />
                             </button>
                         </div>
                     </form>
 
                     {/* Information Section */}
-                    <InformationSection setSelectSection={setSelectSection} />
+                    <InformationSection
+                        setSearchParams={setSearchParams}
+                        selectSection={selectSection}
+                    />
                 </div>
                 {/* Filter Section */}
                 <FilterSection

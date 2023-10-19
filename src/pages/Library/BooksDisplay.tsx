@@ -6,33 +6,33 @@ import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
 
 type BooksDisplayProps = {
     selectSection: string;
-    setSelectSection: (value: string) => void;
+    setSearchParams: (value: string) => void;
 };
 
 const BooksDisplay: React.FC<BooksDisplayProps> = ({
     selectSection,
-    setSelectSection,
+    setSearchParams,
 }) => {
     return (
         <>
             <div className="w-fit tab:w-2/3  xl:w-[75%] 1450:w-2/3 ">
                 {/* it displays all sections (Best Sellers , Featured Books and Explore ALL Books as deafault condition) */}
-                {selectSection === 'All Sections' && (
+                {selectSection === 'Home' && (
                     <div className="flex flex-col gap-5 tab:gap-12 w-fit">
                         {/* Best Sellers Section */}
                         <SectionBestSellers
                             topic="Best Sellers"
                             books={BestSellers}
-                            setSelectSection={setSelectSection}
+                            setSelectSection={setSearchParams}
                         />
                         {/* Featured Books Section */}
                         <SectionFeatured
                             topic="Featured Books"
                             books={FeaturedBooks}
-                            setSelectSection={setSelectSection}
+                            setSelectSection={setSearchParams}
                         />
                         {/* All Books Section */}
-                        <SectionShowBooks topic="All Books" books={books} />
+                        {/* <SectionShowBooks topic="All Books" books={books} /> */}
                     </div>
                 )}
                 {selectSection === 'Best Sellers' && (
@@ -52,6 +52,9 @@ const BooksDisplay: React.FC<BooksDisplayProps> = ({
                 )}
                 {selectSection === 'Recently Viewed' && (
                     <SectionShowBooks topic="Recently Viewed" books={books} />
+                )}
+                {selectSection === 'All Books' && (
+                    <SectionShowBooks topic="All Books" books={books} />
                 )}
             </div>
         </>
