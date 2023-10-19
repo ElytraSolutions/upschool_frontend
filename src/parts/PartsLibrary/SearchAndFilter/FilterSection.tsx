@@ -139,10 +139,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                     <div className="w-full h-full flex flex-col gap-1 md:gap-3 mt-1 md:mt-3">
                                         {/* Refine Search Button */}
                                         <button
-                                            className={`flex flex-1 justify-center items-center h-full w-full bg-theme-color rounded-md p-0.5 md:p-2 px-4 ${
-                                                values.categories.length ===
-                                                    0 && 'pointer-events-none'
-                                            }`}
+                                            className=" flex flex-1 justify-center items-center h-full w-full bg-theme-color rounded-md p-0.5 md:p-2 px-4"
                                             type="submit"
                                         >
                                             <p className="text-sm md:text-base xl:text-lg text-white">

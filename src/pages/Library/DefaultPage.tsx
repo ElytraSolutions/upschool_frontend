@@ -43,7 +43,6 @@ const DefaultPage = () => {
     const resetHandler = (values: any) => {
         values.categories = [];
         values.allCategory = true;
-        setSearchParams({ section: 'Home' });
     };
     return (
         <>
