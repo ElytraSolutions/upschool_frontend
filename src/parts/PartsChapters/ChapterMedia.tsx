@@ -6,14 +6,12 @@ import crossmark from '../../assets/CrossMark.png';
 
 const ChapterMedia = ({ contentType, chapter }) => {
     const [videoPlatform, setVideoPlatform] = useState('youtube'); //type of video platform [youtube, vimeo]
-    const [videoUrl, setVideoUrl] = useState(
-        'https://www.youtube.com/embed/2g811Eo7K8U',
-    ); //video url
+    const [videoUrl, setVideoUrl] = useState(chapter.media.youtubeId); //video url
     const [showPopUp, setShowPopUp] = useState(false); //show pop up when click on image or caurosel
 
-    useEffect(() => {
-        setVideoUrl(chapter.media.youtubeId);
-    }, []);
+    // useEffect(() => {
+    //     setVideoUrl(chapter.media.youtubeId);
+    // }, []);
 
     //disable scroll
     useEffect(() => {
@@ -22,7 +20,7 @@ const ChapterMedia = ({ contentType, chapter }) => {
     }, [showPopUp]);
 
     return (
-        <div className="w-full h-full flex justify-center items-center">
+        <div className="media-container w-full h-full flex justify-center items-center">
             {contentType === 'image' ? (
                 <img
                     className="w-3/4"
@@ -120,10 +118,14 @@ const ChapterMedia = ({ contentType, chapter }) => {
                     </div>
                 </div>
             ) : contentType === 'flipbook' ? (
-                <div>
+                <div className="flipbookContainer">
                     <HTMLFlipBook
-                        width={250}
-                        height={300}
+                        minWidth={150}
+                        width={300}
+                        maxWidth={350}
+                        minHeight={300}
+                        height={350}
+                        maxHeight={400}
                         style={{}}
                         startPage={0}
                         usePortrait={false}
@@ -137,10 +139,6 @@ const ChapterMedia = ({ contentType, chapter }) => {
                         showPageCorners={false}
                         disableFlipByClick={false}
                         size="stretch"
-                        minWidth={250}
-                        maxWidth={250}
-                        minHeight={400}
-                        maxHeight={400}
                         maxShadowOpacity={0.5}
                         showCover={true}
                         mobileScrollSupport={true}
@@ -149,12 +147,12 @@ const ChapterMedia = ({ contentType, chapter }) => {
                         onChangeState={() => {}}
                         className="demo-book"
                     >
-                        {chapter.media.images.map((image, index) => (
-                            <div>
-                                <h1>page {index + 1}</h1>
+                        {chapter.media.images.map((image) => (
+                            <div className="h-full w-full overflow-hidden">
+                                {/* <h1>page {index + 1}</h1> */}
                                 <img
                                     src={image}
-                                    className="object-cover h-[300px] w-[250px] "
+                                    className="object-cover h-full w-full "
                                 />
                             </div>
                         ))}
