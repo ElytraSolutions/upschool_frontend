@@ -34,6 +34,7 @@ const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
                 <div className="text-left md:text-right">
                     <div>Author's Location: </div>
                     <div className=" bg-white pl-5 pr-3 py-2 rounded-xl flex">
+                        {/* TODO provide correct image path */}
                         <img
                             src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/2560px-Flag_of_Australia.svg.png"
                             alt="flag"

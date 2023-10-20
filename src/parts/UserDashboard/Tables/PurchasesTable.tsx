@@ -1,3 +1,5 @@
+import resolveImgURL from '../../../utlis/resolveImgURL';
+
 // TODO fetch 'purchases from backend
 const purchases = [
     {
@@ -67,10 +69,12 @@ export default function PurchasesTable() {
                                     <div className="flex flex-row justify-center cursor-pointer">
                                         {/* TODO implement download of invoice */}
                                         <img
-                                            src="images/DownloadIcon.png"
+                                            src={resolveImgURL(
+                                                '/DownloadIcon.png',
+                                            )}
                                             alt="Download"
-                                            width="23px"
-                                            height="22px"
+                                            width="23"
+                                            height="22"
                                         />
                                     </div>
                                 </td>

@@ -1,9 +1,13 @@
+import resolveImgURL from '../../utlis/resolveImgURL';
+
 function Acknowledgement() {
     return (
         <>
             <div
                 className="bottom-0  bg-cover  "
-                style={{ backgroundImage: `url('/images/ack/back.jpg')` }}
+                style={{
+                    backgroundImage: `url('${resolveImgURL('/ack/back.jpg')})`,
+                }}
             >
                 <div className="flex justify-center  bg-[#462615F0]">
                     <div className="container max-w-4xl ">
@@ -13,12 +17,12 @@ function Acknowledgement() {
                                     Acknowledgement of Country
                                 </span>
                                 <img
-                                    src="/images/ack/ack1.png"
+                                    src={resolveImgURL('/ack/ack1.png')}
                                     className="max-w-[250px] md:max-w-[450px]"
                                     alt=""
                                 />
                                 <img
-                                    src="/images/ack/flag.png"
+                                    src={resolveImgURL('/ack/flag.png')}
                                     className="max-h-[50px]"
                                 />
                                 <div className=" flex w-[50vw] justify-center md:w-[30vw] "></div>

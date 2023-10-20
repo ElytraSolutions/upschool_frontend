@@ -1,6 +1,7 @@
 import InformationSection from '../../parts/PartsLibrary/SearchAndFilter/InformationSection';
 import FilterSection from '../../parts/PartsLibrary/SearchAndFilter/FilterSection';
 import BooksDisplay from './BooksDisplay';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 type LibrarySmallScreenProps = {
     selectSection: string;
@@ -84,7 +85,9 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                         className="flex  flex-row  items-center p-0.5 md:p-2 w-fit h-full"
                                     >
                                         <img
-                                            src="/images/Library/SearchIcon.png"
+                                            src={resolveImgURL(
+                                                '/Library/SearchIcon.png',
+                                            )}
                                             alt="search"
                                             height="30px"
                                             width="30px"
@@ -105,7 +108,9 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                         }}
                                     >
                                         <img
-                                            src="/images/Library/btnFilter.png"
+                                            src={resolveImgURL(
+                                                '/Library/btnFilter.png',
+                                            )}
                                             alt="Filter"
                                             height="50px"
                                             width="50px"

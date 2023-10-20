@@ -1,5 +1,6 @@
 import InformationSection from './InformationSection';
 import FilterSection from './FilterSection';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 type SearchAndFilterProps = {
     setSearchParams: (value: any) => void;
@@ -28,8 +29,12 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                 {/* Search Section */}
                 <div className="bg-white border border-t-0 border-theme-color/50 shadow-lg shadow-gray-300 rounded-lg">
                     {/* Search Box */}
-                    <form onSubmit={submitSearchForm} onReset={resetForm}>
-                        <div className="flex flex-row divide-x divide-theme-color/50 border border-theme-color/50  rounded-md text-sm 2xl:text-base w-full">
+                    <form
+                        onSubmit={submitSearchForm}
+                        onReset={resetForm}
+                        className=" h-12"
+                    >
+                        <div className="flex flex-row divide-x divide-theme-color/50 border border-theme-color/50  rounded-md text-sm 2xl:text-base w-full h-11">
                             <div className=" flex items-center p-2 w-full ">
                                 <input
                                     type="text"
@@ -43,25 +48,29 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                                     }}
                                 />
                             </div>
+                            {searchQuery.length > 0 && (
+                                <button
+                                    type="reset"
+                                    className={`p-2 w-12 h-full ${
+                                        searchQuery.length === 0 &&
+                                        'pointer-events-none'
+                                    }`}
+                                >
+                                    <img
+                                        src={resolveImgURL('/CrossIcon.png')}
+                                        alt="reset"
+                                        height="30"
+                                        width="30"
+                                    />
+                                </button>
+                            )}
 
-                            <button type="submit" className="p-2 w-fit">
+                            <button type="submit" className="p-2 w-12 h-full ">
                                 <img
-                                    src="/images/Library/SearchIcon.png"
+                                    src={resolveImgURL(
+                                        '/Library/SearchIcon.png',
+                                    )}
                                     alt="search"
-                                    height="30"
-                                    width="30"
-                                />
-                            </button>
-                            <button
-                                type="reset"
-                                className={`p-2 w-fit ${
-                                    searchQuery.length === 0 &&
-                                    'pointer-events-none'
-                                }`}
-                            >
-                                <img
-                                    src="/images/CrossIcon.png"
-                                    alt="reset"
                                     height="30"
                                     width="30"
                                 />

@@ -5,6 +5,7 @@ import Dropzone from 'react-dropzone';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 const uploadBookSchema = yup.object().shape({
     file: yup.string().required("You have'nt uploaded the book"),
@@ -144,7 +145,7 @@ export function UploadBookStep1({
                                         </div>
                                         <ErrorMessage
                                             name="file"
-                                            render={(msg) => (
+                                            render={(msg: string) => (
                                                 <div className="text-center text-red-upschool text-sm md:text-base p-1">
                                                     {msg}
                                                 </div>
@@ -222,22 +223,39 @@ export function UploadBookStep1({
                                         {...getConfigurableProps()}
                                     >
                                         <div>
-                                            <img src="images/Safe/safe1.png" />
+                                            <img
+                                                src={resolveImgURL(
+                                                    '/Safe/safe1.png',
+                                                )}
+                                            />
                                         </div>
                                         <div>
-                                            <img src="images/Safe/safe2.png" />
+                                            <img
+                                                src={resolveImgURL(
+                                                    '/Safe/safe2.png',
+                                                )}
+                                            />
                                         </div>
                                         <div>
-                                            <img src="images/Safe/safe3.png" />
-                                        </div>
-                                        {/* <div>
-                                            <img src={Safe3} />
-                                        </div> */}
-                                        <div>
-                                            <img src="images/Safe/safe4.png" />
+                                            <img
+                                                src={resolveImgURL(
+                                                    '/Safe/safe3.png',
+                                                )}
+                                            />
                                         </div>
                                         <div>
-                                            <img src="images/Safe/safe5.png" />
+                                            <img
+                                                src={resolveImgURL(
+                                                    '/Safe/safe4.png"',
+                                                )}
+                                            />
+                                        </div>
+                                        <div>
+                                            <img
+                                                src={resolveImgURL(
+                                                    '/Safe/safe5.png',
+                                                )}
+                                            />
                                         </div>
                                     </Carousel>
                                 </div>

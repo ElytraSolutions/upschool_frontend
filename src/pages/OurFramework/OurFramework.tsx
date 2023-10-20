@@ -1,7 +1,7 @@
-import flyimg from '/images/flyimage.png';
 import Carousel from '../../components/Carousels/Carousel';
 import carouselImages from '../../data/FrameworkCarouselData';
 import { useEffect } from 'react';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 export default function OurFramework() {
     useEffect(() => {
@@ -13,11 +13,17 @@ export default function OurFramework() {
                 <div
                     className="bg-cover  bg-center"
                     style={{
-                        backgroundImage: `url('/images/group-of-school-children-with-teacher-on-field-trip-in-nature.jpg')`,
+                        backgroundImage: `url('${resolveImgURL(
+                            '/group-of-school-children-with-teacher-on-field-trip-in-nature.jpg',
+                        )})`,
                     }}
                 >
                     <div className="flex flex-col bg-[#181739C0] justify-center items-center p-10">
-                        <img src={flyimg} className="max-h-[150px]" alt="" />
+                        <img
+                            src={resolveImgURL('/flyimage.png')}
+                            className="max-h-[150px]"
+                            alt=""
+                        />
                         <span className="text-[#FDCf60] text-[22px] md:text-[36px] font-bold ">
                             Purposeful Learning
                         </span>

@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import stringAvatar from '../../../utlis/AvatarColor/avatar_color';
 import { ProgressBar } from '../../../utlis/ProgressBar/ProgressBar';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 interface StudentListType {
     id: number;
@@ -109,10 +110,10 @@ const StudentList: React.FC = () => {
                         {/* TODO it should delete the record of student in database and again fetch the updated list of student */}
                         <div className="w-6 h-6">
                             <img
-                                src="images/CrossMark.png"
+                                src={resolveImgURL('/CrossMark.png')}
                                 alt="crossmark"
-                                width="24px"
-                                height="24px"
+                                width="24"
+                                height="24"
                             />
                         </div>
                         {/* Inidividual detail in grid */}

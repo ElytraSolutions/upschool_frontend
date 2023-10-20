@@ -253,7 +253,7 @@ export function UploadBookStep3({
                                 label="Date of Birth"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.date_of_birth}
+                                // value={values.date_of_birth}
                                 name="date_of_birth"
                                 error={
                                     Boolean(touched.date_of_birth) &&

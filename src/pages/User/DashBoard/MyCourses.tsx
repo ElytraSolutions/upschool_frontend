@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 // TODO fetch data from backend according to the need
 const courses = [
@@ -8,7 +9,7 @@ const courses = [
         name: 'Build a Library & Change the world',
         completedLessons: 20,
         totalLessons: 40,
-        image: 'images/Books/book5.png',
+        image: resolveImgURL('/Books/book5.png'),
         url: '/dashboard',
         status: 'In review',
     },
@@ -17,7 +18,7 @@ const courses = [
         name: 'Write a Book to Change the World',
         completedLessons: 30,
         totalLessons: 50,
-        image: 'images/Books/book4.png',
+        image: resolveImgURL('/Books/book4.png'),
         url: '/dashboard',
         status: 'Published',
     },
@@ -26,7 +27,7 @@ const courses = [
         name: 'The Mission',
         completedLessons: 10,
         totalLessons: 70,
-        image: 'images/Books/book3.png',
+        image: resolveImgURL('/Books/book3.png'),
         url: '/dashboard',
         status: 'Book Not Print Ready',
     },
@@ -35,7 +36,7 @@ const courses = [
         name: 'Write a Book to Change the World',
         completedLessons: 40,
         totalLessons: 50,
-        image: 'images/Books/book4.png',
+        image: resolveImgURL('/Books/book4.png'),
         url: '/dashboard',
         status: 'Published',
     },

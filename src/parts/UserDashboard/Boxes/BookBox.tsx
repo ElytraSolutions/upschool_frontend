@@ -29,8 +29,8 @@ export default function BookBox({ detail }: BookBoxProps) {
                                 <img
                                     src={detail.image}
                                     alt={detail.name}
-                                    width="350px"
-                                    height="250px"
+                                    width="350"
+                                    height="250"
                                 />
                             </div>
 

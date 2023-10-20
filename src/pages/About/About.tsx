@@ -3,6 +3,7 @@ import backgroundVideo from '/videos/background.mp4';
 
 import MultiImageCarousel from '../../components/Carousels/MultiImageCarousel';
 import patners from '../../data/OurPatners';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 export default function About() {
     return (
@@ -25,7 +26,7 @@ export default function About() {
                     </video>
                     <div className="relative flex flex-col items-center justify-center bg-[#181739C0] text-center md:h-[60vh] ">
                         <img
-                            src="images/flyimage.png"
+                            src={resolveImgURL('/flyimage.png')}
                             className="pt-50 max-h-[150px]"
                             alt=""
                         />
@@ -112,11 +113,14 @@ export default function About() {
                                 <i className="fa fa-arrow-right"></i>
                             </button>
                         </div>
-                        <img src="/images/about/about-us.jpg" alt="" />
+                        <img
+                            src={resolveImgURL('/about/about-us.jpg')}
+                            alt=""
+                        />
                     </div>
                     <div className="grid grid-cols-1 gap-4 pt-20 md:grid-cols-2">
                         <img
-                            src="/images/about/about-us-images.jpg"
+                            src={resolveImgURL('/about/about-us-images.jpg')}
                             alt=""
                             className="order-last md:order-first"
                         />
@@ -161,11 +165,14 @@ export default function About() {
                                 <i className="fa fa-arrow-right"></i>{' '}
                             </button>
                         </div>
-                        <img src="/images/about/about-us-images-1.jpg" alt="" />
+                        <img
+                            src={resolveImgURL('/about/about-us-images-1.jpg')}
+                            alt=""
+                        />
                     </div>
                     <div className="grid grid-cols-1 gap-4 pt-20 md:grid-cols-2">
                         <img
-                            src="/images/about/about-us-images-3.jpg"
+                            src={resolveImgURL('/about/about-us-images-3.jpg')}
                             alt=""
                             className="order-last md:order-first"
                         />
@@ -212,14 +219,17 @@ export default function About() {
                                 <i className="fa fa-arrow-right"></i>{' '}
                             </button>
                         </div>
-                        <img src="/images/about/about-us-images-4.jpg" alt="" />
+                        <img
+                            src={resolveImgURL('/about/about-us-images-4.jpg')}
+                            alt=""
+                        />
                     </div>
                     <div>
                         <p className="pt-24 text-[32px] font-bold leading-normal tracking-tight md:text-[48px] ">
                             Our Team
                         </p>
                         <img
-                            src="/images/about/Team-Photo.png"
+                            src={resolveImgURL('/about/Team-Photo.png')}
                             className="py-6"
                             alt=""
                         />
@@ -245,7 +255,9 @@ export default function About() {
                 <div
                     className="bg-cover  bg-center"
                     style={{
-                        backgroundImage: `url('/images/about/back.jpg')`,
+                        backgroundImage: `url(${resolveImgURL(
+                            `/about/back.jpg`,
+                        )})`,
                     }}
                 >
                     <div className="flex flex-col items-center justify-center bg-[#181739C0] p-10 text-center">

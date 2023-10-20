@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { BookList } from '../../data/BookBundleList';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 // TODO This needs to be fetched from backend
 const information = [
@@ -15,7 +16,7 @@ export default function BookBundle() {
                     {/* photo */}
                     <div className="w-full h-full">
                         <img
-                            src="/images/LibraryBackground.png"
+                            src={resolveImgURL('/LibraryBackground.png')}
                             alt="LibraryBackground"
                             loading="lazy"
                         />

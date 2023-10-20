@@ -2,6 +2,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 const CertificateStep3 = ({ formData, setFormData }) => {
     const handleDownload = () => {
@@ -51,7 +52,10 @@ const CertificateStep3 = ({ formData, setFormData }) => {
     return (
         <div className=" relative overflow-scroll h-50vh max-h-[76vh] overflow-x-hidden">
             <div className="document">
-                <img src="./images/Certificate.png" className="p-5" />
+                <img
+                    src={resolveImgURL('/images/Certificate.png')}
+                    className="p-5"
+                />
                 <div className="absolute bottom-[18%] left-[10%] right-[10%] text-lg font-bold h-[6rem]  bg-white z-1 "></div>
                 <span className="absolute bottom-[18%] left-1/2 transform -translate-x-1/2 text-lg font-bold h-[5rem] w- z-10 ">
                     <h1 className="text-2xl">
@@ -91,7 +95,11 @@ const CertificateStep3 = ({ formData, setFormData }) => {
                                         <button
                                             onClick={() => setShowModal(false)}
                                         >
-                                            <img src="./images/CrossMark.png" />
+                                            <img
+                                                src={resolveImgURL(
+                                                    '/CrossMark.png',
+                                                )}
+                                            />
                                         </button>
                                     </div>
                                 </div>

@@ -5,6 +5,7 @@ import axiosInstance from '../../config/Axios';
 import { NavLink, useParams } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import useUser from '../../hooks/useUser';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 function CourseDetail() {
     const { user } = useUser();
@@ -46,7 +47,11 @@ function CourseDetail() {
             <div className="flex flex-col">
                 <div
                     className="bg-cover"
-                    style={{ backgroundImage: `url('/images/ack/back.jpg')` }}
+                    style={{
+                        backgroundImage: `url('${resolveImgURL(
+                            '/ack/back.jpg',
+                        )})`,
+                    }}
                 >
                     <div className="bg-[#242254c0] px-10 py-2">
                         <div className="max-w-6xl m-auto">

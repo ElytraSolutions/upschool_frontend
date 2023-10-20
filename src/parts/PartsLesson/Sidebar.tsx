@@ -1,4 +1,5 @@
 import IChapter from '../../types/IChapter';
+import resolveImgURL from '../../utlis/resolveImgURL';
 import SidebarContent from './SidebarContent';
 
 type SidebarProps = {
@@ -12,7 +13,7 @@ export default function Sidebar({ courseSlug, chapters }: SidebarProps) {
                 <div className="flex flex-row items-center justify-center text-white w-fit gap-1  h-14">
                     <span className=" ">
                         <img
-                            src="/images/OpenBook.png"
+                            src={resolveImgURL('/OpenBook.png')}
                             width="25"
                             height="25"
                             alt="OpenBook"
@@ -23,7 +24,7 @@ export default function Sidebar({ courseSlug, chapters }: SidebarProps) {
                     </h3>
                 </div>
             </div>
-            <div className="overflow-auto h-[82vh]">
+            <div className="overflow-auto h-fit">
                 {chapters?.map((chapter) => (
                     <SidebarContent
                         key={chapter.id}

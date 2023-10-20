@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { data } from '../../data/NavbarBoxData';
 import { NavLink } from 'react-router-dom';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 const MobileNavMenubar = ({ isOpen, onClose }) => {
     useHotkeys('esc', (event) => {
@@ -34,7 +35,9 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                             <span onClick={onClose} className="">
                                 <NavLink to="/">
                                     <img
-                                        src="images/Upschool_logo_Mobile_Navbar-300x57.png"
+                                        src={resolveImgURL(
+                                            '/Upschool_logo_Mobile_Navbar-300x57.png',
+                                        )}
                                         alt="upSchool"
                                         width="150"
                                         height="50"

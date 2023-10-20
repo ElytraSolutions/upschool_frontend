@@ -211,6 +211,8 @@
 //     },
 // ];
 
+import resolveImgURL from '../utlis/resolveImgURL';
+
 const data = [
     {
         id: 1,
@@ -544,22 +546,22 @@ const userData = {
         {
             title: 'Dashboard',
             path: 'dashboard',
-            image: '/images/NavbarProfile/dashboard.png',
+            image: resolveImgURL('/NavbarProfile/dashboard.png'),
         },
         {
             title: 'My Profile',
             path: 'dashboard',
-            image: '/images/NavbarProfile/administrator.png',
+            image: resolveImgURL('/NavbarProfile/administrator.png'),
         },
         {
             title: 'Enrolled Courses',
             path: 'dashboard',
-            image: '/images/NavbarProfile/graduated.png',
+            image: resolveImgURL('/NavbarProfile/graduated.png'),
         },
         {
             title: 'Logout',
             path: 'logout',
-            image: '/images/NavbarProfile/log-out.png',
+            image: resolveImgURL('/NavbarProfile/log-out.png'),
         },
     ],
 };
