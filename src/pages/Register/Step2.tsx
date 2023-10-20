@@ -141,6 +141,9 @@ export default function Step2({
                                 helperText={
                                     touched.age && (errors.age as string)
                                 }
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
                             />
                         </div>
                         <div className="grid grid-cols-4 gap-4 text-sm md:text-base w-full font-normal h-fit ">
