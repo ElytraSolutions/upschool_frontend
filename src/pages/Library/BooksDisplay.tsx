@@ -1,18 +1,14 @@
-import React from 'react';
 import { BestSellers, FeaturedBooks, books } from '../../data/LibraryBooks';
 import SectionShowBooks from '../../parts/PartsLibrary/Sections/SectionAllBooks';
 import SectionBestSellers from '../../parts/PartsLibrary/Sections/SectionBestSellers';
 import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
+import { useSearchParams } from 'react-router-dom';
 
-type BooksDisplayProps = {
-    selectSection: string;
-    setSearchParams: (value: string) => void;
-};
-
-const BooksDisplay: React.FC<BooksDisplayProps> = ({
-    selectSection,
-    setSearchParams,
-}) => {
+const BooksDisplay = () => {
+    const [searchParams, _setSearchParams] = useSearchParams();
+    const selectSection = searchParams.has('section')
+        ? searchParams.get('section')
+        : 'Home';
     return (
         <>
             <div className="w-fit tab:w-2/3  xl:w-[75%] 1450:w-2/3 ">
@@ -23,13 +19,11 @@ const BooksDisplay: React.FC<BooksDisplayProps> = ({
                         <SectionBestSellers
                             topic="Best Sellers"
                             books={BestSellers}
-                            setSelectSection={setSearchParams}
                         />
                         {/* Featured Books Section */}
                         <SectionFeatured
                             topic="Featured Books"
                             books={FeaturedBooks}
-                            setSelectSection={setSearchParams}
                         />
                         {/* All Books Section */}
                         {/* <SectionShowBooks topic="All Books" books={books} /> */}

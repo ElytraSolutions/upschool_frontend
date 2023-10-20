@@ -6,7 +6,7 @@ function Footer() {
             <div
                 className=" relative bg-cover  bottom-0"
                 style={{
-                    backgroundImage: `url('${resolveImgURL(
+                    backgroundImage: `url(${resolveImgURL(
                         '/footerbackground.jpg',
                     )})`,
                 }}

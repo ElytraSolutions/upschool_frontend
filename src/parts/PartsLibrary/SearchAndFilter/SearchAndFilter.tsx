@@ -3,8 +3,6 @@ import FilterSection from './FilterSection';
 import resolveImgURL from '../../../utlis/resolveImgURL';
 
 type SearchAndFilterProps = {
-    setSearchParams: (value: any) => void;
-    selectSection: string;
     searchQuery: string;
     setSearchQuery: (value: string) => void;
     submitHandler: (values: any, onSubmitProps: any) => void;
@@ -14,8 +12,6 @@ type SearchAndFilterProps = {
 };
 
 const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
-    setSearchParams,
-    selectSection,
     searchQuery,
     setSearchQuery,
     submitHandler,
@@ -79,10 +75,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                     </form>
 
                     {/* Information Section */}
-                    <InformationSection
-                        setSearchParams={setSearchParams}
-                        selectSection={selectSection}
-                    />
+                    <InformationSection />
                 </div>
                 {/* Filter Section */}
                 <FilterSection

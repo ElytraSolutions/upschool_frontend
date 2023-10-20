@@ -6,7 +6,7 @@ function Acknowledgement() {
             <div
                 className="bottom-0  bg-cover  "
                 style={{
-                    backgroundImage: `url('${resolveImgURL('/ack/back.jpg')})`,
+                    backgroundImage: `url(${resolveImgURL('/ack/back.jpg')})`,
                 }}
             >
                 <div className="flex justify-center  bg-[#462615F0]">

@@ -4,8 +4,6 @@ import BooksDisplay from './BooksDisplay';
 import resolveImgURL from '../../utlis/resolveImgURL';
 
 type LibrarySmallScreenProps = {
-    selectSection: string;
-    setSearchParams: (value: any) => void;
     searchQuery: string;
     setSearchQuery: (value: string) => void;
     submitHandler: (values: any, onSubmitProps: any) => void;
@@ -16,8 +14,6 @@ type LibrarySmallScreenProps = {
     setIsFilterClicked: (value: boolean) => void;
 };
 const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
-    selectSection,
-    setSearchParams,
     searchQuery,
     setSearchQuery,
     submitHandler,
@@ -121,9 +117,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                             </div>
                             {isFilterClicked && (
                                 <InformationSection
-                                    setSearchParams={setSearchParams}
                                     setIsFilterClicked={setIsFilterClicked}
-                                    selectSection={selectSection}
                                 />
                             )}
                         </div>
@@ -138,10 +132,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                 </div>
                 {/* Books Display Section */}
                 <div className="flex justify-center w-full  py-2 sm:py-3 md:py-5">
-                    <BooksDisplay
-                        selectSection={selectSection}
-                        setSearchParams={setSearchParams}
-                    />
+                    <BooksDisplay />
                 </div>
             </div>
         </>

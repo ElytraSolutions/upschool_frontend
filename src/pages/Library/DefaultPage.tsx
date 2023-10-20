@@ -6,50 +6,67 @@ import { useState } from 'react';
 
 const DefaultPage = () => {
     const { isTabScreen } = useScreenWidthAndHeight();
-    const [searchParams, setSearchParams] = useSearchParams({
-        section: 'Home',
-    });
+    const [searchParams, setSearchParams] = useSearchParams();
     const [isFilterClicked, setIsFilterClicked] = useState<boolean>(false);
     // maintains the search query of search bar
-    const [searchQuery, setSearchQuery] = useState<string>('');
+    const [searchQuery, setSearchQuery] = useState<string>(
+        searchParams.get('query') || '',
+    );
+
     // handles submit process of search bar only without filter options
     const submitSearchForm = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         !isTabScreen && setIsFilterClicked(false);
         // console.log(searchQuery);
-        setSearchParams({ query: searchQuery });
+        setSearchParams((oldSearchParams) => {
+            oldSearchParams.set('query', searchQuery);
+            return oldSearchParams;
+        });
         // TODO: send request to backend to search for books
     };
 
+    // handles reset process of search bar only without filter options
     const resetForm = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setSearchQuery('');
-        setSearchParams({ section: 'Home' });
+        setSearchParams((oldSearchParams) => {
+            oldSearchParams.delete('query');
+            return oldSearchParams;
+        });
     };
     // handles submit process of search bar and filter options at once
     const submitHandler = (values: any, onSubmitProps: any) => {
         !isTabScreen && setIsFilterClicked(false);
         // console.log(values);
-        const searchParameters = {
-            query: searchQuery,
-            categories: values.categories,
-        };
+        // const searchParameters = {
+        //     query: searchQuery,
+        //     categories: values.categories,
+        // };
         // console.log(searchParameters);
-        setSearchParams(searchParameters);
-        onSubmitProps.setSubmitting(false);
+        //
+        setSearchParams((oldSearchParams) => {
+            oldSearchParams.set('query', searchQuery);
+            oldSearchParams.set('categories', values.categories);
+            return oldSearchParams;
+        });
+        onSubmitProps.setSubmitting(true);
         // TODO: send request to backend to search for books
     };
 
+    // handles reset process of search bar and filter options at once
     const resetHandler = (values: any) => {
         values.categories = [];
         values.allCategory = true;
+        setSearchParams((oldSearchParams) => {
+            oldSearchParams.delete('query');
+            oldSearchParams.delete('categories');
+            return oldSearchParams;
+        });
     };
     return (
         <>
             {isTabScreen ? (
                 <LibraryLargeScreen
-                    selectSection={searchParams.get('section') || ''}
-                    setSearchParams={setSearchParams}
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
                     submitHandler={submitHandler}
@@ -59,8 +76,6 @@ const DefaultPage = () => {
                 />
             ) : (
                 <LibrarySmallScreen
-                    selectSection={searchParams.get('section') || ''}
-                    setSearchParams={setSearchParams}
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
                     submitHandler={submitHandler}

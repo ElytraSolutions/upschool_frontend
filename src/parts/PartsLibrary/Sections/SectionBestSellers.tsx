@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BookCard from '../../../components/Cards/BookCard';
 import BookCardSlider from '../../../components/Slider/BookCardSlider';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+import { useSearchParams } from 'react-router-dom';
 
 type SectionProps = {
     topic: string;
@@ -13,13 +14,9 @@ type SectionProps = {
         country: string;
         categories: string[];
     }[];
-    setSelectSection: (value: any) => void;
 };
-const SectionBestSellers: React.FC<SectionProps> = ({
-    topic,
-    books,
-    setSelectSection,
-}) => {
+const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
+    const [_searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(0); // For showing progress dots in slider
     const { isXtraLarge, isXtraMedium, isXtraSmall } =
         useScreenWidthAndHeight();
@@ -93,8 +90,12 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                                 <p
                                     className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
                                     onClick={() => {
-                                        setSelectSection({
-                                            section: 'Best Sellers',
+                                        setSearchParams((oldSearchParams) => {
+                                            oldSearchParams.set(
+                                                'section',
+                                                topic,
+                                            );
+                                            return oldSearchParams;
                                         });
                                     }}
                                 >
@@ -120,7 +121,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                         <p
                             className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
                             onClick={() => {
-                                setSelectSection('Best Sellers');
+                                setSearchParams('Best Sellers');
                             }}
                         >
                             View All {`>`}

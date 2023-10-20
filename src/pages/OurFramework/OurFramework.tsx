@@ -13,7 +13,7 @@ export default function OurFramework() {
                 <div
                     className="bg-cover  bg-center"
                     style={{
-                        backgroundImage: `url('${resolveImgURL(
+                        backgroundImage: `url(${resolveImgURL(
                             '/group-of-school-children-with-teacher-on-field-trip-in-nature.jpg',
                         )})`,
                     }}

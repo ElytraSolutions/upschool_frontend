@@ -1,3 +1,4 @@
+import { useSearchParams } from 'react-router-dom';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 
 // TODO Replace this data with data from the backend
@@ -27,16 +28,16 @@ const data = [
     },
 ];
 type InformationSectionProps = {
-    setSearchParams: (value: any) => void;
     setIsFilterClicked?: (value: boolean) => void;
-    selectSection: string;
 };
 
 const InformationSection: React.FC<InformationSectionProps> = ({
-    setSearchParams,
     setIsFilterClicked,
-    selectSection,
 }) => {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const selectSection = searchParams.has('section')
+        ? searchParams.get('section')
+        : 'Home';
     const { isTabScreen } = useScreenWidthAndHeight();
     return (
         <>
@@ -56,9 +57,17 @@ const InformationSection: React.FC<InformationSectionProps> = ({
                                         !isTabScreen &&
                                             setIsFilterClicked &&
                                             setIsFilterClicked(false);
-                                        setSearchParams({
-                                            section: category.title,
-                                        });
+                                        setSearchParams(
+                                            (
+                                                oldSearchParams: URLSearchParams,
+                                            ) => {
+                                                oldSearchParams.set(
+                                                    'section',
+                                                    category.title,
+                                                );
+                                                return oldSearchParams;
+                                            },
+                                        );
                                         window.scrollTo(0, 0);
                                     }}
                                 >

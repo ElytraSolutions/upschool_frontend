@@ -4,8 +4,6 @@ import SearchAndFilter from '../../parts/PartsLibrary/SearchAndFilter/SearchAndF
 import BooksDisplay from './BooksDisplay';
 
 type LibraryLargeScreenProps = {
-    selectSection: string;
-    setSearchParams: (value: string) => void;
     searchQuery: string;
     setSearchQuery: (value: string) => void;
     submitHandler: (values: any, onSubmitProps: any) => void;
@@ -15,8 +13,6 @@ type LibraryLargeScreenProps = {
 };
 
 const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
-    selectSection,
-    setSearchParams,
     searchQuery,
     setSearchQuery,
     submitHandler,
@@ -54,8 +50,6 @@ const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
                                 {/* Search and Filter Component */}
                                 <div className="">
                                     <SearchAndFilter
-                                        selectSection={selectSection}
-                                        setSearchParams={setSearchParams}
                                         searchQuery={searchQuery}
                                         setSearchQuery={setSearchQuery}
                                         submitHandler={submitHandler}
@@ -68,10 +62,7 @@ const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
                         </div>
                     </div>
                     {/* Second and third column: Books categories with carousel for Best Sellers Section and Featured Books Section */}
-                    <BooksDisplay
-                        selectSection={selectSection}
-                        setSearchParams={setSearchParams}
-                    />
+                    <BooksDisplay />
                 </div>
             </div>
         </>
