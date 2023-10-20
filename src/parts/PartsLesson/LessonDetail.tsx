@@ -130,9 +130,13 @@ export default function LessonDetail({
                                     </NavLink>
                                 </div>
                             </div>
-                            {isBigScreen && <div>{lesson.name}</div>}
+                            {isBigScreen && (
+                                <div className="min-w-[50%] text-left">
+                                    {lessonSlug}
+                                </div>
+                            )}
                             {/* TODO check if chapter is already completed */}
-                            <button
+                            {/* <button
                                 className=" text-xs rounded-md bg-pink-700 p-0.5  text-center md:px-4 md:py-2 md:text-base "
                                 onClick={async () => {
                                     const res = await axiosInstance.post(
@@ -145,35 +149,46 @@ export default function LessonDetail({
                                 }}
                             >
                                 Complete Lesson
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                     {/* ChapterDetail Chapters Section*/}
-                    <div className="flex flex-col ">
+                    <div className="flex flex-col">
                         {tempData.map((chapter) => (
-                            <div className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-8 border-b-[1px] border-black">
+                            <div className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black">
                                 <ChapterText
                                     key={chapter.id}
                                     chapter={chapter}
                                 />
-                                <div className="col-span-1">
+                                <div className="">
                                     <ChapterMedia
                                         contentType={chapter.type}
                                         chapter={chapter}
                                     />
                                 </div>
+                                <button className="max-w-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
+                                    Download
+                                </button>
                             </div>
                         ))}
+                    </div>
 
-                        {/* TODO Data to be fetched from backend and mange its logic */}
-                        {/* <ChapterText
-                        isClicked={isClicked}
-                        setIsClicked={setIsClicked}
-                    /> */}
-                        {/* TODO second column: Data to be fetched and manage logic */}
-                        {/* <div className="col-span-1">
-                        <ChapterMedia contentType={contentType} />
-                    </div> */}
+                    {/* TODO check if chapter is already completed */}
+                    <div className="w-full flex justify-center pt-14">
+                        <button
+                            className=" text-xs rounded-md bg-pink-700 p-0.5 text-white  text-center md:px-4 md:py-2 md:text-base "
+                            onClick={async () => {
+                                const res = await axiosInstance.post(
+                                    `/data/lessons/${lessonSlug}/complete`,
+                                );
+                                if (res.status === 200) {
+                                    await updateChapters();
+                                }
+                                console.log(res.data);
+                            }}
+                        >
+                            Complete Lesson
+                        </button>
                     </div>
                 </div>
             </>
