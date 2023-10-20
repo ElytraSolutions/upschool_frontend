@@ -48,12 +48,12 @@ const ChapterText = ({ chapter }) => {
                 </div>
 
                 {/* Chapter description */}
-                <div className="text-base leading-7 font-no text-theme-color">
+                <div className="text-base leading-7 text-theme-color">
                     {chapter.content}
                 </div>
-                <button className="max-w-fit bg-red-custom text-white px-3 py-1 text-center">
+                {/* <button className="max-w-fit bg-red-custom text-white px-3 py-1 text-center">
                     Download
-                </button>
+                </button> */}
             </div>
         </>
     );
