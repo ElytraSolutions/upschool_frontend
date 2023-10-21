@@ -59,6 +59,9 @@ export default {
                 12: '12',
                 13: '13',
             },
+            gridColumnEnd: {
+                14: '14',
+            },
             screens: {
                 tab: '900px',
                 // => @media (min-width: 900px) { ... }
