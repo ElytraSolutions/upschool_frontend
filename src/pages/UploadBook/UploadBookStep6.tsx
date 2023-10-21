@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import { NavLink } from 'react-router-dom';
+import resolveImgURL from '../../utlis/resolveImgURL';
 interface IStep6Props {
     oldValues: Record<string, any>;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
@@ -83,7 +84,9 @@ const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
                                     <NavLink to="#">
                                         {/* TODO url or link to view the uploaded book */}
                                         <img
-                                            src="images/UBStepVImg.png"
+                                            src={resolveImgURL(
+                                                '/UBStepVImg.png',
+                                            )}
                                             alt="Click here to view your book"
                                             width="full"
                                             height="full"

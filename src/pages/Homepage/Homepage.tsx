@@ -6,6 +6,7 @@ import SchoolSuccess from './SchoolSuccess';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import Announcement from '../../parts/PartsHomepage/Announcement';
 import LearningFramework from '../../parts/PartsHomepage/LearningFramework';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 export default function Home() {
     const { isXtraLargeScreen } = useScreenWidthAndHeight();
@@ -15,7 +16,9 @@ export default function Home() {
                 <div
                     className="bg-cover  bg-center"
                     style={{
-                        backgroundImage: `url('/images/homepage/main.jpg')`,
+                        backgroundImage: `url(${resolveImgURL(
+                            '/homepage/main.jpg',
+                        )})`,
                     }}
                 >
                     <div className="flex flex-col items-center justify-center bg-[#181739C0] p-10  ">

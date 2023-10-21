@@ -29,6 +29,7 @@ const TestimonialsPage = () => {
                 </div>
                 <div className="p-4">
                     <div className="flex items-center space-x-4">
+                        {/* TODO provide the correct image path */}
                         <img
                             src="https://upschool.co/wp-content/uploads/2022/04/1557523365061-180x180.jpeg"
                             alt="Matthew Panayotopoulos"

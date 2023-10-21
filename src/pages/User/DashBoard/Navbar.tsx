@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 import { NavLink } from 'react-router-dom';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 type NavbarProps = {
     setIsopen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -37,7 +38,7 @@ function Navbar({ setIsopen }: NavbarProps) {
                 <div className=" max-w-xs">
                     <NavLink to="/">
                         <img
-                            src="/images/logo.png"
+                            src={resolveImgURL('/logo.png')}
                             className="h-10 w-full"
                             alt=""
                         />

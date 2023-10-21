@@ -124,8 +124,8 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                 >
                     <img
                         src="images/CrossMark.png"
-                        width="40px"
-                        height="40px"
+                        width="40"
+                        height="40"
                         alt="close"
                     />
                 </div>

@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import resolveImgURL from '../../utlis/resolveImgURL';
 interface IStep2Props {
     isLargeScreen: boolean;
     oldValues: Record<string, any>;
@@ -37,7 +38,9 @@ export function UploadBookStep2({
                                     <div className="flex flex-row gap-2 justify-start items-center  font-light">
                                         <span>
                                             <img
-                                                src="images/PDF_logo.png"
+                                                src={resolveImgURL(
+                                                    '/PDF_logo.png',
+                                                )}
                                                 alt="PDF"
                                                 width="full"
                                                 height="full"

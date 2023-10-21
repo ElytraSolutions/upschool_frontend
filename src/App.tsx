@@ -16,7 +16,7 @@ import Test from './pages/Test';
 import ResetPasswordEmail from './pages/Login/ResetPasswordEmail';
 import ResetPassword from './pages/Login/ResetPassword';
 import Dashboard from './pages/User/DashBoard/Dashboard';
-import Chapters from './pages/Chapters/Chapters';
+import Lessons from './pages/Lessons/Lessons';
 import Logout from './pages/Logout/Logout';
 import UploadBook from './pages/UploadBook/UploadBook';
 import BrowseBooks from './pages/Library/OldBrowseBooks';
@@ -81,8 +81,8 @@ const router = createBrowserRouter([
                 element: <CourseDetails />,
             },
             {
-                path: 'course/:slug/chapter/:learn',
-                element: <Chapters />,
+                path: 'course/:courseSlug/:chapterSlug/:lessonSlug',
+                element: <Lessons />,
             },
             {
                 path: 'faq',

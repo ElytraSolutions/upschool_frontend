@@ -9,6 +9,7 @@ import { MobileNavMenubar as MobileMenu } from '../../parts/PartsNavbar/MobileNa
 
 import { createPortal } from 'react-dom';
 import useUser from '../../hooks/useUser';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 export default function Navbar() {
     const styles = {
@@ -72,7 +73,7 @@ export default function Navbar() {
                         <div style={styles}>
                             <NavLink to="/">
                                 <img
-                                    src="/images/upschool_logo.png"
+                                    src={resolveImgURL('/upschool_logo.png')}
                                     alt="Logo"
                                     width="200"
                                     height="50"
