@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axiosInstance from '../config/Axios';
 import useUser from '../hooks/useUser';
+import CharityProjectCard from './Charity/CharityProjectCard';
 
 function Test() {
     const [data, setData] = useState(null);
@@ -12,9 +13,10 @@ function Test() {
     }, []);
     return (
         <div>
-            {JSON.stringify(data)}
+            {/* {JSON.stringify(data)}
             <></>
-            {JSON.stringify(user)}
+            {JSON.stringify(user)} */}
+            <CharityProjectCard />
         </div>
     );
 }
