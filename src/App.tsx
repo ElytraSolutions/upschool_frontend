@@ -24,6 +24,7 @@ import BookBundle from './pages/Library/OldBookBundle';
 import NewBrowseBooks from './pages/Library/DefaultPage';
 import Experiment from './pages/ZExperiment/Experiment';
 import BookPage from './pages/BookPage/BookPage';
+import ProjectsDefaultPage from './pages/Projects/ProjectsDefaultPage';
 
 const router = createBrowserRouter([
     {
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
             {
                 path: '/book/values-for-a-better-tomorrow-book-bundle',
                 element: <BookBundle />,
+            },
+            {
+                path: 'projects',
+                element: <ProjectsDefaultPage />,
             },
         ],
     },
