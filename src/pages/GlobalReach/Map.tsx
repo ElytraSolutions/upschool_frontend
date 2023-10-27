@@ -42,7 +42,7 @@ const Map = ({ mouseCoordinates }) => {
         setLocId(null);
     };
 
-    const getLocationClassName = (location, index) => {
+    const getLocationClassName = () => {
         // console.log(location)
     };
 
