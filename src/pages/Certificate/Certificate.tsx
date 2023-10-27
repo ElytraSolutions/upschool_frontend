@@ -28,7 +28,10 @@ const Certificate = () => {
             setFormData={setFormData}
             changeCurrentStep={changeCurrentStep}
         />,
-        <CertificateStep2 changeCurrentStep={changeCurrentStep} />,
+        <CertificateStep2
+            changeCurrentStep={changeCurrentStep}
+            setCurrentStep={setCurrentStep}
+        />,
         <CertificateStep3 formData={formData} setFormData={setFormData} />,
     ];
 

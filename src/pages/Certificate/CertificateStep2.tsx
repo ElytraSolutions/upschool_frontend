@@ -23,7 +23,7 @@ const data = [
     },
 ];
 
-const CertificateStep2 = ({ changeCurrentStep }) => {
+const CertificateStep2 = ({ changeCurrentStep, setCurrentStep }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [marks, setMarks] = useState(0);
     const [value, setValue] = useState('');
@@ -125,8 +125,13 @@ const CertificateStep2 = ({ changeCurrentStep }) => {
 
     useEffect(() => {
         console.log('Marks', marks);
-        if (marks > Math.floor(data.length / 2)) {
-            changeCurrentStep();
+        if (submit) {
+            if (marks > Math.floor(data.length / 2)) {
+                changeCurrentStep();
+            } else {
+                console.log('Insufficient Marks');
+                setCurrentStep(0);
+            }
         }
     }, [marks]);
 

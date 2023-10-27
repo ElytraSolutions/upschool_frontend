@@ -25,6 +25,7 @@ import NewBrowseBooks from './pages/Library/DefaultPage';
 import Experiment from './pages/ZExperiment/Experiment';
 import Certificate from './pages/Certificate/Certificate';
 import BookPage from './pages/BookPage/BookPage';
+import GlobalReach from './pages/GlobalReach/GlobalReach';
 
 const router = createBrowserRouter([
     {
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
             {
                 path: '/certificate',
                 element: <Certificate />,
+            },
+            {
+                path: '/global-reach',
+                element: <GlobalReach />,
             },
         ],
     },

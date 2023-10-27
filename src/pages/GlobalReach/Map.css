@@ -1,0 +1,40 @@
+.tooltip {
+    position: fixed;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tooltip-main {
+    padding: 5px 20px;
+    background-color: white;
+}
+
+.map {
+    position: relative;
+    background-color: #242254;
+    fill: #D69EB2;
+}
+
+
+.container {
+    width: 80vw;
+    /* height: 100px;  */
+    overflow: auto;
+    /* margin-top: -30px; */
+}
+
+.tooltip-arrow {
+    height: 0px;
+    width: 0px;
+    /* background-color: green; */
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+}
+
+.your-hover-class {
+    fill: #D5185C;
+    /* transition: fill 0.2s ease-in-out; */
+}

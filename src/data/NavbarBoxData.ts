@@ -524,7 +524,7 @@ const data = [
             { id: 1, title: 'Our Framework', path: '/our-framework' },
             { id: 2, title: 'Mission', path: '/about' },
             { id: 3, title: 'Team', path: 'demo' },
-            { id: 4, title: 'Global Reach', path: 'demo' },
+            { id: 4, title: 'Global Reach', path: 'global-reach' },
             { id: 5, title: 'FAQ', path: '/faq' },
             { id: 6, title: 'Testimonials', path: '/testimonials' },
             { id: 7, title: 'Contact', path: '/contact' },
