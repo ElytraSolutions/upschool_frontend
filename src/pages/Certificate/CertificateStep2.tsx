@@ -108,13 +108,13 @@ const CertificateStep2 = ({ changeCurrentStep, setCurrentStep }) => {
     useEffect(() => {
         if (submit === true) {
             correctAnswer.map((ans, i) => {
-                console.log(
-                    'The answer is',
-                    ans,
-                    'The correct answer is ',
-                    answer[i],
-                    ans === answer[i],
-                );
+                // console.log(
+                //     'The answer is',
+                //     ans,
+                //     'The correct answer is ',
+                //     answer[i],
+                //     ans === answer[i],
+                // );
                 if (ans === answer[i]) {
                     setMarks((prev) => prev + 1);
                     // console.log("Marks", marks, "correct")
@@ -124,7 +124,7 @@ const CertificateStep2 = ({ changeCurrentStep, setCurrentStep }) => {
     }, [submit, answer, correctAnswer]);
 
     useEffect(() => {
-        console.log('Marks', marks);
+        // console.log('Marks', marks);
         if (submit) {
             if (marks > Math.floor(data.length / 2)) {
                 changeCurrentStep();
@@ -133,7 +133,7 @@ const CertificateStep2 = ({ changeCurrentStep, setCurrentStep }) => {
                 setCurrentStep(0);
             }
         }
-    }, [marks]);
+    }, [marks]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const radioIconStyle = {
         color: 'black',
