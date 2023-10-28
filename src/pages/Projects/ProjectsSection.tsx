@@ -8,7 +8,7 @@ const ProjectsSection = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, __] = useState(Math.ceil(projects.length / 15));
 
-    const projectsContainerRef = useRef();
+    const projectsContainerRef = useRef<HTMLDivElement | null>(null);
 
     const ScrollToProjects = () => {
         if (projectsContainerRef.current) {

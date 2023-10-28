@@ -11,7 +11,7 @@ const PageNumber = ({
         ScrollToProjects();
     };
 
-    const numbers = Array.from({ length: totalPage }, (e, i) => {
+    const numbers = Array.from({ length: totalPage }, (_, i) => {
         const pageClass = i + 1 == currentPage ? activePage : '';
         return (
             <button
