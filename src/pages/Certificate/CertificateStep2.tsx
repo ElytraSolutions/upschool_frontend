@@ -121,7 +121,7 @@ const CertificateStep2 = ({ changeCurrentStep, setCurrentStep }) => {
                 }
             });
         }
-    }, [submit]);
+    }, [submit, answer, correctAnswer]);
 
     useEffect(() => {
         console.log('Marks', marks);
@@ -133,7 +133,7 @@ const CertificateStep2 = ({ changeCurrentStep, setCurrentStep }) => {
                 setCurrentStep(0);
             }
         }
-    }, [marks]);
+    }, [marks, submit]);
 
     const radioIconStyle = {
         color: 'black',
