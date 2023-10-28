@@ -58,7 +58,7 @@ const RelatedBooksCard: React.FC<BookCardProps> = ({ book }) => {
                         </div>
                         <div className=" flex justify-center mx-2 mb-3 mt-2 sm:mt-5">
                             <button
-                                className="bg-[#BB3860] text-white text-sm hover:cursor-pointer w-full sm:h-10"
+                                className="bg-red-upschool text-white text-sm hover:cursor-pointer w-full sm:h-10"
                                 onClick={handleButtonClick}
                             >
                                 Read More

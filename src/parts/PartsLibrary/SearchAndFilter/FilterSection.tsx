@@ -1,6 +1,7 @@
 import { Formik, Field } from 'formik';
 import { categories } from '../../../data/UploadBookCategories';
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 type FilterSectionProps = {
     submitHandler: (values: any, onSubmitProps: any) => void;
@@ -11,6 +12,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
     submitHandler,
     resetHandler,
 }) => {
+    const [searchParams, setSearchParams] = useSearchParams();
     // TODO Determine to show filter options or not by default
     const [showFilterOptions, setShowFilterOptions] = useState<boolean>(false);
     return (
@@ -19,8 +21,16 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                 <Formik
                     onSubmit={submitHandler}
                     initialValues={{
-                        categories: [],
-                        allCategory: true,
+                        categories:
+                            searchParams.has('categories') &&
+                            searchParams.get('categories') !== ''
+                                ? searchParams.get('categories')?.split(',')
+                                : [],
+                        allCategory:
+                            searchParams.has('categories') &&
+                            searchParams.get('categories') !== ''
+                                ? false
+                                : true,
                     }}
                     onReset={resetHandler}
                 >
@@ -36,7 +46,14 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                         <>
                             <form
                                 onSubmit={handleSubmit}
-                                onReset={handleReset}
+                                onReset={() => {
+                                    setSearchParams((oldSearchParams) => {
+                                        oldSearchParams.delete('categories');
+                                        oldSearchParams.delete('query');
+                                        return oldSearchParams;
+                                    });
+                                    handleReset();
+                                }}
                                 className="w-full h-full"
                             >
                                 <div>
@@ -87,7 +104,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                                             className={`flex justify-start gap-x-4 items-center ${
                                                                 values
                                                                     .categories
-                                                                    .length ===
+                                                                    ?.length ===
                                                                 0
                                                                     ? 'pointer-events-none'
                                                                     : 'hover:cursor-pointer pointer-events-auto'
@@ -149,9 +166,9 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                         {/* Reset Filter Button */}
                                         <button
                                             className={`flex flex-1 justify-center items-center h-full w-full ${
-                                                values.categories.length > 0
-                                                    ? ' bg-theme-color text-white'
-                                                    : 'bg-white text-gray-900/40'
+                                                values.categories?.length === 0
+                                                    ? 'bg-white text-gray-900/40 pointer-events-none'
+                                                    : ' bg-theme-color text-white'
                                             }   border border-gray-900/20 rounded-md p-0.5 md:p-2  px-4`}
                                             type="reset"
                                         >

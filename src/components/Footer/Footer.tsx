@@ -1,6 +1,4 @@
-import upschoolLogo from '/images/logo.png';
-import footerboy from '/images/footerboy.png';
-import footerbackground from '/images/footerbackground.jpg';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 function Footer() {
     return (
@@ -8,7 +6,9 @@ function Footer() {
             <div
                 className=" relative bg-cover  bottom-0"
                 style={{
-                    backgroundImage: `url('/images/footerbackground.jpg')`,
+                    backgroundImage: `url(${resolveImgURL(
+                        '/footerbackground.jpg',
+                    )})`,
                 }}
             >
                 <div className="bg-[#181739F0] flex justify-center">
@@ -16,7 +16,7 @@ function Footer() {
                         <div className="flex justify-center">
                             <div className="">
                                 <img
-                                    src={footerboy}
+                                    src={resolveImgURL('/footerboy.png')}
                                     className="w-[500px] md:w-[250px] pt-10"
                                     alt=""
                                 />
@@ -52,7 +52,9 @@ function Footer() {
                                 <hr className="px-10 py-3 " />
                                 <div className=" flex justify-center w-[50vw] md:w-[30vw] ">
                                     <img
-                                        src={footerbackground}
+                                        src={resolveImgURL(
+                                            '/footerbackground.jpg',
+                                        )}
                                         className="w-[300px] "
                                         alt=""
                                     />
@@ -84,7 +86,7 @@ function Footer() {
                         <div className="flex flex-col md:flex-row items-center justify-between p-4">
                             <div className="flex justify-center items-center">
                                 <img
-                                    src={upschoolLogo}
+                                    src={resolveImgURL('/logo.png')}
                                     alt="upSchoolLogo"
                                     className=" h-6 mr-4"
                                 />

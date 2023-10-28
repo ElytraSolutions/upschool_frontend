@@ -1,4 +1,5 @@
 import React from 'react';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 // TODO fetch 'donations' from backend
 const donations = [
     {
@@ -71,10 +72,12 @@ export default function DonationsTable() {
                                     <div className="flex flex-row justify-center cursor-pointer">
                                         {/* TODO implement download of invoice */}
                                         <img
-                                            src="images/DownloadIcon.png"
+                                            src={resolveImgURL(
+                                                '/DownloadIcon.png',
+                                            )}
                                             alt="Download"
-                                            width="23px"
-                                            height="22px"
+                                            width="23"
+                                            height="22"
                                         />
                                     </div>
                                 </td>

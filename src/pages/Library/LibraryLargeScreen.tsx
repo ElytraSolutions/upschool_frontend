@@ -4,13 +4,21 @@ import SearchAndFilter from '../../parts/PartsLibrary/SearchAndFilter/SearchAndF
 import BooksDisplay from './BooksDisplay';
 
 type LibraryLargeScreenProps = {
-    selectSection: string;
-    setSelectSection: (value: string) => void;
+    searchQuery: string;
+    setSearchQuery: (value: string) => void;
+    submitHandler: (values: any, onSubmitProps: any) => void;
+    resetHandler: (values: any) => void;
+    resetForm: (event: React.FormEvent<HTMLFormElement>) => void;
+    submitSearchForm: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
 const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
-    selectSection,
-    setSelectSection,
+    searchQuery,
+    setSearchQuery,
+    submitHandler,
+    resetHandler,
+    resetForm,
+    submitSearchForm,
 }) => {
     return (
         <>
@@ -42,17 +50,19 @@ const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
                                 {/* Search and Filter Component */}
                                 <div className="">
                                     <SearchAndFilter
-                                        setSelectSection={setSelectSection}
+                                        searchQuery={searchQuery}
+                                        setSearchQuery={setSearchQuery}
+                                        submitHandler={submitHandler}
+                                        resetHandler={resetHandler}
+                                        resetForm={resetForm}
+                                        submitSearchForm={submitSearchForm}
                                     />
                                 </div>
                             </div>
                         </div>
                     </div>
                     {/* Second and third column: Books categories with carousel for Best Sellers Section and Featured Books Section */}
-                    <BooksDisplay
-                        selectSection={selectSection}
-                        setSelectSection={setSelectSection}
-                    />
+                    <BooksDisplay />
                 </div>
             </div>
         </>

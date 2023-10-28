@@ -83,7 +83,7 @@ function CourseCard({ data }: Props) {
                     <div className="bg-stone-200">
                         <img
                             src={data.image}
-                            height="140px"
+                            height="140"
                             alt="data.name"
                             className=" h-44 w-full"
                         />

@@ -5,16 +5,17 @@ import { PersonalInformation } from '../../../parts/UserDashboard/Forms/Personal
 import { BillingDetails } from '../../../parts/UserDashboard/Forms/BiilingDetails';
 import { ChangePassword } from '../../../parts/UserDashboard/Forms/ChangePassword';
 import StudentList from '../../../parts/UserDashboard/StudentList/StudentList';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 function Setting() {
     // TODO logic to determine whether user is (Teacher/Student/Parent)
     const userType: string = 'Teacher';
     const iconBadge =
         userType === 'Teacher'
-            ? 'images/Dashboard/TeacherIcon.png'
+            ? resolveImgURL('/Dashboard/TeacherIcon.png')
             : userType === 'Parent'
-            ? 'images/Dashboard/ParentIcon.png'
-            : 'images/Dashboard/StudentIcon.png';
+            ? resolveImgURL('/Dashboard/ParentIcon.png')
+            : resolveImgURL('/Dashboard/StudentIcon.png');
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
         <div className="h-full overflow-auto">
@@ -29,12 +30,12 @@ function Setting() {
                     {userType === 'Teacher' && (
                         <>
                             <SettingBoardBox
-                                icon="images/Dashboard/Active.png"
+                                icon={resolveImgURL('/Dashboard/Active.png')}
                                 text={['', 'students']}
                                 number={295} // TODO fetch number of students from backend
                             />
                             <AddStudentsBox
-                                icon="images/Dashboard/AddIcon.png"
+                                icon={resolveImgURL('/Dashboard/AddIcon.png')}
                                 text={'Add student(s)'}
                             />
                         </>

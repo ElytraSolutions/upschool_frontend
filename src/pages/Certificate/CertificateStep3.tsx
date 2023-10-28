@@ -97,7 +97,11 @@ const CertificateStep3 = ({ formData }) => {
                                         <button
                                             onClick={() => setShowModal(false)}
                                         >
-                                            <img src={Cross} />
+                                            <img
+                                                src={resolveImgURL(
+                                                    '/CrossMark.png',
+                                                )}
+                                            />
                                         </button>
                                     </div>
                                 </div>

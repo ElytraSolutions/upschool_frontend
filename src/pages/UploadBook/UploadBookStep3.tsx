@@ -253,7 +253,7 @@ export function UploadBookStep3({
                                 label="Date of Birth"
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                value={values.date_of_birth}
+                                // value={values.date_of_birth}
                                 name="date_of_birth"
                                 error={
                                     Boolean(touched.date_of_birth) &&
@@ -263,6 +263,9 @@ export function UploadBookStep3({
                                     touched.date_of_birth &&
                                     (errors.date_of_birth as string)
                                 }
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
                             />
 
                             <div className="col-span-2 grid grid-cols-4 gap-4  p-2 pr-3  w-full font-normal text-base">

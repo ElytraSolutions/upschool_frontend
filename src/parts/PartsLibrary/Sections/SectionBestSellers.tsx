@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import BookCard from '../../../components/Cards/BookCard';
 import BookCardSlider from '../../../components/Slider/BookCardSlider';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+import { useSearchParams } from 'react-router-dom';
 
 type SectionProps = {
     topic: string;
@@ -13,13 +14,9 @@ type SectionProps = {
         country: string;
         categories: string[];
     }[];
-    setSelectSection: (value: string) => void;
 };
-const SectionBestSellers: React.FC<SectionProps> = ({
-    topic,
-    books,
-    setSelectSection,
-}) => {
+const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
+    const [_searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(0); // For showing progress dots in slider
     const { isXtraLarge, isXtraMedium, isXtraSmall } =
         useScreenWidthAndHeight();
@@ -44,6 +41,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({
     const cards: HTMLCollectionOf<HTMLLIElement> | undefined =
         slider?.getElementsByTagName('li');
     const elementsToShow: number = isXtraLarge ? 3 : !isXtraMedium ? 2 : 1; // Number of cards to show in the slider
+    const totalElementsToShow: number = isXtraLarge ? 6 : !isXtraMedium ? 5 : 4; // Total number of cards to show in the slider
     const sliderContainerWidth: number = sliderContainer?.clientWidth || 0;
     const cardWidth: number = sliderContainerWidth / elementsToShow;
     if (slider) {
@@ -92,7 +90,13 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                                 <p
                                     className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
                                     onClick={() => {
-                                        setSelectSection('Best Sellers');
+                                        setSearchParams((oldSearchParams) => {
+                                            oldSearchParams.set(
+                                                'section',
+                                                topic,
+                                            );
+                                            return oldSearchParams;
+                                        });
                                     }}
                                 >
                                     View All {`>`}
@@ -117,7 +121,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                         <p
                             className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
                             onClick={() => {
-                                setSelectSection('Best Sellers');
+                                setSearchParams('Best Sellers');
                             }}
                         >
                             View All {`>`}
@@ -138,13 +142,15 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                         className="w-[220px] xss:w-[270px] xm:w-[510px] sm:w-[600px] tab:w-[570px] lg:w-[600px] xl:w-[900px] overflow-hidden"
                     >
                         <ul id="SliderBestSellers" className="flex w-full">
-                            {books.slice(0, 6).map((book, index) => (
-                                <li key={index} className="w-full">
-                                    <div className="flex flex-row justify-center h-full">
-                                        <BookCard book={book} />
-                                    </div>
-                                </li>
-                            ))}
+                            {books
+                                .slice(0, totalElementsToShow)
+                                .map((book, index) => (
+                                    <li key={index} className="w-full">
+                                        <div className="flex flex-row justify-center h-full">
+                                            <BookCard book={book} />
+                                        </div>
+                                    </li>
+                                ))}
                         </ul>
                     </div>
                 </div>

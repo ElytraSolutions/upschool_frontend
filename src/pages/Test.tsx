@@ -1,34 +1,22 @@
-import { useCallback, useEffect, useState } from 'react';
-import axiosInstance from '../config/Axios';
-import useUser from '../hooks/useUser';
-import ProjectPopup from '../components/PopupPayment/ProjectPopup';
+// import { useEffect } from 'react';
+// import axiosInstance from '../config/Axios';
+// import useUser from '../hooks/useUser';
+import CharityProjectCard from './Charity/CharityProjectCard';
 
 function Test() {
-    const [isPopupVisible, setPopupVisible] = useState(false);
-    const [data, setData] = useState(null);
-    const { user } = useUser();
-    useEffect(() => {
-        axiosInstance.get('/data/user').then((resp) => {
-            setData(resp.data);
-        });
-    }, []);
-    const openProjectPopup = useCallback(() => {
-        setPopupVisible(true);
-    }, []);
-    const closeProjectPopup = useCallback(() => {
-        setPopupVisible(false);
-    }, []);
+    // const [data, setData] = useState(null);
+    // const { user } = useUser();
+    // useEffect(() => {
+    //     axiosInstance.get('/data/user').then((resp) => {
+    //         // setData(resp.data);
+    //     });
+    // }, []);
     return (
         <div>
-            {JSON.stringify(data)}
-            <>
-                <div className="flex justify-center w-[150px] bg-red-custom text-white font-bold text-xs xm:text-xl lg:text-2xl">
-                    <button onClick={openProjectPopup}>Buy Ebook AU $5</button>
-                </div>
-                {isPopupVisible && <ProjectPopup onClose={closeProjectPopup} />}
-                ;
-            </>
-            {JSON.stringify(user)}
+            {/* {JSON.stringify(data)}
+            <></>
+            {JSON.stringify(user)} */}
+            <CharityProjectCard />
         </div>
     );
 }

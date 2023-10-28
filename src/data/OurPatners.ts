@@ -1,27 +1,29 @@
+import resolveImgURL from '../utlis/resolveImgURL';
+
 const patners = [
     [
-        '/images/patners/Aurora.jpg',
-        '/images/patners/Blue-Dragon.jpg',
-        '/images/patners/canva.jpg',
-        '/images/patners/Edgars-Mission.jpg',
+        resolveImgURL('/patners/Aurora.jpg'),
+        resolveImgURL('/patners/Blue-Dragon.jpg'),
+        resolveImgURL('/patners/canva.jpg'),
+        resolveImgURL('/patners/Edgars-Mission.jpg'),
     ],
     [
-        '/images/patners/Free-to-shine.jpg',
-        '/images/patners/Jff.jpg',
-        '/images/patners/JGI.jpg',
-        '/images/patners/microloan.jpg',
+        resolveImgURL('/patners/Free-to-shine.jpg'),
+        resolveImgURL('/patners/Jff.jpg'),
+        resolveImgURL('/patners/JGI.jpg'),
+        resolveImgURL('/patners/microloan.jpg'),
     ],
     [
-        '/images/patners/Montessori.jpg',
-        '/images/patners/rainforest-rescue.jpg',
-        '/images/patners/solar-buddy.jpg',
-        '/images/patners/UN.jpg',
+        resolveImgURL('/patners/Montessori.jpg'),
+        resolveImgURL('/patners/rainforest-rescue.jpg'),
+        resolveImgURL('/patners/solar-buddy.jpg'),
+        resolveImgURL('/patners/UN.jpg'),
     ],
     [
-        '/images/patners/Opportunity.jpg',
-        '/images/patners/seabin.jpg',
-        '/images/patners/So-they-can.jpg',
-        '/images/patners/WEIV.jpg',
+        resolveImgURL('/patners/Opportunity.jpg'),
+        resolveImgURL('/patners/seabin.jpg'),
+        resolveImgURL('/patners/So-they-can.jpg'),
+        resolveImgURL('/patners/WEIV.jpg'),
     ],
 ];
 

@@ -1,55 +1,36 @@
-import { useSearchParams } from 'react-router-dom';
-import React, { useState } from 'react';
 import InformationSection from './InformationSection';
 import FilterSection from './FilterSection';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 type SearchAndFilterProps = {
-    setSelectSection: (value: string) => void;
+    searchQuery: string;
+    setSearchQuery: (value: string) => void;
+    submitHandler: (values: any, onSubmitProps: any) => void;
+    resetHandler: (values: any) => void;
+    resetForm: (event: React.FormEvent<HTMLFormElement>) => void;
+    submitSearchForm: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
 const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
-    setSelectSection,
+    searchQuery,
+    setSearchQuery,
+    submitHandler,
+    resetHandler,
+    resetForm,
+    submitSearchForm,
 }) => {
-    const [searchParams, setSearchParams] = useSearchParams();
-    // console.log(Array.from(searchParams.entries()));
-    console.log(searchParams.get('query'));
-    console.log(searchParams.getAll('categories'));
-    // maintains the search query of search bar
-    const [searchQuery, setSearchQuery] = useState<string>('');
-
-    // handles submit process of search bar only without filter options
-    const submitSearchForm = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log(searchQuery);
-        setSearchParams({ query: searchQuery });
-        // TODO: send request to backend to search for books
-    };
-    // handles submit process of search bar and filter options at once
-    const submitHandler = (values: any, onSubmitProps: any) => {
-        console.log(values);
-        const searchParameters = {
-            query: searchQuery,
-            categories: values.categories,
-        };
-        console.log(searchParameters);
-        setSearchParams(searchParameters);
-        onSubmitProps.setSubmitting(false);
-        // TODO: send request to backend to search for books
-    };
-
-    const resetHandler = (values: any) => {
-        values.categories = [];
-        values.allCategory = true;
-        setSearchParams('');
-    };
     return (
         <>
             <div className=" flex flex-col gap-4 text-theme-color">
                 {/* Search Section */}
                 <div className="bg-white border border-t-0 border-theme-color/50 shadow-lg shadow-gray-300 rounded-lg">
                     {/* Search Box */}
-                    <form onSubmit={submitSearchForm}>
-                        <div className="flex flex-row divide-x divide-theme-color/50 border border-theme-color/50  rounded-md text-sm 2xl:text-base w-full">
+                    <form
+                        onSubmit={submitSearchForm}
+                        onReset={resetForm}
+                        className=" h-12"
+                    >
+                        <div className="flex flex-row divide-x divide-theme-color/50 border border-theme-color/50  rounded-md text-sm 2xl:text-base w-full h-11">
                             <div className=" flex items-center p-2 w-full ">
                                 <input
                                     type="text"
@@ -63,20 +44,38 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                                     }}
                                 />
                             </div>
+                            {searchQuery.length > 0 && (
+                                <button
+                                    type="reset"
+                                    className={`p-2 w-12 h-full ${
+                                        searchQuery.length === 0 &&
+                                        'pointer-events-none'
+                                    }`}
+                                >
+                                    <img
+                                        src={resolveImgURL('/CrossIcon.png')}
+                                        alt="reset"
+                                        height="30"
+                                        width="30"
+                                    />
+                                </button>
+                            )}
 
-                            <button type="submit" className="p-2 w-fit">
+                            <button type="submit" className="p-2 w-12 h-full ">
                                 <img
-                                    src="/images/Library/SearchIcon.png"
+                                    src={resolveImgURL(
+                                        '/Library/SearchIcon.png',
+                                    )}
                                     alt="search"
-                                    height="30px"
-                                    width="30px"
+                                    height="30"
+                                    width="30"
                                 />
                             </button>
                         </div>
                     </form>
 
                     {/* Information Section */}
-                    <InformationSection setSelectSection={setSelectSection} />
+                    <InformationSection />
                 </div>
                 {/* Filter Section */}
                 <FilterSection

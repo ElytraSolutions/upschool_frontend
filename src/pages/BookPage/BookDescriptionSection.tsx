@@ -1,8 +1,21 @@
+import { useState, useCallback } from 'react';
 import AuthorsRecommendedProject from './AuthorsRecommendedProject';
 import RelatedBooksComponent from './RelatedBooksComponent';
+import ProjectPopup from '../../components/PopupPayment/ProjectPopup';
 
 const BookDescriptionSection = () => {
     // replace with the book description
+
+    const [isPopupVisible, setPopupVisible] = useState(false);
+
+    const openPopup = useCallback(() => {
+        setPopupVisible(true);
+    }, []);
+
+    const closePopup = useCallback(() => {
+        setPopupVisible(false);
+    }, []);
+
     const bookDescription =
         'Excepteur excepteur deserunt cupidatat reprehenderit in consectetur ut magna commodo. \
         Officia nulla aliquip proident cupidatat laboris quis eiusmod officia fugiat do anim. Dolore \
@@ -17,25 +30,28 @@ const BookDescriptionSection = () => {
                 <div className="md:col-span-4 md:row-span-2 h-full w-full ">
                     <div className="text-md sm:text-xl">{bookDescription}</div>
                     <div className="flex justify-between sm:m-4 font-bold flex-wrap">
-                        <button className="bg-pink-700 hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin text-left sm:text-sm text-xs">
+                        <button className="bg-red-upschool hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin text-left sm:text-sm text-xs">
                             BUY PAPERBACK
                             <span className="block text-left font-bold">
-                                AUD $20.0
+                                AU $59.0
                             </span>
                         </button>
-                        <button className="bg-pink-700 hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin sm:text-sm text-xs">
+                        <button className="bg-red-upschool hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin sm:text-sm text-xs">
                             BUY HARDBACK
                             <span className="block text-left font-bold">
-                                AUD $20.0
+                                AU $49.0
                             </span>
                         </button>
-                        <button className="bg-pink-700 hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin text-left sm:text-sm text-xs">
+                        <button
+                            onClick={openPopup}
+                            className="bg-red-upschool h    over:bg-pink-900 text-white py-2 px-4 my-1 font-thin text-left sm:text-sm text-xs"
+                        >
                             BUY EBOOK
                             <span className="block text-left font-bold">
-                                AUD $20.0
+                                AU $5.0
                             </span>
                         </button>
-                        <button className="bg-gray-300 hover:bg-gray-400 text-pink-700 py-2 px-4 my-1 border border-pink-700 sm:text-sm text-xs">
+                        <button className="bg-gray-300 hover:bg-gray-400 text-red-upschool py-2 px-4 my-1 border border-red-upschool sm:text-sm text-xs">
                             REPORT ISSUE
                         </button>
                     </div>
@@ -48,6 +64,7 @@ const BookDescriptionSection = () => {
                     <RelatedBooksComponent />
                 </div>
             </div>
+            {isPopupVisible && <ProjectPopup onClose={closePopup} />}
         </>
     );
 };

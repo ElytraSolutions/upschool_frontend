@@ -211,6 +211,8 @@
 //     },
 // ];
 
+import resolveImgURL from '../utlis/resolveImgURL';
+
 const data = [
     {
         id: 1,
@@ -227,7 +229,7 @@ const data = [
         title: 'Learn',
         children: [
             { id: 1, title: 'All Courses', path: '/courses' },
-            { id: 2, title: 'Learning Hubs', path: 'https://upschool.co/hubs' },
+            { id: 2, title: 'Learning Hubs', path: '/hubs' },
             {
                 id: 3,
                 title: 'Challenges',
@@ -304,12 +306,12 @@ const data = [
             {
                 id: 1,
                 title: 'Charities',
-                path: '/https://upschool.co/charities',
+                path: 'charities',
                 children: [
                     {
                         id: 1,
                         title: 'All Charities',
-                        path: 'https://upschool.co/charities/',
+                        path: 'charities',
                     },
                     {
                         id: 2,
@@ -544,22 +546,22 @@ const userData = {
         {
             title: 'Dashboard',
             path: 'dashboard',
-            image: '/images/NavbarProfile/dashboard.png',
+            image: resolveImgURL('/NavbarProfile/dashboard.png'),
         },
         {
             title: 'My Profile',
             path: 'dashboard',
-            image: '/images/NavbarProfile/administrator.png',
+            image: resolveImgURL('/NavbarProfile/administrator.png'),
         },
         {
             title: 'Enrolled Courses',
             path: 'dashboard',
-            image: '/images/NavbarProfile/graduated.png',
+            image: resolveImgURL('/NavbarProfile/graduated.png'),
         },
         {
             title: 'Logout',
             path: 'logout',
-            image: '/images/NavbarProfile/log-out.png',
+            image: resolveImgURL('/NavbarProfile/log-out.png'),
         },
     ],
 };

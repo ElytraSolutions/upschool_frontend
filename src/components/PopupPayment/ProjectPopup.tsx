@@ -40,7 +40,7 @@ function ProjectPopup({ onClose }) {
                         </div>
                         <div className="bg-white items-center grid">
                             <div className="grid p-3">
-                                <div className="bg-red-custom row-span-1 justify-center p-4">
+                                <div className="bg-red-upschool hover:bg-pink-900 row-span-1 justify-center p-4">
                                     <button onClick={openPriceSection}>
                                         <p className="text-white font-bold text-xs xm:text-xl lg:text-2xl">
                                             Continue to Author's Recommendation

@@ -1,25 +1,28 @@
-import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import InformationSection from '../../parts/PartsLibrary/SearchAndFilter/InformationSection';
 import FilterSection from '../../parts/PartsLibrary/SearchAndFilter/FilterSection';
 import BooksDisplay from './BooksDisplay';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 type LibrarySmallScreenProps = {
-    selectSection: string;
-    setSelectSection: (value: string) => void;
+    searchQuery: string;
+    setSearchQuery: (value: string) => void;
+    submitHandler: (values: any, onSubmitProps: any) => void;
+    resetHandler: (values: any) => void;
+    resetForm: (event: React.FormEvent<HTMLFormElement>) => void;
+    submitSearchForm: (event: React.FormEvent<HTMLFormElement>) => void;
+    isFilterClicked: boolean;
+    setIsFilterClicked: (value: boolean) => void;
 };
 const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
-    selectSection,
-    setSelectSection,
+    searchQuery,
+    setSearchQuery,
+    submitHandler,
+    resetHandler,
+    resetForm,
+    submitSearchForm,
+    isFilterClicked,
+    setIsFilterClicked,
 }) => {
-    // maintains the search query of search bar
-    const [searchQuery, setSearchQuery] = useState<string>('');
-    const [searchParams, setSearchParams] = useSearchParams();
-    // console.log(Array.from(searchParams.entries()));
-    console.log(searchParams.get('query'));
-    console.log(searchParams.getAll('categories'));
-
-    const [isFilterClicked, setIsFilterClicked] = useState<boolean>(false);
     if (isFilterClicked) {
         // disables background scrolling when filterBox is opened
         if (typeof window != 'undefined' && window.document) {
@@ -29,31 +32,6 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
         // enables scrolling when filterBox is closed
         document.body.style.overflow = 'unset';
     }
-
-    const submitSearchForm = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        setIsFilterClicked(false);
-        console.log(searchQuery);
-        setSearchParams({ query: searchQuery });
-        // TODO: send request to backend to search for books
-    };
-    const submitHandler = (values: any, onSubmitProps: any) => {
-        setIsFilterClicked(false);
-        console.log(values);
-        const searchParameters = {
-            query: searchQuery,
-            categories: values.categories,
-        };
-        console.log(searchParameters);
-        setSearchParams(searchParameters);
-        onSubmitProps.setSubmitting(false);
-        // TODO: send request to backend to search for books
-    };
-    const resetHandler = (values: any) => {
-        values.categories = [];
-        values.allCategory = true;
-        setSearchParams('');
-    };
     return (
         <>
             <div className="h-full w-full bg-gray-200 text-font-color ">
@@ -73,6 +51,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                         >
                             <div className="flex flex-row gap-2 items-center h-full w-full">
                                 <form
+                                    onReset={resetForm}
                                     onSubmit={submitSearchForm}
                                     className={`flex flex-row items-center rounded-lg ${
                                         isFilterClicked
@@ -102,7 +81,9 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                         className="flex  flex-row  items-center p-0.5 md:p-2 w-fit h-full"
                                     >
                                         <img
-                                            src="/images/Library/SearchIcon.png"
+                                            src={resolveImgURL(
+                                                '/Library/SearchIcon.png',
+                                            )}
                                             alt="search"
                                             height="30px"
                                             width="30px"
@@ -123,10 +104,12 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                         }}
                                     >
                                         <img
-                                            src="/images/Library/btnFilter.png"
+                                            src={resolveImgURL(
+                                                '/Library/btnFilter.png',
+                                            )}
                                             alt="Filter"
-                                            height="50px"
-                                            width="50px"
+                                            height="50"
+                                            width="50"
                                             loading="lazy"
                                         />
                                     </button>
@@ -134,7 +117,6 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                             </div>
                             {isFilterClicked && (
                                 <InformationSection
-                                    setSelectSection={setSelectSection}
                                     setIsFilterClicked={setIsFilterClicked}
                                 />
                             )}
@@ -150,10 +132,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                 </div>
                 {/* Books Display Section */}
                 <div className="flex justify-center w-full  py-2 sm:py-3 md:py-5">
-                    <BooksDisplay
-                        selectSection={selectSection}
-                        setSelectSection={setSelectSection}
-                    />
+                    <BooksDisplay />
                 </div>
             </div>
         </>
