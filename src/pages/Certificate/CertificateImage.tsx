@@ -58,9 +58,7 @@ const CertificateImage = ({ formData }) => {
         }
     };
 
-    useEffect(() => {
-        createNewImage();
-    }, []);
+    createNewImage();
 
     return (
         <div>

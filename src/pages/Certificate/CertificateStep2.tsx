@@ -133,7 +133,7 @@ const CertificateStep2 = ({ changeCurrentStep, setCurrentStep }) => {
                 setCurrentStep(0);
             }
         }
-    }, [marks, submit]);
+    }, [marks]);
 
     const radioIconStyle = {
         color: 'black',
