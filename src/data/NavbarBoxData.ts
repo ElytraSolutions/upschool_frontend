@@ -306,12 +306,12 @@ const data = [
             {
                 id: 1,
                 title: 'Charities',
-                path: '/https://upschool.co/charities',
+                path: 'charities',
                 children: [
                     {
                         id: 1,
                         title: 'All Charities',
-                        path: 'https://upschool.co/charities/',
+                        path: 'charities',
                     },
                     {
                         id: 2,

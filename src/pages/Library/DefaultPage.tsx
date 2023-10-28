@@ -1,12 +1,13 @@
 import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import LibraryLargeScreen from './LibraryLargeScreen';
 import LibrarySmallScreen from './LibrarySmallScreen';
-import { useState } from 'react';
 
 const DefaultPage = () => {
     const { isTabScreen } = useScreenWidthAndHeight();
     const [searchParams, setSearchParams] = useSearchParams();
+    // maintains the state of filter button for mobile screen
     const [isFilterClicked, setIsFilterClicked] = useState<boolean>(false);
     // maintains the search query of search bar
     const [searchQuery, setSearchQuery] = useState<string>(
@@ -38,12 +39,6 @@ const DefaultPage = () => {
     const submitHandler = (values: any, onSubmitProps: any) => {
         !isTabScreen && setIsFilterClicked(false);
         // console.log(values);
-        // const searchParameters = {
-        //     query: searchQuery,
-        //     categories: values.categories,
-        // };
-        // console.log(searchParameters);
-        //
         setSearchParams((oldSearchParams) => {
             oldSearchParams.set('query', searchQuery);
             oldSearchParams.set('categories', values.categories);
@@ -57,11 +52,7 @@ const DefaultPage = () => {
     const resetHandler = (values: any) => {
         values.categories = [];
         values.allCategory = true;
-        setSearchParams((oldSearchParams) => {
-            oldSearchParams.delete('query');
-            oldSearchParams.delete('categories');
-            return oldSearchParams;
-        });
+        setSearchQuery('');
     };
     return (
         <>
