@@ -30,12 +30,16 @@ function Setting() {
                     {userType === 'Teacher' && (
                         <>
                             <SettingBoardBox
-                                icon={resolveImgURL('/images/Dashboard/Active.png')}
+                                icon={resolveImgURL(
+                                    '/images/Dashboard/Active.png',
+                                )}
                                 text={['', 'students']}
                                 number={295} // TODO fetch number of students from backend
                             />
                             <AddStudentsBox
-                                icon={resolveImgURL('/images/Dashboard/AddIcon.png')}
+                                icon={resolveImgURL(
+                                    '/images/Dashboard/AddIcon.png',
+                                )}
                                 text={'Add student(s)'}
                             />
                         </>

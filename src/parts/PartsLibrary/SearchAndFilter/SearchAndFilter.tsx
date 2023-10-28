@@ -53,7 +53,9 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                                     }`}
                                 >
                                     <img
-                                        src={resolveImgURL('/images/CrossIcon.png')}
+                                        src={resolveImgURL(
+                                            '/images/CrossIcon.png',
+                                        )}
                                         alt="reset"
                                         height="30"
                                         width="30"

@@ -70,7 +70,9 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                     <div className="flex flex-col xs:grid xs:grid-cols-2 sm:flex sm:flex-row w-full gap-3 justify-start">
                         {/* TODO fetch number for each BoardBox as of particular User from backend */}
                         <BoardBox
-                            icon={resolveImgURL('/images/Dashboard/Enrolled.png')}
+                            icon={resolveImgURL(
+                                '/images/Dashboard/Enrolled.png',
+                            )}
                             text="Enrolled Courses"
                             number={userCourseData?.enrolled?.length || 0}
                         />
@@ -80,7 +82,9 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                             number={userCourseData?.enrolled?.length || 0}
                         />
                         <BoardBox
-                            icon={resolveImgURL('/images/Dashboard/Completed.png')}
+                            icon={resolveImgURL(
+                                '/images/Dashboard/Completed.png',
+                            )}
                             text="Completed Courses"
                             number={userCourseData?.completed?.length || 0}
                         />
