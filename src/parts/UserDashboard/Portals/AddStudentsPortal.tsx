@@ -4,6 +4,7 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import InviteViaLink from './InviteViaLink';
 import InviteViaEmail from './InviteViaEmail';
 import InviteViaCSVFile from './InviteViaCSVFile/InviteViaCSVFile';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 type AddStudentsPortalProps = {
     onClose: () => void;
@@ -64,10 +65,12 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                         >
                                             <img
                                                 className="hidden xs:inline-block"
-                                                src="/images/AddStudents/LinkIcon.png"
-                                                width="20px"
+                                                src={resolveImgURL(
+                                                    '/AddStudents/LinkIcon.png',
+                                                )}
+                                                width="20"
                                                 alt="Link"
-                                                height="20px"
+                                                height="20"
                                             />
                                             <p className=" font-light text-sm lg:text-base  text-left">
                                                 <span className="hidden sm:inline-block">
@@ -90,10 +93,12 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                         >
                                             <img
                                                 className="hidden xs:inline-block"
-                                                src="/images/AddStudents/EmailIcon.png"
-                                                width="20px"
+                                                src={resolveImgURL(
+                                                    '/AddStudents/EmailIcon.png',
+                                                )}
+                                                width="20"
                                                 alt="Email"
-                                                height="20px"
+                                                height="20"
                                             />
                                             <p className=" font-light text-sm lg:text-base   text-left">
                                                 <span className="hidden sm:inline-block">
@@ -116,10 +121,12 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                         >
                                             <img
                                                 className="hidden xs:inline-block"
-                                                src="/images/AddStudents/DownloadIcon.png"
-                                                width="20px"
+                                                src={resolveImgURL(
+                                                    '/AddStudents/DownloadIcon.png',
+                                                )}
+                                                width="20"
                                                 alt="File"
-                                                height="20px"
+                                                height="20"
                                             />
                                             <p className=" font-light text-sm lg:text-base text-left">
                                                 <span className="hidden sm:inline-block">
@@ -136,10 +143,10 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                         <div className="col-span-2 p-1 md:p-2 w-full flex flex-col h-full">
                             <div className="flex flex-row justify-end">
                                 <img
-                                    src="/images/CrossIcon.png"
+                                    src={resolveImgURL('/CrossIcon.png')}
                                     alt="cross mark"
-                                    width="29px"
-                                    height="29px"
+                                    width="29"
+                                    height="29"
                                     className="  sm:opacity-50 hover:opacity-100 cursor-pointer"
                                     onClick={onClose}
                                 />

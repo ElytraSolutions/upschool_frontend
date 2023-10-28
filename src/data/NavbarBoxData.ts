@@ -229,7 +229,7 @@ const data = [
         title: 'Learn',
         children: [
             { id: 1, title: 'All Courses', path: '/courses' },
-            { id: 2, title: 'Learning Hubs', path: 'https://upschool.co/hubs' },
+            { id: 2, title: 'Learning Hubs', path: '/hubs' },
             {
                 id: 3,
                 title: 'Challenges',

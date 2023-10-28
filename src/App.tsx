@@ -26,6 +26,7 @@ import Experiment from './pages/ZExperiment/Experiment';
 import Certificate from './pages/Certificate/Certificate';
 import BookPage from './pages/BookPage/BookPage';
 import CharityPage from './pages/Charity/CharityPage';
+import Hubs from './pages/Hubs/Hubs';
 
 const router = createBrowserRouter([
     {
@@ -123,6 +124,10 @@ const router = createBrowserRouter([
             {
                 path: '/charities',
                 element: <CharityPage />,
+            },
+            {
+                path: '/hubs',
+                element: <Hubs />,
             },
         ],
     },

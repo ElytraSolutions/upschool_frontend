@@ -1,4 +1,5 @@
 import React from 'react';
+import resolveImgURL from '../../../../utlis/resolveImgURL';
 
 type FileUploadProcessProps = {
     values: Record<string, any>;
@@ -17,7 +18,7 @@ const FileUploadProcess: React.FC<FileUploadProcessProps> = ({
                         <div className="flex flex-row gap-2 justify-start items-center  font-light">
                             <span>
                                 <img
-                                    src="images/PDF_logo.png"
+                                    src={resolveImgURL('/PDF_logo.png')}
                                     alt="PDF"
                                     width="full"
                                     height="full"
