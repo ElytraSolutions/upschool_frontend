@@ -18,7 +18,7 @@ const FileUploadProcess: React.FC<FileUploadProcessProps> = ({
                         <div className="flex flex-row gap-2 justify-start items-center  font-light">
                             <span>
                                 <img
-                                    src={resolveImgURL('/PDF_logo.png')}
+                                    src={resolveImgURL('/images/PDF_logo.png')}
                                     alt="PDF"
                                     width="full"
                                     height="full"

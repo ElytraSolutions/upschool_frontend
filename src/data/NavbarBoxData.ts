@@ -546,22 +546,22 @@ const userData = {
         {
             title: 'Dashboard',
             path: 'dashboard',
-            image: resolveImgURL('/NavbarProfile/dashboard.png'),
+            image: resolveImgURL('/images/NavbarProfile/dashboard.png'),
         },
         {
             title: 'My Profile',
             path: 'dashboard',
-            image: resolveImgURL('/NavbarProfile/administrator.png'),
+            image: resolveImgURL('/images/NavbarProfile/administrator.png'),
         },
         {
             title: 'Enrolled Courses',
             path: 'dashboard',
-            image: resolveImgURL('/NavbarProfile/graduated.png'),
+            image: resolveImgURL('/images/NavbarProfile/graduated.png'),
         },
         {
             title: 'Logout',
             path: 'logout',
-            image: resolveImgURL('/NavbarProfile/log-out.png'),
+            image: resolveImgURL('/images/NavbarProfile/log-out.png'),
         },
     ],
 };

@@ -143,7 +143,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                         <div className="col-span-2 p-1 md:p-2 w-full flex flex-col h-full">
                             <div className="flex flex-row justify-end">
                                 <img
-                                    src={resolveImgURL('/CrossIcon.png')}
+                                    src={resolveImgURL('/images/CrossIcon.png')}
                                     alt="cross mark"
                                     width="29"
                                     height="29"

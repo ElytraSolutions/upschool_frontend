@@ -6,7 +6,9 @@ function Acknowledgement() {
             <div
                 className="bottom-0  bg-cover  "
                 style={{
-                    backgroundImage: `url(${resolveImgURL('/ack/back.jpg')})`,
+                    backgroundImage: `url(${resolveImgURL(
+                        '/images/ack/back.jpg',
+                    )})`,
                 }}
             >
                 <div className="flex justify-center  bg-[#462615F0]">
@@ -17,12 +19,12 @@ function Acknowledgement() {
                                     Acknowledgement of Country
                                 </span>
                                 <img
-                                    src={resolveImgURL('/ack/ack1.png')}
+                                    src={resolveImgURL('/images/ack/ack1.png')}
                                     className="max-w-[250px] md:max-w-[450px]"
                                     alt=""
                                 />
                                 <img
-                                    src={resolveImgURL('/ack/flag.png')}
+                                    src={resolveImgURL('/images/ack/flag.png')}
                                     className="max-h-[50px]"
                                 />
                                 <div className=" flex w-[50vw] justify-center md:w-[30vw] "></div>

@@ -38,7 +38,7 @@ function Navbar({ setIsopen }: NavbarProps) {
                 <div className=" max-w-xs">
                     <NavLink to="/">
                         <img
-                            src={resolveImgURL('/logo.png')}
+                            src={resolveImgURL('/images/logo.png')}
                             className="h-10 w-full"
                             alt=""
                         />
