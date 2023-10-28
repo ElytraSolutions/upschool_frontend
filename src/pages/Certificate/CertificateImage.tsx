@@ -1,45 +1,61 @@
 import { useEffect, useState } from 'react';
 
 const CertificateImage = ({ formData }) => {
-    const [image, setImage] = useState();
+    const [image, setImage] = useState('');
 
     const createNewImage = async () => {
         // Get the original image file
         const originalImage = await fetch(
-            '../../../public/images/Certificate.png',
+            '../../../public/images/Certificate_main.png',
         );
         // Resize the image
+        console.log(formData.course);
 
         console.log('True', originalImage);
         // Resize the image
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
+        console.log(context);
         canvas.width = 669; // new width
         canvas.height = 939.3; // new height
         const img = new Image();
         img.src = originalImage.url;
-        img.onload = () => {
-            context.drawImage(img, 0, 0, 669, 939.9); // Draw the resized image
+        if (context) {
+            img.onload = () => {
+                context.drawImage(img, 0, 0, 669, 939.9); // Draw the resized image
 
-            console.log('Called');
+                console.log('Called');
 
-            // Draw text on the canvas
-            const text = `${formData.firstName} ${formData.lastName}`;
-            context.font = '3.2rem "Great Vibes"';
-            context.fillStyle = '#03014C';
+                setTimeout(() => {
+                    context.font = '3.2rem "Great Vibes"';
+                    context.fillStyle = '#03014C';
+                    const text = `${formData.firstName} ${formData.lastName}`;
 
-            const textWidth = context.measureText(text).width;
-            const x = (canvas.width - textWidth) / 2;
-            const y = (canvas.height - 24) / 2 + 24;
+                    const textWidth = context.measureText(text).width;
+                    const x = (canvas.width - textWidth) / 2;
+                    const y = (canvas.height - 24) / 2 + 24;
 
-            context.fillText(text, x, y); // Adjust position and text as needed
+                    context.fillText(text, x, y); // Adjust position and text as needed
 
-            // Convert the canvas to a data URL
-            const modifiedImageDataUrl = canvas.toDataURL('image/png');
+                    context.font = '600 0.85rem "Nunito Sans"';
+                    context.fillStyle = '#02013c';
+                    const courseText = `'${formData.course}' course.`;
+                    const coursetextWidth =
+                        context.measureText(courseText).width;
+                    const course_x = (canvas.width - coursetextWidth) / 2;
+                    const course_y = canvas.height - 370;
+                    context.fillText(courseText, course_x, course_y);
 
-            // Save the data URL in React state
-            setImage(modifiedImageDataUrl);
-        };
+                    // Convert the canvas to a data URL
+                    const modifiedImageDataUrl = canvas.toDataURL('image/png');
+
+                    // Save the data URL in React state
+                    setImage(modifiedImageDataUrl);
+                }, 800);
+
+                // Draw text on the canvas
+            };
+        }
     };
 
     useEffect(() => {

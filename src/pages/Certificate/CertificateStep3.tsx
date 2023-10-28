@@ -1,12 +1,12 @@
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 // import Certificate from '../../../public/images/Certificate.png';
-import Cross from '../../assets/CrossMark.png';
-import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+// import Cross from '../../assets/CrossMark.png';
+// import TextField from '@mui/material/TextField';
+// import { useState } from 'react';
 import CertificateImage from './CertificateImage';
 
-const CertificateStep3 = ({ formData, setFormData }) => {
+const CertificateStep3 = ({ formData }) => {
     // Code done from here
     const handleDownload = () => {
         const certificate = document.querySelector('.document') as HTMLElement;
@@ -20,37 +20,37 @@ const CertificateStep3 = ({ formData, setFormData }) => {
         });
     };
 
-    const [showModal, setShowModal] = useState(false);
+    // const [showModal, setShowModal] = useState(false);
 
-    const handleEdit = () => {
-        setShowModal(true);
-    };
+    // const handleEdit = () => {
+    //     setShowModal(true);
+    // };
 
-    const [tempData, setTempData] = useState({
-        firstName: '',
-        lastName: '',
-    });
+    // const [tempData, setTempData] = useState({
+    //     firstName: '',
+    //     lastName: '',
+    // });
 
-    const handleChange = (e) => {
-        setTempData({
-            ...tempData,
-            [e.target.name]: e.target.value,
-        });
-    };
+    // const handleChange = (e) => {
+    //     setTempData({
+    //         ...tempData,
+    //         [e.target.name]: e.target.value,
+    //     });
+    // };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormData({
-            ...formData,
-            firstName: tempData.firstName,
-            lastName: tempData.lastName,
-        });
-        setTempData({
-            firstName: '',
-            lastName: '',
-        });
-        setShowModal(false);
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     setFormData({
+    //         ...formData,
+    //         firstName: tempData.firstName,
+    //         lastName: tempData.lastName,
+    //     });
+    //     setTempData({
+    //         firstName: '',
+    //         lastName: '',
+    //     });
+    //     // setShowModal(false);
+    // };
 
     return (
         <div className=" relative overflow-scroll h-50vh max-h-[76vh] overflow-x-hidden">
@@ -66,12 +66,12 @@ const CertificateStep3 = ({ formData, setFormData }) => {
                 <CertificateImage formData={formData} />
             </div>
             <div className="flex justify-between p-5">
-                <button
+                {/* <button
                     className="bg-theme-color text-white px-7 py-2 font-bold"
                     onClick={handleEdit}
                 >
                     Edit Details
-                </button>
+                </button> */}
                 <button className="bg-theme-color text-white px-7 py-2 font-bold">
                     Email PDF
                 </button>
@@ -82,13 +82,13 @@ const CertificateStep3 = ({ formData, setFormData }) => {
                     Download PDF
                 </button>
             </div>
-            {showModal ? (
+            {/* {showModal ? (
                 <>
                     <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                            {/*content*/}
+                            
                             <div className="border-0  shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                                {/*header*/}
+                                
                                 <div className="flex items-center justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                                     <h3 className="text-2xl font-semibold">
                                         Change Your Name
@@ -101,7 +101,7 @@ const CertificateStep3 = ({ formData, setFormData }) => {
                                         </button>
                                     </div>
                                 </div>
-                                {/*body*/}
+                                
                                 <form onSubmit={handleSubmit}>
                                     <div className="relative p-6">
                                         <TextField
@@ -123,7 +123,7 @@ const CertificateStep3 = ({ formData, setFormData }) => {
                                         />
                                     </div>
 
-                                    {/*footer*/}
+                                    
                                     <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                                         <button
                                             className=" text-white bg-theme-color font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -138,7 +138,7 @@ const CertificateStep3 = ({ formData, setFormData }) => {
                     </div>
                     <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
                 </>
-            ) : null}
+            ) : null} */}
         </div>
     );
 };

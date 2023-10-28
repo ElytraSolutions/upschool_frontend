@@ -39,7 +39,7 @@ const Map = ({ mouseCoordinates }) => {
     const handleMouseOut = () => {
         console.log('Mouse out');
         setLocation(null);
-        setLocId(null);
+        // setLocId(null);
     };
 
     const getLocationClassName = () => {
