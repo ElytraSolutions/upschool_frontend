@@ -13,7 +13,7 @@ export default function Sidebar({ courseSlug, chapters }: SidebarProps) {
                 <div className="flex flex-row items-center justify-center text-white w-fit gap-1  h-14">
                     <span className=" ">
                         <img
-                            src={resolveImgURL('/OpenBook.png')}
+                            src={resolveImgURL('/images/OpenBook.png')}
                             width="25"
                             height="25"
                             alt="OpenBook"

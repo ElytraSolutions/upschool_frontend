@@ -12,10 +12,10 @@ function Setting() {
     const userType: string = 'Teacher';
     const iconBadge =
         userType === 'Teacher'
-            ? resolveImgURL('/Dashboard/TeacherIcon.png')
+            ? resolveImgURL('/images/Dashboard/TeacherIcon.png')
             : userType === 'Parent'
-            ? resolveImgURL('/Dashboard/ParentIcon.png')
-            : resolveImgURL('/Dashboard/StudentIcon.png');
+            ? resolveImgURL('/images/Dashboard/ParentIcon.png')
+            : resolveImgURL('/images/Dashboard/StudentIcon.png');
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
         <div className="h-full overflow-auto">
@@ -30,12 +30,12 @@ function Setting() {
                     {userType === 'Teacher' && (
                         <>
                             <SettingBoardBox
-                                icon={resolveImgURL('/Dashboard/Active.png')}
+                                icon={resolveImgURL('/images/Dashboard/Active.png')}
                                 text={['', 'students']}
                                 number={295} // TODO fetch number of students from backend
                             />
                             <AddStudentsBox
-                                icon={resolveImgURL('/Dashboard/AddIcon.png')}
+                                icon={resolveImgURL('/images/Dashboard/AddIcon.png')}
                                 text={'Add student(s)'}
                             />
                         </>

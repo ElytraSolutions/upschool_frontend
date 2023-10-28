@@ -16,7 +16,7 @@ export default function BookBundle() {
                     {/* photo */}
                     <div className="w-full h-full">
                         <img
-                            src={resolveImgURL('/LibraryBackground.png')}
+                            src={resolveImgURL('/images/LibraryBackground.png')}
                             alt="LibraryBackground"
                             loading="lazy"
                         />

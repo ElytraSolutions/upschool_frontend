@@ -20,7 +20,7 @@ export default function OurFramework() {
                 >
                     <div className="flex flex-col bg-[#181739C0] justify-center items-center p-10">
                         <img
-                            src={resolveImgURL('/flyimage.png')}
+                            src={resolveImgURL('/images/flyimage.png')}
                             className="max-h-[150px]"
                             alt=""
                         />
