@@ -7,8 +7,10 @@ const PageNumber = ({
     const activePage = ' text-gray-400';
 
     const handleClick = (page) => {
-        setCurrentPage(page);
-        ScrollToProjects();
+        if (page != currentPage) {
+            setCurrentPage(page);
+            ScrollToProjects();
+        }
     };
 
     const numbers = Array.from({ length: totalPage }, (_, i) => {
