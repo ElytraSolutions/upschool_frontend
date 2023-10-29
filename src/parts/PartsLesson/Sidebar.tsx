@@ -9,7 +9,7 @@ type SidebarProps = {
 export default function Sidebar({ courseSlug, chapters }: SidebarProps) {
     return (
         <>
-            <div className="flex flex-row justify-center items-center bg-red-600 w-full">
+            <div className="flex flex-row justify-center items-center bg-[#b81342] w-full">
                 <div className="flex flex-row items-center justify-center text-white w-fit gap-1  h-14">
                     <span className=" ">
                         <img

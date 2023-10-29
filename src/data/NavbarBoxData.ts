@@ -290,7 +290,7 @@ const data = [
             {
                 id: 8,
                 title: 'Impact Films',
-                path: 'https://upschool.co/impact-films',
+                path: 'impact-films',
             },
             {
                 id: 9,
@@ -385,7 +385,7 @@ const data = [
                     },
                 ],
             },
-            { id: 2, title: 'Projects', path: 'https://upschool.co/projects' },
+            { id: 2, title: 'Projects', path: 'projects' },
             {
                 id: 3,
                 title: 'Libraries',

@@ -66,7 +66,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                             <img
                                                 className="hidden xs:inline-block"
                                                 src={resolveImgURL(
-                                                    '/AddStudents/LinkIcon.png',
+                                                    '/images/AddStudents/LinkIcon.png',
                                                 )}
                                                 width="20"
                                                 alt="Link"
@@ -94,7 +94,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                             <img
                                                 className="hidden xs:inline-block"
                                                 src={resolveImgURL(
-                                                    '/AddStudents/EmailIcon.png',
+                                                    '/images/AddStudents/EmailIcon.png',
                                                 )}
                                                 width="20"
                                                 alt="Email"
@@ -122,7 +122,7 @@ const AddStudentsPortal: React.FC<AddStudentsPortalProps> = ({ onClose }) => {
                                             <img
                                                 className="hidden xs:inline-block"
                                                 src={resolveImgURL(
-                                                    '/AddStudents/DownloadIcon.png',
+                                                    '/images/AddStudents/DownloadIcon.png',
                                                 )}
                                                 width="20"
                                                 alt="File"

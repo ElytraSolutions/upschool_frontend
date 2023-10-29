@@ -25,10 +25,14 @@ import NewBrowseBooks from './pages/Library/DefaultPage';
 import Experiment from './pages/ZExperiment/Experiment';
 import Certificate from './pages/Certificate/Certificate';
 import BookPage from './pages/BookPage/BookPage';
+import ProjectsDefaultPage from './pages/Projects/ProjectsDefaultPage';
+import ProjectsPage from './pages/ProjectsPage/ProjectsPage';
 import GlobalReach from './pages/GlobalReach/GlobalReach';
 import CharityPage from './pages/Charity/CharityPage';
 import Hubs from './pages/Hubs/Hubs';
+import ImpactFilms from './pages/ImpactFilms/ImpactFilms';
 import Hub from './pages/Hubs/Hub';
+import Team from './pages/Team/Team';
 
 const router = createBrowserRouter([
     {
@@ -66,6 +70,10 @@ const router = createBrowserRouter([
             {
                 path: 'contact',
                 element: <Contact />,
+            },
+            {
+                path: 'our-team',
+                element: <Team />,
             },
             {
                 path: 'acknowledgement',
@@ -120,6 +128,14 @@ const router = createBrowserRouter([
                 element: <BookBundle />,
             },
             {
+                path: 'projects',
+                element: <ProjectsDefaultPage />,
+            },
+            {
+                path: 'charity-projects/:slug',
+                element: <ProjectsPage />,
+            },
+            {
                 path: '/certificate',
                 element: <Certificate />,
             },
@@ -134,6 +150,10 @@ const router = createBrowserRouter([
             {
                 path: '/hubs',
                 element: <Hubs />,
+            },
+            {
+                path: '/impact-films',
+                element: <ImpactFilms />,
             },
             {
                 path: '/hubs/:slug',
