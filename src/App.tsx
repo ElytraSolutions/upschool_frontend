@@ -31,6 +31,7 @@ import GlobalReach from './pages/GlobalReach/GlobalReach';
 import CharityPage from './pages/Charity/CharityPage';
 import Hubs from './pages/Hubs/Hubs';
 import Hub from './pages/Hubs/Hub';
+import Team from './pages/Team/Team';
 
 const router = createBrowserRouter([
     {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
             {
                 path: 'contact',
                 element: <Contact />,
+            },
+            {
+                path: 'our-team',
+                element: <Team />,
             },
             {
                 path: 'acknowledgement',
