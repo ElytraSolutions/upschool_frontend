@@ -26,6 +26,7 @@ import Experiment from './pages/ZExperiment/Experiment';
 import Certificate from './pages/Certificate/Certificate';
 import BookPage from './pages/BookPage/BookPage';
 import CharityPage from './pages/Charity/CharityPage';
+import Team from './pages/Team/Team';
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
             {
                 path: 'contact',
                 element: <Contact />,
+            },
+            {
+                path: 'our-team',
+                element: <Team />,
             },
             {
                 path: 'acknowledgement',
