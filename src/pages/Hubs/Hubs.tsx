@@ -9,7 +9,7 @@ const HubCards = [
         title: 'Journalist Team Hub',
         description:
             'In this resource hub, you will learn everything you need to know to get started as a journalist in your school community.',
-        imgURL: resolveImgURL('/Hubs/HowToBecomeAJournalist.jpg'),
+        imgURL: resolveImgURL('/images/Hubs/HowToBecomeAJournalist.jpg'),
         // imgURL: '/images/Hubs/HowToBecomeAJournalist.jpg',
     },
     {
@@ -17,7 +17,7 @@ const HubCards = [
         title: 'Advertising Team Hub',
         description:
             'In this resource hub, you will learn everything you need to know to get started as an advertising specialist in your school community.',
-        imgURL: resolveImgURL('/Hubs/HowToBeAnAdvertisingSuperstar.jpg'),
+        imgURL: resolveImgURL('/images/Hubs/HowToBeAnAdvertisingSuperstar.jpg'),
         // imgURL: '/images/Hubs/HowToBeAnAdvertisingSuperstar.jpg',
     },
     {
@@ -25,7 +25,7 @@ const HubCards = [
         title: 'Documentary Team Hub',
         description:
             'In this resource hub, you will learn everything you need to know to get started as a documentary film maker in your school community.',
-        imgURL: resolveImgURL('/Hubs/HowToBeADocumentaryFilmMaker.jpg'),
+        imgURL: resolveImgURL('/images/Hubs/HowToBeADocumentaryFilmMaker.jpg'),
         // imgURL: '/images/Hubs/HowToBeADocumentaryFilmMaker.jpg',
     },
     {
@@ -33,7 +33,7 @@ const HubCards = [
         title: 'Events Team Hub',
         description:
             'In this resource hub, you will learn everything you need to know to get started as an event planning guru in your school community.',
-        imgURL: resolveImgURL('/Hubs/HowToPlanAmazingEvents.jpg'),
+        imgURL: resolveImgURL('/images/Hubs/HowToPlanAmazingEvents.jpg'),
         // imgURL: '/images/Hubs/HowToPlanAmazingEvents.jpg',
     },
     {
@@ -41,7 +41,9 @@ const HubCards = [
         title: 'Creative Media Team Hub',
         description:
             'In this resource hub, you will learn everything you need to know to get started as a creative media specialist in your school community.',
-        imgURL: resolveImgURL('/Hubs/HowToBeACreativeMediaSpecialist.jpg'),
+        imgURL: resolveImgURL(
+            '/images/Hubs/HowToBeACreativeMediaSpecialist.jpg',
+        ),
         // imgURL: '/images/Hubs/HowToBeACreativeMediaSpecialist.jpg',
     },
 ];
@@ -80,7 +82,7 @@ const Hubs = () => {
                         <div className="justify-self-center">
                             <img
                                 src={resolveImgURL(
-                                    '/Hubs/rocket_hero_upschool_white.png',
+                                    '/images/Hubs/rocket_hero_upschool_white.png',
                                 )}
                                 // src="/images/Hubs/rocket_hero_upschool_white.png"
                                 alt="rocket-hero"
