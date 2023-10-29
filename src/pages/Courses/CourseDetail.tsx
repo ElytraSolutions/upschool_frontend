@@ -49,7 +49,7 @@ function CourseDetail() {
                     className="bg-cover"
                     style={{
                         backgroundImage: `url(${resolveImgURL(
-                            '/images/ack/back.jpg',
+                            course.thumbnail,
                         )})`,
                     }}
                 >

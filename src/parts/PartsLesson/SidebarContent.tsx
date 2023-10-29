@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import DoneIcon from '@mui/icons-material/Done';
 import IChapter from '../../types/IChapter';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 type ISidebarProps = {
     courseSlug: string | undefined;
@@ -13,7 +14,7 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
             <div className="flex flex-row justify-between bg-[#1e3050] text-white py-5 px-4">
                 <span>{chapter.name}</span>
                 <span>
-                    {chapter.completedLessons}/{chapter.totalLessons}
+                    {chapter.completedLessons || 0}/{chapter.totalLessons || 0}
                 </span>{' '}
                 {/*TODO Logic Required */}
             </div>
@@ -30,7 +31,9 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
                                 <div className="flex flex-row gap-1 lg:gap-2  2xl:gap-3 items-center justify-start p-2  ">
                                     <span className="h-8 w-8 rounded-full bg-[#242254] flex justify-center items-center">
                                         <img
-                                            src="images/FileIcon.png"
+                                            src={resolveImgURL(
+                                                '/images/FileIcon.png',
+                                            )}
                                             alt="file"
                                             height="20"
                                             width="20"
