@@ -4,7 +4,7 @@ const PageNumber = ({
     setCurrentPage,
     ScrollToProjects,
 }) => {
-    const activePage = ' text-gray-400';
+    const activePage = ' text-gray-400 hover:cursor-text';
 
     const handleClick = (page) => {
         if (page != currentPage) {

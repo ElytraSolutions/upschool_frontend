@@ -34,15 +34,15 @@ const ProjectCard = ({ project }) => {
 
     return (
         <>
-            <div className="mt-5 mx-2 xss:w-96 lg:w-64 xl:w-96 flex flex-col justify-between overflow-hidden rounded border border-gray-200">
-                <div>
+            <div className="mt-5 flex flex-col justify-between overflow-hidden rounded border border-gray-200">
+                <div className="h-full">
                     <img className="overflow-hidden" src={img} />
                     <div className="flex flex-row ml-3 mt-3 text-xs">
                         <div className="border-r pr-3">{charity}</div>
                         <div className="ml-3">{country}</div>
                     </div>
-                    <div className="mx-3 mt-5 font-extrabold text-blue-950">
-                        {truncatedTitle}
+                    <div className="mx-3 mt-5 font-extrabold text-blue-950 flex items-center">
+                        <div>{truncatedTitle}</div>
                     </div>
                 </div>
                 <div>
