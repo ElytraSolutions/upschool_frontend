@@ -25,6 +25,8 @@ import NewBrowseBooks from './pages/Library/DefaultPage';
 import Experiment from './pages/ZExperiment/Experiment';
 import Certificate from './pages/Certificate/Certificate';
 import BookPage from './pages/BookPage/BookPage';
+import ProjectsDefaultPage from './pages/Projects/ProjectsDefaultPage';
+import ProjectsPage from './pages/ProjectsPage/ProjectsPage';
 import GlobalReach from './pages/GlobalReach/GlobalReach';
 import CharityPage from './pages/Charity/CharityPage';
 import Hubs from './pages/Hubs/Hubs';
@@ -117,6 +119,14 @@ const router = createBrowserRouter([
             {
                 path: '/book/values-for-a-better-tomorrow-book-bundle',
                 element: <BookBundle />,
+            },
+            {
+                path: 'projects',
+                element: <ProjectsDefaultPage />,
+            },
+            {
+                path: 'charity-projects/:slug',
+                element: <ProjectsPage />,
             },
             {
                 path: '/certificate',
