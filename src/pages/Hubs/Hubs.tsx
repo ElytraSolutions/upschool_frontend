@@ -10,7 +10,6 @@ const HubCards = [
         description:
             'In this resource hub, you will learn everything you need to know to get started as a journalist in your school community.',
         imgURL: resolveImgURL('/images/Hubs/HowToBecomeAJournalist.jpg'),
-        // imgURL: '/images/Hubs/HowToBecomeAJournalist.jpg',
     },
     {
         id: 2,
@@ -18,7 +17,6 @@ const HubCards = [
         description:
             'In this resource hub, you will learn everything you need to know to get started as an advertising specialist in your school community.',
         imgURL: resolveImgURL('/images/Hubs/HowToBeAnAdvertisingSuperstar.jpg'),
-        // imgURL: '/images/Hubs/HowToBeAnAdvertisingSuperstar.jpg',
     },
     {
         id: 3,
@@ -26,7 +24,6 @@ const HubCards = [
         description:
             'In this resource hub, you will learn everything you need to know to get started as a documentary film maker in your school community.',
         imgURL: resolveImgURL('/images/Hubs/HowToBeADocumentaryFilmMaker.jpg'),
-        // imgURL: '/images/Hubs/HowToBeADocumentaryFilmMaker.jpg',
     },
     {
         id: 4,
@@ -34,7 +31,6 @@ const HubCards = [
         description:
             'In this resource hub, you will learn everything you need to know to get started as an event planning guru in your school community.',
         imgURL: resolveImgURL('/images/Hubs/HowToPlanAmazingEvents.jpg'),
-        // imgURL: '/images/Hubs/HowToPlanAmazingEvents.jpg',
     },
     {
         id: 5,
@@ -44,7 +40,6 @@ const HubCards = [
         imgURL: resolveImgURL(
             '/images/Hubs/HowToBeACreativeMediaSpecialist.jpg',
         ),
-        // imgURL: '/images/Hubs/HowToBeACreativeMediaSpecialist.jpg',
     },
 ];
 
