@@ -36,7 +36,7 @@ const AddStudentsBox: React.FC<BoxProps> = ({
                         }
                     }}
                 >
-                    <img src={icon} alt="logo " width="49px" height="49px" />
+                    <img src={icon} alt="logo " width="49" height="49" />
                     <h1 className="text-center text-lg">{text}</h1>
                 </div>
             </div>

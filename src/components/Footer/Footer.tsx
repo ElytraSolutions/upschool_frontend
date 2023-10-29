@@ -16,7 +16,7 @@ function Footer() {
                         <div className="flex justify-center">
                             <div className="">
                                 <img
-                                    src={resolveImgURL('/footerboy.png')}
+                                    src={resolveImgURL('/images/footerboy.png')}
                                     className="w-[500px] md:w-[250px] pt-10"
                                     alt=""
                                 />
@@ -86,7 +86,7 @@ function Footer() {
                         <div className="flex flex-col md:flex-row items-center justify-between p-4">
                             <div className="flex justify-center items-center">
                                 <img
-                                    src={resolveImgURL('/logo.png')}
+                                    src={resolveImgURL('/images/logo.png')}
                                     alt="upSchoolLogo"
                                     className=" h-6 mr-4"
                                 />

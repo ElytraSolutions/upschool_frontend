@@ -25,7 +25,10 @@ import NewBrowseBooks from './pages/Library/DefaultPage';
 import Experiment from './pages/ZExperiment/Experiment';
 import Certificate from './pages/Certificate/Certificate';
 import BookPage from './pages/BookPage/BookPage';
+import GlobalReach from './pages/GlobalReach/GlobalReach';
 import CharityPage from './pages/Charity/CharityPage';
+import Hubs from './pages/Hubs/Hubs';
+import Hub from './pages/Hubs/Hub';
 import Team from './pages/Team/Team';
 
 const router = createBrowserRouter([
@@ -126,8 +129,20 @@ const router = createBrowserRouter([
                 element: <Certificate />,
             },
             {
+                path: '/global-reach',
+                element: <GlobalReach />,
+            },
+            {
                 path: '/charities',
                 element: <CharityPage />,
+            },
+            {
+                path: '/hubs',
+                element: <Hubs />,
+            },
+            {
+                path: '/hubs/:slug',
+                element: <Hub />,
             },
         ],
     },

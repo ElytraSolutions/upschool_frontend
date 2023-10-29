@@ -17,6 +17,7 @@ export default {
                     '"Annie Use Your Telescope"',
                     'cursive',
                 ],
+                greatvibes: ['Great Vibes', 'sans-serif'],
             },
             flexGrow: {
                 2: '2',

@@ -54,7 +54,7 @@ export default function Lessons() {
         (async () => {
             await updateChapters();
         })();
-    }, [courseSlug, setChapters]);
+    }, [courseSlug, setChapters]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className="mb-6  grid h-[90vh] grid-cols-2 xm:grid-cols-5 lg:grid-cols-4">

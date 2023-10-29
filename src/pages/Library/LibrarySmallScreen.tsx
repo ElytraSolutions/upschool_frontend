@@ -108,8 +108,8 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                                 '/Library/btnFilter.png',
                                             )}
                                             alt="Filter"
-                                            height="50px"
-                                            width="50px"
+                                            height="50"
+                                            width="50"
                                             loading="lazy"
                                         />
                                     </button>

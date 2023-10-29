@@ -110,7 +110,7 @@ const StudentList: React.FC = () => {
                         {/* TODO it should delete the record of student in database and again fetch the updated list of student */}
                         <div className="w-6 h-6">
                             <img
-                                src={resolveImgURL('/CrossMark.png')}
+                                src={resolveImgURL('/images/CrossMark.png')}
                                 alt="crossmark"
                                 width="24"
                                 height="24"

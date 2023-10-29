@@ -73,7 +73,9 @@ export default function Navbar() {
                         <div style={styles}>
                             <NavLink to="/">
                                 <img
-                                    src={resolveImgURL('/upschool_logo.png')}
+                                    src={resolveImgURL(
+                                        '/images/upschool_logo.png',
+                                    )}
                                     alt="Logo"
                                     width="200"
                                     height="50"
