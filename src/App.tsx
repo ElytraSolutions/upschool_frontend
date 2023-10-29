@@ -25,9 +25,12 @@ import NewBrowseBooks from './pages/Library/DefaultPage';
 import Experiment from './pages/ZExperiment/Experiment';
 import Certificate from './pages/Certificate/Certificate';
 import BookPage from './pages/BookPage/BookPage';
+import ProjectsDefaultPage from './pages/Projects/ProjectsDefaultPage';
+import ProjectsPage from './pages/ProjectsPage/ProjectsPage';
 import GlobalReach from './pages/GlobalReach/GlobalReach';
 import CharityPage from './pages/Charity/CharityPage';
 import Hubs from './pages/Hubs/Hubs';
+import Hub from './pages/Hubs/Hub';
 
 const router = createBrowserRouter([
     {
@@ -119,6 +122,14 @@ const router = createBrowserRouter([
                 element: <BookBundle />,
             },
             {
+                path: 'projects',
+                element: <ProjectsDefaultPage />,
+            },
+            {
+                path: 'charity-projects/:slug',
+                element: <ProjectsPage />,
+            },
+            {
                 path: '/certificate',
                 element: <Certificate />,
             },
@@ -133,6 +144,10 @@ const router = createBrowserRouter([
             {
                 path: '/hubs',
                 element: <Hubs />,
+            },
+            {
+                path: '/hubs/:slug',
+                element: <Hub />,
             },
         ],
     },

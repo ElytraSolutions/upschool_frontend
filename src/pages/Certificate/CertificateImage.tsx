@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 const CertificateImage = ({ formData }) => {
     const [image, setImage] = useState('');
@@ -8,6 +9,9 @@ const CertificateImage = ({ formData }) => {
         const originalImage = await fetch(
             '../../../public/images/Certificate_main.png',
         );
+
+        // const originalImage = resolveImgURL('/Certificate_main.png');
+        // console.log(originalImage);
         // Resize the image
         console.log(formData.course);
 
@@ -19,7 +23,7 @@ const CertificateImage = ({ formData }) => {
         canvas.width = 669; // new width
         canvas.height = 939.3; // new height
         const img = new Image();
-        img.src = originalImage.url;
+        img.src = resolveImgURL('/Certificate_main.png');
         if (context) {
             img.onload = () => {
                 context.drawImage(img, 0, 0, 669, 939.9); // Draw the resized image
