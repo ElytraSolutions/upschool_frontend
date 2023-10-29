@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import axiosInstance from '../../config/Axios';
 import { useEffect, useState } from 'react';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 interface Props {
     data: ICourse;
@@ -72,7 +73,7 @@ function EnrollCard({ data }: Props) {
                 <CardMedia
                     component="img"
                     height="140"
-                    image={data.image}
+                    image={resolveImgURL(data.image)}
                     alt={data.name}
                 />
                 {user && user.id && enrollmentStatus.course && (

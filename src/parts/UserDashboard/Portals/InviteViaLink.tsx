@@ -32,7 +32,7 @@ const InviteViaLink = () => {
                     {/* WhatsAppIcon */}
                     <img
                         src={resolveImgURL(
-                            '/Dashboard/InviteViaLink/WhatsappIcon.png',
+                            '/images/Dashboard/InviteViaLink/WhatsappIcon.png',
                         )}
                         alt="Whatsapp"
                         width="40"
@@ -42,7 +42,7 @@ const InviteViaLink = () => {
                     {/* EmailIcon */}
                     <img
                         src={resolveImgURL(
-                            '/Dashboard/InviteViaLink/EmailBiggerIcon.png',
+                            '/images/Dashboard/InviteViaLink/EmailBiggerIcon.png',
                         )}
                         alt="Email"
                         width="40"

@@ -82,7 +82,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                     >
                                         <img
                                             src={resolveImgURL(
-                                                '/Library/SearchIcon.png',
+                                                '/images/Library/SearchIcon.png',
                                             )}
                                             alt="search"
                                             height="30px"
@@ -105,7 +105,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                                     >
                                         <img
                                             src={resolveImgURL(
-                                                '/Library/btnFilter.png',
+                                                '/images/Library/btnFilter.png',
                                             )}
                                             alt="Filter"
                                             height="50"

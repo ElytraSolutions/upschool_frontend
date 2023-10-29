@@ -7,6 +7,7 @@
 // import Typography from '@mui/material/Typography';
 import { ICourse } from '../../types/ICourse';
 import { NavLink } from 'react-router-dom';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 interface Props {
     data: ICourse;
@@ -82,9 +83,9 @@ function CourseCard({ data }: Props) {
                 <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 w-fit max-w-[270px] m-auto">
                     <div className="bg-stone-200">
                         <img
-                            src={data.image}
+                            src={resolveImgURL(data.image)}
                             height="140"
-                            alt="data.name"
+                            alt="Course image"
                             className=" h-44 w-full"
                         />
                     </div>

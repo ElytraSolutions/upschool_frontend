@@ -264,7 +264,7 @@ export default function About() {
                     className="bg-cover  bg-center"
                     style={{
                         backgroundImage: `url(${resolveImgURL(
-                            `/about/back.jpg`,
+                            `/images/about/back.jpg`,
                         )})`,
                     }}
                 >
