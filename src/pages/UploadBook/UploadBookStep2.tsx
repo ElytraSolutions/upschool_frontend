@@ -39,7 +39,7 @@ export function UploadBookStep2({
                                         <span>
                                             <img
                                                 src={resolveImgURL(
-                                                    '/PDF_logo.png',
+                                                    '/images/PDF_logo.png',
                                                 )}
                                                 alt="PDF"
                                                 width="full"

@@ -14,7 +14,7 @@ export default function OurFramework() {
                     className="bg-cover  bg-center"
                     style={{
                         backgroundImage: `url(${resolveImgURL(
-                            '/group-of-school-children-with-teacher-on-field-trip-in-nature.jpg',
+                            '/images/group-of-school-children-with-teacher-on-field-trip-in-nature.jpg',
                         )})`,
                     }}
                 >

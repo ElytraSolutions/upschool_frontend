@@ -70,7 +70,7 @@ export default function PurchasesTable() {
                                         {/* TODO implement download of invoice */}
                                         <img
                                             src={resolveImgURL(
-                                                '/DownloadIcon.png',
+                                                '/images/DownloadIcon.png',
                                             )}
                                             alt="Download"
                                             width="23"

@@ -7,7 +7,7 @@ function Footer() {
                 className=" relative bg-cover  bottom-0"
                 style={{
                     backgroundImage: `url(${resolveImgURL(
-                        '/footerbackground.jpg',
+                        '/images/footerbackground.jpg',
                     )})`,
                 }}
             >
@@ -53,7 +53,7 @@ function Footer() {
                                 <div className=" flex justify-center w-[50vw] md:w-[30vw] ">
                                     <img
                                         src={resolveImgURL(
-                                            '/footerbackground.jpg',
+                                            '/images/footerbackground.jpg',
                                         )}
                                         className="w-[300px] "
                                         alt=""

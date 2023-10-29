@@ -225,35 +225,35 @@ export function UploadBookStep1({
                                         <div>
                                             <img
                                                 src={resolveImgURL(
-                                                    '/Safe/safe1.png',
+                                                    '/images/Safe/safe1.png',
                                                 )}
                                             />
                                         </div>
                                         <div>
                                             <img
                                                 src={resolveImgURL(
-                                                    '/Safe/safe2.png',
+                                                    '/images/Safe/safe2.png',
                                                 )}
                                             />
                                         </div>
                                         <div>
                                             <img
                                                 src={resolveImgURL(
-                                                    '/Safe/safe3.png',
+                                                    '/images/Safe/safe3.png',
                                                 )}
                                             />
                                         </div>
                                         <div>
                                             <img
                                                 src={resolveImgURL(
-                                                    '/Safe/safe4.png"',
+                                                    '/images/Safe/safe4.png"',
                                                 )}
                                             />
                                         </div>
                                         <div>
                                             <img
                                                 src={resolveImgURL(
-                                                    '/Safe/safe5.png',
+                                                    '/images/Safe/safe5.png',
                                                 )}
                                             />
                                         </div>

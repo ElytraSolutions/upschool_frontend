@@ -66,7 +66,7 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                             <button type="submit" className="p-2 w-12 h-full ">
                                 <img
                                     src={resolveImgURL(
-                                        '/Library/SearchIcon.png',
+                                        '/images/Library/SearchIcon.png',
                                     )}
                                     alt="search"
                                     height="30"
