@@ -28,6 +28,7 @@ import BookPage from './pages/BookPage/BookPage';
 import GlobalReach from './pages/GlobalReach/GlobalReach';
 import CharityPage from './pages/Charity/CharityPage';
 import Hubs from './pages/Hubs/Hubs';
+import Hub from './pages/Hubs/Hub';
 
 const router = createBrowserRouter([
     {
@@ -133,6 +134,10 @@ const router = createBrowserRouter([
             {
                 path: '/hubs',
                 element: <Hubs />,
+            },
+            {
+                path: '/hubs/:slug',
+                element: <Hub />,
             },
         ],
     },
