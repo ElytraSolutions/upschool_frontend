@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import CharityCard from '../../components/Cards/Charity/CharityCard';
 import { charity } from '../../data/CharityCardData';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 const AllCharityPage = () => {
     useEffect(() => {
@@ -14,7 +15,9 @@ const AllCharityPage = () => {
                     <div className="relative flex">
                         <div className="w-full h-[400px] relative">
                             <img
-                                src="../../images/Charity/Cover/soTheyCan.jpg"
+                                src={resolveImgURL(
+                                    '/images/Charity/Cover/soTheyCan.jpg',
+                                )}
                                 alt="Your Image"
                                 className="w-full h-[400px] object-cover"
                             />

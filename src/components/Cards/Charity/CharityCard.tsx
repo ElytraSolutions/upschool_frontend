@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 type CharityCardProps = {
     charity: {
@@ -38,7 +39,7 @@ const CharityCard: React.FC<CharityCardProps> = ({ charity }) => {
                                 <div className="flex flex-grow">
                                     <img
                                         className="rounded-t"
-                                        src={charity.cover}
+                                        src={resolveImgURL(charity.cover)}
                                         alt="image"
                                     />
                                 </div>
@@ -78,7 +79,9 @@ const CharityCard: React.FC<CharityCardProps> = ({ charity }) => {
                                         <button onClick={handleButtonClick}>
                                             <img
                                                 className="rounded-sm shadow-sm border border-gray-300"
-                                                src={charity.logo}
+                                                src={resolveImgURL(
+                                                    charity.logo,
+                                                )}
                                                 alt="logo.png"
                                             />
                                         </button>
