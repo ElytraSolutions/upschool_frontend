@@ -11,7 +11,7 @@ const GlobalReach = () => {
                         <div className="relative flex h-[500px]">
                             <div className="w-full h-full relative video overflow-hidden">
                                 <iframe
-                                    className="w-[1652px] h-[930px] object-contain"
+                                    className="w-full h-[930px] object-contain scale-150"
                                     width={426}
                                     height={220}
                                     src="https://player.vimeo.com/video/710675720?autoplay=1&loop=1&muted=1&background=1"
@@ -68,7 +68,7 @@ const GlobalReach = () => {
                         countries are learning with us (shaded pink).{' '}
                     </h1>
                 </div>
-                <div className="map max-w-[1800px]">
+                <div className="map max-w-full">
                     <Map />
                 </div>
             </div>

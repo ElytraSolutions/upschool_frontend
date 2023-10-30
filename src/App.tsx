@@ -37,6 +37,7 @@ import Team from './pages/Team/Team';
 import GlobalGoals from './pages/GlobalGoals/GlobalGoals';
 import Challenges from './pages/Challenges/Challenges';
 import CanvaPage from './pages/Canva/CanvaPage';
+import BulkRegistrationPage from './pages/BulkRegistration/BulkRegistrationPage';
 
 const router = createBrowserRouter([
     {
@@ -178,6 +179,10 @@ const router = createBrowserRouter([
             {
                 path: '/canva/',
                 element: <CanvaPage />,
+            },
+            {
+                path: '/bulk-enrolment',
+                element: <BulkRegistrationPage />,
             },
         ],
     },

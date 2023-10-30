@@ -220,7 +220,7 @@ const data = [
         path: '#',
         children: [
             { id: 1, title: 'Register for Upschool', path: 'register' },
-            { id: 2, title: 'Bulk Registration', path: 'demo' },
+            { id: 2, title: 'Bulk Registration', path: '/bulk-enrolment/' },
             { id: 3, title: 'Request a Tour', path: '/' },
         ],
     },

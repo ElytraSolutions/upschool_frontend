@@ -57,18 +57,17 @@ function ExpandableTable(props: Props) {
                                     <Button
                                         variant="text"
                                         onClick={() => toggleRow(index)}
-                                        startIcon={
-                                            isRowExpanded(index) ? (
-                                                <ExpandLess
-                                                    style={{ color: '#242254' }}
-                                                />
-                                            ) : (
-                                                <ExpandMore
-                                                    style={{ color: '#242254' }}
-                                                />
-                                            )
-                                        }
-                                    ></Button>
+                                    >
+                                        {isRowExpanded(index) ? (
+                                            <ExpandLess
+                                                style={{ color: '#242254' }}
+                                            />
+                                        ) : (
+                                            <ExpandMore
+                                                style={{ color: '#242254' }}
+                                            />
+                                        )}
+                                    </Button>
                                 </TableCell>
                             </TableRow>
                             {isRowExpanded(index) && (
