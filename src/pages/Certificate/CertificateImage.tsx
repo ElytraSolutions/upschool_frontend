@@ -24,7 +24,10 @@ const CertificateImage = ({ formData }) => {
         canvas.height = 939.3; // new height
         const img = new Image();
         img.src = resolveImgURL('/Certificate_main.png');
-        console.log('This is the URL', resolveImgURL('/Certificate_main.png'));
+        console.log(
+            'This is the URL',
+            resolveImgURL('/images/Certificate_main.png'),
+        );
         if (context) {
             img.onload = () => {
                 context.drawImage(img, 0, 0, 669, 939.9); // Draw the resized image
