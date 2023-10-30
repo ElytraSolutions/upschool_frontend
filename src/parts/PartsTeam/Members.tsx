@@ -1,18 +1,9 @@
-import gavin from '../../assets/Team/gavin.webp';
-import richard from '../../assets/Team/richard.webp';
-import jake from '../../assets/Team/jake.jpg';
-import ashesh from '../../assets/Team/ashesh.jpg';
-import anusha from '../../assets/Team/anusha.jpg';
-import ashleigh from '../../assets/Team/ashleigh.jpg';
-import isaac from '../../assets/Team/isaac.jpg';
-import mathew from '../../assets/Team/mathew.jpg';
-import sri from '../../assets/Team/sri.jpg';
-
+import resolveImgURL from '../../utlis/resolveImgURL';
 const membersData = [
     {
         name: 'Gavin McCormack',
         title: 'Co-Founder',
-        img: gavin,
+        img: '/images/Team/gavin.webp',
         quote: 'Having written a series of books for both children and adults on education, researching and representing Sir Kenny Dalglish’s Life story as a rhyming picture book, running his own publishing firm, charity, and being a school principal, Gavin was nominated for Australian Principal of the Year 2020, is a TEDx speaker, was nominated for Australian Author of the Year in 2017, is an Australian of the Year Nominee and was named as the 10th Most Influential Educator in the World by LinkedIn.',
         description: `On a quest for educational equality, Gavin has worked tirelessly to raise money to personally build many schools, libraries, and teacher training centres in the Himalayan region of Nepal across the last 5 years, all whilst successfully running one of Australia’s best Montessori primary schools.`,
         location: 'Sydney, Australia',
@@ -21,7 +12,7 @@ const membersData = [
     {
         name: 'Richard Mills',
         title: 'Co-Founder',
-        img: richard,
+        img: '/images/Team/richard.webp',
         quote: `“My life ambition is to be aligned with truth, honesty and love. Through my work and personal relationships I want to inspire others to do the same, so that together we can change our world for the better.”`,
         description: `Richard would describe Upschool as a culmination of his life’s work. He taught in schools for 9 years, has built and grown 5 companies in a range of fields, and worked tirelessly toward building a life where he can make a positive difference in the world.\n
         His curiosity now sits with how many people he can inspire to live a life of deep purpose. Upschool is Richard’s vehicle to explore this. `,
@@ -31,7 +22,7 @@ const membersData = [
     {
         name: 'Jake Davies',
         title: 'Co-Founder',
-        img: jake,
+        img: '/images/Team/jake.jpg',
         quote: `“As humankind faces its greatest challenges, there has never been a more important time to be alive. It’s no coincidence that our souls have chosen to animate at this critical time in human history. The question is: what have you been called to do?”`,
         description: `Jake aspires to ‘be the change he wants to see in the world’ by living his life with intention, purpose, and a deep commitment to creating a better life for all. His current role at Upschool.co aligns this passion with the critical task of educating the future leaders of our planet – our children – to empower them to make a lasting and impactful difference in the world.\n
         From the classroom to the boardroom, Jake’s broad professional experience is underpinned by an unyielding desire to make a meaningful contribution to elevating the consciousness of others and preserving the planet. Jake is passionate about education, the environment, social justice, human rights, and equality. He believes that we all have a responsibility to ensure that the world we leave behind for our children is better than the one we inherited.\n
@@ -42,7 +33,7 @@ const membersData = [
     {
         name: 'Ashesh',
         title: 'Chief Technology Officer',
-        img: ashesh,
+        img: '/images/Team/ashesh.jpg',
         quote: `Ashesh Poudel is a confident professional with an infectious enthusiasm for all things tech.`,
         description: `He did his Postgraduate in IT in Australia, and has over 11 years of hands-on experience in the field of Information Technology.\n
 
@@ -56,7 +47,7 @@ He has joined our team at Upschool.co as Chief Technology Officer, overseeing an
     {
         name: 'Anusha',
         title: 'Customer Success Manager',
-        img: anusha,
+        img: '/images/Team/anusha.jpg',
         quote: `“You can do anything if you set your mind to it.”`,
         description: `Anusha’s passion is to make use of her creative skills to make a difference in the field of education. Having a progressive mindset and starting her professional journey back in 2011, she has trained herself in the corporate management sector, growing hand in hand with evolving digital marketing and web development technology.
 
@@ -70,7 +61,7 @@ Anusha leads Upschool’s customer success deployment as head of Customer Servic
     {
         name: 'Mathew',
         title: 'Operations Manager: Subcontinent',
-        img: mathew,
+        img: '/images/Team/mathew.jpg',
         quote: `"I feel kindness and love is free."`,
         description: `Mathew holds a bachelor’s degree in commerce and has  17 years of experience working with international not-for-profit organizations (such as World Vision and GIZ/KGTTI in India), and working in youth and community development. He has experience in project management, finance, and logistics, and is very excited to use these skills to support the Upschool mission.\n
 
@@ -84,7 +75,7 @@ Outside of work, Mathew loves spending time with his family and friends. He also
     {
         name: 'Sri',
         title: 'Post Production Manager / Senior Editor',
-        img: sri,
+        img: '/images/Team/sri.jpg',
         quote: '“I really enjoy the process of bringing footage to life and telling a story.”',
         description: `Sri started editing when he was young. It became a strength from a young age and he always knew that he wanted to pursue it as a career. He is very excited now to be using these skills with the Upschool team to help make our world a better place.\n
 
@@ -98,7 +89,7 @@ Qualifications: Professional 2D Graphics & Advanced Visual Effects (ADVFX), Grap
     {
         name: 'Isaac',
         title: 'Creative Media Director',
-        img: isaac,
+        img: '/images/Team/isaac.jpg',
         quote: 'With a passion for Visual and Aural communication and a Masters degree in Cultural Anthropology, Isaac would like to bridge the gaps between cultural diversity and unite people through media.',
         description:
             'With seven years of experience in filmmaking, photography, and post-production, Isaac thrives to inspire people to become “Change Makers.” By playing our roles as humans a little better than yesterday, he believes that our tomorrow can shine a little brighter than today.',
@@ -107,7 +98,7 @@ Qualifications: Professional 2D Graphics & Advanced Visual Effects (ADVFX), Grap
     {
         name: 'Ashleigh',
         title: 'Teacher and Student Support',
-        img: ashleigh,
+        img: '/images/Team/ashleigh.jpg',
         quote: '“One kind word can change someone’s entire day!”',
         description: `Ashleigh was born and raised in Melbourne, Victoria. She completed her Bachelor of Education in 2011 and quickly realised she had a fire in her belly to embark on a unique and challenging journey to help change the lives of the next generation. She landed herself a teaching position in the remote indigenous community, Palm Island – where she spent several years.\n
 
@@ -134,8 +125,8 @@ const Members = () => {
                         {member.title}
                     </h3>
                     <img
-                        className="w-[50%] mb-5"
-                        src={member.img}
+                        className="w-[80%] md:w-[50%] mb-5"
+                        src={resolveImgURL(member.img)}
                         alt={member.name}
                     />
                     <h3 className=" font-normal text-[#242254] leading-8 tracking-wide w-[90%] md:w-[75%] space-y-4 ">
