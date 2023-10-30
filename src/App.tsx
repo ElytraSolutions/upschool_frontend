@@ -35,6 +35,7 @@ import ImpactFilms from './pages/ImpactFilms/ImpactFilms';
 import Hub from './pages/Hubs/Hub';
 import Team from './pages/Team/Team';
 import CanvaPage from './pages/Canva/CanvaPage';
+import BulkRegistrationPage from './pages/BulkRegistration/BulkRegistrationPage';
 
 const router = createBrowserRouter([
     {
@@ -168,6 +169,10 @@ const router = createBrowserRouter([
             {
                 path: '/canva/',
                 element: <CanvaPage />,
+            },
+            {
+                path: '/bulk-enrolment',
+                element: <BulkRegistrationPage />,
             },
         ],
     },
