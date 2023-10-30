@@ -35,6 +35,7 @@ import ImpactFilms from './pages/ImpactFilms/ImpactFilms';
 import Hub from './pages/Hubs/Hub';
 import Team from './pages/Team/Team';
 import CanvaPage from './pages/Canva/CanvaPage';
+import Live from './pages/Live/Live';
 
 const router = createBrowserRouter([
     {
@@ -144,6 +145,10 @@ const router = createBrowserRouter([
             {
                 path: '/global-reach',
                 element: <GlobalReach />,
+            },
+            {
+                path: '/live',
+                element: <Live />,
             },
             {
                 path: 'charities',
