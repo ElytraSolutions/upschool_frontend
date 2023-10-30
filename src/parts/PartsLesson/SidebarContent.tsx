@@ -14,7 +14,7 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
             <div className="flex flex-row justify-between bg-[#1e3050] text-white py-5 px-4">
                 <span>{chapter.name}</span>
                 <span>
-                    {chapter.completedLessons || 0}/{chapter.totalLessons || 0}
+                    {chapter.completedLessons}/{chapter.totalLessons}
                 </span>{' '}
                 {/*TODO Logic Required */}
             </div>
