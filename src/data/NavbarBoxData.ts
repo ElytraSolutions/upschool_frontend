@@ -233,7 +233,7 @@ const data = [
             {
                 id: 3,
                 title: 'Challenges',
-                path: 'https://upschool.co/challenges',
+                path: '/challenges',
             },
             {
                 id: 4,
@@ -243,7 +243,7 @@ const data = [
             {
                 id: 5,
                 title: 'Free Premium Canva',
-                path: 'https://upschool.co/canva',
+                path: '/canva/',
             },
             {
                 id: 6,
@@ -306,82 +306,82 @@ const data = [
             {
                 id: 1,
                 title: 'Charities',
-                path: 'charities',
+                path: '/charities',
                 children: [
                     {
                         id: 1,
                         title: 'All Charities',
-                        path: 'charities',
+                        path: '/charities/',
                     },
                     {
                         id: 2,
                         title: 'Blue Dragon',
-                        path: 'https://upschool.co/charity/blue-dragon/',
+                        path: '/charities/blue-dragon/',
                     },
                     {
                         id: 3,
                         title: 'Edgar’s Mission',
-                        path: 'https://upschool.co/charity/edgars-mission/',
+                        path: '/charities/edgars-mission/',
                     },
                     {
                         id: 4,
                         title: 'Farmer’s Footprint',
-                        path: 'https://upschool.co/charity/farmers-footprint-australia/',
+                        path: '/charities/farmers-footprint-australia/',
                     },
                     {
                         id: 5,
                         title: 'Free To Shine',
-                        path: 'https://upschool.co/charity/free-to-shine/',
+                        path: '/charities/free-to-shine/',
                     },
                     {
                         id: 6,
                         title: 'John Fawcett Foundation',
-                        path: 'https://upschool.co/charity/john-fawcett-foundation/',
+                        path: '/charities/john-fawcett-foundation/',
                     },
                     {
                         id: 7,
                         title: 'MicroLoan Foundation',
-                        path: 'https://upschool.co/charity/microloan-foundation/',
+                        path: '/charities/microloan-foundation/',
                     },
                     {
                         id: 8,
                         title: 'Ocean Youth',
-                        path: 'https://upschool.co/charity/ocean-youth/',
+                        path: '/charities/ocean-youth/',
                     },
                     {
                         id: 9,
                         title: 'Opportunity International Australia',
-                        path: 'https://upschool.co/charity/opportunity-international-australia/',
+                        path: '/charities/opportunity-international-australia/',
                     },
                     {
                         id: 10,
                         title: 'Rainforest Rescue',
-                        path: 'https://upschool.co/charity/rainforest-rescue/',
+                        path: '/charities/rainforest-rescue/',
                     },
                     {
                         id: 11,
                         title: 'Seabin Foundation',
-                        path: 'https://upschool.co/charity/seabin-foundation/',
+                        path: '/charities/seabin-foundation/',
                     },
                     {
                         id: 12,
                         title: 'So They Can',
-                        path: 'https://upschool.co/charity/so-they-can/',
+                        path: '/charities/so-they-can/',
                     },
                     {
                         id: 13,
                         title: 'SolarBuddy',
-                        path: 'https://upschool.co/charity/solarbuddy-org/',
+                        path: '/charities/solarbuddy-org/',
                     },
                     {
                         id: 14,
                         title: 'The Jane Goodall Institute Australia',
-                        path: 'https://upschool.co/charity/jane-goodall-institute-australia/',
+                        path: '/charities/jane-goodall-institute-australia/',
                     },
                     {
                         id: 15,
                         title: 'Women’s Empowerment in Indian Villages',
-                        path: 'https://upschool.co/charity/womens-empowerment-in-indian-villages/',
+                        path: '/charities/womens-empowerment-in-indian-villages/',
                     },
                 ],
             },
@@ -525,7 +525,7 @@ const data = [
         children: [
             { id: 1, title: 'Our Framework', path: '/our-framework' },
             { id: 2, title: 'Mission', path: '/about' },
-            { id: 3, title: 'Team', path: 'demo' },
+            { id: 3, title: 'Team', path: '/our-team' },
             { id: 4, title: 'Global Reach', path: 'global-reach' },
             { id: 5, title: 'FAQ', path: '/faq' },
             { id: 6, title: 'Testimonials', path: '/testimonials' },

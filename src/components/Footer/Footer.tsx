@@ -31,7 +31,7 @@ function Footer() {
                                     Upschool is an{' '}
                                     <a
                                         className="underline text-[#Aeb2c2]"
-                                        href="https://upschool.co/"
+                                        href="/"
                                     >
                                         online learning platform
                                     </a>{' '}
@@ -39,7 +39,7 @@ function Footer() {
                                     everything we do at{' '}
                                     <a
                                         className="underline text-[#Aeb2c2]"
-                                        href="https://upschool.co/"
+                                        href="/"
                                     >
                                         Upschool
                                     </a>{' '}

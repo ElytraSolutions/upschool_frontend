@@ -1,10 +1,14 @@
-import founders from '../../assets/Team/founders.png';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 const FoundingTeam = () => {
     return (
         <div className="w-[100%] min-h-[100vh] flex md:flex-row flex-col bg-[#f4f4f4]">
             <div className=" w-full md:w-1/2 flex justify-center items-center ">
-                <img className="w-[90%]" src={founders} alt="founders" />
+                <img
+                    className="w-[90%]"
+                    src={resolveImgURL('images/Team/founders.png')}
+                    alt="founders"
+                />
             </div>
             <div className="w-full md:w-1/2 pl-4 flex flex-col justify-center gap-4 ">
                 <h1 className="mt-2 text-4xl font-bold text-[#242254]">

@@ -4,11 +4,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* transform: translate(-50%, -50%); */
+    height: 30px;
+    width: 150px;
+    background-color: white;
+    /* top: 200px;
+    left: 200px; */
+    border-radius: 12px;
+
 }
 
 .tooltip-main {
     padding: 5px 20px;
     background-color: white;
+    border-radius: 12px;
+    text-align: center;
 }
 
 .map {
@@ -18,28 +28,13 @@
 }
 
 
-.container {
-    width: 80vw;
-    /* height: 100px;  */
-    overflow: auto;
-    /* margin-top: -30px; */
-}
-
-.tooltip-arrow {
-    height: 0px;
-    width: 0px;
-    /* background-color: green; */
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid white;
-}
 
 .your-hover-class {
     fill: #D5185C;
-    /* transition: fill 0.2s ease-in-out; */
+    transition: fill 0.2s ease-in-out;
 }
 
-
-svg>path {
-    border: 10px solid black;
+svg>path:focus {
+    border: none;
+    outline: none;
 }
