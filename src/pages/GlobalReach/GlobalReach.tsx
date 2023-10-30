@@ -1,20 +1,8 @@
-import { useEffect, useState } from 'react';
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import Map from './Map';
 import { RxCursorArrow } from 'react-icons/rx';
 
 const GlobalReach = () => {
-    const [mouseCoordinates, setMouseCoordinates] = useState({ x: 0, y: 0 });
-
-    useEffect(() => {
-        const handleMouseMove = (event) => {
-            setMouseCoordinates({ x: event.clientX, y: event.clientY });
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []);
     return (
         <>
             <div className="flex item-center justify-center flex-col">
@@ -72,7 +60,7 @@ const GlobalReach = () => {
                     </h1>
                 </div>
                 <div className="map max-w-[1800px]">
-                    <Map mouseCoordinates={mouseCoordinates} />
+                    <Map />
                 </div>
             </div>
         </>
