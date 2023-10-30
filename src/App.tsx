@@ -35,6 +35,7 @@ import ImpactFilms from './pages/ImpactFilms/ImpactFilms';
 import Hub from './pages/Hubs/Hub';
 import Team from './pages/Team/Team';
 import Challenges from './pages/Challenges/Challenges';
+import CanvaPage from './pages/Canva/CanvaPage';
 
 const router = createBrowserRouter([
     {
@@ -168,6 +169,10 @@ const router = createBrowserRouter([
             {
                 path: '/challenges',
                 element: <Challenges />,
+            },
+            {
+                path: '/canva/',
+                element: <CanvaPage />,
             },
         ],
     },

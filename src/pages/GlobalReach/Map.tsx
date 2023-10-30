@@ -6,53 +6,66 @@ import 'react-svg-map/lib/index.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const Map = ({ mouseCoordinates }) => {
+const Map = () => {
     const [location, setLocation] = useState(null);
     const [locId, setLocId] = useState(null);
+
+    const [mousePosition, setMousePosition] = useState({
+        x: 0,
+        y: 0,
+    });
+
+    useEffect(() => {
+        window.addEventListener('mousemove', (e) => {
+            setMousePosition({ x: e.clientX, y: e.clientY });
+            // console.log(e.clientX, e.clientY);
+        });
+        return () => {
+            window.removeEventListener('mousemove', (e) => {
+                setMousePosition({ x: e.clientX, y: e.clientY });
+            });
+        };
+    }, []);
 
     useEffect(() => {
         const val = document.querySelector(`#${locId}`);
         if (val) {
             val.classList.add('your-hover-class');
-            console.log('Class Added');
+            // console.log('Class Added');
             // val.style.fill = "red";
         }
-        console.log(locId);
+        // console.log(locId);
         return () => {
             // Clean up the class on component unmount or when hover ends
             if (val) {
                 val.classList.remove('your-hover-class');
-                console.log('Class Removed');
+                // console.log('Class Removed');
             }
         };
     }, [locId]);
 
     const handleMouseOver = (e) => {
-        console.log('Mouse Over');
-        const pointedLocation = e.target.attributes.name.value;
-        const pointedLocationId = e.target.attributes.id.value;
-        setLocId(pointedLocationId);
-        setLocation(pointedLocation);
-        // console.log(pointedLocationId);
+        // console.log('Mouse Over');
+        // console.log(e.target.attributes.name.value);
+        setLocation(e.target.attributes.name.value);
+        setLocId(e.target.id);
+        // console.log(e.target.id);
     };
 
     const handleMouseOut = () => {
-        console.log('Mouse out');
         setLocation(null);
-        // setLocId(null);
+        setLocId(null);
     };
-
     const getLocationClassName = () => {
         // console.log(location)
     };
-
     const style = {
-        top: mouseCoordinates.y - 30,
-        left: mouseCoordinates.x - 40,
+        top: mousePosition.y,
+        left: mousePosition.x,
     };
 
     return (
-        <div>
+        <div className=" relative">
             <SVGMap
                 map={World}
                 locationClassName={getLocationClassName}
@@ -61,16 +74,15 @@ const Map = ({ mouseCoordinates }) => {
                 className="map"
                 id="map"
             />
-            {location && (
-                <>
-                    <div className="tooltip" style={style}>
-                        <div className="tooltip-main">
-                            {location ? `${location}` : 'None'}
-                        </div>
-                        <div className="tooltip-arrow"></div>
-                    </div>
-                </>
-            )}
+
+            <div
+                className={`tooltip ${location ? 'block' : 'hidden'} `}
+                style={style}
+            >
+                {/* {console.log(mousePosition.x, mousePosition.y)} */}
+                <div className="tooltip-main">{location}</div>
+                {/* <div className="tooltip-arrow"></div> */}
+            </div>
         </div>
     );
 };

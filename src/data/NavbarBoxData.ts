@@ -243,7 +243,7 @@ const data = [
             {
                 id: 5,
                 title: 'Free Premium Canva',
-                path: 'https://upschool.co/canva',
+                path: '/canva/',
             },
             {
                 id: 6,
