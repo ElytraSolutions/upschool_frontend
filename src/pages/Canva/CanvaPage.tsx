@@ -1,8 +1,8 @@
 function CanvaPage() {
     return (
         <>
-            <div className="grid grid-cols-14 mb-[36px]">
-                <div className="lg:col-start-2 lg:col-span-12 col-span-full text-theme-color lg:pl-2 lg:pr-2 md:pl-4 md:pr-4 mb-[24px]">
+            <div className="grid grid-cols-12 mb-[36px]">
+                <div className="lg:col-start-3 lg:col-span-8 md:col-start-2 md:col-span-10 col-span-full text-theme-color lg:pl-2 lg:pr-2 md:pl-4 md:pr-4 pl-6 pr-6 mb-[24px]">
                     <div className="h-[300px] p-2 flex justify-center items-center text-center">
                         <h1 className="md:text-[33px] sm:text-[28px] xs:text-[26px] ms:text-[24px] font-extrabold mt-[15px] mb-[15px]">
                             Please create an Upschool account{' '}
