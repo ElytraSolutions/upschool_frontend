@@ -11,10 +11,10 @@ const BooksDisplay = () => {
         : 'Home';
     return (
         <>
-            <div className="w-fit tab:w-2/3  xl:w-[75%] 1450:w-2/3 ">
+            <div className="w-full xm:w-fit tab:w-2/3  xl:w-[75%] 1450:w-2/3 ">
                 {/* it displays all sections (Best Sellers , Featured Books and Explore ALL Books as deafault condition) */}
                 {selectSection === 'Home' && (
-                    <div className="flex flex-col gap-5 tab:gap-12 w-fit">
+                    <div className="flex flex-col gap-5 tab:gap-12 w-full xm:w-fit">
                         {/* Best Sellers Section */}
                         <SectionBestSellers
                             topic="Best Sellers"

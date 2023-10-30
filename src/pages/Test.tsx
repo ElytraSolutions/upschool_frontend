@@ -3,7 +3,10 @@
 // import useUser from '../hooks/useUser';
 // import CharityProjectCard from './Charity/CharityProjectCard';
 
-import CanvaPage from './Canva/CanvaPage';
+import BulkEnrolSection from '../parts/PartsBulkRegistration/BulkEnrolSection';
+import BulkExpect from '../parts/PartsBulkRegistration/BulkExpect';
+import BulkImageSection from '../parts/PartsBulkRegistration/BulkImageSection';
+// import CanvaPage from './Canva/CanvaPage';
 
 function Test() {
     // const [data, setData] = useState(null);
@@ -14,11 +17,17 @@ function Test() {
     //     });
     // }, []);
     return (
-        <div>
-            {/* {JSON.stringify(data)}
-            <></>
-            {JSON.stringify(user)} */}
-            <CanvaPage />
+        <div className="grid grid-cols-6 gap-y-10">
+            <div className="row-span-full col-span-full">
+                <BulkImageSection />
+            </div>
+            <div className="xm:col-span-4 xm:col-start-2 col-span-full xm:p-0 p-4 grid gap-4">
+                {/* {JSON.stringify(data)}
+                <></>
+                {JSON.stringify(user)} */}
+                <BulkEnrolSection />
+                <BulkExpect />
+            </div>
         </div>
     );
 }
