@@ -94,8 +94,8 @@ const LoggedProfileBox: React.FC<BoxProps> = ({ inf, name }) => {
                                             <img
                                                 className="h-3 w-3 sm:h-5 sm:w-5"
                                                 src={detail.image}
-                                                height="30px"
-                                                width="30px"
+                                                height="30"
+                                                width="30"
                                                 alt={detail.title}
                                             />
                                         </div>

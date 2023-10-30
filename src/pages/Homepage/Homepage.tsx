@@ -17,7 +17,7 @@ export default function Home() {
                     className="bg-cover  bg-center"
                     style={{
                         backgroundImage: `url(${resolveImgURL(
-                            '/homepage/main.jpg',
+                            '/images/homepage/main.jpg',
                         )})`,
                     }}
                 >

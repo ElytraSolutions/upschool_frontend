@@ -26,7 +26,7 @@ export default function About() {
                     </video>
                     <div className="relative flex flex-col items-center justify-center bg-[#181739C0] text-center md:h-[60vh] ">
                         <img
-                            src={resolveImgURL('/flyimage.png')}
+                            src={resolveImgURL('/images/flyimage.png')}
                             className="pt-50 max-h-[150px]"
                             alt=""
                         />
@@ -114,13 +114,15 @@ export default function About() {
                             </button>
                         </div>
                         <img
-                            src={resolveImgURL('/about/about-us.jpg')}
+                            src={resolveImgURL('/images/about/about-us.jpg')}
                             alt=""
                         />
                     </div>
                     <div className="grid grid-cols-1 gap-4 pt-20 md:grid-cols-2">
                         <img
-                            src={resolveImgURL('/about/about-us-images.jpg')}
+                            src={resolveImgURL(
+                                '/images/about/about-us-images.jpg',
+                            )}
                             alt=""
                             className="order-last md:order-first"
                         />
@@ -166,13 +168,17 @@ export default function About() {
                             </button>
                         </div>
                         <img
-                            src={resolveImgURL('/about/about-us-images-1.jpg')}
+                            src={resolveImgURL(
+                                '/images/about/about-us-images-1.jpg',
+                            )}
                             alt=""
                         />
                     </div>
                     <div className="grid grid-cols-1 gap-4 pt-20 md:grid-cols-2">
                         <img
-                            src={resolveImgURL('/about/about-us-images-3.jpg')}
+                            src={resolveImgURL(
+                                '/images/about/about-us-images-3.jpg',
+                            )}
                             alt=""
                             className="order-last md:order-first"
                         />
@@ -220,7 +226,9 @@ export default function About() {
                             </button>
                         </div>
                         <img
-                            src={resolveImgURL('/about/about-us-images-4.jpg')}
+                            src={resolveImgURL(
+                                '/images/about/about-us-images-4.jpg',
+                            )}
                             alt=""
                         />
                     </div>
@@ -229,7 +237,7 @@ export default function About() {
                             Our Team
                         </p>
                         <img
-                            src={resolveImgURL('/about/Team-Photo.png')}
+                            src={resolveImgURL('/images/about/Team-Photo.png')}
                             className="py-6"
                             alt=""
                         />
@@ -256,7 +264,7 @@ export default function About() {
                     className="bg-cover  bg-center"
                     style={{
                         backgroundImage: `url(${resolveImgURL(
-                            `/about/back.jpg`,
+                            `/images/about/back.jpg`,
                         )})`,
                     }}
                 >

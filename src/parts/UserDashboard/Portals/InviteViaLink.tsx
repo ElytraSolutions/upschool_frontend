@@ -1,3 +1,5 @@
+import resolveImgURL from '../../../utlis/resolveImgURL';
+
 const InviteViaLink = () => {
     return (
         <>
@@ -29,18 +31,22 @@ const InviteViaLink = () => {
                     {/* TODO implement necessary logic */}
                     {/* WhatsAppIcon */}
                     <img
-                        src="images/Dashboard/InviteViaLink/WhatsappIcon.png"
+                        src={resolveImgURL(
+                            '/images/Dashboard/InviteViaLink/WhatsappIcon.png',
+                        )}
                         alt="Whatsapp"
-                        width="40px"
-                        height="40px"
+                        width="40"
+                        height="40"
                     />
                     {/* TODO implement necessary logic */}
                     {/* EmailIcon */}
                     <img
-                        src="images/Dashboard/InviteViaLink/EmailBiggerIcon.png"
+                        src={resolveImgURL(
+                            '/images/Dashboard/InviteViaLink/EmailBiggerIcon.png',
+                        )}
                         alt="Email"
-                        width="40px"
-                        height="40px"
+                        width="40"
+                        height="40"
                     />
                 </div>
             </div>

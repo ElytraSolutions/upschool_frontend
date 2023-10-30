@@ -85,7 +85,7 @@ const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
                                         {/* TODO url or link to view the uploaded book */}
                                         <img
                                             src={resolveImgURL(
-                                                '/UBStepVImg.png',
+                                                '/images/UBStepVImg.png',
                                             )}
                                             alt="Click here to view your book"
                                             width="full"

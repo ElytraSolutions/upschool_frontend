@@ -229,7 +229,7 @@ const data = [
         title: 'Learn',
         children: [
             { id: 1, title: 'All Courses', path: '/courses' },
-            { id: 2, title: 'Learning Hubs', path: 'https://upschool.co/hubs' },
+            { id: 2, title: 'Learning Hubs', path: '/hubs' },
             {
                 id: 3,
                 title: 'Challenges',
@@ -290,7 +290,7 @@ const data = [
             {
                 id: 8,
                 title: 'Impact Films',
-                path: 'https://upschool.co/impact-films',
+                path: 'impact-films',
             },
             {
                 id: 9,
@@ -306,11 +306,13 @@ const data = [
             {
                 id: 1,
                 title: 'Charities',
+                path: 'charities',
                 path: '/charities',
                 children: [
                     {
                         id: 1,
                         title: 'All Charities',
+                        path: 'charities',
                         path: '/charities/',
                     },
                     {
@@ -385,7 +387,7 @@ const data = [
                     },
                 ],
             },
-            { id: 2, title: 'Projects', path: 'https://upschool.co/projects' },
+            { id: 2, title: 'Projects', path: 'projects' },
             {
                 id: 3,
                 title: 'Libraries',
@@ -526,7 +528,7 @@ const data = [
             { id: 1, title: 'Our Framework', path: '/our-framework' },
             { id: 2, title: 'Mission', path: '/about' },
             { id: 3, title: 'Team', path: 'demo' },
-            { id: 4, title: 'Global Reach', path: 'demo' },
+            { id: 4, title: 'Global Reach', path: 'global-reach' },
             { id: 5, title: 'FAQ', path: '/faq' },
             { id: 6, title: 'Testimonials', path: '/testimonials' },
             { id: 7, title: 'Contact', path: '/contact' },
@@ -546,22 +548,22 @@ const userData = {
         {
             title: 'Dashboard',
             path: 'dashboard',
-            image: resolveImgURL('/NavbarProfile/dashboard.png'),
+            image: resolveImgURL('/images/NavbarProfile/dashboard.png'),
         },
         {
             title: 'My Profile',
             path: 'dashboard',
-            image: resolveImgURL('/NavbarProfile/administrator.png'),
+            image: resolveImgURL('/images/NavbarProfile/administrator.png'),
         },
         {
             title: 'Enrolled Courses',
             path: 'dashboard',
-            image: resolveImgURL('/NavbarProfile/graduated.png'),
+            image: resolveImgURL('/images/NavbarProfile/graduated.png'),
         },
         {
             title: 'Logout',
             path: 'logout',
-            image: resolveImgURL('/NavbarProfile/log-out.png'),
+            image: resolveImgURL('/images/NavbarProfile/log-out.png'),
         },
     ],
 };

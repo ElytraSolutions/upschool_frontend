@@ -36,7 +36,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                 <NavLink to="/">
                                     <img
                                         src={resolveImgURL(
-                                            '/Upschool_logo_Mobile_Navbar-300x57.png',
+                                            '/images/Upschool_logo_Mobile_Navbar-300x57.png',
                                         )}
                                         alt="upSchool"
                                         width="150"

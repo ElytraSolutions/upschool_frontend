@@ -7,7 +7,7 @@ function Footer() {
                 className=" relative bg-cover  bottom-0"
                 style={{
                     backgroundImage: `url(${resolveImgURL(
-                        '/footerbackground.jpg',
+                        '/images/footerbackground.jpg',
                     )})`,
                 }}
             >
@@ -16,7 +16,7 @@ function Footer() {
                         <div className="flex justify-center">
                             <div className="">
                                 <img
-                                    src={resolveImgURL('/footerboy.png')}
+                                    src={resolveImgURL('/images/footerboy.png')}
                                     className="w-[500px] md:w-[250px] pt-10"
                                     alt=""
                                 />
@@ -31,7 +31,7 @@ function Footer() {
                                     Upschool is an{' '}
                                     <a
                                         className="underline text-[#Aeb2c2]"
-                                        href="https://upschool.co/"
+                                        href="/"
                                     >
                                         online learning platform
                                     </a>{' '}
@@ -39,7 +39,7 @@ function Footer() {
                                     everything we do at{' '}
                                     <a
                                         className="underline text-[#Aeb2c2]"
-                                        href="https://upschool.co/"
+                                        href="/"
                                     >
                                         Upschool
                                     </a>{' '}
@@ -53,7 +53,7 @@ function Footer() {
                                 <div className=" flex justify-center w-[50vw] md:w-[30vw] ">
                                     <img
                                         src={resolveImgURL(
-                                            '/footerbackground.jpg',
+                                            '/images/footerbackground.jpg',
                                         )}
                                         className="w-[300px] "
                                         alt=""
@@ -86,7 +86,7 @@ function Footer() {
                         <div className="flex flex-col md:flex-row items-center justify-between p-4">
                             <div className="flex justify-center items-center">
                                 <img
-                                    src={resolveImgURL('/logo.png')}
+                                    src={resolveImgURL('/images/logo.png')}
                                     alt="upSchoolLogo"
                                     className=" h-6 mr-4"
                                 />

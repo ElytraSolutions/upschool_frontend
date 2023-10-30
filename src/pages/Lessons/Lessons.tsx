@@ -32,29 +32,29 @@ export default function Lessons() {
             const lessonsData = lessonsRes.data.data;
             let total = 0,
                 completed = 0;
-            for (let i = 0; i < lessonsData.length; i++) {
+            for (let j = 0; j < lessonsData.length; j++) {
                 total++;
                 const completeRes = await axiosInstance.get(
                     `/data/lessons/${lessonsData[i].slug}/checkCompletion`,
                 );
                 if (completeRes.data.data) {
                     completed++;
-                    lessonsData[i].isCompleted = true;
+                    lessonsData[j].isCompleted = true;
                 }
             }
             chaptersData[i].totalLessons = total;
             chaptersData[i].completedLessons = completed;
             chaptersData[i].lessons = lessonsData;
-            setChapters(chaptersData);
-            return chaptersData;
         }
+        setChapters(chaptersData);
+        return chaptersData;
     };
 
     useEffect(() => {
         (async () => {
             await updateChapters();
         })();
-    }, [courseSlug, setChapters]);
+    }, [courseSlug, setChapters]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className="mb-6  grid h-[90vh] grid-cols-2 xm:grid-cols-5 lg:grid-cols-4">

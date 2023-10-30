@@ -97,7 +97,7 @@ export default function LessonDetail({
             <>
                 <div className="flex h-[90vh] flex-col overflow-auto pb-5">
                     {/* ChapterDetail Header */}
-                    <div className="mb-5 flex w-full bg-blue-900">
+                    <div className="mb-5 flex w-full bg-[#1e3050]">
                         <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
                             <div className="flex-row flex items-center justify-between">
                                 {/* Circle sidebar open and close option */}
@@ -155,7 +155,10 @@ export default function LessonDetail({
                     {/* ChapterDetail Chapters Section*/}
                     <div className="flex flex-col">
                         {tempData.map((chapter) => (
-                            <div className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black">
+                            <div
+                                className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black"
+                                key={chapter.id}
+                            >
                                 <ChapterText
                                     key={chapter.id}
                                     chapter={chapter}

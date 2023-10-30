@@ -7,16 +7,16 @@ import CertificateStep3 from './CertificateStep3';
 
 const Certificate = () => {
     const [formData, setFormData] = useState({
-        course: '',
-        firstName: '',
-        lastName: '',
+        course: 'How to write your own school newspaper (Short Course)',
+        firstName: 'Kaustuv',
+        lastName: 'Karki',
         email: '',
         county: '',
         age: '',
         school: '',
     });
     const { isLargeScreen } = useScreenWidthAndHeight();
-    const [currentStep, setCurrentStep] = useState(0);
+    const [currentStep, setCurrentStep] = useState(2);
 
     const changeCurrentStep = () => {
         setCurrentStep(currentStep + 1);
@@ -28,8 +28,11 @@ const Certificate = () => {
             setFormData={setFormData}
             changeCurrentStep={changeCurrentStep}
         />,
-        <CertificateStep2 changeCurrentStep={changeCurrentStep} />,
-        <CertificateStep3 formData={formData} setFormData={setFormData} />,
+        <CertificateStep2
+            changeCurrentStep={changeCurrentStep}
+            setCurrentStep={setCurrentStep}
+        />,
+        <CertificateStep3 formData={formData} />,
     ];
 
     // console.log("CurrentS Step is : ",currentStep)
