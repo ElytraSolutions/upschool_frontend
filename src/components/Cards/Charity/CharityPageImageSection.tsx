@@ -27,7 +27,7 @@ function CharityPageImageSection({ name, links, cover, logo }) {
                             </div>
                         </div>
                     </div>
-                    <div className="z-10 -mt-16 col-span-10 col-start-3">
+                    <div className="-mt-16 col-span-10 col-start-3">
                         <div className="grid md:grid-cols-10 grid-flow-row gap-y-2 justify-center items-center">
                             <div className="md:col-span-2 md:col-start-1">
                                 <div className="flex justify-center">
@@ -36,13 +36,19 @@ function CharityPageImageSection({ name, links, cover, logo }) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="md:col-span-2 md:col-start-8 row-start-1">
+                            <div className="z-10 md:col-span-2 md:col-start-8 row-start-1">
                                 <div className="w-[230px] h-[230px] flex md:p-2 p-0">
-                                    <img
-                                        className="border border-gray-300"
-                                        src={logo}
-                                        alt="logo"
-                                    />
+                                    <a
+                                        href={links.website}
+                                        target="_blank"
+                                        rel="nonreferrer"
+                                    >
+                                        <img
+                                            className="border border-gray-300"
+                                            src={logo}
+                                            alt="logo"
+                                        />
+                                    </a>
                                 </div>
                             </div>
                         </div>
