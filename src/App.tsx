@@ -25,6 +25,7 @@ import NewBrowseBooks from './pages/Library/DefaultPage';
 import Experiment from './pages/ZExperiment/Experiment';
 import Certificate from './pages/Certificate/Certificate';
 import BookPage from './pages/BookPage/BookPage';
+import AllCharityPage from './pages/Charity/AllCharityPage';
 import CharityPage from './pages/Charity/CharityPage';
 
 const router = createBrowserRouter([
@@ -121,7 +122,11 @@ const router = createBrowserRouter([
                 element: <Certificate />,
             },
             {
-                path: '/charities',
+                path: 'charities',
+                element: <AllCharityPage />,
+            },
+            {
+                path: 'charities/:slug',
                 element: <CharityPage />,
             },
         ],
