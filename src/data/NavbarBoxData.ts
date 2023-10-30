@@ -306,13 +306,11 @@ const data = [
             {
                 id: 1,
                 title: 'Charities',
-                path: 'charities',
                 path: '/charities',
                 children: [
                     {
                         id: 1,
                         title: 'All Charities',
-                        path: 'charities',
                         path: '/charities/',
                     },
                     {
