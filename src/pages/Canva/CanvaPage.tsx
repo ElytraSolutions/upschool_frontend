@@ -15,7 +15,7 @@ function CanvaPage() {
                         </h1>
                     </div>
                     <div className="flex w-full mt-[15px] mb-[15px] pl-6 text-left">
-                        <div className="md:text-[30px] text-[26px] font-bold">
+                        <div className="md:text-[28px] text-[26px] font-bold">
                             <h2>Our Collaboration</h2>
                         </div>
                     </div>
