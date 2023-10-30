@@ -30,6 +30,7 @@ import ProjectsPage from './pages/ProjectsPage/ProjectsPage';
 import GlobalReach from './pages/GlobalReach/GlobalReach';
 import CharityPage from './pages/Charity/CharityPage';
 import Hubs from './pages/Hubs/Hubs';
+import ImpactFilms from './pages/ImpactFilms/ImpactFilms';
 import Hub from './pages/Hubs/Hub';
 import Team from './pages/Team/Team';
 
@@ -149,6 +150,10 @@ const router = createBrowserRouter([
             {
                 path: '/hubs',
                 element: <Hubs />,
+            },
+            {
+                path: '/impact-films',
+                element: <ImpactFilms />,
             },
             {
                 path: '/hubs/:slug',

@@ -44,7 +44,9 @@ const ProjectsSection = () => {
                         <button
                             onClick={handlePrev}
                             className={`flex items-center mx-2 lg:mx-6 ${
-                                currentPage == 1 ? 'text-gray-400' : ''
+                                currentPage == 1
+                                    ? 'text-gray-400 hover:cursor-text'
+                                    : ''
                             }`}
                         >
                             <span className="text-xs">&lt;&lt;</span>
@@ -59,7 +61,9 @@ const ProjectsSection = () => {
                         <button
                             onClick={handleNext}
                             className={`flex items-center mx-2 lg:mx-6 ${
-                                currentPage == totalPage ? 'text-gray-400' : ''
+                                currentPage == totalPage
+                                    ? 'text-gray-400 hover:cursor-text'
+                                    : ''
                             }`}
                         >
                             <span>Next</span>

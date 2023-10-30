@@ -6,16 +6,16 @@ const CertificateImage = ({ formData }) => {
 
     const createNewImage = async () => {
         // Get the original image file
-        const originalImage = await fetch(
-            '../../../public/images/Certificate_main.png',
-        );
+        // const originalImage = await fetch(
+        //     '../../../public/images/Certificate_main.png',
+        // );
 
         // const originalImage = resolveImgURL('/Certificate_main.png');
         // console.log(originalImage);
         // Resize the image
-        console.log(formData.course);
+        // console.log(formData.course);
 
-        console.log('True', originalImage);
+        // console.log('True', originalImage);
         // Resize the image
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
@@ -24,6 +24,7 @@ const CertificateImage = ({ formData }) => {
         canvas.height = 939.3; // new height
         const img = new Image();
         img.src = resolveImgURL('/Certificate_main.png');
+        console.log('This is the URL', resolveImgURL('/Certificate_main.png'));
         if (context) {
             img.onload = () => {
                 context.drawImage(img, 0, 0, 669, 939.9); // Draw the resized image
