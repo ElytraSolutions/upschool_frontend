@@ -525,7 +525,7 @@ const data = [
         children: [
             { id: 1, title: 'Our Framework', path: '/our-framework' },
             { id: 2, title: 'Mission', path: '/about' },
-            { id: 3, title: 'Team', path: 'demo' },
+            { id: 3, title: 'Team', path: '/our-team' },
             { id: 4, title: 'Global Reach', path: 'global-reach' },
             { id: 5, title: 'FAQ', path: '/faq' },
             { id: 6, title: 'Testimonials', path: '/testimonials' },
