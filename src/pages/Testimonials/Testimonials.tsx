@@ -56,6 +56,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* ----------------------------------------- */}
+
                 {/* TODO sliding text */}
                 <div className="my-10">
                     <div className="w-full py-6 text-center bg-[#FDCF60]">
@@ -205,6 +206,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* --------------------------------------------- */}
+
                 {/* TODO sliding text */}
                 <div className="my-10">
                     <div className="w-full py-6 text-center bg-[#FDCF60]">
