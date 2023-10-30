@@ -1,3 +1,5 @@
+import resolveImgURL from '../../utlis/resolveImgURL';
+
 function BulkEnrolSection() {
     return (
         <>
@@ -36,7 +38,9 @@ function BulkEnrolSection() {
                 </div>
                 <div className="flex p-2">
                     <img
-                        src="../../images/BulkRegistration/bulkEnrolmentProcess.png"
+                        src={resolveImgURL(
+                            '/images/BulkRegistration/bulkEnrolmentProcess.png',
+                        )}
                         alt="EnrolmentProcess"
                     />
                 </div>
