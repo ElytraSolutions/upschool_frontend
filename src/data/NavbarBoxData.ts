@@ -220,7 +220,7 @@ const data = [
         path: '#',
         children: [
             { id: 1, title: 'Register for Upschool', path: 'register' },
-            { id: 2, title: 'Bulk Registration', path: 'demo' },
+            { id: 2, title: 'Bulk Registration', path: '/bulk-enrolment/' },
             { id: 3, title: 'Request a Tour', path: '/' },
         ],
     },
@@ -233,7 +233,7 @@ const data = [
             {
                 id: 3,
                 title: 'Challenges',
-                path: 'https://upschool.co/challenges',
+                path: '/challenges',
             },
             {
                 id: 4,
@@ -285,12 +285,12 @@ const data = [
             {
                 id: 7,
                 title: 'The Global Goals',
-                path: 'https://upschool.co/sdgs',
+                path: '/sdgs',
             },
             {
                 id: 8,
                 title: 'Impact Films',
-                path: 'impact-films',
+                path: '/impact-films',
             },
             {
                 id: 9,

@@ -34,7 +34,10 @@ import Hubs from './pages/Hubs/Hubs';
 import ImpactFilms from './pages/ImpactFilms/ImpactFilms';
 import Hub from './pages/Hubs/Hub';
 import Team from './pages/Team/Team';
+import GlobalGoals from './pages/GlobalGoals/GlobalGoals';
+import Challenges from './pages/Challenges/Challenges';
 import CanvaPage from './pages/Canva/CanvaPage';
+import BulkRegistrationPage from './pages/BulkRegistration/BulkRegistrationPage';
 import Live from './pages/Live/Live';
 
 const router = createBrowserRouter([
@@ -171,8 +174,20 @@ const router = createBrowserRouter([
                 element: <Hub />,
             },
             {
+                path: '/sdgs',
+                element: <GlobalGoals />,
+            },
+            {
+                path: '/challenges',
+                element: <Challenges />,
+            },
+            {
                 path: '/canva/',
                 element: <CanvaPage />,
+            },
+            {
+                path: '/bulk-enrolment',
+                element: <BulkRegistrationPage />,
             },
         ],
     },

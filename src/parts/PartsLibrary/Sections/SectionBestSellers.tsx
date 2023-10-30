@@ -18,8 +18,7 @@ type SectionProps = {
 const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
     const [_searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(0); // For showing progress dots in slider
-    const { isXtraLarge, isXtraMedium, isXtraSmall } =
-        useScreenWidthAndHeight();
+    const { isXtraLarge, isXtraMedium } = useScreenWidthAndHeight();
     const [sliderContainer, setSliderContainer] = useState<HTMLElement | null>(
         null,
     ); // For getting the width of the slider container
@@ -77,7 +76,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
     };
     return (
         <>
-            <div className="flex flex-col gap-2 text-theme-color w-fit">
+            <div className="flex flex-col gap-2 text-theme-color w-full xm:w-fit">
                 {/* Header */}
                 <div className="p-2 pl-2 lg:pl-6">
                     <div className="flex flex-row gap-2  items-center justify-between">
@@ -86,7 +85,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
                             <p className=" text-base xm:text-xl lg:text-2xl font-lexend">
                                 {topic}
                             </p>
-                            {!isXtraSmall && (
+                            {!isXtraMedium && (
                                 <p
                                     className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
                                     onClick={() => {
@@ -104,7 +103,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
                             )}
                         </div>
                         {/* Slider component */}
-                        {!isXtraSmall && (
+                        {!isXtraMedium && (
                             <div className=" pr-3">
                                 <BookCardSlider
                                     page={page}
@@ -116,7 +115,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
                         )}
                     </div>
                 </div>
-                {isXtraSmall && (
+                {isXtraMedium && (
                     <div className="flex flex-row justify-between items-center px-2 pl-2">
                         <p
                             className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
@@ -136,10 +135,10 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
                         </div>
                     </div>
                 )}
-                <div className="pl-2 lg:pl-6 p-2 w-fit xss:w-full">
+                <div className="pl-2 lg:pl-6 p-2 w-full">
                     <div
                         id="sliderContainerBestSellers"
-                        className="w-[220px] xss:w-[270px] xm:w-[510px] sm:w-[600px] tab:w-[570px] lg:w-[600px] xl:w-[900px] overflow-hidden"
+                        className="w-full xm:w-[510px] sm:w-[600px] tab:w-[570px] lg:w-[600px] xl:w-[900px] overflow-hidden"
                     >
                         <ul id="SliderBestSellers" className="flex w-full">
                             {books

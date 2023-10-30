@@ -16,7 +16,7 @@ function CharityPageImageSection({ name, links, cover, logo }) {
                                     className="w-full h-[400px] object-cover"
                                 />
                                 {/*pseudo-element for the overlay */}
-                                <div className="absolute top-0 left-0 w-full h-full bg-theme-color   opacity-60 z-0"></div>
+                                <div className="absolute top-0 left-0 w-full h-full bg-theme-color opacity-60 z-0"></div>
                             </div>
                             <div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-center">
                                 <h2
