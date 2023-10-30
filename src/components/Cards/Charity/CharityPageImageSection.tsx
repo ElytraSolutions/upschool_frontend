@@ -1,3 +1,4 @@
+import resolveImgURL from '../../../utlis/resolveImgURL';
 import SocialMediaIcons from './SocialMediaIcons';
 
 function CharityPageImageSection({ name, links, cover, logo }) {
@@ -10,7 +11,7 @@ function CharityPageImageSection({ name, links, cover, logo }) {
                         <div className="relative flex">
                             <div className="w-full h-[400px] relative">
                                 <img
-                                    src={cover}
+                                    src={resolveImgURL(cover)}
                                     alt="Your Image"
                                     className="w-full h-[400px] object-cover"
                                 />
@@ -45,7 +46,7 @@ function CharityPageImageSection({ name, links, cover, logo }) {
                                     >
                                         <img
                                             className="border border-gray-300"
-                                            src={logo}
+                                            src={resolveImgURL(logo)}
                                             alt="logo"
                                         />
                                     </a>

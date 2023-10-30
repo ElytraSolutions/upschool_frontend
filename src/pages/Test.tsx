@@ -2,7 +2,8 @@
 // import axiosInstance from '../config/Axios';
 // import useUser from '../hooks/useUser';
 // import CharityProjectCard from './Charity/CharityProjectCard';
-import CharityPageImageSection from '../components/Cards/Charity/CharityPageImageSection';
+
+import CanvaPage from './Canva/CanvaPage';
 
 function Test() {
     // const [data, setData] = useState(null);
@@ -17,12 +18,7 @@ function Test() {
             {/* {JSON.stringify(data)}
             <></>
             {JSON.stringify(user)} */}
-            <CharityPageImageSection
-                name={undefined}
-                links={undefined}
-                cover={undefined}
-                logo={undefined}
-            />
+            <CanvaPage />
         </div>
     );
 }

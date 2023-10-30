@@ -34,6 +34,7 @@ import Hubs from './pages/Hubs/Hubs';
 import ImpactFilms from './pages/ImpactFilms/ImpactFilms';
 import Hub from './pages/Hubs/Hub';
 import Team from './pages/Team/Team';
+import CanvaPage from './pages/Canva/CanvaPage';
 
 const router = createBrowserRouter([
     {
@@ -163,6 +164,10 @@ const router = createBrowserRouter([
             {
                 path: '/hubs/:slug',
                 element: <Hub />,
+            },
+            {
+                path: '/canva/',
+                element: <CanvaPage />,
             },
         ],
     },
