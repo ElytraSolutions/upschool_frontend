@@ -1,20 +1,23 @@
-import MainPicture from '../../../public/images/impact-films/vintage-film-projector-and-film-screening.png';
-import Thumbnail from '../../../public/images/impact-films/Thumbnails-3.png';
 import { BsMegaphone } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 const ImpactFilms = () => {
     return (
         <div>
             <div className="hero lg:h-[500px]  md:h-[400px] h-[300px] relative flex flex-col align-center items-center overflow-hidden">
                 <img
-                    src={MainPicture}
+                    src={resolveImgURL(
+                        '/images/ImpactFilms/vintage-film-projector-and-film-screening.png',
+                    )}
                     className="absolute lg:w-full lg:h-auto md:h-[140%] sm:w-[140%] h-[120%] w-auto overflow-hidden "
                 />
                 <div className="flex flex-col justify-center absolute items-center h-full w-full bg-[#242254] bg-opacity-60">
                     <img
                         className="md:w-[200px] w-[150px] mb-[1rem]"
-                        src={Thumbnail}
+                        src={resolveImgURL(
+                            '/images/ImpactFilms/Thumbnails-3.png',
+                        )}
                     />
                     <h3
                         className="md:text-[2.2rem] text-[1.2rem]  font-lexend font-bold"
@@ -47,7 +50,7 @@ const ImpactFilms = () => {
                                 width="100%"
                                 className="h-[50vw] md:h-[17vw] max-h-[400px]"
                                 // height="280"
-                                src="https://www.youtube.com/embed/88qNEuTOLEM"
+                                src="https://www.youtube.com/embed/88qNEuTOLEM?rel=0"
                                 title="The Living School Students Create Change"
                                 allow="accelerometer; autoplay; clipboard-write;gyroscope; picture-in-picture; web-share"
                                 allowFullScreen={true}
@@ -78,7 +81,7 @@ const ImpactFilms = () => {
                                 width="100%"
                                 className="h-[50vw] md:h-[17vw] max-h-[400px]"
                                 // height="280"
-                                src="https://www.youtube.com/embed/AF0SILATQ6U"
+                                src="https://www.youtube.com/embed/AF0SILATQ6U?rel=0"
                                 title="Education Meets Purpose: A School in Rural India Changes the World with Upschool"
                                 allow="accelerometer; autoplay; clipboard-write;gyroscope; picture-in-picture; web-share"
                                 allowFullScreen={true}
@@ -109,7 +112,7 @@ const ImpactFilms = () => {
                                 width="100%"
                                 className=" h-[50vw] md:h-[17vw] max-h-[400px]"
                                 // height="280"
-                                src="https://www.youtube.com/embed/SGo7DWBFZLU"
+                                src="https://www.youtube.com/embed/SGo7DWBFZLU?rel=0"
                                 title="Children Plant a Forest for a Better Tomorrow"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write;gyroscope; picture-in-picture; web-share"

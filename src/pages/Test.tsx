@@ -1,7 +1,9 @@
 // import { useEffect } from 'react';
 // import axiosInstance from '../config/Axios';
 // import useUser from '../hooks/useUser';
-import CharityProjectCard from './Charity/CharityProjectCard';
+// import CharityProjectCard from './Charity/CharityProjectCard';
+
+import CanvaPage from './Canva/CanvaPage';
 
 function Test() {
     // const [data, setData] = useState(null);
@@ -16,7 +18,7 @@ function Test() {
             {/* {JSON.stringify(data)}
             <></>
             {JSON.stringify(user)} */}
-            <CharityProjectCard />
+            <CanvaPage />
         </div>
     );
 }

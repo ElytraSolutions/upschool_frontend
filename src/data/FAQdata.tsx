@@ -427,7 +427,7 @@ const PatnershipDontaionData = [
                     Click a link below to explore some of these options:
                 </div>
                 <div>
-                    <a href="/impactfilms" className="underline">
+                    <a href="/impact-films" className="underline">
                         Impact Films
                     </a>
                     <br />
