@@ -33,6 +33,7 @@ import Hubs from './pages/Hubs/Hubs';
 import ImpactFilms from './pages/ImpactFilms/ImpactFilms';
 import Hub from './pages/Hubs/Hub';
 import Team from './pages/Team/Team';
+import GlobalGoals from './pages/GlobalGoals/GlobalGoals';
 
 const router = createBrowserRouter([
     {
@@ -158,6 +159,10 @@ const router = createBrowserRouter([
             {
                 path: '/hubs/:slug',
                 element: <Hub />,
+            },
+            {
+                path: '/sdgs',
+                element: <GlobalGoals />,
             },
         ],
     },
