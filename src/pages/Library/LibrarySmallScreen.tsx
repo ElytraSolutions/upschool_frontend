@@ -34,13 +34,13 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
     }
     return (
         <>
-            <div className="h-full w-full bg-gray-200 text-font-color ">
+            <div className="flex flex-col items-center h-full w-full bg-gray-200 text-font-color ">
                 <div className="relative flex flex-row justify-center px-2 py-2 xs:py-4 h-full w-full ">
                     {/* search box and filter box */}
                     <div
                         className={`${
                             isFilterClicked && 'fixed z-10'
-                        } w-[95%] xs:w-11/12 h-full`}
+                        } w-[97%] xs:w-11/12 h-full`}
                     >
                         <div
                             className={`flex flex-col items-center gap-3 overflow-auto ${
@@ -165,7 +165,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                     </div>
                 </div>
                 {/* Books Display Section */}
-                <div className="flex justify-center w-full  py-2 sm:py-3 md:py-5">
+                <div className="flex justify-center w-[97%] xs:w-11/12 py-2 sm:py-3 md:py-5">
                     <BooksDisplay />
                 </div>
             </div>
