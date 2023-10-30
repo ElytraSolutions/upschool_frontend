@@ -29,14 +29,14 @@ const BookDescriptionSection = () => {
             <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6  md:grid-rows-4  xl:grid-rows-5 gap-2 text-blue-950 h-full w-full">
                 <div className="md:col-span-4 md:row-span-2 h-full w-full ">
                     <div className="text-md sm:text-xl">{bookDescription}</div>
-                    <div className="flex justify-between sm:m-4 font-bold flex-wrap">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:m-4 font-bold flex-wrap">
                         <button className="bg-red-upschool hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin text-left sm:text-sm text-xs">
                             BUY PAPERBACK
                             <span className="block text-left font-bold">
                                 AU $59.0
                             </span>
                         </button>
-                        <button className="bg-red-upschool hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin sm:text-sm text-xs">
+                        <button className="bg-red-upschool text-left hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin sm:text-sm text-xs">
                             BUY HARDBACK
                             <span className="block text-left font-bold">
                                 AU $49.0
@@ -44,7 +44,7 @@ const BookDescriptionSection = () => {
                         </button>
                         <button
                             onClick={openPopup}
-                            className="bg-red-upschool h    over:bg-pink-900 text-white py-2 px-4 my-1 font-thin text-left sm:text-sm text-xs"
+                            className="bg-red-upschool  over:bg-pink-900 text-white py-2 px-4 my-1 font-thin text-left sm:text-sm text-xs"
                         >
                             BUY EBOOK
                             <span className="block text-left font-bold">

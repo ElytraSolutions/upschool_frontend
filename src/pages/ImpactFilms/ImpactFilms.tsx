@@ -50,7 +50,7 @@ const ImpactFilms = () => {
                                 width="100%"
                                 className="h-[50vw] md:h-[17vw] max-h-[400px]"
                                 // height="280"
-                                src="https://www.youtube.com/embed/88qNEuTOLEM"
+                                src="https://www.youtube.com/embed/88qNEuTOLEM?rel=0"
                                 title="The Living School Students Create Change"
                                 allow="accelerometer; autoplay; clipboard-write;gyroscope; picture-in-picture; web-share"
                                 allowFullScreen={true}
@@ -81,7 +81,7 @@ const ImpactFilms = () => {
                                 width="100%"
                                 className="h-[50vw] md:h-[17vw] max-h-[400px]"
                                 // height="280"
-                                src="https://www.youtube.com/embed/AF0SILATQ6U"
+                                src="https://www.youtube.com/embed/AF0SILATQ6U?rel=0"
                                 title="Education Meets Purpose: A School in Rural India Changes the World with Upschool"
                                 allow="accelerometer; autoplay; clipboard-write;gyroscope; picture-in-picture; web-share"
                                 allowFullScreen={true}
@@ -112,7 +112,7 @@ const ImpactFilms = () => {
                                 width="100%"
                                 className=" h-[50vw] md:h-[17vw] max-h-[400px]"
                                 // height="280"
-                                src="https://www.youtube.com/embed/SGo7DWBFZLU"
+                                src="https://www.youtube.com/embed/SGo7DWBFZLU?rel=0"
                                 title="Children Plant a Forest for a Better Tomorrow"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write;gyroscope; picture-in-picture; web-share"

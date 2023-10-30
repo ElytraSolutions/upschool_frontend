@@ -32,7 +32,7 @@ const ProjectsSection = () => {
 
     return (
         <>
-            <div ref={projectsContainerRef}>
+            <div ref={projectsContainerRef} className="mt-10">
                 <ProjectsSubSection
                     projects={projects.slice(
                         (currentPage - 1) * 15,
