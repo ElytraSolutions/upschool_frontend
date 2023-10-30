@@ -233,7 +233,7 @@ const data = [
             {
                 id: 3,
                 title: 'Challenges',
-                path: 'https://upschool.co/challenges',
+                path: '/challenges',
             },
             {
                 id: 4,
