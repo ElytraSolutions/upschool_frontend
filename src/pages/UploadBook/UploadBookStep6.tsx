@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import { NavLink } from 'react-router-dom';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useEffect } from 'react';
 interface IStep6Props {
     oldValues: Record<string, any>;
     submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
@@ -8,11 +9,14 @@ interface IStep6Props {
 const style =
     'flex items-start justify-start py-1 gap-1 md:gap-2 lg:gap-3 text-sm tab:text-base 2xl:text-xl  ';
 const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className="flex flex-row justify-center  h-full xm:h-[565px] w-fit  overflow-y-auto overflow-x-hidden ">
             <div className="text-font-color font-medium lg:font-semibold w-full ">
                 <div className="flex items-center justify-start py-3 w-full">
-                    <p className="text-sm sm:text-base tab:text-xl xl:text-2xl  font-lexend">
+                    <p className="text-sm sm:text-base tab:text-xl  font-lexend">
                         Book Summary and Preview
                     </p>
                 </div>

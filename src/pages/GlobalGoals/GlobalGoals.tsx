@@ -1,6 +1,6 @@
 // This is for the sustainable development goals page
 import { useState } from 'react';
-import SDGImg from '../../../public/images/global-goals/SDG-main.png';
+import SDGImg from '/images/global-goals/SDG-main.png';
 import TextField from '@mui/material/TextField';
 import resolveImgURL from '../../utlis/resolveImgURL';
 import Goals from './Goals';

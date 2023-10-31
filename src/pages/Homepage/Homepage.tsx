@@ -32,12 +32,14 @@ export default function Home() {
                                 Teachers, Parents and Learners, Everywhere.
                             </span>
                         </div>
-                        <div className="text-[#fff]">
-                            <button className="m-10 rounded-md border-2 border-solid border-white bg-[#b81242] px-10 py-3 duration-700 ease-in-out hover:scale-125 ">
-                                Get Free Access
-                                <i className="fa fa-arrow-right"></i>
+                        <NavLink to="/register" className="text-[#fff]">
+                            <button className=" flex flex-row items-center gap-2 m-10 rounded-md border-2 border-solid border-white bg-[#b81242] px-10 py-3 duration-700 ease-in-out hover:scale-125 ">
+                                <p>Get Free Access</p>
+                                <div>
+                                    <i className="fa fa-arrow-right"></i>
+                                </div>
                             </button>
-                        </div>
+                        </NavLink>
                     </div>
                 </div>
                 <div className="flex flex-col gap-5">

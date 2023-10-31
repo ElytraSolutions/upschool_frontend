@@ -18,14 +18,14 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                             <div className="col-span-1">
                                 {/* Circle container */}
                                 {/* Circle */}
-                                <div className="border-2 border-pink-600 bg-white w-8 h-8 rounded-full">
+                                <div className=" flex justify-center border-2 border-pink-600 bg-white w-8 h-8 rounded-full">
                                     {/* tick mark */}
                                     <span>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
+                                            strokeWidth="2.5"
                                             stroke="currentColor"
                                             className={`relative w-6 h-6  mt-1 text-theme-color ${
                                                 currentStep > 0 ? '' : 'hidden'
@@ -68,7 +68,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                         currentStep > 0
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2  w-8 h-8 rounded-full`}
+                                    } flex justify-center border-2  w-8 h-8 rounded-full`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -76,7 +76,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
+                                            strokeWidth="2.5"
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 1 ? '' : 'hidden'
@@ -124,7 +124,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                         currentStep == 2
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2 w-8 h-8 rounded-full`}
+                                    } flex justify-center border-2 w-8 h-8 rounded-full`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -132,7 +132,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
+                                            strokeWidth="2.5"
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 2 ? '' : 'hidden'
