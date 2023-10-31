@@ -18,14 +18,14 @@ export const UploadBookProgressSection = ({
                             <div className="col-span-1">
                                 {/* Circle container */}
                                 {/* Circle */}
-                                <div className="border-2 border-pink-600 bg-white w-8 h-8 rounded-full">
+                                <div className="border-2 border-pink-600 bg-white w-8 h-8 rounded-full flex justify-center">
                                     {/* tick mark */}
                                     <span>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
+                                            strokeWidth="2.5"
                                             stroke="currentColor"
                                             className={`relative w-6 h-6 mt-1 text-theme-color ${
                                                 currentStep > 0 ? '' : 'hidden'
@@ -66,7 +66,7 @@ export const UploadBookProgressSection = ({
                                         currentStep > 1
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2  w-8 h-8 rounded-full`}
+                                    } border-2  w-8 h-8 rounded-full flex justify-center`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -74,7 +74,7 @@ export const UploadBookProgressSection = ({
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
+                                            strokeWidth="2.5"
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 2 ? '' : 'hidden'
@@ -122,7 +122,7 @@ export const UploadBookProgressSection = ({
                                         currentStep > 2
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2 w-8 h-8 rounded-full`}
+                                    } border-2 w-8 h-8 rounded-full flex justify-center`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -130,7 +130,7 @@ export const UploadBookProgressSection = ({
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
+                                            strokeWidth="2.5"
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 3 ? '' : 'hidden'
@@ -179,7 +179,7 @@ export const UploadBookProgressSection = ({
                                         currentStep > 3
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2  w-8 h-8 rounded-full`}
+                                    } border-2  w-8 h-8 rounded-full flex justify-center`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -187,7 +187,7 @@ export const UploadBookProgressSection = ({
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
+                                            strokeWidth="2.5"
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 4 ? '' : 'hidden'
@@ -235,7 +235,7 @@ export const UploadBookProgressSection = ({
                                         currentStep > 4
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
-                                    } border-2  w-8 h-8 rounded-full`}
+                                    } border-2  w-8 h-8 rounded-full flex justify-center`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -243,7 +243,7 @@ export const UploadBookProgressSection = ({
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
                                             viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
+                                            strokeWidth="2.5"
                                             stroke="currentColor"
                                             className={`${
                                                 currentStep > 5 ? '' : 'hidden'
