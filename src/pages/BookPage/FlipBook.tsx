@@ -7,10 +7,14 @@ import { useState } from 'react';
 const FlipBook = () => {
     const [book, _] = useState(books);
     // const [currentPage, setCurrentPage] = useState(0);
+    // const pageTurnAudio = new Audio(
+    //     '../../../public/audio/BookPage/pageturn.mp3',
+    // );
 
-    // const OnFlip = (e) => {
-    //     setCurrentPage(e.data);
-    // };
+    const OnFlip = () => {
+        // pageTurnAudio.play();
+        // console.log('Audio');
+    };
 
     return (
         <>
@@ -39,6 +43,7 @@ const FlipBook = () => {
                 useMouseEvents={true}
                 showPageCorners={false}
                 disableFlipByClick={false}
+                onFlip={OnFlip}
             >
                 {book.map((page, index) => {
                     return (

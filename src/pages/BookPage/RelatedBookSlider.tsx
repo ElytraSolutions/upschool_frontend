@@ -21,6 +21,8 @@ const RelatedBookSlider: React.FC<RelatedBookSliderProps> = ({
 }) => {
     const [page, setPage] = useState(0); // For showing progress dots in slider
     const { isXtraLarge, isXtraSmall } = useScreenWidthAndHeight();
+    const isLargeScreen = window.innerWidth >= 768 ? true : false;
+    const isSmallWidth = window.innerWidth >= 640 ? true : false;
     const [sliderContainer, setSliderContainer] = useState<HTMLElement | null>(
         null,
     ); // For getting the width of the slider container
@@ -41,8 +43,20 @@ const RelatedBookSlider: React.FC<RelatedBookSliderProps> = ({
         document.getElementById('SliderBestSellers');
     const cards: HTMLCollectionOf<HTMLLIElement> | undefined =
         slider?.getElementsByTagName('li');
-    const elementsToShow: number = isXtraLarge ? 3 : 2; // Number of cards to show in the slider
-    const totalElementsToShow: number = isXtraLarge ? 6 : 5; // Total number of cards to show in the slider
+    const elementsToShow: number = isXtraLarge
+        ? 3
+        : isLargeScreen
+        ? 2
+        : isSmallWidth
+        ? 3
+        : 2; // Number of cards to show in the slider
+    const totalElementsToShow: number = isXtraLarge
+        ? 6
+        : isLargeScreen
+        ? 5
+        : isSmallWidth
+        ? 6
+        : 5; // Total number of cards to show in the slider
     const sliderContainerWidth: number = sliderContainer?.clientWidth || 0;
     const cardWidth: number = sliderContainerWidth / elementsToShow;
     if (slider) {
