@@ -87,6 +87,15 @@ Qualifications: Professional 2D Graphics & Advanced Visual Effects (ADVFX), Grap
         location: 'Bangalore, India',
     },
     {
+        name: 'Kaushal Subedi',
+        title: 'Lead developer',
+        img: '/images/Team/kausal.jpg',
+        quote: '"The only limits in life are the ones you make."',
+        description: `Kaushal, a coding enthusiast since his early years, found his passion in programming. His fascination with development led him to explore complex algorithms and software creation, igniting a curiosity that surpassed his age. Coding isn’t just a skill for him; it’s an art form, where he weaves innovative ideas into functional applications.\n
+When not immersed in code, Kaushal is an avid traveler. Exploring various landscapes, he seeks diverse cultures and fresh perspectives, fueling his adventurous spirit. Alongside his passion for development, he indulges in diverse cuisines, savoring unique flavors and relishing culinary escapades. For Kaushal, the synergy between coding, travel, and food creates a life brimming with inspiration and enriching experiences.`,
+        location: 'Kathmandu, Nepal',
+    },
+    {
         name: 'Isaac',
         title: 'Creative Media Director',
         img: '/images/Team/isaac.jpg',

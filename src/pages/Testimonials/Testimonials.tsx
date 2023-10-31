@@ -1,22 +1,23 @@
-import TeacherAndStudentImage from '../../../public/images/Testimonials/girl-with-teacher-in-classroom.jpg';
-import MatthewImg from '../../../public/images/Testimonials/matthew.jpeg';
-import DianneImg from '../../../public/images/Testimonials/dianne.jpeg';
-import DanielImg from '../../../public/images/Testimonials/daniel.jpeg';
-import MarisaImg from '../../../public/images/Testimonials/Marisa.jpeg';
-import BriannaImg from '../../../public/images/Testimonials/brainna.jpeg';
-import DavidImg from '../../../public/images/Testimonials/david.jpeg';
-import MeghaImg from '../../../public/images/Testimonials/Meghaa.jpeg';
-import KennethImg from '../../../public/images/Testimonials/kenneth.jpeg';
-import GabrieleImg from '../../../public/images/Testimonials/gabriele.jpg';
-import Student1 from '../../../public/images/Testimonials/student_1.jpg';
-import Student2 from '../../../public/images/Testimonials/student_2.jpg';
-import Student3 from '../../../public/images/Testimonials/student_3.jpg';
-import Student4 from '../../../public/images/Testimonials/student_4.jpg';
-import Student5 from '../../../public/images/Testimonials/student_5.jpg';
-import Student6 from '../../../public/images/Testimonials/student_6.jpg';
-import Student7 from '../../../public/images/Testimonials/student_7.jpg';
-import Student8 from '../../../public/images/Testimonials/student_8.jpg';
-import Student9 from '../../../public/images/Testimonials/student_9.jpg';
+import TeacherAndStudentImage from '/images/Testimonials/girl-with-teacher-in-classroom.jpg';
+import MatthewImg from '/images/Testimonials/matthew.jpeg';
+import DianneImg from '/images/Testimonials/dianne.jpeg';
+import DanielImg from '/images/Testimonials/daniel.jpeg';
+import MarisaImg from '/images/Testimonials/Marisa.jpeg';
+import BriannaImg from '/images/Testimonials/brainna.jpeg';
+import DavidImg from '/images/Testimonials/david.jpeg';
+import MeghaImg from '/images/Testimonials/Meghaa.jpeg';
+import KennethImg from '/images/Testimonials/kenneth.jpeg';
+import GabrieleImg from '/images/Testimonials/gabriele.jpg';
+import Student1 from '/images/Testimonials/student_1.jpg';
+import Student2 from '/images/Testimonials/student_2.jpg';
+import Student3 from '/images/Testimonials/student_3.jpg';
+import Student4 from '/images/Testimonials/student_4.jpg';
+import Student5 from '/images/Testimonials/student_5.jpg';
+import Student6 from '/images/Testimonials/student_6.jpg';
+import Student7 from '/images/Testimonials/student_7.jpg';
+import Student8 from '/images/Testimonials/student_8.jpg';
+import Student9 from '/images/Testimonials/student_9.jpg';
+import SlidingText from './SlidingText';
 
 const TestimonialsPage = () => {
     return (
@@ -32,7 +33,17 @@ const TestimonialsPage = () => {
                     </div>
                     <div className="w-full lg:w-1/2 flex items-center justify-center">
                         <div className="w-11/12 md:w-4/5 lg:w-3/4">
-                            <div>{/* Icon to be added */}</div>
+                            <div className="mt-10 mb-5 lg:mt-0">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="53px"
+                                    height="53px"
+                                    viewBox="0 0 512 512"
+                                    fill="#FDCF60"
+                                >
+                                    <path d="M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3 0 0 0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
+                                </svg>
+                            </div>
                             <div className="font-semibold text-[40px] lg:text-[60px] text-theme-color">
                                 Testimonials
                             </div>
@@ -58,13 +69,8 @@ const TestimonialsPage = () => {
                 {/* ----------------------------------------- */}
 
                 {/* TODO sliding text */}
-                <div className="my-10">
-                    <div className="w-full py-6 text-center bg-[#FDCF60]">
-                        <div className="xss:text-xl xs:text-2xl sm:text-4xl font-extrabold">
-                            Education That Inspires Change
-                        </div>
-                    </div>
-                </div>
+                <SlidingText text={'Education That Inspires Change'} />
+
                 {/* ------------------------------------------- */}
                 <div className="grid  md:grid-cols-3 bg-[#FDCF60]">
                     <div className="pb-20 md:col-span-2 order-2 md:order-1">
@@ -145,7 +151,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* -------------------------------------------- */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-5 md:mt-0 grid md:grid-cols-2 lg:grid-cols-3">
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-[100vh] object-cover object-center"
@@ -155,7 +161,7 @@ const TestimonialsPage = () => {
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
                         <div className="flex flex-col w-5/6 md:w-4/5 mx-auto lg:w-2/3 lg:mx-0">
                             <div className="lg:w-3/4">
-                                <div className="mt-10 xl:mt-0">
+                                <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
                                         src={DianneImg}
@@ -208,13 +214,7 @@ const TestimonialsPage = () => {
                 {/* --------------------------------------------- */}
 
                 {/* TODO sliding text */}
-                <div className="my-10">
-                    <div className="w-full py-6 text-center bg-[#FDCF60]">
-                        <div className="xss:text-lg xs:text-xl sm:text-3xl font-extrabold">
-                            WORLD CLASS EDUCATIONAL EXPERIENCES
-                        </div>
-                    </div>
-                </div>
+                <SlidingText text={'WORLD CLASS EDUCATIONAL EXPERIENCES'} />
                 {/* ---------------------------------------------- */}
                 <div className="grid  md:grid-cols-3 bg-[#FDCF60]">
                     <div className="pb-20 md:pb-0 md:col-span-2 order-2 md:order-1 flex flex-col justify-center">
@@ -269,7 +269,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* ----------------------------------------------- */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-5 md:mt-0 grid md:grid-cols-2 lg:grid-cols-3">
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
@@ -278,8 +278,8 @@ const TestimonialsPage = () => {
                     </div>
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
                         <div className="flex flex-col w-5/6 md:w-4/5 mx-auto lg:w-2/3 lg:mx-0">
-                            <div className="mt-10 mb-5 xl:mt-0  lg:w-3/4">
-                                <div>
+                            <div className="md:mt-10 mb-5 xl:mt-0  lg:w-3/4">
+                                <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
                                         src={MarisaImg}
@@ -384,7 +384,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* ------------------------------------ */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-5 md:mt-0 grid md:grid-cols-2 lg:grid-cols-3">
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
@@ -393,8 +393,8 @@ const TestimonialsPage = () => {
                     </div>
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
                         <div className="flex flex-col w-5/6 md:w-4/5 mx-auto lg:w-2/3 lg:mx-0">
-                            <div className="mt-10 mb-5 xl:mt-0  lg:w-3/4">
-                                <div>
+                            <div className="md:mt-10 mb-5 xl:mt-0  lg:w-3/4">
+                                <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
                                         src={DavidImg}
@@ -487,7 +487,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* -------------------------------------- */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-5 md:mt-0 grid md:grid-cols-2 lg:grid-cols-3">
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
@@ -496,8 +496,8 @@ const TestimonialsPage = () => {
                     </div>
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
                         <div className="flex flex-col w-5/6 md:w-4/5 mx-auto lg:w-2/3 lg:mx-0">
-                            <div className="mt-10 mb-5 xl:mt-0  lg:w-3/4">
-                                <div>
+                            <div className="md:mt-10 mb-5 xl:mt-0  lg:w-3/4">
+                                <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
                                         src={KennethImg}
@@ -538,8 +538,8 @@ const TestimonialsPage = () => {
                     </div>
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
                         <div className="flex flex-col w-5/6 md:w-4/5 mx-auto lg:w-2/3 lg:mx-0">
-                            <div className="mt-10 mb-5 xl:mt-0  lg:w-3/4">
-                                <div>
+                            <div className="md:mt-10 mb-5 xl:mt-0  lg:w-3/4">
+                                <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
                                         src={GabrieleImg}

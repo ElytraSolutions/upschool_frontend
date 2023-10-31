@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { projects } from '../../data/UploadBookProjects'; // TODO Project list needs to fetched from backend
@@ -17,6 +17,9 @@ function UploadBookStep5({
     submitHandler,
     backHandler,
 }: IStep5Props) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const [query, setQuery] = useState<string>('');
     // TODO searchResult should be performed in  backend if there are large numbers of project in the list.
     const searchResult = projects.filter((project) =>
@@ -58,9 +61,9 @@ function UploadBookStep5({
                         <>
                             <form
                                 onSubmit={handleSubmit}
-                                className="w-fit h-fit"
+                                className="w-full h-full"
                             >
-                                <div className="flex flex-wrap gap-6 w-fit justify-center">
+                                <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6 h-full w-full">
                                     {query
                                         ? searchResult.map((project) => (
                                               <Card

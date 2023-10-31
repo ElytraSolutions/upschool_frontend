@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useEffect } from 'react';
 interface IStep2Props {
     isLargeScreen: boolean;
     oldValues: Record<string, any>;
@@ -10,6 +11,9 @@ export function UploadBookStep2({
     oldValues,
     submitHandler,
 }: IStep2Props) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className="flex flex-col gap-9 pt-10 pb-5 text-font-color  h-full xm:h-[565px] w-fit">
             <div className="flex items-center justify-start">

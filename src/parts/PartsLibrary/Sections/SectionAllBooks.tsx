@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BookCard from '../../../components/Cards/BookCard';
 
 type SectionProps = {
@@ -13,6 +13,9 @@ type SectionProps = {
     }[];
 };
 const SectionShowBooks: React.FC<SectionProps> = ({ topic, books }) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className=" flex flex-col gap-2  pl-2 lg:pl-6 text-theme-color">

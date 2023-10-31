@@ -76,11 +76,11 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                             text="Enrolled Courses"
                             number={userCourseData?.enrolled?.length || 0}
                         />
-                        <BoardBox
+                        {/* <BoardBox
                             icon={resolveImgURL('/images/Dashboard/Active.png')}
                             text="Active Courses"
                             number={userCourseData?.enrolled?.length || 0}
-                        />
+                        /> */}
                         <BoardBox
                             icon={resolveImgURL(
                                 '/images/Dashboard/Completed.png',

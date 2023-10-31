@@ -238,7 +238,7 @@ const data = [
             {
                 id: 4,
                 title: 'Live Lessons & Events',
-                path: 'https://upschool.co/live',
+                path: '/live',
             },
             {
                 id: 5,
@@ -285,12 +285,12 @@ const data = [
             {
                 id: 7,
                 title: 'The Global Goals',
-                path: 'https://upschool.co/sdgs',
+                path: '/sdgs',
             },
             {
                 id: 8,
                 title: 'Impact Films',
-                path: 'impact-films',
+                path: '/impact-films',
             },
             {
                 id: 9,
