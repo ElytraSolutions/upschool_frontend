@@ -151,7 +151,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* -------------------------------------------- */}
-                <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-5 md:mt-0 grid md:grid-cols-2 lg:grid-cols-3">
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-[100vh] object-cover object-center"
@@ -269,7 +269,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* ----------------------------------------------- */}
-                <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-5 md:mt-0 grid md:grid-cols-2 lg:grid-cols-3">
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
@@ -384,7 +384,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* ------------------------------------ */}
-                <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-5 md:mt-0 grid md:grid-cols-2 lg:grid-cols-3">
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
@@ -487,7 +487,7 @@ const TestimonialsPage = () => {
                     </div>
                 </div>
                 {/* -------------------------------------- */}
-                <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-5 md:mt-0 grid md:grid-cols-2 lg:grid-cols-3">
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
