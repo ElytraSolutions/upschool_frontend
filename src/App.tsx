@@ -40,6 +40,7 @@ import CanvaPage from './pages/Canva/CanvaPage';
 import BulkRegistrationPage from './pages/BulkRegistration/BulkRegistrationPage';
 import Live from './pages/Live/Live';
 import WriteALetterAndChangeTheWorld from './pages/Challenges/WriteALetterAndChangeTheWorld/WriteALetterAndChangeTheWorld';
+import Webinar from './pages/Webinar/Webinar';
 
 const router = createBrowserRouter([
     {
@@ -153,6 +154,10 @@ const router = createBrowserRouter([
             {
                 path: '/live',
                 element: <Live />,
+            },
+            {
+                path: '/webinar/:slug',
+                element: <Webinar />,
             },
             {
                 path: 'charities',

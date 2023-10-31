@@ -66,13 +66,19 @@ const EventCard = ({ event }) => {
                 {/* buttons */}
                 <div className="flex flex-col w-full">
                     {/* read more */}
-                    <button className="w-auto  h-[2.25rem]  text-center rounded-lg bg-theme-color text-white">
-                        <Link to={`/webinar/${event.title}`}>Read More</Link>
-                    </button>
+                    <Link
+                        to={`/webinar/${event.title}`}
+                        className="w-auto  h-[2.25rem] flex justify-center items-center rounded-lg bg-theme-color text-white"
+                    >
+                        Read More
+                    </Link>
                     {/* register now */}
-                    <button className="w-auto  h-[2.25rem] mt-3  text-center rounded-lg bg-red-upschool text-white">
-                        <Link to={`/webinar/${event.title}`}>Register Now</Link>
-                    </button>
+                    <Link
+                        to={`/webinar/${event.title}`}
+                        className="w-auto  h-[2.25rem] mt-3 flex justify-center items-center  rounded-lg bg-red-upschool text-white"
+                    >
+                        Register Now
+                    </Link>
                 </div>
             </div>
         </div>
