@@ -21,7 +21,7 @@ const GlobalReach = () => {
                                 <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40 z-0"></div>
                             </div>
                             <div className="absolute flex w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center">
-                                <div className="flex items-center justify-center items-center flex-col  max-w-[800px] z-10">
+                                <div className="flex items-center justify-center flex-col  max-w-[800px] z-10">
                                     <h3
                                         className="text-[20px] "
                                         style={{ color: '#FDCF60' }}
@@ -29,14 +29,14 @@ const GlobalReach = () => {
                                         We are so proud that
                                     </h3>
                                     <h1
-                                        className="text-[51px] text-center"
+                                        className="text-[36px] md:text-[51px] text-center"
                                         style={{ color: 'white' }}
                                     >
                                         Students Over 170 Countries Are Learning
                                         With Upschool{' '}
                                     </h1>
                                     <h2
-                                        className="text-[43px] text-center"
+                                        className="text-[30px] md:text-[43px] text-center"
                                         style={{ color: '#FDCF60' }}
                                     >
                                         Join The Movement
