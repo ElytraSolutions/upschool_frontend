@@ -1,4 +1,5 @@
 import ChallengeCard from '../../parts/PartsChallenges/ChallengeCard';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 // TODO fetch data from backend according to the need
 const ChallengesDetail = [
@@ -7,35 +8,43 @@ const ChallengesDetail = [
         title: "Jane Goodall's Roots & Shoots Book Illustration Challenge",
         description:
             'The team at the Jane Goodall Institute has written a book and they would like children across the globe to be the illustrators.',
-        imgURL: '/images/Challenges/GlobalBookIllustrationChallenge.png',
+        imgURL: resolveImgURL(
+            '/images/Challenges/GlobalBookIllustrationChallenge.png',
+        ),
     },
     {
         id: 2,
         title: 'Donate Your Old Books & Help a Community in Need',
         description:
             'We are currently building libraries for communities in India, Pakistan, Nepal and Bangladesh and we need to fill them with books. Can you help?',
-        imgURL: '/images/Challenges/GlobalBookDrive.png',
+        imgURL: resolveImgURL('/images/Challenges/GlobalBookDrive.png'),
     },
     {
         id: 3,
         title: 'Design a Poster to Change the World!',
         description:
             'Are you ready to make a lasting impact on the world? We invite you to participate in our design challenge and create a poster that has the power to change lives.',
-        imgURL: '/images/Challenges/DesignAPosterToChangeTheWorld.png',
+        imgURL: resolveImgURL(
+            '/images/Challenges/DesignAPosterToChangeTheWorld.png',
+        ),
     },
     {
         id: 4,
         title: 'Paint Your Inspirational Icon and Feature in the Upschool Portrait Gallery! ',
         description:
             "Together, let's paint a picture of inspiration and celebrate the figures that drive us forward!",
-        imgURL: '/images/Challenges/PaintYourInspirationalIconAndFeatureInTheUpschoolPortraitGallery.png',
+        imgURL: resolveImgURL(
+            '/images/Challenges/PaintYourInspirationalIconAndFeatureInTheUpschoolPortraitGallery.png',
+        ),
     },
     {
         id: 5,
         title: 'Write a Letter and Change the World with Upschool',
         description:
             'Together, we can influence change and pave the way for a brighter future!',
-        imgURL: '/images/Challenges/WriteALetterAndChangeTheWorld.png',
+        imgURL: resolveImgURL(
+            '/images/Challenges/WriteALetterAndChangeTheWorld.png',
+        ),
     },
 ];
 
@@ -46,8 +55,9 @@ const Challenges = () => {
                 <div
                     className=" bg-cover bg-bottom h-full w-full"
                     style={{
-                        backgroundImage:
-                            'url(/images/Challenges/ChallengesThumbnail.jpg)',
+                        backgroundImage: `url(${resolveImgURL(
+                            '/images/Challenges/ChallengesThumbnail.jpg',
+                        )})`,
                     }}
                 >
                     <div className="flex justify-center items-center px-2 sm:px-6 py-16 h-full w-full bg-theme-color/70">

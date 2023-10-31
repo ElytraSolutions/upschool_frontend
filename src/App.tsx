@@ -38,6 +38,7 @@ import GlobalGoals from './pages/GlobalGoals/GlobalGoals';
 import Challenges from './pages/Challenges/Challenges';
 import CanvaPage from './pages/Canva/CanvaPage';
 import BulkRegistrationPage from './pages/BulkRegistration/BulkRegistrationPage';
+import Live from './pages/Live/Live';
 
 const router = createBrowserRouter([
     {
@@ -147,6 +148,10 @@ const router = createBrowserRouter([
             {
                 path: '/global-reach',
                 element: <GlobalReach />,
+            },
+            {
+                path: '/live',
+                element: <Live />,
             },
             {
                 path: 'charities',

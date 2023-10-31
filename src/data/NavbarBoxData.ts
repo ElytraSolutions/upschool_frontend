@@ -238,7 +238,7 @@ const data = [
             {
                 id: 4,
                 title: 'Live Lessons & Events',
-                path: 'https://upschool.co/live',
+                path: '/live',
             },
             {
                 id: 5,

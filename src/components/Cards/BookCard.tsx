@@ -42,7 +42,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                         width="720"
                         height="405"
                     />
-                    <div className="flex flex-col gap-1 p-4 h-fit w-fit">
+                    <div className="flex flex-col gap-1 px-4 py-2 sm:p-4  h-fit w-fit">
                         <p className="font-semibold">{book.writer}</p>
                         <div className="flex flex-row items-center  bg-theme-color py-1  px-3 rounded-xl w-fit h-full ">
                             <p className=" text-white font-light text-center text-sm ">
