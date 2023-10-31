@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BestSellers, FeaturedBooks, books } from '../../data/LibraryBooks';
 import SectionShowBooks from '../../parts/PartsLibrary/Sections/SectionAllBooks';
 import SectionBestSellers from '../../parts/PartsLibrary/Sections/SectionBestSellers';
@@ -5,6 +6,9 @@ import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
 import { useSearchParams } from 'react-router-dom';
 
 const BooksDisplay = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const [searchParams, _setSearchParams] = useSearchParams();
     const selectSection = searchParams.has('section')
         ? searchParams.get('section')
