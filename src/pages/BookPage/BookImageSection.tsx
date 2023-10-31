@@ -1,4 +1,5 @@
 import React from 'react';
+import FlipBook from './FlipBook';
 type BookCardProps = {
     book: {
         id: number;
@@ -10,7 +11,7 @@ type BookCardProps = {
     };
 };
 const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
-    const { writer, title, country, image, categories } = book;
+    const { writer, title, country, categories } = book;
     return (
         <>
             <div className="flex flex-col md:flex-row md:justify-between text-blue-950">
@@ -45,8 +46,11 @@ const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
                 </div>
             </div>
             <div>
-                <div className="bg-gray-200 p-4 text-white flex justify-center items-center pb-6 md:pb-8 lg:pb-10">
+                {/* <div className="bg-gray-200 p-4 text-white flex justify-center items-center pb-6 md:pb-8 lg:pb-10">
                     <img src={image} className="w-full md:w-1/2 lg:w-1/2"></img>
+                </div> */}
+                <div className="bg-gray-200 p-4 text-white flex flex-col items-center mt-3 pb-6 md:pb-8 lg:pb-10 relative">
+                    <FlipBook />
                 </div>
                 <div
                     className="flex justify-center items-center flex-wrap text-blue-900 font-bold"
