@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import AuthorsRecommendedProject from './AuthorsRecommendedProject';
 import RelatedBooksComponent from './RelatedBooksComponent';
 import ProjectPopup from '../../components/PopupPayment/ProjectPopup';
@@ -16,6 +16,10 @@ const BookDescriptionSection = () => {
         setPopupVisible(false);
     }, []);
 
+    useEffect(() => {
+        document.body.style.overflow = isPopupVisible ? 'hidden' : 'unset';
+    }, [isPopupVisible]);
+
     const bookDescription =
         'Excepteur excepteur deserunt cupidatat reprehenderit in consectetur ut magna commodo. \
         Officia nulla aliquip proident cupidatat laboris quis eiusmod officia fugiat do anim. Dolore \
@@ -26,7 +30,7 @@ const BookDescriptionSection = () => {
     return (
         <>
             <br />
-            <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6  md:grid-rows-4  xl:grid-rows-5 gap-2 text-blue-950 h-full w-full">
+            <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6  md:grid-rows-4  xl:grid-rows-5 gap-2 text-blue-950 h-full w-full overflow-scroll">
                 <div className="md:col-span-4 md:row-span-2 h-full w-full ">
                     <div className="text-md sm:text-xl">{bookDescription}</div>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:m-4 font-bold flex-wrap">

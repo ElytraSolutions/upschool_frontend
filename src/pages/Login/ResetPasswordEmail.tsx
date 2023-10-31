@@ -26,7 +26,7 @@ export default function ResetPasswordEmail() {
                     <div className="w-11/12 flex flex-col gap-4">
                         <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
                             <h3 className="text-font-color font-normal text-sm sm:text-base md:text-xl ">
-                                we'll sen password reset instructions to the
+                                we'll send password reset instructions to the
                                 email address associated with your account.
                             </h3>
                         </div>
