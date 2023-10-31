@@ -6,7 +6,7 @@ function PriceSectionPopup({ onclose }) {
     return (
         <>
             <div className="fixed font-family-lexend inset-0 bg-black bg-opacity-20 backdrop-blur-sm grid justify-center items-center">
-                <div className="z-39 bg-[white] px-25px py-25px grid  max-w-[1200px] max-h-[80vh] overflow-scroll overflow-x-hidden">
+                <div className="z-39 bg-[white] px-25px py-25px grid  max-w-[1200px] max-h-[80vh] overflow-x-hidden">
                     <div className="flex justify-end">
                         <button onClick={onclose}>
                             <img
@@ -45,7 +45,7 @@ function PriceSectionPopup({ onclose }) {
                                 </div>
                             </div>
                             <div className="md:col-span-1">
-                                <div className="flex flex-grow max-w-[455px] overflow-y-auto">
+                                <div className="flex flex-grow max-w-[455px]">
                                     <div className="grid gap-4">
                                         <div className="row-span-1 text-left text-theme-color font-bold text-2xl text-left">
                                             Book Quantity

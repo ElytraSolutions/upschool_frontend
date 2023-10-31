@@ -30,7 +30,7 @@ const BookDescriptionSection = () => {
     return (
         <>
             <br />
-            <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6  md:grid-rows-4  xl:grid-rows-5 gap-2 text-blue-950 h-full w-full overflow-scroll">
+            <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6  md:grid-rows-4  xl:grid-rows-5 gap-2 text-blue-950 h-full w-full">
                 <div className="md:col-span-4 md:row-span-2 h-full w-full ">
                     <div className="text-md sm:text-xl">{bookDescription}</div>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:m-4 font-bold flex-wrap">
