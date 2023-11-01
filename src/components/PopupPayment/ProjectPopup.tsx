@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import PriceSectionPopup from './PriceSectionPopup';
 import SmallProjectCard from '../Cards/PopupCards/SmallProjectCard';
 
@@ -13,10 +13,14 @@ function ProjectPopup({ onClose }) {
         setPriceSectionOpen(false);
     }, []);
 
+    useEffect(() => {
+        document.body.style.overflow = isPriceSectionOpen ? 'hidden' : 'hidden';
+    }, [isPriceSectionOpen]);
+
     return (
         <>
             <div className="fixed font-family-lexend inset-0 bg-black bg-opacity-20 backdrop-blur-sm grid justify-center items-center">
-                <div className="bg-[white] max-w-500px max-h-250px px-25px py-25px grid">
+                <div className="bg-[white] max-w-500px max-h-250px px-25px py-25px grid rounded">
                     <div className="flex justify-end">
                         <button onClick={onClose}>
                             <img

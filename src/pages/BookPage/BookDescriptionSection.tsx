@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import AuthorsRecommendedProject from './AuthorsRecommendedProject';
 import RelatedBooksComponent from './RelatedBooksComponent';
 import ProjectPopup from '../../components/PopupPayment/ProjectPopup';
@@ -15,6 +15,10 @@ const BookDescriptionSection = () => {
     const closePopup = useCallback(() => {
         setPopupVisible(false);
     }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = isPopupVisible ? 'hidden' : 'unset';
+    }, [isPopupVisible]);
 
     const bookDescription =
         'Excepteur excepteur deserunt cupidatat reprehenderit in consectetur ut magna commodo. \

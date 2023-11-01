@@ -39,6 +39,7 @@ import Challenges from './pages/Challenges/Challenges';
 import CanvaPage from './pages/Canva/CanvaPage';
 import BulkRegistrationPage from './pages/BulkRegistration/BulkRegistrationPage';
 import Live from './pages/Live/Live';
+import WriteALetterAndChangeTheWorld from './pages/Challenges/WriteALetterAndChangeTheWorld/WriteALetterAndChangeTheWorld';
 import Webinar from './pages/Webinar/Webinar';
 import { ToastContainer } from 'react-toastify';
 
@@ -184,6 +185,10 @@ const router = createBrowserRouter([
             {
                 path: '/challenges',
                 element: <Challenges />,
+            },
+            {
+                path: '/challenges/write-a-letter-and-change-the-world-with-upschool',
+                element: <WriteALetterAndChangeTheWorld />,
             },
             {
                 path: '/canva/',
