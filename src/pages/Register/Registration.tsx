@@ -31,7 +31,7 @@ export default function Registration() {
         canvaAccount: 'true',
         condition1: true,
         condition2: true,
-        condition3: true,
+        condition3: false,
     });
     const components = [
         <Step1
@@ -104,7 +104,7 @@ export default function Registration() {
                 <div
                     className={`grid ${
                         isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
-                    } gap-0 w-[97vw] sm:w-[90vw] lg:w-[70vw] xl:w-[60vw] h-fit md:h-[520px]`}
+                    } gap-0 w-[97vw] sm:w-[90vw] lg:w-[70vw] xl:w-[60vw] h-fit md:h-[530px]`}
                 >
                     {/* first column:Registration Form*/}
                     <div className=" col-span-11 flex justify-center bg-white py-4 w-full h-full">
