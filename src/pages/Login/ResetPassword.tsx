@@ -69,7 +69,7 @@ export default function ResetPassword() {
                 toast.error(resp.data.message || 'Something went wrong');
             }
         } catch (err) {
-            const resp = err.response.data;
+            const resp = (err as any).response.data;
             toast.error(resp.message || 'Something went wrong');
         }
         onSubmitProps.setSubmitting(false);
