@@ -12,39 +12,36 @@ type CardProps = {
 export const Card = ({ project, setFieldValue, submitForm }: CardProps) => {
     return (
         <>
-            <div>
-                <div className=" flex flex-col gap-3  justify-between rounded-lg  text-sm  bg-white border border-gray-300 text-theme-color pb-1  w-44 xs:w-48 sm:w-60  tab:w-48  xl:w-52  h-full ">
-                    <div className="">
+            <div className="">
+                <div className=" flex flex-col gap-3  rounded-lg  text-sm  bg-white border border-gray-300 text-theme-color pb-1 w-full 2xl:max-w-[300px] h-full ">
+                    <div className=" flex flex-col gap-2 h-full">
                         <img
-                            className="rounded-t-lg w-full h-24"
+                            className="rounded-t-lg w-full h-36 sm:h-24"
                             src={project.image}
                             alt="logo"
                             loading="lazy"
-                            width="208px"
-                            height="180px"
+                            width="720"
+                            height="405"
                         />
-                        <div className="flex flex-col gap-5 h-full w-full p-1">
-                            <p className="text-center p-1 h-full">
-                                {project.name}
-                            </p>
-
-                            <p className="text-center  p-1 h-full">
-                                {project.organization}
-                            </p>
-                        </div>
+                        <p className="text-center px-2 ">{project.name}</p>
                     </div>
 
-                    <div className="px-2 py-1">
-                        <button
-                            type="submit"
-                            className="px-1 py-2  bg-red-upschool text-white text-sm hover:cursor-pointer w-full"
-                            onClick={() => {
-                                setFieldValue('project', project.name);
-                                submitForm();
-                            }}
-                        >
-                            Continue with this project
-                        </button>
+                    <div className="flex flex-col gap-2">
+                        <p className="text-center italic font-medium text-base  px-2 ">
+                            {project.organization}
+                        </p>
+                        <div className="px-2 py-1">
+                            <button
+                                type="submit"
+                                className="px-1 py-2  bg-red-upschool text-white text-sm hover:cursor-pointer w-full"
+                                onClick={() => {
+                                    setFieldValue('project', project.name);
+                                    submitForm();
+                                }}
+                            >
+                                Continue with this project
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,12 +1,13 @@
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import { categories } from '../../data/UploadBookCategories';
+import { useEffect } from 'react';
 
 const uploadBookSchema = yup.object().shape({
     categories: yup
         .array()
         .of(yup.string())
-        .min(5, 'Select at least 5 categories')
+        .min(5, 'Select upto 5 categories')
         .max(5, 'Select no more than 5 categories'),
 });
 
@@ -21,6 +22,9 @@ export function UploadBookStep4({
     submitHandler,
     backHandler,
 }: IStep4Props) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className=" h-full xm:h-[565px] overflow-y-scroll overflow-x-hidden">
             <Formik

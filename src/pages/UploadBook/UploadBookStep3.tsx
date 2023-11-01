@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { countries } from '../../data/countries';
+import { useEffect } from 'react';
 
 const uploadBookSchema = yup.object().shape({
     first_name: yup
@@ -44,6 +45,9 @@ export function UploadBookStep3({
     backHandler,
     submitHandler,
 }: IStep3Props) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className=" h-full xm:h-[565px] overflow-y-scroll overflow-x-hidden">
             <Formik
