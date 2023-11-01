@@ -125,9 +125,10 @@ export default function Step3({
                                 </label>
                             </div>
                             <div className="row-span-1 w-full">
-                                {(errors.condition1 ||
-                                    errors.condition2 ||
-                                    errors.condition3) && (
+                                {((touched.condition1 && errors.condition1) ||
+                                    (touched.condition2 && errors.condition2) ||
+                                    (touched.condition3 &&
+                                        errors.condition3)) && (
                                     <p className="text-center text-red-upschool text-sm p-1">
                                         you need to accept all the conditions to
                                         proceed
