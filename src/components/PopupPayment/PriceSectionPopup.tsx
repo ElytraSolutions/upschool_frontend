@@ -5,7 +5,7 @@ import TableForPopup from '../Table/TableForPopup';
 function PriceSectionPopup({ onclose }) {
     return (
         <>
-            <div className="fixed font-family-lexend inset-0 bg-black bg-opacity-20 backdrop-blur-sm grid justify-center items-center">
+            <div className="z-40 fixed font-family-lexend inset-0 bg-black bg-opacity-20 backdrop-blur-sm grid justify-center items-center">
                 <div className="z-40 bg-white pb-[30px] grid rounded">
                     <div className="flex justify-end">
                         <button onClick={onclose}>
@@ -19,7 +19,7 @@ function PriceSectionPopup({ onclose }) {
                         <h2>Buy and Download the eBook - AU $5</h2>
                     </div>
                     <div className="md:max-w-[910px] max-h-[575px] xm:max-w-[392px]">
-                        <div className="grid md:grid-cols-5 xm:grid-flow-row gap-2 max-w-[910px] max-h-[575px] pb-[24px] px-[30px] overflow-y-scroll">
+                        <div className="grid md:grid-cols-5 xm:grid-flow-row gap-2 max-w-[910px] max-h-[575px] pb-[24px] px-[30px] overflow-y-scroll no-scrollbar">
                             <div className="md:col-start-1 md:col-span-2 xm:row-span-full xm:row-start-1 flex justify-center rounded">
                                 <div className="flex justify-center rounded">
                                     <SelectedSection />
