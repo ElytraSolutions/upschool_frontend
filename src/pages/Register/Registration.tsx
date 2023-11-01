@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 export default function Registration() {
     const { user, refresh } = useUser();
@@ -97,7 +98,7 @@ export default function Registration() {
     }
 
     return (
-        <div className="h-screen">
+        <div className="h-full w-full">
             <Navbar />
             <div className="flex justify-center items-center bg-gray-200 py-3 px-2 sm:py-4 md:py-6 lg:py-8 h-full w-full">
                 {/*Layout*/}
@@ -139,6 +140,7 @@ export default function Registration() {
                     )}
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
