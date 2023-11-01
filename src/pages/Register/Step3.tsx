@@ -1,4 +1,4 @@
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, Field } from 'formik';
 import * as yup from 'yup';
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
@@ -6,13 +6,13 @@ import MenuItem from '@mui/material/MenuItem';
 const registerSchema = yup.object().shape({
     canvaAccount: yup.string(),
     condition1: yup.bool().when('canvaAccount', {
-        is: true,
+        is: 'true',
         then: (schema) =>
             schema.oneOf([true], 'You need to accept the terms and conditions'),
         otherwise: (schema) => schema.oneOf([true, false]),
     }),
     condition2: yup.bool().when('canvaAccount', {
-        is: true,
+        is: 'true',
         then: (schema) =>
             schema.oneOf([true], 'You need to accept the terms and conditions'),
         otherwise: (schema) => schema.oneOf([true, false]),
@@ -106,9 +106,9 @@ export default function Step3({
                                                 name="condition2"
                                             />
                                             <div>
-                                                I acknowledge that should i not
+                                                I acknowledge that should I not
                                                 wish to have my details visible
-                                                to others, I can instead sing up
+                                                to others, I can instead sign up
                                                 for Canva basic <u>here</u>
                                             </div>
                                         </label>
@@ -125,14 +125,14 @@ export default function Step3({
                                 </label>
                             </div>
                             <div className="row-span-1 w-full">
-                                <ErrorMessage
-                                    name="condition3"
-                                    render={(msg: string) => (
-                                        <div className="text-center text-red-upschool text-sm p-1">
-                                            {msg}
-                                        </div>
-                                    )}
-                                />
+                                {(errors.condition1 ||
+                                    errors.condition2 ||
+                                    errors.condition3) && (
+                                    <p className="text-center text-red-upschool text-sm p-1">
+                                        you need to accept all the conditions to
+                                        proceed
+                                    </p>
+                                )}
                             </div>
                         </div>
 

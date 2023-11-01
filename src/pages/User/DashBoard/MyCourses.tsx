@@ -58,6 +58,7 @@ function MyCourses() {
     useEffect(() => {
         (async () => {
             // fetch data from  /data/user/courses
+            // /data/courses/:slug/checkenrollment
             const res = await axiosInstance.get('/data/user/courses');
             console.log(res.data.data);
             setMyCourses(res.data.data);

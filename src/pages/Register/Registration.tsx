@@ -30,8 +30,8 @@ export default function Registration() {
         user_type_id: '',
         date_of_birth: '',
         canvaAccount: 'true',
-        condition1: true,
-        condition2: true,
+        condition1: false,
+        condition2: false,
         condition3: false,
     });
     const components = [
@@ -105,7 +105,7 @@ export default function Registration() {
                 <div
                     className={`grid ${
                         isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
-                    } gap-0 w-[97vw] sm:w-[90vw] lg:w-[70vw] xl:w-[60vw] h-fit md:h-[530px]`}
+                    } gap-0 w-[97vw] sm:w-[90vw] lg:w-[80vw] xl:w-[65vw] h-fit md:h-[550px]`}
                 >
                     {/* first column:Registration Form*/}
                     <div className=" col-span-11 flex justify-center bg-white py-4 w-full h-full">
@@ -140,7 +140,9 @@ export default function Registration() {
                     )}
                 </div>
             </div>
-            <Footer />
+            <div className="">
+                <Footer />
+            </div>
         </div>
     );
 }
