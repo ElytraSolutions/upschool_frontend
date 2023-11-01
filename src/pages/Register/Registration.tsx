@@ -80,7 +80,7 @@ export default function Registration() {
                     onSubmitProps.resetForm();
                     navigate('/');
                 } catch (error) {
-                    const resp = error.response.data;
+                    const resp = (error as any).response.data;
                     toast.error(resp.message || 'Something went wrong');
                 }
             }}

@@ -30,10 +30,9 @@ const submitHandler = async (_values: any, onSubmitProps: any) => {
             toast.error(resp.data.message || 'Something went wrong');
         }
     } catch (err) {
-        const resp = err.response.data;
+        const resp = (err as any).response.data;
         toast.error(resp.message || 'Something went wrong');
     }
-    console.log(resp);
 
     onSubmitProps.setSubmitting(false);
     onSubmitProps.resetForm();

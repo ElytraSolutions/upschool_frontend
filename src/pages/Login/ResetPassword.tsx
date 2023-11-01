@@ -4,12 +4,7 @@ import { useState } from 'react';
 import { TextField, InputAdornment } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import {
-    redirect,
-    useNavigate,
-    useParams,
-    useSearchParams,
-} from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import axiosInstance from '../../config/Axios';
 import { toast } from 'react-toastify';
 // import axiosInstance from '../../config/Axios';
