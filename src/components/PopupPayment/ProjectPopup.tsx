@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import PriceSectionPopup from './PriceSectionPopup';
 import SmallProjectCard from '../Cards/PopupCards/SmallProjectCard';
 
@@ -13,9 +13,9 @@ function ProjectPopup({ onClose }) {
         setPriceSectionOpen(false);
     }, []);
 
-    useEffect(() => {
-        document.body.style.overflow = isPriceSectionOpen ? 'hidden' : 'hidden';
-    }, [isPriceSectionOpen]);
+    // useEffect(() => {
+    //     document.body.style.overflow = isPriceSectionOpen ? 'hidden' : 'hidden';
+    // }, [isPriceSectionOpen]);
 
     return (
         <>
