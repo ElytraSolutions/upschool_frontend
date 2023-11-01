@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
 import resolveImgURL from '../../../utlis/resolveImgURL';
+import axiosInstance from '../../../config/Axios';
 
 // TODO fetch data from backend according to the need
 const courses = [
@@ -44,6 +45,43 @@ const courses = [
 function MyCourses() {
     const [selectedOption, setSelectedOption] =
         useState<string>('Enrolled Courses');
+    const [myCourses, setMyCourses] = useState<{
+        enrolled: Array<{
+            id: number;
+            slug: string;
+            name: string;
+            pivot: { user_id: string; course_id: string };
+        }>;
+        completed: Array<object>;
+    }>({ enrolled: [], completed: [] });
+
+    useEffect(() => {
+        (async () => {
+            // fetch data from  /data/user/courses
+            const res = await axiosInstance.get('/data/user/courses');
+            console.log(res.data.data);
+            setMyCourses(res.data.data);
+            // {
+            //     id: '9a5a38fe-c690-4854-8459-882261ae3806',
+            //     slug: 'sunt-rerum-architecto-quae-eum-voluptatibus-explicabo-hic',
+            //     name: 'Ut fugit odio quisquam.',
+            //     pivot: {
+            //       user_id: '9a03e615-b856-4352-83aa-ae32b0a54849',
+            //       course_id: '9a5a38fe-c690-4854-8459-882261ae3806'
+            //     }
+
+            // {
+            //     id: number;
+            //     name: string;
+            //     completedLessons: number;
+            //     totalLessons: number;
+            //     image: string;
+            //     url: string;
+            //     status?: string | undefined;
+            // }
+        })();
+    }, []);
+    console.log(myCourses);
     return (
         <div className="h-full overflow-auto">
             <div className="sm:p-4 w-full ">
@@ -105,6 +143,13 @@ function MyCourses() {
                                 {courses.map((course, index) => (
                                     <CourseBox key={index} detail={course} />
                                 ))}
+                                {/* {myCourses.enrolled.length > 0 &&
+                                    myCourses.enrolled.map((course, index) => (
+                                        <CourseBox
+                                            key={index}
+                                            detail={course}
+                                        />
+                                    ))} */}
                             </div>
                         )}
                         {/* Completed courses section */}
