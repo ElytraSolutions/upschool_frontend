@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 import { NavLink } from 'react-router-dom';
 import resolveImgURL from '../../../utlis/resolveImgURL';
+import useUser from '../../../hooks/useUser';
 
 type NavbarProps = {
     setIsopen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 function Navbar({ setIsopen }: NavbarProps) {
+    const { user } = useUser();
     const [isScrolled, setIsScrolled] = useState(false);
     const { isSmallHeight } = useScreenWidthAndHeight();
 
@@ -52,8 +54,12 @@ function Navbar({ setIsopen }: NavbarProps) {
 
                     <p className="p-2 bg-black rounded-[50%] h-8 w-8"></p>
                     <div className="hidden tab:block">
-                        <p>Ram Lal</p>
-                        <p className="text-sm">email@email.com</p>
+                        {user !== null && (
+                            <>
+                                <p>{`${user.first_name} ${user.last_name}`}</p>
+                                <p className="text-sm">{user.email}</p>
+                            </>
+                        )}
                     </div>
                     <span
                         className="block tab:hidden hover:cursor-pointer"
