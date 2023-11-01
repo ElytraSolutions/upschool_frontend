@@ -1,20 +1,22 @@
 function SmallProjectCard() {
     return (
         <>
-            <div className="bg-[#f4f4f4] font-family-lexend flex grid border border-gray-300 min-w-[360px]">
-                <div className="row-span-1">
+            <div className="bg-[#f4f4f4] font-family-lexend grid gap-1 border border-gray-300 rounded flex max-w-[260px]">
+                <div className="row-span-1 flex max-h-[120px]">
                     <img
-                        className="object-fill "
+                        className="w-full h-full object-cover"
                         src="../../images/childernWithTeacher1.png"
                         alt="projectImage"
                     />
                 </div>
-                <div className="pl-2 pr-2 text-theme-color text-left underline underline-offset-4 font-bold lg:text-lg">
-                    Invest in Education for Children Living In Poverty in
-                    Pakistan
+                <div className="pl-2 pr-2 text-theme-color flex text-left underline underline-offset-4 font-bold lg:text-base">
+                    <p>
+                        Invest in Education for Children Living In Poverty in
+                        Pakistan
+                    </p>
                 </div>
-                <div className="pl-2 pt-2 pb-2 text-theme-color text-left text-xs xm:text-sm lg:text-base">
-                    Opportunity International Australia
+                <div className="pl-2 pt-2 pb-2 flex text-theme-color text-left xm:text-sm lg:text-sm">
+                    <p>Opportunity International Australia</p>
                 </div>
             </div>
         </>
