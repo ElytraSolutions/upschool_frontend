@@ -41,6 +41,9 @@ import BulkRegistrationPage from './pages/BulkRegistration/BulkRegistrationPage'
 import Live from './pages/Live/Live';
 import WriteALetterAndChangeTheWorld from './pages/Challenges/WriteALetterAndChangeTheWorld/WriteALetterAndChangeTheWorld';
 import Webinar from './pages/Webinar/Webinar';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
     {
@@ -56,15 +59,11 @@ const router = createBrowserRouter([
                 element: <Service />,
             },
             {
-                path: 'register',
-                element: <Registration />,
-            },
-            {
                 path: 'resetpasswordemail',
                 element: <ResetPasswordEmail />,
             },
             {
-                path: 'resetpassword',
+                path: 'password-reset/:token',
                 element: <ResetPassword />,
             },
             {
@@ -210,13 +209,22 @@ const router = createBrowserRouter([
         element: <Login />,
     },
     {
+        path: 'register',
+        element: <Registration />,
+    },
+    {
         path: 'test',
         element: <Test />,
     },
 ]);
 
 function App() {
-    return <RouterProvider router={router} />;
+    return (
+        <>
+            <ToastContainer />
+            <RouterProvider router={router} />;
+        </>
+    );
 }
 
 export default App;
