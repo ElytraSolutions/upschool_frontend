@@ -27,7 +27,7 @@ const registerSchema = yup.object().shape({
 
 interface IStep3Props {
     oldValues: Record<string, any>;
-    submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
+    submitHandler: (values: any, { resetForm }) => Promise<void>;
     backHandler: (values: any) => void;
 }
 
@@ -49,6 +49,7 @@ export default function Step3({
                 handleBlur,
                 handleChange,
                 handleSubmit,
+                isSubmitting,
             }) => (
                 <>
                     {/* Third step form */}
@@ -166,11 +167,15 @@ export default function Step3({
                             </button>
 
                             <button
-                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex  flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
+                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex  flex-1 flex-wrap items-center justify-center disabled:opacity-80 gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
                                 type="submit"
+                                disabled={isSubmitting}
                             >
-                                <span>Next</span>
                                 <span>
+                                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                                </span>
+                                {/* <span>Next</span> */}
+                                {/* <span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
@@ -185,7 +190,7 @@ export default function Step3({
                                             d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                                         />
                                     </svg>
-                                </span>
+                                </span> */}
                             </button>
                         </div>
                     </form>

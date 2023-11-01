@@ -64,7 +64,7 @@ export default function Registration() {
         />,
         <Step3
             oldValues={currentData}
-            submitHandler={async (data, onSubmitProps) => {
+            submitHandler={async (data, { resetForm }) => {
                 try {
                     const fullData = { ...currentData, ...data };
                     const csrfResp = await axiosInstance.get(
@@ -77,7 +77,7 @@ export default function Registration() {
                         '/auth/email/verification-notification',
                     );
                     await refresh();
-                    onSubmitProps.resetForm();
+                    resetForm();
                     navigate('/');
                 } catch (error) {
                     const resp = (error as any).response.data;
