@@ -545,22 +545,22 @@ const userData = {
     children: [
         {
             title: 'Dashboard',
-            path: 'dashboard',
+            path: '/dashboard',
             image: resolveImgURL('/images/NavbarProfile/dashboard.png'),
         },
         {
             title: 'My Profile',
-            path: 'dashboard',
+            path: '/dashboard',
             image: resolveImgURL('/images/NavbarProfile/administrator.png'),
         },
         {
             title: 'Enrolled Courses',
-            path: 'dashboard',
+            path: '/dashboard',
             image: resolveImgURL('/images/NavbarProfile/graduated.png'),
         },
         {
             title: 'Logout',
-            path: 'logout',
+            path: '/logout',
             image: resolveImgURL('/images/NavbarProfile/log-out.png'),
         },
     ],

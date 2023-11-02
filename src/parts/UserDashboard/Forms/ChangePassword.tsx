@@ -142,7 +142,7 @@ export const ChangePassword = () => {
                                                     value={
                                                         values.currentPassword
                                                     }
-                                                    name="newPassword"
+                                                    name="currentPassword"
                                                     error={
                                                         Boolean(
                                                             touched.currentPassword,
@@ -155,7 +155,7 @@ export const ChangePassword = () => {
                                                 {touched.currentPassword &&
                                                 errors.currentPassword ? (
                                                     <ErrorMessage
-                                                        name=" currentPassword"
+                                                        name="currentPassword"
                                                         render={(
                                                             msg: string,
                                                         ) => (
