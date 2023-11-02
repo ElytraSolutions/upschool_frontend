@@ -162,13 +162,21 @@ function MyCourses() {
                         {selectedOption === 'Enrolled Courses' && (
                             <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
                                 {/* TODO fetch enrolled courses data from backend and use it */}
-                                {myCourses.enrolled.length > 0 ? (
-                                    myCourses.enrolled.map((course, index) => (
-                                        <CourseBoxEnrolled
-                                            key={index}
-                                            detail={course}
-                                        />
-                                    ))
+                                {myCourses.enrolled ? (
+                                    myCourses.enrolled.length > 0 ? (
+                                        myCourses.enrolled.map(
+                                            (course, index) => (
+                                                <CourseBoxEnrolled
+                                                    key={index}
+                                                    detail={course}
+                                                />
+                                            ),
+                                        )
+                                    ) : (
+                                        <div className="col-span-full text-center text-sm sm:text-2xl font-bold text-theme-color w-full p-1 sm:p-4">
+                                            No Enrolled Courses Found
+                                        </div>
+                                    )
                                 ) : (
                                     <div className="col-span-full text-center text-sm sm:text-2xl font-bold text-theme-color w-full p-1 sm:p-4">
                                         No Enrolled Courses Found
@@ -180,13 +188,21 @@ function MyCourses() {
                         {selectedOption === 'Completed Courses' && (
                             <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full">
                                 {/* TODO fetch completed courses data from backend and use it */}
-                                {myCourses.completed.length > 0 ? (
-                                    myCourses.completed.map((course, index) => (
-                                        <CourseBoxCompleted
-                                            key={index}
-                                            detail={course}
-                                        />
-                                    ))
+                                {myCourses.completed ? (
+                                    myCourses.completed.length > 0 ? (
+                                        myCourses.completed.map(
+                                            (course, index) => (
+                                                <CourseBoxCompleted
+                                                    key={index}
+                                                    detail={course}
+                                                />
+                                            ),
+                                        )
+                                    ) : (
+                                        <div className="col-span-full text-center text-sm sm:text-2xl font-bold text-theme-color w-full p-1 sm:p-4">
+                                            No Completed Courses Found
+                                        </div>
+                                    )
                                 ) : (
                                     <div className="col-span-full text-center text-sm sm:text-2xl font-bold text-theme-color w-full p-1 sm:p-4">
                                         No Completed Courses Found
