@@ -18,6 +18,7 @@ import Student7 from '/images/Testimonials/student_7.jpg';
 import Student8 from '/images/Testimonials/student_8.jpg';
 import Student9 from '/images/Testimonials/student_9.jpg';
 import SlidingText from './SlidingText';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 const TestimonialsPage = () => {
     return (
@@ -28,7 +29,7 @@ const TestimonialsPage = () => {
                     <div className="w-full lg:w-1/2 h-[60vh] md:h-[55vh] lg:h-[100vh]">
                         <img
                             className="w-full h-full object-right object-cover md:object-center lg:object-cover lg:object-right"
-                            src={TeacherAndStudentImage}
+                            src={resolveImgURL(TeacherAndStudentImage)}
                         />
                     </div>
                     <div className="w-full lg:w-1/2 flex items-center justify-center">
@@ -66,17 +67,17 @@ const TestimonialsPage = () => {
                         </div>
                     </div>
                 </div>
-                {/* ----------------------------------------- */}
 
-                {/* TODO sliding text */}
                 <SlidingText text={'EDUCATION THAT INSPIRES CHANGE'} />
 
-                {/* ------------------------------------------- */}
                 <div className="grid  md:grid-cols-3 bg-[#FDCF60]">
                     <div className="pb-20 md:col-span-2 order-2 md:order-1">
                         <div className="flex mt-10 w-5/6 mx-auto lg:mx-0 lg:w-2/3 flex-col items-center lg:items-start lg:flex-row">
                             <div className="w-full lg:w-1/3 flex items-start lg:justify-end ml-2 xl:ml-10 lg:mr-6">
-                                <img className="object-fit" src={MatthewImg} />
+                                <img
+                                    className="object-fit"
+                                    src={resolveImgURL(MatthewImg)}
+                                />
                             </div>
                             <div className="w-full lg:w-2/3 text-theme-color">
                                 <div className="mt-5 lg:mt-0 font-extrabold text-4xl">
@@ -143,7 +144,7 @@ const TestimonialsPage = () => {
                     <div className="md:col-span-1 h-full order-1 md:order-2 relative">
                         <img
                             className="w-full h-full object-cover object-right"
-                            src={Student1}
+                            src={resolveImgURL(Student1)}
                         />
                         <div className="px-3 absolute bottom-0 left-0 text-theme-color font-extrabold font-roboto text-[40px] lg:text-[50px] xl:text-[60px] bg-[#FDCF60]">
                             PURPOSE
@@ -155,7 +156,7 @@ const TestimonialsPage = () => {
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-[100vh] object-cover object-center"
-                            src={Student2}
+                            src={resolveImgURL(Student2)}
                         />
                     </div>
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
@@ -164,7 +165,7 @@ const TestimonialsPage = () => {
                                 <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
-                                        src={DianneImg}
+                                        src={resolveImgURL(DianneImg)}
                                     />
                                 </div>
                                 <div className="mt-5 font-extrabold text-4xl">
@@ -213,14 +214,16 @@ const TestimonialsPage = () => {
                 </div>
                 {/* --------------------------------------------- */}
 
-                {/* TODO sliding text */}
                 <SlidingText text={'WORLD CLASS EDUCATIONAL EXPERIENCES'} />
                 {/* ---------------------------------------------- */}
                 <div className="grid  md:grid-cols-3 bg-[#FDCF60]">
                     <div className="pb-20 md:pb-0 md:col-span-2 order-2 md:order-1 flex flex-col justify-center">
                         <div className="flex mt-10 w-5/6 mx-auto lg:mx-0 lg:w-2/3 flex-col items-center lg:items-start lg:flex-row">
                             <div className="w-full lg:w-1/3 flex items-start lg:justify-end ml-2 xl:ml-10 lg:mr-6">
-                                <img className="object-fit" src={DanielImg} />
+                                <img
+                                    className="object-fit"
+                                    src={resolveImgURL(DanielImg)}
+                                />
                             </div>
                             <div className="lg:w-2/3 text-theme-color">
                                 <div className="mt-5 lg:mt-0 font-extrabold text-4xl">
@@ -261,7 +264,7 @@ const TestimonialsPage = () => {
                     <div className="md:col-span-1 h-full order-1 md:order-2 relative">
                         <img
                             className="w-full h-full md:h-[100vh] object-cover object-center"
-                            src={Student3}
+                            src={resolveImgURL(Student3)}
                         />
                         <div className="px-3 absolute bottom-0 left-0 text-theme-color font-extrabold font-roboto text-[40px] md:text-[30px] lg:text-[40px] xl:text-[50px] bg-[#FDCF60]">
                             REAL-WORLD
@@ -273,7 +276,7 @@ const TestimonialsPage = () => {
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
-                            src={Student4}
+                            src={resolveImgURL(Student4)}
                         />
                     </div>
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
@@ -282,7 +285,7 @@ const TestimonialsPage = () => {
                                 <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
-                                        src={MarisaImg}
+                                        src={resolveImgURL(MarisaImg)}
                                     />
                                 </div>
                                 <div className="mt-5 font-extrabold text-4xl">
@@ -337,7 +340,10 @@ const TestimonialsPage = () => {
                     <div className="pb-20 md:pb-0 md:col-span-2 order-2 md:order-1 flex flex-col justify-center">
                         <div className="flex mt-10 w-5/6 mx-auto lg:mx-0 lg:w-2/3 flex-col items-center lg:items-start lg:flex-row">
                             <div className="w-full lg:w-1/3 flex items-start lg:justify-end ml-2 xl:ml-10 lg:mr-6">
-                                <img className="object-fit" src={BriannaImg} />
+                                <img
+                                    className="object-fit"
+                                    src={resolveImgURL(BriannaImg)}
+                                />
                             </div>
                             <div className="lg:w-2/3 text-theme-color">
                                 <div className="mt-5 lg:mt-0 font-extrabold text-4xl">
@@ -376,7 +382,7 @@ const TestimonialsPage = () => {
                     <div className="md:col-span-1 h-full order-1 md:order-2 relative">
                         <img
                             className="w-full h-full md:h-[100vh] object-cover object-center"
-                            src={Student5}
+                            src={resolveImgURL(Student5)}
                         />
                         <div className="px-3 absolute bottom-0 left-0 text-theme-color font-extrabold font-roboto text-[40px] md:text-[30px] lg:text-[35px] xl:text-[40px] bg-[#FDCF60]">
                             GLOBAL IMPACT
@@ -388,7 +394,7 @@ const TestimonialsPage = () => {
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
-                            src={Student6}
+                            src={resolveImgURL(Student6)}
                         />
                     </div>
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
@@ -397,7 +403,7 @@ const TestimonialsPage = () => {
                                 <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
-                                        src={DavidImg}
+                                        src={resolveImgURL(DavidImg)}
                                     />
                                 </div>
                                 <div className="mt-5 font-extrabold text-4xl">
@@ -435,7 +441,10 @@ const TestimonialsPage = () => {
                     <div className="pb-20 md:pb-0 md:col-span-2 order-2 md:order-1 flex flex-col justify-center">
                         <div className="flex mt-10 w-5/6 mx-auto lg:mx-0 lg:w-2/3 flex-col items-center lg:items-start lg:flex-row">
                             <div className="w-full lg:w-1/3 flex items-start lg:justify-end ml-2 xl:ml-10 lg:mr-6">
-                                <img className="object-fit" src={MeghaImg} />
+                                <img
+                                    className="object-fit"
+                                    src={resolveImgURL(MeghaImg)}
+                                />
                             </div>
                             <div className="lg:w-2/3 text-theme-color">
                                 <div className="mt-5 lg:mt-0 font-extrabold text-4xl">
@@ -479,7 +488,7 @@ const TestimonialsPage = () => {
                     <div className="md:col-span-1 h-full order-1 md:order-2 relative">
                         <img
                             className="w-full h-full md:h-[100vh] object-cover object-center"
-                            src={Student7}
+                            src={resolveImgURL(Student7)}
                         />
                         <div className="px-3 absolute bottom-0 left-0 text-theme-color font-extrabold font-roboto text-[40px] md:text-[35px] lg:text-[40px] xl:text-[45px] bg-[#FDCF60]">
                             PURPOSEFUL
@@ -491,7 +500,7 @@ const TestimonialsPage = () => {
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
-                            src={Student8}
+                            src={resolveImgURL(Student8)}
                         />
                     </div>
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
@@ -500,7 +509,7 @@ const TestimonialsPage = () => {
                                 <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
-                                        src={KennethImg}
+                                        src={resolveImgURL(KennethImg)}
                                     />
                                 </div>
                                 <div className="mt-5 font-extrabold text-4xl">
@@ -533,7 +542,7 @@ const TestimonialsPage = () => {
                     <div className="lg:col-span-1">
                         <img
                             className="w-full h-[40vh] md:h-full xl:h-[100vh] object-cover object-center"
-                            src={Student9}
+                            src={resolveImgURL(Student9)}
                         />
                     </div>
                     <div className="lg:col-span-2 w-full h-full flex items-center lg:justify-end">
@@ -542,7 +551,7 @@ const TestimonialsPage = () => {
                                 <div className="mt-[-60px] md:mt-10 xl:mt-0">
                                     <img
                                         className="object-fit"
-                                        src={GabrieleImg}
+                                        src={resolveImgURL(GabrieleImg)}
                                     />
                                 </div>
                                 <div className="mt-5 font-extrabold text-4xl">
