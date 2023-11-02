@@ -49,7 +49,7 @@ const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
                 {/* <div className="bg-gray-200 p-4 text-white flex justify-center items-center pb-6 md:pb-8 lg:pb-10">
                     <img src={image} className="w-full md:w-1/2 lg:w-1/2"></img>
                 </div> */}
-                <div className="bg-gray-200 p-4 text-white flex flex-col items-center mt-3 pb-6 md:pb-8 lg:pb-10 relative">
+                <div className="bg-gray-300 pt-4 text-white flex flex-col items-center mt-3 py-6 md:py-8 lg:py-10 relative mb-6">
                     <FlipBook />
                 </div>
                 <div

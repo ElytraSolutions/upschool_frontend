@@ -47,7 +47,7 @@ const FlipBook = () => {
             >
                 {book.map((page, index) => {
                     return (
-                        <div className="h-full w-full border-x-2">
+                        <div className="h-full w-full border-x-2 border-gray-300">
                             <img
                                 className="h-full w-full object-cover"
                                 src={page.image}

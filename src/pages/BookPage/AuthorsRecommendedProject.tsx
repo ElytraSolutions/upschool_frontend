@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import projectImage from '../../assets/projectimage.jpg';
+import BooksPopUp from './BooksPopUp';
 
 const AuthorsRecommendedProject = () => {
     // replace with the project details
@@ -7,8 +9,9 @@ const AuthorsRecommendedProject = () => {
         'Et laborum labore est exercitation magna est do aute nostrud adipisicing. Ullamco nisi cillum ea ut exercitation tempor culpa proident ';
     const projectImg = projectImage;
     const projectProvider = 'Opportunity International Australia';
-    const projectLink = '';
+    // const projectLink = '';
     const generatedAmount = 'AU $20.0';
+    const [showAuthorBookPopUp, setShowAuthorBookPopUp] = useState(false);
 
     return (
         <div className="md:mb-10">
@@ -23,14 +26,16 @@ const AuthorsRecommendedProject = () => {
                 <img src={projectImg} alt="project image"></img>
                 <br />
                 <div className="font-black text-xl underline">
-                    <a href={projectLink}>{projectName}</a>
+                    <a className="hover:cursor-default">{projectName}</a>
                 </div>
                 <div className="mt-2 text-sm">
                     <p>{projectProvider}</p>
                 </div>
                 <br />
                 <div className="text-blue-950 text-sm underline font-semibold">
-                    <a href="">Learn how you can help</a>
+                    <a className="hover:cursor-pointer">
+                        Learn how you can help
+                    </a>
                 </div>
             </div>
             <br />
@@ -41,10 +46,19 @@ const AuthorsRecommendedProject = () => {
                 </div>
             </div>
             <div>
-                <button className="border border-gray-900 w-full h-full py-3 mt-4 rounded-xl font-bold">
+                <button
+                    className="border border-gray-900 w-full h-full py-3 mt-4 rounded-xl font-bold"
+                    onClick={() => {
+                        setShowAuthorBookPopUp(true);
+                    }}
+                >
                     View all books from this author
                 </button>
             </div>
+            <BooksPopUp
+                showAuthorBookPopUp={showAuthorBookPopUp}
+                setShowAuthorBookPopUp={setShowAuthorBookPopUp}
+            />
         </div>
     );
 };
