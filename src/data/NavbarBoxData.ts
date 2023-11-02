@@ -219,7 +219,7 @@ const data = [
         title: 'Register',
         path: '#',
         children: [
-            { id: 1, title: 'Register for Upschool', path: 'register' },
+            { id: 1, title: 'Register for Upschool', path: '/register' },
             { id: 2, title: 'Bulk Registration', path: '/bulk-enrolment/' },
             { id: 3, title: 'Request a Tour', path: '/' },
         ],
@@ -466,12 +466,12 @@ const data = [
             {
                 id: 1,
                 title: 'Online Library',
-                path: 'library',
+                path: '/library',
             },
             {
                 id: 2,
                 title: 'Upload Your Book',
-                path: 'uploadbook',
+                path: '/uploadbook',
             },
             {
                 id: 3,
@@ -526,7 +526,7 @@ const data = [
             { id: 1, title: 'Our Framework', path: '/our-framework' },
             { id: 2, title: 'Mission', path: '/about' },
             { id: 3, title: 'Team', path: '/our-team' },
-            { id: 4, title: 'Global Reach', path: 'global-reach' },
+            { id: 4, title: 'Global Reach', path: '/global-reach' },
             { id: 5, title: 'FAQ', path: '/faq' },
             { id: 6, title: 'Testimonials', path: '/testimonials' },
             { id: 7, title: 'Contact', path: '/contact' },
