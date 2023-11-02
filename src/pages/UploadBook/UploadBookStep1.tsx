@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import Dropzone from 'react-dropzone';
@@ -35,6 +35,17 @@ export function UploadBookStep1({
         showStatus: false,
         emulateTouch: true,
     });
+
+    useEffect(() => {
+        if (showCheck == true) {
+            document.body.style.overflow = 'hidden';
+        }
+
+        if (showCheck == false) {
+            document.body.style.overflow = '';
+        }
+    }, [showCheck]);
+
     return (
         <div className="flex  flex-row items-center w-full justify-center h-full xm:h-[565px]">
             <div className=" grid grid-rows-6  md:grid-rows-7  gap-5 w-full h-full">
@@ -262,7 +273,7 @@ export function UploadBookStep1({
                             </div>
                         </div>
                     </div>
-                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                    {/* <div className="opacity-25 fixed inset-0 z-40 bg-black"></div> */}
                 </>
             ) : null}
         </div>

@@ -83,7 +83,11 @@ function CourseCard({ data }: Props) {
                 <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 w-fit max-w-[270px] m-auto">
                     <div className="bg-stone-200">
                         <img
-                            src={resolveImgURL(data.image)}
+                            src={
+                                data.image
+                                    ? resolveImgURL(data.image)
+                                    : 'https://images.unsplash.com/photo-1676113415510-3a631c9e1b5a?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                            }
                             height="140"
                             alt="Course image"
                             className=" h-44 w-full"

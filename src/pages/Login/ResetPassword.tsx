@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { TextField, InputAdornment } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import axiosInstance from '../../config/Axios';
+import { toast } from 'react-toastify';
 // import axiosInstance from '../../config/Axios';
 
 const ResetPasswordEmailSchema = yup.object().shape({
@@ -18,7 +21,7 @@ const ResetPasswordEmailSchema = yup.object().shape({
         .matches(/[a-z]/, 'Password requires a lowercase letter')
         .matches(/[A-Z]/, 'Password requires an uppercase letter')
         .matches(/[^\w]/, 'Password requires a symbol'),
-    confirmPassword: yup
+    password_confirmation: yup
         .string()
         .required('Please re-type your password')
         // use oneOf to match one of the values inside the array.
@@ -28,13 +31,12 @@ const ResetPasswordEmailSchema = yup.object().shape({
 
 const initialValuesResetPasswordEmail = {
     password: '',
-    confirmPassword: '',
-};
-const submitHandler = async (_values: any, onSubmitProps: any) => {
-    onSubmitProps.setSubmitting(false);
-    onSubmitProps.resetForm();
+    password_confirmation: '',
 };
 export default function ResetPassword() {
+    const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
+    const { token } = useParams();
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const handleTogglePasswordVisibility = (
@@ -48,6 +50,30 @@ export default function ResetPassword() {
     ) => {
         e.preventDefault();
         setShowConfirmPassword((oldState) => !oldState);
+    };
+    const submitHandler = async (_values: any, onSubmitProps: any) => {
+        const email = searchParams.get('email');
+        const data = {
+            ..._values,
+            token,
+            email,
+        };
+        try {
+            const resp = await axiosInstance.post('/auth/password-reset', data);
+            if (resp.status === 200) {
+                toast.success(
+                    resp.data.status || 'Password has been reset successfully',
+                );
+                navigate('/login');
+            } else {
+                toast.error(resp.data.message || 'Something went wrong');
+            }
+        } catch (err) {
+            const resp = (err as any).response.data;
+            toast.error(resp.message || 'Something went wrong');
+        }
+        onSubmitProps.setSubmitting(false);
+        onSubmitProps.resetForm();
     };
     return (
         <>
@@ -146,31 +172,41 @@ export default function ResetPassword() {
                                                 label="Confirm password"
                                                 onBlur={handleBlur}
                                                 onChange={handleChange}
-                                                value={values.confirmPassword}
-                                                name="confirmPassword"
+                                                value={
+                                                    values.password_confirmation
+                                                }
+                                                name="password_confirmation"
                                                 error={
                                                     Boolean(
-                                                        touched.confirmPassword,
+                                                        touched.password_confirmation,
                                                     ) &&
                                                     Boolean(
-                                                        errors.confirmPassword,
+                                                        errors.password_confirmation,
                                                     )
                                                 }
                                                 helperText={
-                                                    touched.confirmPassword &&
-                                                    (errors.confirmPassword as string)
+                                                    touched.password_confirmation &&
+                                                    (errors.password_confirmation as string)
                                                 }
                                             />
-                                            <button
-                                                type="submit"
-                                                disabled={isSubmitting}
-                                                className=" row-span-1 col-span-2 xm:col-span-1 m-auto p-4 bg-theme-color text-white text-center w-fit xm:w-full  overflow-hidden"
-                                            >
-                                                <span className=" text-sm md:text-base">
-                                                    Reset and Login
-                                                </span>
-                                            </button>
+                                            {isSubmitting && (
+                                                <div className="text-lime-600 -mt-2">
+                                                    <p>
+                                                        Resetting your password
+                                                        <br />
+                                                    </p>
+                                                </div>
+                                            )}
                                         </div>
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="-mt-4 row-span-1 col-span-2 xm:col-span-1 m-auto p-4 bg-theme-color text-white text-center w-fit xm:w-full  overflow-hidden"
+                                        >
+                                            <span className=" text-sm md:text-base">
+                                                Reset password
+                                            </span>
+                                        </button>
                                     </form>
                                 )}
                             </Formik>

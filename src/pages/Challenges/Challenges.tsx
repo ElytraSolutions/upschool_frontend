@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import ChallengeCard from '../../parts/PartsChallenges/ChallengeCard';
 import resolveImgURL from '../../utlis/resolveImgURL';
 
@@ -45,10 +46,14 @@ const ChallengesDetail = [
         imgURL: resolveImgURL(
             '/images/Challenges/WriteALetterAndChangeTheWorld.png',
         ),
+        routePath: 'write-a-letter-and-change-the-world-with-upschool',
     },
 ];
 
 const Challenges = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div>

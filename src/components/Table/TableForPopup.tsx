@@ -1,7 +1,7 @@
 function TableForPopup() {
     return (
         <>
-            <div className="flex flex-col overflow-x-hidden">
+            <div className="flex flex-col lg:overflow-x-hidden overflow-x-scroll">
                 <div className="xs:-mx-6 md:-mx-8">
                     <div className="inline-block min-w-full py-2 xs:px-6 md:px-8">
                         <div className="overflow-x-auto">

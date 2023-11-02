@@ -15,13 +15,16 @@ const BookPage = () => {
 
     return (
         <>
-            <div className="bg-gray-200">
+            <div className="bg-gray-200 font-lexend">
                 <div className="h-14 flex bg-gradient-to-r from-blue-950 to-red-900 text-white">
-                    <div className="mx-auto w-4/5 flex items-center sm:w-2/3">
-                        <b>/ Home / Online Books / </b> {book.title}
+                    <div className="mx-auto w-4/5 flex items-center lg:w-2/3">
+                        <span className="font-extrabold">
+                            / Home / Online Books /
+                        </span>
+                        <span>{' ' + book.title}</span>
                     </div>
                 </div>
-                <div className="mx-auto md:10/12 w-4/5 mt-6 sm:w-2/3">
+                <div className="mx-auto md:10/12 w-4/5 mt-6 lg:w-2/3">
                     <BookImageSection book={book} />
                     <BookDescriptionSection />
                 </div>

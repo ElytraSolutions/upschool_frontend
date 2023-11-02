@@ -16,7 +16,7 @@ const Certificate = () => {
         school: '',
     });
     const { isLargeScreen } = useScreenWidthAndHeight();
-    const [currentStep, setCurrentStep] = useState(2);
+    const [currentStep, setCurrentStep] = useState(0);
 
     const changeCurrentStep = () => {
         setCurrentStep(currentStep + 1);

@@ -26,7 +26,7 @@ export function UploadBookStep4({
         window.scrollTo(0, 0);
     }, []);
     return (
-        <div className=" h-full xm:h-[565px] overflow-y-scroll overflow-x-hidden">
+        <div className=" h-full xm:h-[565px] overflow-y-auto overflow-x-hidden">
             <Formik
                 onSubmit={submitHandler}
                 initialValues={oldValues}

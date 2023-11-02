@@ -1,9 +1,12 @@
+import { NavLink } from 'react-router-dom';
+
 type ChallengeCardProps = {
     challenge: {
         id: number;
         title: string;
         description: string;
         imgURL: string;
+        routePath?: string;
     };
 };
 const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge }) => {
@@ -27,17 +30,19 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge }) => {
                             </p>
                             <div className="flex flex-col gap-2 pb-2">
                                 <p>{challenge.description}</p>
-                                <div className="bg-white w-fit">
+                                <NavLink
+                                    to={challenge.routePath || '/'}
+                                    className="bg-white w-fit"
+                                >
                                     <div className="">
                                         <button
                                             type="button"
                                             className=" bg-pink-upschool  rounded-2xl text-white text-sm text-center hover:cursor-pointer w-full p-3 my-1"
-                                            // onClick={handleButtonClick}
                                         >
                                             <p>Read More</p>
                                         </button>
                                     </div>
-                                </div>
+                                </NavLink>
                             </div>
                         </div>
                     </div>
