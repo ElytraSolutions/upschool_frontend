@@ -69,7 +69,7 @@ const TestimonialsPage = () => {
                 {/* ----------------------------------------- */}
 
                 {/* TODO sliding text */}
-                <SlidingText text={'Education That Inspires Change'} />
+                <SlidingText text={'EDUCATION THAT INSPIRES CHANGE'} />
 
                 {/* ------------------------------------------- */}
                 <div className="grid  md:grid-cols-3 bg-[#FDCF60]">
