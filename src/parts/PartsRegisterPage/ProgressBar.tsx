@@ -12,7 +12,7 @@ export default function ProgressBar({ currentLevel }: ProgressBarPorps) {
                 <span className="text-base">{`${percent[currentLevel]}% to complete`}</span>
                 <div className="mt-2 h-4 w-full rounded-e-xl rounded-s-md overflow-hidden bg-white">
                     <div
-                        className={`h-4 bg-pink-400 ${
+                        className={`h-4  bg-red-upschool ${
                             currentLevel == 1
                                 ? 'w-1/3'
                                 : currentLevel == 2

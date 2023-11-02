@@ -122,9 +122,23 @@ export default function Step3({
                                 <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
                                     <Field type="checkbox" name="condition3" />
                                     <div>
-                                        I agree to Upschool's{' '}
-                                        <u>Terms and Conditions</u> and{' '}
-                                        <u>Privacy Policy</u>
+                                        I agree to Upschool's {` `}
+                                        <a
+                                            href="https://upschool.co/terms-and-conditions/"
+                                            target="_blank"
+                                        >
+                                            <u>Terms and Conditions</u>
+                                        </a>
+                                        {` `}
+                                        and
+                                        {` `}
+                                        <a
+                                            href="https://upschool.co/privacy-policy/"
+                                            target="_blank"
+                                        >
+                                            <u>Privacy Policy</u>
+                                        </a>
+                                        {` `}
                                     </div>
                                 </label>
                             </div>
