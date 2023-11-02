@@ -4,9 +4,10 @@ import MyCourses from './MyCourses';
 import MyBooks from './MyBooks';
 import MyDonationsAndPurchases from './MyDonationsAndPurchases';
 import Setting from './Setting';
-import { useOutletContext } from 'react-router-dom';
+import { Navigate, useOutletContext } from 'react-router-dom';
 import { UserDashboardSidebar as Sidebar } from '../../../parts/UserDashboard/UserDashboardSidebar';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+import useUser from '../../../hooks/useUser';
 interface DashboardProps {}
 
 type OutletContextType = {
@@ -22,6 +23,10 @@ const Dashboard: React.FC<DashboardProps> = () => {
     const handleOptionClick = (option: string) => {
         setSelectedOption(option);
     };
+    const { user } = useUser();
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
 
     return (
         <div

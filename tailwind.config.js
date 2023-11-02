@@ -84,6 +84,7 @@ export default {
                 xs: '420px',
                 xm: '540px',
                 1450: '1450px',
+                xxxl: '1800px',
             },
             aspectRatio: {
                 '2/1': '2 / 1',

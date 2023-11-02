@@ -6,6 +6,7 @@ const event = {
     banner: 'images/webinar/webinar-banner.png',
     img: 'images/webinar/webinar-example.png',
     title: 'A Masterclass in Adopting Child Centered Learning in Your Classroom',
+    link: 'https://teams.microsoft.com/registration/DchiKCVNl0-e4ckEiU8KzA,Qeqop3fb-EmSxW10ELxRAw,HX98klV_bk2lZsjJCpJJjw,kh_ue1Z8-E-bn05LJ1e-zw,nlShjJBE10-56bK1O36u6w,Fra3AM84IEafNCxoF-iFqw?mode=read&tenantId=2862c80d-4d25-4f97-9ee1-c904894f0acc',
     date: '10/10/2021',
     time: '10:00 AM',
     duration: '1 hour',
@@ -39,7 +40,7 @@ const Webinar = () => {
             {/* content part */}
             <div className="flex w-[95%] lg:w-[80%] justify-between items-center lg:items-start gap-0 md:gap-8 flex-col lg:flex-row py-4">
                 <Description event={event} />
-                <Share />
+                <Share event={event} />
             </div>
         </div>
     );

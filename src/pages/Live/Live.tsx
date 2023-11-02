@@ -9,6 +9,7 @@ const events = [
         id: 1,
         img: event1,
         title: 'A Masterclass in Adopting Child Centered Learning in Your Classroom',
+        link: 'https://teams.microsoft.com/registration/DchiKCVNl0-e4ckEiU8KzA,Qeqop3fb-EmSxW10ELxRAw,HX98klV_bk2lZsjJCpJJjw,kh_ue1Z8-E-bn05LJ1e-zw,nlShjJBE10-56bK1O36u6w,Fra3AM84IEafNCxoF-iFqw?mode=read&tenantId=2862c80d-4d25-4f97-9ee1-c904894f0acc',
         date: '10/10/2021',
         time: '10:00 AM',
         duration: '1 hour',

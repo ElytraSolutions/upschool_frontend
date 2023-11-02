@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import image_1 from '../../assets/Certificate_main.png';
 
 const CertificateImage = ({ formData }) => {
     const [image, setImage] = useState('');
+    // const [url, setUrl] = useState(
+    //     resolveImgURL('/images/Certificate_main.png'),
+    // );
 
     const createNewImage = async () => {
         // Get the original image file
@@ -23,7 +27,17 @@ const CertificateImage = ({ formData }) => {
         canvas.width = 669; // new width
         canvas.height = 939.3; // new height
         const img = new Image();
-        img.src = resolveImgURL('/images/Certificate_main.png');
+
+        // img.src = url;
+        console.log(resolveImgURL('/images/Certificate_main.png'));
+        // img.src = '../../../public/images/Certificate_main.png';
+
+        //This is done from the assest inside the upschool frontend to check
+        img.src = image_1;
+
+        // img.src =
+        //     'https://media.wired.com/photos/598e35fb99d76447c4eb1f28/master/pass/phonepicutres-TA.jpg';
+        // console.log('This is the data', img.src);
         // console.log(
         //     'This is the URL',
         //     resolveImgURL('/images/Certificate_main.png'),
