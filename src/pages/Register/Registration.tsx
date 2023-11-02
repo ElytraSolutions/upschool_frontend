@@ -9,7 +9,7 @@ import Step3 from './Step3';
 import { SecondColumnProgressSection as ProgressSection } from '../../parts/PartsRegisterPage/SecondColumnProgressSection';
 import LoginPart from '../../parts/PartsRegisterPage/LoginPart';
 import axiosInstance from '../../config/Axios';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar/Navbar';
