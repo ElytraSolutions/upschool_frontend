@@ -4,6 +4,7 @@ import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { countries } from '../../data/countries';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
+import { useEffect } from 'react';
 
 const registerSchema = yup.object().shape({
     country: yup.string().required('required').max(255, 'Characters too long'),
@@ -21,6 +22,9 @@ export default function Step2({
     backHandler,
     submitHandler,
 }: IStep2Props) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const roles = [
         {
             id: 1,

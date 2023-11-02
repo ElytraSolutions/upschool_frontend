@@ -36,7 +36,7 @@ function UploadBookStep5({
                 <div className="py-2 w-full">
                     <input
                         type="search"
-                        className="w-full h-fit lg:py-1.5 px-4  text-sm sm:text-base  font-normal  text-theme-color border rounded-md border-gray-400 focus:outline-none bg-gray-100"
+                        className="w-full h-fit lg:py-1.5 px-4  text-sm sm:text-base  font-normal  text-theme-color border rounded-md border-gray-400 focus:outline-none bg-white"
                         placeholder="Search Your Project"
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             setQuery(e.target.value)

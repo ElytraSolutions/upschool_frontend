@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { TextField, InputAdornment } from '@mui/material';
@@ -48,6 +48,9 @@ export default function Step1({
     oldValues,
     submitHandler,
 }: IStep1Props) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const size = isLargeScreen ? 'medium' : 'small';

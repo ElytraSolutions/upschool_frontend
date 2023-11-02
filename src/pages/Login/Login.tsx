@@ -1,6 +1,6 @@
 import { InputAdornment, TextField } from '@mui/material';
 import { Formik, Field } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -28,6 +28,10 @@ const initialValuesLogin = {
 };
 
 const Login = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const navigate = useNavigate();
     const { user, refresh } = useUser();
     const submitHandler = async (values: any, { resetForm }) => {
