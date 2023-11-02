@@ -21,8 +21,10 @@ export default function CourseBoxEnrolled({ detail }: CourseBoxEnrolledProps) {
                             <div className="flex justify-center">
                                 <img
                                     src={
-                                        detail.image.length > 0
-                                            ? detail.image
+                                        detail.image
+                                            ? detail.image.length > 0
+                                                ? detail.image
+                                                : 'https://source.unsplash.com/tloFnD-7EpI'
                                             : 'https://source.unsplash.com/tloFnD-7EpI'
                                     }
                                     alt={detail.name}
