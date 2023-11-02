@@ -2,6 +2,7 @@ import { Formik, Field } from 'formik';
 import * as yup from 'yup';
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
+import { useEffect } from 'react';
 
 const registerSchema = yup.object().shape({
     canvaAccount: yup.string(),
@@ -36,6 +37,9 @@ export default function Step3({
     submitHandler,
     backHandler,
 }: IStep3Props) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <Formik
             onSubmit={submitHandler}
@@ -140,7 +144,8 @@ export default function Step3({
                         <div className="grid grid-cols-4 gap-4  text-sm md:text-base w-full h-fit font-normal ">
                             <button
                                 type="button"
-                                className="col-start-1 col-span-2 sm:col-span-1 justify-self-start  flex flex-1 flex-wrap items-center justify-start gap-x-0.5 px-3 py-2  w-fit h-full"
+                                className="col-start-1 col-span-2 sm:col-span-1 justify-self-start  flex flex-1 flex-wrap items-center justify-start gap-x-0.5 px-3 py-2 disabled:opacity-75  w-fit h-full"
+                                disabled={isSubmitting}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     backHandler(values);

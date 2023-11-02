@@ -39,7 +39,6 @@ export default function Registration() {
             isLargeScreen={isLargeScreen}
             oldValues={currentData}
             submitHandler={async (data, onSubmitProps) => {
-                console.log(data);
                 setCurrentData((oldValue) => {
                     return { ...oldValue, ...data };
                 });
@@ -125,11 +124,11 @@ export default function Registration() {
                     <div
                         className={`grid ${
                             isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
-                        } gap-0 w-[97vw] sm:w-[90vw] lg:w-[80vw] xl:w-[65vw] h-fit md:h-[550px]`}
+                        } gap-0 w-[97vw] sm:w-[90vw] lg:w-[80vw] xl:w-[65vw] h-fit md:h-[550px] 2xl:h-[570px]`}
                     >
                         {/* first column:Registration Form*/}
                         <div className=" col-span-11 flex justify-center bg-white py-4 w-full h-full">
-                            <div className="w-11/12 flex flex-col gap-2">
+                            <div className="w-11/12 flex flex-col gap-2 h-full">
                                 {/* <!-- Heading --> */}
                                 {currentStep == 0 && (
                                     <RegisterStepIHeader
