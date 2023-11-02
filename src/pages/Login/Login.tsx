@@ -30,18 +30,18 @@ const initialValuesLogin = {
 const Login = () => {
     const navigate = useNavigate();
     const { user, refresh } = useUser();
-    const submitHandler = async (values: any, onSubmitProps: any) => {
+    const submitHandler = async (values: any, { resetForm }) => {
         const csrfResp = await axiosInstance.get('/sanctum/csrf-cookie');
         axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
             csrfResp.data.csrfToken;
         const resp = await axiosInstance.post('/auth/login', values);
-        onSubmitProps.setSubmitting(false);
+
         if (resp.status === 200 && resp.data.status === 'success') {
             refresh().then(() => {
                 console.log(user);
                 navigate('/');
             });
-            onSubmitProps.resetForm();
+            resetForm();
         }
     };
     const { isLargeScreen } = useScreenWidthAndHeight();
@@ -260,9 +260,11 @@ const Login = () => {
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className=" row-span-1 m-auto p-4 bg-theme-color text-white text-center w-full"
+                                            className=" row-span-1 m-auto p-4 bg-theme-color text-white text-center disabled:opacity-75 w-full"
                                         >
-                                            Login
+                                            {isSubmitting
+                                                ? 'Logging in'
+                                                : 'Login'}
                                         </button>
                                     </div>
                                 </form>

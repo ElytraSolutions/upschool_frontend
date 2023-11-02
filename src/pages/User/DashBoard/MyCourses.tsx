@@ -1,58 +1,66 @@
 import { useEffect, useState } from 'react';
-import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
-import resolveImgURL from '../../../utlis/resolveImgURL';
+import CourseBoxEnrolled from '../../../parts/UserDashboard/Boxes/CourseBoxEnrolled';
+import CourseBoxCompleted from '../../../parts/UserDashboard/Boxes/CourseBoxCompleted';
+// import resolveImgURL from '../../../utlis/resolveImgURL';
 import axiosInstance from '../../../config/Axios';
 
 // TODO fetch data from backend according to the need
-const courses = [
-    {
-        id: 1,
-        name: 'Build a Library & Change the world',
-        completedLessons: 20,
-        totalLessons: 40,
-        image: resolveImgURL('/images/Books/book5.png'),
-        url: '/dashboard',
-        status: 'In review',
-    },
-    {
-        id: 2,
-        name: 'Write a Book to Change the World',
-        completedLessons: 30,
-        totalLessons: 50,
-        image: resolveImgURL('/images/Books/book4.png'),
-        url: '/dashboard',
-        status: 'Published',
-    },
-    {
-        id: 3,
-        name: 'The Mission',
-        completedLessons: 10,
-        totalLessons: 70,
-        image: resolveImgURL('/images/Books/book3.png'),
-        url: '/dashboard',
-        status: 'Book Not Print Ready',
-    },
-    {
-        id: 2,
-        name: 'Write a Book to Change the World',
-        completedLessons: 40,
-        totalLessons: 50,
-        image: resolveImgURL('/images/Books/book4.png'),
-        url: '/dashboard',
-        status: 'Published',
-    },
-];
+// TODO fetch necessary data from backend and use it
+// const courses = [
+//     {
+//         id: 1,
+//         name: 'Build a Library & Change the world',
+//         completedLessons: 20,
+//         totalLessons: 40,
+//         image: resolveImgURL('/images/Books/book5.png'),
+//         url: '/dashboard',
+//         status: 'In review',
+//     },
+//     {
+//         id: 2,
+//         name: 'Write a Book to Change the World',
+//         completedLessons: 30,
+//         totalLessons: 50,
+//         image: resolveImgURL('/images/Books/book4.png'),
+//         url: '/dashboard',
+//         status: 'Published',
+//     },
+//     {
+//         id: 3,
+//         name: 'The Mission',
+//         completedLessons: 10,
+//         totalLessons: 70,
+//         image: resolveImgURL('/images/Books/book3.png'),
+//         url: '/dashboard',
+//         status: 'Book Not Print Ready',
+//     },
+//     {
+//         id: 2,
+//         name: 'Write a Book to Change the World',
+//         completedLessons: 40,
+//         totalLessons: 50,
+//         image: resolveImgURL('/images/Books/book4.png'),
+//         url: '/dashboard',
+//         status: 'Published',
+//     },
+// ];
 function MyCourses() {
     const [selectedOption, setSelectedOption] =
         useState<string>('Enrolled Courses');
     const [myCourses, setMyCourses] = useState<{
         enrolled: Array<{
-            id: number;
-            slug: string;
             name: string;
-            pivot: { user_id: string; course_id: string };
+            slug: string;
+            image: string;
+            CompletedLessons: number;
+            TotalLessons: number;
         }>;
-        completed: Array<object>;
+        completed: Array<{
+            id: string;
+            name: string;
+            slug: string;
+            image: string;
+        }>;
     }>({ enrolled: [], completed: [] });
 
     useEffect(() => {
@@ -70,6 +78,19 @@ function MyCourses() {
             //       user_id: '9a03e615-b856-4352-83aa-ae32b0a54849',
             //       course_id: '9a5a38fe-c690-4854-8459-882261ae3806'
             //     }
+
+            // Enrolled
+            // name: 'Deserunt eos sapiente.',
+            // slug: 'possimus-culpa-quasi-molestiae-consequuntur',
+            // image: '',
+            // TotalLessons: 2,
+            // CompletedLessons: 0
+
+            // Completed
+            // id: '9a5a38fe-849c-4e88-8c60-66fd1d281bb3',
+            // name: 'Enim quis.',
+            // slug: 'quia-nemo-et-nihil-ipsum-deleniti-sed-in',
+            // image: 'https://random.imagecdn.app/800/600'
 
             // {
             //     id: number;
@@ -141,25 +162,36 @@ function MyCourses() {
                         {selectedOption === 'Enrolled Courses' && (
                             <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
                                 {/* TODO fetch enrolled courses data from backend and use it */}
-                                {courses.map((course, index) => (
-                                    <CourseBox key={index} detail={course} />
-                                ))}
-                                {/* {myCourses.enrolled.length > 0 &&
+                                {myCourses.enrolled.length > 0 ? (
                                     myCourses.enrolled.map((course, index) => (
-                                        <CourseBox
+                                        <CourseBoxEnrolled
                                             key={index}
                                             detail={course}
                                         />
-                                    ))} */}
+                                    ))
+                                ) : (
+                                    <div className="col-span-full text-center text-sm sm:text-2xl font-bold text-theme-color w-full p-1 sm:p-4">
+                                        No Enrolled Courses Found
+                                    </div>
+                                )}
                             </div>
                         )}
                         {/* Completed courses section */}
                         {selectedOption === 'Completed Courses' && (
                             <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full">
                                 {/* TODO fetch completed courses data from backend and use it */}
-                                {courses.map((course, index) => (
-                                    <CourseBox key={index} detail={course} />
-                                ))}
+                                {myCourses.completed.length > 0 ? (
+                                    myCourses.completed.map((course, index) => (
+                                        <CourseBoxCompleted
+                                            key={index}
+                                            detail={course}
+                                        />
+                                    ))
+                                ) : (
+                                    <div className="col-span-full text-center text-sm sm:text-2xl font-bold text-theme-color w-full p-1 sm:p-4">
+                                        No Completed Courses Found
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>
