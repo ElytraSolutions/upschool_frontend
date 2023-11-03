@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import AuthorsRecommendedProject from './AuthorsRecommendedProject';
 import RelatedBooksComponent from './RelatedBooksComponent';
 import ProjectPopup from '../../components/PopupPayment/ProjectPopup';
+import { Link } from 'react-router-dom';
 
 const BookDescriptionSection = () => {
     // replace with the book description
@@ -62,7 +63,7 @@ const BookDescriptionSection = () => {
                             </span>
                         </button>
                         <button className="bg-gray-300 hover:bg-gray-400 text-red-upschool py-2 px-4 my-1 border border-red-upschool sm:text-sm text-xs">
-                            REPORT ISSUE
+                            <Link to="/report-a-problem">REPORT ISSUE</Link>
                         </button>
                     </div>
                     <div className="text-gray-500 text-sm">What to expect?</div>

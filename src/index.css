@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Didact+Gothic&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,7 +15,7 @@ html {
 }
 
 :root {
-  font-family: 'Nunito Sans', 'Pixelify Sans', Inter, system-ui, Avenir, Helvetica, Arial, Anton, sans-serif;
+  font-family: 'Nunito Sans', 'Pixelify Sans', Inter, system-ui, Avenir, Helvetica, Arial, Anton, 'Didact Gothic' sans-serif;
   /* line-height: 1.5;
   font-weight: 400;
 

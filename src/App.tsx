@@ -44,6 +44,7 @@ import Webinar from './pages/Webinar/Webinar';
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import ReportProblem from './pages/ReportProblem/ReportProblem';
 
 const router = createBrowserRouter([
     {
@@ -197,6 +198,10 @@ const router = createBrowserRouter([
             {
                 path: '/bulk-enrolment',
                 element: <BulkRegistrationPage />,
+            },
+            {
+                path: '/report-a-problem',
+                element: <ReportProblem />,
             },
         ],
     },

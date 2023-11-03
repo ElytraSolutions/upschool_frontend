@@ -14,6 +14,7 @@ export default {
                 lexend: ['Lexend', 'sans-serif'],
                 check: ['"Pixelify Sans"', 'sans-serif'],
                 anton: ["'Anton'", 'sans-serif'],
+                didact: ["'Didact Gothic'", 'sans-serif'],
                 annieUseYourTelescope: [
                     '"Annie Use Your Telescope"',
                     'cursive',
