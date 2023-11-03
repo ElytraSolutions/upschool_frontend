@@ -61,8 +61,8 @@ const Login = () => {
     return (
         <>
             <Navbar />
-            <div className="relative flex flex-row justify-center  bg-gray-200 h-full py-4">
-                <div className="w-[95%] sm:w-[80vw] tab:w-[768px] bg-white flex justify-center items-center h-fit ">
+            <div className="relative flex flex-row justify-center  bg-gray-200 h-full py-4 px-2 md:py-4 2xl:py-10 xlarge:p-12 xxlarge:p-16 ">
+                <div className="w-[95%] sm:w-[80vw] tab:w-[768px] xlarge:w-[40%] xxlarge:w-1/3  bg-white flex justify-center items-center h-fit ">
                     <div className="w-11/12 h-fit py-3">
                         <div className="  mt-0.5 md:mt-2">
                             <h1 className="text-2xl font-semibold text-font-color font-lexend  px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
