@@ -81,7 +81,7 @@ const Challenges = () => {
                     </div>
                 </div>
                 <div className="flex justify-center p-2 sm:p-6">
-                    <div className="grid md:grid-cols-3 gap-7">
+                    <div className="grid md:grid-cols-3 gap-7 lg:gap-10">
                         {ChallengesDetail.map((challenge) => (
                             <ChallengeCard
                                 key={challenge.id}
