@@ -13,7 +13,7 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge }) => {
     return (
         <>
             <div>
-                <div className="h-full w-full md:max-w-[260px] shadow-md shadow-gray-400">
+                <div className="h-full w-full md:max-w-[260px] shadow-md shadow-gray-200">
                     <div className="flex flex-col gap-2 rounded-t-md h-full w-full">
                         <div className="rounded-t-md">
                             <img
