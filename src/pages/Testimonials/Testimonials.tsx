@@ -19,8 +19,12 @@ import Student8 from '/images/Testimonials/student_8.jpg';
 import Student9 from '/images/Testimonials/student_9.jpg';
 import SlidingText from './SlidingText';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useEffect } from 'react';
 
 const TestimonialsPage = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className="font-lexend text-theme-color">
