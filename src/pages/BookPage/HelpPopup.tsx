@@ -3,7 +3,7 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 function HelpPopup({ onClose }) {
     return (
         <>
-            <div className="z-30 fixed font-family-lexend inset-0 bg-black bg-opacity-20 backdrop-blur-sm grid justify-center items-center px-[50px]">
+            <div className="z-30 fixed font-family-lexend inset-0 bg-black bg-opacity-20 backdrop-blur-sm grid justify-center items-center px-[50px] popup transition duration-500 ease-in-out opacity-0 invisible animate-fade-in">
                 <div className="z-30 bg-[white] max-w-500px max-h-250px px-25px py-25px grid rounded">
                     <div className="flex justify-end">
                         <button onClick={onClose}>
