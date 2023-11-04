@@ -57,30 +57,36 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                 className="w-full h-full"
                             >
                                 <div>
-                                    <div className="bg-white border border-theme-color/50 shadow-lg shadow-gray-300 rounded-lg divide-y divide-theme-color/50  text-font-color w-full">
+                                    <div
+                                        className={`bg-white border border-theme-color/50 shadow-lg shadow-gray-300 rounded-lg divide-y  ${
+                                            showFilterOptions
+                                                ? 'divide-theme-color/50'
+                                                : 'divide-none'
+                                        }    text-font-color  w-full`}
+                                    >
                                         {/* Heading Section */}
                                         <div>
-                                            <div className="flex flex-row justify-between items-end w-full p-1 md:p-3 px-2 md:px-5 text-sm lg:text-base font-semibold h-full">
+                                            <div
+                                                className="flex flex-row justify-between items-end w-full hover:cursor-pointer p-1 md:p-3 px-2 md:px-5 text-sm lg:text-base font-semibold h-full"
+                                                onClick={() => {
+                                                    setShowFilterOptions(
+                                                        (prevState) =>
+                                                            !prevState,
+                                                    );
+                                                }}
+                                            >
                                                 <p className=" font-lexend">
                                                     Filter by Category
                                                 </p>
                                                 {/* Up Arrow */}
-                                                <div
-                                                    className="hover:cursor-pointer"
-                                                    onClick={() => {
-                                                        setShowFilterOptions(
-                                                            (prevState) =>
-                                                                !prevState,
-                                                        );
-                                                    }}
-                                                >
+                                                <div className="">
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         fill="none"
                                                         viewBox="0 0 24 24"
                                                         strokeWidth={1.5}
                                                         stroke="currentColor"
-                                                        className={`w-4 h-4  md:w-6 md:h-6 ${
+                                                        className={`w-4 h-4  md:w-6 md:h-6 transition-transform duration-700 ease-in-out ${
                                                             showFilterOptions
                                                                 ? ''
                                                                 : 'transform rotate-180'
@@ -96,61 +102,66 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                             </div>
                                         </div>
                                         {/* Filter list */}
-                                        {showFilterOptions && (
-                                            <div className="h-full w-full p-2">
-                                                <div className="w-full h-32 sm:h-40 md:h-52  overflow-auto">
-                                                    <div className="w-full flex flex-col gap-0.5 sm:gap-1 md:gap-2 p-4 text-sm lg:text-base ">
-                                                        <label
-                                                            className={`flex justify-start gap-x-4 items-center ${
-                                                                values
-                                                                    .categories
-                                                                    ?.length ===
-                                                                0
-                                                                    ? 'pointer-events-none'
-                                                                    : 'hover:cursor-pointer pointer-events-auto'
-                                                            }`}
-                                                        >
-                                                            <Field
-                                                                className="h-3 w-3 md:h-5 md:w-5  checked:accent-theme-color"
-                                                                type="checkbox"
-                                                                name="allCategory"
-                                                                onClick={() => {
-                                                                    values.categories =
-                                                                        [];
-                                                                }}
-                                                            />
-                                                            All Category
-                                                        </label>
-                                                        {categories.map(
-                                                            (
-                                                                category,
-                                                                index,
-                                                            ) => (
-                                                                <label
-                                                                    key={index}
-                                                                    className="flex  justify-start gap-x-4 items-center hover:cursor-pointer"
-                                                                >
-                                                                    <Field
-                                                                        className="h-3 w-3 md:h-5 md:w-5 checked:accent-theme-color"
-                                                                        color="theme-color"
-                                                                        type="checkbox"
-                                                                        name="categories"
-                                                                        value={
-                                                                            category
-                                                                        }
-                                                                        onClick={() => {
-                                                                            values.allCategory =
-                                                                                false;
-                                                                        }}
-                                                                    />
-                                                                    {category}
-                                                                </label>
-                                                            ),
-                                                        )}
-                                                    </div>
+                                        <div
+                                            className={`transition-all duration-700 ease-in ${
+                                                showFilterOptions
+                                                    ? 'h-full p-2'
+                                                    : 'h-0'
+                                            } w-full`}
+                                        >
+                                            <div
+                                                className={`transition-all duration-700 ease-in ${
+                                                    showFilterOptions
+                                                        ? 'h-32 sm:h-40 md:h-52 '
+                                                        : 'h-0'
+                                                } w-full overflow-auto`}
+                                            >
+                                                <div className="w-full flex flex-col gap-0.5 sm:gap-1 md:gap-2 p-4 text-sm lg:text-base ">
+                                                    <label
+                                                        className={`flex justify-start gap-x-4 items-center ${
+                                                            values.categories
+                                                                ?.length === 0
+                                                                ? 'pointer-events-none'
+                                                                : 'hover:cursor-pointer pointer-events-auto'
+                                                        }`}
+                                                    >
+                                                        <Field
+                                                            className="h-3 w-3 md:h-5 md:w-5  checked:accent-theme-color"
+                                                            type="checkbox"
+                                                            name="allCategory"
+                                                            onClick={() => {
+                                                                values.categories =
+                                                                    [];
+                                                            }}
+                                                        />
+                                                        All Category
+                                                    </label>
+                                                    {categories.map(
+                                                        (category, index) => (
+                                                            <label
+                                                                key={index}
+                                                                className="flex  justify-start gap-x-4 items-center hover:cursor-pointer"
+                                                            >
+                                                                <Field
+                                                                    className="h-3 w-3 md:h-5 md:w-5 checked:accent-theme-color"
+                                                                    color="theme-color"
+                                                                    type="checkbox"
+                                                                    name="categories"
+                                                                    value={
+                                                                        category
+                                                                    }
+                                                                    onClick={() => {
+                                                                        values.allCategory =
+                                                                            false;
+                                                                    }}
+                                                                />
+                                                                {category}
+                                                            </label>
+                                                        ),
+                                                    )}
                                                 </div>
                                             </div>
-                                        )}
+                                        </div>
                                     </div>
                                     {/* Buttons */}
                                     <div className="w-full h-full flex flex-col gap-1 md:gap-3 mt-1 md:mt-3">
@@ -168,7 +179,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                             className={`flex flex-1 justify-center items-center h-full w-full ${
                                                 values.categories?.length === 0
                                                     ? 'bg-white text-gray-900/40 pointer-events-none'
-                                                    : ' bg-theme-color text-white'
+                                                    : ' bg-red-upschool text-white'
                                             }   border border-gray-900/20 rounded-md p-0.5 md:p-2  px-4`}
                                             type="reset"
                                         >

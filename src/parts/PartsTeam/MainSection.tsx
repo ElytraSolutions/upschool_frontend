@@ -16,7 +16,7 @@ const MainSection = () => {
                 </h1>
                 {/* door */}
                 <img
-                    className=" h-[40vh] md:h-[50vh] w-auto z-10"
+                    className=" h-[40vh] md:h-[50vh] w-auto"
                     src={resolveImgURL('images/Team/door.png')}
                     alt="door"
                 />

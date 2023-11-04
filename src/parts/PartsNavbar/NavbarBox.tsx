@@ -19,7 +19,7 @@ type BoxProps = {
 export function NavbarBox({ inf }: BoxProps) {
     return (
         <>
-            <div className="group/navmenu inline-block font-light text-font-color">
+            <div className="group/navmenu inline-block  text-font-color">
                 <div className=" py-1 text-white rounded-sm flex items-center">
                     <span className="pr-1  text-sm ">
                         <NavLink to={inf.path ? inf.path : '#'}>

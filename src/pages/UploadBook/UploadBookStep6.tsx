@@ -13,8 +13,8 @@ const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
         window.scrollTo(0, 0);
     }, []);
     return (
-        <div className="flex flex-row justify-center  h-full xm:h-[565px] w-fit  overflow-y-auto overflow-x-hidden ">
-            <div className="text-font-color font-medium lg:font-semibold w-full ">
+        <div className="flex flex-row justify-center h-full xm:h-[565px] w-fit  overflow-y-auto overflow-x-hidden ">
+            <div className=" flex flex-col justify-between text-font-color font-medium lg:font-semibold h-full w-full ">
                 <div className="flex items-center justify-start py-3 w-full">
                     <p className="text-sm sm:text-base tab:text-xl  font-lexend">
                         Book Summary and Preview
@@ -84,27 +84,31 @@ const UploadBookStep6 = ({ oldValues, submitHandler }: IStep6Props) => {
                                         {values.canva_book_link}
                                     </p>
                                 </div>
-                                <div className="rounded-md w-fit h-fit bg-white my-4 lg:my-6">
-                                    <NavLink to="#">
-                                        {/* TODO url or link to view the uploaded book */}
-                                        <img
-                                            src={resolveImgURL(
-                                                '/images/UBStepVImg.png',
-                                            )}
-                                            alt="Click here to view your book"
-                                            width="full"
-                                            height="full"
-                                        />
-                                    </NavLink>
+                                <div className="py-5">
+                                    <div className="rounded-md w-fit h-fit bg-white">
+                                        <NavLink to="#">
+                                            {/* TODO url or link to view the uploaded book */}
+                                            <img
+                                                src={resolveImgURL(
+                                                    '/images/UBStepVImg.png',
+                                                )}
+                                                alt="Click here to view your book"
+                                                width="full"
+                                                height="full"
+                                            />
+                                        </NavLink>
+                                    </div>
                                 </div>
-                                <button
-                                    type="submit"
-                                    className="text-center px-8 py-4 bg-red-upschool text-white"
-                                >
-                                    <span className="inline-block text-sm">
-                                        Upload Your Book
-                                    </span>
-                                </button>
+                                <div className="pb-2 ">
+                                    <button
+                                        type="submit"
+                                        className="text-center px-8 py-4 bg-red-upschool text-white"
+                                    >
+                                        <span className="inline-block text-sm">
+                                            Upload Your Book
+                                        </span>
+                                    </button>
+                                </div>
                             </form>
                         </>
                     )}

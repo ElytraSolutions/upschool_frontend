@@ -45,6 +45,7 @@ import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './pages/NotFound/NotFound';
+import ReportProblem from './pages/ReportProblem/ReportProblem';
 
 const router = createBrowserRouter([
     {
@@ -203,6 +204,10 @@ const router = createBrowserRouter([
                 path: '/*',
                 element: <NotFound />,
             },
+            {
+                path: '/report-a-problem',
+                element: <ReportProblem />,
+            },
         ],
     },
     {
@@ -227,7 +232,7 @@ function App() {
     return (
         <>
             <ToastContainer />
-            <RouterProvider router={router} />;
+            <RouterProvider router={router} />
         </>
     );
 }

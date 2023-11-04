@@ -1,4 +1,4 @@
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage, FieldArray } from 'formik';
 import * as yup from 'yup';
 import { categories } from '../../data/UploadBookCategories';
 import { useEffect } from 'react';
@@ -7,8 +7,14 @@ const uploadBookSchema = yup.object().shape({
     categories: yup
         .array()
         .of(yup.string())
-        .min(5, 'Select upto 5 categories')
-        .max(5, 'Select no more than 5 categories'),
+        .test('maxCategories', 'Select up to 5 categories', (value) => {
+            if ((value?.length || 0) < 5) {
+                return false;
+            }
+            return true;
+        }),
+    // .min(5, 'Select upto 5 categories')
+    // .max(5, 'Select no more than 5 categories'),
 });
 
 interface IStep4Props {
@@ -26,7 +32,7 @@ export function UploadBookStep4({
         window.scrollTo(0, 0);
     }, []);
     return (
-        <div className=" h-full xm:h-[565px] overflow-y-scroll overflow-x-hidden">
+        <div className=" h-full xm:h-[565px] overflow-y-auto overflow-x-hidden">
             <Formik
                 onSubmit={submitHandler}
                 initialValues={oldValues}
@@ -39,6 +45,7 @@ export function UploadBookStep4({
                     // handleBlur,
                     // handleChange,
                     handleSubmit,
+                    // setFieldValue,
                 }) => (
                     <>
                         <form
@@ -49,24 +56,65 @@ export function UploadBookStep4({
                                 <h2 className=" text-lg xl:text-xl font-semibold text-font-color py-2 font-lexend ">
                                     Please select up to 5 categories
                                 </h2>
-                                <div className="grid sm:grid-cols-2 gap-2 gap-x-6">
-                                    {categories.map((category, index) => (
-                                        <label
-                                            key={index}
-                                            className="flex flex-1 justify-start gap-x-4 items-center hover:cursor-pointer"
-                                        >
-                                            <Field
-                                                className="h-4 w-4"
-                                                type="checkbox"
-                                                name="categories"
-                                                value={category}
-                                            />
-                                            <p className="text-font-color text-sm 2xl:text-base">
-                                                {category}
-                                            </p>
-                                        </label>
-                                    ))}
-                                </div>
+                                <FieldArray name="categories">
+                                    {({ push, remove }) => (
+                                        <>
+                                            <div className="grid sm:grid-cols-2 gap-2 gap-x-6">
+                                                {categories.map(
+                                                    (category, index) => (
+                                                        <label
+                                                            key={index}
+                                                            className="flex flex-1 justify-start gap-x-4 items-center hover:cursor-pointer"
+                                                        >
+                                                            <Field
+                                                                className="h-4 w-4"
+                                                                type="checkbox"
+                                                                name="categories"
+                                                                value={category}
+                                                                onChange={(
+                                                                    e,
+                                                                ) => {
+                                                                    const selectedOptions =
+                                                                        values.categories;
+
+                                                                    if (
+                                                                        e.target
+                                                                            .checked
+                                                                    ) {
+                                                                        if (
+                                                                            selectedOptions.length <
+                                                                            5
+                                                                        ) {
+                                                                            push(
+                                                                                category,
+                                                                            );
+                                                                        }
+                                                                    } else {
+                                                                        const index =
+                                                                            selectedOptions.indexOf(
+                                                                                category,
+                                                                            );
+                                                                        if (
+                                                                            index !==
+                                                                            -1
+                                                                        ) {
+                                                                            remove(
+                                                                                index,
+                                                                            );
+                                                                        }
+                                                                    }
+                                                                }}
+                                                            />
+                                                            <p className="text-font-color text-sm 2xl:text-base">
+                                                                {category}
+                                                            </p>
+                                                        </label>
+                                                    ),
+                                                )}
+                                            </div>
+                                        </>
+                                    )}
+                                </FieldArray>
                                 <ErrorMessage
                                     name="categories"
                                     render={(msg: string) => (

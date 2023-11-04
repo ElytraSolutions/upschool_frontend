@@ -73,7 +73,11 @@ function EnrollCard({ data }: Props) {
                 <CardMedia
                     component="img"
                     height="140"
-                    image={resolveImgURL(data.image)}
+                    image={
+                        data.image
+                            ? resolveImgURL(data.image)
+                            : 'https://images.unsplash.com/photo-1676113415510-3a631c9e1b5a?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                    }
                     alt={data.name}
                 />
                 {user && user.id && enrollmentStatus.course && (

@@ -5,7 +5,7 @@ import TableForPopup from '../Table/TableForPopup';
 function PriceSectionPopup({ onclose }) {
     return (
         <>
-            <div className="z-40 fixed font-family-lexend inset-0 bg-black bg-opacity-20 backdrop-blur-sm grid justify-center items-center">
+            <div className="z-40 fixed font-family-lexend inset-0 bg-black bg-opacity-20 backdrop-blur-sm grid justify-center items-center px-[50px] popup transition duration-500 ease-in-out opacity-0 invisible animate-fade-in">
                 <div className="z-40 bg-white pb-[30px] grid rounded">
                     <div className="flex justify-end">
                         <button onClick={onclose}>

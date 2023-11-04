@@ -7,6 +7,11 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 const ChangePasswordSchema = yup.object().shape({
+    currentPassword: yup
+        .string()
+        .required('Please enter your current password')
+        .min(8, 'Password must have at least 8 characters')
+        .max(255, 'Characters too long'),
     newPassword: yup
         .string()
         .required('Please enter a password')
@@ -27,6 +32,7 @@ const ChangePasswordSchema = yup.object().shape({
 });
 
 const InitialValues = {
+    currentPassword: '',
     newPassword: '',
     password_confirmation: '',
 };
@@ -37,8 +43,15 @@ const submitHandler = (data, onSubmitProps) => {
 };
 
 export const ChangePassword = () => {
+    const [showCurrentPassword, setShowCurrentPassword] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const handleToggleCurrentPasswordVisibility = (
+        e: React.MouseEvent<HTMLButtonElement>,
+    ) => {
+        e.preventDefault();
+        setShowCurrentPassword((oldState) => !oldState);
+    };
     const handleTogglePasswordVisibility = (
         e: React.MouseEvent<HTMLButtonElement>,
     ) => {
@@ -83,6 +96,79 @@ export const ChangePassword = () => {
                                         onSubmit={handleSubmit}
                                         className="flex flex-col sm:grid sm:grid-cols-6 sm:grid-rows-3 gap-y-1 gap-x-2  p-0.5 "
                                     >
+                                        {/*Current Password*/}
+                                        <>
+                                            <label
+                                                className="sm:col-span-2  md:col-span-1 p-1 w-full text-left cursor-pointer font-semibold"
+                                                htmlFor="currentPassword_info"
+                                            >
+                                                Current Password
+                                            </label>
+                                            <div className="sm:col-span-4 md:col-span-5 w-full">
+                                                <TextField
+                                                    size="small"
+                                                    fullWidth
+                                                    id="currentPassword_info"
+                                                    placeholder=""
+                                                    type={
+                                                        showCurrentPassword
+                                                            ? 'text'
+                                                            : 'password'
+                                                    }
+                                                    hiddenLabel
+                                                    InputProps={{
+                                                        endAdornment: (
+                                                            <InputAdornment position="end">
+                                                                <button
+                                                                    onClick={
+                                                                        handleToggleCurrentPasswordVisibility
+                                                                    }
+                                                                >
+                                                                    {showCurrentPassword ? (
+                                                                        <VisibilityIcon />
+                                                                    ) : (
+                                                                        <VisibilityOffIcon />
+                                                                    )}
+                                                                </button>
+                                                            </InputAdornment>
+                                                        ),
+                                                        style: {
+                                                            borderRadius: '8px',
+                                                            color: '#03014C',
+                                                        },
+                                                    }}
+                                                    onBlur={handleBlur}
+                                                    onChange={handleChange}
+                                                    value={
+                                                        values.currentPassword
+                                                    }
+                                                    name="currentPassword"
+                                                    error={
+                                                        Boolean(
+                                                            touched.currentPassword,
+                                                        ) &&
+                                                        Boolean(
+                                                            errors.currentPassword,
+                                                        )
+                                                    }
+                                                />
+                                                {touched.currentPassword &&
+                                                errors.currentPassword ? (
+                                                    <ErrorMessage
+                                                        name="currentPassword"
+                                                        render={(
+                                                            msg: string,
+                                                        ) => (
+                                                            <div className="text-left text-sm text-red-upschool p-1">
+                                                                {msg}
+                                                            </div>
+                                                        )}
+                                                    />
+                                                ) : (
+                                                    <div className="h-6 w-full bg-inherit"></div>
+                                                )}
+                                            </div>
+                                        </>
                                         {/* Password*/}
                                         <>
                                             <label

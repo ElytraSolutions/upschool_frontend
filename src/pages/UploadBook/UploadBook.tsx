@@ -132,7 +132,7 @@ export default function UploadBook() {
                 />
             ) : (
                 <div
-                    className={`flex justify-center items-center bg-gray-200 py-4 px-2 h-full w-full`}
+                    className={`flex justify-center items-center bg-gray-200 py-4 px-2 md:py-6 xl:py-8 2xl:py-10 xlarge:p-12 xxlarge:p-16 h-full w-full`}
                 >
                     {/* w-[90vw] xl:w-[75vw] 2xl:w-[60vw] h-[67vh] xs:h-[60vh] xm:h-[65vh] md:h-[70vh] tab:h-[75vh] */}
                     {/*Layout*/}
@@ -141,11 +141,11 @@ export default function UploadBook() {
                             isLargeScreen
                                 ? 'grid-cols-16 ' // h-[75vh]
                                 : 'grid-cols-11' // h-[67vh]
-                        } gap-0  w-[95%] sm:w-[90vw] md:w-[80vw]  lg:w-[75vw] 2xl:w-[65vw] h-fit`}
+                        } gap-0  w-[95%] sm:w-[90vw] md:w-[80vw]  lg:w-[75vw] xl:w-[65vw] xlarge:w-[60vw] xxlarge:w-[50vw] h-fit`}
                     >
                         {/* first column:Upload Book Form*/}
                         <div className="col-span-11 flex  items-center justify-center w-full h-full  bg-gray-100 ">
-                            <div className="relative w-11/12 h-fit py-3 ">
+                            <div className="relative  w-11/12 h-fit py-3 ">
                                 {components[currentStep]}
                             </div>
                         </div>

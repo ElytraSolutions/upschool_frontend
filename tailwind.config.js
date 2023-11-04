@@ -13,6 +13,8 @@ export default {
             fontFamily: {
                 lexend: ['Lexend', 'sans-serif'],
                 check: ['"Pixelify Sans"', 'sans-serif'],
+                anton: ["'Anton'", 'sans-serif'],
+                didact: ["'Didact Gothic'", 'sans-serif'],
                 annieUseYourTelescope: [
                     '"Annie Use Your Telescope"',
                     'cursive',
@@ -85,6 +87,8 @@ export default {
                 xm: '540px',
                 1450: '1450px',
                 xxxl: '1800px',
+                xlarge: '1920px',
+                xxlarge: '2560px',
             },
             aspectRatio: {
                 '2/1': '2 / 1',

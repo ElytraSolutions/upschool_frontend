@@ -1,6 +1,6 @@
 import { InputAdornment, TextField } from '@mui/material';
 import { Formik, Field } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -28,20 +28,24 @@ const initialValuesLogin = {
 };
 
 const Login = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const navigate = useNavigate();
     const { user, refresh } = useUser();
-    const submitHandler = async (values: any, onSubmitProps: any) => {
+    const submitHandler = async (values: any, { resetForm }) => {
         const csrfResp = await axiosInstance.get('/sanctum/csrf-cookie');
         axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
             csrfResp.data.csrfToken;
         const resp = await axiosInstance.post('/auth/login', values);
-        onSubmitProps.setSubmitting(false);
+
         if (resp.status === 200 && resp.data.status === 'success') {
             refresh().then(() => {
                 console.log(user);
                 navigate('/');
             });
-            onSubmitProps.resetForm();
+            resetForm();
         }
     };
     const { isLargeScreen } = useScreenWidthAndHeight();
@@ -57,8 +61,8 @@ const Login = () => {
     return (
         <>
             <Navbar />
-            <div className="relative flex flex-row justify-center  bg-gray-200 h-full py-4">
-                <div className="w-[95%] sm:w-[80vw] tab:w-[768px] bg-white flex justify-center items-center h-fit ">
+            <div className="relative flex flex-row justify-center  bg-gray-200 h-full py-4 px-2 md:py-4 2xl:py-10 xlarge:p-12 xxlarge:p-16 ">
+                <div className="w-[95%] sm:w-[80vw] tab:w-[768px] xlarge:w-[40%] xxlarge:w-1/3  bg-white flex justify-center items-center h-fit ">
                     <div className="w-11/12 h-fit py-3">
                         <div className="  mt-0.5 md:mt-2">
                             <h1 className="text-2xl font-semibold text-font-color font-lexend  px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
@@ -260,9 +264,11 @@ const Login = () => {
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className=" row-span-1 m-auto p-4 bg-theme-color text-white text-center w-full"
+                                            className=" row-span-1 m-auto p-4 bg-theme-color text-white text-center disabled:opacity-75 w-full"
                                         >
-                                            Login
+                                            {isSubmitting
+                                                ? 'Logging in'
+                                                : 'Login'}
                                         </button>
                                     </div>
                                 </form>

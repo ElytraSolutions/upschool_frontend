@@ -1,3 +1,5 @@
+import resolveImgURL from '../../../utlis/resolveImgURL';
+
 function SmallProjectCard() {
     return (
         <>
@@ -5,7 +7,7 @@ function SmallProjectCard() {
                 <div className="row-span-1 flex max-h-[120px]">
                     <img
                         className="w-full h-full object-cover"
-                        src="../../images/childernWithTeacher1.png"
+                        src={resolveImgURL('/images/childernWithTeacher1.png')}
                         alt="projectImage"
                     />
                 </div>

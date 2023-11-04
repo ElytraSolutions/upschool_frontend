@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 import { NavLink } from 'react-router-dom';
 import resolveImgURL from '../../../utlis/resolveImgURL';
+import useUser from '../../../hooks/useUser';
 
 type NavbarProps = {
     setIsopen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 function Navbar({ setIsopen }: NavbarProps) {
+    const { user } = useUser();
     const [isScrolled, setIsScrolled] = useState(false);
     const { isSmallHeight } = useScreenWidthAndHeight();
 
@@ -45,15 +47,28 @@ function Navbar({ setIsopen }: NavbarProps) {
                     </NavLink>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-4">
-                    <div className="tab:flex tab:items-center gap-4  hidden">
-                        <i className="fa fa-heart"></i>
-                        <i className="fa fa-bell"></i>
+                    <div className="flex justify-center items-center h-8 w-8 sm:w-10 sm:h-10 overflow-hidden bg-gray-400 rounded-full dark:bg-gray-600">
+                        <svg //imported from tailwind components templates user
+                            className="w-7 h-7 sm:w-9 sm:h-9 text-white "
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                clipRule="evenodd"
+                            ></path>
+                        </svg>
                     </div>
 
-                    <p className="p-2 bg-black rounded-[50%] h-8 w-8"></p>
                     <div className="hidden tab:block">
-                        <p>Ram Lal</p>
-                        <p className="text-sm">email@email.com</p>
+                        {user !== null && (
+                            <>
+                                <p>{`${user.first_name} ${user.last_name}`}</p>
+                                <p className="text-sm">{user.email}</p>
+                            </>
+                        )}
                     </div>
                     <span
                         className="block tab:hidden hover:cursor-pointer"

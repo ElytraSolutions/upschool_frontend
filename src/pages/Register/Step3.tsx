@@ -2,29 +2,33 @@ import { Formik, Field } from 'formik';
 import * as yup from 'yup';
 import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
+import { useEffect } from 'react';
 
 const registerSchema = yup.object().shape({
     canvaAccount: yup.string(),
     condition1: yup.bool().when('canvaAccount', {
-        is: true,
+        is: 'true',
         then: (schema) =>
             schema.oneOf([true], 'You need to accept the terms and conditions'),
         otherwise: (schema) => schema.oneOf([true, false]),
     }),
-    conditi0n2: yup.bool().when('canvaAccount', {
-        is: true,
+    condition2: yup.bool().when('canvaAccount', {
+        is: 'true',
         then: (schema) =>
             schema.oneOf([true], 'You need to accept the terms and conditions'),
         otherwise: (schema) => schema.oneOf([true, false]),
     }),
     condition3: yup
         .bool()
-        .oneOf([true], 'You need to accept the terms and conditions'),
+        .oneOf(
+            [true],
+            `You need to accept the 'terms and conditions' and 'privacy policy'`,
+        ),
 });
 
 interface IStep3Props {
     oldValues: Record<string, any>;
-    submitHandler: (values: any, onSubmitProps: any) => Promise<void>;
+    submitHandler: (values: any, { resetForm }) => Promise<void>;
     backHandler: (values: any) => void;
 }
 
@@ -33,6 +37,9 @@ export default function Step3({
     submitHandler,
     backHandler,
 }: IStep3Props) {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <Formik
             onSubmit={submitHandler}
@@ -46,6 +53,7 @@ export default function Step3({
                 handleBlur,
                 handleChange,
                 handleSubmit,
+                isSubmitting,
             }) => (
                 <>
                     {/* Third step form */}
@@ -53,7 +61,7 @@ export default function Step3({
                         onSubmit={handleSubmit}
                         className="w-full h-fit md:h-full flex flex-col gap-3 justify-between"
                     >
-                        <div className="grid grid-rows-5 w-full gap-1 mt-1">
+                        <div className="grid grid-rows-6 w-full gap-1 mt-1">
                             <div className="row-span-2 flex flex-col flex-1 gap-3 justify-center">
                                 <h2 className=" text-sm xl:text-lg text-font-color">
                                     Would you like us to register you for a FREE
@@ -83,21 +91,13 @@ export default function Step3({
                                     <MenuItem value="false">{'No'}</MenuItem>
                                 </TextField>
                             </div>
-                            {values.canvaAccount === 'true' && (
-                                <>
-                                    <div className="row-span-3 grid grid-rows-3  text-sm text-font-color w-full h-fit">
+                            <div className="row-span-3 grid grid-rows-3  text-sm text-font-color pt-2 w-full h-fit">
+                                {values.canvaAccount === 'true' && (
+                                    <>
                                         <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
                                             <Field
                                                 type="checkbox"
                                                 name="condition1"
-                                                error={
-                                                    touched.condition1 &&
-                                                    errors.condition1
-                                                }
-                                                helperText={
-                                                    touched.condition1 &&
-                                                    errors.condition1
-                                                }
                                             />
                                             I acknowledge and accept that my
                                             personal details (name,email) may be
@@ -108,49 +108,58 @@ export default function Step3({
                                             <Field
                                                 type="checkbox"
                                                 name="condition2"
-                                                error={
-                                                    touched.condition2 &&
-                                                    errors.condition2
-                                                }
-                                                helperText={
-                                                    touched.condition2 &&
-                                                    errors.condition2
-                                                }
                                             />
                                             <div>
-                                                I acknowledge that should i not
+                                                I acknowledge that should I not
                                                 wish to have my details visible
-                                                to others, I can instead sing up
+                                                to others, I can instead sign up
                                                 for Canva basic <u>here</u>
                                             </div>
                                         </label>
-                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
-                                            <Field
-                                                type="checkbox"
-                                                name="condition3"
-                                                error={
-                                                    touched.condition3 &&
-                                                    errors.condition3
-                                                }
-                                                helperText={
-                                                    touched.condition3 &&
-                                                    errors.condition3
-                                                }
-                                            />
-                                            <div>
-                                                I agree to Upschool's{' '}
-                                                <u>Terms and Conditions</u> and{' '}
-                                                <u>Privacy Policy</u>
-                                            </div>
-                                        </label>
+                                    </>
+                                )}
+
+                                <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
+                                    <Field type="checkbox" name="condition3" />
+                                    <div>
+                                        I agree to Upschool's {` `}
+                                        <a
+                                            href="https://upschool.co/terms-and-conditions/"
+                                            target="_blank"
+                                        >
+                                            <u>Terms and Conditions</u>
+                                        </a>
+                                        {` `}
+                                        and
+                                        {` `}
+                                        <a
+                                            href="https://upschool.co/privacy-policy/"
+                                            target="_blank"
+                                        >
+                                            <u>Privacy Policy</u>
+                                        </a>
+                                        {` `}
                                     </div>
-                                </>
-                            )}
+                                </label>
+                            </div>
+                            <div className="row-span-1 w-full">
+                                {((touched.condition1 && errors.condition1) ||
+                                    (touched.condition2 && errors.condition2) ||
+                                    (touched.condition3 &&
+                                        errors.condition3)) && (
+                                    <p className="text-center text-red-upschool text-sm p-1">
+                                        you need to accept all the conditions to
+                                        proceed
+                                    </p>
+                                )}
+                            </div>
                         </div>
+
                         <div className="grid grid-cols-4 gap-4  text-sm md:text-base w-full h-fit font-normal ">
                             <button
                                 type="button"
-                                className="col-start-1 col-span-2 sm:col-span-1 justify-self-start  flex flex-1 flex-wrap items-center justify-start gap-x-0.5 px-3 py-2  w-fit h-full"
+                                className="col-start-1 col-span-2 sm:col-span-1 justify-self-start  flex flex-1 flex-wrap items-center justify-start gap-x-0.5 px-3 py-2 disabled:opacity-75  w-fit h-full"
+                                disabled={isSubmitting}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     backHandler(values);
@@ -178,11 +187,15 @@ export default function Step3({
                             </button>
 
                             <button
-                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex  flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
+                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex  flex-1 flex-wrap items-center justify-center disabled:opacity-80 gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
                                 type="submit"
+                                disabled={isSubmitting}
                             >
-                                <span>Next</span>
                                 <span>
+                                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                                </span>
+                                {/* <span>Next</span> */}
+                                {/* <span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
@@ -197,7 +210,7 @@ export default function Step3({
                                             d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                                         />
                                     </svg>
-                                </span>
+                                </span> */}
                             </button>
                         </div>
                     </form>
