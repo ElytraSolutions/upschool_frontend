@@ -120,7 +120,9 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                                     <label
                                                         className={`flex justify-start gap-x-4 items-center ${
                                                             values.categories
-                                                                ?.length === 0
+                                                                ?.length ===
+                                                                0 &&
+                                                            values.allCategory
                                                                 ? 'pointer-events-none'
                                                                 : 'hover:cursor-pointer pointer-events-auto'
                                                         }`}
