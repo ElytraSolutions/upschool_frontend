@@ -34,9 +34,9 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({ details }) => {
             <div className="flex justify-center bg-white h-full w-full p-2 xs:p-4">
                 <div className=" h-full w-full max-w-[71.25rem]  xlarge:max-w-[76rem] xxlarge:max-w-[84rem]">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-6 pb-4  place-items-center h-full w-full ">
-                        <div className=" self-start flex flex-col gap-4 text-font-color text-sm md:text-base ">
+                        <div className="self-start  flex flex-col gap-4 text-font-color text-sm md:text-base xlarge:text-lg xxlarge:text-xl">
                             {/* Brief discription of Challenge: */}
-                            <p className="text-base md:text-lg xl:text-3xl font-bold font-lexend">
+                            <p className="text-base md:text-lg xl:text-3xl xlarge:text-5xl font-bold font-lexend">
                                 {details.title}
                             </p>
                             {/* Details of Challenge */}
@@ -76,7 +76,12 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({ details }) => {
                             {/* Button : Start Writing in Canva */}
                             {/* TODO get link for Canva */}
                             <button className=" bg-red-upschool text-sm text-white text-center px-4 py-2 rounded-2xl w-fit">
-                                Start Writing in Canva
+                                <a
+                                    href="https://www.canva.com/design/DAFyO_Z50HQ/lAlj6pFFE3U_-eFJ-O-7Ew/view?utm_content=DAFyO_Z50HQ&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview"
+                                    target="_blank"
+                                >
+                                    Start Writing in Canva
+                                </a>
                             </button>
                         </div>
                         <div className="flex flex-col gap-5 pt-3 w-full">

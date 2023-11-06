@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import HeaderSection from '../../../parts/PartsChallenges/PartsWriteALetterAndChangeTheWorld/HeaderSection';
 import resolveImgURL from '../../../utlis/resolveImgURL';
 import DescriptionSection from '../../../parts/PartsChallenges/PartsWriteALetterAndChangeTheWorld/DescriptionSection';
+import FooterSection from '../../../parts/PartsChallenges/PartsWriteALetterAndChangeTheWorld/FooterSection';
 
 const detailsIntro = {
     id: 1,
@@ -88,9 +89,36 @@ const detailsDescription = {
         width: 640,
     },
     carousel: [
-        '/images/Challenges/Challenge/WriteALetterAndChangeTheWorld/Carousel1Letter.png',
-        '/images/Challenges/Challenge/WriteALetterAndChangeTheWorld/Carousel2Prompts.png',
+        resolveImgURL(
+            '/images/Challenges/Challenge/WriteALetterAndChangeTheWorld/Carousel1Letter.png',
+        ),
+        resolveImgURL(
+            '/images/Challenges/Challenge/WriteALetterAndChangeTheWorld/Carousel2Prompts.png',
+        ),
     ],
+};
+
+const detailsFooter = {
+    title: 'Dive into this transformative journey with us. Your words have the power to spark change.',
+    subSection: [
+        {
+            title: 'Important Rules:',
+            list: [
+                'Your letter should be genuine, respectful, and constructive.',
+                'Ensure the content is child-friendly and suitable for all ages.',
+                'Patiently await a response before submitting to Upschool.',
+                'Do not include your home address on the letter, use your school address.',
+            ],
+        },
+        {
+            title: 'Results:',
+            list: [
+                'All participants will see their letters on the Upschool Wall of Impactful Letters.',
+                'Letters that exceptionally inspire or provoke thought will receive special be shared in our newsletter and shown to the world.',
+            ],
+        },
+    ],
+    msg: 'Together, we can influence change and pave the way for a brighter future!',
 };
 
 const Challenge = () => {
@@ -101,14 +129,21 @@ const Challenge = () => {
         <>
             <div className="h-full w-full">
                 <img
-                    src="/images/Challenges/Challenge/WriteALetterAndChangeTheWorld/Thumbnail.png"
+                    src={resolveImgURL(
+                        '/images/Challenges/Challenge/WriteALetterAndChangeTheWorld/Thumbnail.png',
+                    )}
                     alt="Write a Letter and Change the World with Upschool"
                     width="2330"
                     height="475"
-                    className=" object-cover h-[30rem] w-full"
+                    className=" object-cover h-[30rem] bg-stone-300 w-full"
                 />
+
                 <HeaderSection details={detailsIntro} />
                 <DescriptionSection details={detailsDescription} />
+                <div className="flex justify-center items-center">
+                    <div className="bg-theme-color h-0.5 xxlarge:h-1 w-full max-w-[71.25rem]  xlarge:max-w-[76rem] xxlarge:max-w-[84rem]"></div>
+                </div>
+                <FooterSection details={detailsFooter} />
             </div>
         </>
     );

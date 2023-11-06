@@ -18,9 +18,9 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
         <>
             <div className=" flex justify-center bg-zinc-100 h-full w-full p-2 xs:p-4">
                 <div className="flex flex-col md:flex-row md:justify-center gap-5 h-full max-w-[71.25rem]  xlarge:max-w-[76rem] xxlarge:max-w-[84rem]">
-                    <div className="flex flex-col gap-7 text-font-color text-sm md:text-base md:w-8/12">
+                    <div className="flex flex-col gap-7 text-font-color text-sm md:text-base xlarge:text-lg xxlarge:text-xl md:w-8/12">
                         {/* Title of Challenge */}
-                        <p className="pt-4 text-3xl md:text-4xl font-medium font-lexend">
+                        <p className="pt-4 text-3xl md:text-4xl xlarge:text-5xl font-medium font-lexend">
                             {details.title}
                         </p>
                         {/* Other Details of Challenge */}
@@ -28,7 +28,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
                             {details.headSection.map((detail, index) => (
                                 <React.Fragment key={index}>
                                     <div className="flex flex-col xs:flex-row gap-1 xs:items-center">
-                                        <p className="text-base font-bold">
+                                        <p className="text-base xlarge:text-lg xxlarge:text-xl font-bold">
                                             {detail.title}
                                         </p>
                                         <p className="">{detail.content}</p>
@@ -38,7 +38,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
                         </div>
                         {/* Brief Description of Challenge */}
                         <div className="flex flex-col gap-3">
-                            <p className="text-base font-bold">
+                            <p className="text-base xlarge:text-lg xxlarge:text-xl font-bold">
                                 {details.description.title}
                             </p>
                             <p>{details.description.content[0]}</p>
@@ -46,7 +46,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
                         </div>
                         {/* SDGs icons */}
                         <div className="flex flex-col gap-4">
-                            <p className="text-base font-bold">
+                            <p className="text-base xlarge:text-lg xxlarge:text-xl font-bold">
                                 {details.sdgs.title}
                             </p>
                             {/* icons */}
