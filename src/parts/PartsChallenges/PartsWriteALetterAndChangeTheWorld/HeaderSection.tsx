@@ -45,7 +45,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
                             <p>{details.description.content[1]}</p>
                         </div>
                         {/* SDGs icons */}
-                        <div className="flex flex-col gap-3">
+                        <div className="flex flex-col gap-4">
                             <p className="text-base font-bold">
                                 {details.sdgs.title}
                             </p>
@@ -65,7 +65,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
                         </div>
                     </div>
                     <div className="relative flex justify-center md:w-4/12">
-                        <div className=" md:absolute flex flex-col items-center gap-2  bg-zinc-100 md:-top-32">
+                        <div className=" md:absolute flex flex-col items-center gap-3  bg-zinc-100 md:-top-32">
                             <img
                                 src={resolveImgURL(
                                     'images/Challenges/WriteALetterAndChangeTheWorld.png',

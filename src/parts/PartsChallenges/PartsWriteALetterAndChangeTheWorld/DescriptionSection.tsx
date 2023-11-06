@@ -34,7 +34,7 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({ details }) => {
             <div className="flex justify-center bg-white h-full w-full p-2 xs:p-4">
                 <div className=" h-full w-full max-w-[71.25rem]  xlarge:max-w-[76rem] xxlarge:max-w-[84rem]">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-6 pb-4  place-items-center h-full w-full ">
-                        <div className="flex flex-col gap-4 text-font-color text-sm md:text-base ">
+                        <div className=" self-start flex flex-col gap-4 text-font-color text-sm md:text-base ">
                             {/* Brief discription of Challenge: */}
                             <p className="text-base md:text-lg xl:text-3xl font-bold font-lexend">
                                 {details.title}
@@ -79,7 +79,7 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({ details }) => {
                                 Start Writing in Canva
                             </button>
                         </div>
-                        <div className="flex flex-col gap-5 w-full">
+                        <div className="flex flex-col gap-5 pt-3 w-full">
                             <div className=" w-full aspect-video">
                                 <iframe
                                     // TODO provide correct video path
@@ -92,7 +92,7 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({ details }) => {
                                 ></iframe>
                             </div>
 
-                            <div className="relative  pb-10  ">
+                            <div className="relative  pb-5  ">
                                 <Carousel
                                     additionalTransfrom={0}
                                     arrows
@@ -157,8 +157,8 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({ details }) => {
                                             <img
                                                 src={image}
                                                 alt="carousel"
-                                                width="100%"
-                                                height="100%"
+                                                width="768"
+                                                height="1086"
                                             />
                                         </div>
                                     ))}
