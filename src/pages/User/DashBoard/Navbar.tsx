@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 import { NavLink } from 'react-router-dom';
 import resolveImgURL from '../../../utlis/resolveImgURL';
@@ -11,32 +10,13 @@ type NavbarProps = {
 
 function Navbar({ setIsopen }: NavbarProps) {
     const { user } = useUser();
-    const [isScrolled, setIsScrolled] = useState(false);
     const { isTabScreen, isSmallHeight } = useScreenWidthAndHeight();
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
     return (
         <>
             <div
-                className={`${
-                    isScrolled && 'fixed'
-                } z-10 flex items-center justify-between bg-theme-color px-1 py-2 sm:p-4 border ${
+                className={` fixed z-10 flex items-center justify-between bg-theme-color px-1 py-2 sm:p-4  ${
                     isSmallHeight ? 'h-[15dvh]' : 'h-[10dvh]'
-                }  w-full  gap-2`}
+                }  w-full  gap-2  h-[3rem] md:max-h-[4rem]`}
             >
                 <div className="flex flex-row items-center gap-5 ">
                     <div className=" max-w-xs">

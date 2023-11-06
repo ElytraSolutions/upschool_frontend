@@ -59,6 +59,7 @@ export default function ResetPassword() {
             email,
         };
         try {
+            toast.info('Resetting your password');
             const resp = await axiosInstance.post('/auth/password-reset', data);
             if (resp.status === 200) {
                 toast.success(
@@ -77,10 +78,10 @@ export default function ResetPassword() {
     };
     return (
         <>
-            <div className="  w-full h-fit bg-gray-200 flex justify-center items-start py-3 sm:py-4 md:py-6 xl:py-10">
-                <div className="flex justify-center bg-white w-10/12 md:w-2/3 lg:w-[768px] ">
-                    <div className="w-11/12 flex flex-col gap-1">
-                        <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 ">
+            <div className="  w-full h-full bg-gray-200 flex justify-center items-start py-3 sm:py-4 md:py-6 xl:py-10">
+                <div className="flex justify-center bg-white w-10/12 md:w-2/3 lg:w-[768px] h-full xm:h-[27rem]">
+                    <div className="w-11/12 flex flex-col gap-1 h-full">
+                        <div className=" px-2 py-0.5 mx-2 mt-4 mb-0.5 md:p-2 ">
                             <h1 className="text-font-color font-semibold text-base md:text-xl  xl:text-2xl font-lexend">
                                 Reset Your Upschool.co Password
                             </h1>
@@ -90,7 +91,7 @@ export default function ResetPassword() {
                                 select a new password, minimum 8 characters
                             </h3>
                         </div>
-                        <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 ">
+                        <div className=" px-2 py-0.5 mx-2 my-0.5 md:p-2 h-full ">
                             <Formik
                                 onSubmit={submitHandler}
                                 initialValues={initialValuesResetPasswordEmail}
@@ -105,108 +106,115 @@ export default function ResetPassword() {
                                     handleSubmit,
                                     isSubmitting,
                                 }) => (
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="grid grid-rows-3 grid-cols-2 w-full gap-y-5 py-0.5">
-                                            <TextField
-                                                className="row-span-1 col-span-2"
-                                                type={
-                                                    showPassword
-                                                        ? 'text'
-                                                        : 'password'
-                                                }
-                                                InputProps={{
-                                                    endAdornment: (
-                                                        <InputAdornment position="end">
-                                                            <button
-                                                                onClick={
-                                                                    handleTogglePasswordVisibility
-                                                                }
-                                                            >
-                                                                {showPassword ? (
-                                                                    <VisibilityIcon />
-                                                                ) : (
-                                                                    <VisibilityOffIcon />
-                                                                )}
-                                                            </button>
-                                                        </InputAdornment>
-                                                    ),
-                                                }}
-                                                label="Password"
-                                                onBlur={handleBlur}
-                                                onChange={handleChange}
-                                                value={values.password}
-                                                name="password"
-                                                error={
-                                                    Boolean(touched.password) &&
-                                                    Boolean(errors.password)
-                                                }
-                                                helperText={
-                                                    touched.password &&
-                                                    (errors.password as string)
-                                                }
-                                            />
-                                            <TextField
-                                                className="row-span-1 col-span-2"
-                                                type={
-                                                    showConfirmPassword
-                                                        ? 'text'
-                                                        : 'password'
-                                                }
-                                                InputProps={{
-                                                    endAdornment: (
-                                                        <InputAdornment position="end">
-                                                            <button
-                                                                onClick={
-                                                                    handleToggleConfirmPasswordVisibility
-                                                                }
-                                                            >
-                                                                {showConfirmPassword ? (
-                                                                    <VisibilityOffIcon />
-                                                                ) : (
-                                                                    <VisibilityIcon />
-                                                                )}
-                                                            </button>
-                                                        </InputAdornment>
-                                                    ),
-                                                }}
-                                                label="Confirm password"
-                                                onBlur={handleBlur}
-                                                onChange={handleChange}
-                                                value={
-                                                    values.password_confirmation
-                                                }
-                                                name="password_confirmation"
-                                                error={
-                                                    Boolean(
-                                                        touched.password_confirmation,
-                                                    ) &&
-                                                    Boolean(
-                                                        errors.password_confirmation,
-                                                    )
-                                                }
-                                                helperText={
-                                                    touched.password_confirmation &&
-                                                    (errors.password_confirmation as string)
-                                                }
-                                            />
-                                            {isSubmitting && (
+                                    <form
+                                        onSubmit={handleSubmit}
+                                        className="h-full w-full"
+                                    >
+                                        <div className="flex flex-col gap-5 justify-between h-full w-full">
+                                            <div className="grid grid-rows-2 grid-cols-2 w-full gap-y-5 py-0.5">
+                                                <TextField
+                                                    className="row-span-1 col-span-2"
+                                                    type={
+                                                        showPassword
+                                                            ? 'text'
+                                                            : 'password'
+                                                    }
+                                                    InputProps={{
+                                                        endAdornment: (
+                                                            <InputAdornment position="end">
+                                                                <button
+                                                                    onClick={
+                                                                        handleTogglePasswordVisibility
+                                                                    }
+                                                                >
+                                                                    {showPassword ? (
+                                                                        <VisibilityIcon />
+                                                                    ) : (
+                                                                        <VisibilityOffIcon />
+                                                                    )}
+                                                                </button>
+                                                            </InputAdornment>
+                                                        ),
+                                                    }}
+                                                    label="Password"
+                                                    onBlur={handleBlur}
+                                                    onChange={handleChange}
+                                                    value={values.password}
+                                                    name="password"
+                                                    error={
+                                                        Boolean(
+                                                            touched.password,
+                                                        ) &&
+                                                        Boolean(errors.password)
+                                                    }
+                                                    helperText={
+                                                        touched.password &&
+                                                        (errors.password as string)
+                                                    }
+                                                />
+                                                <TextField
+                                                    className="row-span-1 col-span-2"
+                                                    type={
+                                                        showConfirmPassword
+                                                            ? 'text'
+                                                            : 'password'
+                                                    }
+                                                    InputProps={{
+                                                        endAdornment: (
+                                                            <InputAdornment position="end">
+                                                                <button
+                                                                    onClick={
+                                                                        handleToggleConfirmPasswordVisibility
+                                                                    }
+                                                                >
+                                                                    {showConfirmPassword ? (
+                                                                        <VisibilityIcon />
+                                                                    ) : (
+                                                                        <VisibilityOffIcon />
+                                                                    )}
+                                                                </button>
+                                                            </InputAdornment>
+                                                        ),
+                                                    }}
+                                                    label="Confirm password"
+                                                    onBlur={handleBlur}
+                                                    onChange={handleChange}
+                                                    value={
+                                                        values.password_confirmation
+                                                    }
+                                                    name="password_confirmation"
+                                                    error={
+                                                        Boolean(
+                                                            touched.password_confirmation,
+                                                        ) &&
+                                                        Boolean(
+                                                            errors.password_confirmation,
+                                                        )
+                                                    }
+                                                    helperText={
+                                                        touched.password_confirmation &&
+                                                        (errors.password_confirmation as string)
+                                                    }
+                                                />
+                                                {/* {isSubmitting && (
                                                 <div className="text-lime-600 -mt-2">
                                                     <p>
                                                         Resetting your password
                                                         <br />
                                                     </p>
                                                 </div>
-                                            )}
+                                            )} */}
+                                            </div>
+                                            <button
+                                                type="submit"
+                                                disabled={isSubmitting}
+                                                className="my-3 p-4 bg-theme-color text-white text-center w-fit xm:w-full  overflow-hidden"
+                                            >
+                                                <span className=" text-sm md:text-base">
+                                                    Reset password
+                                                </span>
+                                            </button>
                                         </div>
-                                        <button
-                                            type="submit"
-                                            disabled={isSubmitting}
-                                            className="-mt-4 row-span-1 col-span-2 xm:col-span-1 m-auto p-4 bg-theme-color text-white text-center w-fit xm:w-full  overflow-hidden"
-                                        >
-                                            <span className=" text-sm md:text-base">
-                                                Reset password
-                                            </span>
-                                        </button>
                                     </form>
                                 )}
                             </Formik>

@@ -9,9 +9,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const ChangePasswordSchema = yup.object().shape({
     currentPassword: yup
         .string()
-        .required('Please enter your current password')
-        .min(8, 'Password must have at least 8 characters')
-        .max(255, 'Characters too long'),
+        .required('Please enter your current password'),
     newPassword: yup
         .string()
         .required('Please enter a password')
@@ -109,7 +107,7 @@ export const ChangePassword = () => {
                                                     size="small"
                                                     fullWidth
                                                     id="currentPassword_info"
-                                                    placeholder=""
+                                                    placeholder="Enter your current password"
                                                     type={
                                                         showCurrentPassword
                                                             ? 'text'

@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 // import { ProgressBar } from '../../../utlis/ProgressBar/ProgressBar';
 
 // TODO change type as requrired variables
@@ -24,7 +25,9 @@ export default function CourseBoxCompleted({
                                     src={
                                         detail.image
                                             ? detail.image.length > 0
-                                                ? detail.image
+                                                ? resolveImgURL(
+                                                      `${detail.image}`,
+                                                  )
                                                 : 'https://source.unsplash.com/tloFnD-7EpI'
                                             : 'https://source.unsplash.com/tloFnD-7EpI'
                                     }
@@ -39,7 +42,7 @@ export default function CourseBoxCompleted({
                                 {detail.name}
                             </h1>
                         </div>
-                        <div className="flex flex-col w-full gap-4">
+                        <div className="flex flex-col w-full gap-4 ">
                             {/* Progess Section */}
                             {/* <div className="flex flex-col w-full gap-1">
                                 <div className="text-base sm:text-lg">
@@ -52,16 +55,16 @@ export default function CourseBoxCompleted({
                                 />
                             </div> */}
                             {/* TODO link to 'Revisit Course' or 'Get Certificate' is nedded */}
-                            <div className="flex flex-wrap gap-3 justify-center">
+                            <div className="flex flex-wrap gap-2 justify-end">
                                 <NavLink
                                     to={'/'}
-                                    className="text-white bg-theme-color px-4 py-2 w-fit"
+                                    className="text-white text-center bg-theme-color px-4 py-2 w-3/4"
                                 >
                                     Revisit Course
                                 </NavLink>
                                 <NavLink
                                     to={'/'}
-                                    className="text-white bg-theme-color px-4 py-2 w-fit"
+                                    className="text-white text-center bg-theme-color px-4 py-2 w-3/4"
                                 >
                                     Get Certificate
                                 </NavLink>

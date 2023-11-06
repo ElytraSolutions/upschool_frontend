@@ -9,7 +9,7 @@ import Step3 from './Step3';
 import { SecondColumnProgressSection as ProgressSection } from '../../parts/PartsRegisterPage/SecondColumnProgressSection';
 import LoginPart from '../../parts/PartsRegisterPage/LoginPart';
 import axiosInstance from '../../config/Axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar/Navbar';
@@ -34,6 +34,10 @@ export default function Registration() {
         condition2: false,
         condition3: false,
     });
+
+    const [searchParams, _setSearchParams] = useSearchParams();
+    searchParams.get('invite');
+
     const components = [
         <Step1
             isLargeScreen={isLargeScreen}
@@ -78,6 +82,11 @@ export default function Registration() {
                     );
                     await refresh();
                     resetForm();
+                    const res = await axiosInstance.post(
+                        '/data/teacher/addStudent',
+                        { teacher_id: searchParams.get('invite') },
+                    );
+                    console.log(res.data);
                     navigate('/');
                 } catch (error) {
                     const resp = (error as any).response.data;
