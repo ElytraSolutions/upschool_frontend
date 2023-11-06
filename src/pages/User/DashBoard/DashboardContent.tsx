@@ -145,11 +145,19 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                                 />
                             </div>
                         ) : (
-                            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
-                                {courses.map((course, index) => (
-                                    <BookBox key={index} detail={course} />
-                                ))}
-                            </div>
+                            <>
+                                <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
+                                    {courses.map((course, index) => (
+                                        <BookBox key={index} detail={course} />
+                                    ))}
+                                </div>
+                                {/* TODO Remove the block */}
+                                <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
+                                    {courses.map((course, index) => (
+                                        <BookBox key={index} detail={course} />
+                                    ))}
+                                </div>
+                            </>
                         )}
                         <div
                             className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer"

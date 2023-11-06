@@ -87,7 +87,6 @@ const DescriptionSection: React.FC<DescriptionSectionProps> = ({ details }) => {
                         <div className="flex flex-col gap-5 pt-3 w-full">
                             <div className=" w-full aspect-video">
                                 <iframe
-                                    // TODO provide correct video path
                                     src={details.video.src}
                                     className="w-full aspect-video"
                                     width={details.video.width}

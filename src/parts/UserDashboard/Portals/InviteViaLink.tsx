@@ -1,6 +1,19 @@
 import resolveImgURL from '../../../utlis/resolveImgURL';
+import useUser from '../../../hooks/useUser';
 
 const InviteViaLink = () => {
+    const { user } = useUser();
+    // get current base url
+    const currentURL = window.location.href;
+    let baseURL = new URL(currentURL).origin;
+    baseURL = baseURL.concat('/register');
+    // create searchparams object
+    const searchParams = new URLSearchParams();
+    searchParams.append('invite', user?.id.toString() as string);
+    baseURL = baseURL.concat('?', searchParams.toString());
+    // convert baseURL to string
+    const inviteLink = baseURL.toString();
+
     return (
         <>
             <div className="flex  flex-col gap-3 w-full">
@@ -16,11 +29,16 @@ const InviteViaLink = () => {
                     <div className="border border-theme-color/50 w-full flex items-center">
                         {/* TODO implement logic to get invite link backend */}
                         <p className="font-light p-2 text-base md:text-lglg:text-xl text-left truncate w-full">
-                            https://www.upschool.co/token=zxcw8w789rwy
+                            {inviteLink}
                         </p>
                     </div>
                     {/* TODO implement logic to copy invite link obtained from backend*/}
-                    <button className="border bg-theme-color text-white text-center py-2 px-4 w-fit text-sm md:text-base lg:text-lg">
+                    <button
+                        className="border bg-theme-color text-white text-center py-2 px-4 w-fit text-sm md:text-base lg:text-lg transition-all duration-150 ease-in-out active:bg-theme-color/10"
+                        onClick={() => {
+                            navigator.clipboard.writeText(inviteLink);
+                        }}
+                    >
                         Copy
                     </button>
                 </div>

@@ -15,7 +15,7 @@ type OutletContextType = {
 };
 
 const Dashboard: React.FC<DashboardProps> = () => {
-    const { isSmallHeight, isTabScreen } = useScreenWidthAndHeight();
+    const { isTabScreen } = useScreenWidthAndHeight();
 
     const { isDashboardNavbarOpen } = useOutletContext<OutletContextType>();
     const [selectedOption, setSelectedOption] = useState<string>('Dashboard');
@@ -29,11 +29,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
     }
 
     return (
-        <div
-            className={`flex fixed ${
-                isSmallHeight ? 'h-[85dvh]' : 'h-[90dvh]'
-            }  w-full`}
-        >
+        <div className={`flex h-screen w-full pt-[3rem] md:pt-[4rem]`}>
             {/* Sidebar */}
             {isTabScreen ? (
                 <Sidebar
@@ -50,7 +46,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
             )}
 
             {/* Content */}
-            <div className=" h-full w-full tab:w-4/5 bg-[#cecece]/20 p-4 pt-8 pb-5 lg:w-5/6">
+            <div className=" h-full w-full tab:ml-[20%] tab:w-4/5 bg-[#cecece]/20 p-2 md:p-4 xlarge:p-6 xxlarge:p-8 lg:ml-[17%] lg:w-[83%]">
                 {/* Content specific to the selected option */}
                 {selectedOption === 'Dashboard' && (
                     <DashboardContent handleOptionClick={handleOptionClick} />
