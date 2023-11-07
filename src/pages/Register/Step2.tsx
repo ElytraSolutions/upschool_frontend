@@ -4,11 +4,12 @@ import { TextField } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { countries } from '../../data/countries';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axiosInstance from '../../config/Axios';
 
 const registerSchema = yup.object().shape({
     country: yup.string().required('required').max(255, 'Characters too long'),
-    user_type_id: yup.string().required('required'),
+    user_type_id: yup.number().required('required'),
     date_of_birth: yup.date().required('required'),
 });
 
@@ -22,30 +23,20 @@ export default function Step2({
     backHandler,
     submitHandler,
 }: IStep2Props) {
+    const [userTypes, setUserTypes] = useState<any[]>([]);
     useEffect(() => {
         window.scrollTo(0, 0);
+        (async () => {
+            const res = await axiosInstance.get('/data/userTypes');
+            setUserTypes(res.data.data);
+        })();
     }, []);
-    const roles = [
-        {
-            id: 1,
-            name: 'Parent of Student',
-        },
-        {
-            id: 2,
-            name: 'Student (Over 18)',
-        },
-        {
-            id: 3,
-            name: 'Student (Under 18)',
-        },
-        {
-            id: 4,
-            name: 'School Teacher',
-        },
-    ];
 
     const { isLargeScreen } = useScreenWidthAndHeight();
     const size = isLargeScreen ? 'medium' : 'small';
+    if (userTypes.length === 0) {
+        return null;
+    }
     return (
         <Formik
             onSubmit={submitHandler}
@@ -123,7 +114,7 @@ export default function Step2({
                                     (errors.user_type_id as string)
                                 }
                             >
-                                {roles.map((role) => (
+                                {userTypes.map((role) => (
                                     <MenuItem key={role.id} value={role.id}>
                                         {role.name}
                                     </MenuItem>

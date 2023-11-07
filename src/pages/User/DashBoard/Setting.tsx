@@ -11,14 +11,9 @@ import useUser from '../../../hooks/useUser';
 function Setting() {
     // TODO logic to determine whether user is (Teacher/Student/Parent)
     const { user } = useUser();
-    // console.log(user);
-    const userType: string = user?.type.name as string;
-    const iconBadge =
-        userType === 'School Teacher'
-            ? resolveImgURL('/images/Dashboard/TeacherIcon.png')
-            : userType === 'Parent of Student'
-            ? resolveImgURL('/images/Dashboard/ParentIcon.png')
-            : resolveImgURL('/images/Dashboard/StudentIcon.png');
+    console.log(user);
+    const userType: string = user?.type.name.split(' ')[0] as string;
+    const iconBadge = resolveImgURL(user?.type.image as string);
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
     return (
         <div className="h-full overflow-auto">

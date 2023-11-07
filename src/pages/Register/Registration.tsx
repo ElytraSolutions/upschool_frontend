@@ -27,7 +27,7 @@ export default function Registration() {
         password: '',
         password_confirmation: '',
         country: '',
-        user_type_id: '',
+        user_type_id: 1,
         date_of_birth: '',
         canvaAccount: 'true',
         condition1: false,
@@ -36,7 +36,6 @@ export default function Registration() {
     });
 
     const [searchParams, _setSearchParams] = useSearchParams();
-    searchParams.get('invite');
 
     const components = [
         <Step1
@@ -82,11 +81,11 @@ export default function Registration() {
                     );
                     await refresh();
                     resetForm();
-                    const res = await axiosInstance.post(
-                        '/data/teacher/addStudent',
-                        { teacher_id: searchParams.get('invite') },
-                    );
-                    console.log(res.data);
+                    if (searchParams.get('invite')) {
+                        await axiosInstance.post('/data/teacher/addStudent', {
+                            teacher_id: searchParams.get('invite'),
+                        });
+                    }
                     navigate('/');
                 } catch (error) {
                     const resp = (error as any).response.data;
