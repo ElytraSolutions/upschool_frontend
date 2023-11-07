@@ -6,14 +6,17 @@ import { BillingDetails } from '../../../parts/UserDashboard/Forms/BiilingDetail
 import { ChangePassword } from '../../../parts/UserDashboard/Forms/ChangePassword';
 import StudentList from '../../../parts/UserDashboard/StudentList/StudentList';
 import resolveImgURL from '../../../utlis/resolveImgURL';
+import useUser from '../../../hooks/useUser';
 
 function Setting() {
     // TODO logic to determine whether user is (Teacher/Student/Parent)
-    const userType: string = 'Teacher';
+    const { user } = useUser();
+    // console.log(user);
+    const userType: string = user?.type.name as string;
     const iconBadge =
-        userType === 'Teacher'
+        userType === 'School Teacher'
             ? resolveImgURL('/images/Dashboard/TeacherIcon.png')
-            : userType === 'Parent'
+            : userType === 'Parent of Student'
             ? resolveImgURL('/images/Dashboard/ParentIcon.png')
             : resolveImgURL('/images/Dashboard/StudentIcon.png');
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
@@ -28,7 +31,7 @@ function Setting() {
                         />
 
                         {/* displays only if account/user is  'Teacher' */}
-                        {userType === 'Teacher' && (
+                        {userType === 'School Teacher' && (
                             <>
                                 <SettingBoardBox
                                     icon={resolveImgURL(
@@ -70,7 +73,7 @@ function Setting() {
                         </div>
                         {/* displays only if account/user is  'Teacher' */}
                         {/*Students */}
-                        {userType === 'Teacher' && (
+                        {userType === 'School Teacher' && (
                             <div className="flex flex-col w-fit gap-2 ">
                                 <div
                                     className={`${
@@ -107,7 +110,7 @@ function Setting() {
                         )}
                         {/* displays only if account/user is  'Teacher' */}
                         {/* Students section */}
-                        {userType === 'Teacher' &&
+                        {userType === 'School Teacher' &&
                             selectedOption === 'Students' && (
                                 <div className=" ">
                                     {/* TODO fetch Students data from backend and use it inside this componet */}
