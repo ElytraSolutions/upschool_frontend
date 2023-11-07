@@ -43,12 +43,15 @@ const Faq = ({ question, answer, isTerm }) => {
                                 : 'hidden opacity-0 '
                         } transition-opacity ease-in-out delay-100 duration-200`}
                     >
-                        <p
-                            className={`text-base leading-7 font-normal text-font-color
+                        {answer.map((ans, i) => (
+                            <p
+                                key={i}
+                                className={`text-base leading-7 font-normal text-font-color mb-4
                              transition-opacity  duration-75`}
-                        >
-                            {answer}
-                        </p>
+                            >
+                                {ans}
+                            </p>
+                        ))}
                     </div>
                 </div>
                 <div className="h-0 w-full border border-gray-300 "></div>

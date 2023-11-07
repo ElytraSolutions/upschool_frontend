@@ -1,7 +1,13 @@
 import NotFoundImage from '../../../public/images/404-Flat-Illustration.png';
 import { LiaHomeSolid } from 'react-icons/lia';
+import { useNavigate } from 'react-router-dom';
 
 const NotFound = () => {
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/');
+    };
     return (
         <div className="flex flex-col sm:flex-row  max-w-[70rem] ml-auto mr-auto items-center justify-center py-20 px-10">
             <div className="text">
@@ -14,7 +20,10 @@ const NotFound = () => {
                 <h1 className="text-[1rem] font-light text-lexend py-4">
                     It's ok though, your tour guide is here to take you home!
                 </h1>
-                <div className="bg-[#38D0D0] text-white w-fit py-2 pl-3 pr-4 flex items-center rounded-sm transition-all cursor-pointer group hover:text-font-color">
+                <div
+                    onClick={handleButtonClick}
+                    className="bg-[#38D0D0] text-white w-fit py-2 pl-3 pr-4 flex items-center rounded-sm transition-all cursor-pointer group hover:text-font-color"
+                >
                     <div className="icon text-white mr-2 text-[1.2rem] group-hover:text-font-color transition-all">
                         <LiaHomeSolid />
                     </div>

@@ -131,37 +131,51 @@ const goals = [
 const faqs = [
     {
         question: 'How do I know if my submission has been published?',
-        answer: 'The best way is to keep an eye on our various channels, as listed above in the ‘Where do the submissions get published?’ question.',
+        answer: [
+            'The best way is to keep an eye on our various channels, as listed above in the ‘Where do the submissions get published?’ question.',
+        ],
         isTerm: false,
     },
     {
         question: 'What information do you publish?',
-        answer: 'Your personal information is safe with us. We do not sell, rent, or lease your personal information to any third party individual, government agency, or company at any time unless compelled to do so by law.',
+        answer: [
+            'Your personal information is safe with us. We do not sell, rent, or lease your personal information to any third party individual, government agency, or company at any time unless compelled to do so by law.',
+        ],
         isTerm: false,
     },
     {
         question: 'Will my submission be published exactly as I wrote it?',
-        answer: 'We will try our best – but if we need to cut it down a little bit or fix any spelling and grammar issues, we reserve the right to do so. ',
+        answer: [
+            'We will try our best – but if we need to cut it down a little bit or fix any spelling and grammar issues, we reserve the right to do so. ',
+        ],
         isTerm: false,
     },
     {
         question: 'Who can submit a response?',
-        answer: 'We are happy to take submissions from anyone!',
+        answer: ['We are happy to take submissions from anyone!'],
         isTerm: false,
     },
     {
         question: 'Children - please read this.',
-        answer: 'If you are under 18 years of age, you must have the permission of your classroom teacher, a parent or guardian to submit a “Dear World…” post.',
+        answer: [
+            'If you are under 18 years of age, you must have the permission of your classroom teacher, a parent or guardian to submit a “Dear World…” post.',
+        ],
         isTerm: false,
     },
     {
         question: 'Terms & Conditions (ADULTS)',
-        answer: 'Submissions are published (and not limited to) social media, our website, partner websites, print publications, product packaging and more. If we use the words you submit on any products, you understand you cannot make any royalty claims for the use of these words. By entering your submission, you declare that the words are your own words and are not copied from another source.We may publish your full name if you tell us you are a teacher, parent or member of the community. If you are a student, only your first name will be published. If you enter your country, state, city, school name or school class, we may publish that too.',
+        answer: [
+            'Submissions are published (and not limited to) social media, our website, partner websites, print publications, product packaging and more. If we use the words you submit on any products, you understand you cannot make any royalty claims for the use of these words. By entering your submission, you declare that the words are your own words and are not copied from another source. ',
+            'We may publish your full name if you tell us you are a teacher, parent or member of the community. If you are a student, only your first name will be published. If you enter your country, state, city, school name or school class, we may publish that too.',
+            ' Terms and conditions can only be approved by adults (over 18 years). Students must have the permission of a parent, teacher or guardian to submit a response. ',
+        ],
         isTerm: true,
     },
     {
         question: 'Terms & Conditions (CHILDREN)',
-        answer: 'Children, you are not permitted to submit a response without the permission of a parent, teacher or guardian. Please speak to one of these people prior to submitting your response. ',
+        answer: [
+            'Children, you are not permitted to submit a response without the permission of a parent, teacher or guardian. Please speak to one of these people prior to submitting your response. ',
+        ],
         isTerm: true,
     },
 ];
