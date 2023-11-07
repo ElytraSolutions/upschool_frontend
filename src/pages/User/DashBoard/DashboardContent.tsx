@@ -65,99 +65,120 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
     return (
         <>
             <div className="h-full overflow-auto">
-                <div className="flex flex-col gap-8 w-full text-theme-color">
-                    {/* First row : Enrolled, Active and Completed courses and Books uploaded by User */}
-                    <div className="flex flex-col xs:grid xs:grid-cols-2 sm:flex sm:flex-row w-full gap-3 justify-start">
-                        {/* TODO fetch number for each BoardBox as of particular User from backend */}
-                        <BoardBox
-                            icon={resolveImgURL(
-                                '/images/Dashboard/Enrolled.png',
-                            )}
-                            text="Enrolled Courses"
-                            number={userCourseData?.enrolled?.length || 0}
-                        />
-                        {/* <BoardBox
+                <div className="p-2 md:py-4 md:px-4 xlarge:px-6 xxlarge:px-8 w-full">
+                    <div className="flex flex-col gap-8 w-full text-theme-color ">
+                        {/* First row : Enrolled, Active and Completed courses and Books uploaded by User */}
+                        <div className="flex flex-col xs:grid xs:grid-cols-2 sm:flex sm:flex-row w-full gap-3 justify-start">
+                            {/* TODO fetch number for each BoardBox as of particular User from backend */}
+                            <BoardBox
+                                icon={resolveImgURL(
+                                    '/images/Dashboard/Enrolled.png',
+                                )}
+                                text="Enrolled Courses"
+                                number={userCourseData?.enrolled?.length || 0}
+                            />
+                            {/* <BoardBox
                             icon={resolveImgURL('/images/Dashboard/Active.png')}
                             text="Active Courses"
                             number={userCourseData?.enrolled?.length || 0}
                         /> */}
-                        <BoardBox
-                            icon={resolveImgURL(
-                                '/images/Dashboard/Completed.png',
-                            )}
-                            text="Completed Courses"
-                            number={userCourseData?.completed?.length || 0}
-                        />
-                        <BoardBox
-                            icon={resolveImgURL('/images/Dashboard/Book.png')}
-                            text="Books Uploaded"
-                            number={7}
-                        />
-                    </div>
-                    {/* Second row : Active courses section */}
-                    <div className="flex flex-col items-start w-full gap-3">
-                        <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
-                            Continue Learning
-                        </h1>
-                        {isSmallScreen ? (
-                            <div className="flex flex-col items-center gap-3">
-                                <CourseBox
-                                    key={courses[0].id}
-                                    detail={courses[0]}
-                                />
-                                <CourseBox
-                                    key={courses[1].id}
-                                    detail={courses[1]}
-                                />
-                            </div>
-                        ) : (
-                            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
-                                {courses.map((course, index) => (
-                                    <CourseBox key={index} detail={course} />
-                                ))}
-                            </div>
-                        )}
-
-                        <div
-                            className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer "
-                            onClick={() => {
-                                handleOptionClick('My Courses');
-                            }}
-                        >
-                            See more {'>>'}
+                            <BoardBox
+                                icon={resolveImgURL(
+                                    '/images/Dashboard/Completed.png',
+                                )}
+                                text="Completed Courses"
+                                number={userCourseData?.completed?.length || 0}
+                            />
+                            <BoardBox
+                                icon={resolveImgURL(
+                                    '/images/Dashboard/Book.png',
+                                )}
+                                text="Books Uploaded"
+                                number={7}
+                            />
                         </div>
-                    </div>
+                        {/* Second row : Active courses section */}
+                        <div className="flex flex-col items-start w-full gap-3">
+                            <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
+                                Continue Learning
+                            </h1>
+                            {isSmallScreen ? (
+                                <div className="flex flex-col items-center gap-3">
+                                    <CourseBox
+                                        key={courses[0].id}
+                                        detail={courses[0]}
+                                    />
+                                    <CourseBox
+                                        key={courses[1].id}
+                                        detail={courses[1]}
+                                    />
+                                </div>
+                            ) : (
+                                <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
+                                    {courses.map((course, index) => (
+                                        <CourseBox
+                                            key={index}
+                                            detail={course}
+                                        />
+                                    ))}
+                                </div>
+                            )}
 
-                    {/* Third row : Books uploaded by user */}
-                    <div className="flex flex-col items-start w-full gap-3">
-                        <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
-                            Your Books
-                        </h1>
-                        {isSmallScreen ? (
-                            <div className="flex flex-col items-center gap-3">
-                                <BookBox
-                                    key={courses[0].id}
-                                    detail={courses[0]}
-                                />
-                                <BookBox
-                                    key={courses[1].id}
-                                    detail={courses[1]}
-                                />
+                            <div
+                                className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer "
+                                onClick={() => {
+                                    handleOptionClick('My Courses');
+                                }}
+                            >
+                                See more {'>>'}
                             </div>
-                        ) : (
-                            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
-                                {courses.map((course, index) => (
-                                    <BookBox key={index} detail={course} />
-                                ))}
+                        </div>
+
+                        {/* Third row : Books uploaded by user */}
+                        <div className="flex flex-col items-start w-full gap-3">
+                            <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
+                                Your Books
+                            </h1>
+                            {isSmallScreen ? (
+                                <div className="flex flex-col items-center gap-3">
+                                    <BookBox
+                                        key={courses[0].id}
+                                        detail={courses[0]}
+                                    />
+                                    <BookBox
+                                        key={courses[1].id}
+                                        detail={courses[1]}
+                                    />
+                                </div>
+                            ) : (
+                                <>
+                                    <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
+                                        {courses.map((course, index) => (
+                                            <BookBox
+                                                key={index}
+                                                detail={course}
+                                            />
+                                        ))}
+                                    </div>
+                                    {/* TODO Remove the block */}
+                                    <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
+                                        {courses.map((course, index) => (
+                                            <BookBox
+                                                key={index}
+                                                detail={course}
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                            <div
+                                className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer"
+                                onClick={() => {
+                                    handleOptionClick('My Books');
+                                }}
+                            >
+                                See more {'>>'}
                             </div>
-                        )}
-                        <div
-                            className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer"
-                            onClick={() => {
-                                handleOptionClick('My Books');
-                            }}
-                        >
-                            See more {'>>'}
                         </div>
                     </div>
                 </div>

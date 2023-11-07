@@ -16,11 +16,11 @@ type HeaderSectionProps = {
 const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
     return (
         <>
-            <div className=" flex justify-center h-full w-full p-2 xs:p-4">
-                <div className="flex flex-col md:flex-row md:justify-center gap-5 h-full max-w-[1140px] ">
-                    <div className="flex flex-col gap-7 text-font-color text-sm md:text-base md:w-8/12">
+            <div className=" flex justify-center bg-zinc-100 h-full w-full p-2 xs:p-4">
+                <div className="flex flex-col md:flex-row md:justify-center gap-5 h-full max-w-[71.25rem]  xlarge:max-w-[76rem] xxlarge:max-w-[84rem]">
+                    <div className="flex flex-col gap-7 text-font-color text-sm md:text-base xlarge:text-lg xxlarge:text-xl md:w-8/12">
                         {/* Title of Challenge */}
-                        <p className="pt-4 text-3xl md:text-4xl font-medium font-lexend">
+                        <p className="pt-4 text-3xl md:text-4xl xlarge:text-5xl font-medium font-lexend">
                             {details.title}
                         </p>
                         {/* Other Details of Challenge */}
@@ -28,7 +28,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
                             {details.headSection.map((detail, index) => (
                                 <React.Fragment key={index}>
                                     <div className="flex flex-col xs:flex-row gap-1 xs:items-center">
-                                        <p className="text-base font-bold">
+                                        <p className="text-base xlarge:text-lg xxlarge:text-xl font-bold">
                                             {detail.title}
                                         </p>
                                         <p className="">{detail.content}</p>
@@ -38,15 +38,15 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
                         </div>
                         {/* Brief Description of Challenge */}
                         <div className="flex flex-col gap-3">
-                            <p className="text-base font-bold">
+                            <p className="text-base xlarge:text-lg xxlarge:text-xl font-bold">
                                 {details.description.title}
                             </p>
                             <p>{details.description.content[0]}</p>
                             <p>{details.description.content[1]}</p>
                         </div>
                         {/* SDGs icons */}
-                        <div className="flex flex-col gap-3">
-                            <p className="text-base font-bold">
+                        <div className="flex flex-col gap-4">
+                            <p className="text-base xlarge:text-lg xxlarge:text-xl font-bold">
                                 {details.sdgs.title}
                             </p>
                             {/* icons */}
@@ -65,7 +65,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
                         </div>
                     </div>
                     <div className="relative flex justify-center md:w-4/12">
-                        <div className=" md:absolute flex flex-col items-center gap-2  md:-top-32">
+                        <div className=" md:absolute flex flex-col items-center gap-3  bg-zinc-100 md:-top-32">
                             <img
                                 src={resolveImgURL(
                                     'images/Challenges/WriteALetterAndChangeTheWorld.png',
@@ -75,10 +75,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ details }) => {
                                 height="350"
                                 className="md:w-[340px] md:h-[200px]"
                             />
-                            <NavLink
-                                to="/challenges"
-                                className="bg-white px-2 w-fit"
-                            >
+                            <NavLink to="/challenges" className=" px-2 w-fit">
                                 <button
                                     type="button"
                                     className="  bg-red-upschool text-white text-sm text-center hover:cursor-pointer w-full p-3 my-1"

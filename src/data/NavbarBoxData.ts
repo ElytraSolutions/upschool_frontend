@@ -211,8 +211,6 @@
 //     },
 // ];
 
-import resolveImgURL from '../utlis/resolveImgURL';
-
 const data = [
     {
         id: 1,
@@ -546,22 +544,26 @@ const userData = {
         {
             title: 'Dashboard',
             path: '/dashboard',
-            image: resolveImgURL('/images/NavbarProfile/dashboard.png'),
+            iconClass: 'fa fa-tachometer fa-lg',
+            //resolveImgURL('/images/NavbarProfile/dashboard.png'),
         },
         {
             title: 'My Profile',
             path: '/dashboard',
-            image: resolveImgURL('/images/NavbarProfile/administrator.png'),
+            iconClass: ' fa fa-user fa-lg',
+            //resolveImgURL('/images/NavbarProfile/administrator.png'),
         },
         {
             title: 'Enrolled Courses',
             path: '/dashboard',
-            image: resolveImgURL('/images/NavbarProfile/graduated.png'),
+            iconClass: 'fa fa-graduation-cap fa-lg',
+            //resolveImgURL('/images/NavbarProfile/graduated.png'),
         },
         {
             title: 'Logout',
             path: '/logout',
-            image: resolveImgURL('/images/NavbarProfile/log-out.png'),
+            iconClass: 'fa fa-sign-out fa-lg',
+            //resolveImgURL('/images/NavbarProfile/log-out.png'),
         },
     ],
 };

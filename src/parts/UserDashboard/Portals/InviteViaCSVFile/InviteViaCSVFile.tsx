@@ -2,6 +2,7 @@ import { useState } from 'react';
 import UploadFile from './UploadFile';
 import FileUploadProcess from './FileUploadProcess';
 import ImportProcess from './ImportProcess';
+import axiosInstance from '../../../../config/Axios';
 
 const InviteViaCSVFile = () => {
     const [currentData, setCurrentData] = useState<Record<string, any>>({
@@ -24,7 +25,19 @@ const InviteViaCSVFile = () => {
         <FileUploadProcess
             values={currentData}
             // TODO implement necessary logic for importing informaiton from uploaded data
-            ImportFile={() => {
+            ImportFile={async () => {
+                const formData = new FormData();
+                formData.append('file', currentData.file);
+                const resp = await axiosInstance.post(
+                    'data/bulkRegistrations',
+                    formData,
+                    {
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                        },
+                    },
+                );
+                console.log(resp);
                 setSelectComponent(2);
             }}
         />,

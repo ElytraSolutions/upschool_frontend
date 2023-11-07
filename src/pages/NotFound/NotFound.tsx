@@ -1,4 +1,4 @@
-import NotFoundImage from '../../../public/images/404-Flat-Illustration.png';
+import NotFoundImage from '/images/404-Flat-Illustration.png';
 import { LiaHomeSolid } from 'react-icons/lia';
 import { useNavigate } from 'react-router-dom';
 

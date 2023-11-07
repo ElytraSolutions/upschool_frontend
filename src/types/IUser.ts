@@ -4,4 +4,10 @@ export interface IUser {
     avatar: string;
     first_name: string;
     last_name: string;
+    type: {
+        id: number;
+        name: string;
+        created_at: string;
+        updated_at: string;
+    };
 }

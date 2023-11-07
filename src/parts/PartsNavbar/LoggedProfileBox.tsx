@@ -6,7 +6,7 @@ import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 type ChildObject = {
     title: string;
     path: string;
-    image: string;
+    iconClass: string;
     children?: ChildObject[];
 };
 
@@ -23,7 +23,7 @@ type BoxProps = {
 const LoggedProfileBox: React.FC<BoxProps> = ({ inf, name }) => {
     // determines if the option is cilcked or not
     const [isClicked, setIsClicked] = React.useState(false);
-    const { isBigScreen } = useScreenWidthAndHeight(); //min-width=1200px
+    const { isTabScreen } = useScreenWidthAndHeight();
     return (
         <>
             <div className="font-light w-fit text-font-color">
@@ -31,7 +31,7 @@ const LoggedProfileBox: React.FC<BoxProps> = ({ inf, name }) => {
                     className=" py-1 text-white  flex items-center"
                     onClick={() => setIsClicked((oldState) => !oldState)}
                 >
-                    {isBigScreen ? (
+                    {isTabScreen ? (
                         <span className="p-1">
                             <ProfileIcon />
                         </span>
@@ -53,12 +53,12 @@ const LoggedProfileBox: React.FC<BoxProps> = ({ inf, name }) => {
                         </span>
                     )}
 
-                    {isBigScreen && (
+                    {isTabScreen && (
                         <>
                             {name && (
                                 <span className="pr-1  text-sm ">
                                     <NavLink to={inf.path ? inf.path : '#'}>
-                                        {name}
+                                        <p className="truncate">{name}</p>
                                     </NavLink>
                                 </span>
                             )}
@@ -90,14 +90,11 @@ const LoggedProfileBox: React.FC<BoxProps> = ({ inf, name }) => {
                             >
                                 <NavLink to={detail.path ? detail.path : '#'}>
                                     <div className="flex flex-row gap-2 items-center p-1 sm:p-2 sm:pr-4 md:pl-6 md:pr-12 md:py-3 ">
-                                        <div>
-                                            <img
-                                                className="h-3 w-3 sm:h-5 sm:w-5"
-                                                src={detail.image}
-                                                height="30"
-                                                width="30"
-                                                alt={detail.title}
-                                            />
+                                        <div className=" flex justify-center items-center h-6 w-6">
+                                            <i
+                                                className={detail.iconClass}
+                                                aria-hidden="true"
+                                            ></i>
                                         </div>
 
                                         <p className="">{detail.title}</p>

@@ -45,7 +45,7 @@ function MyBooks() {
     const [selectedOption, setSelectedOption] = useState<string>('All Books');
     return (
         <div className="h-full overflow-auto">
-            <div className="sm:p-4 w-full">
+            <div className="p-2 md:py-4 md:px-4 xlarge:px-6 xxlarge:px-8 w-full">
                 <div className="flex flex-col gap-10 w-full">
                     <div className="grid grid-cols-3 justify-items-center xs:flex xs:flex-row xs:justify-center md:justify-start text-sm sm:text-base lg:text-lg w-full gap-0 xs:gap-2  sm:gap-4">
                         {/* All Books option */}

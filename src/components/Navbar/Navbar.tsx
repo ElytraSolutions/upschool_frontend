@@ -17,7 +17,7 @@ export default function Navbar() {
     };
     const [isOpen, setIsopen] = useState(false);
     const { user, refresh } = useUser();
-    const { isBigScreen } = useScreenWidthAndHeight(); //min-width=1200px
+    const { isTabScreen } = useScreenWidthAndHeight(); //min-width=1200px
 
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -45,7 +45,7 @@ export default function Navbar() {
 
     return (
         <>
-            {!isBigScreen &&
+            {!isTabScreen &&
                 isOpen &&
                 createPortal(
                     <MobileMenu
@@ -64,11 +64,9 @@ export default function Navbar() {
                     isScrolled ? 'fixed' : ''
                 } h-fit z-20 w-full bg-theme-color px-1 py-2 md:py-3 md:px-2  flex flex-1 items-center `}
             >
-                <div className="flex flex-1 gap-2 md:gap-3 items-center lg:gap-10 justify-between w-full">
+                <div className="flex flex-1 gap-2 md:gap-3 items-center tab:gap-20 justify-between w-full">
                     <div
-                        className={`flex  ${
-                            isBigScreen ? 'grow-2 shrink' : 'flex-1'
-                        } items-center lg:gap-4 xl:gap-6 2xl:gap-8 `}
+                        className={`flex items-center tab:gap-4 xl:gap-6 2xl:gap-8`}
                     >
                         <div style={styles}>
                             <NavLink to="/">
@@ -82,16 +80,16 @@ export default function Navbar() {
                                 />
                             </NavLink>
                         </div>
-                        {isBigScreen && <ComputerMenu />}
+                        {isTabScreen && <ComputerMenu />}
                     </div>
                     {/* TODO left to maintain CSS properties */}
-                    <div className="flex flex-1  xm:gap-1 lg:gap-2 2xl:gap-3 justify-end items-center pr-3 z-10">
+                    <div className="flex xm:gap-1 lg:gap-2 2xl:gap-3 justify-end items-center pr-3 z-10">
                         <span className="">
                             <NavLink to="/">
                                 <CartIcon />
                             </NavLink>
                         </span>
-                        {isBigScreen ? (
+                        {isTabScreen ? (
                             <RightCornerBarLS isLoggedIn={isLoggedIn} />
                         ) : (
                             <RightCornerBarSS

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { ProgressBar } from '../../../utlis/ProgressBar/ProgressBar';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 // TODO change type as requrired variables
 type CourseBoxEnrolledProps = {
@@ -23,7 +24,9 @@ export default function CourseBoxEnrolled({ detail }: CourseBoxEnrolledProps) {
                                     src={
                                         detail.image
                                             ? detail.image.length > 0
-                                                ? detail.image
+                                                ? resolveImgURL(
+                                                      `${detail.image}`,
+                                                  )
                                                 : 'https://source.unsplash.com/tloFnD-7EpI'
                                             : 'https://source.unsplash.com/tloFnD-7EpI'
                                     }

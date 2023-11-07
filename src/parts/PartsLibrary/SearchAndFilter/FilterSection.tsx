@@ -86,7 +86,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                                         viewBox="0 0 24 24"
                                                         strokeWidth={1.5}
                                                         stroke="currentColor"
-                                                        className={`w-4 h-4  md:w-6 md:h-6 transition-transform duration-700 ease-in-out ${
+                                                        className={`w-4 h-4  md:w-6 md:h-6 transition-transform duration-500 ease-in-out ${
                                                             showFilterOptions
                                                                 ? ''
                                                                 : 'transform rotate-180'
@@ -103,14 +103,14 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                         </div>
                                         {/* Filter list */}
                                         <div
-                                            className={`transition-all duration-700 ease-in ${
+                                            className={`transition-all duration-500 ease-in ${
                                                 showFilterOptions
                                                     ? 'h-full p-2'
                                                     : 'h-0'
                                             } w-full`}
                                         >
                                             <div
-                                                className={`transition-all duration-700 ease-in ${
+                                                className={`transition-all duration-500 ease-in ${
                                                     showFilterOptions
                                                         ? 'h-32 sm:h-40 md:h-52 '
                                                         : 'h-0'
@@ -120,7 +120,9 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                                     <label
                                                         className={`flex justify-start gap-x-4 items-center ${
                                                             values.categories
-                                                                ?.length === 0
+                                                                ?.length ===
+                                                                0 &&
+                                                            values.allCategory
                                                                 ? 'pointer-events-none'
                                                                 : 'hover:cursor-pointer pointer-events-auto'
                                                         }`}
