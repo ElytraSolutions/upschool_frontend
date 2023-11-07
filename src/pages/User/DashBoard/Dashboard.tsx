@@ -46,7 +46,9 @@ const Dashboard: React.FC<DashboardProps> = () => {
             )}
 
             {/* Content */}
-            <div className=" h-full w-full tab:ml-[20%] tab:w-4/5 bg-[#cecece]/20 p-2 md:p-4 xlarge:p-6 xxlarge:p-8 lg:ml-[17%] lg:w-[83%]">
+            <div className=" h-full w-full tab:ml-[20%] tab:w-4/5 bg-[#cecece]/20  lg:ml-[17%] lg:w-[83%]">
+                {/* p-2 md:px-4 xlarge:px-6 xxlarge:px-8 h-full w-full */}
+
                 {/* Content specific to the selected option */}
                 {selectedOption === 'Dashboard' && (
                     <DashboardContent handleOptionClick={handleOptionClick} />

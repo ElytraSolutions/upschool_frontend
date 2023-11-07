@@ -10,13 +10,11 @@ type NavbarProps = {
 
 function Navbar({ setIsopen }: NavbarProps) {
     const { user } = useUser();
-    const { isTabScreen, isSmallHeight } = useScreenWidthAndHeight();
+    const { isTabScreen } = useScreenWidthAndHeight();
     return (
         <>
             <div
-                className={` fixed z-10 flex items-center justify-between bg-theme-color px-1 py-2 sm:p-4  ${
-                    isSmallHeight ? 'h-[15dvh]' : 'h-[10dvh]'
-                }  w-full  gap-2  h-[3rem] md:max-h-[4rem]`}
+                className={`fixed z-10 flex items-center justify-between gap-2 bg-theme-color px-1 py-2 sm:p-4 w-full h-[3rem] md:h-full md:max-h-[4rem]`}
             >
                 <div className="flex flex-row items-center gap-5 ">
                     <div className=" max-w-xs">
@@ -30,7 +28,6 @@ function Navbar({ setIsopen }: NavbarProps) {
                     </div>
                     {isTabScreen && <ComputerMenu />}
                 </div>
-
                 <div className="flex items-center gap-2 sm:gap-4">
                     <div className="flex justify-center items-center h-8 w-8 sm:w-10 sm:h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
                         <svg //imported from tailwind components templates user
