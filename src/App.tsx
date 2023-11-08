@@ -42,10 +42,10 @@ import Live from './pages/Live/Live';
 import WriteALetterAndChangeTheWorld from './pages/Challenges/WriteALetterAndChangeTheWorld/WriteALetterAndChangeTheWorld';
 import Webinar from './pages/Webinar/Webinar';
 import { ToastContainer } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './pages/NotFound/NotFound';
 import ReportProblem from './pages/ReportProblem/ReportProblem';
+import ProtectRoute from './utlis/ProtectRoute/ProtectRoute';
 
 const router = createBrowserRouter([
     {
@@ -110,7 +110,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'dashboard',
-                element: <Dashboard />,
+                element: (
+                    <ProtectRoute>
+                        <Dashboard />
+                    </ProtectRoute>
+                ),
             },
             {
                 path: 'uploadbook',
