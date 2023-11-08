@@ -12,68 +12,68 @@ type ChapterDetailProps = {
     setIsSidebarOpen: any;
     updateChapters: () => Promise<any>;
 };
-const tempData = [
-    {
-        id: 1,
-        name: 'Chapter 1',
-        type: 'video',
-        media: {
-            youtubeId: 'https://www.youtube.com/embed/2g811Eo7K8U',
-            vimeoId: 'https://player.vimeo.com/video/76979871',
-        },
-        content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.
+// const tempData = [
+//     {
+//         id: 1,
+//         name: 'Chapter 1',
+//         type: 'video',
+//         media: {
+//             youtubeId: 'https://www.youtube.com/embed/2g811Eo7K8U',
+//             vimeoId: 'https://player.vimeo.com/video/76979871',
+//         },
+//         content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.
 
-We will learn about the deep ice sheet that covers the landmass, its isolated location, and the impact it has on the surrounding environment and ecosystem.`,
-        teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.
+// We will learn about the deep ice sheet that covers the landmass, its isolated location, and the impact it has on the surrounding environment and ecosystem.`,
+//         teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.
 
-Hopefully we can all enjoy the journey together and your children may like to conduct further research as they move from place to place.`,
-    },
-    {
-        id: 2,
-        name: 'Chapter 2',
-        type: 'image',
-        media: {
-            image: 'https://source.unsplash.com/random',
-        },
-        content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.`,
-        teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.
+// Hopefully we can all enjoy the journey together and your children may like to conduct further research as they move from place to place.`,
+//     },
+//     {
+//         id: 2,
+//         name: 'Chapter 2',
+//         type: 'image',
+//         media: {
+//             image: 'https://source.unsplash.com/random',
+//         },
+//         content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.`,
+//         teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.
 
-Hopefully we can all enjoy the journey together and your children may like to conduct further research as they move from place to place. `,
-    },
-    {
-        id: 3,
-        name: 'Chapter 3',
-        type: 'flipbook',
-        media: {
-            images: [
-                'https://source.unsplash.com/random',
-                'https://source.unsplash.com/random',
-                'https://source.unsplash.com/random',
-                'https://source.unsplash.com/random',
-                'https://source.unsplash.com/random',
-                'https://source.unsplash.com/random',
-                'https://source.unsplash.com/random',
-            ],
-        },
-        content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.`,
-        teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.`,
-    },
-    {
-        id: 4,
-        name: 'Chapter 4',
-        type: 'carousel',
-        media: {
-            images: [
-                'https://source.unsplash.com/random',
-                'https://source.unsplash.com/random',
-                'https://source.unsplash.com/random',
-                'https://source.unsplash.com/random',
-            ],
-        },
-        content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.`,
-        teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.`,
-    },
-];
+// Hopefully we can all enjoy the journey together and your children may like to conduct further research as they move from place to place. `,
+//     },
+//     {
+//         id: 3,
+//         name: 'Chapter 3',
+//         type: 'flipbook',
+//         media: {
+//             images: [
+//                 'https://source.unsplash.com/random',
+//                 'https://source.unsplash.com/random',
+//                 'https://source.unsplash.com/random',
+//                 'https://source.unsplash.com/random',
+//                 'https://source.unsplash.com/random',
+//                 'https://source.unsplash.com/random',
+//                 'https://source.unsplash.com/random',
+//             ],
+//         },
+//         content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.`,
+//         teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.`,
+//     },
+//     {
+//         id: 4,
+//         name: 'Chapter 4',
+//         type: 'carousel',
+//         media: {
+//             images: [
+//                 'https://source.unsplash.com/random',
+//                 'https://source.unsplash.com/random',
+//                 'https://source.unsplash.com/random',
+//                 'https://source.unsplash.com/random',
+//             ],
+//         },
+//         content: `In this learning sequence, we will delve into the geography of Antarctica and gain a deeper understanding of its unique features and challenges.From exploring its past to understanding its present and envisioning its future, this learning sequence will provide a comprehensive look at the frozen continent at the southernmost point on the planet.`,
+//         teacherNotes: `Each week, we will help the children understand exactly where we are as we encounter the amazing sights and sounds of Antarctica. Your children may like to make a copy of the map and track the journey as we progress through the course.`,
+//     },
+// ];
 export default function LessonDetail({
     isSidebarOpen,
     setIsSidebarOpen,
@@ -83,13 +83,14 @@ export default function LessonDetail({
     const { isBigScreen } = useScreenWidthAndHeight();
 
     // const [lesson, setLesson] = useState<any>(null);
-    const [lesson, setLesson] = useState<any>(tempData);
+    const [lesson, setLesson] = useState<any>(null);
     useEffect(() => {
         (async () => {
             const res = await axiosInstance.get(`/data/lessons/${lessonSlug}`);
             setLesson(res.data.data);
         })();
     }, [lessonSlug, setLesson]);
+    // console.log('lesson', lesson);
 
     // const contentType = 'carousel'; //type of chapter [video,image, flipbook, carousel]
     return (
@@ -154,19 +155,20 @@ export default function LessonDetail({
                     </div>
                     {/* ChapterDetail Chapters Section*/}
                     <div className="flex flex-col">
-                        {tempData.map((chapter) => (
+                        {lesson.lesson_sections.map((section) => (
                             <div
                                 className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black"
-                                key={chapter.id}
+                                key={section.id}
                             >
                                 <ChapterText
-                                    key={chapter.id}
-                                    chapter={chapter}
+                                    key={section.id}
+                                    chapter={section}
                                 />
                                 <div className="">
                                     <ChapterMedia
-                                        contentType={chapter.type}
-                                        chapter={chapter}
+                                        section={
+                                            section.lesson_section_contents
+                                        }
                                     />
                                 </div>
                                 <button className="max-w-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
