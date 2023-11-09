@@ -4,10 +4,15 @@ import SectionShowBooks from '../../parts/PartsLibrary/Sections/SectionAllBooks'
 import SectionBestSellers from '../../parts/PartsLibrary/Sections/SectionBestSellers';
 import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
 import { useSearchParams } from 'react-router-dom';
+import axiosInstance from '../../config/Axios';
 
 const BooksDisplay = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        (async () => {
+            const res = await axiosInstance.post('/data/books/featured');
+            console.log(res.data);
+        })();
     }, []);
     const [searchParams, _setSearchParams] = useSearchParams();
     const selectSection = searchParams.has('section')

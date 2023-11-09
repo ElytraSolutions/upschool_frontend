@@ -10,6 +10,7 @@ import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import { toast } from 'react-toastify';
 
 const LoginSchema = yup.object().shape({
     email: yup
@@ -38,14 +39,18 @@ const Login = () => {
         const csrfResp = await axiosInstance.get('/sanctum/csrf-cookie');
         axiosInstance.defaults.headers['X-XSRF-TOKEN'] =
             csrfResp.data.csrfToken;
-        const resp = await axiosInstance.post('/auth/login', values);
+        try {
+            const resp = await axiosInstance.post('/auth/login', values);
 
-        if (resp.status === 200 && resp.data.status === 'success') {
-            refresh().then(() => {
-                console.log(user);
-                navigate('/');
-            });
-            resetForm();
+            if (resp.status === 200 && resp.data.status === 'success') {
+                refresh().then(() => {
+                    console.log(user);
+                    navigate('/');
+                });
+                resetForm();
+            }
+        } catch (error: any) {
+            toast.error(error.response.data.message);
         }
     };
     const { isLargeScreen } = useScreenWidthAndHeight();
