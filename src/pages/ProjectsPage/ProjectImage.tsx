@@ -6,7 +6,7 @@ const ProjectImage = () => {
             <div>
                 <img
                     src={projectImage}
-                    className="w-[100vw] h-[60vh] object-cover overflow-hidden"
+                    className="w-[100vw] h-[50vh] object-cover overflow-hidden"
                 />
             </div>
         </>

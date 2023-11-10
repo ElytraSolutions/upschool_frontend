@@ -3,15 +3,12 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import HTMLFlipBook from 'react-pageflip';
 import crossmark from '../../assets/CrossMark.png';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
-const ChapterMedia = ({ contentType, chapter }) => {
-    const [videoPlatform, setVideoPlatform] = useState('youtube'); //type of video platform [youtube, vimeo]
-    const [videoUrl, setVideoUrl] = useState(chapter.media.youtubeId); //video url
+const ChapterMedia = ({ section }) => {
+    const [videoPlatform, setVideoPlatform] = useState('Youtube'); //type of video platform [Youtube, Vimeo]
+    const videoURLs = { Youtube: '', Vimeo: '' }; //video url
     const [showPopUp, setShowPopUp] = useState(false); //show pop up when click on image or caurosel
-
-    useEffect(() => {
-        setVideoUrl(chapter.media.youtubeId);
-    }, [chapter]);
 
     //disable scroll
     useEffect(() => {
@@ -19,12 +16,32 @@ const ChapterMedia = ({ contentType, chapter }) => {
         else document.body.style.overflow = 'visible';
     }, [showPopUp]);
 
+    if (!section.length) return null;
+
+    if (section[0].type === 'video' && section[0].name === 'Youtube')
+        videoURLs.Youtube = section[0].video_content;
+    else if (section[0].type === 'video' && section[1].name === 'Youtube')
+        videoURLs.Youtube = section[1].video_content;
+
+    if (section[0].type === 'video' && section[0].name === 'Vimeo')
+        videoURLs.Vimeo = section[0].video_content;
+    else if (section[0].type === 'video' && section[1].name === 'Vimeo')
+        videoURLs.Vimeo = section[1].video_content;
+
+    console.log(section, 'section media');
+    // console.log(contentType, 'contentType');
+
+    let contentType = section[0].type;
+    console.log(contentType, 'contentType');
+    if (contentType === 'image' && section.length > 1) {
+        contentType = 'carousel';
+    }
     return (
         <div className="media-container w-full h-full flex justify-center items-center">
             {contentType === 'image' ? (
                 <img
                     className="w-3/4"
-                    src={chapter.media.image}
+                    src={resolveImgURL(section[0].image_content)}
                     onClick={() => {
                         setShowPopUp(true);
                     }}
@@ -33,17 +50,16 @@ const ChapterMedia = ({ contentType, chapter }) => {
                 <div className="flex flex-col w-full h-full">
                     {/* select buttons */}
                     <div className="flex w-full h-16 ">
-                        {/* youtube */}
+                        {/* Youtube */}
                         <div className="w-1/2 flex flex-col items-center gap-0 ">
                             <div
                                 className={`${
-                                    videoPlatform === 'youtube'
+                                    videoPlatform === 'Youtube'
                                         ? 'bg-red-upschool text-white'
                                         : 'bg-gray-200 text-black hover:bg-slate-400 hover:text-white'
                                 } w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
                                 onClick={() => {
-                                    setVideoPlatform('youtube');
-                                    setVideoUrl(chapter.media.youtubeId);
+                                    setVideoPlatform('Youtube');
                                 }}
                             >
                                 <svg
@@ -51,7 +67,7 @@ const ChapterMedia = ({ contentType, chapter }) => {
                                     height="18"
                                     viewBox="0 0 25 18"
                                     className={`${
-                                        videoPlatform === 'youtube'
+                                        videoPlatform === 'Youtube'
                                             ? 'fill-current text-white'
                                             : 'fill-current text-black'
                                     } hover:fill-white `}
@@ -63,23 +79,22 @@ const ChapterMedia = ({ contentType, chapter }) => {
                             </div>
                             <div
                                 className={`${
-                                    videoPlatform === 'youtube'
+                                    videoPlatform === 'Youtube'
                                         ? 'block'
                                         : 'hidden'
                                 } w-0 h-0 border-r-8 border-l-8 border-t-8 border-r-transparent border-l-transparent border-red-upschool`}
                             ></div>
                         </div>
-                        {/* vimeo */}
+                        {/* Vimeo */}
                         <div className="w-1/2 flex flex-col items-center gap-0">
                             <div
                                 className={`${
-                                    videoPlatform === 'vimeo'
+                                    videoPlatform === 'Vimeo'
                                         ? 'bg-red-upschool text-white'
                                         : 'bg-gray-200 text-black hover:bg-slate-400 hover:text-white'
                                 } w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
                                 onClick={() => {
-                                    setVideoPlatform('vimeo');
-                                    setVideoUrl(chapter.media.vimeoId);
+                                    setVideoPlatform('Vimeo');
                                 }}
                             >
                                 <svg
@@ -87,7 +102,7 @@ const ChapterMedia = ({ contentType, chapter }) => {
                                     height="25"
                                     viewBox="0 0 25 25"
                                     className={`${
-                                        videoPlatform === 'vimeo'
+                                        videoPlatform === 'Vimeo'
                                             ? 'fill-current text-white'
                                             : 'fill-current text-black'
                                     } hover:fill-white `}
@@ -99,7 +114,7 @@ const ChapterMedia = ({ contentType, chapter }) => {
                             </div>
                             <div
                                 className={`${
-                                    videoPlatform === 'vimeo'
+                                    videoPlatform === 'Vimeo'
                                         ? 'block'
                                         : 'hidden'
                                 } w-0 h-0 border-r-8 border-l-8 border-t-8 border-r-transparent border-l-transparent border-red-upschool`}
@@ -111,7 +126,7 @@ const ChapterMedia = ({ contentType, chapter }) => {
                     <div className="w-full h-[50vh]">
                         <iframe
                             className="w-full h-full"
-                            src={videoUrl}
+                            src={videoURLs[videoPlatform]}
                             title="YouTube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         ></iframe>
@@ -147,15 +162,14 @@ const ChapterMedia = ({ contentType, chapter }) => {
                         onChangeState={() => {}}
                         className="demo-book"
                     >
-                        {chapter.media.images.map((image) => (
+                        {/* {section.media.images.map((image) => (
                             <div className="h-full w-full overflow-hidden">
-                                {/* <h1>page {index + 1}</h1> */}
                                 <img
                                     src={image}
                                     className="object-cover h-full w-full "
                                 />
                             </div>
-                        ))}
+                        ))} */}
                     </HTMLFlipBook>
                 </div>
             ) : contentType === 'carousel' ? (
@@ -167,14 +181,17 @@ const ChapterMedia = ({ contentType, chapter }) => {
                         showStatus={false}
                         emulateTouch={true}
                     >
-                        {chapter.media.images.map((image) => (
+                        {section.map((image) => (
                             <div
                                 className="h-max-[30vh]"
                                 onClick={() => {
                                     setShowPopUp(true);
                                 }}
                             >
-                                <img src={image} alt="cau" />
+                                <img
+                                    src={resolveImgURL(image.image_content)}
+                                    alt="cau"
+                                />
                             </div>
                         ))}
                     </Carousel>
@@ -182,6 +199,7 @@ const ChapterMedia = ({ contentType, chapter }) => {
             ) : (
                 <div>error</div>
             )}
+
             <div
                 className={`${
                     showPopUp ? 'block' : 'hidden'
@@ -199,14 +217,14 @@ const ChapterMedia = ({ contentType, chapter }) => {
                     >
                         {contentType === 'image' ? (
                             <img
-                                src={chapter.media.image}
+                                src={resolveImgURL(section[0].image_content)}
                                 className="object-contain max-h-[80vh]"
                             />
                         ) : contentType === 'carousel' ? (
-                            chapter.media.images.map((image) => (
+                            section.map((image) => (
                                 <div className="h-full">
                                     <img
-                                        src={image}
+                                        src={resolveImgURL(image.image_content)}
                                         alt="cau"
                                         className="object-contain max-h-[80vh]"
                                     />

@@ -8,7 +8,7 @@ const AboutCharity = ({ charityData }) => {
                 <div className="w-10/12 mx-auto flex flex-col items-center">
                     <img
                         src={charityLogo}
-                        className="w-3/5 md:w-full mt-5 md:mt-[-140px]"
+                        className="w-[40%] md:w-[60%] mt-5 md:mt-[-140px]"
                     />
                     <button className="mt-5 w-full bg-theme-color text-gray-100 py-2">
                         View All Projects

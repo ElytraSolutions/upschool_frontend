@@ -40,7 +40,7 @@ const ChapterText = ({ chapter }) => {
                             } transition-opacity ease-in-out delay-100 duration-200`}
                         >
                             <p className="text-base leading-7 font-normal text-red-400 transition-opacity  duration-75 ">
-                                {chapter.teacherNotes}
+                                {chapter.teachers_note}
                             </p>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ const ChapterText = ({ chapter }) => {
 
                 {/* Chapter description */}
                 <div className="text-base leading-7 text-theme-color">
-                    {chapter.content}
+                    {chapter.text}
                 </div>
                 {/* <button className="max-w-fit bg-red-custom text-white px-3 py-1 text-center">
                     Download

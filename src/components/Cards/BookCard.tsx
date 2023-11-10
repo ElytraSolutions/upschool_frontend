@@ -1,15 +1,20 @@
 import React from 'react';
 // import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import { useNavigate } from 'react-router-dom';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 type BookCardProps = {
     book: {
         id: number;
-        image: string;
-        writer: string;
+        thumbnail: string;
+        slug: string;
+        first_name: string;
         title: string;
         country: string;
-        categories: string[];
+        categories: {
+            name: string;
+            id: number;
+        }[];
     };
 };
 
@@ -17,16 +22,8 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
     // const { isTabWidth } = useScreenWidthAndHeight();
     const navigate = useNavigate();
 
-    const convertToSlug = (title: string) => {
-        const words = title.toLowerCase().split(' ');
-        const slugTitle = words.join('-');
-
-        return slugTitle;
-    };
-
     const handleButtonClick = () => {
-        const slugTitle = convertToSlug(book.title);
-        navigate(`/library/${slugTitle}`, { state: book });
+        navigate(`/library/${book.slug}`, { state: book });
     };
 
     return (
@@ -36,14 +33,16 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                     {/* TODO imgage dimesion needs to be determined  */}
                     <img
                         className="rounded-t-lg h-60 xm:h-32 sm:h-44"
-                        src={book.image}
+                        src={resolveImgURL(book.thumbnail || 'book')}
                         alt="book"
                         loading="lazy"
                         width="720"
                         height="405"
                     />
                     <div className="flex flex-col gap-1 px-4 py-2 sm:p-4  h-fit w-fit">
-                        <p className="font-bold font-lexend">{book.writer}</p>
+                        <p className="font-bold font-lexend">
+                            {book.first_name}
+                        </p>
                         <div className="flex flex-row items-center  bg-theme-color py-1  px-3 rounded-xl w-fit h-full ">
                             <p className=" text-white font-light text-center text-sm ">
                                 {book.country}
@@ -58,7 +57,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                                 Values this book explores:{' '}
                                 {book.categories.map((category, index) => (
                                     <span key={index} className="font-normal">
-                                        {category}{' '}
+                                        {category.name}{' '}
                                         {index < book.categories.length - 1 &&
                                             ','}
                                     </span>
