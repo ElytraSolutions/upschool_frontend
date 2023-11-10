@@ -7,6 +7,7 @@ type SidebarProps = {
     chapters: IChapter[] | null;
 };
 export default function Sidebar({ courseSlug, chapters }: SidebarProps) {
+    // console.log('Sidebar', chapters);
     return (
         <>
             <div className="flex flex-row justify-center items-center bg-[#b81342] w-full">

@@ -8,11 +8,15 @@ type SectionProps = {
     topic: string;
     books: {
         id: number;
-        image: string;
-        writer: string;
+        thumbnail: string;
+        slug: string;
+        first_name: string;
         title: string;
         country: string;
-        categories: string[];
+        categories: {
+            name: string;
+            id: number;
+        }[];
     }[];
 };
 const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
