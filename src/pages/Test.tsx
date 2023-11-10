@@ -9,6 +9,7 @@ import BulkImageSection from '../parts/PartsBulkRegistration/BulkImageSection';
 // import CanvaPage from './Canva/CanvaPage';
 
 function Test() {
+    // test string123
     // const [data, setData] = useState(null);
     // const { user } = useUser();
     // useEffect(() => {
