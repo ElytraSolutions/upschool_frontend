@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { BestSellers, FeaturedBooks, books } from '../../data/LibraryBooks';
+import { useEffect, useState } from 'react';
+// import { books } from '../../data/LibraryBooks';
 import SectionShowBooks from '../../parts/PartsLibrary/Sections/SectionAllBooks';
 import SectionBestSellers from '../../parts/PartsLibrary/Sections/SectionBestSellers';
 import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
@@ -7,13 +7,30 @@ import { useSearchParams } from 'react-router-dom';
 import axiosInstance from '../../config/Axios';
 
 const BooksDisplay = () => {
+    const [featuredBook, setFeaturedBook] = useState<any>([]);
+    const [bestSeller, setBestSeller] = useState<any>([]);
+    const [books, setBooks] = useState<any>([]);
     useEffect(() => {
         window.scrollTo(0, 0);
         (async () => {
-            const res = await axiosInstance.post('/data/books/featured');
-            console.log(res.data);
+            const res = await axiosInstance.get('/data/books/featured');
+            // console.log('res.data.data', res.data.data);
+            setFeaturedBook(res.data.data);
+        })();
+        (async () => {
+            const res = await axiosInstance.get('/data/books/best-sellers');
+            console.log('res.data.data', res.data.data);
+            setBestSeller(res.data.data);
+        })();
+        (async () => {
+            const res = await axiosInstance.get('/data/books/list');
+            console.log('res.data.data', res.data.data);
+            setBooks(res.data.data);
         })();
     }, []);
+    useEffect(() => {
+        console.log('featuredBook', featuredBook);
+    }, [featuredBook]);
     const [searchParams, _setSearchParams] = useSearchParams();
     const selectSection = searchParams.has('section')
         ? searchParams.get('section')
@@ -27,27 +44,24 @@ const BooksDisplay = () => {
                         {/* Best Sellers Section */}
                         <SectionBestSellers
                             topic="Best Sellers"
-                            books={BestSellers}
+                            books={bestSeller}
                         />
                         {/* Featured Books Section */}
                         <SectionFeatured
                             topic="Featured Books"
-                            books={FeaturedBooks}
+                            books={featuredBook}
                         />
                         {/* All Books Section */}
                         {/* <SectionShowBooks topic="All Books" books={books} /> */}
                     </div>
                 )}
                 {selectSection === 'Best Sellers' && (
-                    <SectionShowBooks
-                        topic="Best Sellers"
-                        books={BestSellers}
-                    />
+                    <SectionShowBooks topic="Best Sellers" books={bestSeller} />
                 )}
                 {selectSection === 'Featured Books' && (
                     <SectionShowBooks
                         topic="Featured Books"
-                        books={FeaturedBooks}
+                        books={featuredBook}
                     />
                 )}
                 {selectSection === 'Book Bundles' && (
