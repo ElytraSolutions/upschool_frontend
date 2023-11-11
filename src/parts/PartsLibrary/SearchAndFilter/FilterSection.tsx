@@ -1,6 +1,6 @@
 import { Formik, Field } from 'formik';
 import { categories } from '../../../data/UploadBookCategories';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 type FilterSectionProps = {
@@ -12,13 +12,31 @@ const FilterSection: React.FC<FilterSectionProps> = ({
     submitHandler,
     resetHandler,
 }) => {
+    const formikRef = React.useRef<any>();
     const [searchParams, setSearchParams] = useSearchParams();
     // TODO Determine to show filter options or not by default
     const [showFilterOptions, setShowFilterOptions] = useState<boolean>(false);
+    useEffect(() => {
+        formikRef.current?.setFieldValue(
+            'categories',
+            searchParams.has('categories') &&
+                searchParams.get('categories') !== ''
+                ? searchParams.get('categories')?.split(',')
+                : [],
+        );
+        formikRef.current?.setFieldValue(
+            'allCategory',
+            searchParams.has('categories') &&
+                searchParams.get('categories') !== ''
+                ? false
+                : true,
+        );
+    }, [searchParams]);
     return (
         <>
             <div className="w-full">
                 <Formik
+                    innerRef={formikRef}
                     onSubmit={submitHandler}
                     initialValues={{
                         categories:

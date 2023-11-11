@@ -39,6 +39,11 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
             // Cleanup code here if necessary
         };
     }, []);
+    // useEffect(() => {
+    //     console.log('books', books);
+    //     console.log('categories', categories);
+    //     console.log('query', query);
+    // }, [books, categories, query]);
     const slider: HTMLElement | null | undefined =
         document.getElementById('SliderBestSellers');
     const cards: HTMLCollectionOf<HTMLLIElement> | undefined =
