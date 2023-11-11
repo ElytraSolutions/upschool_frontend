@@ -26,7 +26,7 @@ function Test() {
                 {/* {JSON.stringify(data)}
                 <></>
                 {JSON.stringify(user)} */}
-                <BulkEnrolSection />
+                <BulkEnrolSectin />
                 <BulkExpect />
             </div>
         </div>
