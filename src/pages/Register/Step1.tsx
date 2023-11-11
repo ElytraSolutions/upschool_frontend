@@ -8,16 +8,16 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const registerSchema = yup.object().shape({
     first_name: yup
         .string()
-        .required('required')
+        .required('Required')
         .max(255, 'Characters too long'),
     last_name: yup
         .string()
-        .required('required')
+        .required('Required')
         .max(255, 'Characters too long'),
     email: yup
         .string()
-        .email('invalid email')
-        .required('required')
+        .email('Invalid email')
+        .required('Required')
         .max(255, 'Characters too long'),
     password: yup
         .string()
