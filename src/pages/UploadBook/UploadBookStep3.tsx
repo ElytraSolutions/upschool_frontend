@@ -315,7 +315,7 @@ export function UploadBookStep3({
                                     >
                                         Next
                                     </span>
-                                    <span className="hidden  sm:flex sm:items-center pt-1">
+                                    <span className="hidden  sm:flex sm:items-center p-1">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
