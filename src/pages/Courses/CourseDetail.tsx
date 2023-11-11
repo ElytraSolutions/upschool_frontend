@@ -15,6 +15,8 @@ function CourseDetail() {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
+    console.log(slug);
+
     useEffect(() => {
         (async () => {
             const res = await axiosInstance.get(`/data/courses/${slug}`);

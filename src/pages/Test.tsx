@@ -2,11 +2,9 @@
 // import axiosInstance from '../config/Axios';
 // import useUser from '../hooks/useUser';
 // import CharityProjectCard from './Charity/CharityProjectCard';
-
-import BulkEnrolSection from '../parts/PartsBulkRegistration/BulkEnrolSection';
-import BulkExpect from '../parts/PartsBulkRegistration/BulkExpect';
-import BulkImageSection from '../parts/PartsBulkRegistration/BulkImageSection';
 // import CanvaPage from './Canva/CanvaPage';
+import CourseStaticUpschool from '../components/Course/CourseStaticUpschool';
+import CourseEnrol from '../components/Cards/Course/CourseEnrol';
 
 function Test() {
     // test string123
@@ -18,18 +16,14 @@ function Test() {
     //     });
     // }, []);
     return (
-        <div className="grid grid-cols-6 gap-y-10">
-            <div className="row-span-full col-span-full">
-                <BulkImageSection />
+        <>
+            <div className="grid">
+                <div className="flex justify-center">
+                    <CourseEnrol />
+                </div>
+                <CourseStaticUpschool />
             </div>
-            <div className="xm:col-span-4 xm:col-start-2 col-span-full xm:p-0 p-4 grid gap-4">
-                {/* {JSON.stringify(data)}
-                <></>
-                {JSON.stringify(user)} */}
-                <BulkEnrolSection />
-                <BulkExpect />
-            </div>
-        </div>
+        </>
     );
 }
 
