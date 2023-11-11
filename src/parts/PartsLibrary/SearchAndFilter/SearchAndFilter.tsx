@@ -1,7 +1,6 @@
 import InformationSection from './InformationSection';
 import FilterSection from './FilterSection';
 import resolveImgURL from '../../../utlis/resolveImgURL';
-import { useSearchParams } from 'react-router-dom';
 
 type SearchAndFilterProps = {
     searchQuery: string;
@@ -20,9 +19,6 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
     resetForm,
     submitSearchForm,
 }) => {
-    const [searchParams, _setSearchParams] = useSearchParams();
-    // const queries = searchParams.has('query') ? searchParams.get('query') : '';
-    const queries = searchParams.get('query') || '';
     return (
         <>
             <div className=" flex flex-col gap-4 text-theme-color">

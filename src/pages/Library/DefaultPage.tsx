@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import LibraryLargeScreen from './LibraryLargeScreen';
 import LibrarySmallScreen from './LibrarySmallScreen';
@@ -13,6 +13,9 @@ const DefaultPage = () => {
     const [searchQuery, setSearchQuery] = useState<string>(
         searchParams.get('query') || '',
     );
+    useEffect(() => {
+        setSearchQuery(searchParams.get('query') || '');
+    }, [searchParams]);
 
     // handles submit process of search bar only without filter options
     const submitSearchForm = (event: React.FormEvent<HTMLFormElement>) => {
