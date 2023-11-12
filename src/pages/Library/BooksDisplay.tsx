@@ -5,6 +5,7 @@ import SectionBestSellers from '../../parts/PartsLibrary/Sections/SectionBestSel
 import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
 import { useSearchParams } from 'react-router-dom';
 import axiosInstance from '../../config/Axios';
+import FilterTabs from '../../parts/PartsLibrary/FilterTabs';
 
 const BooksDisplay = () => {
     const [featuredBook, setFeaturedBook] = useState<any>([]);
@@ -19,25 +20,35 @@ const BooksDisplay = () => {
         })();
         (async () => {
             const res = await axiosInstance.get('/data/books/best-sellers');
-            console.log('res.data.data', res.data.data);
+            // console.log('res.data.data', res.data.data);
             setBestSeller(res.data.data);
         })();
         (async () => {
             const res = await axiosInstance.get('/data/books/list');
-            console.log('res.data.data', res.data.data);
+            // console.log('res.data.data', res.data.data);
             setBooks(res.data.data);
         })();
     }, []);
-    useEffect(() => {
-        console.log('featuredBook', featuredBook);
-    }, [featuredBook]);
+    // useEffect(() => {
+    //     console.log('featuredBook', featuredBook);
+    // }, [featuredBook]);
     const [searchParams, _setSearchParams] = useSearchParams();
     const selectSection = searchParams.has('section')
         ? searchParams.get('section')
         : 'Home';
+    // const selectCategories = searchParams.has('categories')
+    //     ? searchParams.getAll('categories')
+    //     : [];
+    // const selectQuery = searchParams.has('query')
+    //     ? searchParams.get('query')
+    //     : '';
+    // console.log('selectCategories', selectCategories);
     return (
         <>
             <div className="w-full xm:w-fit tab:w-2/3  xl:w-[75%] 1450:w-2/3 ">
+                {/* Filter Tabs */}
+                <FilterTabs />
+
                 {/* it displays all sections (Best Sellers , Featured Books and Explore ALL Books as deafault condition) */}
                 {selectSection === 'Home' && (
                     <div className="flex flex-col gap-5 tab:gap-12 w-full xm:w-fit">

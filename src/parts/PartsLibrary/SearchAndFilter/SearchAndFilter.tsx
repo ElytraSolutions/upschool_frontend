@@ -30,12 +30,12 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
                         onReset={resetForm}
                         className=" h-12"
                     >
-                        <div className="flex flex-row divide-x divide-theme-color/50 border border-theme-color/50  rounded-md text-sm 2xl:text-base w-full h-11">
+                        <div className="flex flex-row divide-x divide-theme-color/50 border border-theme-color/50 border-x-0  rounded-md  rounded-b-none text-sm 2xl:text-base w-full h-11">
                             <div className=" flex items-center p-2 w-full ">
                                 <input
                                     type="text"
                                     placeholder="search by title, author name or country"
-                                    className=" autofill:bg-white  focus:outline-none  w-full"
+                                    className=" autofill:bg-white  focus:outline-none  w-full border-0"
                                     value={searchQuery}
                                     onChange={(
                                         event: React.ChangeEvent<HTMLInputElement>,
