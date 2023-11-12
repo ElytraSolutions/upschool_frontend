@@ -10,7 +10,7 @@ import Acknowledgement from './pages/Acknowledgement/Acknowledgement';
 import Testimonials from './pages/Testimonials/Testimonials';
 import Courses from './pages/Courses/AllCourses';
 import FAQ from './pages/FAQ/Faq';
-import CourseDetails from './pages/Courses/CourseDetail';
+// import CourseDetails from './pages/Courses/CourseDetail';
 import Login from './pages/Login/Login';
 import Test from './pages/Test';
 import ResetPasswordEmail from './pages/Login/ResetPasswordEmail';
@@ -46,6 +46,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './pages/NotFound/NotFound';
 import ReportProblem from './pages/ReportProblem/ReportProblem';
 import ProtectRoute from './utlis/ProtectRoute/ProtectRoute';
+import CoursePage from './pages/Courses/CoursePage';
 
 const router = createBrowserRouter([
     {
@@ -98,7 +99,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'course/:slug',
-                element: <CourseDetails />,
+                element: <CoursePage />,
             },
             {
                 path: 'course/:courseSlug/:chapterSlug/:lessonSlug',

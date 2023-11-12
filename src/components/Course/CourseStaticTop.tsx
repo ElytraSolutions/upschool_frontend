@@ -2,6 +2,7 @@ import CourseEnrol from '../Cards/Course/CourseEnrol';
 import useUser from '../../hooks/useUser';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Link } from 'react-router-dom';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 function CourseStaticTop() {
     const { user } = useUser();
@@ -13,7 +14,9 @@ function CourseStaticTop() {
                     <div className="relative flex h-[650px]">
                         <div className="w-full h-full relative video overflow-hidden">
                             <img
-                                src="../../images/Course/pokhara_lake.jpg"
+                                src={resolveImgURL(
+                                    './images/Course/pokhara_lake.jpg',
+                                )}
                                 alt="Cover Image"
                                 className="w-full h-[650px] object-cover"
                             />
