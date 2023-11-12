@@ -3,7 +3,7 @@
 // import useUser from '../hooks/useUser';
 // import CharityProjectCard from './Charity/CharityProjectCard';
 
-import BulkEnrolSection from '../parts/PartsBulkRegistration/BulkEnrolSection';
+// import BulkEnrolSection from '../parts/PartsBulkRegistration/BulkEnrolSection';
 import BulkExpect from '../parts/PartsBulkRegistration/BulkExpect';
 import BulkImageSection from '../parts/PartsBulkRegistration/BulkImageSection';
 // import CanvaPage from './Canva/CanvaPage';
