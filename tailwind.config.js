@@ -16,6 +16,8 @@ export default {
                 anton: ["'Anton'", 'sans-serif'],
                 didact: ["'Didact Gothic'", 'sans-serif'],
                 caveat: ['Caveat', 'cursive'],
+                poppins: ['Poppins', 'sans-serif'],
+                nunito: ['Nunito Sans', 'sans-serif'],
                 annieUseYourTelescope: [
                     '"Annie Use Your Telescope"',
                     'cursive',

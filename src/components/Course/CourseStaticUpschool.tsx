@@ -1,7 +1,7 @@
 function CourseStaticUpschool() {
     return (
         <>
-            <div className="grid bg-[#f4f4f4] ">
+            <div className="grid bg-[#f4f4f4] mb-12">
                 <div className="flex justify-center text-[#3c74cf] text-[45px] font-caveat font-bold mb-[20px]">
                     <p>Everything we do at Upschool:</p>
                 </div>
