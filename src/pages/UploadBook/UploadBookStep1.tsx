@@ -8,7 +8,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import resolveImgURL from '../../utlis/resolveImgURL';
 
 const uploadBookSchema = yup.object().shape({
-    file: yup.string().required("You have'nt uploaded the book"),
+    file: yup.string().required('You have not uploaded the book'),
 });
 
 interface IStep1Props {

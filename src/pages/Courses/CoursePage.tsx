@@ -1,14 +1,12 @@
-// import { useEffect } from 'react';
-// import axiosInstance from '../config/Axios';
-// import useUser from '../hooks/useUser';
-// import CharityProjectCard from './Charity/CharityProjectCard';
-// import CanvaPage from './Canva/CanvaPage';
-import CourseStaticUpschool from '../components/Course/CourseStaticUpschool';
-import CourseStaticVideo from '../components/Course/CourseStaticVideo';
-import CourseStaticTop from '../components/Course/CourseStaticTop';
-import CourseEnrol from '../components/Cards/Course/CourseEnrol';
-import CourseStaticBottom from '../components/Course/CourseStaticBottom';
-import CourseTestimonial from '../components/Course/CourseTestimonial';
+import axiosInstance from '../../config/Axios';
+import CourseStaticUpschool from '../../components/Course/CourseStaticUpschool';
+import CourseStaticVideo from '../../components/Course/CourseStaticVideo';
+import CourseStaticTop from '../../components/Course/CourseStaticTop';
+import CourseEnrol from '../../components/Cards/Course/CourseEnrol';
+import CourseStaticBottom from '../../components/Course/CourseStaticBottom';
+import CourseTestimonial from '../../components/Course/CourseTestimonial';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const commQuestions = [
     {
@@ -34,15 +32,16 @@ const commQuestions = [
     },
 ];
 
-function Test() {
-    // test string123
-    // const [data, setData] = useState(null);
-    // const { user } = useUser();
-    // useEffect(() => {
-    //     axiosInstance.get('/data/user').then((resp) => {
-    //         // setData(resp.data);
-    //     });
-    // }, []);
+function CoursePage() {
+    const { slug } = useParams();
+    console.log(slug);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        (async () => {
+            const res = await axiosInstance.get(`/data/courses/`);
+            console.log(res.data.data);
+        })();
+    }, []);
 
     return (
         <>
@@ -60,4 +59,4 @@ function Test() {
     );
 }
 
-export default Test;
+export default CoursePage;

@@ -15,6 +15,9 @@ export default {
                 check: ['"Pixelify Sans"', 'sans-serif'],
                 anton: ["'Anton'", 'sans-serif'],
                 didact: ["'Didact Gothic'", 'sans-serif'],
+                caveat: ['Caveat', 'cursive'],
+                poppins: ['Poppins', 'sans-serif'],
+                nunito: ['Nunito Sans', 'sans-serif'],
                 annieUseYourTelescope: [
                     '"Annie Use Your Telescope"',
                     'cursive',
@@ -61,6 +64,8 @@ export default {
                 11: '11',
                 12: '12',
                 13: '13',
+                14: '14',
+                15: '15',
             },
             gridColumnStart: {
                 10: '10',
