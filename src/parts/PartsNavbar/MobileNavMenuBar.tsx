@@ -9,19 +9,13 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
         event.preventDefault();
         onClose();
     });
-    const [isOpen1, setIsOpen1] = useState(false);
-    const [isOpen2, setIsOpen2] = useState(false);
-    const [isOpen3, setIsOpen3] = useState(false);
-    const [isOpen4, setIsOpen4] = useState(false);
-    const [isOpen5, setIsOpen5] = useState(false);
-    // TODO remove comments if not necessary
-    // const [isOpen6, setIsOpen6] = useState(false);
-    // const [isOpen7, setIsOpen7] = useState(false);
+    const [navData, setNavData] = useState(0);
+
     return (
         <>
             <div
                 className={`fixed  z-30 grid grid-cols-5 xs:grid-cols-2  sm:grid-cols-3 tab:grid-cols-4 gap-0 w-screen h-full top-0 transition duration-1000 ease-in-out  overflow-y-auto ${
-                    isOpen ? 'left-0' : 'left-[-100%]'
+                    isOpen ? 'left-0' : 'left-[-100%] '
                 }`}
             >
                 <div
@@ -61,41 +55,45 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                 </svg>
                             </button>
                         </div>
-                        <div>
-                            <ul className="rounded-md  text-sm p-2 w-full">
-                                {/* First list */}
-                                <li
-                                    className={`rounded-md p-2 hover:bg-red-upschool w-full ${
-                                        !isOpen1 && 'hover:scale-105'
-                                    } `}
+                        <div className="w-full">
+                            {data.map((detail, index) => (
+                                <div
+                                    className={`${
+                                        navData === detail.id
+                                            ? 'bg-red-upschool'
+                                            : ''
+                                    } rounded-md flex flex-col w-full `}
                                 >
-                                    <div className="w-full text-left flex items-center pb-2">
-                                        <span className="pr-1 flex-1">
+                                    {/* main menu */}
+                                    <div
+                                        key={index}
+                                        className={` rounded-md p-2   flex w-full justify-between items-center`}
+                                        onClick={() => {
+                                            if (navData === detail.id) {
+                                                setNavData(0);
+                                            } else setNavData(detail.id);
+                                        }}
+                                    >
+                                        <div>
                                             <NavLink
-                                                to={
-                                                    data[0].path
-                                                        ? data[0].path
-                                                        : '#'
-                                                }
+                                                to={detail.path || '#'}
+                                                onClick={() => {
+                                                    if (
+                                                        detail.path &&
+                                                        detail.path !== '#'
+                                                    ) {
+                                                        onClose();
+                                                    }
+                                                }}
                                             >
-                                                {data[0].title}
+                                                {detail.title}
                                             </NavLink>
-                                        </span>
-                                        <span
-                                            className={`mr-auto ${
-                                                isOpen1 && 'rotate-180'
+                                        </div>
+                                        <div
+                                            className={` ${
+                                                navData === detail.id &&
+                                                'rotate-180'
                                             }`}
-                                            onClick={() => {
-                                                setIsOpen1(
-                                                    (oldstate) => !oldstate,
-                                                );
-                                                setIsOpen2(false);
-                                                setIsOpen3(false);
-                                                setIsOpen4(false);
-                                                setIsOpen5(false);
-                                                // setIsOpen6(false);
-                                                // setIsOpen7(false);
-                                            }}
                                         >
                                             <svg
                                                 className="fill-current h-4 w-4"
@@ -104,467 +102,41 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             >
                                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                                             </svg>
-                                        </span>
+                                        </div>
                                     </div>
-                                    <div className="pl-4 w-full">
-                                        <ul
-                                            key={data[0].id}
-                                            className={` bg-gray-500 p-3 w-full  rounded-md  ${
-                                                isOpen1 ? '' : 'hidden'
-                                            } `}
-                                        >
-                                            {data[0].children.map(
-                                                (detail, index) => (
-                                                    <li
-                                                        key={index}
-                                                        className="hover:text-font-color hover:scale-105 border border-theme-color rounded-md m-1 w-full"
-                                                        onClick={onClose}
-                                                    >
-                                                        <NavLink
-                                                            to={
-                                                                detail.path ||
-                                                                ''
-                                                            }
-                                                        >
-                                                            <p className="p-1 hyphens-auto  break-words  w-full">
-                                                                {detail.title}
-                                                            </p>
-                                                        </NavLink>
-                                                    </li>
-                                                ),
-                                            )}
-                                        </ul>
-                                    </div>
-                                </li>
-                                {/* second list */}
-                                <li
-                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen2 && 'hover:scale-105'
-                                    } w-full`}
-                                >
-                                    <div className="w-full text-left flex items-center pb-2">
-                                        <span className="pr-1 flex-1  ">
-                                            <NavLink
-                                                to={
-                                                    data[1].path
-                                                        ? data[1].path
-                                                        : '#'
-                                                }
-                                            >
-                                                {data[1].title}
-                                            </NavLink>
-                                        </span>
-                                        <span
-                                            className={`mr-auto ${
-                                                isOpen2 && 'rotate-180'
-                                            }`}
-                                            onClick={() => {
-                                                setIsOpen1(false);
-                                                setIsOpen2(
-                                                    (oldstate) => !oldstate,
-                                                );
-                                                setIsOpen3(false);
-                                                setIsOpen4(false);
-                                                setIsOpen5(false);
-                                                // setIsOpen6(false);
-                                                // setIsOpen7(false);
-                                            }}
-                                        >
-                                            <svg
-                                                className="fill-current h-4 w-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                            >
-                                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div className="pl-4 w-full">
-                                        <ul
-                                            className={` bg-gray-500 p-3 w-full border border-theme-color rounded-md ${
-                                                isOpen2 ? 'block' : 'hidden'
-                                            } `}
-                                        >
-                                            {data[1].children.map(
-                                                (detail, index) => (
-                                                    <li
-                                                        key={index}
-                                                        className="hover:text-font-color hover:scale-105 border border-theme-color rounded-md  m-1 w-full"
-                                                        onClick={onClose}
-                                                    >
-                                                        <NavLink
-                                                            to={
-                                                                detail.path ||
-                                                                ''
-                                                            }
-                                                        >
-                                                            <p className="p-1 hyphens-auto break-words  w-full">
-                                                                {detail.title}
-                                                            </p>
-                                                        </NavLink>
-                                                    </li>
-                                                ),
-                                            )}
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                {/* Third list */}
-                                <li
-                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen3 && 'hover:scale-105'
-                                    } w-full`}
-                                >
-                                    <div className="w-full text-left flex items-center pb-2">
-                                        <span className="pr-1 flex-1  ">
-                                            <NavLink
-                                                to={
-                                                    data[2].path
-                                                        ? data[2].path
-                                                        : '#'
-                                                }
-                                            >
-                                                {data[2].title}
-                                            </NavLink>
-                                        </span>
-                                        <span
-                                            className={`mr-auto ${
-                                                isOpen3 && 'rotate-180'
-                                            }`}
-                                            onClick={() => {
-                                                setIsOpen1(false);
-                                                setIsOpen2(false);
-                                                setIsOpen3(
-                                                    (oldstate) => !oldstate,
-                                                );
-                                                setIsOpen4(false);
-                                                setIsOpen5(false);
-                                                // setIsOpen6(false);
-                                                // setIsOpen7(false);
-                                            }}
-                                        >
-                                            <svg
-                                                className="fill-current h-4 w-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                            >
-                                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div className="pl-4 w-full">
-                                        <ul
-                                            className={` bg-gray-500 p-3 w-full rounded-md ${
-                                                isOpen3 ? 'block' : 'hidden'
-                                            } `}
-                                        >
-                                            {data[2].children.map(
-                                                (detail, index) => (
-                                                    <li
-                                                        key={index}
-                                                        className="hover:text-theme-color hover:scale-105 border border-theme-color rounded-md  m-1 w-full"
-                                                        onClick={onClose}
-                                                    >
-                                                        <NavLink
-                                                            to={
-                                                                detail.path ||
-                                                                ''
-                                                            }
-                                                        >
-                                                            <p className="p-1 hyphens-auto break-words  w-full">
-                                                                {detail.title}
-                                                            </p>
-                                                        </NavLink>
-                                                    </li>
-                                                ),
-                                            )}
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                {/* Fourth list */}
-                                <li
-                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen4 && 'hover:scale-105'
-                                    } w-full`}
-                                >
-                                    <div className="w-full text-left flex items-center pb-2">
-                                        <span className="pr-1 flex-1  ">
-                                            <NavLink
-                                                to={
-                                                    data[3].path
-                                                        ? data[3].path
-                                                        : '#'
-                                                }
-                                            >
-                                                {data[3].title}
-                                            </NavLink>
-                                        </span>
-                                        <span
-                                            className={`mr-auto ${
-                                                isOpen4 && 'rotate-180'
-                                            }`}
-                                            onClick={() => {
-                                                setIsOpen1(false);
-                                                setIsOpen2(false);
-                                                setIsOpen3(false);
-                                                setIsOpen4(
-                                                    (oldstate) => !oldstate,
-                                                );
-                                                setIsOpen5(false);
-                                                // setIsOpen6(false);
-                                                // setIsOpen7(false);
-                                            }}
-                                        >
-                                            <svg
-                                                className="fill-current h-4 w-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                            >
-                                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div className="pl-4 w-full">
-                                        <ul
-                                            className={` bg-gray-500 p-3 w-full  rounded-md  ${
-                                                isOpen4 ? 'block' : 'hidden'
-                                            } `}
-                                        >
-                                            {data[3].children.map(
-                                                (detail, index) => (
-                                                    <li
-                                                        key={index}
-                                                        className="hover:text-font-color hover:scale-105 border border-theme-color rounded-md  m-1 w-full"
-                                                        onClick={onClose}
-                                                    >
-                                                        <NavLink
-                                                            to={
-                                                                detail.path ||
-                                                                ''
-                                                            }
-                                                        >
-                                                            <p className="p-1 hyphens-auto break-words  w-full">
-                                                                {detail.title}
-                                                            </p>
-                                                        </NavLink>
-                                                    </li>
-                                                ),
-                                            )}
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                {/* Fifth list */}
-                                <li
-                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen5 && 'hover:scale-105'
-                                    } w-full`}
-                                >
-                                    <div className="w-full text-left flex items-center pb-2">
-                                        <span className="pr-1 flex-1  ">
-                                            <NavLink
-                                                to={
-                                                    data[4].path
-                                                        ? data[4].path
-                                                        : '#'
-                                                }
-                                            >
-                                                {data[4].title}
-                                            </NavLink>
-                                        </span>
-                                        <span
-                                            className={`mr-auto ${
-                                                isOpen5 && 'rotate-180'
-                                            }`}
-                                            onClick={() => {
-                                                setIsOpen1(false);
-                                                setIsOpen2(false);
-                                                setIsOpen3(false);
-                                                setIsOpen4(false);
-                                                setIsOpen5(
-                                                    (oldstate) => !oldstate,
-                                                );
-                                                // setIsOpen6(false);
-                                                // setIsOpen7(false);
-                                            }}
-                                        >
-                                            <svg
-                                                className="fill-current h-4 w-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                            >
-                                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <div className="pl-4 w-full">
-                                        <ul
-                                            className={` bg-gray-500 p-3 w-full rounded-md  ${
-                                                isOpen5 ? 'block' : 'hidden'
-                                            } `}
-                                        >
-                                            {data[4].children.map(
-                                                (detail, index) => (
-                                                    <li
-                                                        key={index}
-                                                        className="hover:text-font-color hover:scale-105 border border-theme-color rounded-md  m-1 w-full"
-                                                        onClick={onClose}
-                                                    >
-                                                        <NavLink
-                                                            to={
-                                                                detail.path ||
-                                                                ''
-                                                            }
-                                                        >
-                                                            <p className="p-1 hyphens-auto break-words  w-full">
-                                                                {detail.title}
-                                                            </p>
-                                                        </NavLink>
-                                                    </li>
-                                                ),
-                                            )}
-                                        </ul>
-                                    </div>
-                                </li>
-                                {/* TODO remove comments if not necessary */}
-                                {/* Sixth list */}
-                                {/* <li
-                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen6 && 'hover:scale-105'
-                                    } w-full`}
-                                >
-                                    <div className="w-full text-left flex items-center">
-                                        <span className="pr-1 flex-1  ">
-                                            <NavLink
-                                                to={
-                                                    data[5].path
-                                                        ? data[5].path
-                                                        : '#'
-                                                }
-                                            >
-                                                {data[5].title}
-                                            </NavLink>
-                                        </span>
-                                        <span
-                                            className={`mr-auto ${
-                                                isOpen6 && 'rotate-180'
-                                            }`}
-                                            onClick={() => {
-                                                setIsOpen1(false);
-                                                setIsOpen2(false);
-                                                setIsOpen3(false);
-                                                setIsOpen4(false);
-                                                setIsOpen5(false);
-                                                setIsOpen6(
-                                                    (oldstate) => !oldstate,
-                                                );
-                                                setIsOpen7(false);
-                                            }}
-                                        >
-                                            <svg
-                                                className="fill-current h-4 w-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                            >
-                                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                    <ul
-                                        className={`m-0 ml-4 bg-gray-500 p-3 w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
-                                            isOpen6 ? 'block' : 'hidden'
+                                    {/* sub menu */}
+                                    <div
+                                        className={`pl-4 w-full ${
+                                            navData === detail.id
+                                                ? 'block'
+                                                : 'hidden'
                                         } `}
                                     >
-                                        {data[5].children.map(
-                                            (detail, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="hover:text-theme-color hover:scale-105 rounded-md p-0.5"
-                                                    onClick={onClose}
-                                                >
-                                                    <NavLink
-                                                        to={detail.path || ''}
+                                        <ul className="mb-4">
+                                            {detail.children.map(
+                                                (detail, index) => (
+                                                    <li
+                                                        key={index}
+                                                        className="hover:text-font-color hover:scale-105 border border-theme-color bg-slate-50 text-theme-color p-1 rounded  m-1 w-[90%]"
+                                                        onClick={onClose}
                                                     >
-                                                        {detail.title}
-                                                    </NavLink>
-                                                </li>
-                                            ),
-                                        )}
-                                    </ul>
-                                </li> */}
-                                {/* seventh list */}
-                                {/* <li
-                                    className={`rounded-md p-2 hover:bg-red-upschool  ${
-                                        !isOpen7 && 'hover:scale-105'
-                                    } w-full`}
-                                >
-                                    <div className="w-full text-left flex items-center">
-                                        <span className="pr-1 flex-1  ">
-                                            <NavLink
-                                                to={
-                                                    data[6].path
-                                                        ? data[6].path
-                                                        : '#'
-                                                }
-                                            >
-                                                {data[6].title}
-                                            </NavLink>
-                                        </span>
-                                        <span
-                                            className={`mr-auto ${
-                                                isOpen7 && 'rotate-180'
-                                            }`}
-                                            onClick={() => {
-                                                setIsOpen1(false);
-                                                setIsOpen2(false);
-                                                setIsOpen3(false);
-                                                setIsOpen4(false);
-                                                setIsOpen5(false);
-                                                setIsOpen6(false);
-                                                setIsOpen7(
-                                                    (oldstate) => !oldstate,
-                                                );
-                                            }}
-                                        >
-                                            <svg
-                                                className="fill-current h-4 w-4"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                            >
-                                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                            </svg>
-                                        </span>
+                                                        <NavLink
+                                                            to={
+                                                                detail.path ||
+                                                                ''
+                                                            }
+                                                        >
+                                                            <p className="p-1 hyphens-auto break-words  w-full">
+                                                                {detail.title}
+                                                            </p>
+                                                        </NavLink>
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ul>
                                     </div>
-                                    <ul
-                                        className={`m-0 ml-4 bg-gray-500 p-3 w-full rounded-md relative transition duration-1000 ease-in-out origin-top ${
-                                            isOpen7 ? 'block' : 'hidden'
-                                        } `}
-                                    >
-                                        {data[6].children.map(
-                                            (detail, index) => (
-                                                <li
-                                                    key={index}
-                                                    className="hover:text-theme-color hover:scale-105 rounded-md p-0.5"
-                                                    onClick={onClose}
-                                                >
-                                                    <NavLink
-                                                        to={detail.path || '#'}
-                                                    >
-                                                        {detail.title}
-                                                    </NavLink>
-                                                </li>
-                                            ),
-                                        )}
-                                    </ul>
-                                </li> */}
-                                {/* Eight List */}
-                                {/* <li className="rounded-md p-2  hover:bg-red-upschool  hover:scale-105">
-                                    <NavLink to={navData.path || '#'}>
-                                        {navData.title}
-                                    </NavLink>
-                                </li> */}
-                            </ul>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>

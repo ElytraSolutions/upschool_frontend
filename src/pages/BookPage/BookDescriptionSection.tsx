@@ -37,7 +37,7 @@ const BookDescriptionSection = () => {
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:m-4 font-bold flex-wrap">
                         <button
                             onClick={openPopup}
-                            className="bg-red-upschool hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin text-left sm:text-sm text-xs"
+                            className="bg-red-upschool hover:bg-pink-900 text-white py-2 px-4 my-1 font-normal text-left sm:text-sm text-xs"
                         >
                             BUY PAPERBACK
                             <span className="block text-left font-bold">
@@ -46,7 +46,7 @@ const BookDescriptionSection = () => {
                         </button>
                         <button
                             onClick={openPopup}
-                            className="bg-red-upschool text-left hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin sm:text-sm text-xs"
+                            className="bg-red-upschool text-left hover:bg-pink-900 text-white py-2 px-4 my-1 font-normal sm:text-sm text-xs"
                         >
                             BUY HARDBACK
                             <span className="block text-left font-bold">
@@ -55,7 +55,7 @@ const BookDescriptionSection = () => {
                         </button>
                         <button
                             onClick={openPopup}
-                            className="bg-red-upschool hover:bg-pink-900 text-white py-2 px-4 my-1 font-thin text-left sm:text-sm text-xs"
+                            className="bg-red-upschool hover:bg-pink-900 text-white py-2 px-4 my-1 font-normal text-left sm:text-sm text-xs"
                         >
                             BUY EBOOK
                             <span className="block text-left font-bold">
