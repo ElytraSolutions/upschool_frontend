@@ -6,9 +6,9 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useState } from 'react';
 
-function CourseStaticBottom({ questionList }) {
+function CourseStaticBottom({ questionList, theme }) {
     const [openQuestion, setOpenQuestion] = useState(
-        Array(questionList.length).fill(false),
+        Array(Object.keys(questionList).length).fill(false),
     );
     function toggleQuestion(index: number) {
         setOpenQuestion((prevOpenQuestion) => {
@@ -22,7 +22,7 @@ function CourseStaticBottom({ questionList }) {
     return (
         <>
             <div className="grid bg-[#fff] xl:grid-cols-5 grid-flow-row text-theme-color mb-24 gap-y-4">
-                <div className="xl:col-start-1 xl:col-span-2 flex justify-start h-fit font-sans ml-12 mr-[200px] w-[390px]">
+                <div className="xl:col-start-1 xl:col-span-2 flex justify-start h-fit font-sans ml-12 md:mr-[200px] mr-0 w-[390px]">
                     <div className="grid">
                         <div className="text-[38px] font-bold">
                             Some Common Questions
@@ -34,7 +34,9 @@ function CourseStaticBottom({ questionList }) {
                             <>
                                 <div className="flex my-2">
                                     <Link to="/register">
-                                        <button className="bg-[#3c74cf] rounded-sm font-thin text-[18px] px-11 py-2">
+                                        <button
+                                            className={`bg-[${theme}] rounded-sm font-thin text-[18px] px-11 py-2`}
+                                        >
                                             REGISTER
                                             <span>
                                                 <KeyboardArrowRightIcon
@@ -62,28 +64,32 @@ function CourseStaticBottom({ questionList }) {
                                     <div className="col-start-2 col-span-1 row-start-1 bg-red-upschool"></div>
                                 </div>
                             </div>
-                            <div className="col-start-3 col-span-1 ml-4">
+                            <div className="col-start-3 col-span-1 ml-4 md:block">
                                 <div className="grid grid-cols-3">
                                     <div className="row-start-1 col-start-1 col-span-1 bg-yellow-400 h-[40px]"></div>
                                     <div className="row-start-1 col-start-2 col-span-1 bg-yellow-400 h-[40px]"></div>
-                                    <div className="row-start-1 col-start-3 col-span-1 bg-[#59b3f8] h-[40px]"></div>
+                                    <div
+                                        className={`row-start-1 col-start-3 col-span-1 bg-[${theme}] h-[40px]`}
+                                    ></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="xl:col-start-3 xl:col-span-3 mr-12 xl:ml-0 ml-12 grid font-nunito border-t-2 border-theme-color h-fit">
-                    {questionList.map((q, index) => (
+                <div className="xl:col-start-3 xl:col-span-3 md:mr-12 xl:ml-0 md:ml-12 ml-0 mr-0 grid font-nunito border-t-2 border-theme-color h-fit">
+                    {Object.keys(questionList).map((key, index) => (
                         <div className="grid">
                             <button
                                 className="w-full grid border-b border-gray-400"
                                 onClick={() => toggleQuestion(index)}
                             >
                                 <div className="flex justify-between w-full items-center">
-                                    <p className="text-theme-color text-[20px] my-8">
-                                        {/*here is the question */}
-                                        {q.question}
-                                    </p>
+                                    <div className="shrink">
+                                        <p className="text-theme-color md:text-[20px] text-sm my-8 text-left">
+                                            {/*here is the question */}
+                                            {questionList[key].question}
+                                        </p>
+                                    </div>
                                     {/*hide addicon once the button is clicked */}
                                     {openQuestion[index] === false && (
                                         <AddIcon
@@ -109,8 +115,8 @@ function CourseStaticBottom({ questionList }) {
                                 {openQuestion[index] && (
                                     <div className="mb-2 flex justify-start">
                                         {/*here is the answer, show when the button above is clicked */}
-                                        <p className="text-base text-red-upschool px-4 pb-8">
-                                            {q.answer}
+                                        <p className="md:text-base text-sm text-red-upschool md:px-4 px-0 pb-8 text-left">
+                                            {questionList[key].answer}
                                         </p>
                                     </div>
                                 )}
