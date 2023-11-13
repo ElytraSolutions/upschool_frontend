@@ -8,6 +8,7 @@ import CourseTestimonial from '../../components/Course/CourseTestimonial';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import CourseSteps from '../../components/Course/CourseSteps';
 
 const commQuestions = {
     one: {
@@ -33,6 +34,13 @@ const commQuestions = {
     },
 };
 
+const defaultSteps = {
+    one: {
+        image: './images/Course/upschool-and-aurora.png',
+        data: 'Steps is empty',
+    },
+};
+
 function CoursePage() {
     const { slug } = useParams();
     const [courseInfo, setCourseInfo] = useState<any>(null);
@@ -43,6 +51,7 @@ function CoursePage() {
             setCourseInfo(res.data.data);
         })();
     }, [slug]);
+    console.log(courseInfo);
     if (!courseInfo) return null;
     return (
         <>
@@ -61,6 +70,14 @@ function CoursePage() {
                 <CourseStaticVideo theme={courseInfo.theme} />
                 <CourseStaticUpschool theme={courseInfo.theme} />
                 <CourseTestimonial theme={courseInfo.theme} />
+                <CourseSteps
+                    steps={
+                        courseInfo.description === null
+                            ? defaultSteps
+                            : courseInfo.description.steps
+                    }
+                    theme={courseInfo.theme}
+                />
                 <CourseStaticBottom
                     questionList={
                         courseInfo.description === null

@@ -6,7 +6,6 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 
 function CourseStaticTop({ courseInfo }) {
     const { user } = useUser();
-    console.log(courseInfo.theme);
     return (
         <>
             <div className=" flex items-center justify-center flex-col">
