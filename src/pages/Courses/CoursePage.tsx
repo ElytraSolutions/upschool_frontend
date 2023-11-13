@@ -7,6 +7,7 @@ import CourseStaticBottom from '../../components/Course/CourseStaticBottom';
 import CourseTestimonial from '../../components/Course/CourseTestimonial';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+// import EnrollCard from '../../components/Cards/EnrollCard';
 
 const commQuestions = [
     {
@@ -49,6 +50,7 @@ function CoursePage() {
                 <CourseStaticTop />
                 <div className="tab:hidden flex justify-center my-6 mx-6">
                     <CourseEnrol />
+                    {/* <EnrollCard /> */}
                 </div>
                 <CourseStaticVideo />
                 <CourseStaticUpschool />

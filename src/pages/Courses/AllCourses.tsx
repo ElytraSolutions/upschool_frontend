@@ -57,7 +57,7 @@ function AllCourses() {
                             <h1 className="text-2xl font-bold text-font-color">
                                 {category.name}
                             </h1>
-                            <div className="grid justify-items-center xm:justify-items-start xm:grid-cols-2 lg:grid-cols-3 py-4 gap-2 xm:gap-4">
+                            <div className="grid justify-items-center xm:justify-items-center md:grid-cols-2 xm:grid-cols-1 lg:grid-cols-3  py-4 gap-2 xm:gap-4 md:gap-x-2">
                                 {getCoursesByCategory(category.id).map(
                                     (data) => (
                                         <div

@@ -79,8 +79,8 @@ function CourseCard({ data }: Props) {
                     </div>
                 </Card>
             </div> */}
-            <div className="w-fit h-full border rounded-md overflow-hidden">
-                <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 w-fit max-w-[270px] m-auto">
+            <div className="h-full border rounded-md overflow-hidden ">
+                <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 lg:w-[320px] md:w-[350px] w-[400px] m-auto border">
                     <div className="bg-stone-200">
                         <img
                             src={
@@ -90,7 +90,7 @@ function CourseCard({ data }: Props) {
                             }
                             height="140"
                             alt="Course image"
-                            className=" h-44 w-full"
+                            className=" h-44 w-full object-cover"
                         />
                     </div>
 
