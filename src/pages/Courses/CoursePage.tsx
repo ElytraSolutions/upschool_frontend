@@ -7,6 +7,31 @@ import CourseStaticBottom from '../../components/Course/CourseStaticBottom';
 import CourseTestimonial from '../../components/Course/CourseTestimonial';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import resolveImgURL from '../../utlis/resolveImgURL';
+
+const commQuestions = {
+    one: {
+        question: 'Is the program really free?',
+        answer: "It's 100% free - yes. Nothing to pay to be involved.",
+    },
+    two: {
+        question: 'What ages is the program suitable for?',
+        answer: 'We have 5 year old children right through to adults participating. It’s differentiated and open to everyone.',
+    },
+    three: {
+        question:
+            'Do schools run this as a whole school project or can it be done as a class?',
+        answer: 'Either. Whole school engagement is the best way to have maximum impact, but it certainly can be done by one class or by one year level. You can even use it as an extension program for a small number of students too if that works for you.',
+    },
+    four: {
+        question: "I'm homeschooling my children. Can I participate?",
+        answer: 'Absolutely. Anyone can join!',
+    },
+    five: {
+        question: 'Do I need to be involved with a school to participate?',
+        answer: 'No, not at all. Individuals (adults and children) can go through the course.',
+    },
+};
 
 function CoursePage() {
     const { slug } = useParams();
@@ -15,7 +40,7 @@ function CoursePage() {
         window.scrollTo(0, 0);
         (async () => {
             const res = await axiosInstance.get(`/data/courses/${slug}`);
-            console.log('faq', res.data.data.description.faq);
+            console.log('faq', res.data.data.theme);
             setCourseInfo(res.data.data);
         })();
     }, [slug]);
@@ -25,14 +50,25 @@ function CoursePage() {
             <div className="grid gap-y-10">
                 <CourseStaticTop courseInfo={courseInfo} />
                 <div className="tab:hidden flex justify-center">
-                    <CourseEnrol thumbnail={courseInfo.thumbnail} />
+                    <CourseEnrol
+                        thumbnail={
+                            courseInfo.thumbnail ||
+                            `${resolveImgURL(
+                                './images/Course/courseEnrol.png',
+                            )}`
+                        }
+                    />
                 </div>
-                <CourseStaticVideo theme={courseInfo.theme} />
-                <CourseStaticUpschool theme={courseInfo.theme} />
-                <CourseTestimonial theme={courseInfo.theme} />
+                <CourseStaticVideo theme={courseInfo.theme || '#59b3f8'} />
+                <CourseStaticUpschool theme={courseInfo.theme || '#59b3f8'} />
+                <CourseTestimonial theme={courseInfo.theme || '#59b3f8'} />
                 <CourseStaticBottom
-                    questionList={courseInfo.description.faq}
-                    theme={courseInfo.theme}
+                    questionList={
+                        courseInfo.description === null
+                            ? commQuestions
+                            : courseInfo.description.faq
+                    }
+                    theme={courseInfo.theme || '#59b3f8'}
                 />
             </div>
         </>

@@ -18,7 +18,6 @@ function CourseStaticBottom({ questionList, theme }) {
         });
     }
     const { user } = useUser();
-
     return (
         <>
             <div className="grid bg-[#fff] xl:grid-cols-5 grid-flow-row text-theme-color mb-24 gap-y-4">

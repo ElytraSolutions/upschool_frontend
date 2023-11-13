@@ -13,7 +13,12 @@ function CourseStaticTop({ courseInfo }) {
                     <div className="relative flex h-[650px]">
                         <div className="w-full h-full relative video overflow-hidden">
                             <img
-                                src={resolveImgURL(courseInfo.image)}
+                                src={
+                                    resolveImgURL(courseInfo.image) ||
+                                    resolveImgURL(
+                                        './images/Course/pokhara_lake.jpg',
+                                    )
+                                }
                                 alt="Cover Image"
                                 className="w-full h-[650px] object-cover"
                             />
@@ -25,7 +30,10 @@ function CourseStaticTop({ courseInfo }) {
                                     <div className="grid h-fit justify-start font-poppins max-w-[490px] md:px-0 px-4">
                                         <div className="mb-[20px] text-[32px] h-[37px]">
                                             <span
-                                                className={`text-[${courseInfo?.theme}]`}
+                                                className={`text-[${
+                                                    courseInfo.theme ||
+                                                    '#59b3f8'
+                                                }]`}
                                             >
                                                 100% Free{' '}
                                             </span>
@@ -35,7 +43,9 @@ function CourseStaticTop({ courseInfo }) {
                                         </div>
                                         <div></div>
                                         <div
-                                            className={`text-[53px] text-[${courseInfo?.theme}] font-extrabold`}
+                                            className={`text-[53px] text-[${
+                                                courseInfo.theme || '#59b3f8'
+                                            }] font-extrabold`}
                                         >
                                             <h1>{courseInfo?.name}</h1>
                                         </div>
@@ -43,7 +53,7 @@ function CourseStaticTop({ courseInfo }) {
                                             {courseInfo?.intro}
                                         </div>
                                         <div
-                                            className={`text-sm text-[${courseInfo?.theme}]`}
+                                            className={`text-sm text-[${courseInfo.theme}]`}
                                         >
                                             <p>{courseInfo?.starredText}</p>
                                         </div>
@@ -52,7 +62,10 @@ function CourseStaticTop({ courseInfo }) {
                                                 <div className="flex my-2">
                                                     <Link to="/register">
                                                         <button
-                                                            className={`bg-[${courseInfo.theme}] rounded-sm font-thin text-white text-[18px] px-11 py-2`}
+                                                            className={`bg-[${
+                                                                courseInfo.theme ||
+                                                                '#59b3f8'
+                                                            }] rounded-sm font-thin text-white text-[18px] px-11 py-2`}
                                                         >
                                                             REGISTER
                                                             <span>
@@ -72,7 +85,12 @@ function CourseStaticTop({ courseInfo }) {
                                 </div>
                                 <div className="tab:col-start-4 tab:col-span-2 tab:block hidden justify-center items-center">
                                     <CourseEnrol
-                                        thumbnail={courseInfo.thumbnail}
+                                        thumbnail={
+                                            courseInfo.thumbnail ||
+                                            resolveImgURL(
+                                                './images/Course/courseEnrol.png',
+                                            )
+                                        }
                                     />
                                 </div>
                             </div>
