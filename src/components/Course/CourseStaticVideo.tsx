@@ -4,7 +4,10 @@ function CourseStaticVideo({ theme }) {
     return (
         <>
             <div
-                className={`bg-[${theme}] grid lg:gird-cols-6 grid-flow-row lg:h-[475px]`}
+                className={`grid lg:gird-cols-6 grid-flow-row lg:h-[475px]`}
+                style={{
+                    backgroundColor: theme,
+                }}
             >
                 <iframe
                     className="w-full lg:h-full h-[325px] lg:col-start-1 lg:col-span-4"

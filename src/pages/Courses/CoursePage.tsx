@@ -40,7 +40,6 @@ function CoursePage() {
         window.scrollTo(0, 0);
         (async () => {
             const res = await axiosInstance.get(`/data/courses/${slug}`);
-            console.log('faq', res.data.data.theme);
             setCourseInfo(res.data.data);
         })();
     }, [slug]);
@@ -59,16 +58,16 @@ function CoursePage() {
                         }
                     />
                 </div>
-                <CourseStaticVideo theme={courseInfo.theme || '#59b3f8'} />
-                <CourseStaticUpschool theme={courseInfo.theme || '#59b3f8'} />
-                <CourseTestimonial theme={courseInfo.theme || '#59b3f8'} />
+                <CourseStaticVideo theme={courseInfo.theme} />
+                <CourseStaticUpschool theme={courseInfo.theme} />
+                <CourseTestimonial theme={courseInfo.theme} />
                 <CourseStaticBottom
                     questionList={
                         courseInfo.description === null
                             ? commQuestions
                             : courseInfo.description.faq
                     }
-                    theme={courseInfo.theme || '#59b3f8'}
+                    theme={courseInfo.theme}
                 />
             </div>
         </>

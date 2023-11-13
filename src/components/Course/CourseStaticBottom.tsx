@@ -34,7 +34,10 @@ function CourseStaticBottom({ questionList, theme }) {
                                 <div className="flex my-2">
                                     <Link to="/register">
                                         <button
-                                            className={`bg-[${theme}] rounded-sm font-thin text-[18px] px-11 py-2`}
+                                            className={`rounded-sm font-thin text-[18px] px-11 py-2`}
+                                            style={{
+                                                backgroundColor: theme,
+                                            }}
                                         >
                                             REGISTER
                                             <span>
@@ -68,7 +71,10 @@ function CourseStaticBottom({ questionList, theme }) {
                                     <div className="row-start-1 col-start-1 col-span-1 bg-yellow-400 h-[40px]"></div>
                                     <div className="row-start-1 col-start-2 col-span-1 bg-yellow-400 h-[40px]"></div>
                                     <div
-                                        className={`row-start-1 col-start-3 col-span-1 bg-[${theme}] h-[40px]`}
+                                        className={`row-start-1 col-start-3 col-span-1 h-[40px]`}
+                                        style={{
+                                            backgroundColor: theme,
+                                        }}
                                     ></div>
                                 </div>
                             </div>

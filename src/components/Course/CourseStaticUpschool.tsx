@@ -3,7 +3,10 @@ function CourseStaticUpschool({ theme }) {
         <>
             <div className="grid bg-[#f4f4f4]">
                 <div
-                    className={`flex justify-center text-[${theme}] text-[45px] font-caveat font-bold mb-[20px]`}
+                    className={`flex justify-center text-[45px] font-caveat font-bold mb-[20px]`}
+                    style={{
+                        color: theme,
+                    }}
                 >
                     <p>Everything we do at Upschool:</p>
                 </div>

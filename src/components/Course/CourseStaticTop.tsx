@@ -6,6 +6,7 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 
 function CourseStaticTop({ courseInfo }) {
     const { user } = useUser();
+    console.log(courseInfo.theme);
     return (
         <>
             <div className=" flex items-center justify-center flex-col">
@@ -30,10 +31,9 @@ function CourseStaticTop({ courseInfo }) {
                                     <div className="grid h-fit justify-start font-poppins max-w-[490px] md:px-0 px-4">
                                         <div className="mb-[20px] text-[32px] h-[37px]">
                                             <span
-                                                className={`text-[${
-                                                    courseInfo.theme ||
-                                                    '#59b3f8'
-                                                }]`}
+                                                style={{
+                                                    color: courseInfo.theme,
+                                                }}
                                             >
                                                 100% Free{' '}
                                             </span>
@@ -43,9 +43,10 @@ function CourseStaticTop({ courseInfo }) {
                                         </div>
                                         <div></div>
                                         <div
-                                            className={`text-[53px] text-[${
-                                                courseInfo.theme || '#59b3f8'
-                                            }] font-extrabold`}
+                                            className={`text-[53px] font-extrabold`}
+                                            style={{
+                                                color: courseInfo.theme,
+                                            }}
                                         >
                                             <h1>{courseInfo?.name}</h1>
                                         </div>
@@ -53,7 +54,10 @@ function CourseStaticTop({ courseInfo }) {
                                             {courseInfo?.intro}
                                         </div>
                                         <div
-                                            className={`text-sm text-[${courseInfo.theme}]`}
+                                            className={`text-sm`}
+                                            style={{
+                                                color: courseInfo.theme,
+                                            }}
                                         >
                                             <p>{courseInfo?.starredText}</p>
                                         </div>
@@ -62,10 +66,11 @@ function CourseStaticTop({ courseInfo }) {
                                                 <div className="flex my-2">
                                                     <Link to="/register">
                                                         <button
-                                                            className={`bg-[${
-                                                                courseInfo.theme ||
-                                                                '#59b3f8'
-                                                            }] rounded-sm font-thin text-white text-[18px] px-11 py-2`}
+                                                            className={`rounded-sm font-thin text-white text-[18px] px-11 py-2`}
+                                                            style={{
+                                                                backgroundColor:
+                                                                    courseInfo.theme,
+                                                            }}
                                                         >
                                                             REGISTER
                                                             <span>
