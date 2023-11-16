@@ -72,10 +72,10 @@ const Login = () => {
                 <div className="w-[95%] sm:w-[80vw] tab:w-[768px] xlarge:w-[40%] xxlarge:w-1/3  bg-white flex justify-center items-center h-fit ">
                     <div className="w-11/12 h-fit py-3">
                         <div className="  mt-0.5 md:mt-2">
-                            <h1 className="md:text-2xl text-md font-semibold text-font-color font-lexend  px-2 py-0.5 mx-2 mt-0.5 md:p-1 md:m-2">
+                            <h1 className="md:text-2xl text-[1rem] font-semibold text-font-color font-lexend  px-2 mx-2 mt-0.5 py-2 m-2">
                                 Welcome Back to Upschool.co
                             </h1>
-                            <h3 className="text-font-color sm:text-base text-[0.8rem] font-normal px-2 mx-2 md:pb-1 md:m-2">
+                            <h3 className="text-font-color sm:text-base text-[0.9rem] font-normal px-2 mx-2 pb-4 m-2">
                                 Sign in to continue to your account
                             </h3>
                             {/* Social Login Buttons disabled */}
@@ -210,7 +210,7 @@ const Login = () => {
                                 isSubmitting,
                             }) => (
                                 <form onSubmit={handleSubmit}>
-                                    <div className="grid grid-rows-4 w-full sm:gap-y-2 gap-y-1 px-2 mx-2 py-0.5">
+                                    <div className="grid grid-rows-4 gap-y-1 w-full px-2 mx-2 py-0.5">
                                         <TextField
                                             className="row-span-1"
                                             type="email"
@@ -266,17 +266,20 @@ const Login = () => {
                                                 (errors.password as string)
                                             }
                                         />
-                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center text-font-color ">
-                                            <Field
-                                                type="checkbox"
-                                                name="remember"
-                                            />
-                                            Keep me signed in until I sign out
-                                        </label>
+                                        <div className="flex items-center">
+                                            <label className="row-span-1 flex flex-1 justify-start gap-x-2 items-center text-font-color ">
+                                                <Field
+                                                    type="checkbox"
+                                                    name="remember"
+                                                />
+                                                Keep me signed in until I sign
+                                                out
+                                            </label>
+                                        </div>
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className=" row-span-1 m-auto  p-4 bg-theme-color text-white text-center disabled:opacity-75 w-full"
+                                            className=" row-span-1 m-auto p-4 bg-theme-color text-white text-center disabled:opacity-75 w-full"
                                         >
                                             {isSubmitting
                                                 ? 'Logging in'
@@ -286,13 +289,13 @@ const Login = () => {
                                 </form>
                             )}
                         </Formik>
-                        <div className="flex flex-col w-full items-start justify-around text-font-color gap-y-1 px-2 mx-2 sm:pb-4 pb-2 mt-2 ">
-                            <div className=" font-semibold sm:text-base text-[0.91rem]">
+                        <div className="flex flex-col w-full items-start justify-around text-font-color gap-y-1 px-2 mx-2  pb-2 mt-2 ">
+                            <div className=" font-semibold sm:text-base text-[0.91rem] py-[0.9rem]">
                                 <NavLink to="/resetpasswordemail">
                                     Forgot Password?
                                 </NavLink>
                             </div>
-                            <div className="sm:text-base text-[0.91rem]">
+                            <div className="sm:text-base text-[0.91rem] mb-1">
                                 Don't have an Upschool account yet?
                                 <span className="text-red-500 inline-block pl-1">
                                     <NavLink to="/register">Sign up</NavLink>

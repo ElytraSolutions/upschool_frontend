@@ -177,7 +177,7 @@ export default function Step2({
 
                             <button
                                 type="submit"
-                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex  flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
+                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex mb-4 flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
                             >
                                 <span>Next</span>
                                 <span>

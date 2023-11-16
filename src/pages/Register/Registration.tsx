@@ -27,7 +27,7 @@ export default function Registration() {
         password: '',
         password_confirmation: '',
         country: '',
-        user_type_id: 1,
+        user_type_id: '',
         date_of_birth: '',
         canvaAccount: 'true',
         condition1: false,
@@ -135,7 +135,7 @@ export default function Registration() {
                         } gap-0 w-[97vw] sm:w-[90vw] lg:w-[80vw] xl:w-[65vw] h-fit md:min-h-[550px] 2xl:min-h-[570px]`}
                     >
                         {/* first column:Registration Form*/}
-                        <div className=" col-span-11 flex justify-center bg-white py-4 w-full h-full">
+                        <div className=" col-span-11 flex justify-center bg-white py-1 w-full h-full">
                             <div className="w-11/12 flex flex-col gap-2 h-full">
                                 {/* <!-- Heading --> */}
                                 {currentStep == 0 && (

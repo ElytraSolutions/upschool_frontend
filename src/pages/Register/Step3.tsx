@@ -61,7 +61,7 @@ export default function Step3({
                         onSubmit={handleSubmit}
                         className="w-full h-fit md:h-full flex flex-col gap-3 justify-between"
                     >
-                        <div className="grid grid-rows-6 w-full gap-1 mt-1">
+                        <div className="grid grid-rows-6 w-full gap-1">
                             <div className="row-span-2 flex flex-col flex-1 gap-3 justify-center">
                                 <h2 className=" text-sm xl:text-lg text-font-color italic">
                                     Would you like us to register you for a FREE
@@ -158,7 +158,7 @@ export default function Step3({
                         <div className="grid grid-cols-4 gap-4  text-sm md:text-base w-full h-fit font-normal ">
                             <button
                                 type="button"
-                                className="col-start-1 col-span-2 sm:col-span-1 justify-self-start  flex flex-1 flex-wrap items-center justify-start gap-x-0.5 px-3 py-2 disabled:opacity-75  w-fit h-full"
+                                className="col-start-1 col-span-2 sm:col-span-1 justify-self-start mb-4 flex flex-1 flex-wrap items-center justify-start gap-x-0.5 px-3 py-2 disabled:opacity-75  w-fit h-full"
                                 disabled={isSubmitting}
                                 onClick={(e) => {
                                     e.preventDefault();
@@ -187,7 +187,7 @@ export default function Step3({
                             </button>
 
                             <button
-                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex  flex-1 flex-wrap items-center justify-center disabled:opacity-80 gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
+                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1 justify-self-end flex mb-4 flex-1 flex-wrap items-center justify-center disabled:opacity-80 gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
                                 type="submit"
                                 disabled={isSubmitting}
                             >

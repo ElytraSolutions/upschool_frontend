@@ -80,7 +80,7 @@ function CourseCard({ data }: Props) {
                 </Card>
             </div> */}
             <div className="h-full border rounded-md overflow-hidden ">
-                <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 lg:w-[320px] md:w-[350px] w-[400px] m-auto border">
+                <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 lg:w-[320px] md:w-[350px] min-w-[280px] max-w-[400px] w-[80vw] m-auto border">
                     <div className="bg-stone-200">
                         <img
                             src={
