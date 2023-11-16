@@ -5,8 +5,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import courses from '../../data/Homepage';
+import { useNavigate } from 'react-router-dom';
 
 function CourseTypes() {
+    const navigate = useNavigate();
     return (
         <div className="py-[40px]">
             <div className="flex flex-col items-center">
@@ -22,6 +24,8 @@ function CourseTypes() {
                     {courses.map((course, index) => (
                         <div key={index}>
                             <Card
+                                onClick={() => navigate(course.link)}
+                                className="cursor-pointer group"
                                 sx={{
                                     maxWidth: 345,
                                     fontFamily: 'lexend',
@@ -29,7 +33,7 @@ function CourseTypes() {
                                 }}
                             >
                                 <CardMedia
-                                    className="hover:scale-110 transition duration-300 ease-in-out cursor-pointer"
+                                    className="group-hover:scale-110 transition duration-300 ease-in-out cursor-pointer"
                                     component="img"
                                     height="140"
                                     image={course.img}
@@ -62,7 +66,7 @@ function CourseTypes() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <a className="w-full" href={course.link}>
+                                    <a className="w-full">
                                         <Button
                                             sx={{
                                                 backgroundColor: '#b81242',
