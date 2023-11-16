@@ -3,7 +3,7 @@ import LoginIcon from './LoginIcon';
 const LargeScreenRightCornerBarBeforeLogin = () => {
     return (
         <>
-            <span className="inline-block">
+            <span className="inline-block ">
                 <NavLink to="/login">
                     <LoginIcon />
                 </NavLink>
