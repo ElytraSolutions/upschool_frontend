@@ -102,7 +102,7 @@ export default function Registration() {
     ];
 
     return (
-        <div className="h-full w-full">
+        <div className=" h-full w-full">
             <Navbar />
             {user && user.id ? (
                 <div className="w-full h-full">
@@ -132,7 +132,7 @@ export default function Registration() {
                     <div
                         className={`grid ${
                             isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
-                        } gap-0 w-[97vw] sm:w-[90vw] lg:w-[80vw] xl:w-[65vw] h-fit md:h-[550px] 2xl:h-[570px]`}
+                        } gap-0 w-[97vw] sm:w-[90vw] lg:w-[80vw] xl:w-[65vw] h-fit md:min-h-[550px] 2xl:min-h-[570px]`}
                     >
                         {/* first column:Registration Form*/}
                         <div className=" col-span-11 flex justify-center bg-white py-4 w-full h-full">

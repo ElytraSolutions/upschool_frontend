@@ -39,7 +39,7 @@ const LoggedProfileBox: React.FC<BoxProps> = ({ inf, name }) => {
                         <span className="relative flex items-center justify-center w-full h-full overflow-hidden rounded-full ">
                             {/* */}
                             <svg //imported from tailwind components templates user
-                                className="h-5 w-5 xm:w-8 xm:h-8 text-white -left-0.5 hover:cursor-pointer"
+                                className="h-5 w-5 xm:w-8 xm:h-8 text-theme-color  xm:text-white -left-0.5 hover:cursor-pointer"
                                 fill="currentColor"
                                 viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg"

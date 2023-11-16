@@ -139,6 +139,10 @@ export default function Step2({
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
+                                inputProps={{
+                                    max: new Date().toISOString().split('T')[0],
+                                    min: '1900-01-01',
+                                }}
                             />
                         </div>
                         <div className="grid grid-cols-4 gap-4 text-sm md:text-base w-full font-normal h-fit ">
