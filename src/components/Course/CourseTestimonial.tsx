@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-function CourseTestimonial() {
+function CourseTestimonial({ theme }) {
     const { user } = useUser();
     return (
         <>
@@ -17,7 +17,7 @@ function CourseTestimonial() {
                     >
                         <path
                             d="M334.125 256h78.125v62.5c0 34.473-28.027 62.5-62.5 62.5h-7.812a23.382 23.382 0 0 0-23.438 23.438v46.875a23.382 23.382 0 0 0 23.438 23.438h7.812c86.328 0 156.25-69.922 156.25-156.25V84.125c0-25.879-20.996-46.875-46.875-46.875h-125c-25.879 0-46.875 20.996-46.875 46.875v125c0 25.879 20.996 46.875 46.875 46.875zm-281.25 0H131v62.5c0 34.473-28.027 62.5-62.5 62.5h-7.812a23.382 23.382 0 0 0-23.438 23.438v46.875a23.382 23.382 0 0 0 23.438 23.438H68.5c86.328 0 156.25-69.922 156.25-156.25V84.125c0-25.879-20.996-46.875-46.875-46.875h-125C26.996 37.25 6 58.246 6 84.125v125C6 235.004 26.996 256 52.875 256z"
-                            fill="#3c74cf"
+                            fill={theme}
                         ></path>
                     </svg>
                 </div>
@@ -65,14 +65,16 @@ function CourseTestimonial() {
                     >
                         <path
                             d="M334.125 256h78.125v62.5c0 34.473-28.027 62.5-62.5 62.5h-7.812a23.382 23.382 0 0 0-23.438 23.438v46.875a23.382 23.382 0 0 0 23.438 23.438h7.812c86.328 0 156.25-69.922 156.25-156.25V84.125c0-25.879-20.996-46.875-46.875-46.875h-125c-25.879 0-46.875 20.996-46.875 46.875v125c0 25.879 20.996 46.875 46.875 46.875zm-281.25 0H131v62.5c0 34.473-28.027 62.5-62.5 62.5h-7.812a23.382 23.382 0 0 0-23.438 23.438v46.875a23.382 23.382 0 0 0 23.438 23.438H68.5c86.328 0 156.25-69.922 156.25-156.25V84.125c0-25.879-20.996-46.875-46.875-46.875h-125C26.996 37.25 6 58.246 6 84.125v125C6 235.004 26.996 256 52.875 256z"
-                            fill="#3c74cf"
+                            fill={theme}
                         ></path>
                     </svg>
                 </div>
                 {user === null && (
                     <div className="flex my-2 justify-center mb-8">
                         <Link to="/register">
-                            <button className="bg-[#3c74cf] rounded-sm font-thin text-[18px] px-11 py-2">
+                            <button
+                                className={`bg-[${theme}] rounded-sm font-thin text-[18px] px-11 py-2`}
+                            >
                                 REGISTER
                                 <span>
                                     <KeyboardArrowRightIcon

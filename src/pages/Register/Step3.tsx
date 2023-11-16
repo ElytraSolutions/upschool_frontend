@@ -63,7 +63,7 @@ export default function Step3({
                     >
                         <div className="grid grid-rows-6 w-full gap-1 mt-1">
                             <div className="row-span-2 flex flex-col flex-1 gap-3 justify-center">
-                                <h2 className=" text-sm xl:text-lg text-font-color">
+                                <h2 className=" text-sm xl:text-lg text-font-color italic">
                                     Would you like us to register you for a FREE
                                     Canva Pro Account
                                 </h2>
@@ -91,7 +91,7 @@ export default function Step3({
                                     <MenuItem value="false">{'No'}</MenuItem>
                                 </TextField>
                             </div>
-                            <div className="row-span-3 grid grid-rows-3  text-sm text-font-color pt-2 w-full h-fit">
+                            <div className="row-span-3 grid grid-rows-3  text-md text-font-color pt-2 w-full h-fit">
                                 {values.canvaAccount === 'true' && (
                                     <>
                                         <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
@@ -104,7 +104,7 @@ export default function Step3({
                                             visible to Upschool users registered
                                             with Canva.
                                         </label>
-                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
+                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center mt-2">
                                             <Field
                                                 type="checkbox"
                                                 name="condition2"
@@ -148,7 +148,7 @@ export default function Step3({
                                     (touched.condition3 &&
                                         errors.condition3)) && (
                                     <p className="text-center text-red-upschool text-sm p-1">
-                                        you need to accept all the conditions to
+                                        You need to accept all the conditions to
                                         proceed
                                     </p>
                                 )}

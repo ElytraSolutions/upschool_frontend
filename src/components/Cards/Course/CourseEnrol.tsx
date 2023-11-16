@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axiosInstance from '../../../config/Axios';
 import { toast } from 'react-toastify';
 
-function CourseEnrol() {
+function CourseEnrol({ thumbnail }) {
     const { slug } = useParams();
     console.log('This is the slug', slug);
     const { user } = useUser();
@@ -55,7 +55,7 @@ function CourseEnrol() {
             toast.error((error as any).response.data.message);
         }
     };
-    console.log('User Information', user);
+    // console.log('User Information', user);
 
     const handleClick = async () => {
         if (user && user.id) {
@@ -77,9 +77,9 @@ function CourseEnrol() {
     };
     return (
         <>
-            <div className="grid border-1 border-gray-300 rounded-lg overflow-hidden shadow-2xl hover:scale-[1.05] hover:transition hover:duration-200">
+            <div className="shrink grid border-1 border-gray-300 rounded-lg overflow-hidden shadow-2xl hover:scale-[1.05] hover:transition hover:duration-200">
                 <img
-                    src={resolveImgURL('./images/Course/courseEnrol.png')}
+                    src={resolveImgURL(thumbnail)}
                     alt="courseEnrol"
                     className="max-w-[340px] max-h-[408px]"
                 />

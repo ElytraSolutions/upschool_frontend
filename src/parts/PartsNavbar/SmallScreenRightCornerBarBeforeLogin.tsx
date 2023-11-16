@@ -16,7 +16,7 @@ const SmallScreenRightCornerBarBeforeLogin = () => {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="white"
-                    className="h-5 w-5 xm:w-8 xm:h-8 "
+                    className="h-5 w-5 xm:w-8 xm:h-8 stroke-theme-color xm:stroke-white "
                 >
                     <path
                         strokeLinecap="round"
@@ -32,12 +32,12 @@ const SmallScreenRightCornerBarBeforeLogin = () => {
             >
                 <li className="hover:bg-red-upschool  hover:text-white ">
                     <NavLink to="/login">
-                        <p className="p-1 sm:p-2 md:px-6 md:py-3">Login</p>
+                        <p className="p-2 md:px-6 md:py-3">Login</p>
                     </NavLink>
                 </li>
                 <li className="hover:bg-red-upschool hover:text-white">
                     <NavLink to="/register">
-                        <p className="p-1 sm:p-2 md:px-6 md:py-3">register</p>
+                        <p className="p-2 sm:p-2 md:px-6 md:py-3">Register</p>
                     </NavLink>
                 </li>
             </ul>

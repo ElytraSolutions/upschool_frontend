@@ -72,10 +72,10 @@ const Login = () => {
                 <div className="w-[95%] sm:w-[80vw] tab:w-[768px] xlarge:w-[40%] xxlarge:w-1/3  bg-white flex justify-center items-center h-fit ">
                     <div className="w-11/12 h-fit py-3">
                         <div className="  mt-0.5 md:mt-2">
-                            <h1 className="md:text-2xl text-md font-semibold text-font-color font-lexend  px-2 py-0.5 mx-2 my-0.5 md:p-2 md:m-2">
+                            <h1 className="md:text-2xl text-md font-semibold text-font-color font-lexend  px-2 py-0.5 mx-2 mt-0.5 md:p-1 md:m-2">
                                 Welcome Back to Upschool.co
                             </h1>
-                            <h3 className="text-font-color sm:text-base text-[0.8rem] font-normal px-2 py-1 mx-2 my-0.5 md:p-2 md:m-2">
+                            <h3 className="text-font-color sm:text-base text-[0.8rem] font-normal px-2 mx-2 md:pb-1 md:m-2">
                                 Sign in to continue to your account
                             </h3>
                             {/* Social Login Buttons disabled */}
@@ -210,7 +210,7 @@ const Login = () => {
                                 isSubmitting,
                             }) => (
                                 <form onSubmit={handleSubmit}>
-                                    <div className="grid grid-rows-4 w-full sm:gap-y-4 gap-y-1 px-2 mx-2 py-0.5">
+                                    <div className="grid grid-rows-4 w-full sm:gap-y-2 gap-y-1 px-2 mx-2 py-0.5">
                                         <TextField
                                             className="row-span-1"
                                             type="email"
@@ -276,7 +276,7 @@ const Login = () => {
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className=" row-span-1 m-auto p-4 bg-theme-color text-white text-center disabled:opacity-75 w-full"
+                                            className=" row-span-1 m-auto  p-4 bg-theme-color text-white text-center disabled:opacity-75 w-full"
                                         >
                                             {isSubmitting
                                                 ? 'Logging in'
@@ -286,7 +286,7 @@ const Login = () => {
                                 </form>
                             )}
                         </Formik>
-                        <div className="flex flex-col w-full items-start justify-around text-font-color gap-y-1 px-2 mx-2 mt-3 sm:pb-4 pb-2">
+                        <div className="flex flex-col w-full items-start justify-around text-font-color gap-y-1 px-2 mx-2 sm:pb-4 pb-2 mt-2 ">
                             <div className=" font-semibold sm:text-base text-[0.91rem]">
                                 <NavLink to="/resetpasswordemail">
                                     Forgot Password?

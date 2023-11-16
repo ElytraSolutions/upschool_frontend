@@ -1,4 +1,5 @@
 export default function resolveImgURL(url: string) {
+    if (!url) return '';
     if (url.startsWith('http')) return url;
     let baseUrl = import.meta.env.VITE_IMG_ROOT_URL || '';
     baseUrl = baseUrl.replace(/\/$/, ''); // remove trailing slash from baseUrl

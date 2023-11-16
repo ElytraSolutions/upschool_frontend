@@ -1,9 +1,14 @@
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 
-function CourseStaticVideo() {
+function CourseStaticVideo({ theme }) {
     return (
         <>
-            <div className="bg-[#3c74cf] grid lg:gird-cols-6 grid-flow-row lg:h-[475px]">
+            <div
+                className={`grid lg:gird-cols-6 grid-flow-row lg:h-[475px]`}
+                style={{
+                    backgroundColor: theme,
+                }}
+            >
                 <iframe
                     className="w-full lg:h-full h-[325px] lg:col-start-1 lg:col-span-4"
                     width="560"

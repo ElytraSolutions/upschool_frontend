@@ -1,8 +1,13 @@
-function CourseStaticUpschool() {
+function CourseStaticUpschool({ theme }) {
     return (
         <>
-            <div className="grid bg-[#f4f4f4] mb-12">
-                <div className="flex justify-center text-[#3c74cf] text-[45px] font-caveat font-bold mb-[20px]">
+            <div className="grid bg-[#f4f4f4]">
+                <div
+                    className={`flex justify-center text-[45px] font-caveat font-bold mb-[20px]`}
+                    style={{
+                        color: theme,
+                    }}
+                >
                     <p>Everything we do at Upschool:</p>
                 </div>
                 <div className="grid lg:grid-cols-5 gap-x-4 text-theme-color xl:mx-32 lg:mx-8 tab:grid-flow-row">

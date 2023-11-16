@@ -19,13 +19,13 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                 }`}
             >
                 <div
-                    className={` col-span-3 xs:col-span-1 bg-theme-color  h-full  w-full top-0 flex justify-center`}
+                    className={` col-span-4 xs:col-span-1 bg-white h-full  w-full top-0 flex justify-center `}
                     // onMouseLeave={() => {
                     //     setTimeout(onClose, 5000);
                     // }}
                 >
-                    <div className="w-11/12 text-white ">
-                        <div className="flex flex-row gap-3 justify-between items-center py-4 lg:py-6  mx-1 h-fit">
+                    <div className="w-full text-theme-color relative ">
+                        <div className="flex flex-row gap-3 justify-between items-center py-2 lg:py-6  h-fit bg-slate-100 px-2">
                             <span onClick={onClose} className="">
                                 <NavLink to="/">
                                     <img
@@ -33,17 +33,20 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                             '/images/Upschool_logo_Mobile_Navbar-300x57.png',
                                         )}
                                         alt="upSchool"
-                                        width="150"
+                                        width="120"
                                         height="50"
                                     />
                                 </NavLink>
                             </span>
-                            <button onClick={onClose}>
+                            <button
+                                onClick={onClose}
+                                className=" bg-theme-color p-2 absolute top-0 right-0 "
+                            >
                                 <svg //cross symbol
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
+                                    strokeWidth="2"
                                     stroke="currentColor"
                                     className="h-5 w-5 md:h-6 md:w-6 lg:w-8 lg:h-8 text-white"
                                 >
@@ -55,19 +58,15 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                 </svg>
                             </button>
                         </div>
-                        <div className="w-full">
+                        <div className="w-full px-2">
                             {data.map((detail, index) => (
                                 <div
-                                    className={`${
-                                        navData === detail.id
-                                            ? 'bg-red-upschool'
-                                            : ''
-                                    } rounded-md flex flex-col w-full `}
+                                    className={` flex flex-col w-full border-b-2 p-2 `}
                                 >
                                     {/* main menu */}
                                     <div
                                         key={index}
-                                        className={` rounded-md p-2   flex w-full justify-between items-center`}
+                                        className={` p-2 flex w-full justify-between items-center `}
                                         onClick={() => {
                                             if (navData === detail.id) {
                                                 setNavData(0);
@@ -85,23 +84,37 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                         onClose();
                                                     }
                                                 }}
+                                                className="text-base font-bold hover:text-font-color"
                                             >
                                                 {detail.title}
                                             </NavLink>
                                         </div>
-                                        <div
-                                            className={` ${
-                                                navData === detail.id &&
-                                                'rotate-180'
-                                            }`}
-                                        >
-                                            <svg
+                                        <div>
+                                            {navData != detail.id ? (
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    height="1em"
+                                                    viewBox="0 0 448 512"
+                                                >
+                                                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                                                </svg>
+                                            ) : (
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    height="1em"
+                                                    viewBox="0 0 448 512"
+                                                >
+                                                    {' '}
+                                                    <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
+                                                </svg>
+                                            )}
+                                            {/* <svg
                                                 className="fill-current h-4 w-4"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 20 20"
                                             >
                                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                            </svg>
+                                            </svg> */}
                                         </div>
                                     </div>
                                     {/* sub menu */}
@@ -117,7 +130,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                                 (detail, index) => (
                                                     <li
                                                         key={index}
-                                                        className="hover:text-font-color hover:scale-105 border border-theme-color bg-slate-50 text-theme-color p-1 rounded  m-1 w-[90%]"
+                                                        className="hover:text-font-color text-theme-color opacity-70  rounded  m-1 w-[90%]"
                                                         onClick={onClose}
                                                     >
                                                         <NavLink
@@ -142,7 +155,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                 </div>
                 {/* Secound column */}
                 <div
-                    className={`col-span-2 xs:col-start-2 xs:col-span-1 sm:col-span-2 tab:col-span-3 h-full w-full  top-0  bg-black/70`}
+                    className={`col-span-1 xs:col-start-2 xs:col-span-1 sm:col-span-2 tab:col-span-3 h-full w-full  top-0  bg-black/70`}
                     onClick={onClose}
                 >
                     <div className="h-full w-full "></div>
