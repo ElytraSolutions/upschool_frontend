@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import resolveImgURL from '../../utlis/resolveImgURL';
 import CourseSteps from '../../components/Course/CourseSteps';
+import CourseDescription from '../../components/Course/CourseDescription';
 
 const commQuestions = {
     one: {
@@ -51,8 +52,11 @@ function CoursePage() {
             setCourseInfo(res.data.data);
         })();
     }, [slug]);
-    console.log(courseInfo);
     if (!courseInfo) return null;
+    if (!courseInfo.description) return null;
+    if (courseInfo.description) {
+        console.log(courseInfo.description);
+    }
     return (
         <>
             <div className="grid gap-y-10">
@@ -67,6 +71,12 @@ function CoursePage() {
                         }
                     />
                 </div>
+                <CourseDescription
+                    editorData={courseInfo.description.description}
+                    title={courseInfo.description.title}
+                    subtitle={courseInfo.description.subtitle}
+                    theme={courseInfo.theme}
+                />
                 <CourseStaticVideo theme={courseInfo.theme} />
                 <CourseStaticUpschool theme={courseInfo.theme} />
                 <CourseTestimonial theme={courseInfo.theme} />
