@@ -45,7 +45,7 @@ function CourseSteps({ steps, theme, objData }) {
                             </FunctionalIFrameComponent>
                         </div>
                     </div>
-                    {Object.values(steps).map((step: any, index) => (
+                    {Object?.values(steps).map((step: any, index) => (
                         <div
                             key={index}
                             className="grid border-b-2 border-gray-200"
