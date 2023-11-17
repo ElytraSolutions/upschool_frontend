@@ -1,5 +1,5 @@
 import verification from '../../assets/verification.png';
-const Step4 = ({ data }) => {
+const Step4 = ({ data, refresh }) => {
     console.log(data);
     return (
         <div className="flex justify-center flex-col items-center text-font-color gap-y-3 xl:gap-y-6 mt-8">
@@ -16,7 +16,16 @@ const Step4 = ({ data }) => {
                 alt="verification"
                 className="w-[50%] 2xl:w-[30%] mt-4 mb-4"
             />
-            <button className=" flex  items-center justify-center bg-theme-color px-3 py-2 w-fit h-fit text-white mb-5">
+            <button
+                className=" flex  items-center justify-center bg-theme-color px-3 py-2 w-fit h-fit text-white mb-5"
+                onClick={async () => {
+                    try {
+                        refresh();
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }}
+            >
                 Resend Verification Email
             </button>
         </div>

@@ -101,7 +101,7 @@ export default function Registration() {
                 setCurrentStep(1);
             }}
         />,
-        <Step4 data={currentData} />,
+        <Step4 data={currentData} refresh={refresh} />,
     ];
 
     return (
