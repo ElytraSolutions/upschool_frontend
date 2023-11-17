@@ -69,8 +69,8 @@ const Login = () => {
         <>
             <Navbar />
             <div className="relative flex flex-row justify-center  bg-gray-200 h-full py-4 px-1 md:py-4 2xl:py-10 xlarge:p-12 xxlarge:p-16 ">
-                <div className="w-[95%] sm:w-[80vw] tab:w-[768px] xlarge:w-[40%] xxlarge:w-1/3  bg-white flex justify-center items-center h-fit ">
-                    <div className="w-11/12 h-fit py-3">
+                <div className="w-[95%] sm:w-[80vw] tab:w-[75vw] bg-white flex justify-center items-center min-h-[70vh]">
+                    <div className="w-11/12 py-3">
                         <div className="  mt-0.5 md:mt-2">
                             <h1 className="md:text-2xl text-[1rem] font-semibold text-font-color font-lexend  px-2 mx-2 mt-0.5 py-2 m-2">
                                 Welcome Back to Upschool.co

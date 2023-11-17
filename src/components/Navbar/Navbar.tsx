@@ -64,7 +64,7 @@ export default function Navbar() {
                     isScrolled ? 'fixed' : ''
                 } h-fit z-20 w-full bg-white xm:bg-theme-color px-1 py-2 md:py-3 md:px-2  flex flex-1 items-center `}
             >
-                <div className="flex flex-1 gap-2 md:gap-3 items-center tab:gap-20 justify-between w-full">
+                <div className="flex flex-1 gap-2 md:gap-3 items-center tab:gap-20 justify-between w-full pl-2">
                     <div
                         className={`flex items-center tab:gap-4 xl:gap-6 2xl:gap-8`}
                     >
@@ -75,8 +75,7 @@ export default function Navbar() {
                                         '/images/upschool_logo.png',
                                     )}
                                     alt="Logo"
-                                    width={`${isTabScreen ? '100' : '150'}`}
-                                    height="50"
+                                    width={`${isTabScreen ? '200' : '150'}`}
                                 />
                             </NavLink>
                         </div>

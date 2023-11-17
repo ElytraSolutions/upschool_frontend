@@ -1,7 +1,12 @@
+import { useState } from 'react';
 export default function CartIcon() {
+    const [cartItems, setCartItems] = useState(2); // TODO: cart items should be fetched from backend
+
     return (
         <div
-            className="justify-center flex items-center"
+            className={`justify-center flex items-center ${
+                cartItems === 0 ? 'pr-2' : 'pr-3'
+            }`}
             style={{ minWidth: '34px' }}
         >
             <div className="relative scale-75">
@@ -20,9 +25,11 @@ export default function CartIcon() {
                     />
                 </svg>
                 {/* TODO cart items should be fetched from backend */}
-                <span className="absolute -top-2 left-4 rounded-full  bg-red-upschool p-0.5 px-1 xm:px-2 text-sm text-white">
-                    4
-                </span>
+                {cartItems > 0 && (
+                    <span className="absolute -top-2 left-4 rounded-full  bg-red-upschool p-0.5 px-2 xm:px-2 text-sm text-white">
+                        {cartItems}
+                    </span>
+                )}
             </div>
         </div>
     );

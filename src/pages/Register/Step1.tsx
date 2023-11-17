@@ -84,7 +84,7 @@ export default function Step1({
                     {/* First step form */}
                     <form
                         onSubmit={handleSubmit}
-                        className="w-full h-fit md:h-full flex flex-col gap-3 justify-between"
+                        className="w-full min-h-[55vh] flex flex-col gap-3 justify-between"
                     >
                         <div className={`grid w-full grid-cols-4 gap-4`}>
                             <TextField

@@ -132,7 +132,7 @@ export default function Registration() {
                     <div
                         className={`grid ${
                             isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
-                        } gap-0 w-[97vw] sm:w-[90vw] lg:w-[80vw] xl:w-[65vw] h-fit md:min-h-[550px] 2xl:min-h-[570px]`}
+                        } gap-0 w-[97vw] sm:w-[90vw] lg:w-[80vw] xl:w-[85vw] min-h-[75vh]`}
                     >
                         {/* first column:Registration Form*/}
                         <div className=" col-span-11 flex justify-center bg-white py-1 w-full h-full">
