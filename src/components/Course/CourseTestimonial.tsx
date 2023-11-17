@@ -70,7 +70,8 @@ function CourseTestimonial({ theme, tstData }) {
                     <div className="flex my-2 justify-center mb-8">
                         <Link to="/register">
                             <button
-                                className={`bg-[${theme}] rounded-sm font-thin text-[18px] px-11 py-2`}
+                                className={`rounded-sm font-thin text-[18px] px-11 py-2`}
+                                style={{ backgroundColor: theme }}
                             >
                                 REGISTER
                                 <span>
