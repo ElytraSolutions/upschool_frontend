@@ -16,8 +16,11 @@ const Step4 = ({ data, refresh, navigate }) => {
                 alt="verification"
                 className="w-[50%] 2xl:w-[30%] mt-4 mb-4"
             />
+            <button className=" flex  items-center justify-center bg-theme-color px-5 py-2 w-fit h-fit text-white mb-0">
+                Resend Verification Email
+            </button>
             <button
-                className=" flex  items-center justify-center bg-theme-color px-3 py-2 w-fit h-fit text-white mb-5"
+                className=" flex  items-center justify-center bg-pink-upschool px-5 py-2 w-fit h-fit text-white mb-5"
                 onClick={async () => {
                     try {
                         refresh();
@@ -27,7 +30,7 @@ const Step4 = ({ data, refresh, navigate }) => {
                     }
                 }}
             >
-                Resend Verification Email
+                Verify Later
             </button>
         </div>
     );
