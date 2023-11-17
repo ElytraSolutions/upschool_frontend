@@ -14,13 +14,13 @@ export default function RegisterStepIHeader({
     return (
         <div
             className={` flex flex-col gap-2 ${
-                !showSocialLogin ? 'sm:mb-12 mb-8 sm:mt-6 mt-4' : ''
+                !showSocialLogin ? 'sm:mb-3 mb-3 sm:mt-6 mt-4' : ''
             }`}
         >
             <h1 className=" text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-font-color  font-lexend pb-3">
                 Create Your Upschool Account
             </h1>
-            <h3 className="text-font-color text-sm  lg:text-base font-normal  pb-3">
+            <h3 className="text-font-color text-sm  lg:text-base font-normal pb-3 ">
                 You are a few clicks away from creating your account
             </h3>
             {showSocialLogin && (

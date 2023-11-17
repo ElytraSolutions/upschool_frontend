@@ -1,9 +1,24 @@
 import { Link } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { FunctionalIFrameComponent } from './FuncIFrame';
+import { useRef, useEffect, useState } from 'react';
 
-function CourseTestimonial({ theme }) {
+function CourseTestimonial({ theme, tstData }) {
     const { user } = useUser();
+    const divRef = useRef<any>(null);
+    const [dynHeight, setDynHeight] = useState(0);
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            if (divRef.current) {
+                const divHeight = divRef.current.clientHeight;
+                // console.log('div height:', divHeight);
+                setDynHeight(divHeight + 25);
+            }
+        }, 3000); // Adjust the timeout duration as needed
+
+        return () => clearTimeout(timerId);
+    }, [divRef]);
     return (
         <>
             <div className="grid mt-2">
@@ -22,38 +37,20 @@ function CourseTestimonial({ theme }) {
                     </svg>
                 </div>
                 <div className="font-sans grid justify-center text-center">
-                    <div className="flex max-w-[1120px] tracking-wide mb-8">
-                        <p>
-                            “It has been a privilege for our children to be a
-                            part of the initial Upschool program focussing on
-                            creating a Changemaking Community. Our students have
-                            been engaged from the outset, and we have seen a
-                            measurable improvement in not only their literacy
-                            skills but also in their empathy towards others and
-                            their understanding of how to connect to communities
-                            both locally and abroad. The resources that are
-                            provided are outstanding and have kept our students
-                            motivated towards their goals.{' '}
-                        </p>
-                    </div>
-                    <div className="flex max-w-[1120px] tracking-wide text-[21px] font-bold text-[#3c74cf] mb-8">
-                        <p>
-                            It has transformed the way that we approach teaching
-                            within the school, giving our students an authentic
-                            purpose and opportunity to make a real world
-                            difference.
-                        </p>
-                    </div>
-                    <div className="max-w-[1120px] tracking-wide text-base">
-                        <p>
-                            As a school we are committed to the work that
-                            Upschool is doing and are looking forward to our
-                            next work with them.”
-                        </p>
-                        <strong>
-                            Daniel Frew (Principal, Lower Plenty Primary School,
-                            Melbourne)
-                        </strong>
+                    <div
+                        className="flex w-full justify-center overflow-scroll-hidden"
+                        style={{ height: `${dynHeight}px` }}
+                    >
+                        <div className="w-[1120px]">
+                            <FunctionalIFrameComponent title={''}>
+                                <div
+                                    ref={divRef}
+                                    dangerouslySetInnerHTML={{
+                                        __html: tstData,
+                                    }}
+                                ></div>
+                            </FunctionalIFrameComponent>
+                        </div>
                     </div>
                 </div>
                 <div className="flex justify-center w-full my-8">
@@ -73,7 +70,8 @@ function CourseTestimonial({ theme }) {
                     <div className="flex my-2 justify-center mb-8">
                         <Link to="/register">
                             <button
-                                className={`bg-[${theme}] rounded-sm font-thin text-[18px] px-11 py-2`}
+                                className={`rounded-sm font-thin text-[18px] px-11 py-2`}
+                                style={{ backgroundColor: theme }}
                             >
                                 REGISTER
                                 <span>

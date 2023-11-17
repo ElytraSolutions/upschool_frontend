@@ -192,7 +192,9 @@ export default function Step3({
                                 disabled={isSubmitting}
                             >
                                 <span>
-                                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                                    {isSubmitting
+                                        ? 'Registering...'
+                                        : 'Register'}
                                 </span>
                                 {/* <span>Next</span> */}
                                 {/* <span>

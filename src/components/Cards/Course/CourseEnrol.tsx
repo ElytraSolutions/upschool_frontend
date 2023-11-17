@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 
 function CourseEnrol({ thumbnail }) {
     const { slug } = useParams();
-    console.log('This is the slug', slug);
     const { user } = useUser();
     const navigate = useNavigate();
     const [enrollmentStatus, setEnrollmentStatus] = useState<{
@@ -23,7 +22,6 @@ function CourseEnrol({ thumbnail }) {
     });
 
     const checkEnrollmentStatus = async () => {
-        console.log('check EnrollMent res');
         const resp = await axiosInstance.get(
             `/data/courses/${slug}/checkEnrollment`,
         );
@@ -65,7 +63,6 @@ function CourseEnrol({ thumbnail }) {
                 await handleEnroll();
             }
         } else {
-            console.log('Login');
             navigate(`/login`);
         }
     };

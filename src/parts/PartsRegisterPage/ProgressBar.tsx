@@ -4,11 +4,11 @@ type ProgressBarPorps = {
 
 export default function ProgressBar({ currentLevel }: ProgressBarPorps) {
     const step = currentLevel + 1;
-    const percent = [100, 66, 33];
+    const percent = [100, 66, 33, 0];
     return (
         <div className="grid w-full grid-cols-10">
             <div className=" col-start-2 col-end-11 flex  w-full flex-col text-white ">
-                <span className="text-sm">step {step} of 3</span>
+                <span className="text-sm">Step {step} of 4</span>
                 <span className="text-base">{`${percent[currentLevel]}% to complete`}</span>
                 <div className="mt-2 h-4 w-full rounded-e-xl rounded-s-md overflow-hidden bg-white">
                     <div
@@ -17,6 +17,8 @@ export default function ProgressBar({ currentLevel }: ProgressBarPorps) {
                                 ? 'w-1/3'
                                 : currentLevel == 2
                                 ? 'w-2/3'
+                                : currentLevel == 3
+                                ? 'w-12/12'
                                 : 'w-1/12'
                         } rounded-e-md `}
                     ></div>
