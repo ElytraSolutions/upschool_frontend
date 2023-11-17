@@ -1,6 +1,5 @@
-import { useState } from 'react';
 export default function CartIcon() {
-    const [cartItems, setCartItems] = useState(2); // TODO: cart items should be fetched from backend
+    const cartItems = 0; // TODO: cart items should be fetched from backend
 
     return (
         <div
