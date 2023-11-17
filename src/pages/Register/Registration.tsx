@@ -10,7 +10,7 @@ import Step4 from './Step4';
 import { SecondColumnProgressSection as ProgressSection } from '../../parts/PartsRegisterPage/SecondColumnProgressSection';
 import LoginPart from '../../parts/PartsRegisterPage/LoginPart';
 import axiosInstance from '../../config/Axios';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar/Navbar';
@@ -20,7 +20,7 @@ export default function Registration() {
     const { user, refresh } = useUser();
     const { isLargeScreen } = useScreenWidthAndHeight(); //min-width=768px
     const [currentStep, setCurrentStep] = useState(0);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [currentData, setCurrentData] = useState({
         first_name: '',
         last_name: '',
@@ -101,7 +101,7 @@ export default function Registration() {
                 setCurrentStep(1);
             }}
         />,
-        <Step4 data={currentData} refresh={refresh} />,
+        <Step4 data={currentData} refresh={refresh} navigate={navigate} />,
     ];
 
     return (

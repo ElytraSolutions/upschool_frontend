@@ -1,5 +1,5 @@
 import verification from '../../assets/verification.png';
-const Step4 = ({ data, refresh }) => {
+const Step4 = ({ data, refresh, navigate }) => {
     console.log(data);
     return (
         <div className="flex justify-center flex-col items-center text-font-color gap-y-3 xl:gap-y-6 mt-8">
@@ -21,6 +21,7 @@ const Step4 = ({ data, refresh }) => {
                 onClick={async () => {
                     try {
                         refresh();
+                        navigate('/');
                     } catch (error) {
                         console.log(error);
                     }
