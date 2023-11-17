@@ -84,7 +84,7 @@ export default function Step1({
                     {/* First step form */}
                     <form
                         onSubmit={handleSubmit}
-                        className="w-full h-fit md:h-full flex flex-col gap-3 justify-between"
+                        className="w-full min-h-[55vh] flex flex-col gap-3 justify-between"
                     >
                         <div className={`grid w-full grid-cols-4 gap-4`}>
                             <TextField
@@ -225,7 +225,7 @@ export default function Step1({
                         >
                             <button
                                 type="submit"
-                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1  flex  flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color px-3 py-2 w-fit h-fit text-white"
+                                className=" col-start-3  sm:col-start-4 col-span-2 sm:col-span-1  flex  flex-1 flex-wrap items-center justify-center gap-x-0.5 bg-theme-color px-3 py-2 mb-4 w-fit h-fit text-white"
                             >
                                 <span>Next</span>
                                 <span>

@@ -30,12 +30,12 @@ function AllCourses() {
                     <h1 className="text-2xl text-center font-bold">
                         Explore Upschool's Courses
                     </h1>
-                    <div className="flex flex-wrap mt-4 justify-center">
+                    <div className="flex flex-wrap mt-4 justify-center min-w-[20rem]">
                         {categories.map((category) => (
                             <div className="py-2" key={category.id}>
                                 <a
                                     href={`#${getCategoryId(category)}`}
-                                    className="px-4 border-r-2"
+                                    className="px-4 border-r-2 sm:text-base text-[0.8rem]"
                                 >
                                     {category.name}
                                 </a>

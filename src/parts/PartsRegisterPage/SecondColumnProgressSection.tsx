@@ -121,7 +121,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                 {/* Circle */}
                                 <div
                                     className={`${
-                                        currentStep == 2
+                                        currentStep > 2
                                             ? 'border-pink-600 bg-white '
                                             : 'border-gray-400'
                                     } flex justify-center border-2 w-8 h-8 rounded-full`}
@@ -135,7 +135,9 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                                             strokeWidth="2.5"
                                             stroke="currentColor"
                                             className={`${
-                                                currentStep > 2 ? '' : 'hidden'
+                                                currentStep > 2
+                                                    ? 'block'
+                                                    : 'hidden'
                                             } relative w-6 h-6  mt-1 text-theme-color`}
                                         >
                                             <path
@@ -151,7 +153,7 @@ function SecondColumnProgressSection({ currentStep }: ProgressSectionPorps) {
                             <div className="col-span-3 justify-self-start flex flex-row flex-1 justify-start">
                                 <h1
                                     className={`${
-                                        currentStep == 2
+                                        currentStep > 2
                                             ? 'text-white'
                                             : 'text-gray-400'
                                     }`}
