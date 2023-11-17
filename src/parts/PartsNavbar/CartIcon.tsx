@@ -1,5 +1,6 @@
+import { useState } from 'react';
 export default function CartIcon() {
-    const cartItems = 0; // TODO: cart items should be fetched from backend
+    const [cartItems, setCarTItem] = useState(2); // TODO: cart items should be fetched from backend
 
     return (
         <div
@@ -25,7 +26,12 @@ export default function CartIcon() {
                 </svg>
                 {/* TODO cart items should be fetched from backend */}
                 {cartItems > 0 && (
-                    <span className="absolute -top-2 left-4 rounded-full  bg-red-upschool p-0.5 px-2 xm:px-2 text-sm text-white">
+                    <span
+                        className="absolute -top-2 left-4 rounded-full  bg-red-upschool p-0.5 px-2 xm:px-2 text-sm text-white"
+                        onClick={() => {
+                            setCarTItem(0);
+                        }}
+                    >
                         {cartItems}
                     </span>
                 )}

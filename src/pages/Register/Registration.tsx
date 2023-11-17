@@ -6,10 +6,11 @@ import RegisterStepIIIHeader from '../../parts/PartsRegisterPage/RegisterStepIII
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
+import Step4 from './Step4';
 import { SecondColumnProgressSection as ProgressSection } from '../../parts/PartsRegisterPage/SecondColumnProgressSection';
 import LoginPart from '../../parts/PartsRegisterPage/LoginPart';
 import axiosInstance from '../../config/Axios';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import { toast } from 'react-toastify';
 import Navbar from '../../components/Navbar/Navbar';
@@ -19,7 +20,7 @@ export default function Registration() {
     const { user, refresh } = useUser();
     const { isLargeScreen } = useScreenWidthAndHeight(); //min-width=768px
     const [currentStep, setCurrentStep] = useState(0);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [currentData, setCurrentData] = useState({
         first_name: '',
         last_name: '',
@@ -79,14 +80,15 @@ export default function Registration() {
                     await axiosInstance.post(
                         '/auth/email/verification-notification',
                     );
-                    await refresh();
+                    // await refresh();
                     resetForm();
                     if (searchParams.get('invite')) {
                         await axiosInstance.post('/data/teacher/addStudent', {
                             teacher_id: searchParams.get('invite'),
                         });
                     }
-                    navigate('/');
+                    // navigate('/');
+                    setCurrentStep((oldStep) => oldStep + 1);
                 } catch (error) {
                     const resp = (error as any).response.data;
                     toast.error(resp.message || 'Something went wrong');
@@ -99,6 +101,7 @@ export default function Registration() {
                 setCurrentStep(1);
             }}
         />,
+        <Step4 data={currentData} />,
     ];
 
     return (
@@ -132,7 +135,7 @@ export default function Registration() {
                     <div
                         className={`grid ${
                             isLargeScreen ? 'grid-cols-16' : 'grid-cols-11'
-                        } gap-0 w-[97vw] sm:w-[90vw] lg:w-[80vw] xl:w-[85vw] min-h-[75vh]`}
+                        } gap-0 w-[97vw] sm:w-[90vw] lg:w-[70vw] xl:w-[65vw] min-h-[55vh]`}
                     >
                         {/* first column:Registration Form*/}
                         <div className=" col-span-11 flex justify-center bg-white py-1 w-full h-full">
@@ -154,7 +157,7 @@ export default function Registration() {
                                 {components[currentStep]}
                                 {!isLargeScreen && (
                                     <div className="text-font-color grid grid-cols-10 content-center w-full">
-                                        <div className="col-span-10 flex flex-1 flex-wrap justify-center text-sm ">
+                                        <div className="col-span-10 flex flex-1 fle-wrap justify-center text-sm ">
                                             <LoginPart />
                                         </div>
                                     </div>
