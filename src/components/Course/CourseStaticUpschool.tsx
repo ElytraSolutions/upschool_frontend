@@ -1,9 +1,9 @@
 function CourseStaticUpschool({ theme }) {
     return (
         <>
-            <div className="grid bg-[#f4f4f4]">
+            <div className="grid bg-[#f4f4f4] pb-5">
                 <div
-                    className={`flex justify-center text-[45px] font-caveat font-bold mb-[20px]`}
+                    className={`flex justify-center text-[45px] font-caveat font-bold mb-[20px] mt-5`}
                     style={{
                         color: theme,
                     }}
@@ -18,12 +18,12 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-2 lg:col-start-1 lg:col-span-1 flex justify-center mb-[20px]">
+                    <div className="lg:row-start-2 tab:row-start-2 lg:col-start-1 lg:col-span-1 flex justify-start mb-[20px]">
                         <h1 className="text-[25px] font-extrabold">
                             Real-World Learning
                         </h1>
                     </div>
-                    <div className="lg:row-start-3 tab:row-start-3 lg:col-start-1 lg:col-span-1 flex justify-center mb-[20px] lg:mx-0 mx-4">
+                    <div className="lg:row-start-3 tab:row-start-3 lg:col-start-1 lg:col-span-1 flex justify-center mb-5 lg:mx-0 mx-4">
                         <p>
                             We take 'real-world' to the next level by designing
                             projects with 'real' outcomes.
@@ -36,12 +36,12 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-5 lg:col-start-2 lg:col-span-1 flex justify-center mb-[20px]">
+                    <div className="lg:row-start-2 tab:row-start-5 lg:col-start-2 lg:col-span-1 flex justify-start mb-[20px]">
                         <h1 className="text-[25px] font-extrabold">
                             Entrepreneurship With Purpose
                         </h1>
                     </div>
-                    <div className="lg:row-start-3 tab:row-start-6 lg:col-start-2 lg:col-span-1 flex justify-center mb-[20px] lg:mx-0 mx-4">
+                    <div className="lg:row-start-3 tab:row-start-6 lg:col-start-2 lg:col-span-1 flex justify-center mb-5 lg:mx-0 mx-4">
                         <p>
                             We want to teach the entrepreneurs of tomorrow to
                             operate with purpose and ethics.
@@ -54,12 +54,12 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-8 lg:col-start-3 lg:col-span-1 flex justify-center mb-[20px]">
+                    <div className="lg:row-start-2 tab:row-start-8 lg:col-start-3 lg:col-span-1 flex justify-start mb-[20px]">
                         <h1 className="text-[25px] font-extrabold">
                             Team Players & Collaborators
                         </h1>
                     </div>
-                    <div className="lg:row-start-3 tab:row-start-9 lg:col-start-3 lg:col-span-1 flex justify-center mb-[20px] lg:mx-0 mx-4">
+                    <div className="lg:row-start-3 tab:row-start-9 lg:col-start-3 lg:col-span-1 flex justify-center mb-5 lg:mx-0 mx-4">
                         <p>
                             Our projects bring children, teachers and
                             communities together to work towards a common goal.
@@ -72,12 +72,12 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-11 lg:col-start-4 lg:col-span-1 flex justify-center mb-[20px]">
+                    <div className="lg:row-start-2 tab:row-start-11 lg:col-start-4 lg:col-span-1 flex justify-start mb-[20px]">
                         <h1 className="text-[25px] font-extrabold">
                             Creativity & Problem Solving
                         </h1>
                     </div>
-                    <div className="lg:row-start-3 tab:row-start-12 lg:col-start-4 lg:col-span-1 flex justify-center mb-[20px] lg:mx-0 mx-4">
+                    <div className="lg:row-start-3 tab:row-start-12 lg:col-start-4 lg:col-span-1 flex justify-center mb-5 lg:mx-0 mx-4">
                         <p>
                             We inspire creative thinking and dynamic problem
                             solving. These are the skills for tomorrow.
@@ -90,12 +90,12 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-14 lg:col-start-5 lg:col-span-1 flex justify-center mb-[20px]">
+                    <div className="lg:row-start-2 tab:row-start-14 lg:col-start-5 lg:col-span-1 flex justify-start mb-[20px]">
                         <h1 className="text-[25px] font-extrabold">
                             Skill Based Learning
                         </h1>
                     </div>
-                    <div className="lg:row-start-3 tab:row-start-15 lg:col-start-5 lg:col-span-1 flex justify-center mb-[20px] lg:mx-0 mx-4">
+                    <div className="lg:row-start-3 tab:row-start-15 lg:col-start-5 lg:col-span-1 flex justify-center mb-5 lg:mx-0 mx-4">
                         <p>
                             From graphic design & film making to creative
                             writing and storytelling (and everything in between)
