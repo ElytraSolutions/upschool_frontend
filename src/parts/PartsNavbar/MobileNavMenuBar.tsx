@@ -25,7 +25,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                     // }}
                 >
                     <div className="w-full text-theme-color relative ">
-                        <div className="flex flex-row gap-3 justify-between items-center py-2 lg:py-6  h-fit bg-slate-100 px-2">
+                        <div className="flex flex-row gap-3 justify-between items-center py-2 lg:py-6 h-11 bg-slate-100 px-2">
                             <span onClick={onClose} className="">
                                 <NavLink to="/">
                                     <img
@@ -40,7 +40,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                             </span>
                             <button
                                 onClick={onClose}
-                                className=" bg-theme-color p-2 absolute top-0 right-0 "
+                                className="flex items-center justify-center bg-theme-color p-2 absolute top-0 right-0 h-11 w-11"
                             >
                                 <svg //cross symbol
                                     xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const MobileNavMenubar = ({ isOpen, onClose }) => {
                                     viewBox="0 0 24 24"
                                     strokeWidth="2"
                                     stroke="currentColor"
-                                    className="h-5 w-5 md:h-6 md:w-6 lg:w-8 lg:h-8 text-white"
+                                    className="h-6 w-6 lg:w-8 lg:h-8 text-white"
                                 >
                                     <path
                                         strokeLinecap="round"
