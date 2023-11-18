@@ -30,7 +30,7 @@ const Step4 = ({ data, refresh, navigate }) => {
                     }
                 }}
             >
-                Verify Later
+                Verify Later, go to Homepage
             </button>
         </div>
     );
