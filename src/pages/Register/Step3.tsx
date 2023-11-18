@@ -59,11 +59,11 @@ export default function Step3({
                     {/* Third step form */}
                     <form
                         onSubmit={handleSubmit}
-                        className="w-full h-fit md:h-full flex flex-col gap-3 justify-between"
+                        className="w-full h-fit md:h-full flex flex-col"
                     >
                         <div className="grid grid-rows-6 w-full gap-1">
-                            <div className="row-span-2 flex flex-col flex-1 gap-3 justify-center">
-                                <h2 className=" text-sm xl:text-lg text-font-color italic">
+                            <div className="row-span-2 flex flex-col flex-1 justify-center h-fit pb-4 pt-2">
+                                <h2 className=" text-sm xl:text-lg text-font-color italic mb-5">
                                     Would you like us to register you for a FREE
                                     Canva Pro Account
                                 </h2>
@@ -91,10 +91,10 @@ export default function Step3({
                                     <MenuItem value="false">{'No'}</MenuItem>
                                 </TextField>
                             </div>
-                            <div className="row-span-3 grid grid-rows-3  text-md text-font-color pt-2 w-full h-fit">
+                            <div className="row-span-3 grid grid-rows-3  text-md text-font-color  w-full h-fit -mt-2 ">
                                 {values.canvaAccount === 'true' && (
                                     <>
-                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center">
+                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4 items-center text-[0.8rem] xl:text-lg">
                                             <Field
                                                 type="checkbox"
                                                 name="condition1"
@@ -104,7 +104,7 @@ export default function Step3({
                                             visible to Upschool users registered
                                             with Canva.
                                         </label>
-                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center mt-2">
+                                        <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center mt-2 text-[0.8rem] xl:text-lg">
                                             <Field
                                                 type="checkbox"
                                                 name="condition2"
@@ -119,7 +119,7 @@ export default function Step3({
                                     </>
                                 )}
 
-                                <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center">
+                                <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center text-[0.8rem] xl:text-lg">
                                     <Field type="checkbox" name="condition3" />
                                     <div>
                                         I agree to Upschool's {` `}
