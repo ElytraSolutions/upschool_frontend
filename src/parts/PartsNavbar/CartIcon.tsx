@@ -9,7 +9,7 @@ export default function CartIcon() {
             }`}
             style={{ minWidth: '34px' }}
         >
-            <div className="relative scale-75">
+            <div className="relative md:scale-75">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

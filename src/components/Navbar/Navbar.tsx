@@ -62,7 +62,7 @@ export default function Navbar() {
             <div
                 className={`${
                     isScrolled ? 'fixed' : ''
-                } h-fit xlarge:h-[96px] z-20 w-full bg-white xm:bg-theme-color px-1 py-2 md:py-3 md:px-2  flex flex-1 items-center `}
+                } h-[65px] md:h-[96px] xlarge:h-[96px] z-20 w-full bg-white xm:bg-theme-color px-1 py-2 md:py-3 md:px-2  flex flex-1 items-center `}
             >
                 <div className="flex flex-1 gap-2 md:gap-3 items-center tab:gap-20 justify-between w-full pl-2 xl:pl-6">
                     <div
@@ -82,7 +82,7 @@ export default function Navbar() {
                         {isTabScreen && <ComputerMenu />}
                     </div>
                     {/* TODO left to maintain CSS properties */}
-                    <div className="flex gap-2 xm:gap-2 lg:gap-2 2xl:gap-3 justify-end items-center pr-3 z-10">
+                    <div className="flex gap-3 xm:gap-2 lg:gap-2 2xl:gap-3 justify-end items-center pr-3 z-10">
                         <span className="">
                             <NavLink to="/">
                                 <CartIcon />
