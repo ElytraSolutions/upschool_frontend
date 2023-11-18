@@ -31,7 +31,7 @@ const SmallScreenRightCornerBar = ({ isLoggedIn, setIsopen }: LogInProps) => {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="h-5 w-5 xm:w-8 xm:h-8 text-theme-color xm:text-white hover:cursor-pointer"
+                    className="h-7 w-7 xm:w-8 xm:h-8 text-theme-color xm:text-white hover:cursor-pointer"
                 >
                     <path
                         strokeLinecap="round"

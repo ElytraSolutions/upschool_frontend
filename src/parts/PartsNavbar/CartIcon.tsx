@@ -16,7 +16,7 @@ export default function CartIcon() {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="h-7 xm:h-10  w-7 xm:w-10 text-theme-color xm:text-white"
+                    className="h-7 w-7 xm:h-10 xm:w-10 text-theme-color xm:text-white"
                 >
                     <path
                         strokeLinecap="round"
