@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { BookList } from '../../data/BookBundleList';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useEffect } from 'react';
 
 // TODO This needs to be fetched from backend
 const information = [
@@ -9,6 +10,9 @@ const information = [
     { tiltle: 'eBooks', price: 50, donation: 0 },
 ];
 export default function BookBundle() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className="flex flex-row justify-center">

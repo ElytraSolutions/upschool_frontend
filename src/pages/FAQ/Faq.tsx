@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import ExpandableTable from '../../components/Table/ExpandableTable';
 import {
     RGData,
@@ -36,6 +37,9 @@ function Faq() {
     //         answer: 'Additional answerrmation about Eve White goes here.',
     //     },
     // ];
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className="bg-[#242254c0]">

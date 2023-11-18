@@ -1,5 +1,5 @@
 // This is for the sustainable development goals page
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SDGImg from '/images/global-goals/SDG-main.png';
 import TextField from '@mui/material/TextField';
 import resolveImgURL from '../../utlis/resolveImgURL';
@@ -195,7 +195,9 @@ const GlobalGoals = () => {
         e.preventDefault();
         console.log(formData);
     };
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className="bg-[#f4f4f4]">
             <div className="max-w-[1100px] ml-auto mr-auto ">

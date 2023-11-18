@@ -1,8 +1,12 @@
 import { BsMegaphone } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useEffect } from 'react';
 
 const ImpactFilms = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div>
             <div className="hero lg:h-[500px]  md:h-[400px] h-[300px] relative flex flex-col align-center items-center overflow-hidden">

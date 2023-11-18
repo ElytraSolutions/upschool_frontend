@@ -12,6 +12,9 @@ export default function Lessons() {
     const [chapters, setChapters] = useState<IChapter[] | null>(null);
     const { courseSlug } = useParams();
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    useEffect(() => {
         if (isBigScreen) {
             setIsSiderbarOpen(true);
         } else {

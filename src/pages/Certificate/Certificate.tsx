@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import { CertificateProgressSection } from '../../parts/PartsCertificate/CertificateProgressSection';
 import CertificateStep1 from './CertificateStep1';
@@ -21,7 +21,9 @@ const Certificate = () => {
     const changeCurrentStep = () => {
         setCurrentStep(currentStep + 1);
     };
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const components = [
         <CertificateStep1
             formData={formData}
