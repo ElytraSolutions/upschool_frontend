@@ -257,7 +257,7 @@ export function UploadBookStep1({
                                         <div>
                                             <img
                                                 src={resolveImgURL(
-                                                    '/images/Safe/safe4.png"',
+                                                    '/images/Safe/safe4.png',
                                                 )}
                                             />
                                         </div>
