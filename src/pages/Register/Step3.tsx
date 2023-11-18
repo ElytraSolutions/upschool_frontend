@@ -119,7 +119,13 @@ export default function Step3({
                                     </>
                                 )}
 
-                                <label className="row-span-1 flex flex-1 justify-start gap-x-4  items-center text-[0.8rem] xl:text-lg">
+                                <label
+                                    className={`row-span-1 flex flex-1 justify-start gap-x-4 items-center text-[0.8rem] xl:text-lg ${
+                                        values.canvaAccount === 'true'
+                                            ? ''
+                                            : 'sm:mt-3 mt-2'
+                                    }`}
+                                >
                                     <Field type="checkbox" name="condition3" />
                                     <div>
                                         I agree to Upschool's {` `}
