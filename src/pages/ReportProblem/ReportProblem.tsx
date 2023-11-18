@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type initFormValues = {
     name: string;
@@ -22,7 +22,9 @@ function ReportProblem() {
         },
         mode: 'onChange',
     });
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const [formData, setFormData] = useState('');
     return (
         <>

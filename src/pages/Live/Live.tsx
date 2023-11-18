@@ -3,6 +3,7 @@ import girl from '../../assets/Live/girl.png';
 import event1 from '../../assets/Live/event1.png';
 
 import EventCard from '../../parts/PartsLive/EventCard';
+import { useEffect } from 'react';
 
 const events = [
     {
@@ -53,6 +54,9 @@ const events = [
 ];
 
 const Live = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             {/* banner */}

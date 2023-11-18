@@ -2,8 +2,12 @@ import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOu
 import Map from './Map';
 import './AnimateStyles.css';
 import { RxCursorArrow } from 'react-icons/rx';
+import { useEffect } from 'react';
 
 const GlobalReach = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className="flex item-center justify-center flex-col">

@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import resolveImgURL from '../../utlis/resolveImgURL';
 
 function Acknowledgement() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div

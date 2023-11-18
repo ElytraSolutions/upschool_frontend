@@ -16,7 +16,9 @@ const DefaultPage = () => {
     useEffect(() => {
         setSearchQuery(searchParams.get('query') || '');
     }, [searchParams]);
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     // handles submit process of search bar only without filter options
     const submitSearchForm = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();

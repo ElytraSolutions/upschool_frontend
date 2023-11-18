@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DashboardContent from './DashboardContent';
 import MyCourses from './MyCourses';
 import MyBooks from './MyBooks';
@@ -15,6 +15,9 @@ type OutletContextType = {
 };
 
 const Dashboard: React.FC<DashboardProps> = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const { isTabScreen } = useScreenWidthAndHeight();
 
     const { isDashboardNavbarOpen } = useOutletContext<OutletContextType>();

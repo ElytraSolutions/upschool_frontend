@@ -7,9 +7,13 @@ import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import Announcement from '../../parts/PartsHomepage/Announcement';
 import LearningFramework from '../../parts/PartsHomepage/LearningFramework';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useEffect } from 'react';
 
 export default function Home() {
     const { isXtraLargeScreen } = useScreenWidthAndHeight();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className="text-center">

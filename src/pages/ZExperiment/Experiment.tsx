@@ -3,6 +3,7 @@ import 'react-multi-carousel/lib/styles.css';
 import './experimet.css';
 import { NavLink } from 'react-router-dom';
 import useCourses from '../../hooks/useCourses';
+import { useEffect } from 'react';
 
 // const CourseInfo = [
 //     {
@@ -37,6 +38,9 @@ import useCourses from '../../hooks/useCourses';
 
 const Experiment = () => {
     const courses = useCourses();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     // console.log(courses);
     return (
         <>

@@ -1,4 +1,9 @@
+import { useEffect } from 'react';
+
 function CanvaPage() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className="grid grid-cols-12 mb-[36px]">

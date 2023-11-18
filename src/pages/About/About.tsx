@@ -4,8 +4,12 @@ import backgroundVideo from '/videos/background.mp4';
 import MultiImageCarousel from '../../components/Carousels/MultiImageCarousel';
 import patners from '../../data/OurPatners';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useEffect } from 'react';
 
 export default function About() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div>

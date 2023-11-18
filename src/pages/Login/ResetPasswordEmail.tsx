@@ -3,6 +3,7 @@ import * as yup from 'yup';
 import { TextField } from '@mui/material';
 import axiosInstance from '../../config/Axios';
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 // import axiosInstance from '../../config/Axios';
 
 const ResetPasswordEmailSchema = yup.object().shape({
@@ -38,6 +39,9 @@ const submitHandler = async (_values: any, onSubmitProps: any) => {
     onSubmitProps.resetForm();
 };
 export default function ResetPasswordEmail() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <div className="  w-full h-fit bg-gray-200 flex justify-center items-start py-2 sm:py-4 md:py-6 xl:py-10">

@@ -1,6 +1,6 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TextField, InputAdornment } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -34,6 +34,9 @@ const initialValuesResetPasswordEmail = {
     password_confirmation: '',
 };
 export default function ResetPassword() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
     const { token } = useParams();

@@ -1,6 +1,7 @@
 import resolveImgURL from '../../utlis/resolveImgURL';
 import Description from '../../parts/PartsWebinar/Description';
 import Share from '../../parts/PartsWebinar/Share';
+import { useEffect } from 'react';
 const event = {
     id: 1,
     banner: 'images/webinar/webinar-banner.png',
@@ -26,6 +27,9 @@ All attendees will receive a certificate of attendance – Thank you for conside
 };
 
 const Webinar = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className="flex flex-col justify-center items-center">
             {/* banner part */}
