@@ -459,7 +459,7 @@ const data = [
     {
         id: 5,
         title: 'Books',
-        path: '/',
+        path: '/library',
         children: [
             {
                 id: 1,

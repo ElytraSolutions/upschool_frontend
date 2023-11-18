@@ -305,7 +305,7 @@ const Login = () => {
                                     </div>
                                     <div className="sm:text-base text-[0.91rem] mb-1">
                                         Don't have an Upschool account yet?
-                                        <span className="text-red-500 inline-block pl-1">
+                                        <span className="text-red-upschool inline-block pl-1">
                                             <NavLink to="/register">
                                                 Sign up
                                             </NavLink>
