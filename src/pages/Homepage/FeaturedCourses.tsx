@@ -3,6 +3,7 @@ import 'react-multi-carousel/lib/styles.css';
 import './FeaturedCourses.css';
 import { NavLink } from 'react-router-dom';
 import useCourses from '../../hooks/useCourses';
+import resolveImgURL from '../../utlis/resolveImgURL';
 const FeaturedCourses = () => {
     const courses = useCourses();
     return (
@@ -73,7 +74,8 @@ const FeaturedCourses = () => {
                                 <div key={index} className="">
                                     <NavLink to={`/course/${course.slug}`}>
                                         <img
-                                            src={course.image}
+                                            // This chnaged from course.image to resolveImgURL(course.image)
+                                            src={resolveImgURL(course.image)}
                                             height="100%"
                                             width="100%"
                                             alt={course.name}
