@@ -61,7 +61,7 @@ export default function Home() {
                                         alt="Book Launch Banner"
                                         height="1024px"
                                         width="307px"
-                                        className="h-full w-fit"
+                                        className="h-full w-full"
                                     />
                                 ) : (
                                     <img
@@ -70,7 +70,7 @@ export default function Home() {
                                         alt="Book Launch Banner"
                                         height="704px"
                                         width="599px"
-                                        className=" min-h-[250px] xs:h-full w-fit"
+                                        className=" min-h-[250px] xs:h-full w-full"
                                     />
                                 )}
                             </NavLink>
