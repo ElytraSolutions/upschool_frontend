@@ -92,7 +92,7 @@ export default function Home() {
                             <div className=" p-2 flex items-center w-full text-font-color">
                                 <div className="flex flex-col gap-2 md:gap-12 xl:gap-20 text-sm lg:text-base text-left ">
                                     <p className=" font-medium text-2xl sm:text-4xl md:text-4xl font-lexend">
-                                        4 Wasys to Utilise Upschool Courses and
+                                        4 Ways to Utilise Upschool Courses and
                                         Resources
                                     </p>
                                     <div>
