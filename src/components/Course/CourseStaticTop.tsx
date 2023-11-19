@@ -28,7 +28,7 @@ function CourseStaticTop({ courseInfo }) {
                             <div className="grid tab:grid-cols-5 grid-flow-row gap-12">
                                 <div className="tab:col-start-1 tab:col-span-3 flex">
                                     <div className="grid h-fit justify-start font-poppins max-w-[490px] md:px-0 px-4">
-                                        <div className="mb-[20px] text-[32px] h-[37px]">
+                                        <div className="mb-[20px] xs:text-[32px] text-[26px] h-[37px]">
                                             <span
                                                 style={{
                                                     color: courseInfo.theme,
@@ -42,14 +42,14 @@ function CourseStaticTop({ courseInfo }) {
                                         </div>
                                         <div></div>
                                         <div
-                                            className={`text-[53px] font-extrabold`}
+                                            className={`xs:text-[53px] text-[47px] font-extrabold`}
                                             style={{
                                                 color: courseInfo.theme,
                                             }}
                                         >
                                             <h1>{courseInfo?.name}</h1>
                                         </div>
-                                        <div className="text-[20px] mb-[16px] text-white">
+                                        <div className="xs:text-[20px] text-[14px] mb-[16px] text-white">
                                             {courseInfo?.intro}
                                         </div>
                                         <div
