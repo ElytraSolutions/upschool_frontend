@@ -1,6 +1,8 @@
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useNavigate } from 'react-router-dom';
 
 function Footer() {
+    const navigate = useNavigate();
     return (
         <>
             <div
@@ -84,7 +86,10 @@ function Footer() {
                         </div>
 
                         <div className="flex flex-col md:flex-row items-center justify-between p-4">
-                            <div className="flex justify-center items-center">
+                            <div
+                                className="flex justify-center items-center cursor-pointer"
+                                onClick={() => navigate('/')}
+                            >
                                 <img
                                     src={resolveImgURL('/images/logo.png')}
                                     alt="upSchoolLogo"
