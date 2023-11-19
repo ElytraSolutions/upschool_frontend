@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import LibraryLargeScreen from './LibraryLargeScreen';
 import LibrarySmallScreen from './LibrarySmallScreen';
@@ -15,7 +15,9 @@ const DefaultPage = () => {
     const [searchQuery, setSearchQuery] = useState<string>(
         searchParams.get('query') || '',
     );
-    const filterQuery = async () => {
+
+    // handles filter process of search bar only without filter options
+    const filterQuery = useCallback(async () => {
         const res = await axiosInstance.post('/data/books/filter', {
             filters: {
                 title: searchQuery,
@@ -25,7 +27,7 @@ const DefaultPage = () => {
         });
         console.log('res.data.data', res.data.data);
         setFilteredBooks(res.data.data);
-    };
+    }, [searchParams, searchQuery]);
     useEffect(() => {
         setSearchQuery(searchParams.get('query') || '');
     }, [searchParams]);
@@ -52,7 +54,7 @@ const DefaultPage = () => {
         (async () => {
             await filterQuery();
         })();
-    }, [searchParams]);
+    }, [filterQuery, searchParams]);
 
     // handles reset process of search bar only without filter options
     const resetForm = (event: React.FormEvent<HTMLFormElement>) => {
