@@ -7,7 +7,11 @@ import { useSearchParams } from 'react-router-dom';
 import axiosInstance from '../../config/Axios';
 import FilterTabs from '../../parts/PartsLibrary/FilterTabs';
 
-const BooksDisplay = ({ filteredBooks }) => {
+type BooksDisplayProps = {
+    filteredBooks?: any;
+};
+
+const BooksDisplay = ({ filteredBooks }: BooksDisplayProps) => {
     const [featuredBook, setFeaturedBook] = useState<any>([]);
     const [bestSeller, setBestSeller] = useState<any>([]);
     // const [books, setBooks] = useState<any>([]);
