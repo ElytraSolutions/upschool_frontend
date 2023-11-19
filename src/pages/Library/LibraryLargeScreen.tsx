@@ -10,6 +10,7 @@ type LibraryLargeScreenProps = {
     resetHandler: (values: any) => void;
     resetForm: (event: React.FormEvent<HTMLFormElement>) => void;
     submitSearchForm: (event: React.FormEvent<HTMLFormElement>) => void;
+    filteredBooks?: any;
 };
 
 const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
@@ -19,6 +20,7 @@ const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
     resetHandler,
     resetForm,
     submitSearchForm,
+    filteredBooks,
 }) => {
     return (
         <>
@@ -62,7 +64,7 @@ const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
                         </div>
                     </div>
                     {/* Second and third column: Books categories with carousel for Best Sellers Section and Featured Books Section */}
-                    <BooksDisplay />
+                    <BooksDisplay filteredBooks={filteredBooks} />
                 </div>
             </div>
         </>

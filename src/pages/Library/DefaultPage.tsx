@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import LibraryLargeScreen from './LibraryLargeScreen';
 import LibrarySmallScreen from './LibrarySmallScreen';
+import axiosInstance from '../../config/Axios';
 
 const DefaultPage = () => {
+    const [filteredBooks, setFilteredBooks] = useState<any>([]);
     const { isTabScreen } = useScreenWidthAndHeight();
     const [searchParams, setSearchParams] = useSearchParams();
     // maintains the state of filter button for mobile screen
@@ -13,6 +15,17 @@ const DefaultPage = () => {
     const [searchQuery, setSearchQuery] = useState<string>(
         searchParams.get('query') || '',
     );
+    const filterQuery = async () => {
+        const res = await axiosInstance.post('/data/books/filter', {
+            filters: {
+                title: searchQuery,
+                section: searchParams.get('section'),
+                category: searchParams.get('categories')?.split(',') || [],
+            },
+        });
+        console.log('res.data.data', res.data.data);
+        setFilteredBooks(res.data.data);
+    };
     useEffect(() => {
         setSearchQuery(searchParams.get('query') || '');
     }, [searchParams]);
@@ -29,7 +42,17 @@ const DefaultPage = () => {
             return oldSearchParams;
         });
         // TODO: send request to backend to search for books
+        (async () => {
+            await filterQuery();
+        })();
     };
+
+    // handle when user dis-selects a cateory or section in filter tab
+    useEffect(() => {
+        (async () => {
+            await filterQuery();
+        })();
+    }, [searchParams]);
 
     // handles reset process of search bar only without filter options
     const resetForm = (event: React.FormEvent<HTMLFormElement>) => {
@@ -39,6 +62,9 @@ const DefaultPage = () => {
             oldSearchParams.delete('query');
             return oldSearchParams;
         });
+        (async () => {
+            await filterQuery();
+        })();
     };
     // handles submit process of search bar and filter options at once
     const submitHandler = (values: any, onSubmitProps: any) => {
@@ -51,6 +77,9 @@ const DefaultPage = () => {
         });
         onSubmitProps.setSubmitting(true);
         // TODO: send request to backend to search for books
+        (async () => {
+            await filterQuery();
+        })();
     };
 
     // handles reset process of search bar and filter options at once
@@ -64,6 +93,7 @@ const DefaultPage = () => {
             {isTabScreen ? (
                 <LibraryLargeScreen
                     searchQuery={searchQuery}
+                    filteredBooks={filteredBooks}
                     setSearchQuery={setSearchQuery}
                     submitHandler={submitHandler}
                     resetHandler={resetHandler}
