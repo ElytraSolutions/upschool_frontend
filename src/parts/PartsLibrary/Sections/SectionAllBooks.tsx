@@ -30,7 +30,7 @@ const SectionShowBooks: React.FC<SectionProps> = ({ topic, books }) => {
                 </div>
                 <div className=" xm:pl-2 sm:pl-4 tab:pl-2 lg:pl-3 xl:pl-5 w-full">
                     <div className="flex flex-wrap justify-center xm:justify-start gap-5 sm:gap-7 tab:gap-4 lg:gap-7 w-[220px] xss:w-[270px] xm:w-[510px] sm:w-[600px] tab:w-[570px] lg:w-[600px] xl:w-[900px]">
-                        {books.map((book, index) => (
+                        {books?.map((book, index) => (
                             <div key={index} className="">
                                 <BookCard book={book} />
                             </div>

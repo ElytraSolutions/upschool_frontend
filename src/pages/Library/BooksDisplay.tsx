@@ -7,10 +7,14 @@ import { useSearchParams } from 'react-router-dom';
 import axiosInstance from '../../config/Axios';
 import FilterTabs from '../../parts/PartsLibrary/FilterTabs';
 
-const BooksDisplay = () => {
+type BooksDisplayProps = {
+    filteredBooks?: any;
+};
+
+const BooksDisplay = ({ filteredBooks }: BooksDisplayProps) => {
     const [featuredBook, setFeaturedBook] = useState<any>([]);
     const [bestSeller, setBestSeller] = useState<any>([]);
-    const [books, setBooks] = useState<any>([]);
+    // const [books, setBooks] = useState<any>([]);
     useEffect(() => {
         window.scrollTo(0, 0);
         (async () => {
@@ -23,11 +27,11 @@ const BooksDisplay = () => {
             // console.log('res.data.data', res.data.data);
             setBestSeller(res.data.data);
         })();
-        (async () => {
-            const res = await axiosInstance.get('/data/books/list');
-            // console.log('res.data.data', res.data.data);
-            setBooks(res.data.data);
-        })();
+        // (async () => {
+        //     const res = await axiosInstance.get('/data/books/list');
+        //     // console.log('res.data.data', res.data.data);
+        //     setBooks(res.data.data);
+        // })();
     }, []);
     // useEffect(() => {
     //     console.log('featuredBook', featuredBook);
@@ -67,22 +71,31 @@ const BooksDisplay = () => {
                     </div>
                 )}
                 {selectSection === 'Best Sellers' && (
-                    <SectionShowBooks topic="Best Sellers" books={bestSeller} />
+                    <SectionShowBooks
+                        topic="Best Sellers"
+                        books={filteredBooks}
+                    />
                 )}
                 {selectSection === 'Featured Books' && (
                     <SectionShowBooks
                         topic="Featured Books"
-                        books={featuredBook}
+                        books={filteredBooks}
                     />
                 )}
                 {selectSection === 'Book Bundles' && (
-                    <SectionShowBooks topic="Book Bundles" books={books} />
+                    <SectionShowBooks
+                        topic="Book Bundles"
+                        books={filteredBooks}
+                    />
                 )}
                 {selectSection === 'Recently Viewed' && (
-                    <SectionShowBooks topic="Recently Viewed" books={books} />
+                    <SectionShowBooks
+                        topic="Recently Viewed"
+                        books={filteredBooks}
+                    />
                 )}
                 {selectSection === 'All Books' && (
-                    <SectionShowBooks topic="All Books" books={books} />
+                    <SectionShowBooks topic="All Books" books={filteredBooks} />
                 )}
             </div>
         </>

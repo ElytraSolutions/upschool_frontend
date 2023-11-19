@@ -37,7 +37,7 @@ const FilterTabs = () => {
     };
 
     return (
-        <div className=" pl-2 lg:pl-6 flex items-center gap-4 bg-slate-100 ">
+        <div className=" pl-2 lg:pl-6 flex items-center gap-4">
             {categories.length > 0 &&
                 categories?.map((category) => {
                     return (
