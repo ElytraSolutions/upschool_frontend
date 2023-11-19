@@ -12,13 +12,13 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                 setDynHeight(divHeight + 25);
             }
         }, 3000); // Adjust the timeout duration as needed
-
         return () => clearTimeout(timerId);
     }, [divRef]);
+
     return (
         <>
             <div className="grid w-full font-sans text-theme-color">
-                <div className="text-[75px] text-center font-semibold">
+                <div className="md:text-[75px] text-[55px] text-center font-semibold">
                     {title}
                 </div>
                 <div
@@ -28,15 +28,18 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                     {subtitle}
                 </div>
                 <div
-                    className="flex w-full justify-center overflow-scroll-hidden"
+                    className={`flex w-full justify-center overflow-y-hidden`}
                     style={{ height: `${dynHeight}px` }}
                 >
-                    <div className="flex w-[1140px]">
+                    <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen">
                         <FunctionalIFrameComponent title={title}>
                             <div
                                 ref={divRef}
                                 dangerouslySetInnerHTML={{
-                                    __html: editorData,
+                                    __html: editorData.replace(
+                                        /<iframe/g,
+                                        '<iframe style="width:100%"',
+                                    ),
                                 }}
                             ></div>
                         </FunctionalIFrameComponent>

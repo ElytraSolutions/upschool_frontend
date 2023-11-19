@@ -39,7 +39,10 @@ function CourseSteps({ steps, theme, objData }) {
                                 <div
                                     ref={divRef}
                                     dangerouslySetInnerHTML={{
-                                        __html: objData,
+                                        __html: objData.replace(
+                                            /<iframe/g,
+                                            '<iframe style="width:100%"',
+                                        ),
                                     }}
                                 ></div>
                             </FunctionalIFrameComponent>
@@ -53,9 +56,9 @@ function CourseSteps({ steps, theme, objData }) {
                             <img
                                 src={resolveImgURL(step.image)}
                                 alt={`Step ${index + 1}`}
-                                className="mt-8 mb-6"
+                                className="mt-8 mb-6 md:mx-0 mx-4"
                             />
-                            <div className="text-theme-color text-lg font-bold mt-6 mb-8">
+                            <div className="text-theme-color xs:text-lg text-base font-bold mt-6 mb-8 md:mx-0 mx-4">
                                 {step.data}
                             </div>
                         </div>
