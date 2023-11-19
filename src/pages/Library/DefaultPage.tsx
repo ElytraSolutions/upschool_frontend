@@ -17,17 +17,24 @@ const DefaultPage = () => {
     );
 
     // handles filter process of search bar only without filter options
+
     const filterQuery = useCallback(async () => {
-        const res = await axiosInstance.post('/data/books/filter', {
+        const filter: any = {
             filters: {
-                title: searchQuery,
+                title: searchParams.get('query'),
                 section: searchParams.get('section'),
-                category: searchParams.get('categories')?.split(',') || [],
             },
-        });
+        };
+        if (searchParams.get('categories')) {
+            filter.filters.category = searchParams
+                .get('categories')
+                ?.split(',');
+        }
+
+        const res = await axiosInstance.post('/data/books/filter', filter);
         console.log('res.data.data', res.data.data);
         setFilteredBooks(res.data.data);
-    }, [searchParams, searchQuery]);
+    }, [searchParams]);
     useEffect(() => {
         setSearchQuery(searchParams.get('query') || '');
     }, [searchParams]);
@@ -54,7 +61,13 @@ const DefaultPage = () => {
         (async () => {
             await filterQuery();
         })();
-    }, [filterQuery, searchParams]);
+    }, [
+        filterQuery,
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        searchParams.get('section'),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        searchParams.get('categories'),
+    ]);
 
     // handles reset process of search bar only without filter options
     const resetForm = (event: React.FormEvent<HTMLFormElement>) => {

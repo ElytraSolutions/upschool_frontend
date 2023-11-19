@@ -70,13 +70,13 @@ const BooksDisplay = ({ filteredBooks }: BooksDisplayProps) => {
                         {/* <SectionShowBooks topic="All Books" books={books} /> */}
                     </div>
                 )}
-                {selectSection === 'Best Sellers' && (
+                {selectSection === 'best_seller' && (
                     <SectionShowBooks
                         topic="Best Sellers"
                         books={filteredBooks}
                     />
                 )}
-                {selectSection === 'Featured Books' && (
+                {selectSection === 'featured' && (
                     <SectionShowBooks
                         topic="Featured Books"
                         books={filteredBooks}

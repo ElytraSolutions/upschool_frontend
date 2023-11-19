@@ -5,26 +5,32 @@ import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 const data = [
     {
         title: 'Home',
+        value: 'Home',
     },
     {
         title: 'All Books',
         number: 100,
+        value: 'All Books',
     },
     {
         title: 'Best Sellers',
         number: 25,
+        value: 'best_seller',
     },
     {
         title: 'Featured Books',
         number: 10,
+        value: 'featured',
     },
     {
         title: 'Book Bundles',
         number: 17,
+        value: 'Book Bundles',
     },
     {
         title: 'Recently Viewed',
         number: 21,
+        value: 'Recently Viewed',
     },
 ];
 type InformationSectionProps = {
@@ -63,7 +69,7 @@ const InformationSection: React.FC<InformationSectionProps> = ({
                                             ) => {
                                                 oldSearchParams.set(
                                                     'section',
-                                                    category.title,
+                                                    category.value,
                                                 );
                                                 return oldSearchParams;
                                             },
