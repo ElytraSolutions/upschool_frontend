@@ -1,13 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import CharityCard from '../../components/Cards/Charity/CharityCard';
-import { charity } from '../../data/CharityCardData';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import axiosInstance from '../../config/Axios';
 
 const AllCharityPage = () => {
+    const [charities, setCharities] = useState<any>(null);
     useEffect(() => {
         window.scrollTo(0, 0);
+        (async () => {
+            const res = await axiosInstance.get(`/data/charities`);
+            console.log('All Charites Data:', res.data.data);
+            setCharities(res.data.data);
+        })();
     }, []);
-
+    if (!charities) return null;
     return (
         <>
             <div className="grid gap-y-10 pb-10">
@@ -33,7 +39,7 @@ const AllCharityPage = () => {
                 </div>
                 <div className="flex justify-center pt-1">
                     <div className="max-w-[1140px] p-2 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-col-1 xm gap-x-6 gap-y-10">
-                        {charity.map((charity) => (
+                        {charities.map((charity) => (
                             <CharityCard key={charity.id} charity={charity} />
                         ))}
                     </div>
