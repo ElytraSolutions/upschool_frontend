@@ -14,7 +14,12 @@ type BooksDisplayProps = {
 const BooksDisplay = ({ filteredBooks }: BooksDisplayProps) => {
     const [featuredBook, setFeaturedBook] = useState<any>([]);
     const [bestSeller, setBestSeller] = useState<any>([]);
-    // const [books, setBooks] = useState<any>([]);
+    const [searchParams] = useSearchParams();
+
+    //     const res = await axiosInstance.post('/data/books/filter', filter);
+    //     console.log('res.data.data', res.data.data);
+    //     setFilteredBooks(res.data.data);
+    // }, [searchParams]);
     useEffect(() => {
         window.scrollTo(0, 0);
         (async () => {
@@ -27,26 +32,36 @@ const BooksDisplay = ({ filteredBooks }: BooksDisplayProps) => {
             // console.log('res.data.data', res.data.data);
             setBestSeller(res.data.data);
         })();
-        // (async () => {
-        //     const res = await axiosInstance.get('/data/books/list');
-        //     // console.log('res.data.data', res.data.data);
-        //     setBooks(res.data.data);
-        // })();
     }, []);
-    // useEffect(() => {
-    //     console.log('featuredBook', featuredBook);
-    // }, [featuredBook]);
-    const [searchParams, _setSearchParams] = useSearchParams();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        if (searchParams.get('section') === 'Home') {
+            (async () => {
+                const res = await axiosInstance.post('/data/books/filter', {
+                    filters: {
+                        title: searchParams.get('query'),
+                        section: 'featured',
+                        category: searchParams.get('categories')?.split(','),
+                    },
+                });
+                setFeaturedBook(res.data.data);
+            })();
+            (async () => {
+                const res = await axiosInstance.post('/data/books/filter', {
+                    filters: {
+                        title: searchParams.get('query'),
+                        section: 'best_seller',
+                        category: searchParams.get('categories')?.split(','),
+                    },
+                });
+                setBestSeller(res.data.data);
+            })();
+        }
+    }, [searchParams]);
+
     const selectSection = searchParams.has('section')
         ? searchParams.get('section')
         : 'Home';
-    // const selectCategories = searchParams.has('categories')
-    //     ? searchParams.getAll('categories')
-    //     : [];
-    // const selectQuery = searchParams.has('query')
-    //     ? searchParams.get('query')
-    //     : '';
-    // console.log('selectCategories', selectCategories);
     return (
         <>
             <div className="w-full xm:w-fit tab:w-2/3  xl:w-[75%] 1450:w-2/3 ">
