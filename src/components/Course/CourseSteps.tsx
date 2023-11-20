@@ -56,7 +56,7 @@ function CourseSteps({ steps, theme, objData }) {
                             <img
                                 src={resolveImgURL(step.image)}
                                 alt={`Step ${index + 1}`}
-                                className="mt-8 mb-6 md:mx-0 mx-4"
+                                className="mt-8 mb-6"
                             />
                             <div className="text-theme-color xs:text-lg text-base font-bold mt-6 mb-8 md:mx-0 mx-4">
                                 {step.data}
