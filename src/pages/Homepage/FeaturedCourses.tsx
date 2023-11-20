@@ -4,8 +4,13 @@ import './FeaturedCourses.css';
 import { NavLink } from 'react-router-dom';
 import useCourses from '../../hooks/useCourses';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import useCourseCategories from '../../hooks/useCourseCategories';
+// import { Category } from '@mui/icons-material';
 const FeaturedCourses = () => {
     const courses = useCourses();
+    const categories = useCourseCategories();
+    console.log(categories);
+
     return (
         <>
             <div className="flex justify-center w-full h-fit py-6">
@@ -71,16 +76,27 @@ const FeaturedCourses = () => {
                             swipeable
                         >
                             {courses.slice(0, 6).map((course, index) => (
-                                <div key={index} className="">
+                                <div key={index} className="relative h-[400px]">
                                     <NavLink to={`/course/${course.slug}`}>
                                         <img
                                             // This chnaged from course.image to resolveImgURL(course.image)
-                                            src={resolveImgURL(course.image)}
+                                            src={resolveImgURL(
+                                                course.thumbnail,
+                                            )}
                                             height="100%"
                                             width="100%"
                                             alt={course.name}
-                                            className="rounded-md h-[400px] xss:h-full "
+                                            className="rounded-md xss:h-full absolute top-0 left-0"
                                         />
+                                        <p className="absolute left-1/2 -translate-x-1/2 text-[1.1rem] text-white font-poppins uppercase bottom-5 tracking-wider">
+                                            {
+                                                categories.filter(
+                                                    (category) =>
+                                                        category.id ===
+                                                        course.course_category_id,
+                                                )[0]?.name
+                                            }
+                                        </p>
                                     </NavLink>
                                 </div>
                             ))}
