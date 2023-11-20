@@ -78,9 +78,9 @@ function CourseEnrol({ thumbnail }) {
                 <img
                     src={resolveImgURL(thumbnail)}
                     alt="courseEnrol"
-                    className="max-w-[340px] max-h-[408px]"
+                    className="xs:max-w-[340px] xs:max-h-[408px] max-w-[260px] max-h-[328px]"
                 />
-                <div className="flex justify-center bg-[#F4F4F4] px-9 py-4 w-[340px]">
+                <div className="flex justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] bg-slate-100">
                     <button
                         className="bg-theme-color text-white px-8 py-2 rounded-sm flex-grow"
                         onClick={handleClick}

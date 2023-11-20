@@ -1,7 +1,8 @@
 import { Formik, Field } from 'formik';
-import { categories } from '../../../data/UploadBookCategories';
+
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import axiosInstance from '../../../config/Axios';
 
 type FilterSectionProps = {
     submitHandler: (values: any, onSubmitProps: any) => void;
@@ -14,8 +15,16 @@ const FilterSection: React.FC<FilterSectionProps> = ({
 }) => {
     const formikRef = React.useRef<any>();
     const [searchParams, setSearchParams] = useSearchParams();
+    const [categories, setCategories] = useState<any[]>([]);
     // TODO Determine to show filter options or not by default
     const [showFilterOptions, setShowFilterOptions] = useState<boolean>(false);
+    useEffect(() => {
+        (async () => {
+            const res = await axiosInstance.get('/data/bookCategories');
+            console.log('categories from backend', res.data.data);
+            setCategories(res.data.data);
+        })();
+    }, []);
     useEffect(() => {
         formikRef.current?.setFieldValue(
             'categories',
@@ -156,7 +165,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                                         />
                                                         All Category
                                                     </label>
-                                                    {categories.map(
+                                                    {categories?.map(
                                                         (category, index) => (
                                                             <label
                                                                 key={index}
@@ -167,15 +176,13 @@ const FilterSection: React.FC<FilterSectionProps> = ({
                                                                     color="theme-color"
                                                                     type="checkbox"
                                                                     name="categories"
-                                                                    value={
-                                                                        category
-                                                                    }
+                                                                    value={category.id.toString()}
                                                                     onClick={() => {
                                                                         values.allCategory =
                                                                             false;
                                                                     }}
                                                                 />
-                                                                {category}
+                                                                {category?.name}
                                                             </label>
                                                         ),
                                                     )}

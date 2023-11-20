@@ -8,7 +8,7 @@ function CourseStaticUpschool({ theme }) {
                         color: theme,
                     }}
                 >
-                    <p>Everything we do at Upschool:</p>
+                    <p className="text-center">Everything we do at Upschool:</p>
                 </div>
                 <div className="grid lg:grid-cols-5 gap-x-4 text-theme-color xl:mx-32 lg:mx-8 tab:grid-flow-row">
                     <div className="lg:row-start-1 tab:row-start-1 lg:col-start-1 lg:col-span-1 mb-[40px] flex lg:justify-start justify-center">
@@ -18,8 +18,8 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-2 lg:col-start-1 lg:col-span-1 flex justify-start mb-[20px]">
-                        <h1 className="text-[25px] font-extrabold">
+                    <div className="lg:row-start-2 tab:row-start-2 lg:col-start-1 lg:col-span-1 flex lg:justify-start justify-center mb-[20px] ">
+                        <h1 className="text-[25px] font-extrabold lg:text-left text-center">
                             Real-World Learning
                         </h1>
                     </div>
@@ -36,8 +36,8 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-5 lg:col-start-2 lg:col-span-1 flex justify-start mb-[20px]">
-                        <h1 className="text-[25px] font-extrabold">
+                    <div className="lg:row-start-2 tab:row-start-5 lg:col-start-2 lg:col-span-1 flex lg:justify-start justify-center mb-[20px]">
+                        <h1 className="text-[25px] font-extrabold lg:text-left text-center">
                             Entrepreneurship With Purpose
                         </h1>
                     </div>
@@ -54,8 +54,8 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-8 lg:col-start-3 lg:col-span-1 flex justify-start mb-[20px]">
-                        <h1 className="text-[25px] font-extrabold">
+                    <div className="lg:row-start-2 tab:row-start-8 lg:col-start-3 lg:col-span-1 flex lg:justify-start justify-center mb-[20px]">
+                        <h1 className="text-[25px] font-extrabold lg:text-left text-center">
                             Team Players & Collaborators
                         </h1>
                     </div>
@@ -72,8 +72,8 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-11 lg:col-start-4 lg:col-span-1 flex justify-start mb-[20px]">
-                        <h1 className="text-[25px] font-extrabold">
+                    <div className="lg:row-start-2 tab:row-start-11 lg:col-start-4 lg:col-span-1 flex w-full lg:justify-start justify-center mb-[20px]">
+                        <h1 className="text-[25px] font-extrabold lg:text-left text-center">
                             Creativity & Problem Solving
                         </h1>
                     </div>
@@ -90,8 +90,8 @@ function CourseStaticUpschool({ theme }) {
                             className="w-[69px] h-[69px]"
                         />
                     </div>
-                    <div className="lg:row-start-2 tab:row-start-14 lg:col-start-5 lg:col-span-1 flex justify-start mb-[20px]">
-                        <h1 className="text-[25px] font-extrabold">
+                    <div className="lg:row-start-2 tab:row-start-14 lg:col-start-5 lg:col-span-1 flex w-full lg:justify-start justify-center mb-[20px]">
+                        <h1 className="text-[25px] font-extrabold lg:text-left text-center">
                             Skill Based Learning
                         </h1>
                     </div>

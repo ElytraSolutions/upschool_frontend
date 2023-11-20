@@ -33,7 +33,9 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                     {/* TODO imgage dimesion needs to be determined  */}
                     <img
                         className="rounded-t-lg h-60 xm:h-32 sm:h-44"
-                        src={resolveImgURL(book.thumbnail || 'book')}
+                        src={resolveImgURL(
+                            book.thumbnail || '/images/Books/book1.png',
+                        )}
                         alt="book"
                         loading="lazy"
                         width="720"

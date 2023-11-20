@@ -21,7 +21,7 @@ function CourseStaticBottom({ questionList, theme }) {
     return (
         <>
             <div className="grid bg-[#fff] xl:grid-cols-5 grid-flow-row text-theme-color mb-24 gap-y-4">
-                <div className="xl:col-start-1 xl:col-span-2 flex justify-start h-fit font-sans ml-12 md:mr-[200px] mr-0 w-[390px]">
+                <div className="xl:col-start-1 xl:col-span-2 flex justify-start h-fit font-sans xs:ml-12 px-4 md:mr-[200px] mr-0 xs:w-[390px] w-screen">
                     <div className="grid">
                         <div className="text-[38px] font-bold">
                             Some Common Questions
@@ -55,18 +55,18 @@ function CourseStaticBottom({ questionList, theme }) {
                             </>
                         )}
                         <div className="grid grid-cols-3 mt-6">
-                            <div className="col-start-1 col-span-1 w-[130px] h-[130px] bg-[#61ce70] flex items-center justify-center">
+                            <div className="col-start-1 col-span-1 w-[120px] h-[120px] bg-[#61ce70] md:flex hidden items-center justify-center">
                                 <QuestionMarkIcon
                                     style={{ fontSize: '112px', color: '#fff' }}
                                 />
                             </div>
-                            <div className="col-start-2 col-span-1 w-[130px]">
+                            <div className="col-start-2 col-span-1 w-[120px] md:block hidden">
                                 <div className="grid grid-cols-2 grid-rows-2">
-                                    <div className="col-start-1 col-span-1 row-start-2 w-[65px] h-[65px] bg-yellow-400"></div>
+                                    <div className="col-start-1 col-span-1 row-start-2 w-[60px] h-[60px] bg-yellow-400"></div>
                                     <div className="col-start-2 col-span-1 row-start-1 bg-red-upschool"></div>
                                 </div>
                             </div>
-                            <div className="col-start-3 col-span-1 ml-4 md:block">
+                            <div className="col-start-3 col-span-1 ml-4 md:block hidden">
                                 <div className="grid grid-cols-3">
                                     <div className="row-start-1 col-start-1 col-span-1 bg-yellow-400 h-[40px]"></div>
                                     <div className="row-start-1 col-start-2 col-span-1 bg-yellow-400 h-[40px]"></div>
@@ -81,7 +81,7 @@ function CourseStaticBottom({ questionList, theme }) {
                         </div>
                     </div>
                 </div>
-                <div className="xl:col-start-3 xl:col-span-3 md:mr-12 xl:ml-0 md:ml-12 ml-0 mr-0 grid font-nunito border-t-2 border-theme-color h-fit">
+                <div className="xl:col-start-3 xl:col-span-3 md:mr-12 xl:ml-0 md:ml-12 ml-0 mr-0 xs:px-0 px-4 grid font-nunito border-t-2 border-theme-color h-fit">
                     {Object.keys(questionList).map((key, index) => (
                         <div className="grid">
                             <button
