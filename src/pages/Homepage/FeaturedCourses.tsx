@@ -18,12 +18,12 @@ const FeaturedCourses = () => {
                     <p className="p-2 text-font-color text-2xl sm:text-4xl  lg:text-5xl  font-medium font-lexend">
                         Featured Courses
                     </p>
-                    <div className="relative p-1 md:px-10 pb-10  ">
+                    <div className="relative p-1 md:px-5 pb-10  ">
                         <Carousel
                             additionalTransfrom={0}
                             arrows
                             autoPlay
-                            autoPlaySpeed={2000}
+                            autoPlaySpeed={3000}
                             centerMode={false}
                             className=""
                             containerClass=""
@@ -73,10 +73,13 @@ const FeaturedCourses = () => {
                             renderDotsOutside={true}
                             sliderClass=""
                             slidesToSlide={1}
-                            swipeable
+                            // swipeable
                         >
                             {courses.slice(0, 6).map((course, index) => (
-                                <div key={index} className="relative h-[400px]">
+                                <div
+                                    key={index}
+                                    className="relative h-[530px] w-full rounded-lg overflow-hidden select-none "
+                                >
                                     <NavLink to={`/course/${course.slug}`}>
                                         <img
                                             // This chnaged from course.image to resolveImgURL(course.image)
@@ -90,9 +93,9 @@ const FeaturedCourses = () => {
                                             height="100%"
                                             width="100%"
                                             alt={course.name}
-                                            className="rounded-md xss:h-full absolute top-0 left-0"
+                                            className="rounded-md xss:h-full absolute top-0 left-0 select-none pointer-events-none"
                                         />
-                                        <p className="absolute left-1/2 -translate-x-1/2 text-[1.1rem] text-white font-poppins uppercase bottom-5 tracking-wider">
+                                        <p className="absolute left-1/2 -translate-x-1/2 text-[1.2rem] text-white font-poppins uppercase bottom-5 tracking-wider w-full">
                                             {
                                                 categories.filter(
                                                     (category) =>
