@@ -53,7 +53,7 @@ const InformationSection: React.FC<InformationSectionProps> = ({
                         <li key={index} className="flex flex-col gap-2 pb-1">
                             <div
                                 className={`flex flex-row items-center gap-1 font-semibold hover:cursor-pointer ${
-                                    selectSection === category.title
+                                    selectSection === category.value
                                         ? 'text-font-color'
                                         : 'text-gray-900/50'
                                 } text-sm md:text-base font-lexend`}
