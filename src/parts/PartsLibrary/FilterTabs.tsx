@@ -37,34 +37,50 @@ const FilterTabs = () => {
     };
 
     return (
-        <div className=" pl-2 lg:pl-6 flex items-center gap-4">
-            {categories.length > 0 &&
-                categories?.map((category) => {
-                    return (
-                        <div
-                            className={`border-2  rounded-3xl flex items-center justify-center bg-white p-2 px-4 gap-4`}
-                        >
-                            {category}
+        <div className="flex flex-col gap-2">
+            <div className=" pl-2 lg:pl-6 flex items-center gap-4">
+                {categories.length > 0 &&
+                    categories?.map((category) => {
+                        return (
                             <div
-                                className=" cursor-pointer hover:brightness-[0%]"
-                                onClick={categoryHandler(category)}
+                                className={`border-2  rounded-3xl flex items-center justify-center bg-white p-2 px-4 gap-4`}
                             >
-                                <img src={cross} alt="cross" />
+                                {category}
+                                <div
+                                    className=" cursor-pointer hover:brightness-[0%]"
+                                    onClick={categoryHandler(category)}
+                                >
+                                    <img src={cross} alt="cross" />
+                                </div>
                             </div>
-                        </div>
-                    );
-                })}
-            {selectQuery && (
-                <div
-                    className={`border-2 rounded-3xl flex items-center bg-white justify-center p-2 px-4 gap-4`}
-                >
-                    {selectQuery}
+                        );
+                    })}
+                {selectQuery && (
                     <div
-                        className=" cursor-pointer hover:brightness-[0%]"
-                        onClick={queryHandler}
+                        className={`border-2 rounded-3xl flex items-center bg-white justify-center p-2 px-4 gap-4`}
                     >
-                        <img src={cross} alt="cross" />
+                        {selectQuery}
+                        <div
+                            className=" cursor-pointer hover:brightness-[0%]"
+                            onClick={queryHandler}
+                        >
+                            <img src={cross} alt="cross" />
+                        </div>
                     </div>
+                )}
+            </div>
+            {/* search in all books */}
+            {searchParams.get('section') !== 'All Books' && (
+                <div
+                    className={`w-fit flex items-center bg-white justify-start ml-8 p-2 gap-4 underline underline-offset-2 cursor-pointer text-pink-upschool hover:text-pink-upschool/50`}
+                    onClick={() => {
+                        _setSearchParams((oldSearchParams) => {
+                            oldSearchParams.set('section', 'All Books');
+                            return oldSearchParams;
+                        });
+                    }}
+                >
+                    Search in All Books
                 </div>
             )}
         </div>
