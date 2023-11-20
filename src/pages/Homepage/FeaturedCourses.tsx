@@ -18,7 +18,7 @@ const FeaturedCourses = () => {
                     <p className="p-2 text-font-color text-2xl sm:text-4xl  lg:text-5xl  font-medium font-lexend">
                         Featured Courses
                     </p>
-                    <div className="relative p-1 md:px-5 pb-10  ">
+                    <div className="relative p-1 md:px-4 pb-10  ">
                         <Carousel
                             additionalTransfrom={0}
                             arrows
