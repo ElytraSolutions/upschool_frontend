@@ -26,7 +26,7 @@ function CourseCard({ data }: Props) {
                 <div className="bg-stone-200">
                     <img
                         src={
-                            data.image
+                            data.thumbnail
                                 ? resolveImgURL(data.thumbnail)
                                 : 'https://images.unsplash.com/photo-1676113415510-3a631c9e1b5a?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                         }
