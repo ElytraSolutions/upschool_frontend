@@ -11,7 +11,7 @@ import useUser from '../../../hooks/useUser';
 function Setting() {
     // TODO logic to determine whether user is (Teacher/Student/Parent)
     const { user } = useUser();
-    console.log(user);
+    // console.log('User', user);
     const userType: string = user?.type.name.split(' ')[0] as string;
     const iconBadge = resolveImgURL(user?.type.image as string);
     const [selectedOption, setSelectedOption] = useState<string>('My Profile');
@@ -98,7 +98,7 @@ function Setting() {
                         {/* My Profile section */}
                         {selectedOption === 'My Profile' && (
                             <div className="flex flex-col gap-12">
-                                <PersonalInformation />
+                                <PersonalInformation user={user} />
                                 <BillingDetails />
                                 <ChangePassword />
                             </div>

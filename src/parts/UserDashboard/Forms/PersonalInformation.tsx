@@ -30,21 +30,22 @@ const PersonalInformationSchema = yup.object().shape({
     date_of_birth: yup.date().required('required'),
 });
 
-const InitialValues = {
-    first_name: '',
-    last_name: '',
-    email: '',
-    country: '',
-    date_of_birth: '',
-};
-
 const submitHandler = (data, onSubmitProps) => {
     // TODO implement logic for submmited data
     console.log(data);
     onSubmitProps.resetForm();
 };
 
-export const PersonalInformation = () => {
+export const PersonalInformation = ({ user }) => {
+    console.log('Personal INformation', user);
+    const InitialValues = {
+        first_name: user.first_name || '',
+        last_name: user.last_name || '',
+        email: user.email || '',
+        country: user.country || '',
+        date_of_birth: '',
+    };
+
     const {
         isLargeScreen,
         isMobileHeight,
