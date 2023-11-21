@@ -1,56 +1,69 @@
 import CharityProjectCard from './CharityProjectCard';
 import CharityPageImageSection from '../../components/Cards/Charity/CharityPageImageSection';
-import { useLocation, useParams } from 'react-router-dom';
-import { charity } from '../../data/CharityCardData';
-import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import axiosInstance from '../../config/Axios';
+import { FunctionalIFrameComponent } from '../../components/Course/FuncIFrame';
 
 function CharityPage() {
-    const location = useLocation();
-    const charityState = location.state;
     const { slug } = useParams();
 
-    let currentCharity;
+    const [currentCharity, setCurrentCharity] = useState<any>(null);
 
-    const convertToSlug = (title: string) => {
-        const words = title.toLowerCase().split(' ');
-        const slugTitle = words.join('-');
-
-        return slugTitle;
-    };
-
-    if (charityState) {
-        currentCharity = charityState;
-    } else {
-        currentCharity = charity.find(
-            (item) => convertToSlug(item.slug) === slug,
-        );
-    }
+    const divRef = useRef<any>(null);
+    const [dynHeight, setDynHeight] = useState(0);
+    useEffect(() => {
+        const timerId = setTimeout(() => {
+            if (divRef.current) {
+                const divHeight = divRef.current.clientHeight;
+                // console.log('div height:', divHeight);
+                setDynHeight(divHeight + 25);
+            }
+        }, 3000); // Adjust the timeout duration as needed
+        return () => clearTimeout(timerId);
+    }, [divRef]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    });
-
+        (async () => {
+            const res = await axiosInstance.get(`/data/charities/${slug}`);
+            console.log('Charity Data:', res.data.data);
+            setCurrentCharity(res.data.data);
+        })();
+    }, [slug]);
+    if (!currentCharity) return null;
+    const links = {
+        website: currentCharity?.website || '',
+        facebookLink: currentCharity?.facebook || '',
+        instagramLink: currentCharity?.instagram || '',
+        linkedinLink: currentCharity?.linkedin || '',
+    };
     return (
         <>
-            {console.log(currentCharity)}
             <div className="grid gap-y-5 pb-10">
                 <CharityPageImageSection
                     name={currentCharity.name}
-                    links={currentCharity.links}
-                    cover={currentCharity.cover}
-                    logo={currentCharity.logo}
+                    links={links}
+                    cover={currentCharity.thumbnail}
+                    logo={currentCharity.image}
                 />
                 <div className="grid gap-y-6 grid-cols-14">
                     <div className="flex p-2 justify-center lg:col-span-10 lg:col-start-3 col-span-12 col-start-2">
-                        <div className="flex max-w-[1200px]">
-                            <div className="text-theme-color text-base tracking-normal leading-relaxed font-sans-serif">
-                                {currentCharity.content.map(
-                                    (item: string, index: number) => (
-                                        <p className="mb-4" key={index}>
-                                            {item}
-                                        </p>
-                                    ),
-                                )}
+                        <div
+                            className={`flex w-full justify-center overflow-y-hidden`}
+                            style={{ height: `${dynHeight}px` }}
+                        >
+                            <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen">
+                                <FunctionalIFrameComponent
+                                    title={currentCharity.name}
+                                >
+                                    <div
+                                        ref={divRef}
+                                        dangerouslySetInnerHTML={{
+                                            __html: currentCharity.description,
+                                        }}
+                                    ></div>
+                                </FunctionalIFrameComponent>
                             </div>
                         </div>
                     </div>

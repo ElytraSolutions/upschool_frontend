@@ -4,7 +4,6 @@ import SocialMediaIcons from './SocialMediaIcons';
 function CharityPageImageSection({ name, links, cover, logo }) {
     return (
         <>
-            {console.log(logo)}
             <div className="flex">
                 <div className="w-full grid grid-cols-14">
                     <div className="z-0 col-span-full relative max-h-[400px]">
@@ -23,7 +22,7 @@ function CharityPageImageSection({ name, links, cover, logo }) {
                                     style={{ textShadow: '1px 1px #000000' }}
                                     className="md:text-[53px] md:font-bold text-[33px] drop-shadow-xl font-bold font-lexend"
                                 >
-                                    {name}
+                                    {name.toUpperCase()}
                                 </h2>
                             </div>
                         </div>

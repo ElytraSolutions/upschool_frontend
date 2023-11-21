@@ -37,7 +37,7 @@ export default function Home() {
                             </span>
                         </div>
                         <NavLink to="/register" className="text-[#fff]">
-                            <button className=" flex flex-row items-center gap-2 m-10 rounded-md border-2 border-solid border-white bg-[#b81242] px-10 py-3 duration-700 ease-in-out hover:scale-125 ">
+                            <button className=" flex flex-row items-center gap-2 m-10 rounded-md border-2 border-solid border-white bg-[#b81242] px-5 sm:px-10 py-3 duration-700 ease-in-out hover:scale-125 ">
                                 <p>Get Free Access</p>
                                 <div>
                                     <i className="fa fa-arrow-right"></i>

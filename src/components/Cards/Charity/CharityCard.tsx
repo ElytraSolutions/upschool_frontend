@@ -1,34 +1,15 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import resolveImgURL from '../../../utlis/resolveImgURL';
 
-type CharityCardProps = {
-    charity: {
-        id: number;
-        name: string;
-        cover: string;
-        logo: string;
-        slug: string;
-        description: string;
-        content: Array<string>;
-    };
-};
-
-const CharityCard: React.FC<CharityCardProps> = ({ charity }) => {
+function CharityCard({ charity }) {
     const navigate = useNavigate();
-
-    const convertToSlug = (title: string) => {
-        const words = title.toLowerCase().split(' ');
-        const slugTitle = words.join('-');
-
-        return slugTitle;
-    };
-
+    const cardDescription = charity.description
+        .replace(/<[^>]+>/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
     const handleButtonClick = () => {
-        const slugTitle = convertToSlug(charity.slug);
-        navigate(`/charities/${slugTitle}`, { state: charity });
+        navigate(`/charities/${charity.slug}`, { state: charity });
     };
-
     return (
         <>
             <div className="flex flex-grow justify-center xs:px-0 px-4 xs:max-w-[353.33px] max-h-[459.71px]">
@@ -39,7 +20,7 @@ const CharityCard: React.FC<CharityCardProps> = ({ charity }) => {
                                 <div className="flex flex-grow">
                                     <img
                                         className="rounded-t"
-                                        src={resolveImgURL(charity.cover)}
+                                        src={resolveImgURL(charity.thumbnail)}
                                         alt="image"
                                     />
                                 </div>
@@ -50,13 +31,15 @@ const CharityCard: React.FC<CharityCardProps> = ({ charity }) => {
                                         className="text-left"
                                         onClick={handleButtonClick}
                                     >
-                                        <p className="">{charity.name}</p>
+                                        <p className="">
+                                            {charity.name.toUpperCase()}
+                                        </p>
                                     </button>
                                 </div>
                             </div>
                             <div className="flex justify-start px-4 line-clamp-3 h-[89.33px]">
                                 <p className="leading-loose text-theme-color text text-sm line-clamp-3 text-ellipsis">
-                                    {charity.description}
+                                    {cardDescription}
                                 </p>
                             </div>
                             <div className="py-2 justify-center">
@@ -80,7 +63,7 @@ const CharityCard: React.FC<CharityCardProps> = ({ charity }) => {
                                             <img
                                                 className="rounded-sm shadow-sm border border-gray-300"
                                                 src={resolveImgURL(
-                                                    charity.logo,
+                                                    charity.image,
                                                 )}
                                                 alt="logo.png"
                                             />
@@ -95,6 +78,6 @@ const CharityCard: React.FC<CharityCardProps> = ({ charity }) => {
             </div>
         </>
     );
-};
+}
 
 export default CharityCard;

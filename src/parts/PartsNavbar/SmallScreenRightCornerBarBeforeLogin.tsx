@@ -5,7 +5,7 @@ const SmallScreenRightCornerBarBeforeLogin = () => {
     // determines if the icon is cilcked or not
     const [isClicked, setIsClicked] = React.useState(false);
     return (
-        <div className=" w-7 h-7 xm:w-9 xm:h-9">
+        <div className=" w-8 h-7 xm:w-9 xm:h-9">
             <span
                 className="relative flex items-center w-fit h-full overflow-hidden  rounded-full hover:cursor-pointer "
                 onClick={() => setIsClicked((oldState) => !oldState)}
@@ -16,7 +16,7 @@ const SmallScreenRightCornerBarBeforeLogin = () => {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="white"
-                    className="h-5 w-5 xm:w-8 xm:h-8 stroke-theme-color xm:stroke-white scale-125 md:scale-100 "
+                    className="h-7 w-7 xm:w-full xm:h-7 stroke-theme-color xm:stroke-white stroke-[1.5]"
                 >
                     <path
                         strokeLinecap="round"

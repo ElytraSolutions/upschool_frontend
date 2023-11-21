@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import DoneIcon from '@mui/icons-material/Done';
 import IChapter from '../../types/IChapter';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useState } from 'react';
 
 type ISidebarProps = {
     courseSlug: string | undefined;
@@ -9,16 +10,24 @@ type ISidebarProps = {
 };
 
 export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
+    const [isChapterOpen, setIsChapterOpen] = useState<boolean>(false);
     return (
         <div className="flex flex-col text-sm sm:text-sm md:text-base">
-            <div className="flex flex-row justify-between bg-[#1e3050] text-white py-5 px-4">
+            <div
+                className="flex flex-row justify-between bg-[#1e3050] text-white py-5 px-4 cursor-pointer"
+                onClick={() => setIsChapterOpen(!isChapterOpen)}
+            >
                 <span>{chapter.name}</span>
                 <span>
                     {chapter.completedLessons}/{chapter.totalLessons}
                 </span>{' '}
                 {/*TODO Logic Required */}
             </div>
-            <ul className=" divide-y divide-slate-400 border-b mb-7 border-slate-400 bg-slate-200">
+            <ul
+                className={`${
+                    isChapterOpen ? 'block' : 'hidden'
+                } divide-y divide-slate-400 border-b mb-7 border-slate-400 bg-slate-200`}
+            >
                 {chapter.lessons &&
                     chapter.lessons.map((lesson, index) => (
                         <li

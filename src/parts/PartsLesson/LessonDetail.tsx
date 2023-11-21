@@ -181,7 +181,7 @@ export default function LessonDetail({
                     {/* TODO check if chapter is already completed */}
                     <div className="w-full flex justify-center pt-14">
                         <button
-                            className=" text-xs rounded-md bg-pink-700 p-0.5 text-white  text-center md:px-4 md:py-2 md:text-base "
+                            className=" text-xs rounded-md bg-pink-700 p-0.5 text-white  text-center px-4 py-2 md:text-base "
                             onClick={async () => {
                                 const res = await axiosInstance.post(
                                     `/data/lessons/${lessonSlug}/complete`,
