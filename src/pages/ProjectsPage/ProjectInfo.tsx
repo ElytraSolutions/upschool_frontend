@@ -9,10 +9,9 @@ const ProjectInfo = ({ data }) => {
         genre,
         qualityImage,
         charityLogo,
+        charitySlug,
         projectInfo,
     } = data;
-
-    console.log(data);
 
     return (
         <>
@@ -27,7 +26,7 @@ const ProjectInfo = ({ data }) => {
                         projectInfo,
                     }}
                 />
-                <AboutCharity charityData={{ charityLogo }} />
+                <AboutCharity charityData={{ charityLogo, charitySlug }} />
             </div>
         </>
     );

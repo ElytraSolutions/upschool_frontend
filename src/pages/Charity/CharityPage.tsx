@@ -9,6 +9,7 @@ function CharityPage() {
     const { slug } = useParams();
 
     const [currentCharity, setCurrentCharity] = useState<any>(null);
+    const [isProjects, setProjects] = useState<any>(null);
 
     const divRef = useRef<any>(null);
     const [dynHeight, setDynHeight] = useState(0);
@@ -27,11 +28,16 @@ function CharityPage() {
         window.scrollTo(0, 0);
         (async () => {
             const res = await axiosInstance.get(`/data/charities/${slug}`);
-            console.log('Charity Data:', res.data.data);
             setCurrentCharity(res.data.data);
         })();
+        (async () => {
+            const prResp = await axiosInstance.get(
+                `/data/charities/${slug}/projects`,
+            );
+            setProjects(prResp.data.data);
+        })();
     }, [slug]);
-    if (!currentCharity) return null;
+    if (!currentCharity || !isProjects) return null;
     const links = {
         website: currentCharity?.website || '',
         facebookLink: currentCharity?.facebook || '',
@@ -75,8 +81,9 @@ function CharityPage() {
                         </div>
                     </div>
                     <div className="lg:col-span-10 lg:col-start-3 col-span-12 col-start-2 flex grid gap-y-5">
-                        <CharityProjectCard />
-                        <CharityProjectCard />
+                        {isProjects.map((project, index) => (
+                            <CharityProjectCard key={index} content={project} />
+                        ))}
                     </div>
                 </div>
             </div>
