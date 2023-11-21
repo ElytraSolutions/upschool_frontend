@@ -4,7 +4,7 @@ import MyCourses from './MyCourses';
 import MyBooks from './MyBooks';
 import MyDonationsAndPurchases from './MyDonationsAndPurchases';
 import Setting from './Setting';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, useSearchParams } from 'react-router-dom';
 import { UserDashboardSidebar as Sidebar } from '../../../parts/UserDashboard/UserDashboardSidebar';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 
@@ -15,13 +15,21 @@ type OutletContextType = {
 };
 
 const Dashboard: React.FC<DashboardProps> = () => {
+    const [searchParams, _setSearchParams] = useSearchParams();
+    // Using the url
+    const [option, _setOption] = useState<string>(
+        searchParams.get('option') || 'Dashboard',
+    );
+    console.log('option', option);
+
+    console.log('searchParams', searchParams);
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
     const { isTabScreen } = useScreenWidthAndHeight();
 
     const { isDashboardNavbarOpen } = useOutletContext<OutletContextType>();
-    const [selectedOption, setSelectedOption] = useState<string>('Dashboard');
+    const [selectedOption, setSelectedOption] = useState<string>(option);
 
     const handleOptionClick = (option: string) => {
         setSelectedOption(option);

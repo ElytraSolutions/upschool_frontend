@@ -543,19 +543,19 @@ const userData = {
     children: [
         {
             title: 'Dashboard',
-            path: '/dashboard',
+            path: '/dashboard?option=Dashboard',
             iconClass: 'fa fa-tachometer fa-lg',
             //resolveImgURL('/images/NavbarProfile/dashboard.png'),
         },
         {
             title: 'My Profile',
-            path: '/dashboard',
+            path: '/dashboard?option=Setting',
             iconClass: ' fa fa-user fa-lg',
             //resolveImgURL('/images/NavbarProfile/administrator.png'),
         },
         {
             title: 'Enrolled Courses',
-            path: '/dashboard',
+            path: '/dashboard?option=My Courses',
             iconClass: 'fa fa-graduation-cap fa-lg',
             //resolveImgURL('/images/NavbarProfile/graduated.png'),
         },
