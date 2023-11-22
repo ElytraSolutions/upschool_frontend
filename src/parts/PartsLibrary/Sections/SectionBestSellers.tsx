@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 
 type SectionProps = {
     topic: string;
+    value: string;
     books: {
         id: number;
         thumbnail: string;
@@ -19,7 +20,11 @@ type SectionProps = {
         }[];
     }[];
 };
-const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
+const SectionBestSellers: React.FC<SectionProps> = ({
+    topic,
+    value,
+    books,
+}) => {
     const [_searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(0); // For showing progress dots in slider
     const { isXtraLarge, isXtraMedium } = useScreenWidthAndHeight();
@@ -101,7 +106,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
                                         setSearchParams((oldSearchParams) => {
                                             oldSearchParams.set(
                                                 'section',
-                                                topic,
+                                                value,
                                             );
                                             return oldSearchParams;
                                         });
@@ -129,7 +134,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({ topic, books }) => {
                         <p
                             className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
                             onClick={() => {
-                                setSearchParams('Best Sellers');
+                                setSearchParams(value);
                             }}
                         >
                             View All {`>`}

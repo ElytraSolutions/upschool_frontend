@@ -70,19 +70,20 @@ const FilterTabs = () => {
                 )}
             </div>
             {/* search in all books */}
-            {searchParams.get('section') !== 'All Books' && (
-                <div
-                    className={`w-fit flex items-center bg-white justify-start ml-8 p-2 gap-4 underline underline-offset-2 cursor-pointer text-pink-upschool hover:text-pink-upschool/50`}
-                    onClick={() => {
-                        _setSearchParams((oldSearchParams) => {
-                            oldSearchParams.set('section', 'All Books');
-                            return oldSearchParams;
-                        });
-                    }}
-                >
-                    Search in All Books
-                </div>
-            )}
+            {searchParams.get('section') !== 'All Books' &&
+                (categories.length > 0 || selectQuery) && (
+                    <div
+                        className={`w-fit flex items-center bg-white justify-start ml-8 p-2 gap-4 underline underline-offset-2 cursor-pointer text-theme-color hover:text-theme-color/50`}
+                        onClick={() => {
+                            _setSearchParams((oldSearchParams) => {
+                                oldSearchParams.set('section', 'All Books');
+                                return oldSearchParams;
+                            });
+                        }}
+                    >
+                        Search in All Books
+                    </div>
+                )}
         </div>
     );
 };

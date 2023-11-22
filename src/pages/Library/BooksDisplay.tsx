@@ -74,11 +74,13 @@ const BooksDisplay = ({ filteredBooks }: BooksDisplayProps) => {
                         {/* Best Sellers Section */}
                         <SectionBestSellers
                             topic="Best Sellers"
+                            value="best_seller"
                             books={bestSeller}
                         />
                         {/* Featured Books Section */}
                         <SectionFeatured
                             topic="Featured Books"
+                            value="featured"
                             books={featuredBook}
                         />
                         {/* All Books Section */}
