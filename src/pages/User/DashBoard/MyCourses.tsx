@@ -122,7 +122,7 @@ function MyCourses() {
                                 }
                             >
                                 {/* TODO fetch number form backend */}
-                                Enrolled Courses (3)
+                                Enrolled Courses {myCourses.enrolled?.length}
                             </div>
                             <div
                                 className={`w-full h-1.5 ${
@@ -145,7 +145,7 @@ function MyCourses() {
                                 }
                             >
                                 {/* TODO fetch number form backend */}
-                                Completed Courses (1)
+                                Completed Courses {myCourses.completed?.length}
                             </div>
                             <div
                                 className={`w-full h-1.5 ${
