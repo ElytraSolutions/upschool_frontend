@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import resolveImgURL from '../../utlis/resolveImgURL';
 
-// TODO: given a charity_id, endpoint for data/charities/{charity_id}
 const ProjectCard = ({ project }) => {
     const navigate = useNavigate();
 
@@ -39,8 +38,8 @@ const ProjectCard = ({ project }) => {
                         src={resolveImgURL(project.thumbnail)}
                     />
                     <div className="flex flex-row ml-3 mt-3 text-xs">
-                        <div className="border-r pr-3">
-                            Ristey mei hum tumarey baap lagtey hei, bhenchod
+                        <div className="border-r pr-3 capitalize">
+                            {project.charity ? project.charity.name : '......'}
                         </div>
                         <div className="ml-3">{project.location}</div>
                     </div>

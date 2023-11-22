@@ -9,29 +9,15 @@ import { useParams } from 'react-router-dom';
 const ProjectsPage = () => {
     const { slug } = useParams();
     const [prData, setPrData] = useState<any>(null);
-    const [charityData, setCharityData] = useState<any>(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
         (async () => {
             const res = await axiosInstance.get(`/data/projects/${slug}`);
-            console.log('Project data', res.data.data);
             setPrData(res.data.data);
         })();
     }, [slug]);
-    // TODO: api get req. for charities using charity id
-    useEffect(() => {
-        (async () => {
-            const res = await axiosInstance.get(`/data/charities`);
-            console.log('charity data', res.data.data);
-            setCharityData(
-                res.data.data.filter(
-                    (charity) => charity.id === prData.charity_id,
-                )[0],
-            );
-        })();
-    }, [prData]);
-    if (!prData || !charityData) return null;
+    if (!prData) return null;
     return (
         <>
             <div className="font-lexend bg-gray-100 font-light text-lg">
@@ -39,12 +25,12 @@ const ProjectsPage = () => {
                 <ProjectInfo
                     data={{
                         projectTitle: prData.name,
-                        charity: charityData.name,
+                        charity: prData.charity.name,
                         location: prData.location,
                         genre: prData.genre,
                         qualityImage: prData.sustainability_details,
                         charityLogo: prData.image,
-                        charitySlug: charityData.slug,
+                        charitySlug: prData.charity.slug,
                         projectInfo: prData.intro,
                     }}
                 />
@@ -54,8 +40,8 @@ const ProjectsPage = () => {
                         projectDescription: prData.description
                             ? prData.description
                             : '',
-                        charity: charityData.name,
-                        slug: charityData.slug,
+                        charity: prData.charity.name,
+                        slug: prData.charity.slug,
                     }}
                 />
             </div>
