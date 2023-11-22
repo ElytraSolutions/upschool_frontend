@@ -8,7 +8,7 @@ function CharityCard({ charity }) {
         .replace(/\s+/g, ' ')
         .trim();
     const handleButtonClick = () => {
-        navigate(`/charities/${charity.slug}`, { state: charity });
+        navigate(`/charities/${charity.slug}`);
     };
     return (
         <>
@@ -38,9 +38,12 @@ function CharityCard({ charity }) {
                                 </div>
                             </div>
                             <div className="flex justify-start px-4 line-clamp-3 h-[89.33px]">
-                                <p className="leading-loose text-theme-color text text-sm line-clamp-3 text-ellipsis">
-                                    {cardDescription}
-                                </p>
+                                <p
+                                    className="leading-loose text-theme-color text text-sm line-clamp-3 text-ellipsis"
+                                    dangerouslySetInnerHTML={{
+                                        __html: cardDescription,
+                                    }}
+                                ></p>
                             </div>
                             <div className="py-2 justify-center">
                                 <div className="flex justify-start px-4">

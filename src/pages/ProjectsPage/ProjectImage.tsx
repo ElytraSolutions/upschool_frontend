@@ -1,11 +1,11 @@
-import projectImage from '../../assets/ProjectsBackground.png';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
-const ProjectImage = () => {
+const ProjectImage = ({ thumbnail }) => {
     return (
         <>
             <div>
                 <img
-                    src={projectImage}
+                    src={resolveImgURL(thumbnail)}
                     className="w-[100vw] h-[50vh] object-cover overflow-hidden"
                 />
             </div>

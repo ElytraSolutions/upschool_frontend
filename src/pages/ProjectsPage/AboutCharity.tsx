@@ -1,16 +1,26 @@
-const AboutCharity = ({ charityData }) => {
-    const { charityLogo } = charityData;
+import resolveImgURL from '../../utlis/resolveImgURL';
+import { useNavigate } from 'react-router-dom';
 
-    console.log(charityLogo);
+const AboutCharity = ({ charityData }) => {
+    const { charityLogo, charitySlug } = charityData;
+    const navigate = useNavigate();
+
+    const handleViewProjectClick = () => {
+        navigate(`/charities/${charitySlug}`);
+    };
+
     return (
         <>
             <div className="md:w-1/3">
                 <div className="w-10/12 mx-auto flex flex-col items-center">
                     <img
-                        src={charityLogo}
+                        src={resolveImgURL(charityLogo)}
                         className="w-[40%] md:w-[60%] mt-5 md:mt-[-140px]"
                     />
-                    <button className="mt-5 w-full bg-theme-color text-gray-100 py-2">
+                    <button
+                        onClick={handleViewProjectClick}
+                        className="mt-5 w-full bg-theme-color text-gray-100 py-2"
+                    >
                         View All Projects
                     </button>
                     <div className="mt-5 w-full bg-white rounded border border-gray-200 flex flex-col items-center">

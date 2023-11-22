@@ -1,4 +1,5 @@
 const ProjectMap = () => {
+    // TODO: show the part of the world in map, given a location
     return (
         <>
             <div className="w-full h-[40vh] my-10">
