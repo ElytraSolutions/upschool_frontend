@@ -62,6 +62,7 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
             setUserCourseData(resp.data.data);
         })();
     }, []);
+    console.log('userCourseData', userCourseData);
     return (
         <>
             <div className="h-full overflow-auto">
@@ -103,17 +104,6 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                                 Continue Learning
                             </h1>
                             {isSmallScreen ? (
-                                <div className="flex flex-col items-center gap-3">
-                                    <CourseBox
-                                        key={courses[0].id}
-                                        detail={courses[0]}
-                                    />
-                                    <CourseBox
-                                        key={courses[1].id}
-                                        detail={courses[1]}
-                                    />
-                                </div>
-                            ) : (
                                 <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
                                     {courses.map((course, index) => (
                                         <CourseBox
@@ -121,6 +111,17 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                                             detail={course}
                                         />
                                     ))}
+                                </div>
+                            ) : (
+                                <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
+                                    {userCourseData?.enrolled.map(
+                                        (course, index) => (
+                                            <CourseBox
+                                                key={index}
+                                                detail={course}
+                                            />
+                                        ),
+                                    )}
                                 </div>
                             )}
 

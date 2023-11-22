@@ -70,7 +70,8 @@ function MyBooks() {
                             ></div>
                         </div>
                         {/* In Review option */}
-                        <div className="flex flex-col w-fit gap-2">
+
+                        {/* <div className="flex flex-col w-fit gap-2">
                             <div
                                 className={`${
                                     selectedOption === 'In Review'
@@ -79,7 +80,6 @@ function MyBooks() {
                                 } hover:cursor-pointer text-center w-full h-full px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('In Review')}
                             >
-                                {/* TODO fetch number form backend */}
                                 In Review (3)
                             </div>
                             <div
@@ -89,9 +89,10 @@ function MyBooks() {
                                         : 'bg-gray-400'
                                 }`}
                             ></div>
-                        </div>
+                        </div> */}
                         {/* Published option */}
-                        <div className="flex flex-col w-fit gap-2">
+
+                        {/* <div className="flex flex-col w-fit gap-2">
                             <div
                                 className={`${
                                     selectedOption === 'Published'
@@ -100,7 +101,7 @@ function MyBooks() {
                                 } hover:cursor-pointer text-center w-full h-full px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('Published')}
                             >
-                                {/* TODO fetch number form backend */}
+                                TODO fetch number form backend
                                 Published (1)
                             </div>
                             <div
@@ -110,7 +111,7 @@ function MyBooks() {
                                         : 'bg-gray-400'
                                 }`}
                             ></div>
-                        </div>
+                        </div> */}
                     </div>
                     {/* Detail section */}
                     <div className="w-full">

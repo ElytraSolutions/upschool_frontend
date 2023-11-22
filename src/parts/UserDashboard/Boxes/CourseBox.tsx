@@ -1,28 +1,25 @@
 import { NavLink } from 'react-router-dom';
 import { ProgressBar } from '../../../utlis/ProgressBar/ProgressBar';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 // TODO change type as requrired variables
-type CourseBoxProps = {
-    detail: {
-        id: number;
-        name: string;
-        completedLessons: number;
-        totalLessons: number;
-        image: string;
-        url: string;
-        status?: string;
-    };
-};
-export default function CourseBox({ detail }: CourseBoxProps) {
+
+export default function CourseBox({ detail }) {
+    console.log('Course Box Detail', detail);
     return (
         <>
             <div>
                 <div className="p-4 bg-white h-full w-fit">
                     <div className="flex flex-col h-full w-full gap-4 justify-between">
                         <div className="flex flex-col w-full gap-4">
-                            <div className="flex justify-center">
+                            <div className="flex justify-center h-[12rem]">
                                 <img
-                                    src={detail.image}
+                                    className="w-full h-full object-cover"
+                                    src={
+                                        detail.image
+                                            ? resolveImgURL(detail.image)
+                                            : 'https://source.unsplash.com/random'
+                                    }
                                     alt={detail.name}
                                     width="350"
                                     height="250"
