@@ -5,7 +5,6 @@ import ProjectsSection from './ProjectsSection';
 import axiosInstance from '../../config/Axios';
 
 const ProjectsDefaultPage = () => {
-    //TODO: All projects are not coming through...
     const [charityData, setCharityData] = useState<any>(null);
     const [projectData, setProjectData] = useState<any>(null);
 

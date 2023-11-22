@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 
 type SectionProps = {
     topic: string;
+    value: string;
     books: {
         id: number;
         thumbnail: string;
@@ -19,24 +20,14 @@ type SectionProps = {
         }[];
     }[];
 };
-const SectionFeatured: React.FC<SectionProps> = ({ topic, books }) => {
+const SectionFeatured: React.FC<SectionProps> = ({ topic, value, books }) => {
     const [_searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(0); // For showing progress dots in slider
     const { isXtraLarge, isXtraMedium } = useScreenWidthAndHeight();
     const [sliderContainer, setSliderContainer] = useState<HTMLElement | null>(
         null,
     ); // For getting the width of the slider container
-    useEffect(() => {
-        // This code will be executed after the DOM has fully loaded.
 
-        setSliderContainer(document.getElementById('sliderContainerFeatured'));
-        // Rest of your slider setup and manipulation code here
-
-        // Cleanup code (if needed) when the component unmounts
-        return () => {
-            // Cleanup code here if necessary
-        };
-    }, []);
     const slider: HTMLElement | null | undefined =
         document.getElementById('SliderFeatured');
     const cards: HTMLCollectionOf<HTMLLIElement> | undefined =
@@ -54,6 +45,29 @@ const SectionFeatured: React.FC<SectionProps> = ({ topic, books }) => {
         const card = cards[i];
         card.style.width = cardWidth + 'px';
     }
+
+    useEffect(() => {
+        // This code will be executed after the DOM has fully loaded.
+
+        setSliderContainer(document.getElementById('sliderContainerFeatured'));
+        // Rest of your slider setup and manipulation code here
+        const sliderContainerWidth: number = sliderContainer?.clientWidth || 0;
+        const cardWidth: number = sliderContainerWidth / elementsToShow;
+        if (slider) {
+            slider.style.width = cardWidth * (cards?.length || 0) + 'px';
+            slider.style.transition = 'margin';
+            slider.style.transitionDuration = '1s';
+        }
+        for (let i = 0; cards && i < cards.length; i++) {
+            const card = cards[i];
+            card.style.width = cardWidth + 'px';
+        }
+
+        // Cleanup code (if needed) when the component unmounts
+        return () => {
+            // Cleanup code here if necessary
+        };
+    }, [cards, elementsToShow, slider, sliderContainer?.clientWidth]);
 
     const next = () => {
         if (
@@ -94,7 +108,7 @@ const SectionFeatured: React.FC<SectionProps> = ({ topic, books }) => {
                                         setSearchParams((oldSearchParams) => {
                                             oldSearchParams.set(
                                                 'section',
-                                                topic,
+                                                value,
                                             );
                                             return oldSearchParams;
                                         });
@@ -122,7 +136,7 @@ const SectionFeatured: React.FC<SectionProps> = ({ topic, books }) => {
                         <p
                             className="underline underline-offset-4 hover:cursor-pointer text-sm lg:text-base "
                             onClick={() => {
-                                setSearchParams('Featured Books');
+                                setSearchParams(value);
                             }}
                         >
                             View All {`>`}
