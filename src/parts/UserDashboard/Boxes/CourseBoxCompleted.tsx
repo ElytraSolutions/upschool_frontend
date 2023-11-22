@@ -7,6 +7,7 @@ type CourseBoxCompletedProps = {
     detail: {
         id: string;
         name: string;
+        thumbnail: string;
         slug: string;
         image: string;
     };
@@ -20,13 +21,13 @@ export default function CourseBoxCompleted({
                 <div className="p-4 bg-white h-full w-fit">
                     <div className="flex flex-col h-full w-full gap-4 justify-between">
                         <div className="flex flex-col w-full gap-4">
-                            <div className="flex justify-center">
+                            <div className="flex justify-center  w-full h-[15rem]">
                                 <img
                                     src={
-                                        detail.image
-                                            ? detail.image.length > 0
+                                        detail.thumbnail
+                                            ? detail.thumbnail.length > 0
                                                 ? resolveImgURL(
-                                                      `${detail.image}`,
+                                                      `${detail.thumbnail}`,
                                                   )
                                                 : 'https://source.unsplash.com/tloFnD-7EpI'
                                             : 'https://source.unsplash.com/tloFnD-7EpI'
@@ -34,7 +35,7 @@ export default function CourseBoxCompleted({
                                     alt={detail.name}
                                     width="350"
                                     height="250"
-                                    className=" bg-stone-300"
+                                    className=" bg-stone-300 w-full h-full object-cover"
                                 />
                             </div>
 
