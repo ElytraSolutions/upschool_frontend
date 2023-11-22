@@ -1,10 +1,11 @@
 import { useState, useRef } from 'react';
-import { Projects } from '../../data/Projects';
 import ProjectsSubSection from './ProjectsSubSection';
 import PageNumber from './PageNumber';
 
-const ProjectsSection = () => {
-    const [projects, _] = useState(Projects);
+const ProjectsSection = ({ data }) => {
+    const arrProjects = Object.values(data);
+
+    const [projects, _] = useState(arrProjects);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, __] = useState(Math.ceil(projects.length / 15));
 
