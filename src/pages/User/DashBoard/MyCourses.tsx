@@ -65,6 +65,8 @@ function MyCourses() {
         }>;
     }>({ enrolled: [], completed: [] });
 
+    console.log('The courses is running', myCourses);
+
     useEffect(() => {
         (async () => {
             // fetch data from  /data/user/courses
