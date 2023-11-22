@@ -52,16 +52,20 @@ function MyCourses() {
             name: string;
             slug: string;
             image: string;
+            thumbnail: string;
             CompletedLessons: number;
             TotalLessons: number;
         }>;
         completed: Array<{
             id: string;
             name: string;
+            thumbnail: string;
             slug: string;
             image: string;
         }>;
     }>({ enrolled: [], completed: [] });
+
+    console.log('The courses is running', myCourses);
 
     useEffect(() => {
         (async () => {
@@ -103,7 +107,7 @@ function MyCourses() {
             // }
         })();
     }, []);
-    console.log(myCourses);
+    console.log('This mycourses', myCourses);
     return (
         <div className="h-full overflow-auto">
             <div className="p-2 md:py-4 md:px-4 xlarge:px-6 xxlarge:px-8 w-full">

@@ -55,7 +55,7 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
 
                             {/* TODO Logic for tick mark */}
 
-                            <div className="bg-red-600 h-5 w-5 rounded-full ">
+                            <div className="bg-red-upschool h-5 w-5 rounded-full ">
                                 {/* TODO tick mark */}
                                 {lesson.isCompleted && (
                                     <DoneIcon
