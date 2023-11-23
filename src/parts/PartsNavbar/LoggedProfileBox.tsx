@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import ProfileIcon from './ProfileIcon';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
@@ -21,12 +21,28 @@ type BoxProps = {
 };
 
 const LoggedProfileBox: React.FC<BoxProps> = ({ inf, name }) => {
+    const menuRef = useRef<HTMLDivElement>(null);
     // determines if the option is cilcked or not
     const [isClicked, setIsClicked] = React.useState(false);
     const { isTabScreen } = useScreenWidthAndHeight();
+
+    const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setIsClicked(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
     return (
         <>
-            <div className="font-light w-fit text-font-color">
+            <div className="font-light w-fit text-font-color" ref={menuRef}>
                 <div
                     className=" py-1 text-white  flex items-center"
                     onClick={() => setIsClicked((oldState) => !oldState)}

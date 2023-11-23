@@ -99,12 +99,12 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                             />
                         </div>
                         {/* Second row : Active courses section */}
-                        <div className="flex flex-col items-start w-full gap-3">
+                        <div className="flex flex-col items-start w-full gap-3 max-w-[80rem]">
                             <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
                                 Continue Learning
                             </h1>
 
-                            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
+                            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 w-full ">
                                 {userCourseData?.enrolled
                                     .slice(0, 3)
                                     .map((course, index) => (
