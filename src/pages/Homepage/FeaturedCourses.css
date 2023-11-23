@@ -5,8 +5,8 @@
     /* Custom border */
     will-change: transform;
     /* flex-shrink: 0; */
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
     height: 100%;
     /* Custom padding */
     /* Add more custom styles as needed */

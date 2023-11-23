@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import useCourses from '../../hooks/useCourses';
 import resolveImgURL from '../../utlis/resolveImgURL';
 import useCourseCategories from '../../hooks/useCourseCategories';
-import './styles.css';
 // import { Category } from '@mui/icons-material';
 const FeaturedCourses = () => {
     const courses = useCourses();

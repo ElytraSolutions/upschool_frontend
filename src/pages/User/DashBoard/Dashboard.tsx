@@ -43,7 +43,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
     useEffect(() => {
         setSelectedOption(searchParams.get('option') || 'Dashboard');
         console.log('option', selectedOption);
-    }, [searchParams.get('option')]);
+    }, [searchParams.get('option')]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className={`flex h-screen w-full pt-[3rem] md:pt-[4rem]`}>

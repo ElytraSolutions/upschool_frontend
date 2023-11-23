@@ -105,14 +105,14 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                             </h1>
 
                             <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
-                                {userCourseData?.enrolled.map(
-                                    (course, index) => (
+                                {userCourseData?.enrolled
+                                    .slice(0, 3)
+                                    .map((course, index) => (
                                         <CourseBox
                                             key={index}
                                             detail={course}
                                         />
-                                    ),
-                                )}
+                                    ))}
                             </div>
 
                             <div
