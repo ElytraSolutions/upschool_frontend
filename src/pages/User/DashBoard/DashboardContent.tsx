@@ -8,35 +8,35 @@ import resolveImgURL from '../../../utlis/resolveImgURL';
 import axios from 'axios';
 
 // TODO fetch data from backend according to the need (3 courses and books respectively)
-const courses = [
-    {
-        id: 1,
-        name: 'Build a Library & Change the world',
-        completedLessons: 20,
-        totalLessons: 40,
-        image: resolveImgURL('/images/Books/book5.png'),
-        url: '/dashboard',
-        status: 'In review',
-    },
-    {
-        id: 2,
-        name: 'Write a Book to Change the World',
-        completedLessons: 30,
-        totalLessons: 50,
-        image: resolveImgURL('/images/Books/book4.png'),
-        url: '/dashboard',
-        status: 'Published',
-    },
-    {
-        id: 3,
-        name: 'The Mission',
-        completedLessons: 10,
-        totalLessons: 70,
-        image: resolveImgURL('/images/Books/book3.png'),
-        url: '/dashboard',
-        status: 'Book Not Print Ready',
-    },
-];
+// const courses = [
+//     {
+//         id: 1,
+//         name: 'Build a Library & Change the world',
+//         completedLessons: 20,
+//         totalLessons: 40,
+//         image: resolveImgURL('/images/Books/book5.png'),
+//         url: '/dashboard',
+//         status: 'In review',
+//     },
+//     {
+//         id: 2,
+//         name: 'Write a Book to Change the World',
+//         completedLessons: 30,
+//         totalLessons: 50,
+//         image: resolveImgURL('/images/Books/book4.png'),
+//         url: '/dashboard',
+//         status: 'Published',
+//     },
+//     {
+//         id: 3,
+//         name: 'The Mission',
+//         completedLessons: 10,
+//         totalLessons: 70,
+//         image: resolveImgURL('/images/Books/book3.png'),
+//         url: '/dashboard',
+//         status: 'Book Not Print Ready',
+//     },
+// ];
 
 interface Course {
     id: string;
