@@ -1,18 +1,9 @@
 import { NavLink } from 'react-router-dom';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 // TODO change type as requrired variables
-type BookBoxProps = {
-    detail: {
-        id: number;
-        name: string;
-        completedLessons?: number;
-        totalLessons?: number;
-        image: string;
-        url: string;
-        status: string;
-    };
-};
-export default function BookBox({ detail }: BookBoxProps) {
+
+export default function BookBox({ detail }) {
     const text_color =
         detail.status === 'In review'
             ? 'text-theme-color'
@@ -22,20 +13,25 @@ export default function BookBox({ detail }: BookBoxProps) {
     return (
         <>
             <div>
-                <div className="p-4 bg-white h-full w-fit">
+                <div className="p-4 bg-white h-full w-full max-w-[26rem]">
                     <div className="flex flex-col h-full w-full gap-4 justify-between">
                         <div className="flex flex-col w-full gap-4">
                             <div className="flex justify-center">
                                 <img
-                                    src={detail.image}
-                                    alt={detail.name}
+                                    className="w-full h-full object-cover"
+                                    src={
+                                        detail.thumbnail
+                                            ? resolveImgURL(detail.thumbnail)
+                                            : 'https://source.unsplash.com/random'
+                                    }
+                                    alt={detail.title}
                                     width="350"
                                     height="250"
                                 />
                             </div>
 
                             <h1 className=" text-base  sm:text-lg md:text-xl font-bold font-lexend text-font-color">
-                                {detail.name}
+                                {detail.title}
                             </h1>
                         </div>
                         <div className="flex flex-col w-full gap-4">

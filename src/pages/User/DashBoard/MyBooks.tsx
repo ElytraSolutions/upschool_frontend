@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BookBox from '../../../parts/UserDashboard/Boxes/BookBox';
 import resolveImgURL from '../../../utlis/resolveImgURL';
+import axiosInstance from '../../../config/Axios';
 
 // TODO fetch data from backend according to the need
 const courses = [
@@ -43,6 +44,15 @@ const courses = [
 ];
 function MyBooks() {
     const [selectedOption, setSelectedOption] = useState<string>('All Books');
+    const [allBooks, setAllBooks] = useState<any[]>([]);
+    useEffect(() => {
+        (async () => {
+            const res = await axiosInstance.get('/data/user/books');
+            console.log('This is the data', res.data.data);
+            setAllBooks(res.data.data);
+        })();
+    }, []);
+    console.log('All Books', allBooks);
     return (
         <div className="h-full overflow-auto">
             <div className="p-2 md:py-4 md:px-4 xlarge:px-6 xxlarge:px-8 w-full">
@@ -59,7 +69,7 @@ function MyBooks() {
                                 onClick={() => setSelectedOption('All Books')}
                             >
                                 {/* TODO fetch number form backend */}
-                                All Books (2)
+                                All Books {allBooks?.length}
                             </div>
                             <div
                                 className={`w-full h-1.5 ${
@@ -70,7 +80,8 @@ function MyBooks() {
                             ></div>
                         </div>
                         {/* In Review option */}
-                        <div className="flex flex-col w-fit gap-2">
+
+                        {/* <div className="flex flex-col w-fit gap-2">
                             <div
                                 className={`${
                                     selectedOption === 'In Review'
@@ -79,7 +90,6 @@ function MyBooks() {
                                 } hover:cursor-pointer text-center w-full h-full px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('In Review')}
                             >
-                                {/* TODO fetch number form backend */}
                                 In Review (3)
                             </div>
                             <div
@@ -89,9 +99,10 @@ function MyBooks() {
                                         : 'bg-gray-400'
                                 }`}
                             ></div>
-                        </div>
+                        </div> */}
                         {/* Published option */}
-                        <div className="flex flex-col w-fit gap-2">
+
+                        {/* <div className="flex flex-col w-fit gap-2">
                             <div
                                 className={`${
                                     selectedOption === 'Published'
@@ -100,7 +111,7 @@ function MyBooks() {
                                 } hover:cursor-pointer text-center w-full h-full px-1 sm:px-4 md:px-6 lg:px-10 font-lexend`}
                                 onClick={() => setSelectedOption('Published')}
                             >
-                                {/* TODO fetch number form backend */}
+                                TODO fetch number form backend
                                 Published (1)
                             </div>
                             <div
@@ -110,16 +121,16 @@ function MyBooks() {
                                         : 'bg-gray-400'
                                 }`}
                             ></div>
-                        </div>
+                        </div> */}
                     </div>
                     {/* Detail section */}
                     <div className="w-full">
                         {/* All Books section */}
                         {selectedOption === 'All Books' && (
-                            <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
+                            <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxxl:grid-cols-6 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
                                 {/* TODO fetch all books data from backend and use it */}
-                                {courses.map((course, index) => (
-                                    <BookBox key={index} detail={course} />
+                                {allBooks.map((books, index) => (
+                                    <BookBox key={index} detail={books} />
                                 ))}
                             </div>
                         )}

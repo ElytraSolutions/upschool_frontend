@@ -1,6 +1,7 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { ProgressBar } from '../../../utlis/ProgressBar/ProgressBar';
 import resolveImgURL from '../../../utlis/resolveImgURL';
+import { useNavigate } from 'react-router-dom';
 
 // TODO change type as requrired variables
 type CourseBoxEnrolledProps = {
@@ -14,10 +15,12 @@ type CourseBoxEnrolledProps = {
     };
 };
 export default function CourseBoxEnrolled({ detail }: CourseBoxEnrolledProps) {
+    console.log('Detail Enrolled', detail);
+    const navigate = useNavigate();
     return (
         <>
             <div>
-                <div className="p-4 bg-white h-full w-fit">
+                <div className="p-4 bg-white h-full w-full">
                     <div className="flex flex-col h-full w-full gap-4 justify-between">
                         <div className="flex flex-col w-full gap-4">
                             <div className="flex justify-center w-full h-[15rem]">
@@ -54,12 +57,14 @@ export default function CourseBoxEnrolled({ detail }: CourseBoxEnrolledProps) {
                                 />
                             </div>
                             {/* TODO link to 'Continue Learning' or 'Get Certificate' is nedded */}
-                            <NavLink
-                                to={'/'}
+                            <div
                                 className="text-white bg-theme-color px-4 py-2 w-fit"
+                                onClick={() =>
+                                    navigate(`/course/${detail.slug}`)
+                                }
                             >
                                 Continue Learning
-                            </NavLink>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -71,12 +71,12 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                     </li>
                     <li
                         className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
-                            selectedOption === 'My Donations & Purchase'
+                            selectedOption === 'My Donations And Purchase'
                                 ? 'border-[#242254] text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => {
-                            handleClick('My Donations & Purchase');
+                            handleClick('My Donations And Purchase');
                             {
                                 !isTabScreen && setIsDashboardNavbarOpen(false);
                             }

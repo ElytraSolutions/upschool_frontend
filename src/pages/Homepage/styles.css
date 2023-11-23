@@ -1,0 +1,4 @@
+.custom-carousel-item {
+  padding: 5px; /* Add your desired padding value here */
+  box-sizing: border-box; /* This ensures that padding is included in the total width of the item */
+}

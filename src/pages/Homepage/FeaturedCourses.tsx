@@ -32,6 +32,7 @@ const FeaturedCourses = () => {
                             focusOnSelect={false}
                             infinite
                             itemClass="custom-carousel-item"
+                            // itemClass={customcarousel}
                             keyBoardControl
                             minimumTouchDrag={80}
                             pauseOnHover
@@ -78,7 +79,7 @@ const FeaturedCourses = () => {
                             {courses.slice(0, 6).map((course, index) => (
                                 <div
                                     key={index}
-                                    className="relative h-[530px] w-full rounded-lg overflow-hidden select-none "
+                                    className="relative md:h-[35rem] h-[30rem] w-full rounded-lg overflow-hidden select-none"
                                 >
                                     <NavLink to={`/course/${course.slug}`}>
                                         <img
@@ -90,10 +91,8 @@ const FeaturedCourses = () => {
                                                       )
                                                     : 'https://images.unsplash.com/photo-1676113415510-3a631c9e1b5a?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                                             }
-                                            height="100%"
-                                            width="100%"
                                             alt={course.name}
-                                            className="rounded-md xss:h-full absolute top-0 left-0 select-none pointer-events-none"
+                                            className="rounded-md xss:h-full absolute top-0 left-0 select-none pointer-events-none h-full w-full object-cover"
                                         />
                                         <p className="absolute left-1/2 -translate-x-1/2 text-[1.2rem] text-white font-poppins uppercase bottom-5 tracking-wider w-full">
                                             {
