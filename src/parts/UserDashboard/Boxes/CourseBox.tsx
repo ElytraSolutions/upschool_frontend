@@ -9,7 +9,7 @@ export default function CourseBox({ detail }) {
     return (
         <>
             <div>
-                <div className="p-4 bg-white h-full w-fit">
+                <div className="p-4 bg-white h-full w-[22rem]">
                     <div className="flex flex-col h-full w-full gap-4 justify-between">
                         <div className="flex flex-col w-full gap-4">
                             <div className="flex justify-center h-[12rem]">
@@ -21,8 +21,6 @@ export default function CourseBox({ detail }) {
                                             : 'https://source.unsplash.com/random'
                                     }
                                     alt={detail.name}
-                                    width="350"
-                                    height="250"
                                 />
                             </div>
 

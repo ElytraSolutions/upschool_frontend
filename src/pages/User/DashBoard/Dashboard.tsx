@@ -3,6 +3,7 @@ import DashboardContent from './DashboardContent';
 import MyCourses from './MyCourses';
 import MyBooks from './MyBooks';
 import MyDonationsAndPurchases from './MyDonationsAndPurchases';
+import { useNavigate } from 'react-router-dom';
 import Setting from './Setting';
 import { useOutletContext, useSearchParams } from 'react-router-dom';
 import { UserDashboardSidebar as Sidebar } from '../../../parts/UserDashboard/UserDashboardSidebar';
@@ -15,12 +16,13 @@ type OutletContextType = {
 };
 
 const Dashboard: React.FC<DashboardProps> = () => {
+    const navigate = useNavigate();
     const [searchParams, _setSearchParams] = useSearchParams();
     // Using the url
-    const [option, _setOption] = useState<string>(
-        searchParams.get('option') || 'Dashboard',
-    );
-    console.log('option', option);
+    // const [option, setOption] = useState<string>(
+    //     searchParams.get('option') || 'Dashboard',
+    // );
+    // console.log('option', option);
 
     console.log('searchParams', searchParams);
     useEffect(() => {
@@ -29,11 +31,19 @@ const Dashboard: React.FC<DashboardProps> = () => {
     const { isTabScreen } = useScreenWidthAndHeight();
 
     const { isDashboardNavbarOpen } = useOutletContext<OutletContextType>();
-    const [selectedOption, setSelectedOption] = useState<string>(option);
+    const [selectedOption, setSelectedOption] = useState<string>(
+        searchParams.get('option') || 'Dashboard',
+    );
 
     const handleOptionClick = (option: string) => {
         setSelectedOption(option);
+        navigate(`/dashboard?option=${option}`);
     };
+
+    useEffect(() => {
+        setSelectedOption(searchParams.get('option') || 'Dashboard');
+        console.log('option', selectedOption);
+    }, [searchParams.get('option')]);
 
     return (
         <div className={`flex h-screen w-full pt-[3rem] md:pt-[4rem]`}>
@@ -62,7 +72,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
                 )}
                 {selectedOption === 'My Courses' && <MyCourses />}
                 {selectedOption === 'My Books' && <MyBooks />}
-                {selectedOption === 'My Donations & Purchase' && (
+                {selectedOption === 'My Donations And Purchase' && (
                     <MyDonationsAndPurchases />
                 )}
                 {selectedOption === 'Setting' && <Setting />}
