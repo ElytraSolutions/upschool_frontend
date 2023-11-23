@@ -1,11 +1,10 @@
 import BoardBox from '../../../parts/UserDashboard/Boxes/BoardBox';
 import CourseBox from '../../../parts/UserDashboard/Boxes/CourseBox';
 import BookBox from '../../../parts/UserDashboard/Boxes/BookBox';
-import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+
 import { useEffect, useState } from 'react';
 import axiosInstance from '../../../config/Axios';
 import resolveImgURL from '../../../utlis/resolveImgURL';
-import axios from 'axios';
 
 // TODO fetch data from backend according to the need (3 courses and books respectively)
 // const courses = [
