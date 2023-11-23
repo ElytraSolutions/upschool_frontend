@@ -67,27 +67,27 @@ const SectionBestSellers: React.FC<SectionProps> = ({
         card.style.width = cardWidth + 'px';
     }
 
-    const next = () => {
-        if (
-            slider &&
-            -slider.style.marginLeft.slice(0, -2)! <=
-                cardWidth * ((cards?.length || 0) - 1 - elementsToShow)
-        ) {
-            slider.style.marginLeft =
-                (+slider.style.marginLeft.slice(0, -2) || 0) - cardWidth + 'px';
-        }
-    };
+    // const next = () => {
+    //     if (
+    //         slider &&
+    //         -slider.style.marginLeft.slice(0, -2)! <=
+    //             cardWidth * ((cards?.length || 0) - 1 - elementsToShow)
+    //     ) {
+    //         slider.style.marginLeft =
+    //             (+slider.style.marginLeft.slice(0, -2) || 0) - cardWidth + 'px';
+    //     }
+    // };
 
-    const prev = () => {
-        if (
-            slider &&
-            +slider.style.marginLeft.slice(0, -2) !== 0 &&
-            -slider.style.marginLeft.slice(0, -2) >= 0
-        ) {
-            slider.style.marginLeft =
-                (+slider.style.marginLeft.slice(0, -2) || 0) + cardWidth + 'px';
-        }
-    };
+    // const prev = () => {
+    //     if (
+    //         slider &&
+    //         +slider.style.marginLeft.slice(0, -2) !== 0 &&
+    //         -slider.style.marginLeft.slice(0, -2) >= 0
+    //     ) {
+    //         slider.style.marginLeft =
+    //             (+slider.style.marginLeft.slice(0, -2) || 0) + cardWidth + 'px';
+    //     }
+    // };
     return (
         <>
             <div className="flex flex-col gap-2 text-theme-color w-full xm:w-fit">
@@ -119,12 +119,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                         {/* Slider component */}
                         {!isXtraMedium && (
                             <div className=" pr-3">
-                                <BookCardSlider
-                                    page={page}
-                                    setPage={setPage}
-                                    next={next}
-                                    prev={prev}
-                                />
+                                <BookCardSlider page={page} setPage={setPage} />
                             </div>
                         )}
                     </div>
@@ -140,12 +135,7 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                             View All {`>`}
                         </p>
                         <div className=" ">
-                            <BookCardSlider
-                                page={page}
-                                setPage={setPage}
-                                next={next}
-                                prev={prev}
-                            />
+                            <BookCardSlider page={page} setPage={setPage} />
                         </div>
                     </div>
                 )}
