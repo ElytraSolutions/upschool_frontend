@@ -6,6 +6,7 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 
 function CourseStaticTop({ courseInfo }) {
     const { user } = useUser();
+    const hextoDecimal = (hex: any) => parseInt(hex, 16);
     return (
         <>
             <div className=" flex items-center justify-center flex-col">
@@ -65,7 +66,18 @@ function CourseStaticTop({ courseInfo }) {
                                                 <div className="flex my-2">
                                                     <Link to="/register">
                                                         <button
-                                                            className={`rounded-sm font-thin text-white text-[18px] px-11 py-2`}
+                                                            className={`rounded-sm font-thin ${
+                                                                hextoDecimal(
+                                                                    courseInfo.theme.slice(
+                                                                        1,
+                                                                    ),
+                                                                ) >
+                                                                hextoDecimal(
+                                                                    '808080',
+                                                                )
+                                                                    ? 'text-black'
+                                                                    : 'text-white'
+                                                            } text-[18px] px-11 py-2`}
                                                             style={{
                                                                 backgroundColor:
                                                                     courseInfo.theme,
