@@ -5,6 +5,7 @@ import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
 import { useEffect, useState } from 'react';
 import axiosInstance from '../../../config/Axios';
 import resolveImgURL from '../../../utlis/resolveImgURL';
+import axios from 'axios';
 
 // TODO fetch data from backend according to the need (3 courses and books respectively)
 const courses = [
@@ -53,13 +54,16 @@ type DashboardContentProps = {
 };
 
 function DashboardContent({ handleOptionClick }: DashboardContentProps) {
-    const { isSmallScreen } = useScreenWidthAndHeight();
+    // const { isSmallScreen } = useScreenWidthAndHeight();
     const [userCourseData, setUserCourseData] =
         useState<CourseEnrollment | null>(null);
+    const [userBooksData, setUserBooksData] = useState<any[]>([]);
     useEffect(() => {
         (async () => {
             const resp = await axiosInstance.get('/data/user/courses');
             setUserCourseData(resp.data.data);
+            const bookResp = await axiosInstance.get('/data/user/books');
+            setUserBooksData(bookResp.data.data);
         })();
     }, []);
     console.log('userCourseData', userCourseData);
@@ -126,42 +130,19 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                         </div>
 
                         {/* Third row : Books uploaded by user */}
-                        <div className="flex flex-col items-start w-full gap-3">
+                        <div className="flex flex-col items-start w-full gap-3 max-w-[80rem]">
                             <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
                                 Your Books
                             </h1>
-                            {isSmallScreen ? (
-                                <div className="flex flex-col items-center gap-3">
-                                    <BookBox
-                                        key={courses[0].id}
-                                        detail={courses[0]}
-                                    />
-                                    <BookBox
-                                        key={courses[1].id}
-                                        detail={courses[1]}
-                                    />
-                                </div>
-                            ) : (
-                                <>
-                                    <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
-                                        {courses.map((course, index) => (
-                                            <BookBox
-                                                key={index}
-                                                detail={course}
-                                            />
-                                        ))}
-                                    </div>
-                                    {/* TODO Remove the block */}
-                                    <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
-                                        {courses.map((course, index) => (
-                                            <BookBox
-                                                key={index}
-                                                detail={course}
-                                            />
-                                        ))}
-                                    </div>
-                                </>
-                            )}
+
+                            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 w-full">
+                                {userBooksData
+                                    ?.slice(0, 3)
+                                    .map((course, index) => (
+                                        <BookBox key={index} detail={course} />
+                                    ))}
+                            </div>
+
                             <div
                                 className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer"
                                 onClick={() => {

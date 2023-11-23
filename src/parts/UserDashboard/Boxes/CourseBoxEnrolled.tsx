@@ -20,7 +20,7 @@ export default function CourseBoxEnrolled({ detail }: CourseBoxEnrolledProps) {
     return (
         <>
             <div>
-                <div className="p-4 bg-white h-full w-fit">
+                <div className="p-4 bg-white h-full w-full">
                     <div className="flex flex-col h-full w-full gap-4 justify-between">
                         <div className="flex flex-col w-full gap-4">
                             <div className="flex justify-center w-full h-[15rem]">

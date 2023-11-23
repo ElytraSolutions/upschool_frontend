@@ -43,7 +43,7 @@ export const PersonalInformation = ({ user }) => {
         last_name: user.last_name || '',
         email: user.email || '',
         country: user.country || '',
-        date_of_birth: '',
+        date_of_birth: user.date_of_birth.slice(0, 10) || '',
     };
 
     const {
