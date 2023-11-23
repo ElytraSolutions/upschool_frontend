@@ -103,27 +103,17 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                             <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
                                 Continue Learning
                             </h1>
-                            {isSmallScreen ? (
-                                <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
-                                    {courses.map((course, index) => (
+
+                            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
+                                {userCourseData?.enrolled.map(
+                                    (course, index) => (
                                         <CourseBox
                                             key={index}
                                             detail={course}
                                         />
-                                    ))}
-                                </div>
-                            ) : (
-                                <div className="grid grid-cols-2 sm:flex sm:flex-row gap-2 lg:gap-4 w-full ">
-                                    {userCourseData?.enrolled.map(
-                                        (course, index) => (
-                                            <CourseBox
-                                                key={index}
-                                                detail={course}
-                                            />
-                                        ),
-                                    )}
-                                </div>
-                            )}
+                                    ),
+                                )}
+                            </div>
 
                             <div
                                 className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer "

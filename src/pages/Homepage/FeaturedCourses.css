@@ -4,9 +4,9 @@
     /* border: 1px solid #333; */
     /* Custom border */
     will-change: transform;
-    flex-shrink: 0;
-    padding-left: 10px;
-    padding-right: 10px;
+    /* flex-shrink: 0; */
+    padding-left: 2px;
+    padding-right: 2px;
     height: 100%;
     /* Custom padding */
     /* Add more custom styles as needed */
