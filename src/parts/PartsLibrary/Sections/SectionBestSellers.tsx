@@ -122,8 +122,9 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                                 <BookCardSlider
                                     page={page}
                                     setPage={setPage}
-                                    next={next}
-                                    prev={prev}
+                                    MaxPage={2}
+                                    // next={next}
+                                    // prev={prev}
                                 />
                             </div>
                         )}
@@ -143,8 +144,9 @@ const SectionBestSellers: React.FC<SectionProps> = ({
                             <BookCardSlider
                                 page={page}
                                 setPage={setPage}
-                                next={next}
-                                prev={prev}
+                                MaxPage={2}
+                                // next={next}
+                                // prev={prev}
                             />
                         </div>
                     </div>
