@@ -12,11 +12,13 @@ type LibrarySmallScreenProps = {
     submitSearchForm: (event: React.FormEvent<HTMLFormElement>) => void;
     isFilterClicked: boolean;
     setIsFilterClicked: (value: boolean) => void;
+    filteredBooks?: any;
 };
 const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
     searchQuery,
     setSearchQuery,
     submitHandler,
+    filteredBooks,
     resetHandler,
     resetForm,
     submitSearchForm,
@@ -166,7 +168,7 @@ const LibrarySmallScreen: React.FC<LibrarySmallScreenProps> = ({
                 </div>
                 {/* Books Display Section */}
                 <div className="flex justify-center w-[97%] xs:w-11/12 py-2 sm:py-3 md:py-5">
-                    <BooksDisplay />
+                    <BooksDisplay filteredBooks={filteredBooks} />
                 </div>
             </div>
         </>

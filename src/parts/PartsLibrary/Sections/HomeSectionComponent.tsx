@@ -27,22 +27,31 @@ const HomeSectionComponent: React.FC<SectionProps> = ({
 }) => {
     const [_searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(0); // For showing progress dots in slider
-    // const [noOfBooksToShow, setNoOfBooksToShow] = useState(0);
+    const [noOfBooksToShow, setNoOfBooksToShow] = useState(0);
     const MaxPage = 3;
 
     useEffect(() => {
         // set according to window.innerWidth
+        if (window.innerWidth >= 1920) {
+            setNoOfBooksToShow(4);
+        } else if (window.innerWidth >= 1280) {
+            setNoOfBooksToShow(3);
+        } else if (window.innerWidth >= 640) {
+            setNoOfBooksToShow(2);
+        } else {
+            setNoOfBooksToShow(1);
+        }
     }, []);
     return (
         <div className="  flex flex-col h-[500px] xlarge:h-[650px] ">
             {/* header */}
             <div className=" px-5 w-full flex justify-between text-theme-color mb-4">
-                <div className="flex gap-4 items-center">
-                    <h2 className="text-base xm:text-xl lg:text-2xl font-lexend font-semibold">
+                <div className="flex gap-2 md:gap-4 items-center">
+                    <h2 className="text-[0.8rem] xm:text-xl lg:text-2xl font-lexend font-semibold">
                         {topic}
                     </h2>
                     <p
-                        className="inline-block underline underline-offset-4 text-sm lg:text-base hover:cursor-pointer"
+                        className="inline-block underline underline-offset-4 text-[0.6rem] lg:text-base hover:cursor-pointer"
                         onClick={() => {
                             setSearchParams((oldSearchParams) => {
                                 oldSearchParams.set('section', value);
@@ -62,10 +71,12 @@ const HomeSectionComponent: React.FC<SectionProps> = ({
 
             {/* books */}
             <div className="w-full h-full overflow-hidden">
-                <div className={`flex gap-4 h-full `}>
-                    {books.slice(page, page + 3).map((book, index) => {
-                        return <HomeBookCard key={index} book={book} />;
-                    })}
+                <div className={` w-full flex justify-center gap-4 h-full `}>
+                    {books
+                        .slice(page, page + noOfBooksToShow)
+                        .map((book, index) => {
+                            return <HomeBookCard key={index} book={book} />;
+                        })}
                 </div>
             </div>
         </div>

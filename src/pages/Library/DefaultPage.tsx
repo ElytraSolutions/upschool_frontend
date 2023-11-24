@@ -32,7 +32,7 @@ const DefaultPage = () => {
         }
 
         const res = await axiosInstance.post('/data/books/filter', filter);
-        console.log('res.data.data', res.data.data);
+        // console.log('res.data.data', res.data.data);
         setFilteredBooks(res.data.data);
     }, [searchParams]);
     useEffect(() => {
@@ -118,6 +118,7 @@ const DefaultPage = () => {
             ) : (
                 <LibrarySmallScreen
                     searchQuery={searchQuery}
+                    filteredBooks={filteredBooks}
                     setSearchQuery={setSearchQuery}
                     submitHandler={submitHandler}
                     resetHandler={resetHandler}

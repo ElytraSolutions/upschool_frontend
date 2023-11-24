@@ -21,7 +21,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
     useEffect(() => {
         (async () => {
             const res = await axiosInstance.get('/data/bookCategories');
-            console.log('categories from backend', res.data.data);
+            // console.log('categories from backend', res.data.data);
             setCategories(res.data.data);
         })();
     }, []);

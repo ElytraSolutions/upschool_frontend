@@ -28,7 +28,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
 
     return (
         <>
-            <div className=" flex flex-col justify-between rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[97%] xm:w-[235px] sm:w-[270px] h-full ">
+            <div className=" relative flex flex-col rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[97%] xm:w-[235px] sm:w-[270px] h-[70vh] ">
                 <div className="">
                     {/* TODO imgage dimesion needs to be determined  */}
                     <img
@@ -54,7 +54,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                             {book.title}
                         </p>
 
-                        <div className="flex flex-row items-center text-theme-color text-sm h-full">
+                        <div className="flex flex-row items-center text-theme-color text-sm h-fit">
                             <p className="font-semibold">
                                 Values this book explores:{' '}
                                 {book.categories.map((category, index) => (
@@ -69,7 +69,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                     </div>
                 </div>
                 {/*  TODO link to read book */}
-                <div className="px-4 py-1">
+                <div className="absolute bottom-4 w-full px-3">
                     <button
                         type="button"
                         className="p-3 my-1 bg-red-upschool text-white text-sm hover:cursor-pointer w-full"
