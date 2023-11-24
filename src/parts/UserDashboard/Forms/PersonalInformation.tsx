@@ -10,6 +10,8 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 import stringAvatar from '../../../utlis/AvatarColor/avatar_color';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+import axiosInstance from '../../../config/Axios';
+import useUser from '../../../hooks/useUser';
 
 // TODO Shema for image(avtar) of user
 const PersonalInformationSchema = yup.object().shape({
@@ -30,13 +32,22 @@ const PersonalInformationSchema = yup.object().shape({
     date_of_birth: yup.date().required('required'),
 });
 
-const submitHandler = (data, onSubmitProps) => {
-    // TODO implement logic for submmited data
-    console.log(data);
-    onSubmitProps.resetForm();
-};
-
 export const PersonalInformation = ({ user }) => {
+    const { refresh } = useUser();
+
+    const submitHandler = async (data, onSubmitProps) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { email, ...filteredData } = data;
+        // TODO implement logic for submmited data
+        const resp = await axiosInstance.put(
+            `/data/users/${user.id}`,
+            filteredData,
+        );
+        console.log(resp.data.data);
+        await refresh();
+        console.log(data);
+        onSubmitProps.resetForm();
+    };
     console.log('Personal INformation', user);
     const InitialValues = {
         first_name: user.first_name || '',
@@ -286,6 +297,7 @@ export const PersonalInformation = ({ user }) => {
                                                     onChange={handleChange}
                                                     value={values.email}
                                                     name="email"
+                                                    disabled={true}
                                                     error={
                                                         Boolean(
                                                             touched.email,
@@ -404,7 +416,7 @@ export const PersonalInformation = ({ user }) => {
                                                     size="small"
                                                     fullWidth
                                                     id="dob"
-                                                    type="date"
+                                                    type="text"
                                                     hiddenLabel
                                                     onBlur={handleBlur}
                                                     onChange={handleChange}
