@@ -6,7 +6,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import axiosInstance from '../../config/Axios';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
-import { NavLink, Navigate, useNavigate } from 'react-router-dom';
+import { NavLink, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
@@ -34,8 +34,9 @@ const Login = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
     const navigate = useNavigate();
+    const location = useLocation();
+    const locState = location.state;
     const { user, refresh } = useUser();
     const submitHandler = async (values: any, { resetForm }) => {
         const csrfResp = await axiosInstance.get('/sanctum/csrf-cookie');
@@ -45,11 +46,19 @@ const Login = () => {
             const resp = await axiosInstance.post('/auth/login', values);
 
             if (resp.status === 200 && resp.data.status === 'success') {
-                refresh().then(() => {
-                    console.log(user);
-                    navigate('/');
-                });
-                resetForm();
+                if (locState !== null) {
+                    console.log(locState.course);
+                    refresh().then(() => {
+                        navigate(`/course/${locState.course}`);
+                    });
+                    resetForm();
+                } else {
+                    refresh().then(() => {
+                        console.log(user);
+                        navigate('/');
+                    });
+                    resetForm();
+                }
             }
         } catch (error: any) {
             toast.error(error.response.data.message);

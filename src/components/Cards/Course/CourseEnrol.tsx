@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import useUser from '../../../hooks/useUser';
 import resolveImgURL from '../../../utlis/resolveImgURL';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../config/Axios';
 import { toast } from 'react-toastify';
 
@@ -9,6 +9,7 @@ function CourseEnrol({ thumbnail }) {
     const { slug } = useParams();
     const { user } = useUser();
     const navigate = useNavigate();
+    const location = useLocation();
     const [enrollmentStatus, setEnrollmentStatus] = useState<{
         enrolled: boolean;
         // course: number | null;
@@ -63,7 +64,7 @@ function CourseEnrol({ thumbnail }) {
                 await handleEnroll();
             }
         } else {
-            navigate(`/login`);
+            navigate(`/login`, { state: { course: slug } });
         }
     };
 
