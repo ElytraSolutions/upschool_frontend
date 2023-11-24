@@ -47,7 +47,6 @@ const Login = () => {
 
             if (resp.status === 200 && resp.data.status === 'success') {
                 if (locState !== null) {
-                    console.log(locState.course);
                     refresh().then(() => {
                         navigate(`/course/${locState.course}`);
                     });
@@ -318,7 +317,7 @@ const Login = () => {
                                             <NavLink
                                                 to="/register"
                                                 state={{
-                                                    course: locState.course,
+                                                    course: locState,
                                                 }}
                                             >
                                                 Sign up

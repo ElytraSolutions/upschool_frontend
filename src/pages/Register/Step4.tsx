@@ -25,7 +25,7 @@ const Step4 = ({ data, refresh, navigate, return_slug }) => {
                     try {
                         if (return_slug !== null) {
                             refresh();
-                            navigate(`/course/${return_slug.course}`);
+                            navigate(`/course/${return_slug.course.course}`);
                         } else {
                             refresh();
                             navigate('/');

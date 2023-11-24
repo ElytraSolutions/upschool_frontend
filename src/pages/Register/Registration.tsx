@@ -23,6 +23,7 @@ export default function Registration() {
     const navigate = useNavigate();
     const location = useLocation();
     const locState = location.state;
+    console.log(locState);
     const [currentData, setCurrentData] = useState({
         first_name: '',
         last_name: '',
