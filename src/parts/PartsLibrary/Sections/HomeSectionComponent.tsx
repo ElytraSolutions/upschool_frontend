@@ -27,21 +27,39 @@ const HomeSectionComponent: React.FC<SectionProps> = ({
 }) => {
     const [_searchParams, setSearchParams] = useSearchParams();
     const [page, setPage] = useState(0); // For showing progress dots in slider
-    const [noOfBooksToShow, setNoOfBooksToShow] = useState(0);
+    const [noOfBooksToShow, setNoOfBooksToShow] = useState(1);
     const MaxPage = 3;
+    const [dimensions, setDimensions] = React.useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
+    // console.log(dimensions);
+    const handleResize = () => {
+        setDimensions({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+    };
+    React.useEffect(() => {
+        window.addEventListener('resize', handleResize, false);
+    }, []);
 
     useEffect(() => {
         // set according to window.innerWidth
-        if (window.innerWidth >= 1920) {
+        if (dimensions.width >= 1920) {
             setNoOfBooksToShow(4);
-        } else if (window.innerWidth >= 1280) {
+        } else if (dimensions.width >= 1280) {
             setNoOfBooksToShow(3);
-        } else if (window.innerWidth >= 640) {
+        } else if (dimensions.width >= 640) {
             setNoOfBooksToShow(2);
         } else {
             setNoOfBooksToShow(1);
         }
-    }, []);
+    }, [dimensions]);
+    // useEffect(() => {
+    //      console.log('no of books to show', noOfBooksToShow);
+    //      console.log('page', page);
+    // }, [noOfBooksToShow, page]);
     return (
         <div className="  flex flex-col h-[500px] xlarge:h-[650px] ">
             {/* header */}
@@ -73,7 +91,7 @@ const HomeSectionComponent: React.FC<SectionProps> = ({
             <div className="w-full h-full overflow-hidden">
                 <div className={` w-full flex justify-center gap-4 h-full `}>
                     {books
-                        .slice(page, page + noOfBooksToShow)
+                        ?.slice(page, page + noOfBooksToShow)
                         .map((book, index) => {
                             return <HomeBookCard key={index} book={book} />;
                         })}

@@ -10,7 +10,7 @@ const FilterTabs = () => {
     useEffect(() => {
         (async () => {
             const res = await axiosInstance.get('/data/bookCategories');
-            console.log('categories from backend', res.data.data);
+            // console.log('categories from backend', res.data.data);
             setCategoriesName(res.data.data);
         })();
     }, []);
@@ -31,7 +31,7 @@ const FilterTabs = () => {
         : '';
 
     useEffect(() => {
-        console.log('categories splitted', categories);
+        // console.log('categories splitted', categories);
         // console.log('selectQuery', selectQuery);
     }, [categories, selectQuery]);
 
