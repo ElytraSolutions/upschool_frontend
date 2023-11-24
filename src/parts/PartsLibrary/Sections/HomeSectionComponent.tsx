@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import BookCard from '../../../components/Cards/BookCard';
 import HomeBookCard from './HomeBookCard';
 import { useSearchParams } from 'react-router-dom';
-import BookCardSlider from '../../../components/Slider/BookCardSlider';
+import BookCardSlider from './Slider';
 type SectionProps = {
     topic: string;
     value: string;
