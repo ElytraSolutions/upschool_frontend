@@ -1,32 +1,55 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import cross from '../../assets/librarycross.png';
+import axiosInstance from '../../config/Axios';
 
 const FilterTabs = () => {
     const [searchParams, _setSearchParams] = useSearchParams();
+    const [categoriesName, setCategoriesName] = useState<any[]>([]);
+    // TODO Determine to show filter options or not by default
+    useEffect(() => {
+        (async () => {
+            const res = await axiosInstance.get('/data/bookCategories');
+            // console.log('categories from backend', res.data.data);
+            setCategoriesName(res.data.data);
+        })();
+    }, []);
     const selectCategories = searchParams.has('categories')
         ? searchParams.get('categories')
         : '';
     const categories = useMemo(() => {
-        return selectCategories ? selectCategories.split(',') : [];
-    }, [selectCategories]);
+        const array = selectCategories ? selectCategories.split(',') : [];
+        const categoriesObject = categoriesName.filter((category) =>
+            array.includes(category.id.toString()),
+        );
+        return categoriesObject;
+
+        // return selectCategories ? selectCategories.split(',') : [];
+    }, [selectCategories, categoriesName]);
     const selectQuery = searchParams.has('query')
         ? searchParams.get('query')
         : '';
 
     useEffect(() => {
-        console.log('categories splitted', categories);
-        console.log('selectQuery', selectQuery);
+        // console.log('categories splitted', categories);
+        // console.log('selectQuery', selectQuery);
     }, [categories, selectQuery]);
 
-    const categoryHandler = (category) => {
+    const categoryHandler = (categoryID) => {
         return () => {
-            const newCategories = categories.filter((c) => c !== category);
+            const newCategories = categories.filter((c) => c.id != categoryID);
             console.log('newCategories', newCategories);
             _setSearchParams((oldSearchParams) => {
-                oldSearchParams.set('categories', newCategories.join(','));
+                oldSearchParams.set(
+                    'categories',
+                    newCategories.map((c) => c.id).join(','),
+                );
                 return oldSearchParams;
             });
+            // _setSearchParams((oldSearchParams) => {
+            //     oldSearchParams.set('categories', newCategories.id.join(','));
+            //     return oldSearchParams;
+            // });
         };
     };
     const queryHandler = () => {
@@ -45,10 +68,10 @@ const FilterTabs = () => {
                             <div
                                 className={`border-2  rounded-3xl flex items-center justify-center bg-white p-2 px-4 gap-4`}
                             >
-                                {category}
+                                {category.name}
                                 <div
                                     className=" cursor-pointer hover:brightness-[0%]"
-                                    onClick={categoryHandler(category)}
+                                    onClick={categoryHandler(category.id)}
                                 >
                                     <img src={cross} alt="cross" />
                                 </div>

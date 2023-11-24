@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 // import { books } from '../../data/LibraryBooks';
+import HomeSectionComponent from '../../parts/PartsLibrary/Sections/HomeSectionComponent';
 import SectionShowBooks from '../../parts/PartsLibrary/Sections/SectionAllBooks';
-import SectionBestSellers from '../../parts/PartsLibrary/Sections/SectionBestSellers';
-import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
+// import SectionBestSellers from '../../parts/PartsLibrary/Sections/SectionBestSellers';
+// import SectionFeatured from '../../parts/PartsLibrary/Sections/SectionFeatured';
 import { useSearchParams } from 'react-router-dom';
 import axiosInstance from '../../config/Axios';
 import FilterTabs from '../../parts/PartsLibrary/FilterTabs';
@@ -70,15 +71,15 @@ const BooksDisplay = ({ filteredBooks }: BooksDisplayProps) => {
 
                 {/* it displays all sections (Best Sellers , Featured Books and Explore ALL Books as deafault condition) */}
                 {selectSection === 'Home' && (
-                    <div className="flex flex-col gap-5 tab:gap-12 w-full xm:w-fit">
+                    <div className="flex flex-col gap-5 tab:gap-12 w-full">
                         {/* Best Sellers Section */}
-                        <SectionBestSellers
+                        <HomeSectionComponent
                             topic="Best Sellers"
                             value="best_seller"
                             books={bestSeller}
                         />
                         {/* Featured Books Section */}
-                        <SectionFeatured
+                        <HomeSectionComponent
                             topic="Featured Books"
                             value="featured"
                             books={featuredBook}
