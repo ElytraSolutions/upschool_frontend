@@ -16,7 +16,7 @@ export default function BookBox({ detail }) {
                 <div className="p-4 bg-white h-full w-full max-w-[26rem]">
                     <div className="flex flex-col h-full w-full gap-4 justify-between">
                         <div className="flex flex-col w-full gap-4">
-                            <div className="flex justify-center">
+                            <div className="flex justify-center  h-[10rem] sm:h-[15rem]">
                                 <img
                                     className="w-full h-full object-cover"
                                     src={

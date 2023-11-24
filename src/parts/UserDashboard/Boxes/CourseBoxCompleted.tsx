@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import resolveImgURL from '../../../utlis/resolveImgURL';
 // import { ProgressBar } from '../../../utlis/ProgressBar/ProgressBar';
+import { useNavigate } from 'react-router-dom';
 
 // TODO change type as requrired variables
 type CourseBoxCompletedProps = {
@@ -15,6 +16,7 @@ type CourseBoxCompletedProps = {
 export default function CourseBoxCompleted({
     detail,
 }: CourseBoxCompletedProps) {
+    const navigate = useNavigate();
     return (
         <>
             <div>
@@ -57,12 +59,14 @@ export default function CourseBoxCompleted({
                             </div> */}
                             {/* TODO link to 'Revisit Course' or 'Get Certificate' is nedded */}
                             <div className="flex flex-wrap gap-2 justify-end">
-                                <NavLink
-                                    to={'/'}
-                                    className="text-white text-center bg-theme-color px-4 py-2 w-3/4"
+                                <div
+                                    onClick={() =>
+                                        navigate(`/course/${detail.slug}`)
+                                    }
+                                    className="text-white text-center bg-theme-color px-4 py-2 w-3/4 cursor-pointer"
                                 >
                                     Revisit Course
-                                </NavLink>
+                                </div>
                                 <NavLink
                                     to={'/'}
                                     className="text-white text-center bg-theme-color px-4 py-2 w-3/4"
