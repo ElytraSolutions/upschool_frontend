@@ -1,5 +1,5 @@
 import verification from '../../assets/verification.png';
-const Step4 = ({ data, refresh, navigate }) => {
+const Step4 = ({ data, refresh, navigate, return_slug }) => {
     console.log(data);
     return (
         <div className="flex justify-center flex-col items-center text-font-color gap-y-3 xl:gap-y-6 mt-8">
@@ -23,14 +23,19 @@ const Step4 = ({ data, refresh, navigate }) => {
                 className=" flex  items-center justify-center bg-pink-upschool px-5 py-2 w-fit h-fit text-white mb-5"
                 onClick={async () => {
                     try {
-                        refresh();
-                        navigate('/');
+                        if (return_slug !== null) {
+                            refresh();
+                            navigate(`/course/${return_slug.course.course}`);
+                        } else {
+                            refresh();
+                            navigate('/');
+                        }
                     } catch (error) {
                         console.log(error);
                     }
                 }}
             >
-                Verify Later, go to Homepage
+                Verify Later, Continue
             </button>
         </div>
     );

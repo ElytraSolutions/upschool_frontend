@@ -47,7 +47,6 @@ const Login = () => {
 
             if (resp.status === 200 && resp.data.status === 'success') {
                 if (locState !== null) {
-                    console.log(locState.course);
                     refresh().then(() => {
                         navigate(`/course/${locState.course}`);
                     });
@@ -315,7 +314,12 @@ const Login = () => {
                                     <div className="sm:text-base text-[0.91rem] mb-1">
                                         Don't have an Upschool account yet?
                                         <span className="text-red-upschool inline-block pl-1">
-                                            <NavLink to="/register">
+                                            <NavLink
+                                                to="/register"
+                                                state={{
+                                                    course: locState,
+                                                }}
+                                            >
                                                 Sign up
                                             </NavLink>
                                         </span>
