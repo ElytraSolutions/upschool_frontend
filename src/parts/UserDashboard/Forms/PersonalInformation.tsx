@@ -47,6 +47,7 @@ export const PersonalInformation = ({ user }) => {
         await refresh();
         console.log(data);
         onSubmitProps.resetForm();
+        location.reload();
     };
     console.log('Personal INformation', user);
     const InitialValues = {
