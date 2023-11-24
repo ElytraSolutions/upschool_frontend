@@ -80,13 +80,13 @@ function CourseEnrol({ thumbnail }) {
                     alt="courseEnrol"
                     className="xs:max-w-[340px] xs:max-h-[408px] max-w-[260px] max-h-[328px]"
                 />
-                <div className="flex justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] bg-slate-100">
+                <div className="flex justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] ">
                     <button
                         className="bg-theme-color text-white px-8 py-2 rounded-sm flex-grow"
                         onClick={handleClick}
                     >
                         {enrollmentStatus.enrolled
-                            ? 'GO TO COURSE'
+                            ? 'CONTINUE LEARNING'
                             : 'ENROLL NOW'}
                     </button>
                 </div>
