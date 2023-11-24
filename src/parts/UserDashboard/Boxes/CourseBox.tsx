@@ -45,7 +45,7 @@ export default function CourseBox({ detail }) {
                                 onClick={() =>
                                     navigate(`/course/${detail.slug}`)
                                 }
-                                className="text-white bg-theme-color px-4 py-2 w-fit"
+                                className="text-white bg-theme-color px-4 py-2 w-fit cursor-pointer"
                             >
                                 Continue Learning
                             </div>

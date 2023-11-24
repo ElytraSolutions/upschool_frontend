@@ -58,7 +58,7 @@ export default function CourseBoxEnrolled({ detail }: CourseBoxEnrolledProps) {
                             </div>
                             {/* TODO link to 'Continue Learning' or 'Get Certificate' is nedded */}
                             <div
-                                className="text-white bg-theme-color px-4 py-2 w-fit"
+                                className="text-white bg-theme-color px-4 py-2 w-fit cursor-pointer"
                                 onClick={() =>
                                     navigate(`/course/${detail.slug}`)
                                 }
