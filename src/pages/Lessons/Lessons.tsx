@@ -51,6 +51,7 @@ export default function Lessons() {
             chaptersData[i].lessons = lessonsData;
         }
         setChapters(chaptersData);
+        console.log(chaptersData);
         return chaptersData;
     };
 

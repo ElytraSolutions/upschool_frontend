@@ -90,7 +90,7 @@ export default function LessonDetail({
             setLesson(res.data.data);
         })();
     }, [lessonSlug, setLesson]);
-    // console.log('lesson', lesson);
+    console.log('lesson', lesson);
 
     // const contentType = 'carousel'; //type of chapter [video,image, flipbook, carousel]
     return (
@@ -155,27 +155,49 @@ export default function LessonDetail({
                     </div>
                     {/* ChapterDetail Chapters Section*/}
                     <div className="flex flex-col">
-                        {lesson.lesson_sections.map((section) => (
-                            <div
-                                className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black"
-                                key={section.id}
-                            >
-                                <ChapterText
+                        {lesson.lesson_sections.map((section) =>
+                            section.teachers_note !== null &&
+                            section.text !== null ? (
+                                <div
+                                    className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black"
                                     key={section.id}
-                                    chapter={section}
-                                />
-                                <div className="">
-                                    <ChapterMedia
-                                        section={
-                                            section.lesson_section_contents
-                                        }
+                                >
+                                    <ChapterText
+                                        key={section.id}
+                                        chapter={section}
                                     />
+                                    <div className="">
+                                        <ChapterMedia
+                                            section={
+                                                section.lesson_section_contents
+                                            }
+                                        />
+                                    </div>
+                                    <button className="max-w-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
+                                        Download
+                                    </button>
                                 </div>
-                                <button className="max-w-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
-                                    Download
-                                </button>
-                            </div>
-                        ))}
+                            ) : (
+                                <div
+                                    className="mt-12 pb-6 mx-3 border-b-[1px] border-black grid gap-6"
+                                    key={section.id}
+                                >
+                                    <div className="text-4xl font-semibold text-theme-color">
+                                        {section.name}
+                                    </div>
+                                    <div>
+                                        <ChapterMedia
+                                            section={
+                                                section.lesson_section_contents
+                                            }
+                                        />
+                                    </div>
+                                    <button className="max-w-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
+                                        Download
+                                    </button>
+                                </div>
+                            ),
+                        )}
                     </div>
 
                     {/* TODO check if chapter is already completed */}
