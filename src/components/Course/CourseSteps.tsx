@@ -24,14 +24,14 @@ function CourseSteps({ steps, theme, objData }) {
         <>
             <div className="flex w-full justify-center">
                 <div className="grid max-w-[550px]">
-                    <div className="grid gap-4">
-                        <p
-                            className="text-[38px] text-center font-extrabold"
-                            style={{ color: theme }}
-                        >
-                            Main Objectives of the Course
-                        </p>
-                        {objData && (
+                    {objData && (
+                        <div className="grid gap-4">
+                            <p
+                                className="text-[38px] text-center font-extrabold"
+                                style={{ color: theme }}
+                            >
+                                Main Objectives of the Course
+                            </p>
                             <div
                                 className="flex w-full justify-center overflow-scroll-hidden"
                                 style={{ height: `${dynHeight}px` }}
@@ -48,8 +48,8 @@ function CourseSteps({ steps, theme, objData }) {
                                     ></div>
                                 </FunctionalIFrameComponent>
                             </div>
-                        )}
-                    </div>
+                        </div>
+                    )}
                     {Object?.values(steps).map((step: any, index) => (
                         <div
                             key={index}
