@@ -52,7 +52,8 @@ function CourseSteps({ steps, theme, objData }) {
                     )}
                     {Object?.values(steps).map(
                         (step: any, index) =>
-                            step && (
+                            step &&
+                            (step.image || step.data) && (
                                 <div
                                     key={index}
                                     className="grid border-b-2 border-gray-200"
@@ -94,7 +95,7 @@ function CourseSteps({ steps, theme, objData }) {
                                 </div>
                                 <p className="text-center">
                                     Register for a FREE Upschool account to
-                                    enrol in this course.
+                                    enroll in this course.
                                 </p>
                             </div>
                         )}
