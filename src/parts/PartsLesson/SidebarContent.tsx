@@ -3,6 +3,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import IChapter from '../../types/IChapter';
 import resolveImgURL from '../../utlis/resolveImgURL';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 type ISidebarProps = {
     courseSlug: string | undefined;
@@ -11,6 +12,7 @@ type ISidebarProps = {
 
 export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
     const [isChapterOpen, setIsChapterOpen] = useState<boolean>(false);
+    const { lessonSlug } = useParams();
     return (
         <div className="flex flex-col text-sm sm:text-sm md:text-base">
             <div
@@ -32,7 +34,11 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
                     chapter.lessons.map((lesson, index) => (
                         <li
                             key={index}
-                            className="flex  justify-between items-center py-2 bg-slate-200 gap-7 w-full text-sm px-2"
+                            className={`flex justify-between items-center py-2 ${
+                                lessonSlug === lesson.slug
+                                    ? 'bg-[#facc15]'
+                                    : 'bg-slate-200'
+                            } gap-7 w-full text-sm px-2`}
                         >
                             <NavLink
                                 to={`/course/${courseSlug}/${chapter.slug}/${lesson.slug}`}
