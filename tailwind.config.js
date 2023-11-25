@@ -22,6 +22,7 @@ export default {
                     '"Annie Use Your Telescope"',
                     'cursive',
                 ],
+                kumbh: ['Kumbh Sans', 'sans-serif'],
                 greatvibes: ['Great Vibes', 'sans-serif'],
             },
             flexGrow: {

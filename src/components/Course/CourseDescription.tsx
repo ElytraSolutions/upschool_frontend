@@ -9,7 +9,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
             if (divRef.current) {
                 const divHeight = divRef.current.clientHeight;
                 // console.log('div height:', divHeight);
-                setDynHeight(divHeight + 25);
+                setDynHeight(divHeight + 50);
             }
         }, 3000); // Adjust the timeout duration as needed
         return () => clearTimeout(timerId);
@@ -31,7 +31,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                     className={`flex w-full justify-center overflow-y-hidden`}
                     style={{ height: `${dynHeight}px` }}
                 >
-                    <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen">
+                    <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen font-kumbh">
                         <FunctionalIFrameComponent title={title}>
                             <div
                                 ref={divRef}
