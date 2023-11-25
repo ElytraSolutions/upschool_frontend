@@ -11,41 +11,47 @@ const ChapterText = ({ chapter }) => {
                     {chapter.name}
                 </div>
                 {/* teacher's note */}
-                <div className="flex flex-col gap-3">
-                    <div
-                        className={` ml-2 flex w-full flex-col gap-6 text-base font-semibold ${
-                            isClicked ? 'text-red-upschool' : 'text-theme-color'
-                        }`}
-                    >
+                {chapter.teachers_note && (
+                    <div className={`flex flex-col gap-3`}>
                         <div
-                            className="flex max-w-fit flex-row items-center justify-start hover:cursor-pointer"
-                            onClick={() => {
-                                setIsClicked((oldState) => !oldState);
-                            }}
-                        >
-                            <PlayArrowIcon
-                                className={`${isClicked ? '-rotate-90' : ''}`}
-                                style={{
-                                    width: '15px',
-                                    height: '25px',
-                                }}
-                            />
-                            Teacher's note
-                        </div>
-                        <div
-                            className={`${
+                            className={` ml-2 flex w-full flex-col gap-6 text-base font-semibold ${
                                 isClicked
-                                    ? 'block text-sm opacity-100'
-                                    : 'hidden opacity-0 '
-                            } transition-opacity ease-in-out delay-100 duration-200`}
+                                    ? 'text-red-upschool'
+                                    : 'text-theme-color'
+                            }`}
                         >
-                            <p className="text-base leading-7 font-normal text-red-upschool transition-opacity  duration-75 ">
-                                {chapter.teachers_note}
-                            </p>
+                            <div
+                                className="flex max-w-fit flex-row items-center justify-start hover:cursor-pointer"
+                                onClick={() => {
+                                    setIsClicked((oldState) => !oldState);
+                                }}
+                            >
+                                <PlayArrowIcon
+                                    className={`${
+                                        isClicked ? '-rotate-90' : ''
+                                    }`}
+                                    style={{
+                                        width: '15px',
+                                        height: '25px',
+                                    }}
+                                />
+                                Teacher's note
+                            </div>
+                            <div
+                                className={`${
+                                    isClicked
+                                        ? 'block text-sm opacity-100'
+                                        : 'hidden opacity-0 '
+                                } transition-opacity ease-in-out delay-100 duration-200`}
+                            >
+                                <p className="text-base leading-7 font-normal text-red-upschool transition-opacity  duration-75 ">
+                                    {chapter.teachers_note}
+                                </p>
+                            </div>
                         </div>
+                        <div className="h-0 w-full border border-gray-400"></div>
                     </div>
-                    <div className="h-0 w-full border border-gray-400"></div>
-                </div>
+                )}
 
                 {/* Chapter description */}
                 <div
