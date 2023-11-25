@@ -41,6 +41,7 @@ function CoursePage() {
     const testimonials = courseInfo?.description?.testimonials;
     const steps = courseInfo?.description?.steps;
     const objectives = courseInfo?.description?.objectives;
+    const questions = courseInfo?.description?.faq;
     return (
         <>
             <div className="grid gap-y-10">
@@ -76,14 +77,12 @@ function CoursePage() {
                         objData={objectives}
                     />
                 )}
-                <CourseStaticBottom
-                    questionList={
-                        courseInfo.description === null
-                            ? defaultQuestions
-                            : courseInfo.description.faq
-                    }
-                    theme={courseInfo.theme}
-                />
+                {questions && (
+                    <CourseStaticBottom
+                        questionList={questions}
+                        theme={courseInfo.theme}
+                    />
+                )}
             </div>
         </>
     );

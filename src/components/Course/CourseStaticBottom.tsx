@@ -18,6 +18,8 @@ function CourseStaticBottom({ questionList, theme }) {
         });
     }
     const { user } = useUser();
+    if (!questionList) return null;
+    if (questionList.length === 0 && questionList[0] === false) return null;
     return (
         <>
             <div className="grid bg-[#fff] xl:grid-cols-5 grid-flow-row text-theme-color mb-24 gap-y-4">

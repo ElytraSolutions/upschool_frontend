@@ -50,21 +50,24 @@ function CourseSteps({ steps, theme, objData }) {
                             </div>
                         </div>
                     )}
-                    {Object?.values(steps).map((step: any, index) => (
-                        <div
-                            key={index}
-                            className="grid border-b-2 border-gray-200"
-                        >
-                            <img
-                                src={resolveImgURL(step.image)}
-                                alt={`Step ${index + 1}`}
-                                className="mt-8 mb-6"
-                            />
-                            <div className="text-theme-color xs:text-lg text-base font-bold mt-6 mb-8 md:mx-0 mx-4">
-                                {step.data}
-                            </div>
-                        </div>
-                    ))}
+                    {Object?.values(steps).map(
+                        (step: any, index) =>
+                            step && (
+                                <div
+                                    key={index}
+                                    className="grid border-b-2 border-gray-200"
+                                >
+                                    <img
+                                        src={resolveImgURL(step.image)}
+                                        alt={`Step ${index + 1}`}
+                                        className="mt-8 mb-6"
+                                    />
+                                    <div className="text-theme-color xs:text-lg text-base font-bold mt-6 mb-8 md:mx-0 mx-4">
+                                        {step.data}
+                                    </div>
+                                </div>
+                            ),
+                    )}
                     <div className="grid gap-y-4 text-lg font-bold text-theme-color mb-4">
                         <img
                             src={resolveImgURL(
