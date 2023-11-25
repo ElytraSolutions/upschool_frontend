@@ -133,7 +133,7 @@ export default function LessonDetail({
                             </div>
                             {isBigScreen && (
                                 <div className="min-w-[50%] text-left">
-                                    {lessonSlug}
+                                    {lesson.name}
                                 </div>
                             )}
                             {/* TODO check if chapter is already completed */}
