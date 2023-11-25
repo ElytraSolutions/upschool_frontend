@@ -90,15 +90,15 @@ export default function LessonDetail({
             setLesson(res.data.data);
         })();
     }, [lessonSlug, setLesson]);
-    // console.log('lesson', lesson);
+    console.log('lesson', lesson);
 
     // const contentType = 'carousel'; //type of chapter [video,image, flipbook, carousel]
     return (
         lesson && (
             <>
-                <div className="flex h-[90vh] flex-col overflow-auto pb-5">
+                <div className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px]">
                     {/* ChapterDetail Header */}
-                    <div className="mb-5 flex w-full bg-[#1e3050]">
+                    <div className="mb-5 flex w-full bg-[#1e3050] ">
                         <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
                             <div className="flex-row flex items-center justify-between">
                                 {/* Circle sidebar open and close option */}
@@ -132,8 +132,8 @@ export default function LessonDetail({
                                 </div>
                             </div>
                             {isBigScreen && (
-                                <div className="min-w-[50%] text-left">
-                                    {lessonSlug}
+                                <div className="min-w-[50%] text-left font-semibold text-[1.25rem]">
+                                    {lesson.name}
                                 </div>
                             )}
                             {/* TODO check if chapter is already completed */}
@@ -154,17 +154,31 @@ export default function LessonDetail({
                         </div>
                     </div>
                     {/* ChapterDetail Chapters Section*/}
-                    <div className="flex flex-col">
+                    <div className="flex flex-col mx-4">
                         {lesson.lesson_sections.map((section) => (
                             <div
                                 className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black"
                                 key={section.id}
                             >
-                                <ChapterText
-                                    key={section.id}
-                                    chapter={section}
-                                />
-                                <div className="">
+                                <div
+                                    className={`${
+                                        section.lesson_section_contents
+                                            .length == 0 && 'col-span-2'
+                                    }`}
+                                >
+                                    <ChapterText
+                                        key={section.id}
+                                        chapter={section}
+                                    />
+                                </div>
+                                <div
+                                    className={`
+                                    ${
+                                        section.text === null &&
+                                        'col-span-2 w-full'
+                                    }
+                                `}
+                                >
                                     <ChapterMedia
                                         section={
                                             section.lesson_section_contents

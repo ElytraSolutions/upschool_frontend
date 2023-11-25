@@ -18,6 +18,8 @@ function CourseStaticBottom({ questionList, theme }) {
         });
     }
     const { user } = useUser();
+    if (!questionList) return null;
+    if (questionList.length === 0 && questionList[0] === false) return null;
     return (
         <>
             <div className="grid bg-[#fff] xl:grid-cols-5 grid-flow-row text-theme-color mb-24 gap-y-4">
@@ -82,52 +84,57 @@ function CourseStaticBottom({ questionList, theme }) {
                     </div>
                 </div>
                 <div className="xl:col-start-3 xl:col-span-3 md:mr-12 xl:ml-0 md:ml-12 ml-0 mr-0 xs:px-0 px-4 grid font-nunito border-t-2 border-theme-color h-fit">
-                    {Object.keys(questionList).map((key, index) => (
-                        <div className="grid">
-                            <button
-                                className="w-full grid border-b border-gray-400"
-                                onClick={() => toggleQuestion(index)}
-                            >
-                                <div className="flex justify-between w-full items-center">
-                                    <div className="shrink">
-                                        <p className="text-theme-color md:text-[20px] text-sm my-8 text-left">
-                                            {/*here is the question */}
-                                            {questionList[key].question}
-                                        </p>
-                                    </div>
-                                    {/*hide addicon once the button is clicked */}
-                                    {openQuestion[index] === false && (
-                                        <AddIcon
-                                            style={{
-                                                fontSize: '20px',
-                                                stroke: '#242254',
-                                                strokeWidth: 2,
-                                            }}
-                                        />
-                                    )}
-                                    {/*show remove icon once the button is clicked */}
-                                    {openQuestion[index] && (
-                                        <RemoveIcon
-                                            style={{
-                                                color: '#B81342',
-                                                fontSize: '20px',
-                                                stroke: '#B81342',
-                                                strokeWidth: 2,
-                                            }}
-                                        />
-                                    )}
+                    {Object.keys(questionList).map(
+                        (key, index) =>
+                            key &&
+                            (questionList[key].question ||
+                                questionList[key].answer) && (
+                                <div className="grid">
+                                    <button
+                                        className="w-full grid border-b border-gray-400"
+                                        onClick={() => toggleQuestion(index)}
+                                    >
+                                        <div className="flex justify-between w-full items-center">
+                                            <div className="shrink">
+                                                <p className="text-theme-color md:text-[20px] text-sm my-8 text-left">
+                                                    {/*here is the question */}
+                                                    {questionList[key].question}
+                                                </p>
+                                            </div>
+                                            {/*hide addicon once the button is clicked */}
+                                            {openQuestion[index] === false && (
+                                                <AddIcon
+                                                    style={{
+                                                        fontSize: '20px',
+                                                        stroke: '#242254',
+                                                        strokeWidth: 2,
+                                                    }}
+                                                />
+                                            )}
+                                            {/*show remove icon once the button is clicked */}
+                                            {openQuestion[index] && (
+                                                <RemoveIcon
+                                                    style={{
+                                                        color: '#B81342',
+                                                        fontSize: '20px',
+                                                        stroke: '#B81342',
+                                                        strokeWidth: 2,
+                                                    }}
+                                                />
+                                            )}
+                                        </div>
+                                        {openQuestion[index] && (
+                                            <div className="mb-2 flex justify-start">
+                                                {/*here is the answer, show when the button above is clicked */}
+                                                <p className="md:text-base text-sm text-red-upschool md:px-4 px-0 pb-8 text-left">
+                                                    {questionList[key].answer}
+                                                </p>
+                                            </div>
+                                        )}
+                                    </button>
                                 </div>
-                                {openQuestion[index] && (
-                                    <div className="mb-2 flex justify-start">
-                                        {/*here is the answer, show when the button above is clicked */}
-                                        <p className="md:text-base text-sm text-red-upschool md:px-4 px-0 pb-8 text-left">
-                                            {questionList[key].answer}
-                                        </p>
-                                    </div>
-                                )}
-                            </button>
-                        </div>
-                    ))}
+                            ),
+                    )}
                 </div>
             </div>
         </>

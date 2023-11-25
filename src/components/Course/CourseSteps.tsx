@@ -24,45 +24,51 @@ function CourseSteps({ steps, theme, objData }) {
         <>
             <div className="flex w-full justify-center">
                 <div className="grid max-w-[550px]">
-                    <div className="grid gap-4">
-                        <p
-                            className="text-[38px] text-center font-extrabold"
-                            style={{ color: theme }}
-                        >
-                            Main Objectives of the Course
-                        </p>
-                        <div
-                            className="flex w-full justify-center overflow-scroll-hidden"
-                            style={{ height: `${dynHeight}px` }}
-                        >
-                            <FunctionalIFrameComponent title={''}>
-                                <div
-                                    ref={divRef}
-                                    dangerouslySetInnerHTML={{
-                                        __html: objData.replace(
-                                            /<iframe/g,
-                                            '<iframe style="width:100%"',
-                                        ),
-                                    }}
-                                ></div>
-                            </FunctionalIFrameComponent>
-                        </div>
-                    </div>
-                    {Object?.values(steps).map((step: any, index) => (
-                        <div
-                            key={index}
-                            className="grid border-b-2 border-gray-200"
-                        >
-                            <img
-                                src={resolveImgURL(step.image)}
-                                alt={`Step ${index + 1}`}
-                                className="mt-8 mb-6"
-                            />
-                            <div className="text-theme-color xs:text-lg text-base font-bold mt-6 mb-8 md:mx-0 mx-4">
-                                {step.data}
+                    {objData && (
+                        <div className="grid gap-4">
+                            <p
+                                className="text-[38px] text-center font-extrabold"
+                                style={{ color: theme }}
+                            >
+                                Main Objectives of the Course
+                            </p>
+                            <div
+                                className="flex w-full justify-center overflow-scroll-hidden"
+                                style={{ height: `${dynHeight}px` }}
+                            >
+                                <FunctionalIFrameComponent title={''}>
+                                    <div
+                                        ref={divRef}
+                                        dangerouslySetInnerHTML={{
+                                            __html: objData.replace(
+                                                /<iframe/g,
+                                                '<iframe style="width:100%"',
+                                            ),
+                                        }}
+                                    ></div>
+                                </FunctionalIFrameComponent>
                             </div>
                         </div>
-                    ))}
+                    )}
+                    {Object?.values(steps).map(
+                        (step: any, index) =>
+                            step &&
+                            (step.image || step.data) && (
+                                <div
+                                    key={index}
+                                    className="grid border-b-2 border-gray-200"
+                                >
+                                    <img
+                                        src={resolveImgURL(step.image)}
+                                        alt={`Step ${index + 1}`}
+                                        className="mt-8 mb-6"
+                                    />
+                                    <div className="text-theme-color xs:text-lg text-base font-bold mt-6 mb-8 md:mx-0 mx-4">
+                                        {step.data}
+                                    </div>
+                                </div>
+                            ),
+                    )}
                     <div className="grid gap-y-4 text-lg font-bold text-theme-color mb-4">
                         <img
                             src={resolveImgURL(
@@ -89,7 +95,7 @@ function CourseSteps({ steps, theme, objData }) {
                                 </div>
                                 <p className="text-center">
                                     Register for a FREE Upschool account to
-                                    enrol in this course.
+                                    enroll in this course.
                                 </p>
                             </div>
                         )}
