@@ -22,13 +22,6 @@ const defaultQuestions = {
     },
 };
 
-const defaultSteps = {
-    one: {
-        image: './images/Course/upschool-and-aurora.png',
-        data: 'Steps is empty',
-    },
-};
-
 function CoursePage() {
     const { slug } = useParams();
     const [courseInfo, setCourseInfo] = useState<any>(null);
