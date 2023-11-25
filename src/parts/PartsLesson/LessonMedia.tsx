@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import HTMLFlipBook from 'react-pageflip';
@@ -7,7 +7,7 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 
 const ChapterMedia = ({ section }) => {
     const [videoPlatform, setVideoPlatform] = useState('Youtube'); //type of video platform [Youtube, Vimeo]
-    const videoURLs = { Youtube: '', Vimeo: '' }; //video url
+    const videoURLs = useMemo(() => ({ Youtube: '', Vimeo: '' }), []);
     const [showPopUp, setShowPopUp] = useState(false); //show pop up when click on image or caurosel
 
     //disable scroll
@@ -15,6 +15,11 @@ const ChapterMedia = ({ section }) => {
         if (showPopUp) document.body.style.overflow = 'hidden';
         else document.body.style.overflow = 'visible';
     }, [showPopUp]);
+
+    useEffect(() => {
+        if (videoURLs.Youtube.length > 0) setVideoPlatform('Youtube');
+        else if (videoURLs.Vimeo.length > 0) setVideoPlatform('Vimeo');
+    }, [videoURLs]);
 
     if (!section.length) return null;
 
@@ -28,13 +33,9 @@ const ChapterMedia = ({ section }) => {
     else if (section[0].type === 'video' && section[1]?.name === 'Vimeo')
         videoURLs.Vimeo = section[1].video_content;
 
-    //if YT is not given then vimeo is default
-    if (videoURLs.Youtube === '' && videoURLs.Vimeo !== '')
-        setVideoPlatform('Vimeo');
-
     // console.log(section, 'section media');
     // console.log(contentType, 'contentType');
-    console.log(videoURLs, 'videoURLs');
+    // console.log(videoURLs, 'videoURLs');
 
     let contentType = section[0].type;
     console.log(contentType, 'contentType');

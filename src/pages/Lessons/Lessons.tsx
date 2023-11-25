@@ -26,7 +26,7 @@ export default function Lessons() {
         const res = await axiosInstance.get(
             `/data/courses/${courseSlug}/chapters`,
         );
-        console.log(res.data.data, 'res.data.data');
+        // console.log(res.data.data, 'res.data.data');
         const chaptersData = res.data.data;
         for (let i = 0; i < chaptersData.length; i++) {
             const chapter = chaptersData[i];
@@ -51,7 +51,7 @@ export default function Lessons() {
             chaptersData[i].lessons = lessonsData;
         }
         setChapters(chaptersData);
-        console.log(chaptersData);
+        // console.log(chaptersData);
         return chaptersData;
     };
 

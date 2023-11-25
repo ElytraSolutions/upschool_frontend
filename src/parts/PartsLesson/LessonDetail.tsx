@@ -90,7 +90,7 @@ export default function LessonDetail({
             setLesson(res.data.data);
         })();
     }, [lessonSlug, setLesson]);
-    console.log('lesson', lesson);
+    // console.log('lesson', lesson);
 
     // const contentType = 'carousel'; //type of chapter [video,image, flipbook, carousel]
     return (
