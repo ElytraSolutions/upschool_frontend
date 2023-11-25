@@ -155,49 +155,34 @@ export default function LessonDetail({
                     </div>
                     {/* ChapterDetail Chapters Section*/}
                     <div className="flex flex-col">
-                        {lesson.lesson_sections.map((section) =>
-                            section.teachers_note !== null &&
-                            section.text !== null ? (
+                        {lesson.lesson_sections.map((section) => (
+                            <div
+                                className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black"
+                                key={section.id}
+                            >
                                 <div
-                                    className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black"
-                                    key={section.id}
+                                    className={`${
+                                        section.lesson_section_contents
+                                            .length == 0 && 'col-span-2'
+                                    }`}
                                 >
                                     <ChapterText
                                         key={section.id}
                                         chapter={section}
                                     />
-                                    <div className="">
-                                        <ChapterMedia
-                                            section={
-                                                section.lesson_section_contents
-                                            }
-                                        />
-                                    </div>
-                                    <button className="max-w-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
-                                        Download
-                                    </button>
                                 </div>
-                            ) : (
-                                <div
-                                    className="mt-12 pb-6 mx-3 border-b-[1px] border-black grid gap-6"
-                                    key={section.id}
-                                >
-                                    <div className="text-4xl font-semibold text-theme-color">
-                                        {section.name}
-                                    </div>
-                                    <div>
-                                        <ChapterMedia
-                                            section={
-                                                section.lesson_section_contents
-                                            }
-                                        />
-                                    </div>
-                                    <button className="max-w-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
-                                        Download
-                                    </button>
+                                <div className="">
+                                    <ChapterMedia
+                                        section={
+                                            section.lesson_section_contents
+                                        }
+                                    />
                                 </div>
-                            ),
-                        )}
+                                <button className="max-w-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
+                                    Download
+                                </button>
+                            </div>
+                        ))}
                     </div>
 
                     {/* TODO check if chapter is already completed */}
