@@ -7,7 +7,7 @@ const ChapterText = ({ chapter }) => {
         <>
             <div className="ChapterText flex flex-col gap-6">
                 {/* Title */}
-                <div className="text-4xl font-semibold text-theme-color">
+                <div className="text-4xl font-bold text-theme-color">
                     {chapter.name}
                 </div>
                 {/* teacher's note */}

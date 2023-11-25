@@ -11,10 +11,10 @@ type ISidebarProps = {
 };
 
 export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
-    const [isChapterOpen, setIsChapterOpen] = useState<boolean>(false);
+    const [isChapterOpen, setIsChapterOpen] = useState<boolean>(true);
     const { lessonSlug } = useParams();
     return (
-        <div className="flex flex-col text-sm sm:text-sm md:text-base">
+        <div className="flex flex-col text-sm sm:text-sm md:text-base ">
             <div
                 className="flex flex-row justify-between bg-[#1e3050] text-white py-5 px-4 cursor-pointer"
                 onClick={() => setIsChapterOpen(!isChapterOpen)}
@@ -27,21 +27,22 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
             </div>
             <ul
                 className={`${
-                    isChapterOpen ? 'block' : 'hidden'
-                } divide-y divide-slate-400 border-b mb-7 border-slate-400 bg-slate-200`}
+                    isChapterOpen ? 'flex flex-col gap-3' : 'hidden'
+                } bg-slate-200 `}
             >
                 {chapter.lessons &&
                     chapter.lessons.map((lesson, index) => (
-                        <li
+                        <NavLink
+                            to={`/course/${courseSlug}/${chapter.slug}/${lesson.slug}`}
                             key={index}
-                            className={`flex justify-between items-center py-2 ${
-                                lessonSlug === lesson.slug
-                                    ? 'bg-[#facc15]'
-                                    : 'bg-slate-200'
-                            } gap-7 w-full text-sm px-2`}
+                            className=" border-t border-b border-slate-300"
                         >
-                            <NavLink
-                                to={`/course/${courseSlug}/${chapter.slug}/${lesson.slug}`}
+                            <div
+                                className={`flex justify-between items-center py-2 ${
+                                    lessonSlug === lesson.slug
+                                        ? 'bg-[#FDCF60]'
+                                        : 'bg-slate-200'
+                                } gap-7 w-full text-sm px-2 mb-4`}
                             >
                                 <div className="flex flex-row gap-1 lg:gap-2  2xl:gap-3 items-center justify-start p-2  ">
                                     <span className="h-8 w-8 rounded-full bg-[#242254] flex justify-center items-center">
@@ -57,20 +58,20 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
                                     </span>
                                     <span>{lesson.name}</span>
                                 </div>
-                            </NavLink>
 
-                            {/* TODO Logic for tick mark */}
+                                {/* TODO Logic for tick mark */}
 
-                            <div className="bg-red-upschool h-5 w-5 rounded-full ">
-                                {/* TODO tick mark */}
-                                {lesson.isCompleted && (
-                                    <DoneIcon
-                                        className="text-white"
-                                        fontSize="small"
-                                    />
-                                )}
+                                <div className="bg-red-upschool h-5 w-5 rounded-full ">
+                                    {/* TODO tick mark */}
+                                    {lesson.isCompleted && (
+                                        <DoneIcon
+                                            className="text-white"
+                                            fontSize="small"
+                                        />
+                                    )}
+                                </div>
                             </div>
-                        </li>
+                        </NavLink>
                     ))}
             </ul>
         </div>
