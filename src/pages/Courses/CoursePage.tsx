@@ -11,17 +11,6 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 import CourseSteps from '../../components/Course/CourseSteps';
 import CourseDescription from '../../components/Course/CourseDescription';
 
-const defaultQuestions = {
-    one: {
-        question: 'Filled Questionaries?',
-        answer: 'it seems not yet.',
-    },
-    two: {
-        question: "Weather's good today?",
-        answer: 'very much',
-    },
-};
-
 function CoursePage() {
     const { slug } = useParams();
     const [courseInfo, setCourseInfo] = useState<any>(null);
