@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import HTMLFlipBook from 'react-pageflip';
@@ -7,7 +7,7 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 
 const ChapterMedia = ({ section }) => {
     const [videoPlatform, setVideoPlatform] = useState('Youtube'); //type of video platform [Youtube, Vimeo]
-    const videoURLs = { Youtube: '', Vimeo: '' }; //video url
+    const videoURLs = useMemo(() => ({ Youtube: '', Vimeo: '' }), []);
     const [showPopUp, setShowPopUp] = useState(false); //show pop up when click on image or caurosel
 
     //disable scroll
@@ -16,20 +16,26 @@ const ChapterMedia = ({ section }) => {
         else document.body.style.overflow = 'visible';
     }, [showPopUp]);
 
+    useEffect(() => {
+        if (videoURLs.Youtube.length > 0) setVideoPlatform('Youtube');
+        else if (videoURLs.Vimeo.length > 0) setVideoPlatform('Vimeo');
+    }, [videoURLs]);
+
     if (!section.length) return null;
 
-    if (section[0].type === 'video' && section[0].name === 'Youtube')
+    if (section[0].type === 'video' && section[0]?.name === 'Youtube')
         videoURLs.Youtube = section[0].video_content;
-    else if (section[0].type === 'video' && section[1].name === 'Youtube')
+    else if (section[0].type === 'video' && section[1]?.name === 'Youtube')
         videoURLs.Youtube = section[1].video_content;
 
-    if (section[0].type === 'video' && section[0].name === 'Vimeo')
+    if (section[0].type === 'video' && section[0]?.name === 'Vimeo')
         videoURLs.Vimeo = section[0].video_content;
-    else if (section[0].type === 'video' && section[1].name === 'Vimeo')
+    else if (section[0].type === 'video' && section[1]?.name === 'Vimeo')
         videoURLs.Vimeo = section[1].video_content;
 
-    console.log(section, 'section media');
+    // console.log(section, 'section media');
     // console.log(contentType, 'contentType');
+    // console.log(videoURLs, 'videoURLs');
 
     let contentType = section[0].type;
     console.log(contentType, 'contentType');
@@ -57,7 +63,13 @@ const ChapterMedia = ({ section }) => {
                                     videoPlatform === 'Youtube'
                                         ? 'bg-red-upschool text-white'
                                         : 'bg-gray-200 text-black hover:bg-slate-400 hover:text-white'
-                                } w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
+                                } 
+                                ${
+                                    videoURLs.Youtube.length > 0
+                                        ? ''
+                                        : ' opacity-50 pointer-events-none '
+                                }
+                                w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
                                 onClick={() => {
                                     setVideoPlatform('Youtube');
                                 }}
@@ -91,7 +103,12 @@ const ChapterMedia = ({ section }) => {
                                 className={`${
                                     videoPlatform === 'Vimeo'
                                         ? 'bg-red-upschool text-white'
-                                        : 'bg-gray-200 text-black hover:bg-slate-400 hover:text-white'
+                                        : 'bg-gray-200 text-black hover:bg-slate-400 hover:text-white '
+                                } 
+                                ${
+                                    videoURLs.Vimeo.length > 0
+                                        ? ''
+                                        : 'opacity-50 pointer-events-none'
                                 } w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
                                 onClick={() => {
                                     setVideoPlatform('Vimeo');
