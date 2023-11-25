@@ -44,6 +44,10 @@ function CoursePage() {
     // if (courseInfo.description) {
     //     console.log(courseInfo.description);
     // }
+
+    const testimonials = courseInfo?.description?.testimonials;
+    const steps = courseInfo?.description?.steps;
+    const objectives = courseInfo?.description?.objectives;
     return (
         <>
             <div className="grid gap-y-10">
@@ -59,46 +63,26 @@ function CoursePage() {
                     />
                 </div>
                 <CourseDescription
-                    editorData={
-                        courseInfo.description === null
-                            ? 'enter description'
-                            : courseInfo.description.description
-                    }
-                    title={
-                        courseInfo.description === null
-                            ? 'Enter title'
-                            : courseInfo.description.title
-                    }
-                    subtitle={
-                        courseInfo.description === null
-                            ? 'enter subtitle'
-                            : courseInfo.description.subtitle
-                    }
-                    theme={courseInfo.theme}
+                    editorData={courseInfo?.description?.description}
+                    title={courseInfo?.description?.title}
+                    subtitle={courseInfo?.description?.subtitle}
+                    theme={courseInfo?.theme || '#000000'}
                 />
                 <CourseStaticVideo theme={courseInfo.theme} />
                 <CourseStaticUpschool theme={courseInfo.theme} />
-                <CourseTestimonial
-                    theme={courseInfo.theme}
-                    tstData={
-                        courseInfo.description === null
-                            ? 'enter testimonial'
-                            : courseInfo.description.testimonials
-                    }
-                />
-                <CourseSteps
-                    steps={
-                        courseInfo.description === null
-                            ? defaultSteps
-                            : courseInfo.description.steps
-                    }
-                    theme={courseInfo.theme}
-                    objData={
-                        courseInfo.description === null
-                            ? 'enter objectives'
-                            : courseInfo.description.objectives
-                    }
-                />
+                {testimonials && (
+                    <CourseTestimonial
+                        theme={courseInfo.theme}
+                        tstData={testimonials}
+                    />
+                )}
+                {(steps || objectives) && (
+                    <CourseSteps
+                        steps={steps}
+                        theme={courseInfo.theme}
+                        objData={objectives}
+                    />
+                )}
                 <CourseStaticBottom
                     questionList={
                         courseInfo.description === null

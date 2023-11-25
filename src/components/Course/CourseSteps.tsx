@@ -31,22 +31,24 @@ function CourseSteps({ steps, theme, objData }) {
                         >
                             Main Objectives of the Course
                         </p>
-                        <div
-                            className="flex w-full justify-center overflow-scroll-hidden"
-                            style={{ height: `${dynHeight}px` }}
-                        >
-                            <FunctionalIFrameComponent title={''}>
-                                <div
-                                    ref={divRef}
-                                    dangerouslySetInnerHTML={{
-                                        __html: objData.replace(
-                                            /<iframe/g,
-                                            '<iframe style="width:100%"',
-                                        ),
-                                    }}
-                                ></div>
-                            </FunctionalIFrameComponent>
-                        </div>
+                        {objData && (
+                            <div
+                                className="flex w-full justify-center overflow-scroll-hidden"
+                                style={{ height: `${dynHeight}px` }}
+                            >
+                                <FunctionalIFrameComponent title={''}>
+                                    <div
+                                        ref={divRef}
+                                        dangerouslySetInnerHTML={{
+                                            __html: objData.replace(
+                                                /<iframe/g,
+                                                '<iframe style="width:100%"',
+                                            ),
+                                        }}
+                                    ></div>
+                                </FunctionalIFrameComponent>
+                            </div>
+                        )}
                     </div>
                     {Object?.values(steps).map((step: any, index) => (
                         <div
