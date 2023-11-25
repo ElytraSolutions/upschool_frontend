@@ -18,18 +18,23 @@ const ChapterMedia = ({ section }) => {
 
     if (!section.length) return null;
 
-    if (section[0].type === 'video' && section[0].name === 'Youtube')
+    if (section[0].type === 'video' && section[0]?.name === 'Youtube')
         videoURLs.Youtube = section[0].video_content;
-    else if (section[0].type === 'video' && section[1].name === 'Youtube')
+    else if (section[0].type === 'video' && section[1]?.name === 'Youtube')
         videoURLs.Youtube = section[1].video_content;
 
-    if (section[0].type === 'video' && section[0].name === 'Vimeo')
+    if (section[0].type === 'video' && section[0]?.name === 'Vimeo')
         videoURLs.Vimeo = section[0].video_content;
-    else if (section[0].type === 'video' && section[1].name === 'Vimeo')
+    else if (section[0].type === 'video' && section[1]?.name === 'Vimeo')
         videoURLs.Vimeo = section[1].video_content;
 
-    console.log(section, 'section media');
+    //if YT is not given then vimeo is default
+    if (videoURLs.Youtube === '' && videoURLs.Vimeo !== '')
+        setVideoPlatform('Vimeo');
+
+    // console.log(section, 'section media');
     // console.log(contentType, 'contentType');
+    console.log(videoURLs, 'videoURLs');
 
     let contentType = section[0].type;
     console.log(contentType, 'contentType');
@@ -57,7 +62,13 @@ const ChapterMedia = ({ section }) => {
                                     videoPlatform === 'Youtube'
                                         ? 'bg-red-upschool text-white'
                                         : 'bg-gray-200 text-black hover:bg-slate-400 hover:text-white'
-                                } w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
+                                } 
+                                ${
+                                    videoURLs.Youtube.length > 0
+                                        ? ''
+                                        : ' opacity-50 pointer-events-none '
+                                }
+                                w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
                                 onClick={() => {
                                     setVideoPlatform('Youtube');
                                 }}
@@ -91,7 +102,12 @@ const ChapterMedia = ({ section }) => {
                                 className={`${
                                     videoPlatform === 'Vimeo'
                                         ? 'bg-red-upschool text-white'
-                                        : 'bg-gray-200 text-black hover:bg-slate-400 hover:text-white'
+                                        : 'bg-gray-200 text-black hover:bg-slate-400 hover:text-white '
+                                } 
+                                ${
+                                    videoURLs.Vimeo.length > 0
+                                        ? ''
+                                        : 'opacity-50 pointer-events-none'
                                 } w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
                                 onClick={() => {
                                     setVideoPlatform('Vimeo');
