@@ -171,7 +171,14 @@ export default function LessonDetail({
                                         chapter={section}
                                     />
                                 </div>
-                                <div className="">
+                                <div
+                                    className={`
+                                    ${
+                                        section.text === null &&
+                                        'col-span-2 w-full'
+                                    }
+                                `}
+                                >
                                     <ChapterMedia
                                         section={
                                             section.lesson_section_contents
