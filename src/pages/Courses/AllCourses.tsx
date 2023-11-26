@@ -6,11 +6,25 @@ import Loading from '../../components/Loading';
 import { useEffect } from 'react';
 
 function AllCourses() {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+    // useEffect(() => {
+    //     window.scrollTo(0, 0);
+    // }, []);
+
     const categories = useCourseCategories();
     const courses = useCourses();
+
+    useEffect(() => {
+        const hashValue = window.location.hash.substring(1);
+
+        console.log(hashValue);
+        const element = document.getElementById(hashValue);
+        console.log('This is element', element);
+        console.log('Scrolled to ', hashValue);
+        element?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+        });
+    }, [categories]);
 
     if (!categories || !courses) return <Loading />;
     categories.sort((a, b) => a.id - b.id);
@@ -54,6 +68,7 @@ function AllCourses() {
                             key={category.id}
                             id={getCategoryId(category)}
                         >
+                            {console.log(getCategoryId(category))}
                             <h1 className="text-2xl font-bold text-font-color">
                                 {category.name}
                             </h1>

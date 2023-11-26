@@ -9,6 +9,9 @@ import { useNavigate } from 'react-router-dom';
 
 function CourseTypes() {
     const navigate = useNavigate();
+    const getCategoryId = (category) => {
+        return category.replace(/\s+/g, '-').toLowerCase();
+    };
     return (
         <div className="py-[40px]">
             <div className="flex flex-col items-center">
@@ -24,7 +27,13 @@ function CourseTypes() {
                     {courses.map((course, index) => (
                         <div key={index}>
                             <Card
-                                onClick={() => navigate(course.link)}
+                                onClick={() =>
+                                    navigate(
+                                        `${course.link}#${getCategoryId(
+                                            course.title,
+                                        )}`,
+                                    )
+                                }
                                 className="cursor-pointer group"
                                 sx={{
                                     maxWidth: 345,
