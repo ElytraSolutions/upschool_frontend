@@ -68,7 +68,6 @@ function AllCourses() {
                             key={category.id}
                             id={getCategoryId(category)}
                         >
-                            {console.log(getCategoryId(category))}
                             <h1 className="text-2xl font-bold text-font-color">
                                 {category.name}
                             </h1>
