@@ -37,10 +37,15 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                                 ref={divRef}
                                 dangerouslySetInnerHTML={{
                                     __html: editorData
-                                        ? editorData.replace(
-                                              /<iframe/g,
-                                              '<iframe style="width:100%"',
-                                          )
+                                        ? editorData
+                                              .replace(
+                                                  /<iframe/g,
+                                                  '<iframe style="width:100%"',
+                                              )
+                                              .replace(
+                                                  /<img/g,
+                                                  '<img style="width:100%" ',
+                                              )
                                         : '',
                                 }}
                             ></div>
