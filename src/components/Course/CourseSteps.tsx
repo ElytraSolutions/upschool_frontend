@@ -70,12 +70,12 @@ function CourseSteps({ steps, theme, objData }) {
                             ),
                     )}
                     <div className="grid gap-y-4 text-lg font-bold text-theme-color mb-4">
-                        <img
+                        {/* <img
                             src={resolveImgURL(
                                 './images/Course/upschool-and-aurora.png',
                             )}
                             alt="aurora"
-                        />
+                        /> */}
                         {user === null && (
                             <div className="grid gap-y-2">
                                 <div className="flex justify-center my-2">
