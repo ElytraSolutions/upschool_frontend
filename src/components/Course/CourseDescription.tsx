@@ -44,7 +44,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                                               )
                                               .replace(
                                                   /<img/g,
-                                                  '<img style="width:100%',
+                                                  '<img style="width:100%" ',
                                               )
                                         : '',
                                 }}
