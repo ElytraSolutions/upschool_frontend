@@ -89,7 +89,7 @@ export default function LessonDetail({
         (async () => {
             const res = await axiosInstance.get(`/data/lessons/${lessonSlug}`);
             setLesson(res.data.data);
-            console.log(res.data.data);
+            // console.log(res.data.data);
         })();
         (async () => {
             const res = await axiosInstance.get(
@@ -146,27 +146,12 @@ export default function LessonDetail({
                                     {lesson.name}
                                 </div>
                             )}
-                            {/* TODO check if chapter is already completed */}
-                            {/* <button
-                                className=" text-xs rounded-md bg-pink-700 p-0.5  text-center md:px-4 md:py-2 md:text-base "
-                                onClick={async () => {
-                                    const res = await axiosInstance.post(
-                                        `/data/lessons/${lessonSlug}/complete`,
-                                    );
-                                    if (res.status === 200) {
-                                        await updateChapters();
-                                    }
-                                    console.log(res.data);
-                                }}
-                            >
-                                Complete Lesson
-                            </button> */}
                         </div>
                     </div>
                     {/* ChapterDetail Chapters Section*/}
                     <div className="flex flex-col mx-4 items-center ">
                         {lesson.lesson_sections.map((section) => (
-                            <div className="border-b-[1px] border-black xxlarge:w-[70%] px-3">
+                            <div className="w-full border-b-[1px] border-black xxlarge:w-[70%] px-3">
                                 <div
                                     className="w-full mt-12 pb-6  flex flex-col md:flex-row gap-1 md:gap-8 "
                                     key={section.id}
@@ -175,7 +160,7 @@ export default function LessonDetail({
                                         className={` ${
                                             section.lesson_section_contents
                                                 .length === 0
-                                                ? ''
+                                                ? 'flex-auto w-full'
                                                 : 'flex-1'
                                         } `}
                                     >
@@ -186,8 +171,8 @@ export default function LessonDetail({
                                     </div>
                                     <div
                                         className={` ${
-                                            section.text.length === 0
-                                                ? ''
+                                            section.text === ''
+                                                ? 'flex-auto w-full'
                                                 : 'flex-1'
                                         } `}
                                     >

@@ -38,7 +38,7 @@ const ChapterMedia = ({ section }) => {
     // console.log(videoURLs, 'videoURLs');
 
     let contentType = section[0].type;
-    console.log(contentType, 'contentType');
+    // console.log(contentType, 'contentType');
     if (contentType === 'image' && section.length > 1) {
         contentType = 'carousel';
     }

@@ -19,10 +19,11 @@ function CourseCard({ data }: Props) {
 
     return (
         <div
-            className="h-full border-1 rounded-md overflow-hidden cursor-pointer"
+            style={{ border: '0.01px solid #D5D5D5' }}
+            className="h-full rounded-md overflow-hidden cursor-pointer"
             onClick={() => navigate(`/course/${data.slug}`)}
         >
-            <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 lg:w-[320px] md:w-[350px] min-w-[280px] max-w-[400px] w-[80vw] m-auto border">
+            <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 lg:w-[350px] md:w-[350px] min-w-[280px] max-w-[400px] w-[80vw] m-auto">
                 <div className="bg-stone-200">
                     <img
                         src={
@@ -32,14 +33,14 @@ function CourseCard({ data }: Props) {
                         }
                         height="140"
                         alt="Course image"
-                        className=" h-44 w-full object-cover"
+                        className=" h-[15rem] w-full object-cover"
                     />
                 </div>
 
                 <div className="flex flex-col gap-3 h-full justify-between px-3">
                     <div className="flex flex-col gap-5 text-font-color h-full justify-between">
                         <p className=" font-bold text-xl">{data.name}</p>
-                        <p className="text-sm md:text-base line-clamp-3 ">
+                        <p className="text-sm md:text-base line-clamp-3 font-light">
                             {data.intro}
                         </p>
                     </div>

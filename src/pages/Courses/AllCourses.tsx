@@ -16,14 +16,21 @@ function AllCourses() {
     useEffect(() => {
         const hashValue = window.location.hash.substring(1);
 
-        console.log(hashValue);
-        const element = document.getElementById(hashValue);
-        console.log('This is element', element);
-        console.log('Scrolled to ', hashValue);
-        element?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-        });
+        const scrollToElement = () => {
+            const element = document.getElementById(hashValue);
+
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                });
+            }
+        };
+
+        // Check if categories are fully loaded
+        if (categories.length > 0) {
+            scrollToElement();
+        }
     }, [categories]);
 
     if (!categories || !courses) return <Loading />;
@@ -41,7 +48,7 @@ function AllCourses() {
         <>
             <div className="h-full w-full">
                 <div className="bg-gradient-to-b text-white from-[#242254] to-[#b81242] flex flex-col justfy-center items-center p-24">
-                    <h1 className="text-2xl text-center font-bold">
+                    <h1 className="text-[2.4rem] text-center font-bold font-kumbh w-[90vw]">
                         Explore Upschool's Courses
                     </h1>
                     <div className="flex flex-wrap mt-4 justify-center min-w-[20rem]">
@@ -68,10 +75,10 @@ function AllCourses() {
                             key={category.id}
                             id={getCategoryId(category)}
                         >
-                            <h1 className="text-2xl font-bold text-font-color">
+                            <h1 className="text-[1.8rem] font-kumbh  text-font-color font-bold">
                                 {category.name}
                             </h1>
-                            <div className="grid justify-items-center xm:justify-items-center md:grid-cols-2 xm:grid-cols-1 lg:grid-cols-3  py-4 gap-2 xm:gap-4 md:gap-x-2">
+                            <div className="grid lg:justify-items-start justify-items-center md:grid-cols-2 xm:grid-cols-1 lg:grid-cols-3  py-2 gap-2 xm:gap-4 md:gap-x-2">
                                 {getCoursesByCategory(category.id).map(
                                     (data) => (
                                         <div
