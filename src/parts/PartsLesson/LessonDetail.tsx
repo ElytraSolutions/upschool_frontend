@@ -89,14 +89,14 @@ export default function LessonDetail({
         (async () => {
             const res = await axiosInstance.get(`/data/lessons/${lessonSlug}`);
             setLesson(res.data.data);
-            // console.log(res.data.data);
+            console.log(res.data.data);
         })();
         (async () => {
             const res = await axiosInstance.get(
                 `/data/chapters/${chapterSlug}/lessons`,
             );
             setChapterLessons(res.data.data);
-            console.log(res.data.data);
+            // console.log(res.data.data);
             // console.log(lessonSlug);
         })();
     }, [chapterSlug, lessonSlug, setLesson]);
