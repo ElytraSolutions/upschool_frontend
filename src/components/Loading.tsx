@@ -1,3 +1,9 @@
+import Loader from './Loader/Loader';
+
 export default function Loading() {
-    return <h1>Loading ...</h1>;
+    return (
+        <div className="md:-mt-24 -mt-16 h-screen flex w-full items-center justify-center">
+            <Loader />
+        </div>
+    );
 }
