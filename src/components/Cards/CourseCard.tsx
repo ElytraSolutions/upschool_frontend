@@ -19,7 +19,7 @@ function CourseCard({ data }: Props) {
 
     return (
         <div
-            className="h-full border rounded-md overflow-hidden cursor-pointer"
+            className="h-full border-1 rounded-md overflow-hidden cursor-pointer"
             onClick={() => navigate(`/course/${data.slug}`)}
         >
             <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 lg:w-[320px] md:w-[350px] min-w-[280px] max-w-[400px] w-[80vw] m-auto border">
