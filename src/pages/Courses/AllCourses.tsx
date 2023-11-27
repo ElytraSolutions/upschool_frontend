@@ -26,7 +26,7 @@ function AllCourses() {
                 });
             }
         }
-    }, [categories, window.location.hash, courses]);
+    }, [categories, courses]);
 
     if (!categories || !courses) return <Loading />;
     categories.sort((a, b) => a.id - b.id);
