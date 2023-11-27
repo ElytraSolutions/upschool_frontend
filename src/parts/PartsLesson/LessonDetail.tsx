@@ -96,7 +96,7 @@ export default function LessonDetail({
                 `/data/chapters/${chapterSlug}/lessons`,
             );
             setChapterLessons(res.data.data);
-            // console.log(res.data.data[0]?.slug);
+            console.log(res.data.data);
             // console.log(lessonSlug);
         })();
     }, [chapterSlug, lessonSlug, setLesson]);
