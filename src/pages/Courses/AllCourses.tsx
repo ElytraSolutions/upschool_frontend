@@ -16,14 +16,21 @@ function AllCourses() {
     useEffect(() => {
         const hashValue = window.location.hash.substring(1);
 
-        console.log(hashValue);
-        const element = document.getElementById(hashValue);
-        console.log('This is element', element);
-        console.log('Scrolled to ', hashValue);
-        element?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-        });
+        const scrollToElement = () => {
+            const element = document.getElementById(hashValue);
+
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                });
+            }
+        };
+
+        // Check if categories are fully loaded
+        if (categories.length > 0) {
+            scrollToElement();
+        }
     }, [categories]);
 
     if (!categories || !courses) return <Loading />;
