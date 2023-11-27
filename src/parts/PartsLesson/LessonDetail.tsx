@@ -184,7 +184,13 @@ export default function LessonDetail({
                                             chapter={section}
                                         />
                                     </div>
-                                    <div className="flex-1">
+                                    <div
+                                        className={` ${
+                                            section.text.length === 0
+                                                ? ''
+                                                : 'flex-1'
+                                        } `}
+                                    >
                                         <ChapterMedia
                                             section={
                                                 section.lesson_section_contents
