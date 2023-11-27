@@ -198,8 +198,9 @@ const ChapterMedia = ({ section }) => {
                         showStatus={false}
                         emulateTouch={true}
                     >
-                        {section.map((image) => (
+                        {section.map((image, index) => (
                             <div
+                                key={index}
                                 className="h-max-[30vh]"
                                 onClick={() => {
                                     setShowPopUp(true);
@@ -238,8 +239,8 @@ const ChapterMedia = ({ section }) => {
                                 className="object-contain max-h-[80vh]"
                             />
                         ) : contentType === 'carousel' ? (
-                            section.map((image) => (
-                                <div className="h-full">
+                            section.map((image, index) => (
+                                <div className="h-full" key={index}>
                                     <img
                                         src={resolveImgURL(image.image_content)}
                                         alt="cau"
