@@ -79,17 +79,27 @@ export default function LessonDetail({
     setIsSidebarOpen,
     updateChapters,
 }: ChapterDetailProps) {
-    const { courseSlug, lessonSlug } = useParams();
+    const { courseSlug, chapterSlug, lessonSlug } = useParams();
     const { isBigScreen } = useScreenWidthAndHeight();
 
     // const [lesson, setLesson] = useState<any>(null);
     const [lesson, setLesson] = useState<any>(null);
+    const [chapterLessons, setChapterLessons] = useState<any>(null);
     useEffect(() => {
         (async () => {
             const res = await axiosInstance.get(`/data/lessons/${lessonSlug}`);
             setLesson(res.data.data);
+            console.log(res.data.data);
         })();
-    }, [lessonSlug, setLesson]);
+        (async () => {
+            const res = await axiosInstance.get(
+                `/data/chapters/${chapterSlug}/lessons`,
+            );
+            setChapterLessons(res.data.data);
+            // console.log(res.data.data[0]?.slug);
+            // console.log(lessonSlug);
+        })();
+    }, [chapterSlug, lessonSlug, setLesson]);
     // console.log('lesson', lesson);
 
     // const contentType = 'carousel'; //type of chapter [video,image, flipbook, carousel]
@@ -154,38 +164,28 @@ export default function LessonDetail({
                         </div>
                     </div>
                     {/* ChapterDetail Chapters Section*/}
-                    <div className="flex flex-col mx-4">
+                    <div className="flex flex-col mx-4 items-center ">
                         {lesson.lesson_sections.map((section) => (
-                            <div
-                                className="mt-12 pb-6 mx-3 grid grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-1 md:gap-8 border-b-[1px] border-black"
-                                key={section.id}
-                            >
+                            <div className="border-b-[1px] border-black xxlarge:w-[70%] px-3">
                                 <div
-                                    className={`${
-                                        section.lesson_section_contents
-                                            .length == 0 && 'col-span-2'
-                                    }`}
+                                    className="w-full mt-12 pb-6  flex flex-col md:flex-row gap-1 md:gap-8 "
+                                    key={section.id}
                                 >
-                                    <ChapterText
-                                        key={section.id}
-                                        chapter={section}
-                                    />
+                                    <div className=" flex-1">
+                                        <ChapterText
+                                            key={section.id}
+                                            chapter={section}
+                                        />
+                                    </div>
+                                    <div className="flex-1">
+                                        <ChapterMedia
+                                            section={
+                                                section.lesson_section_contents
+                                            }
+                                        />
+                                    </div>
                                 </div>
-                                <div
-                                    className={`
-                                    ${
-                                        section.text === null &&
-                                        'col-span-2 w-full'
-                                    }
-                                `}
-                                >
-                                    <ChapterMedia
-                                        section={
-                                            section.lesson_section_contents
-                                        }
-                                    />
-                                </div>
-                                <button className="max-w-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
+                                <button className="max-w-fit h-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
                                     Download
                                 </button>
                             </div>
@@ -193,7 +193,19 @@ export default function LessonDetail({
                     </div>
 
                     {/* TODO check if chapter is already completed */}
-                    <div className="w-full flex justify-center pt-14">
+                    <div className="w-full flex items-center justify-evenly pt-14">
+                        {/* previous button, hide if lesson is the first element of chapterlessons*/}
+
+                        <button
+                            className={`${
+                                chapterLessons &&
+                                chapterLessons[0].slug === lessonSlug
+                                    ? 'text-theme-color/60 pointer-events-none'
+                                    : ''
+                            } hidden md:block text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                        >
+                            Previous Lesson
+                        </button>
                         <button
                             className=" text-xs rounded-md bg-pink-700 p-0.5 text-white  text-center px-4 py-2 md:text-base "
                             onClick={async () => {
@@ -207,6 +219,17 @@ export default function LessonDetail({
                             }}
                         >
                             Complete Lesson
+                        </button>
+                        <button
+                            className={`${
+                                chapterLessons &&
+                                chapterLessons[chapterLessons.length - 1]
+                                    .slug === lessonSlug
+                                    ? 'text-theme-color/60 pointer-events-none'
+                                    : ''
+                            } hidden md:block text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                        >
+                            Next Lesson
                         </button>
                     </div>
                 </div>
