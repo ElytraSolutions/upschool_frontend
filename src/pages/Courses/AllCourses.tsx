@@ -3,7 +3,7 @@ import useCourses from '../../hooks/useCourses';
 import useCourseCategories from '../../hooks/useCourseCategories';
 import { ICourseCategory } from '../../types/ICourseCategory';
 import Loading from '../../components/Loading';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 function AllCourses() {
     // useEffect(() => {
@@ -12,18 +12,20 @@ function AllCourses() {
 
     const categories = useCourseCategories();
     const courses = useCourses();
+    const dynamicRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
         const hashValue = window.location.hash.substring(1);
 
-        console.log(hashValue);
-        const element = document.getElementById(hashValue);
-        console.log('This is element', element);
-        console.log('Scrolled to ', hashValue);
-        element?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-        });
+        if (hashValue && document.getElementById(hashValue)) {
+            dynamicRef.current = document.getElementById(hashValue);
+            if (dynamicRef.current) {
+                dynamicRef.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                });
+            }
+        }
     }, [categories]);
 
     if (!categories || !courses) return <Loading />;
