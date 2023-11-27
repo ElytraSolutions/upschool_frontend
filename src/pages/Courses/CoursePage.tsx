@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 import resolveImgURL from '../../utlis/resolveImgURL';
 import CourseSteps from '../../components/Course/CourseSteps';
 import CourseDescription from '../../components/Course/CourseDescription';
+import Loading from '../../components/Loading';
 
 function CoursePage() {
     const { slug } = useParams();
@@ -21,7 +22,7 @@ function CoursePage() {
             setCourseInfo(res.data.data);
         })();
     }, [slug]);
-    if (!courseInfo) return null;
+    if (!courseInfo) return <Loading />;
     // if (!courseInfo.description) return null;
     // if (courseInfo.description) {
     //     console.log(courseInfo.description);
