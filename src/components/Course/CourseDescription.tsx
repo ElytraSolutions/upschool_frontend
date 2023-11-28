@@ -6,9 +6,9 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
     const [dynHeight, setDynHeight] = useState(0);
     useEffect(() => {
         const timerId = setTimeout(() => {
-            if (divRef.current) {
+            if (divRef.current?.clientHeight) {
                 const divHeight = divRef.current.clientHeight;
-                // console.log('div height:', divHeight);
+                console.log('div height:', divHeight);
                 setDynHeight(divHeight + 50);
             }
         }, 3000); // Adjust the timeout duration as needed
