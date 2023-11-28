@@ -29,9 +29,11 @@ function CourseTypes() {
                             <Card
                                 onClick={() =>
                                     navigate(
-                                        `${course.link}#${getCategoryId(
-                                            course.title,
-                                        )}`,
+                                        `${course.link}#${
+                                            index < 3
+                                                ? getCategoryId(course.title)
+                                                : ''
+                                        }`,
                                     )
                                 }
                                 className="cursor-pointer group"

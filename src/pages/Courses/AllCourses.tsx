@@ -3,16 +3,23 @@ import useCourses from '../../hooks/useCourses';
 import useCourseCategories from '../../hooks/useCourseCategories';
 import { ICourseCategory } from '../../types/ICourseCategory';
 import Loading from '../../components/Loading';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function AllCourses() {
-    // useEffect(() => {
-    //     window.scrollTo(0, 0);
-    // }, []);
-
     const categories = useCourseCategories();
     const courses = useCourses();
     const dynamicRef = useRef<HTMLElement | null>(null);
+    const [dataLoaded, setDataLoaded] = useState(false);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
+        if (categories && courses) {
+            setDataLoaded(true);
+        }
+    }, [categories, courses]);
 
     useEffect(() => {
         const hashValue = window.location.hash.substring(1);
@@ -26,7 +33,7 @@ function AllCourses() {
                 });
             }
         }
-    }, [categories, courses]);
+    }, [categories, dataLoaded]);
 
     if (!categories || !courses) return <Loading />;
     categories.sort((a, b) => a.id - b.id);
@@ -75,17 +82,19 @@ function AllCourses() {
                             </h1>
                             <div className="grid lg:justify-items-start justify-items-center md:grid-cols-2 xm:grid-cols-1 lg:grid-cols-3  py-2 gap-2 xm:gap-4 md:gap-x-2">
                                 {getCoursesByCategory(category.id).map(
-                                    (data) => (
-                                        <div
-                                            className="py-4 px-0 w-fit"
-                                            key={data.id}
-                                        >
-                                            <CourseCard
-                                                key={data.name}
-                                                data={data}
-                                            />
-                                        </div>
-                                    ),
+                                    (data) => {
+                                        return (
+                                            <div
+                                                className="py-4 px-0 w-fit"
+                                                key={data.id}
+                                            >
+                                                <CourseCard
+                                                    key={data.name}
+                                                    data={data}
+                                                />
+                                            </div>
+                                        );
+                                    },
                                 )}
                             </div>
                         </div>
