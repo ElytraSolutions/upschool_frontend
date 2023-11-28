@@ -22,7 +22,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                     {title}
                 </div>
                 <div
-                    className="text-[24px] text-center font-semibold mb-5"
+                    className="flex xl:w-[1120px] lg:w-[1020px] w-screen text-[24px] text-center font-semibold mb-5"
                     style={{ color: theme }}
                 >
                     {subtitle}
@@ -31,7 +31,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                     className={`flex w-full justify-center overflow-y-hidden`}
                     // style={{ height: `${dynHeight}px` }}
                 >
-                    <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen font-kumbh h-">
+                    <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen font-kumbh">
                         {/* <FunctionalIFrameComponent title={title}> */}
                         <div
                             // ref={divRef}
@@ -48,12 +48,9 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                                               '<img style="width:100%" ',
                                           )
                                           .replace(
-                                              /<h2/g,
-                                              '<h2 class="desc-title"',
-                                          )
-                                          .replace(
-                                              /<h3/g,
-                                              '<h3 class="desc-title"',
+                                              /<h1|<h2|<h3|<h4/g,
+                                              (match) =>
+                                                  `${match} class="desc-title"`,
                                           )
                                     : '',
                             }}
