@@ -35,6 +35,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                         {/* <FunctionalIFrameComponent title={title}> */}
                         <div
                             // ref={divRef}
+                            style={{ display: 'grid', gap: '1.1rem' }}
                             dangerouslySetInnerHTML={{
                                 __html: editorData
                                     ? editorData
@@ -45,6 +46,14 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                                           .replace(
                                               /<img/g,
                                               '<img style="width:100%" ',
+                                          )
+                                          .replace(
+                                              /<h2/g,
+                                              '<h2 class="desc-title"',
+                                          )
+                                          .replace(
+                                              /<h3/g,
+                                              '<h3 class="desc-title"',
                                           )
                                     : '',
                             }}

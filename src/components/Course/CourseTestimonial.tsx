@@ -48,6 +48,7 @@ function CourseTestimonial({ theme, tstData }) {
                                 dangerouslySetInnerHTML={{
                                     __html: tstData,
                                 }}
+                                style={{ display: 'grid', gap: '1.1rem' }}
                             ></div>
                             {/* </FunctionalIFrameComponent> */}
                         </div>
