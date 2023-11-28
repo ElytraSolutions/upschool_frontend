@@ -18,7 +18,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
     return (
         <>
             <div className="grid w-full font-sans text-theme-color">
-                <div className="md:text-[75px] text-[55px] text-center font-semibold">
+                <div className="md:text-[4.7rem] sm:text-[3.4rem] text-[2.4rem]  text-center font-bold font-kumbh">
                     {title}
                 </div>
                 <div

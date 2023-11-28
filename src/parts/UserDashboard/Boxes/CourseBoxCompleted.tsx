@@ -68,7 +68,7 @@ export default function CourseBoxCompleted({
                                     Revisit Course
                                 </div>
                                 <NavLink
-                                    to={'/'}
+                                    to={'/certificate'}
                                     className="text-white text-center bg-theme-color px-4 py-2 w-3/4"
                                 >
                                     Get Certificate

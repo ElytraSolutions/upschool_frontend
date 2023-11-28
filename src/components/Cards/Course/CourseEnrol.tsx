@@ -143,7 +143,7 @@ function CourseEnrol({ thumbnail }) {
                 />
                 <div className="flex justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] ">
                     <button
-                        className="bg-theme-color text-white px-8 py-2 rounded-sm flex-grow"
+                        className="bg-theme-color text-white px-8 py-2 rounded-sm flex-grow sm:text-base text-[0.9rem]"
                         onClick={handleClick}
                     >
                         {enrollmentStatus.enrolled
