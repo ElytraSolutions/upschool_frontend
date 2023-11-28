@@ -15,7 +15,7 @@ function CourseTestimonial({ theme, tstData }) {
                 console.log('div height:', divHeight);
                 setDynHeight(divHeight + 50);
             }
-        }, 3000); // Adjust the timeout duration as needed
+        }, 3000);
 
         return () => clearTimeout(timerId);
     }, [divRef]);

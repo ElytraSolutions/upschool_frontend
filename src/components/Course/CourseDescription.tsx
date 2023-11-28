@@ -11,7 +11,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                 console.log('div height:', divHeight);
                 setDynHeight(divHeight + 50);
             }
-        }, 3000); // Adjust the timeout duration as needed
+        }, 3000);
         return () => clearTimeout(timerId);
     }, [divRef]);
 
