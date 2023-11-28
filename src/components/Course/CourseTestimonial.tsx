@@ -10,10 +10,10 @@ function CourseTestimonial({ theme, tstData }) {
     const [dynHeight, setDynHeight] = useState(0);
     useEffect(() => {
         const timerId = setTimeout(() => {
-            if (divRef.current?.clientHeight) {
+            if (divRef.current) {
                 const divHeight = divRef.current.clientHeight;
                 console.log('div height:', divHeight);
-                setDynHeight(divHeight + 50);
+                setDynHeight(divHeight + 35);
             }
         }, 3000);
 

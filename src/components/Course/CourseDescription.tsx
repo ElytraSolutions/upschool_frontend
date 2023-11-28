@@ -6,11 +6,11 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
     const [dynHeight, setDynHeight] = useState(0);
     useEffect(() => {
         const timerId = setTimeout(() => {
-            if (divRef.current?.clientHeight) {
-                const divHeight = divRef.current.clientHeight;
-                console.log('div height:', divHeight);
-                setDynHeight(divHeight + 50);
-            }
+            // if (divRef.current) {
+            const divHeight = divRef.current.clientHeight;
+            console.log('div height;test:', divHeight);
+            setDynHeight(divHeight + 50);
+            // }
         }, 3000);
         return () => clearTimeout(timerId);
     }, [divRef]);
