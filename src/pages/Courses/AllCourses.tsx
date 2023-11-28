@@ -19,7 +19,7 @@ function AllCourses() {
         if (categories && courses) {
             setDataLoaded(true);
         }
-    }, [categories, courses]); // eslint-disable-line react-hooks/exhaustive-deps
+    }, [categories, courses]);
 
     useEffect(() => {
         const hashValue = window.location.hash.substring(1);
