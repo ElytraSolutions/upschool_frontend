@@ -1,15 +1,16 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import HomeIcon from '@mui/icons-material/Home';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import axiosInstance from '../../config/Axios';
 import ChapterText from './LessonText';
 import ChapterMedia from './LessonMedia';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 type ChapterDetailProps = {
     isSidebarOpen: boolean;
     setIsSidebarOpen: any;
+    chapters: any;
     updateChapters: () => Promise<any>;
 };
 // const tempData = [
@@ -77,36 +78,124 @@ type ChapterDetailProps = {
 export default function LessonDetail({
     isSidebarOpen,
     setIsSidebarOpen,
+    chapters,
     updateChapters,
 }: ChapterDetailProps) {
     const { courseSlug, chapterSlug, lessonSlug } = useParams();
+    const navigate = useNavigate();
+    const divRef = useRef<HTMLDivElement>(null);
     const { isBigScreen } = useScreenWidthAndHeight();
 
     // const [lesson, setLesson] = useState<any>(null);
     const [lesson, setLesson] = useState<any>(null);
-    const [chapterLessons, setChapterLessons] = useState<any>(null);
+    const [islessonCompleted, setIsLessonCompleted] = useState<boolean>(false);
+    useEffect(() => {
+        if (chapters) {
+            for (let i = 0; i < chapters.length; i++) {
+                const chapter = chapters[i];
+                for (let j = 0; j < chapter.lessons.length; j++) {
+                    const lesson = chapter.lessons[j];
+                    if (lesson.slug === lessonSlug) {
+                        setIsLessonCompleted(lesson.isCompleted);
+                    }
+                }
+            }
+        }
+    }, [chapters, lessonSlug]);
     useEffect(() => {
         (async () => {
             const res = await axiosInstance.get(`/data/lessons/${lessonSlug}`);
             setLesson(res.data.data);
-            console.log('lesson', res.data.data);
-        })();
-        (async () => {
-            const res = await axiosInstance.get(
-                `/data/chapters/${chapterSlug}/lessons`,
-            );
-            setChapterLessons(res.data.data);
-            // console.log(res.data.data);
-            // console.log(lessonSlug);
+            // console.log('lesson', res.data.data);
         })();
     }, [chapterSlug, lessonSlug, setLesson]);
-    // console.log('lesson', lesson);
 
-    // const contentType = 'carousel'; //type of chapter [video,image, flipbook, carousel]
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        //scroll to top
+        if (divRef.current) {
+            divRef.current.scrollTo(0, 0);
+        }
+    }, [lessonSlug]);
+
+    //function to check if all lesson completed
+    const checkAllLessonCompleted = () => {
+        if (chapters) {
+            for (let i = 0; i < chapters.length; i++) {
+                const chapter = chapters[i];
+                if (chapter.completedLessons !== chapter.totalLessons)
+                    return false;
+            }
+            return true;
+        }
+        return false;
+    };
+
+    const handlePrev = () => {
+        console.log('prev');
+        //navigate to prev lesson
+        if (chapters) {
+            for (let i = 0; i < chapters.length; i++) {
+                const chapter = chapters[i];
+                for (let j = 0; j < chapter.lessons.length; j++) {
+                    const lesson = chapter.lessons[j];
+                    if (lesson.slug === lessonSlug) {
+                        if (j > 0) {
+                            navigate(
+                                `/course/${courseSlug}/${chapter.slug}/${
+                                    chapter.lessons[j - 1].slug
+                                }`,
+                            );
+                        } else if (i > 0) {
+                            navigate(
+                                `/course/${courseSlug}/${
+                                    chapters[i - 1].slug
+                                }/${
+                                    chapters[i - 1].lessons[
+                                        chapters[i - 1].lessons.length - 1
+                                    ].slug
+                                }`,
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    };
+    const handleNext = () => {
+        console.log('next');
+        //navigate to next lesson
+        if (chapters) {
+            for (let i = 0; i < chapters.length; i++) {
+                const chapter = chapters[i];
+                for (let j = 0; j < chapter.lessons.length; j++) {
+                    const lesson = chapter.lessons[j];
+                    if (lesson.slug === lessonSlug) {
+                        if (j < chapter.lessons.length - 1) {
+                            navigate(
+                                `/course/${courseSlug}/${chapter.slug}/${
+                                    chapter.lessons[j + 1].slug
+                                }`,
+                            );
+                        } else if (i < chapters.length - 1) {
+                            navigate(
+                                `/course/${courseSlug}/${
+                                    chapters[i + 1].slug
+                                }/${chapters[i + 1].lessons[0].slug}`,
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    };
     return (
         lesson && (
             <>
-                <div className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px]">
+                <div
+                    ref={divRef}
+                    className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px]"
+                >
                     {/* ChapterDetail Header */}
                     <div className="mb-5 flex w-full bg-[#1e3050] ">
                         <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
@@ -246,36 +335,60 @@ export default function LessonDetail({
 
                         <button
                             className={`${
-                                chapterLessons &&
-                                chapterLessons[0].slug === lessonSlug
-                                    ? 'text-theme-color/60 pointer-events-none'
+                                chapters &&
+                                chapters[0].lessons[0].slug === lessonSlug
+                                    ? 'opacity-0 pointer-events-none'
                                     : ''
                             } hidden md:block text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                            onClick={() => {
+                                handlePrev();
+                            }}
                         >
                             Previous Lesson
                         </button>
                         <button
                             className=" text-xs rounded-md bg-pink-700 p-0.5 text-white  text-center px-4 py-2 md:text-base "
                             onClick={async () => {
-                                const res = await axiosInstance.post(
-                                    `/data/lessons/${lessonSlug}/complete`,
-                                );
-                                if (res.status === 200) {
-                                    await updateChapters();
+                                if (!islessonCompleted) {
+                                    const res = await axiosInstance.post(
+                                        `/data/lessons/${lessonSlug}/complete`,
+                                    );
+                                    if (res.status === 200) {
+                                        await updateChapters();
+                                    }
                                 }
-                                console.log(res.data);
+                                setIsLessonCompleted(true);
+
+                                //goto certificate page if all lessons are completed
+                                if (chapters && checkAllLessonCompleted()) {
+                                    // Certificate path
+                                    navigate(
+                                        `/course/${courseSlug}/certificate`,
+                                    );
+                                }
+
+                                // console.log(res.data);
                             }}
                         >
-                            Complete Lesson
+                            {chapters && checkAllLessonCompleted()
+                                ? 'Get Certificate'
+                                : islessonCompleted
+                                ? 'Completed'
+                                : 'Mark as Completed'}
                         </button>
                         <button
                             className={`${
-                                chapterLessons &&
-                                chapterLessons[chapterLessons.length - 1]
-                                    .slug === lessonSlug
-                                    ? 'text-theme-color/60 pointer-events-none'
+                                chapters &&
+                                chapters[chapters.length - 1].lessons[
+                                    chapters[chapters.length - 1].lessons
+                                        .length - 1
+                                ].slug === lessonSlug
+                                    ? 'opacity-0 pointer-events-none'
                                     : ''
                             } hidden md:block text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                            onClick={() => {
+                                handleNext();
+                            }}
                         >
                             Next Lesson
                         </button>

@@ -51,7 +51,7 @@ export default function Lessons() {
             chaptersData[i].lessons = lessonsData;
         }
         setChapters(chaptersData);
-        // console.log(chaptersData);
+        // console.log(chaptersData, 'chaptersData');
         return chaptersData;
     };
 
@@ -79,6 +79,7 @@ export default function Lessons() {
                     isSidebarOpen={isSidebarOpen}
                     setIsSidebarOpen={setIsSiderbarOpen}
                     updateChapters={updateChapters}
+                    chapters={chapters}
                 />
             </div>
         </div>

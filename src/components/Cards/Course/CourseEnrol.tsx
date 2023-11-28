@@ -4,12 +4,14 @@ import resolveImgURL from '../../../utlis/resolveImgURL';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../config/Axios';
 import { toast } from 'react-toastify';
+import IChapter from '../../../types/IChapter';
 
 function CourseEnrol({ thumbnail }) {
     const { slug } = useParams();
     const { user } = useUser();
     const navigate = useNavigate();
     const location = useLocation();
+    const [chapters, setChapters] = useState<IChapter[] | null>(null);
     const [enrollmentStatus, setEnrollmentStatus] = useState<{
         enrolled: boolean;
         // course: number | null;
@@ -23,9 +25,11 @@ function CourseEnrol({ thumbnail }) {
     });
 
     const checkEnrollmentStatus = async () => {
+        if (!slug) return;
         const resp = await axiosInstance.get(
             `/data/courses/${slug}/checkEnrollment`,
         );
+        // console.log(resp.data.data, 'enrollment');
         setEnrollmentStatus({
             enrolled: resp.data.data.enrolled,
             firstChapter: resp.data.data.firstChapter?.slug,
@@ -34,10 +38,48 @@ function CourseEnrol({ thumbnail }) {
     };
 
     useEffect(() => {
+        // console.log('slug', slug);
         (async () => {
             await checkEnrollmentStatus();
         })();
     }, [slug]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    const updateChapters = async () => {
+        const res = await axiosInstance.get(`/data/courses/${slug}/chapters`);
+        // console.log(res.data.data, 'res.data.data');
+        const chaptersData = res.data.data;
+        for (let i = 0; i < chaptersData.length; i++) {
+            const chapter = chaptersData[i];
+            const lessonsRes = await axiosInstance.get(
+                `/data/chapters/${chapter.slug}/lessons`,
+            );
+            const lessonsData = lessonsRes.data.data;
+            let total = 0,
+                completed = 0;
+            for (let j = 0; j < lessonsData.length; j++) {
+                total++;
+                const completeRes = await axiosInstance.get(
+                    `/data/lessons/${lessonsData[j].slug}/checkCompletion`,
+                );
+                if (completeRes.data.data) {
+                    completed++;
+                    lessonsData[j].isCompleted = true;
+                }
+            }
+            chaptersData[i].totalLessons = total;
+            chaptersData[i].completedLessons = completed;
+            chaptersData[i].lessons = lessonsData;
+        }
+        setChapters(chaptersData);
+        // console.log(chaptersData, 'chaptersData');
+        return chaptersData;
+    };
+
+    useEffect(() => {
+        (async () => {
+            await updateChapters();
+        })();
+    }, [slug, setChapters]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleEnroll = async () => {
         try {
@@ -59,7 +101,13 @@ function CourseEnrol({ thumbnail }) {
     const handleClick = async () => {
         if (user && user.id) {
             if (enrollmentStatus.enrolled) {
-                await handleGoToCourse();
+                if (checkAllLessonCompleted()) {
+                    // Certificate path
+                    navigate(`/course/${slug}/certificate`);
+                    return;
+                } else {
+                    await handleGoToCourse();
+                }
             } else {
                 await handleEnroll();
             }
@@ -72,6 +120,18 @@ function CourseEnrol({ thumbnail }) {
         navigate(
             `${location.pathname}/${enrollmentStatus.firstChapter}/${enrollmentStatus.firstLesson}`,
         );
+    };
+    //function to check if all lesson completed
+    const checkAllLessonCompleted = () => {
+        if (chapters) {
+            for (let i = 0; i < chapters.length; i++) {
+                const chapter = chapters[i];
+                if (chapter.completedLessons !== chapter.totalLessons)
+                    return false;
+            }
+            return true;
+        }
+        return false;
     };
     return (
         <>
@@ -87,7 +147,9 @@ function CourseEnrol({ thumbnail }) {
                         onClick={handleClick}
                     >
                         {enrollmentStatus.enrolled
-                            ? 'CONTINUE LEARNING'
+                            ? (checkAllLessonCompleted() &&
+                                  'GET CERTIFICATE') ||
+                              'GO TO COURSE'
                             : 'ENROLL NOW'}
                     </button>
                 </div>
