@@ -20,7 +20,7 @@ function CourseCard({ data }: Props) {
     return (
         <div
             style={{ border: '0.01px solid #D5D5D5' }}
-            className="h-full rounded-md overflow-hidden cursor-pointer"
+            className="h-[30rem] rounded-md overflow-hidden cursor-pointer"
             onClick={() => navigate(`/course/${data.slug}`)}
         >
             <div className="flex flex-col gap-2 h-full bg-white  shadow-sm shadow-gray-400 lg:w-[350px] md:w-[350px] min-w-[280px] max-w-[400px] w-[80vw] m-auto">
@@ -38,8 +38,10 @@ function CourseCard({ data }: Props) {
                 </div>
 
                 <div className="flex flex-col gap-3 h-full justify-between px-3">
-                    <div className="flex flex-col gap-5 text-font-color h-full justify-between">
-                        <p className=" font-bold text-xl">{data.name}</p>
+                    <div className="flex flex-col gap-5 text-font-color h-full ">
+                        <p className=" font-bold text-xl h-[3rem]">
+                            {data.name}
+                        </p>
                         <p className="text-sm md:text-base line-clamp-3 font-light">
                             {data.intro}
                         </p>

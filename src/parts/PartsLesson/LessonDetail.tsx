@@ -1,15 +1,16 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import HomeIcon from '@mui/icons-material/Home';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import axiosInstance from '../../config/Axios';
 import ChapterText from './LessonText';
 import ChapterMedia from './LessonMedia';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 type ChapterDetailProps = {
     isSidebarOpen: boolean;
     setIsSidebarOpen: any;
+    chapters: any;
     updateChapters: () => Promise<any>;
 };
 // const tempData = [
@@ -77,36 +78,124 @@ type ChapterDetailProps = {
 export default function LessonDetail({
     isSidebarOpen,
     setIsSidebarOpen,
+    chapters,
     updateChapters,
 }: ChapterDetailProps) {
     const { courseSlug, chapterSlug, lessonSlug } = useParams();
+    const navigate = useNavigate();
+    const divRef = useRef<HTMLDivElement>(null);
     const { isBigScreen } = useScreenWidthAndHeight();
 
     // const [lesson, setLesson] = useState<any>(null);
     const [lesson, setLesson] = useState<any>(null);
-    const [chapterLessons, setChapterLessons] = useState<any>(null);
+    const [islessonCompleted, setIsLessonCompleted] = useState<boolean>(false);
+    useEffect(() => {
+        if (chapters) {
+            for (let i = 0; i < chapters.length; i++) {
+                const chapter = chapters[i];
+                for (let j = 0; j < chapter.lessons.length; j++) {
+                    const lesson = chapter.lessons[j];
+                    if (lesson.slug === lessonSlug) {
+                        setIsLessonCompleted(lesson.isCompleted);
+                    }
+                }
+            }
+        }
+    }, [chapters, lessonSlug]);
     useEffect(() => {
         (async () => {
             const res = await axiosInstance.get(`/data/lessons/${lessonSlug}`);
             setLesson(res.data.data);
-            // console.log(res.data.data);
-        })();
-        (async () => {
-            const res = await axiosInstance.get(
-                `/data/chapters/${chapterSlug}/lessons`,
-            );
-            setChapterLessons(res.data.data);
-            // console.log(res.data.data);
-            // console.log(lessonSlug);
+            // console.log('lesson', res.data.data);
         })();
     }, [chapterSlug, lessonSlug, setLesson]);
-    // console.log('lesson', lesson);
 
-    // const contentType = 'carousel'; //type of chapter [video,image, flipbook, carousel]
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        //scroll to top
+        if (divRef.current) {
+            divRef.current.scrollTo(0, 0);
+        }
+    }, [lessonSlug]);
+
+    //function to check if all lesson completed
+    const checkAllLessonCompleted = () => {
+        if (chapters) {
+            for (let i = 0; i < chapters.length; i++) {
+                const chapter = chapters[i];
+                if (chapter.completedLessons !== chapter.totalLessons)
+                    return false;
+            }
+            return true;
+        }
+        return false;
+    };
+
+    const handlePrev = () => {
+        console.log('prev');
+        //navigate to prev lesson
+        if (chapters) {
+            for (let i = 0; i < chapters.length; i++) {
+                const chapter = chapters[i];
+                for (let j = 0; j < chapter.lessons.length; j++) {
+                    const lesson = chapter.lessons[j];
+                    if (lesson.slug === lessonSlug) {
+                        if (j > 0) {
+                            navigate(
+                                `/course/${courseSlug}/${chapter.slug}/${
+                                    chapter.lessons[j - 1].slug
+                                }`,
+                            );
+                        } else if (i > 0) {
+                            navigate(
+                                `/course/${courseSlug}/${
+                                    chapters[i - 1].slug
+                                }/${
+                                    chapters[i - 1].lessons[
+                                        chapters[i - 1].lessons.length - 1
+                                    ].slug
+                                }`,
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    };
+    const handleNext = () => {
+        console.log('next');
+        //navigate to next lesson
+        if (chapters) {
+            for (let i = 0; i < chapters.length; i++) {
+                const chapter = chapters[i];
+                for (let j = 0; j < chapter.lessons.length; j++) {
+                    const lesson = chapter.lessons[j];
+                    if (lesson.slug === lessonSlug) {
+                        if (j < chapter.lessons.length - 1) {
+                            navigate(
+                                `/course/${courseSlug}/${chapter.slug}/${
+                                    chapter.lessons[j + 1].slug
+                                }`,
+                            );
+                        } else if (i < chapters.length - 1) {
+                            navigate(
+                                `/course/${courseSlug}/${
+                                    chapters[i + 1].slug
+                                }/${chapters[i + 1].lessons[0].slug}`,
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    };
     return (
         lesson && (
             <>
-                <div className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px]">
+                <div
+                    ref={divRef}
+                    className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px]"
+                >
                     {/* ChapterDetail Header */}
                     <div className="mb-5 flex w-full bg-[#1e3050] ">
                         <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
@@ -151,11 +240,11 @@ export default function LessonDetail({
                     {/* ChapterDetail Chapters Section*/}
                     <div className="flex flex-col mx-4 items-center ">
                         {lesson.lesson_sections.map((section) => (
-                            <div className="w-full border-b-[1px] border-black xxlarge:w-[70%] px-3">
-                                <div
-                                    className="w-full mt-12 pb-6  flex flex-col md:flex-row gap-1 md:gap-8 "
-                                    key={section.id}
-                                >
+                            <div
+                                key={section.id}
+                                className="w-full border-b-[1px] border-black xxlarge:w-[70%] px-3"
+                            >
+                                <div className="w-full mt-12 pb-6  flex flex-col md:flex-row gap-1 md:gap-8 ">
                                     <div
                                         className={` ${
                                             section.lesson_section_contents
@@ -183,9 +272,59 @@ export default function LessonDetail({
                                         />
                                     </div>
                                 </div>
-                                <button className="max-w-fit h-fit bg-red-custom text-white px-3 my-8 py-1 text-center">
-                                    Download
-                                </button>
+                                <div className="flex flex-col gap-4 mb-4">
+                                    <button
+                                        className={`${
+                                            section.downloadable
+                                                ? 'flex gap-4 items-center justify-center '
+                                                : 'hidden'
+                                        } w-fit h-fit bg-red-custom text-white px-4  py-2 text-center`}
+                                    >
+                                        Download
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            height="1em"
+                                            viewBox="0 0 512 512"
+                                            fill="currentColor"
+                                        >
+                                            <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        className={`${
+                                            section.canva_template
+                                                ? 'flex gap-4 items-center justify-center'
+                                                : 'hidden'
+                                        } max-w-fit h-fit bg-theme-color text-white px-4  py-2 text-center`}
+                                    >
+                                        Use canva Template
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            height="1em"
+                                            viewBox="0 0 512 512"
+                                            fill="currentColor"
+                                        >
+                                            <path d="M307 34.8c-11.5 5.1-19 16.6-19 29.2v64H176C78.8 128 0 206.8 0 304C0 417.3 81.5 467.9 100.2 478.1c2.5 1.4 5.3 1.9 8.1 1.9c10.9 0 19.7-8.9 19.7-19.7c0-7.5-4.3-14.4-9.8-19.5C108.8 431.9 96 414.4 96 384c0-53 43-96 96-96h96v64c0 12.6 7.4 24.1 19 29.2s25 3 34.4-5.4l160-144c6.7-6.1 10.6-14.7 10.6-23.8s-3.8-17.7-10.6-23.8l-160-144c-9.4-8.5-22.9-10.6-34.4-5.4z" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        className={`${
+                                            section.canva_template
+                                                ? 'flex gap-4 items-center justify-center'
+                                                : 'hidden'
+                                        } max-w-fit h-fit bg-red-custom text-white px-4  py-2 text-center`}
+                                    >
+                                        Share With Upschool
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            height="1em"
+                                            viewBox="0 0 512 512"
+                                            fill="currentColor"
+                                        >
+                                            <path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V32c0-17.7-14.3-32-32-32H352zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z" />
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -196,36 +335,60 @@ export default function LessonDetail({
 
                         <button
                             className={`${
-                                chapterLessons &&
-                                chapterLessons[0].slug === lessonSlug
-                                    ? 'text-theme-color/60 pointer-events-none'
+                                chapters &&
+                                chapters[0].lessons[0].slug === lessonSlug
+                                    ? 'opacity-0 pointer-events-none'
                                     : ''
                             } hidden md:block text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                            onClick={() => {
+                                handlePrev();
+                            }}
                         >
                             Previous Lesson
                         </button>
                         <button
                             className=" text-xs rounded-md bg-pink-700 p-0.5 text-white  text-center px-4 py-2 md:text-base "
                             onClick={async () => {
-                                const res = await axiosInstance.post(
-                                    `/data/lessons/${lessonSlug}/complete`,
-                                );
-                                if (res.status === 200) {
-                                    await updateChapters();
+                                if (!islessonCompleted) {
+                                    const res = await axiosInstance.post(
+                                        `/data/lessons/${lessonSlug}/complete`,
+                                    );
+                                    if (res.status === 200) {
+                                        await updateChapters();
+                                    }
                                 }
-                                console.log(res.data);
+                                setIsLessonCompleted(true);
+
+                                //goto certificate page if all lessons are completed
+                                if (chapters && checkAllLessonCompleted()) {
+                                    // Certificate path
+                                    navigate(
+                                        `/course/${courseSlug}/certificate`,
+                                    );
+                                }
+
+                                // console.log(res.data);
                             }}
                         >
-                            Complete Lesson
+                            {chapters && checkAllLessonCompleted()
+                                ? 'Get Certificate'
+                                : islessonCompleted
+                                ? 'Completed'
+                                : 'Mark as Completed'}
                         </button>
                         <button
                             className={`${
-                                chapterLessons &&
-                                chapterLessons[chapterLessons.length - 1]
-                                    .slug === lessonSlug
-                                    ? 'text-theme-color/60 pointer-events-none'
+                                chapters &&
+                                chapters[chapters.length - 1].lessons[
+                                    chapters[chapters.length - 1].lessons
+                                        .length - 1
+                                ].slug === lessonSlug
+                                    ? 'opacity-0 pointer-events-none'
                                     : ''
                             } hidden md:block text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                            onClick={() => {
+                                handleNext();
+                            }}
                         >
                             Next Lesson
                         </button>

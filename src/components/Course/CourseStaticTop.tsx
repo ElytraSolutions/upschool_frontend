@@ -26,7 +26,7 @@ function CourseStaticTop({ courseInfo }) {
                             <div className="absolute top-0 left-0 w-full h-full bg-theme-color opacity-60 z-0"></div>
                         </div>
                         <div className="absolute flex w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center">
-                            <div className="grid tab:grid-cols-5 grid-flow-row gap-12">
+                            <div className="grid tab:grid-cols-5 grid-flow-row gap-12 px-4">
                                 <div className="tab:col-start-1 tab:col-span-3 flex">
                                     <div className="grid h-fit justify-start font-poppins max-w-[490px] md:px-0 px-4">
                                         <div className="mb-[20px] xs:text-[32px] text-[26px] h-[37px] flex ">

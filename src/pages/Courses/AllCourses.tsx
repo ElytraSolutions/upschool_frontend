@@ -1,37 +1,39 @@
 import CourseCard from '../../components/Cards/CourseCard';
 import useCourses from '../../hooks/useCourses';
 import useCourseCategories from '../../hooks/useCourseCategories';
-import { ICourseCategory } from '../../types/ICourseCategory';
+// import { ICourseCategory } from '../../types/ICourseCategory';
 import Loading from '../../components/Loading';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function AllCourses() {
-    // useEffect(() => {
-    //     window.scrollTo(0, 0);
-    // }, []);
-
     const categories = useCourseCategories();
     const courses = useCourses();
+    const dynamicRef = useRef<HTMLElement | null>(null);
+    const [dataLoaded, setDataLoaded] = useState(false);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
+        if (categories && courses) {
+            setDataLoaded(true);
+        }
+    }, [categories, courses]);
 
     useEffect(() => {
         const hashValue = window.location.hash.substring(1);
 
-        const scrollToElement = () => {
-            const element = document.getElementById(hashValue);
-
-            if (element) {
-                element.scrollIntoView({
+        if (hashValue && document.getElementById(hashValue)) {
+            dynamicRef.current = document.getElementById(hashValue);
+            if (dynamicRef.current) {
+                dynamicRef.current.scrollIntoView({
                     behavior: 'smooth',
                     block: 'center',
                 });
             }
-        };
-
-        // Check if categories are fully loaded
-        if (categories.length > 0) {
-            scrollToElement();
         }
-    }, [categories]);
+    }, [categories, dataLoaded]);
 
     if (!categories || !courses) return <Loading />;
     categories.sort((a, b) => a.id - b.id);
@@ -40,7 +42,7 @@ function AllCourses() {
             (course) => course.course_category_id === categoryId,
         );
     };
-    const getCategoryId = (category: ICourseCategory) => {
+    const getCategoryId = (category) => {
         return category.name.replace(/\s+/g, '-').toLowerCase();
     };
 
@@ -80,17 +82,19 @@ function AllCourses() {
                             </h1>
                             <div className="grid lg:justify-items-start justify-items-center md:grid-cols-2 xm:grid-cols-1 lg:grid-cols-3  py-2 gap-2 xm:gap-4 md:gap-x-2">
                                 {getCoursesByCategory(category.id).map(
-                                    (data) => (
-                                        <div
-                                            className="py-4 px-0 w-fit"
-                                            key={data.id}
-                                        >
-                                            <CourseCard
-                                                key={data.name}
-                                                data={data}
-                                            />
-                                        </div>
-                                    ),
+                                    (data) => {
+                                        return (
+                                            <div
+                                                className="py-4 px-0 w-fit"
+                                                key={data.id}
+                                            >
+                                                <CourseCard
+                                                    key={data.name}
+                                                    data={data}
+                                                />
+                                            </div>
+                                        );
+                                    },
                                 )}
                             </div>
                         </div>
