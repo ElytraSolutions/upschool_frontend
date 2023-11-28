@@ -1,19 +1,19 @@
-import { FunctionalIFrameComponent } from './FuncIFrame';
-import { useRef, useEffect, useState } from 'react';
+// import { FunctionalIFrameComponent } from './FuncIFrame';
+// import { useRef } from 'react';
 
 function CourseDescription({ editorData, title, subtitle, theme }) {
-    const divRef = useRef<any>(null);
-    const [dynHeight, setDynHeight] = useState(0);
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-            // if (divRef.current) {
-            const divHeight = divRef.current.clientHeight;
-            console.log('div height;test:', divHeight);
-            setDynHeight(divHeight + 50);
-            // }
-        }, 3000);
-        return () => clearTimeout(timerId);
-    }, [divRef]);
+    // const divRef = useRef<any>(null);
+    // const [dynHeight, setDynHeight] = useState(0);
+    // useEffect(() => {
+    //     const timerId = setTimeout(() => {
+    //         if (divRef.current) {
+    //             const divHeight = divRef.current.clientHeight;
+    //             console.log('div height;test:', divHeight);
+    //             setDynHeight(divHeight + 50);
+    //         }
+    //     }, 3000);
+    //     return () => clearTimeout(timerId);
+    // }, [divRef]);
 
     return (
         <>
@@ -29,27 +29,27 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                 </div>
                 <div
                     className={`flex w-full justify-center overflow-y-hidden`}
-                    style={{ height: `${dynHeight}px` }}
+                    // style={{ height: `${dynHeight}px` }}
                 >
-                    <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen font-kumbh">
-                        <FunctionalIFrameComponent title={title}>
-                            <div
-                                ref={divRef}
-                                dangerouslySetInnerHTML={{
-                                    __html: editorData
-                                        ? editorData
-                                              .replace(
-                                                  /<iframe/g,
-                                                  '<iframe style="width:100%"',
-                                              )
-                                              .replace(
-                                                  /<img/g,
-                                                  '<img style="width:100%" ',
-                                              )
-                                        : '',
-                                }}
-                            ></div>
-                        </FunctionalIFrameComponent>
+                    <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen font-kumbh h-">
+                        {/* <FunctionalIFrameComponent title={title}> */}
+                        <div
+                            // ref={divRef}
+                            dangerouslySetInnerHTML={{
+                                __html: editorData
+                                    ? editorData
+                                          .replace(
+                                              /<iframe/g,
+                                              '<iframe style="width:100%"',
+                                          )
+                                          .replace(
+                                              /<img/g,
+                                              '<img style="width:100%" ',
+                                          )
+                                    : '',
+                            }}
+                        ></div>
+                        {/* </FunctionalIFrameComponent> */}
                     </div>
                 </div>
             </div>
