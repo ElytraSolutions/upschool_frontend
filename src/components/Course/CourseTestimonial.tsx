@@ -1,24 +1,24 @@
 import { Link } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { FunctionalIFrameComponent } from './FuncIFrame';
-import { useRef, useEffect, useState } from 'react';
+// import { FunctionalIFrameComponent } from './FuncIFrame';
+// import { useRef, useEffect, useState } from 'react';
 
 function CourseTestimonial({ theme, tstData }) {
     const { user } = useUser();
-    const divRef = useRef<any>(null);
-    const [dynHeight, setDynHeight] = useState(0);
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-            if (divRef.current) {
-                const divHeight = divRef.current.clientHeight;
-                // console.log('div height:', divHeight);
-                setDynHeight(divHeight + 25);
-            }
-        }, 3000); // Adjust the timeout duration as needed
+    // const divRef = useRef<any>(null);
+    // const [dynHeight, setDynHeight] = useState(0);
+    // useEffect(() => {
+    //     const timerId = setTimeout(() => {
+    //         if (divRef.current) {
+    //             const divHeight = divRef.current.clientHeight;
+    //             console.log('div height:', divHeight);
+    //             setDynHeight(divHeight + 35);
+    //         }
+    //     }, 3000);
 
-        return () => clearTimeout(timerId);
-    }, [divRef]);
+    //     return () => clearTimeout(timerId);
+    // }, [divRef]);
     return (
         <>
             <div className="grid mt-2">
@@ -39,17 +39,18 @@ function CourseTestimonial({ theme, tstData }) {
                 <div className="font-sans grid justify-center text-center">
                     <div
                         className="flex w-full justify-center overflow-scroll-hidden"
-                        style={{ height: `${dynHeight}px` }}
+                        // style={{ height: `${dynHeight}px` }}
                     >
                         <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen">
-                            <FunctionalIFrameComponent title={''}>
-                                <div
-                                    ref={divRef}
-                                    dangerouslySetInnerHTML={{
-                                        __html: tstData,
-                                    }}
-                                ></div>
-                            </FunctionalIFrameComponent>
+                            {/* <FunctionalIFrameComponent title={''}> */}
+                            <div
+                                // ref={divRef}
+                                dangerouslySetInnerHTML={{
+                                    __html: tstData,
+                                }}
+                                style={{ display: 'grid', gap: '1.1rem' }}
+                            ></div>
+                            {/* </FunctionalIFrameComponent> */}
                         </div>
                     </div>
                 </div>

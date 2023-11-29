@@ -1,9 +1,9 @@
 import CharityProjectCard from './CharityProjectCard';
 import CharityPageImageSection from '../../components/Cards/Charity/CharityPageImageSection';
 import { useParams } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axiosInstance from '../../config/Axios';
-import { FunctionalIFrameComponent } from '../../components/Course/FuncIFrame';
+// import { FunctionalIFrameComponent } from '../../components/Course/FuncIFrame';
 
 function CharityPage() {
     const { slug } = useParams();
@@ -11,18 +11,18 @@ function CharityPage() {
     const [currentCharity, setCurrentCharity] = useState<any>(null);
     const [isProjects, setProjects] = useState<any>(null);
 
-    const divRef = useRef<any>(null);
-    const [dynHeight, setDynHeight] = useState(0);
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-            if (divRef.current) {
-                const divHeight = divRef.current.clientHeight;
-                // console.log('div height:', divHeight);
-                setDynHeight(divHeight + 25);
-            }
-        }, 3000); // Adjust the timeout duration as needed
-        return () => clearTimeout(timerId);
-    }, [divRef]);
+    // const divRef = useRef<any>(null);
+    // const [dynHeight, setDynHeight] = useState(0);
+    // useEffect(() => {
+    //     const timerId = setTimeout(() => {
+    //         if (divRef.current) {
+    //             const divHeight = divRef.current.clientHeight;
+    //             // console.log('div height:', divHeight);
+    //             setDynHeight(divHeight + 25);
+    //         }
+    //     }, 3000); // Adjust the timeout duration as needed
+    //     return () => clearTimeout(timerId);
+    // }, [divRef]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -57,19 +57,19 @@ function CharityPage() {
                     <div className="flex p-2 justify-center lg:col-span-10 lg:col-start-3 col-span-12 col-start-2">
                         <div
                             className={`flex w-full justify-center overflow-y-hidden`}
-                            style={{ height: `${dynHeight}px` }}
+                            // style={{ height: `${dynHeight}px` }}
                         >
                             <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen">
-                                <FunctionalIFrameComponent
+                                {/* <FunctionalIFrameComponent
                                     title={currentCharity.name}
-                                >
-                                    <div
-                                        ref={divRef}
-                                        dangerouslySetInnerHTML={{
-                                            __html: currentCharity.description,
-                                        }}
-                                    ></div>
-                                </FunctionalIFrameComponent>
+                                > */}
+                                <div
+                                    // ref={divRef}
+                                    dangerouslySetInnerHTML={{
+                                        __html: currentCharity.description,
+                                    }}
+                                ></div>
+                                {/* </FunctionalIFrameComponent> */}
                             </div>
                         </div>
                     </div>

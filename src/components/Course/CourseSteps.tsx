@@ -2,24 +2,24 @@ import { Link } from 'react-router-dom';
 import resolveImgURL from '../../utlis/resolveImgURL';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import useUser from '../../hooks/useUser';
-import { FunctionalIFrameComponent } from './FuncIFrame';
-import { useRef, useEffect, useState } from 'react';
+// import { FunctionalIFrameComponent } from './FuncIFrame';
+// import { useRef, useEffect, useState } from 'react';
 
 function CourseSteps({ steps, theme, objData }) {
     const { user } = useUser();
-    const divRef = useRef<any>(null);
-    const [dynHeight, setDynHeight] = useState(0);
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-            if (divRef.current) {
-                const divHeight = divRef.current.clientHeight;
-                // console.log('div height:', divHeight);
-                setDynHeight(divHeight + 25);
-            }
-        }, 3000); // Adjust the timeout duration as needed
+    // const divRef = useRef<any>(null);
+    // const [dynHeight, setDynHeight] = useState(0);
+    // useEffect(() => {
+    //     const timerId = setTimeout(() => {
+    //         if (divRef.current) {
+    //             const divHeight = divRef.current.clientHeight;
+    //             // console.log('div height:', divHeight);
+    //             setDynHeight(divHeight + 25);
+    //         }
+    //     }, 3000); // Adjust the timeout duration as needed
 
-        return () => clearTimeout(timerId);
-    }, [divRef]);
+    //     return () => clearTimeout(timerId);
+    // }, [divRef]);
     return (
         <>
             <div className="flex w-full justify-center">
@@ -34,19 +34,19 @@ function CourseSteps({ steps, theme, objData }) {
                             </p>
                             <div
                                 className="flex w-full justify-center overflow-scroll-hidden"
-                                style={{ height: `${dynHeight}px` }}
+                                // style={{ height: `${dynHeight}px` }}
                             >
-                                <FunctionalIFrameComponent title={''}>
-                                    <div
-                                        ref={divRef}
-                                        dangerouslySetInnerHTML={{
-                                            __html: objData.replace(
-                                                /<iframe/g,
-                                                '<iframe style="width:100%"',
-                                            ),
-                                        }}
-                                    ></div>
-                                </FunctionalIFrameComponent>
+                                {/* <FunctionalIFrameComponent title={''}> */}
+                                <div
+                                    // ref={divRef}
+                                    dangerouslySetInnerHTML={{
+                                        __html: objData.replace(
+                                            /<iframe/g,
+                                            '<iframe style="width:100%"',
+                                        ),
+                                    }}
+                                ></div>
+                                {/* </FunctionalIFrameComponent> */}
                             </div>
                         </div>
                     )}

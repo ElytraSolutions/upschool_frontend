@@ -102,6 +102,11 @@ html {
   letter-spacing: 10px;
 }
 
+.desc-title {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: bolder;
+}
+
 /* 
 a {
   font-weight: 500;
