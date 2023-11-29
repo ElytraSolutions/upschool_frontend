@@ -10,7 +10,7 @@ const Hub = () => {
     }, []);
     useEffect(() => {
         document.title = `${Hub.title} | Upschool`;
-    }, [Hub.title]);
+    }, [Hub]);
     return (
         <>
             <div className="relative h-full w-full">

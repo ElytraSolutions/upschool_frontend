@@ -26,7 +26,7 @@ function CharityPage() {
 
     useEffect(() => {
         document.title = `${currentCharity?.name.toUpperCase()} | Upschool`;
-    }, [currentCharity?.name]);
+    }, [currentCharity]);
     useEffect(() => {
         window.scrollTo(0, 0);
         (async () => {
