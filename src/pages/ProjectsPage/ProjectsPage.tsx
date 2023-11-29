@@ -20,7 +20,7 @@ const ProjectsPage = () => {
     }, [slug]);
     useEffect(() => {
         document.title = prData?.name + ' | Upschool';
-    }, [prData]);
+    }, [prData?.name]);
     if (!prData) return <Loading />;
     return (
         <>

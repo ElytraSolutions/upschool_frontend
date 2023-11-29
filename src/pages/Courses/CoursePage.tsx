@@ -23,8 +23,8 @@ function CoursePage() {
         })();
     }, [slug]);
     useEffect(() => {
-        document.title = `${courseInfo.name} | Upschool`;
-    }, [courseInfo]);
+        document.title = `${courseInfo?.name} | Upschool`;
+    }, [courseInfo?.name]);
     if (!courseInfo) return <Loading />;
     // if (!courseInfo.description) return null;
     // if (courseInfo.description) {
