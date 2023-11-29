@@ -33,6 +33,7 @@ const Login = () => {
     const [showSocialLogin, _setSocialLogin] = useState(false);
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Login | Upschool';
     }, []);
     const navigate = useNavigate();
     const location = useLocation();

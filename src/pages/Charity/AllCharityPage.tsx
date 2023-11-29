@@ -2,9 +2,13 @@ import { useEffect, useState } from 'react';
 import CharityCard from '../../components/Cards/Charity/CharityCard';
 import resolveImgURL from '../../utlis/resolveImgURL';
 import axiosInstance from '../../config/Axios';
+import Loading from '../../components/Loading';
 
 const AllCharityPage = () => {
     const [charities, setCharities] = useState<any>(null);
+    useEffect(() => {
+        document.title = 'Charities | Upschool';
+    }, []);
     useEffect(() => {
         window.scrollTo(0, 0);
         (async () => {
@@ -13,7 +17,7 @@ const AllCharityPage = () => {
             setCharities(res.data.data);
         })();
     }, []);
-    if (!charities) return null;
+    if (!charities) return <Loading />;
     return (
         <>
             <div className="grid gap-y-10 pb-10">

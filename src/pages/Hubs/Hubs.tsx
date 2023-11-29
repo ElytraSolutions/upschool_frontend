@@ -46,6 +46,7 @@ const HubCards = [
 const Hubs = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Hubs | Upschool';
     }, []);
     return (
         <div className="h-full w-full">

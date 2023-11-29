@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import DoneIcon from '@mui/icons-material/Done';
 import IChapter from '../../types/IChapter';
 import resolveImgURL from '../../utlis/resolveImgURL';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 type ISidebarProps = {
@@ -13,6 +13,11 @@ type ISidebarProps = {
 export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
     const [isChapterOpen, setIsChapterOpen] = useState<boolean>(true);
     const { lessonSlug } = useParams();
+    useEffect(() => {
+        document.title = `${chapter.lessons
+            .filter((lesson) => lesson.slug === lessonSlug)
+            .map((lesson) => lesson.name)} | Upschool`;
+    }, [chapter.lessons, lessonSlug]);
     return (
         <div className="flex flex-col text-sm sm:text-sm md:text-base ">
             <div

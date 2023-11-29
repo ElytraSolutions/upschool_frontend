@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 const ImpactFilms = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Impact Films | Upschool';
     }, []);
     return (
         <div>

@@ -41,6 +41,7 @@ const submitHandler = async (_values: any, onSubmitProps: any) => {
 export default function ResetPasswordEmail() {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Password Reset | Upschool';
     }, []);
     return (
         <>

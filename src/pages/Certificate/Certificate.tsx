@@ -29,6 +29,7 @@ const Certificate = () => {
     };
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Certificate | Upschool';
     }, []);
     const components = [
         <CertificateStep1

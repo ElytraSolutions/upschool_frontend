@@ -13,6 +13,7 @@ import BookUpdated from './BookUpdated';
 export default function UploadBook() {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Upload | Upschool';
     }, []);
     const { isLargeScreen } = useScreenWidthAndHeight(); //min-width=768px
     const [isUploadBookCompleted, setIsUploadBookCompleted] =

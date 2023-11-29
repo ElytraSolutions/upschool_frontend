@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import axiosInstance from '../../config/Axios';
 import useUser from '../../hooks/useUser';
+import Loading from '../../components/Loading';
 
 function Logout() {
     const { user, refresh } = useUser();
@@ -30,7 +31,7 @@ function Logout() {
         return <Navigate to="/" />;
     }
 
-    return <div>Logging out...</div>;
+    return <Loading />;
 }
 
 export default Logout;

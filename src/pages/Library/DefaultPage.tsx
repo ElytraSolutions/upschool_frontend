@@ -17,7 +17,10 @@ const DefaultPage = () => {
     );
 
     // handles filter process of search bar only without filter options
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        document.title = 'Library | Upschool';
+    }, []);
     const filterQuery = useCallback(async () => {
         const filter: any = {
             filters: {

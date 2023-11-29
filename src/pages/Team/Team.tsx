@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 const Team = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Our Team | Upschool';
     }, []);
     return (
         <div>

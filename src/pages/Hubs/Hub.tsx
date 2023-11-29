@@ -8,6 +8,9 @@ const Hub = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+    useEffect(() => {
+        document.title = `${Hub.title} | Upschool`;
+    }, [Hub.title]);
     return (
         <>
             <div className="relative h-full w-full">

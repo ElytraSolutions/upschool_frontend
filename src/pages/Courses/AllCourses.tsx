@@ -13,6 +13,7 @@ function AllCourses() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'All Courses | Upschool';
     }, []);
 
     useEffect(() => {

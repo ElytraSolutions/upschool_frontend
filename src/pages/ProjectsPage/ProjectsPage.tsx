@@ -5,6 +5,7 @@ import ProjectMap from './ProjectMap';
 import { useEffect, useState } from 'react';
 import axiosInstance from '../../config/Axios';
 import { useParams } from 'react-router-dom';
+import Loading from '../../components/Loading';
 
 const ProjectsPage = () => {
     const { slug } = useParams();
@@ -17,7 +18,10 @@ const ProjectsPage = () => {
             setPrData(res.data.data);
         })();
     }, [slug]);
-    if (!prData) return null;
+    useEffect(() => {
+        document.title = prData?.name + ' | Upschool';
+    }, [prData?.name]);
+    if (!prData) return <Loading />;
     return (
         <>
             <div className="font-lexend bg-gray-100 font-light text-lg">
@@ -25,12 +29,12 @@ const ProjectsPage = () => {
                 <ProjectInfo
                     data={{
                         projectTitle: prData.name,
-                        charity: prData.charity.name,
+                        charity: prData.charity ? prData.charity.name : '',
                         location: prData.location,
                         genre: prData.genre,
                         qualityImage: prData.sustainability_details,
                         charityLogo: prData.image,
-                        charitySlug: prData.charity.slug,
+                        charitySlug: prData.charity ? prData.charity.slug : '',
                         projectInfo: prData.intro,
                     }}
                 />
@@ -40,8 +44,8 @@ const ProjectsPage = () => {
                         projectDescription: prData.description
                             ? prData.description
                             : '',
-                        charity: prData.charity.name,
-                        slug: prData.charity.slug,
+                        charity: prData.charity ? prData.charity.name : '',
+                        slug: prData.charity ? prData.charity.slug : '',
                     }}
                 />
             </div>

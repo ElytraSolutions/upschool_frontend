@@ -24,6 +24,7 @@ function ReportProblem() {
     });
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Report a Problem | Upschool';
     }, []);
     const [formData, setFormData] = useState('');
     return (

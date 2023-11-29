@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 const GlobalReach = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Global Reach | Upschool';
     }, []);
     return (
         <>

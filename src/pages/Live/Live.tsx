@@ -56,6 +56,7 @@ const events = [
 const Live = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Live | Upschool';
     }, []);
     return (
         <>

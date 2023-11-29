@@ -6,6 +6,7 @@ import BulkImageSection from '../../parts/PartsBulkRegistration/BulkImageSection
 function BulkRegistrationPage() {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Bulk Enrolment | Upschool';
     }, []);
     return (
         <>

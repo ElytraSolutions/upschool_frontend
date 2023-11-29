@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import NotFoundImage from '/images/404-Flat-Illustration.png';
 import { LiaHomeSolid } from 'react-icons/lia';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +9,11 @@ const NotFound = () => {
     const handleButtonClick = () => {
         navigate('/');
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        document.title = 'Page Not Found | Upschool';
+    }, []);
     return (
         <div className="flex flex-col sm:flex-row  max-w-[70rem] ml-auto mr-auto items-center justify-center py-20 px-10">
             <div className="text">

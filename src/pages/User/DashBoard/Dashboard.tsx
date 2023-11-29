@@ -27,6 +27,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
     console.log('searchParams', searchParams);
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Dashboard | Upschool';
     }, []);
     const { isTabScreen } = useScreenWidthAndHeight();
 

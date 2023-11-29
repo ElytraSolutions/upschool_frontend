@@ -6,6 +6,7 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 export default function OurFramework() {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Framework | Upschool';
     }, []);
     return (
         <>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 
 import RegisterStepIHeader from '../../parts/PartsRegisterPage/RegisterStepIHeader';
@@ -111,7 +111,10 @@ export default function Registration() {
             return_slug={locState}
         />,
     ];
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        document.title = 'Registration | Upschool';
+    }, []);
     return (
         <div className=" h-full w-full">
             <Navbar />

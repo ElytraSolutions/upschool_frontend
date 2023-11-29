@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 function CanvaPage() {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Canva | Upschool';
     }, []);
     return (
         <>

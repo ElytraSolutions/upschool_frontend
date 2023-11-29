@@ -4,6 +4,7 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 function Acknowledgement() {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Acknowledgement | Upschool';
     }, []);
     return (
         <>

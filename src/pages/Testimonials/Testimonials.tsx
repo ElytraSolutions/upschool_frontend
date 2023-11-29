@@ -24,6 +24,7 @@ import { useEffect } from 'react';
 const TestimonialsPage = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'Testimonials | Upschool';
     }, []);
     return (
         <>

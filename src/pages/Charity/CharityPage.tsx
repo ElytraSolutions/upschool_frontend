@@ -25,6 +25,9 @@ function CharityPage() {
     // }, [divRef]);
 
     useEffect(() => {
+        document.title = `${currentCharity?.name.toUpperCase()} | Upschool`;
+    }, [currentCharity?.name]);
+    useEffect(() => {
         window.scrollTo(0, 0);
         (async () => {
             const res = await axiosInstance.get(`/data/charities/${slug}`);

@@ -197,6 +197,7 @@ const GlobalGoals = () => {
     };
     useEffect(() => {
         window.scrollTo(0, 0);
+        document.title = 'SDGs | Upschool';
     }, []);
     return (
         <div className="bg-[#f4f4f4]">
