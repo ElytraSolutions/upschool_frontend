@@ -1,26 +1,26 @@
 import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+// import Select from '@mui/material/Select';
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-const coursesName = [
-    {
-        course: 'A',
-        course_id: '1',
-    },
-    {
-        course: 'B',
-        course_id: '2',
-    },
-    {
-        course: 'C',
-        course_id: '3',
-    },
-];
+// const coursesName = [
+//     {
+//         course: 'A',
+//         course_id: '1',
+//     },
+//     {
+//         course: 'B',
+//         course_id: '2',
+//     },
+//     {
+//         course: 'C',
+//         course_id: '3',
+//     },
+// ];
 
 const CertificateStep1 = ({ formData, setFormData, changeCurrentStep }) => {
     const { isLargeScreen } = useScreenWidthAndHeight();
@@ -44,6 +44,7 @@ const CertificateStep1 = ({ formData, setFormData, changeCurrentStep }) => {
             changeCurrentStep();
         }
     };
+    console.log('FormData', formData);
 
     return (
         <div>
@@ -54,15 +55,16 @@ const CertificateStep1 = ({ formData, setFormData, changeCurrentStep }) => {
                 <form onSubmit={handleSubmit}>
                     <Box sx={{ minWidth: 120 }}>
                         <FormControl fullWidth sx={{ marginBottom: '1rem' }}>
-                            <InputLabel
+                            {/* <InputLabel
                                 id="demo-simple-select-label"
                                 sx={{
                                     color: '#03014C',
+                                    marginBottom: '2rem',
                                 }}
                             >
                                 Choose Your Course
-                            </InputLabel>
-                            <Select
+                            </InputLabel> */}
+                            {/* <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
                                 value={formData.course}
@@ -83,7 +85,14 @@ const CertificateStep1 = ({ formData, setFormData, changeCurrentStep }) => {
                                         {course.course}
                                     </MenuItem>
                                 ))}
-                            </Select>
+                            </Select> */}
+                            <TextField
+                                type="text"
+                                label="Course"
+                                onChange={handleChange}
+                                value={formData.course}
+                                name="course"
+                            />
                         </FormControl>
                         <h1 className="text-2xl font-bold text-font-color p-2">
                             About You

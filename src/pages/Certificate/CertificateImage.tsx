@@ -51,7 +51,9 @@ const CertificateImage = ({ formData }) => {
                 setTimeout(() => {
                     context.font = '3.2rem "Great Vibes"';
                     context.fillStyle = '#03014C';
-                    const text = `${formData.firstName} ${formData.lastName}`;
+                    const text = `${
+                        formData.firstName
+                    } ${formData.lastName.toLowerCase()}`;
 
                     const textWidth = context.measureText(text).width;
                     const x = (canvas.width - textWidth) / 2;

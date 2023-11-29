@@ -4,15 +4,21 @@ import { CertificateProgressSection } from '../../parts/PartsCertificate/Certifi
 import CertificateStep1 from './CertificateStep1';
 import CertificateStep2 from './CertificateStep2';
 import CertificateStep3 from './CertificateStep3';
+import { useSearchParams } from 'react-router-dom';
+import useUser from '../../hooks/useUser';
 
 const Certificate = () => {
+    const [searchParams, _setSearchParams] = useSearchParams();
+    const { user } = useUser();
+    // console.log(user);
+    // console.log('searchParams', searchParams.get('course'));
     const [formData, setFormData] = useState({
-        course: 'How to write your own school newspaper (Short Course)',
-        firstName: 'Kaustuv',
-        lastName: 'Karki',
-        email: '',
-        county: '',
-        age: '',
+        course: searchParams.get('course'),
+        firstName: user?.first_name,
+        lastName: user?.last_name,
+        email: user?.email,
+        country: user?.country,
+        age: '23',
         school: '',
     });
     const { isLargeScreen } = useScreenWidthAndHeight();

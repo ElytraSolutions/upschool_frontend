@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import axiosInstance from '../../../config/Axios';
 import resolveImgURL from '../../../utlis/resolveImgURL';
 // import { ProgressBar } from '../../../utlis/ProgressBar/ProgressBar';
 import { useNavigate } from 'react-router-dom';
@@ -67,12 +67,25 @@ export default function CourseBoxCompleted({
                                 >
                                     Revisit Course
                                 </div>
-                                <NavLink
-                                    to={'/certificate'}
-                                    className="text-white text-center bg-theme-color px-4 py-2 w-3/4"
+                                <div
+                                    className="text-white text-center bg-theme-color px-4 py-2 w-3/4 cursor-pointer"
+                                    onClick={async () => {
+                                        const res = await axiosInstance.post(
+                                            `/data/courses/${detail.slug}/complete`,
+                                        );
+                                        console.log(
+                                            'Certificate Response',
+                                            res.data,
+                                        );
+                                        navigate(
+                                            `/certificate?course=${encodeURIComponent(
+                                                detail.name,
+                                            )}`,
+                                        );
+                                    }}
                                 >
                                     Get Certificate
-                                </NavLink>
+                                </div>
                             </div>
                         </div>
                     </div>

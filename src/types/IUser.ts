@@ -4,6 +4,7 @@ export interface IUser {
     avatar: string;
     first_name: string;
     last_name: string;
+    country: string;
     type: {
         id: number;
         name: string;
