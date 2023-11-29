@@ -200,23 +200,32 @@ export default function LessonDetail({
     const handleDownload = (contents) => {
         // console.log('download', contents);
         //download all images on click stored as image_content
-        contents.forEach((content) => {
-            if (content.image_content) {
-                const link = document.createElement('a');
-                link.href = resolveImgURL(content.image_content);
-                link.download = `${content.image_content}`;
-                document.body.appendChild(link);
-                try {
-                    link.click();
-                    console.log('downloaded');
-                } catch (e) {
-                    console.log('error in downloading image', e);
-                }
 
-                document.body.removeChild(link);
+        const link = document.createElement('a');
+        document.body.appendChild(link);
+        contents.forEach((content, index) => {
+            if (content.image_content) {
+                setTimeout(() => {
+                    link.href = resolveImgURL(
+                        content.image_content +
+                            '?response-content-disposition=attachment',
+                    );
+                    console.log('link', link.href);
+                    link.download = `${content.image_content}`;
+                    link.id = 'download-link';
+                    try {
+                        link.click();
+                        console.log('downloaded');
+                    } catch (e) {
+                        console.log('error in downloading image', e);
+                    }
+                }, 1000 * index);
+
+                // document.body.removeChild(link);
             }
         });
     };
+
     return (
         lesson && (
             <>
@@ -259,7 +268,7 @@ export default function LessonDetail({
                                 </div>
                             </div>
                             {isBigScreen && (
-                                <div className="min-w-[50%] text-left font-semibold text-[1.25rem]">
+                                <div className="min-w-[50%] text-left md:text-base ]">
                                     {lesson.name}
                                 </div>
                             )}
@@ -311,7 +320,7 @@ export default function LessonDetail({
                                         className={`${
                                             section.downloadable
                                                 ? 'flex gap-4 items-center justify-center '
-                                                : 'hidden'
+                                                : 'flex gap-4 items-center justify-center'
                                         } w-fit h-fit bg-red-custom text-white px-7  py-3 text-center`}
                                         onClick={() => {
                                             handleDownload(
