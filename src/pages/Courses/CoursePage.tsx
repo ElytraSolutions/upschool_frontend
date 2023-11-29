@@ -24,7 +24,7 @@ function CoursePage() {
     }, [slug]);
     useEffect(() => {
         document.title = `${courseInfo.name} | Upschool`;
-    }, [courseInfo.name]);
+    }, [courseInfo]);
     if (!courseInfo) return <Loading />;
     // if (!courseInfo.description) return null;
     // if (courseInfo.description) {
