@@ -4,19 +4,20 @@ import resolveImgURL from '../../../utlis/resolveImgURL';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import axiosInstance from '../../../config/Axios';
 import { toast } from 'react-toastify';
-import IChapter from '../../../types/IChapter';
+import { Link } from 'react-router-dom';
 
 function CourseEnrol({ thumbnail }) {
     const { slug } = useParams();
     const { user } = useUser();
     const navigate = useNavigate();
     const location = useLocation();
-    const [chapters, setChapters] = useState<IChapter[] | null>(null);
     const [enrollmentStatus, setEnrollmentStatus] = useState<{
         enrolled: boolean;
         // course: number | null;
         firstChapter: string | null;
         firstLesson: string | null;
+        totalCompletedLessonCount?: number;
+        totalLessons?: number;
     }>({
         enrolled: false,
         // course: null,
@@ -34,52 +35,14 @@ function CourseEnrol({ thumbnail }) {
             enrolled: resp.data.data.enrolled,
             firstChapter: resp.data.data.firstChapter?.slug,
             firstLesson: resp.data.data.firstLesson?.slug,
+            totalCompletedLessonCount: resp.data.data.totalCompletedLessonCount,
+            totalLessons: resp.data.data.totalLessons,
         });
     };
-
     useEffect(() => {
-        // console.log('slug', slug);
-        (async () => {
-            await checkEnrollmentStatus();
-        })();
-    }, [slug]); // eslint-disable-line react-hooks/exhaustive-deps
-
-    const updateChapters = async () => {
-        const res = await axiosInstance.get(`/data/courses/${slug}/chapters`);
-        // console.log(res.data.data, 'res.data.data');
-        const chaptersData = res.data.data;
-        for (let i = 0; i < chaptersData.length; i++) {
-            const chapter = chaptersData[i];
-            const lessonsRes = await axiosInstance.get(
-                `/data/chapters/${chapter.slug}/lessons`,
-            );
-            const lessonsData = lessonsRes.data.data;
-            let total = 0,
-                completed = 0;
-            for (let j = 0; j < lessonsData.length; j++) {
-                total++;
-                const completeRes = await axiosInstance.get(
-                    `/data/lessons/${lessonsData[j].slug}/checkCompletion`,
-                );
-                if (completeRes.data.data) {
-                    completed++;
-                    lessonsData[j].isCompleted = true;
-                }
-            }
-            chaptersData[i].totalLessons = total;
-            chaptersData[i].completedLessons = completed;
-            chaptersData[i].lessons = lessonsData;
-        }
-        setChapters(chaptersData);
-        // console.log(chaptersData, 'chaptersData');
-        return chaptersData;
-    };
-
-    useEffect(() => {
-        (async () => {
-            await updateChapters();
-        })();
-    }, [slug, setChapters]); // eslint-disable-line react-hooks/exhaustive-deps
+        checkEnrollmentStatus();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [slug]);
 
     const handleEnroll = async () => {
         try {
@@ -102,12 +65,17 @@ function CourseEnrol({ thumbnail }) {
         if (user && user.id) {
             if (enrollmentStatus.enrolled) {
                 if (checkAllLessonCompleted()) {
-                    // Certificate path
-                    navigate(`/course/${slug}/certificate`);
-                    return;
-                } else {
-                    await handleGoToCourse();
-                }
+                    console.log('reset');
+                    const resp = await axiosInstance.post(
+                        `/data/courses/${slug}/reset`,
+                    );
+                    if (resp) {
+                        console.log(resp.data, 'reset');
+                    }
+                    if (resp.data.success) {
+                        handleGoToCourse();
+                    }
+                } else await handleGoToCourse();
             } else {
                 await handleEnroll();
             }
@@ -123,12 +91,11 @@ function CourseEnrol({ thumbnail }) {
     };
     //function to check if all lesson completed
     const checkAllLessonCompleted = () => {
-        if (chapters) {
-            for (let i = 0; i < chapters.length; i++) {
-                const chapter = chapters[i];
-                if (chapter.completedLessons !== chapter.totalLessons)
-                    return false;
-            }
+        // console.log(chapters, 'chapters');
+        if (
+            enrollmentStatus.totalCompletedLessonCount ===
+            enrollmentStatus.totalLessons
+        ) {
             return true;
         }
         return false;
@@ -141,17 +108,26 @@ function CourseEnrol({ thumbnail }) {
                     alt="courseEnrol"
                     className="xs:max-w-[340px] xs:max-h-[408px] max-w-[260px] max-h-[328px]"
                 />
-                <div className="flex justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] ">
+                <div className="flex flex-col gap-4 justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] ">
                     <button
-                        className="bg-theme-color text-white px-8 py-2 rounded-sm flex-grow sm:text-base text-[0.9rem]"
+                        className="w-full bg-theme-color text-white px-8 py-2 rounded-sm flex-grow sm:text-base text-[0.9rem] hover:bg-theme-color/80 "
                         onClick={handleClick}
                     >
                         {enrollmentStatus.enrolled
-                            ? (checkAllLessonCompleted() &&
-                                  'GET CERTIFICATE') ||
-                              'GO TO COURSE'
-                            : 'ENROLL NOW'}
+                            ? checkAllLessonCompleted()
+                                ? 'Revisit Course'
+                                : 'Continue Course'
+                            : 'Enroll Now'}
                     </button>
+                    {enrollmentStatus.enrolled && checkAllLessonCompleted() && (
+                        <Link
+                            className=" w-full bg-theme-color text-white px-8 py-2 rounded-sm flex-grow sm:text-base text-[0.9rem] hover:bg-theme-color/80 cursor-pointer text-center "
+                            onClick={handleGoToCourse}
+                            to={`/certificate`}
+                        >
+                            Get Certificate
+                        </Link>
+                    )}
                 </div>
             </div>
         </>
