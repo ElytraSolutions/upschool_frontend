@@ -439,9 +439,7 @@ export default function LessonDetail({
                                 //goto certificate page if all lessons are completed
                                 if (chapters && checkAllLessonCompleted()) {
                                     // Certificate path
-                                    navigate(
-                                        `/course/${courseSlug}/certificate`,
-                                    );
+                                    navigate(`/certificate`);
                                 }
 
                                 // console.log(res.data);
