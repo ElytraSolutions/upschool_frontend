@@ -22,7 +22,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                     {title}
                 </div>
                 <div
-                    className="text-[24px] text-center font-semibold mb-5"
+                    className="text-[24px] text-center mx-auto font-semibold mb-5"
                     style={{ color: theme }}
                 >
                     {subtitle}

@@ -60,7 +60,7 @@ function CourseStaticTop({ courseInfo }) {
                                         </div>
                                         <div></div>
                                         <div
-                                            className={`xs:text-[53px] text-[47px] font-extrabold`}
+                                            className={`xs:text-[53px] text-[47px] font-extrabold font-kumbh`}
                                             style={{
                                                 color: courseInfo.theme,
                                             }}
