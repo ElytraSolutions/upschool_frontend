@@ -20,7 +20,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
     const [downloadHref, setDownloadHref] = useState('');
 
     useEffect(() => {
-        if (editorData !== null) {
+        if (editorData !== undefined) {
             //Check if a img tag occurs within a <a> tag... just an assumption...
             const anchorWithImgRegex = /<a.*?href="(.*?)">.*?<img.*?>.*?<\/a>/i;
 
