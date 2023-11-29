@@ -46,6 +46,10 @@ function AllCourses() {
         return category.name.replace(/\s+/g, '-').toLowerCase();
     };
 
+    const courseByCategory = categories.map((category) =>
+        getCoursesByCategory(category.id),
+    );
+
     return (
         <>
             <div className="h-full w-full">
@@ -71,7 +75,7 @@ function AllCourses() {
                     id="10-weeks"
                     className="my-10 h-full  md:max-w-6xl mx-auto "
                 >
-                    {categories.map((category) => (
+                    {categories.map((category, index) => (
                         <div
                             className="p-4 h-full"
                             key={category.id}
@@ -81,7 +85,20 @@ function AllCourses() {
                                 {category.name}
                             </h1>
                             <div className="grid lg:justify-items-start justify-items-center md:grid-cols-2 xm:grid-cols-1 lg:grid-cols-3  py-2 gap-2 xm:gap-4 md:gap-x-2">
-                                {getCoursesByCategory(category.id).map(
+                                {courseByCategory[index].map((data) => {
+                                    return (
+                                        <div
+                                            className="py-4 px-0 w-fit"
+                                            key={data.id}
+                                        >
+                                            <CourseCard
+                                                key={data.name}
+                                                data={data}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                                {/* {getCoursesByCategory(category.id).map(
                                     (data) => {
                                         return (
                                             <div
@@ -95,7 +112,7 @@ function AllCourses() {
                                             </div>
                                         );
                                     },
-                                )}
+                                )} */}
                             </div>
                         </div>
                     ))}
