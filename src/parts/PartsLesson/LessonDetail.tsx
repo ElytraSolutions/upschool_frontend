@@ -91,6 +91,7 @@ export default function LessonDetail({
     const [lesson, setLesson] = useState<any>(null);
     const [islessonCompleted, setIsLessonCompleted] = useState<boolean>(false);
     const [clipBoard, setClipBoard] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         // console.log('lesson', lesson);
@@ -387,10 +388,8 @@ export default function LessonDetail({
                     {/* TODO check if chapter is already completed */}
                     <div
                         className={` ${
-                            isSidebarOpen
-                                ? 'hidden xm:block'
-                                : 'w-full flex items-center justify-evenly pt-14'
-                        }`}
+                            isSidebarOpen ? 'hidden xm:flex' : ''
+                        } w-full flex items-center justify-evenly pt-14`}
                     >
                         {/* previous button, hide if lesson is the first element of chapterlessons*/}
 
@@ -408,9 +407,16 @@ export default function LessonDetail({
                             Previous Lesson
                         </button>
                         <button
-                            className=" text-xs rounded-md bg-pink-700 p-0.5 text-white  text-center px-4 py-2 md:text-base "
+                            className={`${
+                                chapters && checkAllLessonCompleted()
+                                    ? 'bg-pink-upschool'
+                                    : islessonCompleted
+                                    ? ' bg-pink-upschool/50 pointer-events-none'
+                                    : 'bg-pink-upschool'
+                            } text-xs rounded-md  p-0.5 text-white  text-center px-4 py-2 md:text-base `}
                             onClick={async () => {
                                 if (!islessonCompleted) {
+                                    setLoading(true);
                                     const res = await axiosInstance.post(
                                         `/data/lessons/${lessonSlug}/complete`,
                                     );
@@ -419,6 +425,7 @@ export default function LessonDetail({
                                     }
                                 }
                                 setIsLessonCompleted(true);
+                                setLoading(false);
 
                                 //goto certificate page if all lessons are completed
                                 if (chapters && checkAllLessonCompleted()) {
@@ -435,6 +442,8 @@ export default function LessonDetail({
                                 ? 'Get Certificate'
                                 : islessonCompleted
                                 ? 'Completed'
+                                : loading
+                                ? 'Marking as Completed...'
                                 : 'Mark as Completed'}
                         </button>
                         <button
