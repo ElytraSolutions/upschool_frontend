@@ -29,7 +29,7 @@ All attendees will receive a certificate of attendance – Thank you for conside
 const Webinar = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
-        document.title = 'Webinar | Upschool';
+        document.title = `${event.title} | Upschool`;
     }, []);
     return (
         <div className="flex flex-col justify-center items-center">

@@ -11,8 +11,8 @@ const BookPage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        // document.title = `${} | Upschool`;
-    }, []);
+        document.title = `${book.title} | Upschool`;
+    }, [book.title]);
 
     return (
         <>
