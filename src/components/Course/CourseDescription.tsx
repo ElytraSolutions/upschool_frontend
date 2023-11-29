@@ -20,18 +20,20 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
     const [downloadHref, setDownloadHref] = useState('');
 
     useEffect(() => {
-        //Check if a img tag occurs within a <a> tag... just an assumption...
-        const anchorWithImgRegex = /<a.*?href="(.*?)">.*?<img.*?>.*?<\/a>/i;
+        if (editorData !== null) {
+            //Check if a img tag occurs within a <a> tag... just an assumption...
+            const anchorWithImgRegex = /<a.*?href="(.*?)">.*?<img.*?>.*?<\/a>/i;
 
-        //check the occurence of the regex in the editorData
-        const contains = editorData.match(anchorWithImgRegex);
+            //check the occurence of the regex in the editorData
+            const contains = editorData.match(anchorWithImgRegex);
 
-        if (contains) {
-            const href = contains[1];
-            setDownloadHref(href);
-            setShowDownloadButton(true);
-        } else {
-            setShowDownloadButton(false);
+            if (contains) {
+                const href = contains[1];
+                setDownloadHref(href);
+                setShowDownloadButton(true);
+            } else {
+                setShowDownloadButton(false);
+            }
         }
     }, [editorData]);
     console.log('download button:   ', showDownloadButton);
