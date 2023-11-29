@@ -62,9 +62,9 @@ export default function Lessons() {
     }, [courseSlug, setChapters]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div className="mb-6  grid h-[90vh] grid-cols-2 xm:grid-cols-5 lg:grid-cols-4">
+        <div className="mb-6  grid h-[90vh] grid-cols-5 xm:grid-cols-5 lg:grid-cols-4">
             {isSidebarOpen && (
-                <div className=" h-[90vh] w-full pb-5 xm:col-span-2 lg:col-span-1">
+                <div className=" h-[90vh] w-full pb-5 col-span-4 xm:col-span-2 lg:col-span-1">
                     <Sidebar courseSlug={courseSlug} chapters={chapters} />
                 </div>
             )}

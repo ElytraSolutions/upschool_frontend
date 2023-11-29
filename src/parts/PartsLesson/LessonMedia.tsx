@@ -43,10 +43,10 @@ const ChapterMedia = ({ section }) => {
         contentType = 'carousel';
     }
     return (
-        <div className="media-container w-full h-full flex justify-center items-center">
+        <div className="media-container w-full h-full flex justify-start items-center">
             {contentType === 'image' ? (
                 <img
-                    className="w-3/4"
+                    className="w-full"
                     src={resolveImgURL(section[0].image_content)}
                     onClick={() => {
                         setShowPopUp(true);
@@ -140,9 +140,9 @@ const ChapterMedia = ({ section }) => {
                     </div>
 
                     {/* video */}
-                    <div className="w-full h-[50vh]">
+                    <div className="w-full min-h-[50vh]">
                         <iframe
-                            className="w-full h-full"
+                            className=" aspect-[16/9] w-full "
                             src={videoURLs[videoPlatform]}
                             title="YouTube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

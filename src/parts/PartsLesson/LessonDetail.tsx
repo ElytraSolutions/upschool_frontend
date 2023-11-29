@@ -93,7 +93,7 @@ export default function LessonDetail({
     const [clipBoard, setClipBoard] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log('lesson', lesson);
+        // console.log('lesson', lesson);
     }, [lesson]);
     useEffect(() => {
         if (chapters) {
@@ -250,9 +250,9 @@ export default function LessonDetail({
                                         to={`/course/${courseSlug}`}
                                         className="text-xs flex flex-row items-center justify-start gap-0 md:gap-1 md:text-base"
                                     >
-                                        Goto Course Home
+                                        Go to Course Home
                                         <span>
-                                            <HomeIcon />
+                                            <HomeIcon className="scale-[0.8] origin-top" />
                                         </span>
                                     </NavLink>
                                 </div>
@@ -265,7 +265,13 @@ export default function LessonDetail({
                         </div>
                     </div>
                     {/* ChapterDetail Chapters Section*/}
-                    <div className="flex flex-col mx-4 items-center ">
+                    <div
+                        className={` ${
+                            isSidebarOpen
+                                ? 'hidden xm:block'
+                                : '  flex flex-col mx-4 items-center'
+                        } `}
+                    >
                         {lesson.lesson_sections.map((section) => (
                             <div
                                 key={section.id}
@@ -379,7 +385,13 @@ export default function LessonDetail({
                     </div>
 
                     {/* TODO check if chapter is already completed */}
-                    <div className="w-full flex items-center justify-evenly pt-14">
+                    <div
+                        className={` ${
+                            isSidebarOpen
+                                ? 'hidden xm:block'
+                                : 'w-full flex items-center justify-evenly pt-14'
+                        }`}
+                    >
                         {/* previous button, hide if lesson is the first element of chapterlessons*/}
 
                         <button
