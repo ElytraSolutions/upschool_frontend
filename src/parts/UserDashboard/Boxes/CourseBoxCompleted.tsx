@@ -77,11 +77,15 @@ export default function CourseBoxCompleted({
                                             'Certificate Response',
                                             res.data,
                                         );
-                                        navigate(
-                                            `/certificate?course=${encodeURIComponent(
-                                                detail.name,
-                                            )}`,
+                                        window.open(
+                                            `${res.data.certificate_url}`,
+                                            '_blank',
                                         );
+                                        // navigate(
+                                        //     `/certificate?course=${encodeURIComponent(
+                                        //         detail.name,
+                                        //     )}`,
+                                        // );
                                     }}
                                 >
                                     Get Certificate
