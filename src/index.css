@@ -107,6 +107,17 @@ html {
   font-weight: bolder;
 }
 
+.course-download-button {
+  display: flex;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+  justify-items: center;
+  border-radius: 2px;
+}
+
 /* 
 a {
   font-weight: 500;
