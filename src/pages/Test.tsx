@@ -46,6 +46,7 @@ function Test() {
 
     return (
         <>
+            this is test.
             {/* <div className="grid gap-y-10">
                 <CourseStaticTop />
                 <div className="tab:hidden flex justify-center my-6 mx-6">
