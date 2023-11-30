@@ -3,9 +3,11 @@ import useUser from '../../hooks/useUser';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Link } from 'react-router-dom';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import { useState } from 'react';
 
 function CourseStaticTop({ courseInfo }) {
     const { user } = useUser();
+    const [registerHover, setRegisterHover] = useState(false);
     // const hextoDecimal = (hex: any) => parseInt(hex, 16);
     // ${
     //                                                             hextoDecimal(
@@ -19,6 +21,10 @@ function CourseStaticTop({ courseInfo }) {
     //                                                                 ? 'text-black'
     //                                                                 : 'text-white'
     //                                                         }
+    const handleHover = () => {
+        setRegisterHover((oldstate) => !oldstate);
+    };
+
     return (
         <>
             <div className=" flex items-center justify-center flex-col">
@@ -95,11 +101,19 @@ function CourseStaticTop({ courseInfo }) {
                                                 <div className="flex my-2">
                                                     <Link to="/register">
                                                         <button
-                                                            className={`rounded-sm font-thin text-white text-[18px] px-11 py-2`}
+                                                            className={`rounded-sm font-thin text-white text-[18px] px-11 py-2 hover:scale-[0.95] transition duration-400`}
                                                             style={{
                                                                 backgroundColor:
-                                                                    courseInfo.theme,
+                                                                    registerHover
+                                                                        ? '#ec96b3'
+                                                                        : courseInfo.theme,
                                                             }}
+                                                            onMouseEnter={
+                                                                handleHover
+                                                            }
+                                                            onMouseLeave={
+                                                                handleHover
+                                                            }
                                                         >
                                                             REGISTER
                                                             <span>
