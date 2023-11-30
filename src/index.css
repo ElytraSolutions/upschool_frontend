@@ -116,8 +116,13 @@ html {
   text-transform: uppercase;
   justify-items: center;
   border-radius: 2px;
+  transition-duration: 0.4s;
 }
 
+.course-download-button:hover {
+  background-color: #ec96b3 !important;
+  scale: 0.95;
+}
 /* 
 a {
   font-weight: 500;

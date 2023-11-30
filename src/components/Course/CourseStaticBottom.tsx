@@ -10,6 +10,10 @@ function CourseStaticBottom({ questionList, theme }) {
     const [openQuestion, setOpenQuestion] = useState(
         Array(Object.keys(questionList).length).fill(false),
     );
+    const [registerHover, setRegisterHover] = useState(false);
+    const handleHover = () => {
+        setRegisterHover((oldstate) => !oldstate);
+    };
     function toggleQuestion(index: number) {
         setOpenQuestion((prevOpenQuestion) => {
             const newOpenQuestion = [...prevOpenQuestion];
@@ -36,10 +40,14 @@ function CourseStaticBottom({ questionList, theme }) {
                                 <div className="flex my-2">
                                     <Link to="/register">
                                         <button
-                                            className={`rounded-sm font-thin text-[18px] px-11 py-2`}
+                                            className={`rounded-sm font-thin text-[18px] px-11 py-2 hover:scale-[0.95] transition duration-400`}
                                             style={{
-                                                backgroundColor: theme,
+                                                backgroundColor: registerHover
+                                                    ? '#ec96b3'
+                                                    : theme,
                                             }}
+                                            onMouseEnter={handleHover}
+                                            onMouseLeave={handleHover}
                                         >
                                             REGISTER
                                             <span>

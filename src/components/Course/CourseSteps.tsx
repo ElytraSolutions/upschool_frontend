@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom';
 import resolveImgURL from '../../utlis/resolveImgURL';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import useUser from '../../hooks/useUser';
+import { useState } from 'react';
 // import { FunctionalIFrameComponent } from './FuncIFrame';
 // import { useRef, useEffect, useState } from 'react';
 
 function CourseSteps({ steps, theme, objData }) {
     const { user } = useUser();
+    const [registerHover, setRegisterHover] = useState(false);
+
     // const divRef = useRef<any>(null);
     // const [dynHeight, setDynHeight] = useState(0);
     // useEffect(() => {
@@ -20,6 +23,11 @@ function CourseSteps({ steps, theme, objData }) {
 
     //     return () => clearTimeout(timerId);
     // }, [divRef]);
+
+    const handleHover = () => {
+        setRegisterHover((oldstate) => !oldstate);
+    };
+
     return (
         <>
             <div className="flex w-full justify-center">
@@ -81,10 +89,14 @@ function CourseSteps({ steps, theme, objData }) {
                                 <div className="flex justify-center my-2">
                                     <Link to="/register">
                                         <button
-                                            className={`rounded-sm font-thin text-white text-[18px] px-11 py-2`}
+                                            className={`rounded-sm font-thin text-white text-[18px] px-11 py-2 hover:scale-[0.95] transition duration-400`}
                                             style={{
-                                                backgroundColor: theme,
+                                                backgroundColor: registerHover
+                                                    ? '#ec96b3'
+                                                    : theme,
                                             }}
+                                            onMouseEnter={handleHover}
+                                            onMouseLeave={handleHover}
                                         >
                                             REGISTER
                                             <span>
