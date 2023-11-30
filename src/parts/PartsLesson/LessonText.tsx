@@ -7,7 +7,10 @@ const ChapterText = ({ chapter }) => {
         <>
             <div className="ChapterText flex flex-col gap-6">
                 {/* Title */}
-                <div className="text-4xl font-bold text-theme-color">
+                <div
+                    className="text-4xl font-bold text-theme-color"
+                    style={{ fontFamily: 'arial' }}
+                >
                     {chapter.name}
                 </div>
                 {/* teacher's note */}
@@ -21,7 +24,7 @@ const ChapterText = ({ chapter }) => {
                             }`}
                         >
                             <div
-                                className="flex max-w-fit flex-row items-center justify-start hover:cursor-pointer"
+                                className="flex max-w-fit flex-row items-center justify-start hover:cursor-pointer font-bold"
                                 onClick={() => {
                                     setIsClicked((oldState) => !oldState);
                                 }}
