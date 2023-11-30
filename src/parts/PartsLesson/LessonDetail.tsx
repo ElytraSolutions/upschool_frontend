@@ -285,7 +285,7 @@ export default function LessonDetail({
                         {lesson.lesson_sections.map((section) => (
                             <div
                                 key={section.id}
-                                className="w-full border-b-[1px] border-black xxlarge:w-[70%] px-3"
+                                className="w-full border-b-[1px] border-black xxlarge:w-[70%] px-2 md:px-16 xxlarge:px-2 xxlarge:mx-auto"
                             >
                                 <div className="w-full mt-12 pb-6  flex flex-col md:flex-row gap-1 md:gap-8 ">
                                     <div
