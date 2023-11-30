@@ -12,7 +12,7 @@ const event = {
     time: '10:00 AM',
     duration: '1 hour',
     mentor: 'Gavin McCormack, Dr Sunita Gandhi',
-    description: `Join us for an extraordinary event as thousands of schools from all corners of the globe come together for Upschool’s annual World Children’s Day Conference. Prepare to be inspired as we celebrate the remarkable achievements of schools that have completed the transformative ‘Be the Change’ course offered by Upschool and Canva platforms as we change the world through the power of the SDGs provided to us by the United Nations.\n
+    description: `Join us for an extraordinary event as thousands of schools from all corners of the globe come together for Upschool’s annual World Children’s day Conference. Prepare to be inspired as we celebrate the remarkable achievements of schools that have completed the transformative ‘Be the Change’ course offered by Upschool and Canva platforms as we change the world through the power of the SDGs provided to us by the United Nations.\n
 This special day will serve as a platform to showcase the incredible work accomplished by the future leaders of tomorrow. Prepare to be captivated by the stories of these change-makers hailing from various parts of the world.\n
 
 We invite you to be a part of this global gathering either as a spectator or an active participant. By enrolling in the free courses available, you have the opportunity to showcase your school’s work alongside other distinguished schools from around the world.\n
