@@ -47,7 +47,7 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
                                     lessonSlug === lesson.slug
                                         ? 'bg-[#FDCF60]'
                                         : 'bg-slate-200'
-                                } gap-7 w-full text-sm px-2 mb-4`}
+                                } gap-7 w-full text-sm px-2 my-2`}
                             >
                                 <div className="flex flex-row gap-1 lg:gap-2  2xl:gap-3 items-center justify-start p-2  ">
                                     <span className="h-8 w-8 rounded-full bg-[#242254] flex justify-center items-center">
