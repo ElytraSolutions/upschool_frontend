@@ -234,7 +234,7 @@ export default function LessonDetail({
                     className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px]"
                 >
                     {/* ChapterDetail Header */}
-                    <div className="mb-5 flex w-full bg-[#1e3050] ">
+                    <div className="mb-5 flex w-full bg-[#1e3050]  ">
                         <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
                             <div className="flex-row flex items-center justify-between">
                                 {/* Circle sidebar open and close option */}
