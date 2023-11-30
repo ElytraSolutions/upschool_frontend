@@ -221,7 +221,7 @@ export default function LessonDetail({
                     }
                 }, 1000 * index);
 
-                // document.body.removeChild(link);
+                // document.body.removeChild(link)s;
             }
         });
     };
@@ -234,7 +234,7 @@ export default function LessonDetail({
                     className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px]"
                 >
                     {/* ChapterDetail Header */}
-                    <div className="mb-5 flex w-full bg-[#1e3050] ">
+                    <div className="mb-5 flex w-full bg-[#1e3050]  ">
                         <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
                             <div className="flex-row flex items-center justify-between">
                                 {/* Circle sidebar open and close option */}
@@ -285,7 +285,7 @@ export default function LessonDetail({
                         {lesson.lesson_sections.map((section) => (
                             <div
                                 key={section.id}
-                                className="w-full border-b-[1px] border-black xxlarge:w-[70%] px-3"
+                                className="w-full border-b-[1px] border-black xxlarge:w-[70%] px-2 md:px-16 xxlarge:px-2 xxlarge:mx-auto"
                             >
                                 <div className="w-full mt-12 pb-6  flex flex-col md:flex-row gap-1 md:gap-8 ">
                                     <div
