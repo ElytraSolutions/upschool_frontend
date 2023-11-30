@@ -41,7 +41,7 @@ function CourseStaticTop({ courseInfo }) {
                                 alt="Cover Image"
                                 className="w-full h-[650px] object-cover"
                             />
-                            <div className="absolute top-0 left-0 w-full h-full bg-theme-color opacity-60 z-0"></div>
+                            <div className="absolute top-0 left-0 w-full h-full bg-theme-color opacity-80 z-0"></div>
                         </div>
                         <div className="absolute flex w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center">
                             <div className="grid tab:grid-cols-5 grid-flow-row gap-12 px-4">
