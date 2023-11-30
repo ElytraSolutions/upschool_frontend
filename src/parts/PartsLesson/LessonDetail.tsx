@@ -34,6 +34,7 @@ export default function LessonDetail({
 
     useEffect(() => {
         // console.log('lesson', lesson);
+        document.title = `${lesson?.name} | Upschool`;
     }, [lesson]);
     useEffect(() => {
         if (chapters) {
