@@ -26,7 +26,7 @@ function CourseStaticBottom({ questionList, theme }) {
     if (questionList.length === 0 && questionList[0] === false) return null;
     return (
         <>
-            <div className="grid bg-[#fff] xl:grid-cols-5 grid-flow-row text-theme-color mb-24 gap-y-4">
+            <div className="grid bg-[#fff] xl:grid-cols-5 grid-flow-row text-theme-color mb-24 gap-y-4 max-w-[1600px] mx-auto">
                 <div className="xl:col-start-1 xl:col-span-2 flex justify-start h-fit font-sans xs:ml-12 px-4 md:mr-[200px] mr-0 xs:w-[390px] w-screen">
                     <div className="grid">
                         <div className="md:text-[37px] text-[1.8rem] font-kumbh font-bold">

@@ -16,7 +16,7 @@ function CourseStaticVideo({ theme }) {
                 }}
             >
                 <iframe
-                    className="w-full lg:h-full h-[325px] lg:col-start-1 lg:col-span-4"
+                    className="w-full lg:h-full h-[325px] lg:col-start-1 lg:col-span-4 "
                     height="315"
                     src="https://www.youtube.com/embed/rE70YlvHBzA?si=QxXdtWWqOUZMXMIv"
                     title="YouTube video player"
