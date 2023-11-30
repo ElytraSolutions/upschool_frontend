@@ -221,7 +221,7 @@ export default function LessonDetail({
                     }
                 }, 1000 * index);
 
-                // document.body.removeChild(link);
+                // document.body.removeChild(link)s;
             }
         });
     };
