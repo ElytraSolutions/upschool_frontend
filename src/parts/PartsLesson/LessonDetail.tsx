@@ -348,7 +348,7 @@ export default function LessonDetail({
                                 chapters[0].lessons[0].slug === lessonSlug
                                     ? 'opacity-0 pointer-events-none'
                                     : ''
-                            } hidden md:block text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                            } hidden md:block text-xs  p-0.5 text-pink-upschool font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
                             onClick={() => {
                                 handlePrev();
                             }}
@@ -358,10 +358,10 @@ export default function LessonDetail({
                         <button
                             className={`${
                                 chapters && checkAllLessonCompleted()
-                                    ? 'bg-pink-upschool'
+                                    ? 'bg-[#32cd49]'
                                     : islessonCompleted
-                                    ? ' bg-pink-upschool/50 pointer-events-none'
-                                    : 'bg-pink-upschool'
+                                    ? ' bg-[#32cd80] pointer-events-none'
+                                    : 'bg-[#32cd49]'
                             } text-xs rounded-md  p-0.5 text-white  text-center px-4 py-2 md:text-base `}
                             onClick={async () => {
                                 if (!islessonCompleted) {
@@ -402,7 +402,7 @@ export default function LessonDetail({
                                 ].slug === lessonSlug
                                     ? 'opacity-0 pointer-events-none'
                                     : ''
-                            } hidden md:block text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                            } hidden md:block text-xs  p-0.5 text-pink-upschool font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
                             onClick={() => {
                                 handleNext();
                             }}
