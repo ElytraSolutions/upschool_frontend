@@ -25,11 +25,12 @@ export default function LessonDetail({
     const navigate = useNavigate();
     const divRef = useRef<HTMLDivElement>(null);
     const { isBigScreen } = useScreenWidthAndHeight();
+    const [clipBoard, setClipBoard] = useState<boolean>(false);
 
     // const [lesson, setLesson] = useState<any>(null);
     const [lesson, setLesson] = useState<any>(null);
     const [islessonCompleted, setIsLessonCompleted] = useState<boolean>(false);
-    const [clipBoard, setClipBoard] = useState<boolean>(false);
+
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
@@ -136,7 +137,6 @@ export default function LessonDetail({
             }
         }
     };
-
     const handleDownload = (contents) => {
         // console.log('download', contents);
         //download all images on click stored as image_content
@@ -171,7 +171,7 @@ export default function LessonDetail({
             <>
                 <div
                     ref={divRef}
-                    className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px]"
+                    className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px] no-scrollbar"
                 >
                     {/* ChapterDetail Header */}
                     <div className="mb-5 flex w-full bg-[#1e3050]  ">
@@ -225,9 +225,9 @@ export default function LessonDetail({
                         {lesson.lesson_sections.map((section) => (
                             <div
                                 key={section.id}
-                                className="w-full border-b-[1px] border-black xxlarge:w-[70%] px-2 md:px-16 xxlarge:px-2 xxlarge:mx-auto"
+                                className="w-full md:px-8  xlarge:w-[1110px] m-auto border-b-[1px] border-black md:border-none  "
                             >
-                                <div className="w-full mt-12 pb-6  flex flex-col md:flex-row gap-1 md:gap-8 ">
+                                <div className="w-full md:border-b-[1px] md:border-black mt-12 pb-6  flex flex-col md:flex-row gap-4 md:gap-8 ">
                                     <div
                                         className={` ${
                                             section.lesson_section_contents
@@ -255,7 +255,7 @@ export default function LessonDetail({
                                         />
                                     </div>
                                 </div>
-                                <div className="flex flex-col gap-4 mb-4">
+                                <div className="md:hidden flex flex-col gap-4 mb-4">
                                     <button
                                         className={`${
                                             section.downloadable
