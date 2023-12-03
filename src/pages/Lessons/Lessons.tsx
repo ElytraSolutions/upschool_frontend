@@ -5,12 +5,16 @@ import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import { useParams } from 'react-router-dom';
 import axiosInstance from '../../config/Axios';
 import IChapter from '../../types/IChapter';
+import Loading from '../../components/Loading';
 
 export default function Lessons() {
     const { isBigScreen } = useScreenWidthAndHeight();
     const [isSidebarOpen, setIsSiderbarOpen] = useState<boolean>(true);
     const [chapters, setChapters] = useState<IChapter[] | null>(null);
     const { courseSlug } = useParams();
+
+    const [dataFetchComplete, setDataFetchComplete] = useState(false);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -52,6 +56,7 @@ export default function Lessons() {
         }
         setChapters(chaptersData);
         // console.log(chaptersData, 'chaptersData');
+        setDataFetchComplete(true);
         return chaptersData;
     };
 
@@ -60,6 +65,8 @@ export default function Lessons() {
             await updateChapters();
         })();
     }, [courseSlug, setChapters]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    if (!dataFetchComplete) return <Loading />;
 
     return (
         <div className="mb-6 h-[90vh] flex">

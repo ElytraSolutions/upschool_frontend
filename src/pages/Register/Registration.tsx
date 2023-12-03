@@ -141,7 +141,7 @@ export default function Registration() {
                     </div>
                 </div>
             ) : (
-                <div className="flex justify-center items-center bg-gray-200 py-6 px-2 md:py-10 xl:py-16 xlarge:p-24 h-full w-full ">
+                <div className="flex justify-center items-center bg-gray-200 py-6 px-2 md:py-10 xl:py-16 xlarge:p-24 h-[calc(100vh-4rem)] w-full ">
                     {/*Layout*/}
                     <div
                         className={`grid ${
