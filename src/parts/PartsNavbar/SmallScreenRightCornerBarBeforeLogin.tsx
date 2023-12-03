@@ -28,38 +28,38 @@ const SmallScreenRightCornerBarBeforeLogin = () => {
             <ul
                 className={`bg-white text-font-color text-sm rounded-md transform scale-0 ${
                     isClicked && 'scale-100'
-                }  absolute transition duration-150 ease-in-out origin-top -translate-x-40 sm:-translate-x-40  md:-translate-x-44  overflow-hidden pl-2 pr-24 py-2 shadow-[0px_5px_12px_10px_rgba(0,0,0,0.1)]`}
+                }  absolute transition duration-150 ease-in-out origin-top -translate-x-40 sm:-translate-x-40  md:-translate-x-44  overflow-hidden pl-3 pr-24 py-2 shadow-[0px_5px_12px_10px_rgba(0,0,0,0.1)]`}
             >
                 <li className="hover:bg-red-upschool  hover:text-white ">
                     <NavLink
                         to="/login"
-                        className="flex justify-center items-center gap-2"
+                        className="flex justify-start items-center gap-2"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            height="1em"
-                            viewBox="0 0 640 512"
-                            className="h-5 w-5 xm:w-8 xm:h-8 fill-theme-color xm:stroke-white "
+                            height="16"
+                            width="20"
+                            viewBox="0 0 512 512"
                         >
-                            <path d="M576 0c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V32c0-17.7 14.3-32 32-32zM448 96c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V128c0-17.7 14.3-32 32-32zM352 224V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32s32 14.3 32 32zM192 288c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320c0-17.7 14.3-32 32-32zM96 416v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V416c0-17.7 14.3-32 32-32s32 14.3 32 32z" />
+                            <path d="M352 96l64 0c17.7 0 32 14.3 32 32l0 256c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0c53 0 96-43 96-96l0-256c0-53-43-96-96-96l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32zm-9.4 182.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L242.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l210.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
                         </svg>
                         <p className="p-2 md:px-6 md:py-3">Login</p>
                     </NavLink>
                 </li>
-                <li className="hover:bg-red-upschool hover:text-white">
+                <li className="hover:bg-red-upschool hover:text-white ">
                     <NavLink
                         to="/register"
-                        className="flex justify-center items-center gap-2"
+                        className="flex justify-start items-center gap-2"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            height="1em"
-                            viewBox="0 0 448 512"
-                            className=" ml-4 h-5 w-5 xm:w-8 xm:h-8 fill-theme-color xm:stroke-white"
+                            height="16"
+                            width="20"
+                            viewBox="0 0 640 512"
                         >
-                            <path d="M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32V64 368 480c0 17.7 14.3 32 32 32s32-14.3 32-32V352l64.3-16.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66.1c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L64 48V32z" />
+                            <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
                         </svg>
-                        <p className="p-2 sm:p-2 md:px-6 md:py-3">Register</p>
+                        <p className="p-2 md:px-6 md:py-3">Register</p>
                     </NavLink>
                 </li>
             </ul>

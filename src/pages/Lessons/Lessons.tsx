@@ -64,7 +64,7 @@ export default function Lessons() {
     return (
         <div className="mb-6 h-[90vh] flex">
             {isSidebarOpen && (
-                <div className=" h-[90vh] pb-5 w-[75%] md:w-[30%] lg:w-[25%] xxlarge:w-[15%] ">
+                <div className=" h-[90vh] pb-5 w-[75%] md:w-[30%] lg:w-[25%] xxlarge:w-[15%] bg-slate-50 ">
                     <Sidebar courseSlug={courseSlug} chapters={chapters} />
                 </div>
             )}
