@@ -74,6 +74,7 @@ const Login = () => {
     if (user?.id) {
         return <Navigate to="/" />;
     }
+
     return (
         <>
             <div className="grid">
@@ -282,6 +283,14 @@ const Login = () => {
                                                         touched.password &&
                                                         (errors.password as string)
                                                     }
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === 'Enter') {
+                                                            setShowPassword(
+                                                                !showPassword,
+                                                            );
+                                                            handleSubmit();
+                                                        }
+                                                    }}
                                                 />
                                                 <div className="flex items-center">
                                                     <label className="row-span-1 flex flex-1 justify-start gap-x-2 items-center text-font-color ">
