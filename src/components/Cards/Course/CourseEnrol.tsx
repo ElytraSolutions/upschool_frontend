@@ -110,7 +110,7 @@ function CourseEnrol({ thumbnail }) {
                 />
                 <div className="flex flex-col gap-4 justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] ">
                     <button
-                        className="w-full bg-theme-color text-white px-8 py-2 rounded-sm flex-grow sm:text-base text-[0.9rem] hover:bg-theme-color/80 "
+                        className="w-full bg-theme-color text-white px-8 py-2 rounded-sm flex-grow sm:text-base text-[0.9rem] my-2 hover:bg-theme-color/80 "
                         onClick={handleClick}
                     >
                         {enrollmentStatus.enrolled
@@ -121,7 +121,7 @@ function CourseEnrol({ thumbnail }) {
                     </button>
                     {enrollmentStatus.enrolled && checkAllLessonCompleted() && (
                         <Link
-                            className=" w-full bg-theme-color text-white px-8 py-2 rounded-sm flex-grow sm:text-base text-[0.9rem] hover:bg-theme-color/80 cursor-pointer text-center "
+                            className=" w-full bg-theme-color text-white px-8 py-2  mb-2 rounded-sm flex-grow sm:text-base text-[0.9rem] hover:bg-theme-color/80 cursor-pointer text-center "
                             onClick={handleGoToCourse}
                             to={`/certificate`}
                         >
