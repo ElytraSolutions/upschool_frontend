@@ -83,7 +83,7 @@ const ChapterText = ({ chapter }) => {
                                 </p>
                             </div>
                         </div>
-                        <div className="h-0 w-full border-[0.05px] border-gray-200 mt-3"></div>
+                        <div className="h-0 w-full border-[0.05px] border-[#d4d4d4] mt-3"></div>
                     </div>
                 )}
 
