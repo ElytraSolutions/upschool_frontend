@@ -2,7 +2,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useState } from 'react';
 import resolveImgURL from '../../utlis/resolveImgURL';
 
-const ChapterText = ({ chapter }) => {
+const ChapterText = ({ chapter, index }) => {
     const [isClicked, setIsClicked] = useState(false); //teacher's note
     const [clipBoard, setClipBoard] = useState<boolean>(false);
 
@@ -109,7 +109,8 @@ const ChapterText = ({ chapter }) => {
                         handleDownload(chapter.lesson_section_contents);
                     }}
                 >
-                    Download Lesson Plan
+                    {index === 0 ? 'Download Lesson Plan' : 'Download '}
+
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="1em"

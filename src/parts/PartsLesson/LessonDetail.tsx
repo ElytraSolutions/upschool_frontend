@@ -223,7 +223,7 @@ export default function LessonDetail({
                                     : '  flex flex-col mx-4 items-center'
                             } `}
                         >
-                            {lesson.lesson_sections.map((section) => (
+                            {lesson.lesson_sections.map((section, index) => (
                                 <div
                                     key={section.id}
                                     className="w-full md:px-8  xlarge:w-[1110px] m-auto border-b-[1px] border-black md:border-none  "
@@ -240,6 +240,7 @@ export default function LessonDetail({
                                             <ChapterText
                                                 key={section.id}
                                                 chapter={section}
+                                                index={index}
                                             />
                                         </div>
                                         <div
@@ -269,7 +270,10 @@ export default function LessonDetail({
                                                 );
                                             }}
                                         >
-                                            Download Lesson Plan
+                                            {index === 0
+                                                ? 'Download Lesson Plan'
+                                                : 'Download'}
+
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 height="1em"
