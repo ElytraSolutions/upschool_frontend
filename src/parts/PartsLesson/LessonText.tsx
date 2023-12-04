@@ -55,7 +55,7 @@ const ChapterText = ({ chapter }) => {
                             }`}
                         >
                             <div
-                                className="flex max-w-fit flex-row items-center justify-start hover:cursor-pointer font-bold"
+                                className="flex max-w-fit flex-row items-center justify-center gap-2 hover:cursor-pointer font-bold"
                                 onClick={() => {
                                     setIsClicked((oldState) => !oldState);
                                 }}
@@ -69,7 +69,7 @@ const ChapterText = ({ chapter }) => {
                                         height: '25px',
                                     }}
                                 />
-                                Teacher's note
+                                Teacher Notes
                             </div>
                             <div
                                 className={`${
@@ -83,7 +83,7 @@ const ChapterText = ({ chapter }) => {
                                 </p>
                             </div>
                         </div>
-                        <div className="h-0 w-full border border-gray-400 mt-3"></div>
+                        <div className="h-0 w-full border-[0.05px] border-[#d4d4d4] mt-3"></div>
                     </div>
                 )}
 
@@ -109,7 +109,7 @@ const ChapterText = ({ chapter }) => {
                         handleDownload(chapter.lesson_section_contents);
                     }}
                 >
-                    Download
+                    Download Lesson Plan
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="1em"

@@ -35,7 +35,7 @@ export default function LessonDetail({
 
     useEffect(() => {
         // console.log('lesson', lesson);
-        document.title = `${lesson?.name} | Upschool`;
+        document.title = `${lesson ? lesson.name : 'Loading'} | Upschool`;
     }, [lesson]);
     useEffect(() => {
         if (chapters) {
@@ -174,13 +174,13 @@ export default function LessonDetail({
                     className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px] no-scrollbar"
                 >
                     {/* ChapterDetail Header */}
-                    <div className="mb-5 flex w-full bg-[#1e3050]  ">
-                        <div className="flex h-14 flex-1 flex-row items-center justify-between p-2 text-sm text-white">
+                    <div className=" flex w-full bg-[#1e3050]  ">
+                        <div className="flex h-14 flex-1 flex-row items-center justify-between p-4 text-sm text-white">
                             <div className="flex-row flex items-center justify-between">
                                 {/* Circle sidebar open and close option */}
                                 <div
                                     className={`${
-                                        isSidebarOpen ? 'absolute -left-6' : ''
+                                        isSidebarOpen ? 'absolute -left-4' : ''
                                     }  flex h-4 w-4 flex-row items-center justify-center rounded-full bg-yellow-400 text-white md:h-6 md:w-6 lg:h-8 lg:w-8 `}
                                 >
                                     <KeyboardArrowLeftIcon
@@ -268,7 +268,7 @@ export default function LessonDetail({
                                             );
                                         }}
                                     >
-                                        Download
+                                        Download Lesson Plan
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             height="1em"
@@ -338,7 +338,7 @@ export default function LessonDetail({
                     <div
                         className={` ${
                             isSidebarOpen ? 'hidden xm:flex' : ''
-                        } w-full flex items-center justify-evenly pt-14`}
+                        } w-full flex items-center justify-evenly pt-14 gap-4`}
                     >
                         {/* previous button, hide if lesson is the first element of chapterlessons*/}
 
@@ -348,12 +348,20 @@ export default function LessonDetail({
                                 chapters[0].lessons[0].slug === lessonSlug
                                     ? 'opacity-0 pointer-events-none'
                                     : ''
-                            } hidden md:block text-xs  p-0.5 text-pink-upschool font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                            } flex items-center gap-2 text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
                             onClick={() => {
                                 handlePrev();
                             }}
                         >
-                            Previous Lesson
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="16"
+                                width="14"
+                                viewBox="0 0 448 512"
+                            >
+                                <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+                            </svg>
+                            Previous
                         </button>
                         <button
                             className={`${
@@ -402,12 +410,20 @@ export default function LessonDetail({
                                 ].slug === lessonSlug
                                     ? 'opacity-0 pointer-events-none'
                                     : ''
-                            } hidden md:block text-xs  p-0.5 text-pink-upschool font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 `}
+                            } flex text-xs  p-0.5 text-theme-color font-semibold  text-center px-4 py-2 md:text-base underline underline-offset-4 items-center  gap-2`}
                             onClick={() => {
                                 handleNext();
                             }}
                         >
-                            Next Lesson
+                            Next
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="16"
+                                width="14"
+                                viewBox="0 0 448 512"
+                            >
+                                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                            </svg>
                         </button>
                     </div>
                 </div>

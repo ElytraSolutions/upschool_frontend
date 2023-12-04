@@ -10,11 +10,11 @@ function CertificateProgressBar({ currentLevel }: ProgressBarUBPorps) {
     return (
         <div className="grid w-full grid-cols-10">
             <div className=" col-start-2 col-end-11 flex  w-full flex-col text-white ">
-                <span className="text-sm">step {currentLevel + 1} of 3</span>
+                <span className="text-sm">Step {currentLevel + 1} of 3</span>
                 <span className="text-base">{`${percent[currentLevel]}% to complete`}</span>
                 <div className="mt-2 h-4 w-full rounded-e-xl rounded-s-md overflow-hidden bg-white">
                     <div
-                        className={`h-4 bg-pink-400 ${
+                        className={`h-4 bg-red-upschool ${
                             currentLevel === 1
                                 ? 'w-1/2'
                                 : currentLevel === 2

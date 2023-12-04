@@ -18,7 +18,7 @@ export const CertificateProgressSection = ({
                             <div className="col-span-1">
                                 {/* Circle container */}
                                 {/* Circle */}
-                                <div className="border-2 border-pink-600 bg-white w-8 h-8 rounded-full">
+                                <div className="border-2 border-red-upschool bg-white w-8 h-8 rounded-full">
                                     {/* tick mark */}
                                     <span>
                                         <svg
@@ -64,7 +64,7 @@ export const CertificateProgressSection = ({
                                 <div
                                     className={`${
                                         currentStep > 0
-                                            ? 'border-pink-600 bg-white '
+                                            ? 'border-red-upschool bg-white '
                                             : 'border-gray-400'
                                     } border-2  w-8 h-8 rounded-full`}
                                 >
@@ -120,7 +120,7 @@ export const CertificateProgressSection = ({
                                 <div
                                     className={`${
                                         currentStep > 1
-                                            ? 'border-pink-600 bg-white '
+                                            ? 'border-red-upschool bg-white '
                                             : 'border-gray-400'
                                     } border-2 w-8 h-8 rounded-full`}
                                 >

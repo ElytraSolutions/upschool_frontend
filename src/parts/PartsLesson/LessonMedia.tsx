@@ -53,9 +53,9 @@ const ChapterMedia = ({ section }) => {
                     }}
                 ></img>
             ) : contentType === 'video' ? (
-                <div className="flex flex-col w-full h-full">
+                <div className="flex flex-col w-full h-fit">
                     {/* select buttons */}
-                    <div className="flex w-full h-16 ">
+                    <div className="flex w-full h-20 ">
                         {/* Youtube */}
                         <div className="w-1/2 flex flex-col items-center gap-0 ">
                             <div
@@ -69,7 +69,7 @@ const ChapterMedia = ({ section }) => {
                                         ? ''
                                         : ' opacity-50 pointer-events-none '
                                 }
-                                w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
+                                w-full flex-row flex items-center justify-center h-16 text-sm font-semibold cursor-pointer gap-2`}
                                 onClick={() => {
                                     setVideoPlatform('Youtube');
                                 }}
@@ -109,7 +109,7 @@ const ChapterMedia = ({ section }) => {
                                     videoURLs.Vimeo.length > 0
                                         ? ''
                                         : 'opacity-50 pointer-events-none'
-                                } w-full flex-row flex items-center justify-center h-10 text-sm font-semibold cursor-pointer gap-2`}
+                                } w-full flex-row flex items-center justify-center h-16 text-sm font-semibold cursor-pointer gap-2`}
                                 onClick={() => {
                                     setVideoPlatform('Vimeo');
                                 }}
@@ -140,7 +140,7 @@ const ChapterMedia = ({ section }) => {
                     </div>
 
                     {/* video */}
-                    <div className="w-full min-h-[50vh]">
+                    <div className="w-full">
                         <iframe
                             className=" aspect-[16/9] w-full "
                             src={videoURLs[videoPlatform]}
