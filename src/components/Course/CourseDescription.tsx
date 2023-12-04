@@ -50,7 +50,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
                     {title}
                 </div>
                 <div
-                    className="flex text-[24px] xl:w-[1120px] lg:w-[1020px] w-screen text-center justify-center mx-auto font-semibold mb-5"
+                    className="flex text-[24px] xl:w-[1120px] lg:w-[1020px] w-full text-center justify-center mx-auto font-semibold mb-5"
                     style={{ color: theme }}
                 >
                     {subtitle}

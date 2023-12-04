@@ -48,7 +48,7 @@ function CourseTestimonial({ theme, tstData }) {
                         className="flex w-full justify-center overflow-scroll-hidden"
                         // style={{ height: `${dynHeight}px` }}
                     >
-                        <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen">
+                        <div className="flex xl:w-[1120px] lg:w-[1020px] w-full">
                             {/* <FunctionalIFrameComponent title={''}> */}
                             <div
                                 // ref={divRef}
