@@ -3,7 +3,7 @@ import CourseStaticUpschool from '../../components/Course/CourseStaticUpschool';
 import CourseStaticVideo from '../../components/Course/CourseStaticVideo';
 import CourseStaticTop from '../../components/Course/CourseStaticTop';
 import CourseEnrol from '../../components/Cards/Course/CourseEnrol';
-import CourseStaticBottom from '../../components/Course/CourseStaticBottom';
+// import CourseStaticBottom from '../../components/Course/CourseStaticBottom';
 import CourseTestimonial from '../../components/Course/CourseTestimonial';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -34,7 +34,7 @@ function CoursePage() {
     const testimonials = courseInfo?.description?.testimonials;
     const steps = courseInfo?.description?.steps;
     const objectives = courseInfo?.description?.objectives;
-    const questions = courseInfo?.description?.faq;
+    // const questions = courseInfo?.description?.faq;
     return (
         <>
             <div className="grid gap-y-10">
@@ -70,12 +70,12 @@ function CoursePage() {
                         objData={objectives}
                     />
                 )}
-                {questions && (
+                {/* {questions && (
                     <CourseStaticBottom
                         questionList={questions}
                         theme={courseInfo.theme}
                     />
-                )}
+                )} */}
             </div>
         </>
     );
