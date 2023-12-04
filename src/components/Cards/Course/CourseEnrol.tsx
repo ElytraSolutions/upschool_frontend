@@ -116,7 +116,7 @@ function CourseEnrol({ thumbnail }) {
                         {enrollmentStatus.enrolled
                             ? checkAllLessonCompleted()
                                 ? 'Revisit Course'
-                                : 'Continue to Course'
+                                : 'Continue To Course'
                             : 'Enrol Now'}
                     </button>
                     {enrollmentStatus.enrolled && checkAllLessonCompleted() && (
