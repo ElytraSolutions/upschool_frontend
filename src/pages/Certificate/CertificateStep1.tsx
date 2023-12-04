@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 // import InputLabel from '@mui/material/InputLabel';
 // import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
-import FormControl from '@mui/material/FormControl';
+import Autocomplete from '@mui/material/Autocomplete';
 // import Select from '@mui/material/Select';
 // import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
@@ -22,9 +22,16 @@ import FormControl from '@mui/material/FormControl';
 //     },
 // ];
 
-const CertificateStep1 = ({ formData, setFormData, changeCurrentStep }) => {
+const CertificateStep1 = ({
+    formData,
+    setFormData,
+    changeCurrentStep,
+    courses,
+    coursesName,
+}) => {
     const { isLargeScreen } = useScreenWidthAndHeight();
-
+    console.log('courses', courses);
+    console.log('coursesName', coursesName);
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -36,7 +43,7 @@ const CertificateStep1 = ({ formData, setFormData, changeCurrentStep }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (
-            formData.course !== '' &&
+            formData.course !== null &&
             formData.firstName !== '' &&
             formData.age !== '' &&
             formData.email !== ''
@@ -54,46 +61,26 @@ const CertificateStep1 = ({ formData, setFormData, changeCurrentStep }) => {
                 </h1>
                 <form onSubmit={handleSubmit}>
                     <Box sx={{ minWidth: 120 }}>
-                        <FormControl fullWidth sx={{ marginBottom: '1rem' }}>
-                            {/* <InputLabel
-                                id="demo-simple-select-label"
-                                sx={{
-                                    color: '#03014C',
-                                    marginBottom: '2rem',
-                                }}
-                            >
-                                Choose Your Course
-                            </InputLabel> */}
-                            {/* <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
-                                value={formData.course}
-                                name="course"
-                                label="Choose Your Course"
-                                onChange={handleChange}
-                                IconComponent={() => (
-                                    <KeyboardArrowDownIcon
-                                        sx={{
-                                            color: '#03014C',
-                                            marginRight: '.5em',
-                                        }} // Change the color of the icon
-                                    />
-                                )}
-                            >
-                                {coursesName.map((course, id) => (
-                                    <MenuItem key={id} value={course.course_id}>
-                                        {course.course}
-                                    </MenuItem>
-                                ))}
-                            </Select> */}
-                            <TextField
-                                type="text"
-                                label="Course"
-                                onChange={handleChange}
-                                value={formData.course}
-                                name="course"
-                            />
-                        </FormControl>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={coursesName}
+                            sx={{ width: '100%' }}
+                            value={formData.course}
+                            onChange={(_, newValue) =>
+                                handleChange({
+                                    target: { name: 'course', value: newValue },
+                                })
+                            }
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    name="course"
+                                    label="Course Name"
+                                    onChange={handleChange}
+                                />
+                            )}
+                        />
                         <h1 className="text-2xl font-bold text-font-color p-2">
                             About You
                         </h1>
