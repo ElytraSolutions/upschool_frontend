@@ -45,7 +45,7 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
         : editorData;
     return (
         <>
-            <div className="grid w-full font-sans text-theme-color mx-2">
+            <div className="grid w-full font-sans text-theme-color">
                 <div className="md:text-[4.7rem] sm:text-[3.4rem] text-[2.4rem]  text-center font-bold font-kumbh">
                     {title}
                 </div>
