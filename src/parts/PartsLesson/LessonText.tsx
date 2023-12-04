@@ -104,7 +104,7 @@ const ChapterText = ({ chapter, index }) => {
                         chapter.downloadable
                             ? 'flex gap-4 items-center justify-center '
                             : 'flex gap-4 items-center justify-center'
-                    } w-fit h-fit bg-red-custom text-white px-4  py-2 text-center`}
+                    } w-fit h-fit bg-red-custom text-white px-[8px] py-[20px] text-[14px] text-center`}
                     onClick={() => {
                         handleDownload(chapter.lesson_section_contents);
                     }}
@@ -125,7 +125,7 @@ const ChapterText = ({ chapter, index }) => {
                         chapter.canva_template
                             ? 'flex gap-4 items-center justify-center'
                             : 'hidden'
-                    } max-w-fit h-fit bg-theme-color text-white px-7  py-3 text-center cursor-pointer`}
+                    } max-w-fit h-fit bg-theme-color text-white px-[8px] py-[20px] text-[14px] text-center cursor-pointer`}
                     href={chapter.canva_template}
                 >
                     Use canva Template
@@ -143,7 +143,7 @@ const ChapterText = ({ chapter, index }) => {
                         chapter.canva_template
                             ? 'flex gap-4 items-center justify-center'
                             : 'hidden'
-                    } max-w-fit h-fit bg-red-custom text-white px-7  py-3 text-center`}
+                    } max-w-fit h-fit bg-red-custom text-white px-[8px] py-[20px] text-[14px] text-center`}
                     onClick={() => {
                         //copy the current url to clipboard
                         navigator.clipboard.writeText(window.location.href);

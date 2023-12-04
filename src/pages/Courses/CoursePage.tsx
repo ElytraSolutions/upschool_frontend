@@ -24,7 +24,7 @@ function CoursePage() {
     }, [slug]);
     useEffect(() => {
         document.title = `${
-            courseInfo.name ? courseInfo.name : 'loading...'
+            courseInfo?.name ? courseInfo.name : 'loading...'
         } | Upschool`;
     }, [courseInfo?.name]);
     if (!courseInfo) return <Loading />;
