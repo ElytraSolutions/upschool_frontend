@@ -17,6 +17,9 @@ export default function Lessons() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        //get body document object and set overflow to hidden
+        const body = document.querySelector('body');
+        body?.classList.add('overflow-hidden');
     }, []);
     useEffect(() => {
         if (isBigScreen) {
@@ -69,9 +72,9 @@ export default function Lessons() {
     if (!dataFetchComplete) return <Loading />;
 
     return (
-        <div className="mb-6 h-[90vh] flex">
+        <div className="h-[calc(100vh-96px)] md:h-[calc(100vh-96px)] flex">
             {isSidebarOpen && (
-                <div className=" h-[90vh] pb-5 w-[75%] md:w-[30%] lg:w-[25%] xxlarge:w-[15%] bg-slate-50 ">
+                <div className=" h-full pb-5 w-[75%] md:w-[30%] lg:w-[25%] xxlarge:w-[15%] bg-slate-50 overflow-hidden ">
                     <Sidebar courseSlug={courseSlug} chapters={chapters} />
                 </div>
             )}
@@ -80,7 +83,7 @@ export default function Lessons() {
                     isSidebarOpen
                         ? 'w-[25%] md:w-[70%] lg:w-[75%] xxlarge:w-[85%] '
                         : ' w-full'
-                } relative h-[90vh] w-full`}
+                } relative h-full `}
             >
                 <LessonDetail
                     isSidebarOpen={isSidebarOpen}
