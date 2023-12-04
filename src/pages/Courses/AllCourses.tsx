@@ -4,7 +4,6 @@ import useCourseCategories from '../../hooks/useCourseCategories';
 // import { ICourseCategory } from '../../types/ICourseCategory';
 import Loading from '../../components/Loading';
 import { useEffect, useRef, useState } from 'react';
-import { set } from 'react-hook-form';
 
 function AllCourses() {
     const categories = useCourseCategories();
@@ -12,7 +11,6 @@ function AllCourses() {
     const dynamicRef = useRef<HTMLElement | null>(null);
     const [dataLoaded, setDataLoaded] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [dummyState, setDummyState] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
