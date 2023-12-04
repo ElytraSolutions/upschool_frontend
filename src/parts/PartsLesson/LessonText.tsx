@@ -2,7 +2,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useState } from 'react';
 import resolveImgURL from '../../utlis/resolveImgURL';
 
-const ChapterText = ({ chapter }) => {
+const ChapterText = ({ chapter, index }) => {
     const [isClicked, setIsClicked] = useState(false); //teacher's note
     const [clipBoard, setClipBoard] = useState<boolean>(false);
 
@@ -104,12 +104,13 @@ const ChapterText = ({ chapter }) => {
                         chapter.downloadable
                             ? 'flex gap-4 items-center justify-center '
                             : 'flex gap-4 items-center justify-center'
-                    } w-fit h-fit bg-red-custom text-white px-7  py-3 text-center`}
+                    } w-fit h-fit bg-red-custom text-white px-[8px] py-[20px] text-[14px] text-center`}
                     onClick={() => {
                         handleDownload(chapter.lesson_section_contents);
                     }}
                 >
-                    Download Lesson Plan
+                    {index === 0 ? 'Download Lesson Plan' : 'Download '}
+
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="1em"
@@ -124,7 +125,7 @@ const ChapterText = ({ chapter }) => {
                         chapter.canva_template
                             ? 'flex gap-4 items-center justify-center'
                             : 'hidden'
-                    } max-w-fit h-fit bg-theme-color text-white px-7  py-3 text-center cursor-pointer`}
+                    } max-w-fit h-fit bg-theme-color text-white px-[8px] py-[20px] text-[14px] text-center cursor-pointer`}
                     href={chapter.canva_template}
                 >
                     Use canva Template
@@ -142,7 +143,7 @@ const ChapterText = ({ chapter }) => {
                         chapter.canva_template
                             ? 'flex gap-4 items-center justify-center'
                             : 'hidden'
-                    } max-w-fit h-fit bg-red-custom text-white px-7  py-3 text-center`}
+                    } max-w-fit h-fit bg-red-custom text-white px-[8px] py-[20px] text-[14px] text-center`}
                     onClick={() => {
                         //copy the current url to clipboard
                         navigator.clipboard.writeText(window.location.href);

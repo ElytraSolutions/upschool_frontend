@@ -10,7 +10,7 @@ export default function Sidebar({ courseSlug, chapters }: SidebarProps) {
     // console.log('Sidebar', chapters);
     return (
         <>
-            <div className="flex flex-row justify-center items-center bg-[#b81342] w-full mt-[0.4px]">
+            <div className="flex flex-row justify-center items-center bg-[#b81342] w-full mt-[0.4px] ">
                 <div className="flex flex-row items-center justify-center text-white w-fit gap-1  h-14">
                     <span className=" ">
                         <img
