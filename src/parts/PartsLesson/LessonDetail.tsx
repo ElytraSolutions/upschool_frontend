@@ -171,7 +171,7 @@ export default function LessonDetail({
             <>
                 <div
                     ref={divRef}
-                    className="flex h-[90vh] flex-col overflow-auto pb-5 pl-[1px] pt-[0.4px] no-scrollbar"
+                    className="flex h-[90vh] flex-col pb-5 pl-[1px] pt-[0.4px] no-scrollbar mb-[4rem]"
                 >
                     {/* ChapterDetail Header */}
                     <div className=" flex w-full bg-[#1e3050]  ">
@@ -338,7 +338,7 @@ export default function LessonDetail({
                     <div
                         className={` ${
                             isSidebarOpen ? 'hidden xm:flex' : ''
-                        } w-full flex items-center justify-evenly pt-14 gap-4`}
+                        } w-full flex items-center justify-evenly pt-14 gap-4 pb-10`}
                     >
                         {/* previous button, hide if lesson is the first element of chapterlessons*/}
 
