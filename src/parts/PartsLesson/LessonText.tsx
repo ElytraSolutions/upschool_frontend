@@ -104,7 +104,7 @@ const ChapterText = ({ chapter, index }) => {
                         chapter.downloadable
                             ? 'flex gap-4 items-center justify-center '
                             : 'flex gap-4 items-center justify-center'
-                    } w-fit h-fit bg-red-custom text-white px-7  py-3 text-center`}
+                    } w-fit h-fit bg-red-custom text-white px-4  py-2 text-center`}
                     onClick={() => {
                         handleDownload(chapter.lesson_section_contents);
                     }}
