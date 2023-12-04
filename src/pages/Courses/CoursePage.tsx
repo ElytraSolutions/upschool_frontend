@@ -39,10 +39,11 @@ function CoursePage() {
     const questions = courseInfo?.description?.faq;
     return (
         <>
+            {/*Long Course Page */}
             {courseCategory === 1 && (
-                <div className="grid gap-y-10">
+                <div className="grid">
                     <CourseStaticTop courseInfo={courseInfo} />
-                    <div className="tab:hidden flex justify-center">
+                    <div className="tab:hidden flex justify-center tab:mb-[2.5rem]">
                         <CourseEnrol
                             thumbnail={
                                 courseInfo.thumbnail ||
@@ -81,6 +82,7 @@ function CoursePage() {
                     )}
                 </div>
             )}
+            {/*Short Course Page */}
             {courseCategory !== 1 && (
                 <div className="grid w-full">
                     <CourseTop
