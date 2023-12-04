@@ -102,7 +102,7 @@ function CourseEnrol({ thumbnail }) {
     };
     return (
         <>
-            <div className="shrink grid border-1 border-gray-300 rounded-lg overflow-hidden shadow-2xl hover:scale-[1.05] hover:transition hover:duration-200">
+            <div className="shrink grid border-1 border-gray-300 rounded-lg overflow-hidden shadow-2xl hover:transition hover:duration-200">
                 <img
                     src={resolveImgURL(thumbnail)}
                     alt="courseEnrol"

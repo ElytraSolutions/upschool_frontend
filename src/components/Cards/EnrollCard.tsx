@@ -104,7 +104,7 @@ function EnrollCard({ data }: Props) {
                         >
                             {enrollmentStatus.enrolled
                                 ? 'GO TO COURSE'
-                                : 'ENROLL NOW'}
+                                : 'ENROL NOW'}
                         </Button>
                     </CardActions>
                 )}
