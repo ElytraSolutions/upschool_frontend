@@ -98,7 +98,7 @@ export const CertificateProgressSection = ({
                                             : 'text-gray-400'
                                     }`}
                                 >
-                                    Quiz
+                                    Submit Your Work
                                 </h1>
                             </div>
                             {/* second line */}

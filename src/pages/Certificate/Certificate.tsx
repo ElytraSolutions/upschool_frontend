@@ -6,8 +6,21 @@ import CertificateStep2 from './CertificateStep2';
 import CertificateStep3 from './CertificateStep3';
 import { useSearchParams } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
+import axiosInstance from '../../config/Axios';
 
 const Certificate = () => {
+    const [courses, setCourses] = useState([]);
+    const [coursesName, setCoursesName] = useState([]);
+    useEffect(() => {
+        (async () => {
+            const resp = await axiosInstance.get(`/data/courses`);
+            const data = resp.data.data;
+            setCourses(data);
+            setCoursesName(data.map((course) => course.name));
+            // console.log(resp.data.data);
+        })();
+    }, []);
+
     const [searchParams, _setSearchParams] = useSearchParams();
     const { user } = useUser();
     // console.log(user);
@@ -36,6 +49,8 @@ const Certificate = () => {
             formData={formData}
             setFormData={setFormData}
             changeCurrentStep={changeCurrentStep}
+            courses={courses}
+            coursesName={coursesName}
         />,
         <CertificateStep2
             changeCurrentStep={changeCurrentStep}
