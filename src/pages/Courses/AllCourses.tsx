@@ -4,12 +4,23 @@ import useCourseCategories from '../../hooks/useCourseCategories';
 // import { ICourseCategory } from '../../types/ICourseCategory';
 import Loading from '../../components/Loading';
 import { useEffect, useRef, useState } from 'react';
+import { set } from 'react-hook-form';
 
 function AllCourses() {
     const categories = useCourseCategories();
     const courses = useCourses();
     const dynamicRef = useRef<HTMLElement | null>(null);
     const [dataLoaded, setDataLoaded] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [dummyState, setDummyState] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -36,7 +47,7 @@ function AllCourses() {
         }
     }, [categories, dataLoaded]);
 
-    if (!categories || !courses) return <Loading />;
+    // if (!categories || !courses) return <Loading />;
     categories.sort((a, b) => a.id - b.id);
     const getCoursesByCategory = (categoryId: number) => {
         return courses.filter(
@@ -50,6 +61,11 @@ function AllCourses() {
     const courseByCategory = categories.map((category) =>
         getCoursesByCategory(category.id),
     );
+    if (courseByCategory.length === 0) {
+        return <Loading />;
+    } else {
+        if (isLoading) return <Loading />;
+    }
 
     return (
         <>
