@@ -11,6 +11,7 @@ function Test() {
             const resp = await axiosInstance.get(
                 `/data/courses/this-is-course`,
             );
+            console.log(resp.data.data);
             setInfo(resp.data.data);
         })();
     }, []);
@@ -21,9 +22,12 @@ function Test() {
                 <CourseTop
                     title={info.name}
                     subtitle={info.intro}
-                    thumbnail={info.thumbnail}
+                    thumbnail={'/images/Course/courseEnrol.png'}
                 />
-                <CourseContent editorData={info?.description.description} />
+                <CourseContent
+                    susDetails={info?.description?.sustainability_details}
+                    editorData={info?.description.description}
+                />
             </div>
         </>
     );

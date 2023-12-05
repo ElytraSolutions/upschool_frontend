@@ -32,6 +32,9 @@ function CoursePage() {
         } | Upschool`;
     }, [courseInfo?.name]);
     if (!courseInfo && courseCategory === 0) return <Loading />;
+    if (courseInfo) {
+        console.log('Course Data: ', courseInfo);
+    }
 
     const testimonials = courseInfo?.description?.testimonials;
     const steps = courseInfo?.description?.steps;
@@ -91,6 +94,9 @@ function CoursePage() {
                         thumbnail={courseInfo?.thumbnail}
                     />
                     <CourseContent
+                        susDetails={
+                            courseInfo?.description?.sustainability_details
+                        }
                         editorData={courseInfo?.description?.description}
                     />
                 </div>
