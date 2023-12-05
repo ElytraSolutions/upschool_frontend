@@ -3,10 +3,11 @@ import useScreenWidthAndHeight from '../../hooks/useScreenWidthAndHeight';
 import { CertificateProgressSection } from '../../parts/PartsCertificate/CertificateProgressSection';
 import CertificateStep1 from './CertificateStep1';
 import CertificateStep2 from './CertificateStep2';
-import CertificateStep3 from './CertificateStep3';
+// import CertificateStep3 from './CertificateStep3';
 import { useSearchParams } from 'react-router-dom';
 import useUser from '../../hooks/useUser';
 import axiosInstance from '../../config/Axios';
+import CertificateThanks from './CertificateThanks';
 
 const Certificate = () => {
     const [courses, setCourses] = useState([]);
@@ -52,11 +53,9 @@ const Certificate = () => {
             courses={courses}
             coursesName={coursesName}
         />,
-        <CertificateStep2
-            changeCurrentStep={changeCurrentStep}
-            setCurrentStep={setCurrentStep}
-        />,
-        <CertificateStep3 formData={formData} />,
+        <CertificateStep2 changeCurrentStep={changeCurrentStep} />,
+        // <CertificateStep3 formData={formData} />,
+        <CertificateThanks />,
     ];
 
     // console.log("CurrentS Step is : ",currentStep)
