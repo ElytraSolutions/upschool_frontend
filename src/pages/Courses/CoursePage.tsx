@@ -98,7 +98,7 @@ function CoursePage() {
                             courseInfo?.description?.sustainability_details
                                 ? courseInfo?.description
                                       ?.sustainability_details
-                                : '',
+                                : '{}',
                         )}
                         editorData={courseInfo?.description?.description}
                     />
