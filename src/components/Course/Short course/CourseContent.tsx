@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Loading from '../../Loading';
 
-function CourseContent({ editorData }) {
+function CourseContent({ susDetails, editorData }) {
     const [showDownloadButton, setShowDownloadButton] = useState(false);
     const [downloadHref, setDownloadHref] = useState('');
 
@@ -24,6 +24,8 @@ function CourseContent({ editorData }) {
     }, [editorData]);
 
     if (!editorData) return <Loading />;
+
+    console.log(typeof susDetails);
 
     const updatedEditorData = showDownloadButton
         ? editorData.replace(
