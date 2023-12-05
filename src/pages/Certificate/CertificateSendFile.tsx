@@ -43,13 +43,16 @@ const CertificateSendFile = ({
                         guidelines from the course)
                     </h1>
                     <div className="w-[90%] mx-auto cursor-pointer border h-[16rem] bg-[#E9E8EE] hover:bg-[#BDBCCB] border-theme-color mt-6 flex flex-col items-center justify-center text-theme-color transition-all">
-                        <input
-                            type="file"
-                            value={fileLink}
-                            onChange={(e) => setFileLink(e.target.value)}
-                        />
                         <CloudUploadIcon style={{ fontSize: '4rem' }} />
-                        <p>Choose file or drag here</p>
+                        <div>
+                            <input
+                                type="file"
+                                placeholder="Choose file or drag here"
+                                value={fileLink}
+                                onChange={(e) => setFileLink(e.target.value)}
+                            />
+                        </div>
+                        {/* <p>Choose file or drag here</p> */}
                     </div>
                 </div>
             )}
