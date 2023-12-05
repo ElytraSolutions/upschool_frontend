@@ -112,7 +112,8 @@ function MyCourses() {
         <div className="h-full overflow-auto">
             <div className="p-2 md:py-4 md:px-4 xlarge:px-6 xxlarge:px-8 w-full">
                 <div className="flex flex-col gap-10 w-full">
-                    <div className=" grid grid-cols-3 justify-items-center xs:flex xs:flex-row xs:justify-center md:justify-start text-sm sm:text-base lg:text-lg w-full gap-0 xs:gap-2  sm:gap-4">
+                    {/* Changed here grid cols 3 to grid cols 2 */}
+                    <div className=" grid grid-cols-2 justify-items-center xs:flex xs:flex-row xs:justify-center md:justify-start text-sm sm:text-base lg:text-lg w-full gap-0 xs:gap-2  sm:gap-4">
                         {/* Enrolled courses option */}
                         <div className="flex flex-col w-fit gap-2">
                             <div

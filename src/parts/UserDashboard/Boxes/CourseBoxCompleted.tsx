@@ -20,7 +20,7 @@ export default function CourseBoxCompleted({
     return (
         <>
             <div>
-                <div className="p-4 bg-white h-full lg:w-[20rem] md:min-w-[15rem] md:w-[30%] sm:w-[18rem] xm:w-[17rem] w-[20rem]">
+                <div className="p-4 bg-white h-full lg:w-[20rem] md:min-w-[15rem] md:w-[30%] sm:w-[18rem] xm:w-[17rem] w-[18rem]">
                     <div className="flex flex-col h-full w-full gap-4 justify-between">
                         <div className="flex flex-col w-full gap-4">
                             <div className="flex justify-center  w-full h-[15rem]">
