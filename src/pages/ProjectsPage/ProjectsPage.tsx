@@ -38,7 +38,7 @@ const ProjectsPage = () => {
                         projectInfo: prData.intro,
                     }}
                 />
-                <ProjectMap />
+                <ProjectMap location={prData.location} />
                 <ProjectDescription
                     data={{
                         projectDescription: prData.description
