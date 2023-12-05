@@ -174,8 +174,8 @@ export default function LessonDetail({
                     className="flex w-full h-full flex-col pl-[1px] pt-[0.4px]"
                 >
                     {/* ChapterDetail Header */}
-                    <div className=" flex w-full bg-[#1e3050]  ">
-                        <div className="flex h-14 flex-1 flex-row items-center justify-between p-4 text-sm text-white">
+                    <div className=" flex w-full bg-[#1e3050] ">
+                        <div className="flex h-[70px] flex-1 flex-row items-center justify-between p-4 text-sm text-white">
                             <div className="flex-row flex items-center justify-between">
                                 {/* Circle sidebar open and close option */}
                                 <div

@@ -15,7 +15,7 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
     const { lessonSlug } = useParams();
 
     return (
-        <div className="flex flex-col text-sm sm:text-sm md:text-base ">
+        <div className="flex flex-col text-sm sm:text-sm md:text-base mb-4 ">
             <div
                 className="flex flex-row justify-between bg-[#1e3050] text-white py-5 px-4 cursor-pointer"
                 onClick={() => setIsChapterOpen(!isChapterOpen)}
