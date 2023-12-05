@@ -181,12 +181,12 @@ export default function LessonDetail({
                                 <div
                                     className={`${
                                         isSidebarOpen ? 'absolute -left-4' : ''
-                                    }  flex h-4 w-4 flex-row items-center justify-center rounded-full bg-yellow-400 text-white md:h-6 md:w-6 lg:h-8 lg:w-8 z-50 `}
+                                    }  flex  flex-row items-center justify-center rounded-full bg-[#fdcf60] text-white md:h-8 md:w-8 lg:h-8 lg:w-8 z-50 `}
                                 >
                                     <KeyboardArrowLeftIcon
                                         className={`${
                                             !isSidebarOpen && 'rotate-180'
-                                        } h-3 w-3 md:h-5 md:w-5 lg:h-7 lg:w-7`}
+                                        } h-8 w-8 md:h-5 md:w-5 lg:h-7 lg:w-7`}
                                         // style={{ width: '40px', height: '40px' }}
                                         onClick={() => {
                                             setIsSidebarOpen(
@@ -226,7 +226,7 @@ export default function LessonDetail({
                             {lesson.lesson_sections.map((section, index) => (
                                 <div
                                     key={section.id}
-                                    className="w-full md:px-8  xlarge:w-[1110px] m-auto border-b-[1px] border-black md:border-none  "
+                                    className="w-full md:px-8 lg:w-[1010px]  xlarge:w-[1110px] m-auto border-b-[1px] border-black md:border-none  "
                                 >
                                     <div className="w-full md:border-b-[1px] md:border-black mt-12 pb-6  flex flex-col md:flex-row gap-4 md:gap-8 ">
                                         <div
