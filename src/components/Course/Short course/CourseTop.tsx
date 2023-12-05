@@ -36,7 +36,7 @@ function CourseTop({ title, subtitle, thumbnail }) {
                     <div className="tab:-mt-24 -mt-12 col-span-full">
                         <div className="grid tab:grid-cols-16 grid-flow-row gap-y-2 justify-center items-center">
                             <div className="z-10 tab:col-span-4 tab:col-start-11 row-start-1">
-                                <div className="flex w-fit justify-center h-[496px]">
+                                <div className="flex w-fit justify-center h-fit">
                                     <CourseEnrol
                                         thumbnail={resolveImgURL(thumbnail)}
                                     />
