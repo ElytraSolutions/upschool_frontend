@@ -27,7 +27,7 @@ function CourseStaticTop({ courseInfo }) {
 
     return (
         <>
-            <div className=" flex items-center justify-center flex-col">
+            <div className=" flex items-center justify-center flex-col mb-[2.5rem]">
                 <div className="w-full relative h-[650px]">
                     <div className="relative flex h-[650px]">
                         <div className="w-full h-full relative video overflow-hidden">

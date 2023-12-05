@@ -1,15 +1,15 @@
 function CourseStaticUpschool({ theme }) {
     return (
         <>
-            <div className="grid bg-[#f4f4f4] pb-5 ">
+            <div className="grid bg-[#f4f4f4] py-[2.5rem]">
                 <div className="max-w-[1400px] mx-auto">
                     <div
-                        className={`flex justify-center text-[45px] font-caveat font-semibold mb-[20px] mt-5 `}
+                        className={`flex justify-center 2xl:text-[54px] text-[45px] font-caveat font-semibold mb-[20px] mt-5 `}
                         style={{
                             color: theme,
                         }}
                     >
-                        <p className="text-center tracking-tighter">
+                        <p className="text-center">
                             Everything we do at Upschool:
                         </p>
                     </div>

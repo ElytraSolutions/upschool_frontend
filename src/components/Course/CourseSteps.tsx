@@ -30,7 +30,7 @@ function CourseSteps({ steps, theme, objData }) {
 
     return (
         <>
-            <div className="flex w-full justify-center">
+            <div className="flex w-full justify-center my-[2.5rem]">
                 <div className="grid max-w-[550px]">
                     {objData && (
                         <div className="grid gap-4">

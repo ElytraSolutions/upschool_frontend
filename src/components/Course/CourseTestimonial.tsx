@@ -28,7 +28,7 @@ function CourseTestimonial({ theme, tstData }) {
 
     return (
         <>
-            <div className="grid mt-2">
+            <div className="grid my-[2.5rem]">
                 <div className="flex justify-center w-full my-8">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ function CourseTestimonial({ theme, tstData }) {
                         className="flex w-full justify-center overflow-scroll-hidden"
                         // style={{ height: `${dynHeight}px` }}
                     >
-                        <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen">
+                        <div className="flex xl:w-[1120px] lg:w-[1020px] w-full">
                             {/* <FunctionalIFrameComponent title={''}> */}
                             <div
                                 // ref={divRef}

@@ -45,12 +45,12 @@ function CourseDescription({ editorData, title, subtitle, theme }) {
         : editorData;
     return (
         <>
-            <div className="grid w-full font-sans text-theme-color">
+            <div className="grid w-full font-sans text-theme-color mb-[2.5rem]">
                 <div className="md:text-[4.7rem] sm:text-[3.4rem] text-[2.4rem]  text-center font-bold font-kumbh">
                     {title}
                 </div>
                 <div
-                    className="flex text-[24px] xl:w-[1120px] lg:w-[1020px] w-screen text-center justify-center mx-auto font-semibold mb-5"
+                    className="flex text-[24px] xl:w-[1120px] lg:w-[1020px] w-full text-center justify-center mx-auto font-semibold mb-5"
                     style={{ color: theme }}
                 >
                     {subtitle}
