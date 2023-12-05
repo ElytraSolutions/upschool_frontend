@@ -263,7 +263,7 @@ export default function LessonDetail({
                                                 section.downloadable
                                                     ? 'flex gap-4 items-center justify-center '
                                                     : 'flex gap-4 items-center justify-center'
-                                            } w-fit h-fit bg-red-custom text-white px-[8px] py-[20px] text-[14px] text-center`}
+                                            } w-fit h-fit bg-red-custom text-white px-[20px] py-[8px] text-[14px] text-center`}
                                             onClick={() => {
                                                 handleDownload(
                                                     section.lesson_section_contents,
