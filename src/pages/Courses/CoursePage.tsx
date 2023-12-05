@@ -94,12 +94,12 @@ function CoursePage() {
                         thumbnail={courseInfo?.thumbnail}
                     />
                     <CourseContent
-                        susDetails={JSON.parse(
+                        susDetails={
                             courseInfo?.description?.sustainability_details
                                 ? courseInfo?.description
                                       ?.sustainability_details
                                 : '{}',
-                        )}
+                        }
                         editorData={courseInfo?.description?.description}
                     />
                 </div>
