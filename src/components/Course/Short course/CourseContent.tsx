@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Loading from '../../Loading';
+import resolveImgURL from '../../../utlis/resolveImgURL';
 
 function CourseContent({ susDetails, editorData }) {
     const [showDownloadButton, setShowDownloadButton] = useState(false);
@@ -25,7 +26,9 @@ function CourseContent({ susDetails, editorData }) {
 
     if (!editorData) return <Loading />;
 
-    console.log(typeof susDetails);
+    console.log(susDetails);
+
+    const susDetailsArr = Object.values(susDetails);
 
     const updatedEditorData = showDownloadButton
         ? editorData.replace(
@@ -38,6 +41,21 @@ function CourseContent({ susDetails, editorData }) {
         <>
             <div className="tab:-mt-[23rem] mt-4 mb-8 grid tab:grid-cols-16 grid-flow-row justify-center items-center">
                 <div className="tab:col-start-3 col-span-8 font-kumbh text-theme-color grid gap-y-6 p-3">
+                    {susDetails && (
+                        <div className="grid grid-cols-6 gap-6">
+                            {susDetailsArr.map((qualityImg, index) => {
+                                return (
+                                    <img
+                                        key={index}
+                                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                        //@ts-ignore
+                                        src={resolveImgURL(qualityImg.Goal)}
+                                        alt={`goals ${index + 1}`}
+                                    />
+                                );
+                            })}
+                        </div>
+                    )}
                     <div className="flex tab:justify-start justify-center mb-[20px] xs:text-[32px] text-[26px] h-[37px] font-bold font-kumbh">
                         <span
                             style={{

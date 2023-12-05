@@ -94,9 +94,9 @@ function CoursePage() {
                         thumbnail={courseInfo?.thumbnail}
                     />
                     <CourseContent
-                        susDetails={
-                            courseInfo?.description?.sustainability_details
-                        }
+                        susDetails={JSON.parse(
+                            courseInfo?.description?.sustainability_details,
+                        )}
                         editorData={courseInfo?.description?.description}
                     />
                 </div>
