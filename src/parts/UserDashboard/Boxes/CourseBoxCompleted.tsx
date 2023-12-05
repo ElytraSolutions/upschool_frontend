@@ -70,24 +70,31 @@ export default function CourseBoxCompleted({
                                 <div
                                     className="text-white text-center bg-theme-color px-4 py-2 w-3/4 cursor-pointer"
                                     onClick={async () => {
-                                        const res = await axiosInstance.post(
-                                            `/data/courses/${detail.slug}/complete`,
-                                        );
-                                        console.log(
-                                            'Certificate Response',
-                                            res.data,
-                                        );
-
-                                        res.data.certificate_url.slice(0, 8) ===
-                                        'https://'
-                                            ? window.open(
-                                                  `${res.data.certificate_url}`,
-                                                  '_blank',
-                                              )
-                                            : window.open(
-                                                  `https://${res.data.certificate_url}`,
-                                                  '_blank',
-                                              );
+                                        try {
+                                            const res =
+                                                await axiosInstance.post(
+                                                    `/data/courses/${detail.slug}/complete`,
+                                                );
+                                            res.data.certificate_url.slice(
+                                                0,
+                                                8,
+                                            ) === 'https://'
+                                                ? window.open(
+                                                      `${res.data.certificate_url}`,
+                                                      '_blank',
+                                                  )
+                                                : window.open(
+                                                      `https://${res.data.certificate_url}`,
+                                                      '_blank',
+                                                  );
+                                        } catch (error) {
+                                            navigate(
+                                                `/certificate?course=${encodeURIComponent(
+                                                    detail.name,
+                                                )}`,
+                                            );
+                                            console.log(error);
+                                        }
 
                                         // navigate(
                                         //     `/certificate?course=${encodeURIComponent(
