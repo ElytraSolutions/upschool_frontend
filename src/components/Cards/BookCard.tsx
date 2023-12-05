@@ -28,7 +28,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
 
     return (
         <>
-            <div className=" relative flex flex-col rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[97%] xm:w-[235px] sm:w-[270px] h-[70vh] ">
+            <div className=" relative flex flex-col rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[97%] xm:w-[235px] sm:w-[270px] h-[450px] xlarge:h-[600px] ">
                 <div className="">
                     {/* TODO imgage dimesion needs to be determined  */}
                     <img
@@ -47,7 +47,8 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                         </p>
                         <div className="flex flex-row items-center  bg-theme-color py-1  px-3 rounded-xl w-fit h-full ">
                             <p className=" text-white font-light text-center text-sm ">
-                                {book.country}
+                                {book.country.substring(0, 25)}{' '}
+                                {book.country.length > 25 && '...'}
                             </p>
                         </div>
                         <p className=" font-bold text-base font-lexend">
@@ -55,15 +56,18 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                         </p>
 
                         <div className="flex flex-row items-center text-theme-color text-sm h-fit">
-                            <p className="font-semibold">
+                            <p className="font-semibold italic">
                                 Values this book explores:{' '}
                                 {book.categories.map((category, index) => (
-                                    <span key={index} className="font-normal">
-                                        {category.name}{' '}
-                                        {index < book.categories.length - 1 &&
-                                            ','}
+                                    <span
+                                        key={index}
+                                        className="font-normal italic"
+                                    >
+                                        {index <= 4 && category.name}
+                                        {index < 3 && ', '}
                                     </span>
                                 ))}
+                                {book.categories.length > 4 && '...'}
                             </p>
                         </div>
                     </div>

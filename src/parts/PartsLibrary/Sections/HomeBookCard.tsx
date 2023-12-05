@@ -40,21 +40,22 @@ const HomeBookCard: React.FC<BookCardProps> = ({ book }) => {
                 <p className="font-bold font-lexend">{book.first_name}</p>
                 <div className="flex flex-row items-center  bg-theme-color py-2  px-4 rounded-xl w-fit h-fit  ">
                     <p className=" text-white font-light text-center text-sm ">
-                        {book.country}
+                        {book.country.substring(0, 25)}{' '}
+                        {book.country.length > 25 && '...'}
                     </p>
                 </div>
                 <p className=" font-bold text-base font-lexend">{book.title}</p>
 
                 <div className="flex flex-row items-center text-theme-color text-sm h-full ">
-                    <p className="font-semibold">
+                    <p className="font-semibold ">
                         Values this book explores:{' '}
                         {book.categories.map((category, index) => (
-                            <span key={index} className="font-normal">
-                                {index <= 5 && category.name}
-                                {index < 4 && ', '}
+                            <span key={index} className="font-normal italic">
+                                {index <= 4 && category.name}
+                                {index < 3 && ', '}
                             </span>
                         ))}
-                        ...
+                        {book.categories.length > 4 && '...'}
                     </p>
                 </div>
             </div>
