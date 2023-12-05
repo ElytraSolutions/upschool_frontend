@@ -164,7 +164,7 @@ function MyCourses() {
                     <div className="w-full">
                         {/* Enrolled courses section */}
                         {selectedOption === 'Enrolled Courses' && (
-                            <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxxl:grid-cols-6 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full ">
+                            <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 1450:grid-cols-4 xxxl:grid-cols-6 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full">
                                 {/* TODO fetch enrolled courses data from backend and use it */}
                                 {myCourses.enrolled ? (
                                     myCourses.enrolled.length > 0 ? (
@@ -190,7 +190,7 @@ function MyCourses() {
                         )}
                         {/* Completed courses section */}
                         {selectedOption === 'Completed Courses' && (
-                            <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xxxl:grid-cols-6 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full">
+                            <div className="grid xm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 1450:grid-cols-4 xxxl:grid-cols-6 justify-items-center gap-6 md:gap-2 lg:gap-4 w-full">
                                 {/* TODO fetch completed courses data from backend and use it */}
                                 {myCourses.completed ? (
                                     myCourses.completed.length > 0 ? (
