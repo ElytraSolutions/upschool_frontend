@@ -7,15 +7,15 @@ const CertificateStep2Choose = ({ setOption, option }) => {
             </h1>
             <div className="flex flex-col mx-auto gap-y-4 mt-8">
                 <div
-                    onClick={() => setOption('canva')}
+                    onClick={() => setOption('link')}
                     className={`border ${
-                        option === 'canva' ? 'border-2' : ''
+                        option === 'link' ? 'border-2' : ''
                     } w-full  border-theme-color px-4 py-3 flex gap-2 rounded-sm text-theme-color bg-[#E9E8EE] cursor-pointer group hover:bg-[#BDBCCB] transition-all justify-between`}
                 >
                     <div className="flex gap-2">
                         <div
                             className={`border border-theme-color px-2 text-[0.8rem] h-[1.5rem] flex items-center justify-center rounded-sm ${
-                                option === 'canva'
+                                option === 'link'
                                     ? 'bg-theme-color text-white'
                                     : 'bg-[#E9E8EE]'
                             } `}
@@ -24,7 +24,7 @@ const CertificateStep2Choose = ({ setOption, option }) => {
                         </div>
                         By Canva Share Link
                     </div>
-                    {option && option === 'canva' && (
+                    {option && option === 'link' && (
                         <div>
                             <DoneIcon />
                         </div>

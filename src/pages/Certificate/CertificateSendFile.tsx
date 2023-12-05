@@ -7,7 +7,7 @@ const CertificateSendFile = ({
 }) => {
     return (
         <div className="w-[90%] mx-auto mb-16 ">
-            {option === 'canva' && (
+            {option === 'link' && (
                 <div>
                     <h1 className="text-font-color font-kumbh sm:text-[1.4rem] text-[1.2rem]">
                         Share your Canva Link of your final piece of work (Make
