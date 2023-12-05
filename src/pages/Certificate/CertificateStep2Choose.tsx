@@ -14,7 +14,7 @@ const CertificateStep2Choose = ({ setOption, option }) => {
                 >
                     <div className="flex gap-2">
                         <div
-                            className={`border border-theme-color px-2 text-[0.8rem] rounded-sm ${
+                            className={`border border-theme-color px-2 text-[0.8rem] h-[1.5rem] flex items-center justify-center rounded-sm ${
                                 option === 'canva'
                                     ? 'bg-theme-color text-white'
                                     : 'bg-[#E9E8EE]'
@@ -38,7 +38,7 @@ const CertificateStep2Choose = ({ setOption, option }) => {
                 >
                     <div className="flex gap-2">
                         <div
-                            className={`border border-theme-color px-2 text-[0.8rem] rounded-sm ${
+                            className={`border border-theme-color px-2 text-[0.8rem] h-[1.5rem] flex items-center justify-center rounded-sm ${
                                 option === 'file'
                                     ? 'bg-theme-color text-white'
                                     : 'bg-[#E9E8EE]'

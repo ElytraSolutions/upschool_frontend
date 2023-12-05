@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 const CertificateThanks = () => {
     const naviagte = useNavigate();
     return (
-        <div className="font-kumbh text-theme-color text-[1.2rem]">
+        <div className="font-kumbh text-theme-color md:text-[1.2rem] text-[1rem]">
             <h1>
                 Thank you for your submission. We will send you an email with
                 the certificate in 2 business days. Please check your spam or
@@ -13,7 +13,7 @@ const CertificateThanks = () => {
                 </span>
             </h1>
             <div
-                className="underline mt-12 text-[1.2rem]"
+                className="underline mt-16 sm:text-[1.1rem] text-[1rem]"
                 onClick={() => naviagte('/')}
             >
                 Return To Homepage
