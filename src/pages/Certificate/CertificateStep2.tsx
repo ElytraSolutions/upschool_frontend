@@ -2,8 +2,9 @@ import { useState } from 'react';
 
 import CertificateStep2Choose from './CertificateStep2Choose';
 import CertificateSendFile from './CertificateSendFile';
+import axiosInstance from '../../config/Axios';
 
-const CertificateStep2 = ({ changeCurrentStep }) => {
+const CertificateStep2 = ({ changeCurrentStep, formData, courseMapping }) => {
     const [option, setOption] = useState(null);
     const [canvaLink, setCanvaLink] = useState(null);
     const isUrlValid = (url) => {
@@ -11,6 +12,12 @@ const CertificateStep2 = ({ changeCurrentStep }) => {
         const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
         return urlRegex.test(url);
     };
+    console.log(
+        'FormData',
+        formData.course,
+        'CourseMapping',
+        courseMapping[formData.course],
+    );
     const components = [
         <CertificateStep2Choose setOption={setOption} option={option} />,
         <CertificateSendFile
@@ -23,6 +30,18 @@ const CertificateStep2 = ({ changeCurrentStep }) => {
     const [currentSubmitYourWorkStep, setCurrentSubmitYourWorkStep] =
         useState(0);
 
+    const handleSubmit = async () => {
+        try {
+            const resp = await axiosInstance.post(
+                `/data/courses/${courseMapping[formData.course]}/complete`,
+                { coursework_type: option, coursework: canvaLink },
+            );
+            console.log(resp);
+        } catch (error) {
+            console.log('Error', error);
+        }
+    };
+
     const handleNext = () => {
         if (option) {
             if (currentSubmitYourWorkStep < 1) {
@@ -30,6 +49,7 @@ const CertificateStep2 = ({ changeCurrentStep }) => {
                 setCurrentSubmitYourWorkStep(currentSubmitYourWorkStep + 1);
             } else if (canvaLink && isUrlValid(canvaLink)) {
                 console.log('Submit Your Work');
+                handleSubmit();
                 changeCurrentStep();
             }
         }

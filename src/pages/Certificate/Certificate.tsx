@@ -12,13 +12,19 @@ import CertificateThanks from './CertificateThanks';
 const Certificate = () => {
     const [courses, setCourses] = useState([]);
     const [coursesName, setCoursesName] = useState([]);
+    const [courseMapping, setCourseMapping] = useState({});
     useEffect(() => {
         (async () => {
             const resp = await axiosInstance.get(`/data/courses`);
             const data = resp.data.data;
             setCourses(data);
+            const courseMap = {};
+            data.forEach((course) => {
+                courseMap[course.name] = course.slug;
+            });
+            setCourseMapping(courseMap);
             setCoursesName(data.map((course) => course.name));
-            // console.log(resp.data.data);
+            // console.log('Data', resp.data.data, 'This is the thing', courseMap);
         })();
     }, []);
 
@@ -53,7 +59,11 @@ const Certificate = () => {
             courses={courses}
             coursesName={coursesName}
         />,
-        <CertificateStep2 changeCurrentStep={changeCurrentStep} />,
+        <CertificateStep2
+            changeCurrentStep={changeCurrentStep}
+            courseMapping={courseMapping}
+            formData={formData}
+        />,
         // <CertificateStep3 formData={formData} />,
         <CertificateThanks />,
     ];
