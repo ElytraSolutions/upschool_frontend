@@ -95,7 +95,10 @@ function CoursePage() {
                     />
                     <CourseContent
                         susDetails={JSON.parse(
-                            courseInfo?.description?.sustainability_details,
+                            courseInfo?.description?.sustainability_details
+                                ? courseInfo?.description
+                                      ?.sustainability_details
+                                : '',
                         )}
                         editorData={courseInfo?.description?.description}
                     />
