@@ -15,7 +15,7 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
     const { lessonSlug } = useParams();
 
     return (
-        <div className="flex flex-col text-sm sm:text-sm md:text-base ">
+        <div className="flex flex-col text-sm sm:text-sm md:text-base mb-4 ">
             <div
                 className="flex flex-row justify-between bg-[#1e3050] text-white py-5 px-4 cursor-pointer"
                 onClick={() => setIsChapterOpen(!isChapterOpen)}
@@ -46,7 +46,7 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
                                 } gap-7 w-full text-sm px-2 my-2`}
                             >
                                 <div className="flex flex-row gap-1 lg:gap-2  2xl:gap-3 items-center justify-start p-2  ">
-                                    <span className="h-8 w-8 rounded-full bg-[#242254] flex justify-center items-center">
+                                    {/* <span className=" bg-[#242254] flex justify-center items-center">
                                         <img
                                             src={resolveImgURL(
                                                 '/images/FileIcon.png',
@@ -56,7 +56,14 @@ export default function SidebarContent({ courseSlug, chapter }: ISidebarProps) {
                                             width="20"
                                             className="relative"
                                         />
-                                    </span>
+                                    </span> */}
+                                    <img
+                                        className="h-8 w-8 rounded-full"
+                                        src={resolveImgURL(
+                                            '/images/lesson-icon.webp',
+                                        )}
+                                        alt=""
+                                    />
                                     <span>{lesson.name}</span>
                                 </div>
 

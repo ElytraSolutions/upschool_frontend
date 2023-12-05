@@ -11,15 +11,19 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 import CourseSteps from '../../components/Course/CourseSteps';
 import CourseDescription from '../../components/Course/CourseDescription';
 import Loading from '../../components/Loading';
+import CourseContent from '../../components/Course/Short course/CourseContent';
+import CourseTop from '../../components/Course/Short course/CourseTop';
 
 function CoursePage() {
     const { slug } = useParams();
     const [courseInfo, setCourseInfo] = useState<any>(null);
+    const [courseCategory, setCourseCategory] = useState(0);
     useEffect(() => {
         window.scrollTo(0, 0);
         (async () => {
             const res = await axiosInstance.get(`/data/courses/${slug}`);
             setCourseInfo(res.data.data);
+            setCourseCategory(res.data.data.course_category_id);
         })();
     }, [slug]);
     useEffect(() => {
@@ -27,11 +31,7 @@ function CoursePage() {
             courseInfo?.name ? courseInfo.name : 'loading...'
         } | Upschool`;
     }, [courseInfo?.name]);
-    if (!courseInfo) return <Loading />;
-    // if (!courseInfo.description) return null;
-    // if (courseInfo.description) {
-    //     console.log(courseInfo.description);
-    // }
+    if (!courseInfo && courseCategory === 0) return <Loading />;
 
     const testimonials = courseInfo?.description?.testimonials;
     const steps = courseInfo?.description?.steps;
@@ -39,46 +39,62 @@ function CoursePage() {
     const questions = courseInfo?.description?.faq;
     return (
         <>
-            <div className="grid gap-y-10">
-                <CourseStaticTop courseInfo={courseInfo} />
-                <div className="tab:hidden flex justify-center">
-                    <CourseEnrol
-                        thumbnail={
-                            courseInfo.thumbnail ||
-                            `${resolveImgURL(
-                                './images/Course/courseEnrol.png',
-                            )}`
-                        }
+            {/*Long Course Page */}
+            {courseCategory === 1 && (
+                <div className="grid">
+                    <CourseStaticTop courseInfo={courseInfo} />
+                    <div className="tab:hidden flex justify-center tab:mb-[2.5rem]">
+                        <CourseEnrol
+                            thumbnail={
+                                courseInfo.thumbnail ||
+                                `${resolveImgURL(
+                                    './images/Course/courseEnrol.png',
+                                )}`
+                            }
+                        />
+                    </div>
+                    <CourseDescription
+                        editorData={courseInfo?.description?.description}
+                        title={courseInfo?.description?.title}
+                        subtitle={courseInfo?.description?.subtitle}
+                        theme={courseInfo?.theme || '#000000'}
+                    />
+                    <CourseStaticVideo theme={courseInfo.theme} />
+                    <CourseStaticUpschool theme={courseInfo.theme} />
+                    {testimonials && (
+                        <CourseTestimonial
+                            theme={courseInfo.theme}
+                            tstData={testimonials}
+                        />
+                    )}
+                    {(steps || objectives) && (
+                        <CourseSteps
+                            steps={steps}
+                            theme={courseInfo.theme}
+                            objData={objectives}
+                        />
+                    )}
+                    {questions && (
+                        <CourseStaticBottom
+                            questionList={questions}
+                            theme={courseInfo.theme}
+                        />
+                    )}
+                </div>
+            )}
+            {/*Short Course Page */}
+            {courseCategory !== 1 && (
+                <div className="grid w-full">
+                    <CourseTop
+                        title={courseInfo?.name}
+                        subtitle={courseInfo?.intro}
+                        thumbnail={courseInfo?.thumbnail}
+                    />
+                    <CourseContent
+                        editorData={courseInfo?.description?.description}
                     />
                 </div>
-                <CourseDescription
-                    editorData={courseInfo?.description?.description}
-                    title={courseInfo?.description?.title}
-                    subtitle={courseInfo?.description?.subtitle}
-                    theme={courseInfo?.theme || '#000000'}
-                />
-                <CourseStaticVideo theme={courseInfo.theme} />
-                <CourseStaticUpschool theme={courseInfo.theme} />
-                {testimonials && (
-                    <CourseTestimonial
-                        theme={courseInfo.theme}
-                        tstData={testimonials}
-                    />
-                )}
-                {(steps || objectives) && (
-                    <CourseSteps
-                        steps={steps}
-                        theme={courseInfo.theme}
-                        objData={objectives}
-                    />
-                )}
-                {questions && (
-                    <CourseStaticBottom
-                        questionList={questions}
-                        theme={courseInfo.theme}
-                    />
-                )}
-            </div>
+            )}
         </>
     );
 }

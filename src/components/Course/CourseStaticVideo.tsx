@@ -10,7 +10,7 @@ function CourseStaticVideo({ theme }) {
     return (
         <>
             <div
-                className={`grid lg:gird-cols-6 grid-flow-row lg:h-[475px]`}
+                className={`grid lg:gird-cols-6 grid-flow-row 2xl:h-[650px] lg:h-[475px]`}
                 style={{
                     backgroundColor: theme,
                 }}
@@ -25,7 +25,7 @@ function CourseStaticVideo({ theme }) {
                 <div
                     className={`lg:col-start-5 lg:col-span-2 grid gap-y-6 lg:justify-start justify-center 
                     text-white
-                    xm:text-[25px] text-[18px] font-semibold font-poppins p-9`}
+                    2xl:text-[35px] xm:text-[25px] text-[18px] font-semibold font-poppins p-9`}
                 >
                     <div className="flex flex-cols xm:gap-6 gap-3 items-center justify-start">
                         <DoneAllIcon style={{ fontSize: '50px' }} />

@@ -74,15 +74,13 @@ export default function Lessons() {
     return (
         <div className="h-[calc(100vh-96px)] md:h-[calc(100vh-96px)] flex">
             {isSidebarOpen && (
-                <div className=" h-full pb-5 w-[75%] md:w-[30%] lg:w-[25%] xxlarge:w-[15%] bg-slate-50 overflow-hidden ">
+                <div className=" h-full pb-5 w-[75%] md:min-w-[30%] lg:min-w-[25%] xxlarge:min-w-[15%] max-w-[400px] bg-slate-50 overflow-hidden ">
                     <Sidebar courseSlug={courseSlug} chapters={chapters} />
                 </div>
             )}
             <div
                 className={`${
-                    isSidebarOpen
-                        ? 'w-[25%] md:w-[70%] lg:w-[75%] xxlarge:w-[85%] '
-                        : ' w-full'
+                    isSidebarOpen ? 'w-[calc(100vw-400px)] ' : ' w-full'
                 } relative h-full `}
             >
                 <LessonDetail
