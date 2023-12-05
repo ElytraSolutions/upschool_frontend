@@ -15,10 +15,10 @@ export const CertificateProgressSection = ({
                         {/* first row:progress stepper */}
                         <div className="row-span-9 grid grid-cols-4 sm:h-1/2 md:h-2/3 place-items-center mb-2">
                             {/* first label */}
-                            <div className="col-span-1">
+                            <div className="col-span-1 ">
                                 {/* Circle container */}
                                 {/* Circle */}
-                                <div className="border-2 border-red-upschool bg-white w-8 h-8 rounded-full">
+                                <div className="border-2 border-red-upschool bg-white w-8 h-8 rounded-full flex items-center justify-center">
                                     {/* tick mark */}
                                     <span>
                                         <svg
@@ -66,7 +66,7 @@ export const CertificateProgressSection = ({
                                         currentStep > 0
                                             ? 'border-red-upschool bg-white '
                                             : 'border-gray-400'
-                                    } border-2  w-8 h-8 rounded-full`}
+                                    } border-2  w-8 h-8 rounded-full flex items-center justify-center`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -122,7 +122,7 @@ export const CertificateProgressSection = ({
                                         currentStep > 1
                                             ? 'border-red-upschool bg-white '
                                             : 'border-gray-400'
-                                    } border-2 w-8 h-8 rounded-full`}
+                                    } border-2 w-8 h-8 rounded-full flex items-center justify-center`}
                                 >
                                     {/* tick mark */}
                                     <span>
@@ -133,7 +133,7 @@ export const CertificateProgressSection = ({
                                             strokeWidth="1.5"
                                             stroke="currentColor"
                                             className={`${
-                                                currentStep > 2 ? '' : 'hidden'
+                                                currentStep > 1 ? '' : 'hidden'
                                             } relative w-6 h-6 mt-1 text-theme-color`}
                                         >
                                             <path
@@ -154,7 +154,7 @@ export const CertificateProgressSection = ({
                                             : 'text-gray-400'
                                     }`}
                                 >
-                                    Certificate Preview
+                                    Completed
                                 </h1>
                             </div>
                         </div>

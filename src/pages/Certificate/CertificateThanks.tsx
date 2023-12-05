@@ -13,7 +13,7 @@ const CertificateThanks = () => {
                 </span>
             </h1>
             <div
-                className="underline mt-16 sm:text-[1.1rem] text-[1rem]"
+                className="underline mt-16 sm:text-[1.1rem] text-[1rem] cursor-pointer"
                 onClick={() => naviagte('/')}
             >
                 Return To Homepage
