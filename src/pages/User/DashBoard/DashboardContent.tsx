@@ -98,7 +98,7 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                                     '/images/Dashboard/Book.png',
                                 )}
                                 text="Books Uploaded"
-                                number={7}
+                                number={userBooksData?.length || 0}
                             />
                         </div>
                         {/* Second row : Active courses section */}
