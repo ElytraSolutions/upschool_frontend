@@ -97,7 +97,7 @@ const RelatedBookSlider: React.FC<RelatedBookSliderProps> = ({
                     {topic}
                 </p>
             </div>
-            <div className="p-2 w-fit xss:w-full">
+            <div className="py-2 w-fit xss:w-full">
                 {/* w-[220px] xss:w-[270px] xm:w-[510px] sm:w-[600px] tab:w-[570px] lg:w-[600px] xl:w-[900px] */}
                 <div
                     id="sliderContainerBestSellers"

@@ -3,7 +3,8 @@ import RelatedBookSlider from './RelatedBookSlider';
 
 const RelatedBooksComponent = () => {
     return (
-        <div className=" p-4 px-4">
+        //px-4 removed only
+        <div className=" py-4">
             <RelatedBookSlider topic="Related Books" books={RelatedBooks} />
         </div>
     );
