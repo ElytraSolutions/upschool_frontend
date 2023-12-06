@@ -64,7 +64,7 @@ const BookDescriptionSection = () => {
                                 AU $5.0
                             </span>
                         </button>
-                        <button className="bg-gray-300 hover:bg-gray-400 text-red-upschool py-2 px-4 my-1 border border-red-upschool sm:text-sm text-xs">
+                        <button className="hover:bg-gray-300 text-red-upschool py-2 px-4 my-1 border border-red-upschool sm:text-sm text-xs">
                             <Link to="/report-a-problem">REPORT ISSUE</Link>
                         </button>
                     </div>
