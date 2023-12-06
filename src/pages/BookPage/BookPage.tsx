@@ -16,7 +16,7 @@ const BookPage = () => {
 
     return (
         <>
-            <div className="bg-gray-200 font-lexend">
+            <div className="bg-gray-200 pb-[60px] font-lexend">
                 <div className="h-14 flex bg-gradient-to-r from-blue-950 to-red-900 text-white">
                     <div className="mx-auto w-4/5 flex items-center lg:w-2/3">
                         <span className="font-extrabold">Home / Library /</span>
