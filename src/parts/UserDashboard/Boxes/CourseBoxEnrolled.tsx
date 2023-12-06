@@ -15,7 +15,7 @@ type CourseBoxEnrolledProps = {
     };
 };
 export default function CourseBoxEnrolled({ detail }: CourseBoxEnrolledProps) {
-    console.log('Detail Enrolled', detail);
+    // console.log('Detail Enrolled', detail);
     const navigate = useNavigate();
     return (
         <>
