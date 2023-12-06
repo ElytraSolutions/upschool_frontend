@@ -57,7 +57,7 @@ const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
                     <FlipBook />
                 </div>
                 <div
-                    className="flex justify-center items-center flex-wrap text-blue-900 font-bold"
+                    className="flex justify-center items-center flex-wrap text-blue-900 font-normal"
                     id="categoryElement"
                 >
                     {categories?.map((category, index) => (
