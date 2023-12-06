@@ -88,8 +88,10 @@ const HomeSectionComponent: React.FC<SectionProps> = ({
             </div>
 
             {/* books */}
-            <div className="w-full h-full overflow-hidden">
-                <div className={` w-full flex justify-center gap-4 h-full `}>
+            <div className="w-full h-full overflow-hidden px-3">
+                <div
+                    className={` w-full flex justify-center gap-5 sm:gap-7 tab:gap-4 lg:gap-7 h-full`}
+                >
                     {books
                         ?.slice(page, page + noOfBooksToShow)
                         .map((book, index) => {

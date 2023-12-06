@@ -7,6 +7,7 @@ import ChapterText from './LessonText';
 import ChapterMedia from './LessonMedia';
 import { useEffect, useState, useRef } from 'react';
 import resolveImgURL from '../../utlis/resolveImgURL';
+import Confetti from 'react-dom-confetti';
 
 type ChapterDetailProps = {
     isSidebarOpen: boolean;
@@ -32,6 +33,21 @@ export default function LessonDetail({
     const [islessonCompleted, setIsLessonCompleted] = useState<boolean>(false);
 
     const [loading, setLoading] = useState<boolean>(false);
+    const [showAnimation, setShowAnimation] = useState<boolean>(false);
+    const config = {
+        angle: 90,
+        spread: 360,
+        startVelocity: 40,
+        elementCount: 70,
+        decay: 0.95,
+    };
+
+    // useEffect(() => {
+    //     setShowAnimation(true);
+    //     setTimeout(() => {
+    //         setShowAnimation(false);
+    //     }, 2000);
+    // }, [lessonSlug]);
 
     useEffect(() => {
         // console.log('lesson', lesson);
@@ -216,6 +232,10 @@ export default function LessonDetail({
                     </div>
                     {/* ChapterDetail Chapters Section*/}
                     <div className="overflow-y-auto overflow-x-visible">
+                        {/* confetti */}
+                        <div className="absolute top-0 left-0 w-full h-full z-50 overflow-hidden">
+                            <Confetti active={showAnimation} config={config} />
+                        </div>
                         <div
                             className={` ${
                                 isSidebarOpen
@@ -384,6 +404,10 @@ export default function LessonDetail({
                                         );
                                         if (res.status === 200) {
                                             await updateChapters();
+                                            setShowAnimation(true);
+                                            setTimeout(() => {
+                                                setShowAnimation(false);
+                                            }, 2000);
                                         }
                                     }
                                     setIsLessonCompleted(true);
@@ -404,7 +428,7 @@ export default function LessonDetail({
                                     ? 'Completed'
                                     : loading
                                     ? 'Marking as Completed...'
-                                    : 'Mark as Completed'}
+                                    : 'Mark as Complete'}
                             </button>
                             <button
                                 className={`${

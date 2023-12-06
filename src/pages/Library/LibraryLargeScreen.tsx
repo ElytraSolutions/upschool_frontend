@@ -25,11 +25,11 @@ const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
     return (
         <>
             {/* "h-full w-full bg-white p-3 sm:py-6 xl:px-12" */}
-            <div className="h-full w-full bg-white px-2 py-6">
+            <div className="h-full w-full bg-white lg:px-20 xxxl:px-24 py-6">
                 {/* Grid container */}
-                <div className="flex flex-row  w-full gap-1 lg:gap-5 xl:gap-3 2xl:gap-10 ">
+                <div className="flex flex-row justify-evenly w-full gap-1 lg:gap-5 xl:gap-3 2xl:gap-10 ">
                     {/* First colum: search and filter options */}
-                    <div className="flex flex-row justify-end tab:w-1/3  xl:w-[25%] 1450:w-1/3">
+                    <div className="flex flex-row justify-end tab:w-1/3  xl:w-[25%] 1450:w-1/3 xxxl:w-fit">
                         <div className=" tab:max-w-xs  xl:max-w-md">
                             <div className="flex flex-col gap-6 p-2 w-full ">
                                 <div className="flex flex-col gap-2 text-theme-color">
