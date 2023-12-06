@@ -11,7 +11,7 @@ const CharitiesSubSection = ({ charity }) => {
                     <img src={resolveImgURL(charity.image)} />
                 </a>
                 {/* "w-20 xs:w-32 ml-3 sm:ml-4 mt-4 text-[0.5rem] xs:text-[0.6rem]" */}
-                <div className="w-9/12 ml-3 sm:ml-4 mt-4 text-[0.4rem] sm:text-[0.5rem] capitalize">
+                <div className="w-full mt-4 text-[0.5rem] md:text-[0.6rem] lg:text-[0.7rem] 2xl:text-[0.8rem] capitalize text-center">
                     {charity.name}
                 </div>
             </div>
