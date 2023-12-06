@@ -65,7 +65,7 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
             setUserBooksData(bookResp.data.data);
         })();
     }, []);
-    console.log('userCourseData', userCourseData);
+    // console.log('userCourseData', userCourseData);
     return (
         <>
             <div className="h-full overflow-auto">

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 // TODO change type as requrired variables
 
 export default function CourseBox({ detail }) {
-    console.log('Course Box Detail', detail);
+    // console.log('Course Box Detail', detail);
     const navigate = useNavigate();
     return (
         <>

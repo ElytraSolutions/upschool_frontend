@@ -8,6 +8,7 @@ import Setting from './Setting';
 import { useOutletContext, useSearchParams } from 'react-router-dom';
 import { UserDashboardSidebar as Sidebar } from '../../../parts/UserDashboard/UserDashboardSidebar';
 import useScreenWidthAndHeight from '../../../hooks/useScreenWidthAndHeight';
+import axiosInstance from '../../../config/Axios';
 
 interface DashboardProps {}
 
@@ -15,7 +16,26 @@ type OutletContextType = {
     isDashboardNavbarOpen: boolean;
 };
 
+interface Course {
+    name: string;
+    slug: string;
+    thumbnail: string; // Assuming 'thumbnail' is a property in your Course type
+    // Add other properties as needed
+}
+
+interface EligibleCourse {
+    name: string;
+    slug: string;
+    certificate_url: string;
+    img_url: string;
+    email_sent: number;
+}
+
 const Dashboard: React.FC<DashboardProps> = () => {
+    const [courses, setCourses] = useState([]);
+    const [eligibleCourses, setEligibleCourses] = useState<EligibleCourse[]>(
+        [],
+    );
     const navigate = useNavigate();
     const [searchParams, _setSearchParams] = useSearchParams();
     // Using the url
@@ -24,7 +44,60 @@ const Dashboard: React.FC<DashboardProps> = () => {
     // );
     // console.log('option', option);
 
-    console.log('searchParams', searchParams);
+    useEffect(() => {
+        (async () => {
+            try {
+                const resp = await axiosInstance.get('/data/user/courses');
+                setCourses(resp.data.data.completed);
+                // console.log(resp.data.data.completed);
+            } catch (error) {
+                console.log(error);
+            }
+        })();
+    }, []);
+
+    useEffect(() => {
+        // console.log('Runned');
+        setEligibleCourses([]);
+        if (courses) {
+            courses.forEach(async (course: Course) => {
+                try {
+                    const resp = await axiosInstance.post(
+                        `/data/courses/${course.slug}/complete`,
+                    );
+                    // console.log('resp', resp.data.completion.email_sent);
+                    setEligibleCourses((prevCourses) => {
+                        return [
+                            ...prevCourses,
+                            {
+                                name: course.name,
+                                slug: course.slug,
+                                certificate_url: resp.data.certificate_url,
+                                img_url: course.thumbnail,
+                                email_sent: resp.data.completion.email_sent,
+                            },
+                        ];
+                    });
+                } catch (error) {
+                    setEligibleCourses((prevCourses) => {
+                        return [
+                            ...prevCourses,
+                            {
+                                name: course.name,
+                                slug: course.slug,
+                                certificate_url: `/certificate/${course.slug}`,
+                                img_url: course.thumbnail,
+                                email_sent: 2,
+                            },
+                        ];
+                    });
+                    console.log(error);
+                }
+            });
+        }
+    }, [courses]);
+
+    // console.log('searchParams', searchParams);
     useEffect(() => {
         window.scrollTo(0, 0);
         document.title = 'Dashboard | Upschool';
@@ -43,7 +116,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
 
     useEffect(() => {
         setSelectedOption(searchParams.get('option') || 'Dashboard');
-        console.log('option', selectedOption);
+        // console.log('option', selectedOption);
     }, [searchParams.get('option')]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
@@ -71,7 +144,14 @@ const Dashboard: React.FC<DashboardProps> = () => {
                 {selectedOption === 'Dashboard' && (
                     <DashboardContent handleOptionClick={handleOptionClick} />
                 )}
-                {selectedOption === 'My Courses' && <MyCourses />}
+                {selectedOption === 'My Courses' && (
+                    <MyCourses
+                        eligibleCourses={eligibleCourses.slice(
+                            0,
+                            courses.length,
+                        )}
+                    />
+                )}
                 {selectedOption === 'My Books' && <MyBooks />}
                 {selectedOption === 'My Donations And Purchase' && (
                     <MyDonationsAndPurchases />
