@@ -20,7 +20,7 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
     return (
         <>
             <div
-                className={`fixed z-10 bg-white border p-4 pt-2 text-[#cecece] w-[80%]  xs:w-2/3 xm:w-1/3 tab:w-1/5 lg:w-[17%] h-full flex flex-row justify-between  overflow-auto`}
+                className={`fixed z-10 bg-white border p-4 pt-2 text-[#A9A9A9] w-[80%]  xs:w-2/3 xm:w-1/3 tab:w-1/5 lg:w-[17%] h-full flex flex-row justify-between  overflow-auto`}
             >
                 <ul className="flex flex-col gap-4">
                     <li
