@@ -31,9 +31,11 @@ const BookDescriptionSection = () => {
     return (
         <>
             <br />
-            <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6  md:grid-rows-4  xl:grid-rows-5 gap-2 text-blue-950 h-full w-full">
+            <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6  md:grid-rows-4  xl:grid-rows-5 gap-x-9 gap-y-2 text-blue-950 h-full w-full">
                 <div className="md:col-span-4 md:row-span-2 h-full w-full ">
-                    <div className="text-md sm:text-xl">{bookDescription}</div>
+                    <div className="text-md sm:text-xl mt-4 mb-6">
+                        {bookDescription}
+                    </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 my-4 font-bold flex-wrap">
                         <button
                             onClick={openPopup}
@@ -62,7 +64,7 @@ const BookDescriptionSection = () => {
                                 AU $5.0
                             </span>
                         </button>
-                        <button className="bg-gray-300 hover:bg-gray-400 text-red-upschool py-2 px-4 my-1 border border-red-upschool sm:text-sm text-xs">
+                        <button className="hover:bg-gray-300 text-red-upschool py-2 px-4 my-1 border border-red-upschool sm:text-sm text-xs">
                             <Link to="/report-a-problem">REPORT ISSUE</Link>
                         </button>
                     </div>
@@ -86,7 +88,7 @@ const BookDescriptionSection = () => {
                         </div>
                     </div>
                 </div>
-                <div className="md:col-span-3 lg:col-span-2 md:row-span-4 xl:row-span-5 h-full w-full ">
+                <div className="md:col-span-3 lg:col-span-2 md:row-span-4 xl:row-span-5 h-full w-full mt-4">
                     <AuthorsRecommendedProject />
                 </div>
                 <div className="md:col-span-4 md:row-span-2  xl:row-span-3 h-full w-full ">

@@ -3,6 +3,9 @@ import resolveImgURL from '../../../utlis/resolveImgURL';
 
 function CharityCard({ charity }) {
     const navigate = useNavigate();
+    if (!charity) {
+        charity = '';
+    }
     const cardDescription = charity.description
         .replace(/<[^>]+>/g, '')
         .replace(/\s+/g, ' ')
@@ -61,7 +64,7 @@ function CharityCard({ charity }) {
                         <div className="row-span-full flex col-span-3 md:col-start-11 md:col-end-14 col-start-6 col-end-9 self-center">
                             <div className="grid xs:grid-rows-3 grid-rows-2">
                                 <div className="xs:row-span-2 row-span-1 row-start-1 row-end-3 flex justify-end">
-                                    <div className="flex justify-end lg:p-3 md:p-2 hover:p-2">
+                                    <div className="flex justify-end lg:p-3 md:p-2">
                                         <button onClick={handleButtonClick}>
                                             <img
                                                 className="rounded-sm shadow-sm border border-gray-300"

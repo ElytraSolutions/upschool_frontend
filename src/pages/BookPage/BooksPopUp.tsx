@@ -1,21 +1,25 @@
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
 import { RelatedBooks } from '../../data/LibraryBooks';
 import { useNavigate } from 'react-router-dom';
+import resolveImgURL from '../../utlis/resolveImgURL';
 
 const BooksPopUp = ({ showAuthorBookPopUp, setShowAuthorBookPopUp }) => {
     return (
-        <Dialog open={showAuthorBookPopUp}>
+        <Dialog open={showAuthorBookPopUp} className="relative">
             <DialogTitle className="bg-gray-100">
                 <div className="w-full flex-row flex justify-between text-theme-color">
                     <div className="w-1/2">More from this author</div>
                     <div className="w-1/2 flex justify-end">
                         <button
-                            className="px-2 bg-white rounded"
+                            className="bg-white absolute right-[-1px] top-[-1px]"
                             onClick={() => {
                                 setShowAuthorBookPopUp(false);
                             }}
                         >
-                            X
+                            <img
+                                src={resolveImgURL('/images/closeIcon.svg')}
+                                alt="closeIcon"
+                            />
                         </button>
                     </div>
                 </div>
