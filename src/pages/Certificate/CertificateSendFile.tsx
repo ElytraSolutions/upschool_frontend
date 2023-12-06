@@ -51,7 +51,8 @@ const CertificateSendFile = ({
                                     className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md"
                                     placeholder="Choose a file"
                                     onChange={(e) =>
-                                        setFileLink(e.target.value)
+                                        e.target.files &&
+                                        setFileLink(e.target.files[0])
                                     }
                                 />
                             </div>

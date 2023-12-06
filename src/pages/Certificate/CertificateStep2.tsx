@@ -7,7 +7,7 @@ import axiosInstance from '../../config/Axios';
 const CertificateStep2 = ({ changeCurrentStep, formData, courseMapping }) => {
     const [option, setOption] = useState(null);
     const [canvaLink, setCanvaLink] = useState('');
-    const [fileLink, setFileLink] = useState(null);
+    const [fileLink, setFileLink] = useState<File>();
     const isUrlValid = (url) => {
         // Regular expression for a simple URL validation
         const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
