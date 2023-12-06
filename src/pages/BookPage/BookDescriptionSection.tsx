@@ -3,11 +3,20 @@ import AuthorsRecommendedProject from './AuthorsRecommendedProject';
 import RelatedBooksComponent from './RelatedBooksComponent';
 import ProjectPopup from '../../components/PopupPayment/ProjectPopup';
 import { Link } from 'react-router-dom';
+import ExpectPopup from './ExpectPopup';
 
 const BookDescriptionSection = () => {
     // replace with the book description
-
+    const [expectPopup, setExceptPopup] = useState(false);
     const [isPopupVisible, setPopupVisible] = useState(false);
+
+    const openExpectPopup = useCallback(() => {
+        setExceptPopup(true);
+    }, []);
+
+    const closeExpectPopup = useCallback(() => {
+        setExceptPopup(false);
+    }, []);
 
     const openPopup = useCallback(() => {
         setPopupVisible(true);
@@ -20,6 +29,10 @@ const BookDescriptionSection = () => {
     useEffect(() => {
         document.body.style.overflow = isPopupVisible ? 'hidden' : 'unset';
     }, [isPopupVisible]);
+
+    useEffect(() => {
+        document.body.style.overflow = expectPopup ? 'hidden' : 'unset';
+    }, [expectPopup]);
 
     const bookDescription =
         'Excepteur excepteur deserunt cupidatat reprehenderit in consectetur ut magna commodo. \
@@ -69,23 +82,28 @@ const BookDescriptionSection = () => {
                         </button>
                     </div>
                     <div className="flex gap-2 items-center">
-                        <svg
-                            width="18"
-                            height="18"
-                            viewBox="0 0 18 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
+                        <button
+                            className="flex flex-cols gap-2 items-center"
+                            onClick={openExpectPopup}
                         >
-                            <path
-                                d="M9 0C4.02979 0 0 4.03124 0 9C0 13.9717 4.02979 18 9 18C13.9702 18 18 13.9717 18 9C18 4.03124 13.9702 0 9 0ZM9 3.99194C9.84179 3.99194 10.5242 4.67434 10.5242 5.51613C10.5242 6.35792 9.84179 7.04032 9 7.04032C8.15821 7.04032 7.47581 6.35792 7.47581 5.51613C7.47581 4.67434 8.15821 3.99194 9 3.99194ZM11.0323 13.2097C11.0323 13.4502 10.8373 13.6452 10.5968 13.6452H7.40323C7.16273 13.6452 6.96774 13.4502 6.96774 13.2097V12.3387C6.96774 12.0982 7.16273 11.9032 7.40323 11.9032H7.83871V9.58064H7.40323C7.16273 9.58064 6.96774 9.38566 6.96774 9.14516V8.27419C6.96774 8.0337 7.16273 7.83871 7.40323 7.83871H9.72581C9.9663 7.83871 10.1613 8.0337 10.1613 8.27419V11.9032H10.5968C10.8373 11.9032 11.0323 12.0982 11.0323 12.3387V13.2097Z"
-                                fill="black"
-                                fill-opacity="0.3"
-                            />
-                        </svg>
+                            <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 18 18"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M9 0C4.02979 0 0 4.03124 0 9C0 13.9717 4.02979 18 9 18C13.9702 18 18 13.9717 18 9C18 4.03124 13.9702 0 9 0ZM9 3.99194C9.84179 3.99194 10.5242 4.67434 10.5242 5.51613C10.5242 6.35792 9.84179 7.04032 9 7.04032C8.15821 7.04032 7.47581 6.35792 7.47581 5.51613C7.47581 4.67434 8.15821 3.99194 9 3.99194ZM11.0323 13.2097C11.0323 13.4502 10.8373 13.6452 10.5968 13.6452H7.40323C7.16273 13.6452 6.96774 13.4502 6.96774 13.2097V12.3387C6.96774 12.0982 7.16273 11.9032 7.40323 11.9032H7.83871V9.58064H7.40323C7.16273 9.58064 6.96774 9.38566 6.96774 9.14516V8.27419C6.96774 8.0337 7.16273 7.83871 7.40323 7.83871H9.72581C9.9663 7.83871 10.1613 8.0337 10.1613 8.27419V11.9032H10.5968C10.8373 11.9032 11.0323 12.0982 11.0323 12.3387V13.2097Z"
+                                    fill="black"
+                                    fill-opacity="0.3"
+                                />
+                            </svg>
 
-                        <div className="text-gray-500 text-base underline font-nunito ">
-                            What to expect?
-                        </div>
+                            <div className="text-gray-500 text-base underline font-nunito ">
+                                What to expect?
+                            </div>
+                        </button>
                     </div>
                 </div>
                 <div className="md:col-span-3 lg:col-span-2 md:row-span-4 xl:row-span-5 h-full w-full mt-4">
@@ -96,6 +114,7 @@ const BookDescriptionSection = () => {
                 </div>
             </div>
             {isPopupVisible && <ProjectPopup onClose={closePopup} />}
+            {expectPopup && <ExpectPopup onClose={closeExpectPopup} />}
         </>
     );
 };

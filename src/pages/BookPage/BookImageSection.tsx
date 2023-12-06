@@ -15,7 +15,6 @@ type BookCardProps = {
 };
 const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
     const { first_name, title, country, categories } = book;
-    console.log('book as prop received', book);
     return (
         <>
             <div className="flex flex-col md:flex-row md:justify-between text-blue-950">
