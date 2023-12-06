@@ -35,14 +35,14 @@ function CourseTop({ title, subtitle, thumbnail }) {
                     </div>
                     <div className="tab:-mt-24 -mt-12 col-span-full">
                         <div className="grid tab:grid-cols-16 grid-flow-row gap-y-2 justify-center items-center">
-                            <div className="z-10 relative tab:col-span-4 tab:col-start-11 row-start-1 tab:h-[496px] h-fit">
+                            <div className="relative tab:col-span-4 tab:col-start-11 row-start-1 tab:h-[496px] h-fit">
                                 <div className="flex w-fit justify-center h-fit">
                                     <CourseEnrol
                                         thumbnail={resolveImgURL(thumbnail)}
                                     />
                                 </div>
                                 {/*using a overlay to keep the container size fix */}
-                                <div className="absolute top-0 left-0 w-full h-full bg-white-100 opacity-80 z-0"></div>
+                                <div className="absolute top-0 left-0 w-full h-full bg-white-100 opacity-80"></div>
                             </div>
                         </div>
                     </div>

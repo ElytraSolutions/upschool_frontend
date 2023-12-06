@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 // import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+
 // import Select from '@mui/material/Select';
 // import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
@@ -32,6 +33,7 @@ const CertificateStep1 = ({
     const { isLargeScreen } = useScreenWidthAndHeight();
     console.log('courses', courses);
     console.log('coursesName', coursesName);
+
     const handleChange = (e) => {
         setFormData({
             ...formData,

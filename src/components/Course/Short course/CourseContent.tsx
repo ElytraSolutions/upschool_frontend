@@ -26,10 +26,6 @@ function CourseContent({ susDetails, editorData }) {
 
     if (!editorData) return <Loading />;
 
-    console.log(susDetails);
-
-    const susDetailsArr = Object.values(susDetails);
-
     const updatedEditorData = showDownloadButton
         ? editorData.replace(
               /(<a.*?href="(.*?)">.*?<img.*?>.*?<\/a>)/i,
@@ -44,7 +40,7 @@ function CourseContent({ susDetails, editorData }) {
                     {susDetails && (
                         <div className="flex tab:justify-start justify-center">
                             <div className="grid tab:grid-cols-6 grid-cols-3 gap-6 w-fit">
-                                {susDetailsArr.map((qualityImg, index) => {
+                                {susDetails.map((qualityImg, index) => {
                                     return (
                                         <img
                                             key={index}

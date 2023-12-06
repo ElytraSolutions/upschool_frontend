@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import axiosInstance from '../../../config/Axios';
 import resolveImgURL from '../../../utlis/resolveImgURL';
 // import { ProgressBar } from '../../../utlis/ProgressBar/ProgressBar';
@@ -17,6 +18,7 @@ export default function CourseBoxCompleted({
     detail,
 }: CourseBoxCompletedProps) {
     const navigate = useNavigate();
+    const [emailSent, setEmailSent] = useState(0);
     return (
         <>
             <div>
@@ -68,25 +70,40 @@ export default function CourseBoxCompleted({
                                     Revisit Course
                                 </div>
                                 <div
-                                    className="text-white text-center bg-theme-color px-4 py-2 w-3/4 cursor-pointer"
+                                    className={`text-white text-center bg-theme-color px-4 py-2 w-3/4  ${
+                                        emailSent == 0
+                                            ? 'opacity-80 pointer-events-none'
+                                            : 'cursor-pointer'
+                                    }}`}
                                     onClick={async () => {
                                         try {
                                             const res =
                                                 await axiosInstance.post(
                                                     `/data/courses/${detail.slug}/complete`,
                                                 );
-                                            res.data.certificate_url.slice(
-                                                0,
-                                                8,
-                                            ) === 'https://'
-                                                ? window.open(
-                                                      `${res.data.certificate_url}`,
-                                                      '_blank',
-                                                  )
-                                                : window.open(
-                                                      `https://${res.data.certificate_url}`,
-                                                      '_blank',
-                                                  );
+                                            // console.log(
+                                            //     res.data.completion.email_sent,
+                                            // );
+                                            setEmailSent(
+                                                res.data.completion.email_sent,
+                                            );
+                                            if (
+                                                res.data.completion
+                                                    .email_sent === 1
+                                            ) {
+                                                res.data.certificate_url.slice(
+                                                    0,
+                                                    8,
+                                                ) === 'https://'
+                                                    ? window.open(
+                                                          `${res.data.certificate_url}`,
+                                                          '_blank',
+                                                      )
+                                                    : window.open(
+                                                          `https://${res.data.certificate_url}`,
+                                                          '_blank',
+                                                      );
+                                            }
                                         } catch (error) {
                                             navigate(
                                                 `/certificate?course=${encodeURIComponent(
@@ -103,7 +120,11 @@ export default function CourseBoxCompleted({
                                         // );
                                     }}
                                 >
-                                    Get Certificate
+                                    <span>
+                                        {emailSent == 0
+                                            ? 'On Hold'
+                                            : 'Get Certificate'}
+                                    </span>
                                 </div>
                             </div>
                         </div>
