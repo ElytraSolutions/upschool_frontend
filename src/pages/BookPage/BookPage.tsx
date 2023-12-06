@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import BookImageSection from './BookImageSection';
 import BookDescriptionSection from './BookDescriptionSection';
 
@@ -33,9 +33,12 @@ const BookPage = () => {
         <>
             <div className="bg-gray-200 pb-[60px] font-lexend">
                 <div className="h-14 flex bg-gradient-to-r from-blue-950 to-red-900 text-white">
-                    <div className="mx-auto w-4/5 flex items-center lg:w-2/3">
-                        <span className="font-extrabold">Home / Library /</span>
-                        <span>{' ' + book?.title}</span>
+                    <div className="mx-auto w-4/5 flex items-center gap-x-1 lg:w-2/3">
+                        <span className="font-extrabold">
+                            <Link to="/">Home</Link> /{' '}
+                            <Link to="/library">Library</Link> /
+                        </span>
+                        <span>{book?.title}</span>
                     </div>
                 </div>
                 <div className="mx-auto md:10/12 w-4/5 mt-6 lg:w-2/3">
