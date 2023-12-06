@@ -3,6 +3,9 @@ import resolveImgURL from '../../../utlis/resolveImgURL';
 
 function CharityCard({ charity }) {
     const navigate = useNavigate();
+    if (!charity) {
+        charity = '';
+    }
     const cardDescription = charity.description
         .replace(/<[^>]+>/g, '')
         .replace(/\s+/g, ' ')
