@@ -97,7 +97,7 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                             }
                         }}
                     >
-                        <i className="fa fa-gear"></i> Setting
+                        <i className="fa fa-gear"></i> Settings
                     </li>
                     <li
                         className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
