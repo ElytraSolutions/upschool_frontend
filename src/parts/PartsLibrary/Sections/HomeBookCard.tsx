@@ -36,21 +36,24 @@ const HomeBookCard: React.FC<BookCardProps> = ({ book }) => {
                 width="720"
                 height="405"
             />
-            <div className="flex flex-col gap-1 px-4 py-2 sm:p-4  max-h-[40%]">
-                <p className="font-bold font-lexend">{book.first_name}</p>
-                <div className="flex flex-row items-center  bg-theme-color py-2  px-4 rounded-xl w-fit h-fit  ">
-                    <p className=" text-white font-light text-center text-sm ">
+            <div className="flex flex-col gap-1 lg:gap-2 px-4 py-2 sm:p-4  max-h-[40%]">
+                <p className=" font-bold text-base font-lexend">{book.title}</p>
+
+                <div className="flex flex-row items-center  bg-[#F0F0F0] py-1  px-3 rounded-xl w-fit h-full ">
+                    <p className=" text-[#242254] font-bold text-center text-sm ">
                         {book.country.substring(0, 25)}{' '}
                         {book.country.length > 25 && '...'}
                     </p>
                 </div>
-                <p className=" font-bold text-base font-lexend">{book.title}</p>
+                <p className="font-semibold font-lexend text-[0.8rem]">
+                    {book.first_name}
+                </p>
 
-                <div className="flex flex-row items-center text-theme-color text-sm h-full ">
-                    <p className="font-semibold ">
+                <div className="flex flex-row items-center text-theme-color text-sm h-full">
+                    <p className="font-semibold line-clamp-3">
                         Values this book explores:{' '}
                         {book.categories.map((category, index) => (
-                            <span key={index} className="font-normal italic">
+                            <span key={index} className="font-normal ">
                                 {index <= 4 && category.name}
                                 {index < 3 && ', '}
                             </span>
@@ -59,7 +62,7 @@ const HomeBookCard: React.FC<BookCardProps> = ({ book }) => {
                     </p>
                 </div>
             </div>
-            <div className=" mx-4 my-2">
+            <div className=" mx-4 my-2 mt-4">
                 <button
                     type="button"
                     className="p-3 my-1 bg-red-upschool text-white text-sm hover:cursor-pointer w-full"

@@ -41,22 +41,23 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                         width="720"
                         height="405"
                     />
-                    <div className="flex flex-col gap-1 px-4 py-2 sm:p-4  h-fit w-fit">
-                        <p className="font-bold font-lexend">
-                            {book.first_name}
-                        </p>
-                        <div className="flex flex-row items-center  bg-theme-color py-1  px-3 rounded-xl w-fit h-full ">
-                            <p className=" text-white font-light text-center text-sm ">
-                                {book.country.substring(0, 25)}{' '}
-                                {book.country.length > 25 && '...'}
-                            </p>
-                        </div>
+                    <div className="flex flex-col gap-1 lg:gap-2 px-4 py-2 sm:p-4  h-fit w-fit">
                         <p className=" font-bold text-base font-lexend">
                             {book.title}
                         </p>
 
+                        <div className="flex flex-row items-center  bg-[#F0F0F0] py-1  px-3 rounded-xl w-fit h-full ">
+                            <p className=" text-[#242254] font-bold text-center text-sm ">
+                                {book.country.substring(0, 25)}{' '}
+                                {book.country.length > 25 && '...'}
+                            </p>
+                        </div>
+                        <p className="font-semibold font-lexend text-[0.8rem]">
+                            {book.first_name}
+                        </p>
+
                         <div className="flex flex-row items-center text-theme-color text-sm h-fit">
-                            <p className="font-semibold italic">
+                            <p className="font-semibold line-clamp-3">
                                 Values this book explores:{' '}
                                 {book.categories.map((category, index) => (
                                     <span
@@ -73,7 +74,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                     </div>
                 </div>
                 {/*  TODO link to read book */}
-                <div className="absolute bottom-4 w-full px-3">
+                <div className="absolute bottom-3 w-full px-3">
                     <button
                         type="button"
                         className="p-3 my-1 bg-red-upschool text-white text-sm hover:cursor-pointer w-full"
