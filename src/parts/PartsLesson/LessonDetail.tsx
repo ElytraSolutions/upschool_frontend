@@ -35,19 +35,19 @@ export default function LessonDetail({
     const [loading, setLoading] = useState<boolean>(false);
     const [showAnimation, setShowAnimation] = useState<boolean>(false);
     const config = {
-        angle: 90,
-        spread: 360,
+        angle: 85,
+        spread: 250,
         startVelocity: 40,
-        elementCount: 70,
+        elementCount: 200,
         decay: 0.95,
     };
 
-    // useEffect(() => {
-    //     setShowAnimation(true);
-    //     setTimeout(() => {
-    //         setShowAnimation(false);
-    //     }, 2000);
-    // }, [lessonSlug]);
+    useEffect(() => {
+        setShowAnimation(true);
+        setTimeout(() => {
+            setShowAnimation(false);
+        }, 2000);
+    }, [lessonSlug]);
 
     useEffect(() => {
         // console.log('lesson', lesson);
@@ -413,7 +413,7 @@ export default function LessonDetail({
                                             setShowAnimation(true);
                                             setTimeout(() => {
                                                 setShowAnimation(false);
-                                            }, 2000);
+                                            }, 4000);
                                         }
                                     }
                                     setIsLessonCompleted(true);
