@@ -27,28 +27,30 @@ function CharityPageImageSection({ name, links, cover, logo }) {
                             </div>
                         </div>
                     </div>
-                    <div className="-mt-16 col-span-10 col-start-3">
-                        <div className="grid md:grid-cols-10 grid-flow-row gap-y-2 justify-center items-center">
+                    <div className="-mt-16 w-full col-span-full flex justify-center">
+                        <div className="flex lg:flex-row flex-col-reverse w-[1120px] lg:justify-between justify-center items-center">
                             <div className="md:col-span-2 md:col-start-1">
-                                <div className="flex justify-center">
+                                <div className="flex md:justify-start justify-center lg:pl-2 p-0">
                                     <div className="shrink-0">
                                         <SocialMediaIcons link={links} />
                                     </div>
                                 </div>
                             </div>
-                            <div className="z-10 md:col-span-2 md:col-start-8 row-start-1">
-                                <div className="w-[230px] h-[230px] flex md:p-2 p-0">
-                                    <a
-                                        href={links.website}
-                                        target="_blank"
-                                        rel="nonreferrer"
-                                    >
-                                        <img
-                                            className="border border-gray-300"
-                                            src={resolveImgURL(logo)}
-                                            alt="logo"
-                                        />
-                                    </a>
+                            <div className="z-10 md:col-span-3 md:col-start-8 row-start-1">
+                                <div className="flex justify-end">
+                                    <div className="w-[230px] h-[230px] flex md:p-2 p-0">
+                                        <a
+                                            href={links.website}
+                                            target="_blank"
+                                            rel="nonreferrer"
+                                        >
+                                            <img
+                                                className="border border-gray-300"
+                                                src={resolveImgURL(logo)}
+                                                alt="logo"
+                                            />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

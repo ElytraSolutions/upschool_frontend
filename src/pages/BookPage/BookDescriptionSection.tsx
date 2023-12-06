@@ -109,7 +109,7 @@ const BookDescriptionSection = () => {
                 <div className="md:col-span-3 lg:col-span-2 md:row-span-4 xl:row-span-5 h-full w-full mt-4">
                     <AuthorsRecommendedProject />
                 </div>
-                <div className="md:col-span-4 md:row-span-2  xl:row-span-3 h-full w-full ">
+                <div className="md:col-span-4 md:row-span-2 xl:row-span-3 h-full w-full">
                     <RelatedBooksComponent />
                 </div>
             </div>
