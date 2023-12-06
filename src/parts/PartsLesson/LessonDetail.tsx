@@ -233,9 +233,15 @@ export default function LessonDetail({
                     {/* ChapterDetail Chapters Section*/}
                     <div className="overflow-y-auto overflow-x-visible">
                         {/* confetti */}
-                        <div className="absolute top-0 left-0 w-full h-full z-50 overflow-hidden">
+
+                        <div
+                            className={`${
+                                showAnimation ? '' : 'hidden '
+                            } absolute top-0 left-0 w-full h-full z-50 overflow-hidden`}
+                        >
                             <Confetti active={showAnimation} config={config} />
                         </div>
+
                         <div
                             className={` ${
                                 isSidebarOpen
