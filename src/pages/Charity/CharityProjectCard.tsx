@@ -28,7 +28,10 @@ function CharityProjectCard({ content }) {
                     <div className="flex grid p-3 lg:h-[401px]">
                         <div className="flex max-h-[100px]">
                             <div className="">
-                                <p className="font-extrabold text-theme-color xs:text-2xl xss:text-xl line-clamp-3 font-sans-serif">
+                                <p
+                                    onClick={handleClick}
+                                    className="font-extrabold text-theme-color xs:text-2xl xss:text-xl line-clamp-3 font-sans-serif"
+                                >
                                     {content.name}
                                 </p>
                             </div>
