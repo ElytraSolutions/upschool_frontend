@@ -14,17 +14,35 @@ const Certificate = () => {
     const [coursesName, setCoursesName] = useState([]);
     const [courseMapping, setCourseMapping] = useState({});
     useEffect(() => {
+        // (async () => {
+        //     const resp = await axiosInstance.get(`/data/courses`);
+        //     const data = resp.data.data;
+        //     console.log(data);
+        //     setCourses(data);
+        //     const courseMap = {};
+        //     data.forEach((course) => {
+        //         courseMap[course.name] = course.slug;
+        //     });
+        //     setCourseMapping(courseMap);
+        //     setCoursesName(data.map((course) => course.name));
+        //     // console.log('Data', resp.data.data, 'This is the thing', courseMap);
+        // })();
         (async () => {
-            const resp = await axiosInstance.get(`/data/courses`);
-            const data = resp.data.data;
-            setCourses(data);
-            const courseMap = {};
-            data.forEach((course) => {
-                courseMap[course.name] = course.slug;
-            });
-            setCourseMapping(courseMap);
-            setCoursesName(data.map((course) => course.name));
-            // console.log('Data', resp.data.data, 'This is the thing', courseMap);
+            try {
+                const resp = await axiosInstance.get(
+                    'data/user/courses/eligibleForCertificate',
+                );
+                const data = resp.data.data;
+                setCourses(data);
+                const courseMap = {};
+                data.forEach((course) => {
+                    courseMap[course.name] = course.slug;
+                });
+                setCourseMapping(courseMap);
+                setCoursesName(data.map((course) => course.name));
+            } catch (error) {
+                console.log(error);
+            }
         })();
     }, []);
 
