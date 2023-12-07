@@ -22,14 +22,14 @@ const SectionShowBooks: React.FC<SectionProps> = ({ topic, books }) => {
     }, []);
     return (
         <>
-            <div className=" flex flex-col gap-2  pl-2 lg:pl-6 text-theme-color">
-                <div className="flex flex-row  items-center gap-4 w-fit font-semibold p-2">
+            <div className=" flex flex-col gap-2 text-theme-color">
+                <div className=" font-semibold">
                     <p className="text-base xm:text-xl lg:text-2xl font-lexend">
                         {topic}
                     </p>
                 </div>
-                <div className=" xm:pl-2 sm:pl-4 tab:pl-2 lg:pl-3 xl:pl-5 w-full">
-                    <div className="flex flex-wrap justify-center items-center flex-col xm:flex-row xm:justify-start gap-5 sm:gap-7 tab:gap-4 lg:gap-7 w-full xss:w-[270px] xm:w-[510px] sm:w-[600px] tab:w-[570px] lg:w-[600px] xl:w-[900px] ">
+                <div className="">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xxlarge:grid-cols-4  gap-5 sm:gap-7 tab:gap-4 lg:gap-7 w-fit ">
                         {books?.map((book, index) => (
                             <BookCard key={index} book={book} />
                         ))}
