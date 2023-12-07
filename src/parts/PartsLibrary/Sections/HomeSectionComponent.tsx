@@ -61,9 +61,9 @@ const HomeSectionComponent: React.FC<SectionProps> = ({
     //      console.log('page', page);
     // }, [noOfBooksToShow, page]);
     return (
-        <div className="  flex flex-col h-fit ">
+        <div className="  flex flex-col items-center h-fit ">
             {/* header */}
-            <div className=" px-5 w-full flex justify-between text-theme-color mb-4">
+            <div className="w-[85%] xl:w-full flex justify-between text-theme-color mb-4">
                 <div className="flex gap-2 md:gap-4 items-center">
                     <h2 className="text-[0.8rem] xm:text-xl lg:text-2xl font-lexend font-semibold">
                         {topic}
@@ -88,9 +88,9 @@ const HomeSectionComponent: React.FC<SectionProps> = ({
             </div>
 
             {/* books */}
-            <div className="w-full h-full overflow-hidden px-3">
+            <div className="w-full h-full overflow-hidden xl:px-3">
                 <div
-                    className={` w-full flex justify-center items-center gap-5 sm:gap-7 tab:gap-4 lg:gap-7 h-full`}
+                    className={` w-full flex justify-center items-center xlarge:justify-between gap-5 sm:gap-7 tab:gap-4 lg:gap-7 h-full`}
                 >
                     {books
                         ?.slice(page, page + noOfBooksToShow)
