@@ -28,7 +28,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
 
     return (
         <>
-            <div className=" relative flex flex-col rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[97%] xm:w-[235px] sm:w-[270px] h-[450px] xxlarge:h-[500px] ">
+            <div className=" relative flex flex-col rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  mx-auto w-[90%] xm:w-[235px] sm:w-[270px] xs:h-[450px] h-[500px] xxlarge:h-[500px] ">
                 <div className="">
                     {/* TODO imgage dimesion needs to be determined  */}
                     <img
@@ -42,7 +42,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                         height="405"
                     />
                     <div className="flex flex-col gap-1 lg:gap-2 px-4 py-2 sm:p-4  h-fit w-fit">
-                        <p className=" font-bold text-base font-lexend">
+                        <p className=" font-bold text-base font-lexend h-[3rem]">
                             {book.title}
                         </p>
 
