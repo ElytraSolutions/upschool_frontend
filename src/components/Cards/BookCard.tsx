@@ -60,10 +60,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                             <p className="font-semibold line-clamp-3">
                                 Values this book explores:{' '}
                                 {book.categories.map((category, index) => (
-                                    <span
-                                        key={index}
-                                        className="font-normal italic"
-                                    >
+                                    <span key={index} className="font-normal">
                                         {index <= 4 && category.name}
                                         {index < 3 && ', '}
                                     </span>
