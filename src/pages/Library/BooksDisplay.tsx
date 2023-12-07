@@ -72,7 +72,7 @@ const BooksDisplay = ({ filteredBooks }: BooksDisplayProps) => {
                 {/* it displays all sections (Best Sellers , Featured Books and Explore ALL Books as deafault condition) */}
                 {selectSection === 'Home' && (
                     <div className="w-full flex items-center justify-center">
-                        <div className=" xl:w-[850px] xxlarge:w-[1500px] flex flex-col justify-center items-center gap-5 tab:gap-12 ">
+                        <div className=" w-fit xl:w-[850px] xlarge:w-[1200px]  xxlarge:w-[1500px] flex flex-col justify-center items-center gap-5 tab:gap-12 ">
                             {/* Best Sellers Section */}
                             <HomeSectionComponent
                                 topic="Best Sellers"
