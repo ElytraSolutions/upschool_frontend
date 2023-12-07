@@ -75,7 +75,9 @@ const LoggedProfileBox: React.FC<BoxProps> = ({ inf, name }) => {
                                 <span className="pr-1  text-sm ">
                                     {/*TODO: What is this Navlink doing?*/}
                                     {/* <NavLink to={inf.path ? inf.path : '#'}> */}
-                                    <p className="truncate">{name}</p>
+                                    <p className="truncate hover:cursor-pointer">
+                                        {name}
+                                    </p>
                                     {/* </NavLink> */}
                                 </span>
                             )}

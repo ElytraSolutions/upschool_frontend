@@ -40,7 +40,7 @@ const AuthorsRecommendedProject = () => {
                     <br />
                     <img src={projectImg} alt="project image"></img>
                     <br />
-                    <div className="font-black text-xl underline">
+                    <div className="font-black text-xl">
                         <a className="hover:cursor-default">{projectName}</a>
                     </div>
                     <div className="mt-2 text-sm">

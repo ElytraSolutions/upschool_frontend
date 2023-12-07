@@ -6,7 +6,7 @@ function PriceSectionPopup({ onclose }) {
     return (
         <>
             <div className="z-40 fixed font-family-lexend inset-0 bg-black bg-opacity-20 backdrop-blur-sm grid justify-center items-center px-[50px] popup transition duration-500 ease-in-out opacity-0 invisible animate-fade-in">
-                <div className="z-40 bg-white pb-[30px] grid rounded">
+                <div className="z-40 bg-white pb-[30px] grid rounded h-[80vh] overflow-hidden">
                     <div className="flex justify-end">
                         <button onClick={onclose}>
                             <img
@@ -18,7 +18,7 @@ function PriceSectionPopup({ onclose }) {
                     <div className="flex text-theme-color justify-center font-bold py-[24px] text-3xl text-center px-[24px]">
                         <h2>Buy and Download the eBook - AU $5</h2>
                     </div>
-                    <div className="md:max-w-[910px] max-h-[575px] xm:max-w-[392px]">
+                    <div className="md:max-w-[910px] max-h-[575px] xm:max-w-[392px] overflow-y-scroll no-scrollbar">
                         <div className="grid md:grid-cols-5 xm:grid-flow-row gap-2 max-w-[910px] max-h-[575px] pb-[24px] px-[30px] overflow-y-scroll no-scrollbar">
                             <div className="md:col-start-1 md:col-span-2 xm:row-span-full xm:row-start-1 flex justify-center rounded">
                                 <div className="flex justify-center rounded">
@@ -28,7 +28,7 @@ function PriceSectionPopup({ onclose }) {
                             <div className="md:col-start-3 md:col-span-3 xm:row-span-full xm:row-start-2 px-3">
                                 {/* <div className="flex flex-grow"> */}
                                 <div className="grid gap-4">
-                                    <div className="row-span-1 text-left text-theme-color font-bold text-2xl text-left">
+                                    {/* <div className="row-span-1 text-left text-theme-color font-bold text-2xl text-left">
                                         Book Quantity
                                     </div>
                                     <div className="flex flex-grow justify-center">
@@ -48,11 +48,11 @@ function PriceSectionPopup({ onclose }) {
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="row-span-1 text-left text-theme-color font-bold text-2xl text-left">
                                         Extra Donation
                                     </div>
-                                    <div className="flex flex-grow text-theme-color font-bold text-lg text-left">
+                                    <div className="flex flex-grow text-theme-color text-lg text-left">
                                         $2.50 from the purchase of this book
                                         will be donated to your selected
                                         charity. Would you like to make an extra
@@ -97,7 +97,7 @@ function PriceSectionPopup({ onclose }) {
                                     <div className="row-span-1 text-left text-theme-color font-bold text-2xl text-left">
                                         Upschool Tip
                                     </div>
-                                    <div className="row-span-1 text-left text-theme-color font-bold text-lg text-left">
+                                    <div className="row-span-1 text-left text-theme-color text-lg text-left">
                                         Please consider giving Upschool a tip to
                                         help fund our FREE courses and
                                         resources.

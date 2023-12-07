@@ -44,7 +44,7 @@ const BookDescriptionSection = () => {
     return (
         <>
             <br />
-            <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6  md:grid-rows-4  xl:grid-rows-5 gap-x-9 gap-y-2 text-blue-950 h-full w-full">
+            <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6 md:grid-rows-4  xl:grid-rows-5 gap-x-10 gap-y-2 text-blue-950 h-full w-full">
                 <div className="md:col-span-4 md:row-span-2 h-full w-full ">
                     <div className="text-md sm:text-xl mt-4 mb-6">
                         {bookDescription}
