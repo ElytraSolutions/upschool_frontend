@@ -14,7 +14,7 @@ function Test() {
             console.log(resp.data.data);
             setInfo(resp.data.data);
         })();
-    }, []);
+    }, [info]);
     if (!info) return <Loading />;
     return (
         <>

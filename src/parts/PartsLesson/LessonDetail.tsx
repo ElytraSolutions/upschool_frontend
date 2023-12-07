@@ -197,7 +197,7 @@ export default function LessonDetail({
                                 <div
                                     className={`${
                                         isSidebarOpen ? 'absolute -left-4' : ''
-                                    }  flex  flex-row items-center justify-center rounded-full bg-[#fdcf60] text-white md:h-8 md:w-8 lg:h-8 lg:w-8 z-50 `}
+                                    }  flex  flex-row items-center justify-center rounded-full bg-[#fdcf60] text-white md:h-8 md:w-8 lg:h-8 lg:w-8 z-5 `}
                                 >
                                     <KeyboardArrowLeftIcon
                                         className={`${

@@ -6,7 +6,7 @@ export default {
             colors: {
                 'theme-color': '#242254',
                 'font-color': '#03014C',
-                'red-upschool': '#B81342',
+                'red-upschool': '#d71a5f',
                 'red-custom': '#BC0D4D',
                 'pink-upschool': '#BB3860',
             },

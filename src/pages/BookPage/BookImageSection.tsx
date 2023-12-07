@@ -15,7 +15,6 @@ type BookCardProps = {
 };
 const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
     const { first_name, title, country, categories } = book;
-    console.log('book as prop received', book);
     return (
         <>
             <div className="flex flex-col md:flex-row md:justify-between text-blue-950">
@@ -57,7 +56,7 @@ const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
                     <FlipBook />
                 </div>
                 <div
-                    className="flex justify-center items-center flex-wrap text-blue-900 font-bold"
+                    className="flex justify-center items-center flex-wrap text-blue-900 font-normal"
                     id="categoryElement"
                 >
                     {categories?.map((category, index) => (

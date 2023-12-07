@@ -155,7 +155,7 @@ function PriceSectionPopup({ onclose }) {
                                                 </div>
                                             </button>
                                         </div>
-                                        <div className="hover:bg-pink-900 flex justify-center bg-red-upschool p-2 text-white font-bold text-xs xm:text-lg lg:text-xl">
+                                        <div className="hover:bg-pink-900 flex justify-center bg-red-upschool p-2 text-white font-normal text-xs xm:text-lg lg:text-xl">
                                             <button>
                                                 Continue to Checkout
                                             </button>

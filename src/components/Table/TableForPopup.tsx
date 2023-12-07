@@ -35,7 +35,7 @@ function TableForPopup() {
                                             AU $5.00
                                         </td>
                                     </tr>
-                                    <tr className="border-b dark:border-neutral-500">
+                                    <tr className="border-b dark:border-neutral-500 font-bold">
                                         <td className="whitespace-nowrap px-3 py-2">
                                             Total
                                         </td>

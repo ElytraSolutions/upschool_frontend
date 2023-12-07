@@ -44,7 +44,7 @@ import axiosInstance from '../../../config/Axios';
 //         status: 'Published',
 //     },
 // ];
-function MyCourses() {
+function MyCourses({ eligibleCourses }) {
     const [selectedOption, setSelectedOption] =
         useState<string>('Enrolled Courses');
     const [myCourses, setMyCourses] = useState<{
@@ -65,7 +65,8 @@ function MyCourses() {
         }>;
     }>({ enrolled: [], completed: [] });
 
-    console.log('The courses is running', myCourses);
+    // console.log('The courses is running', myCourses);
+    console.log('This is the eligible Courses', eligibleCourses);
 
     useEffect(() => {
         (async () => {

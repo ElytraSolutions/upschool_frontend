@@ -57,35 +57,38 @@ function CharityPage() {
                     logo={currentCharity.image}
                 />
                 <div className="grid gap-y-6 grid-cols-14">
-                    <div className="flex p-2 justify-center lg:col-span-10 lg:col-start-3 col-span-12 col-start-2">
+                    <div className="flex p-2 justify-center col-span-full">
                         <div
-                            className={`flex w-full justify-center overflow-y-hidden`}
+                            className={`flex w-[1120px] justify-center overflow-y-hidden p-2`}
                             // style={{ height: `${dynHeight}px` }}
                         >
-                            <div className="flex xl:w-[1120px] lg:w-[1020px] w-screen">
-                                {/* <FunctionalIFrameComponent
+                            {/* <FunctionalIFrameComponent
                                     title={currentCharity.name}
                                 > */}
-                                <div
-                                    // ref={divRef}
-                                    dangerouslySetInnerHTML={{
-                                        __html: currentCharity.description,
-                                    }}
-                                ></div>
-                                {/* </FunctionalIFrameComponent> */}
-                            </div>
+                            <div
+                                // ref={divRef}
+                                dangerouslySetInnerHTML={{
+                                    __html: currentCharity.description,
+                                }}
+                            ></div>
+                            {/* </FunctionalIFrameComponent> */}
                         </div>
                     </div>
-                    <div className="lg:col-span-10 lg:col-start-3 col-span-12 col-start-2">
-                        <div className="flex justify-start pl-2">
+                    <div className="col-span-full flex justify-center">
+                        <div className="flex justify-start w-[1120px] pl-2">
                             <p className="font-bold text-[28px] font-sans-serif text-theme-color">
                                 Projects
                             </p>
                         </div>
                     </div>
-                    <div className="lg:col-span-10 lg:col-start-3 col-span-12 col-start-2 flex grid gap-y-5">
+                    <div className="col-span-full flex justify-center grid gap-y-5">
                         {isProjects.map((project, index) => (
-                            <CharityProjectCard key={index} content={project} />
+                            <div className="max-w-[1120px]">
+                                <CharityProjectCard
+                                    key={index}
+                                    content={project}
+                                />
+                            </div>
                         ))}
                     </div>
                 </div>

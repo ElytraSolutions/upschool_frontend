@@ -11,7 +11,7 @@ function SmallProjectCard() {
                         alt="projectImage"
                     />
                 </div>
-                <div className="pl-2 pr-2 text-theme-color flex text-left underline underline-offset-4 font-bold lg:text-base">
+                <div className="pl-2 pr-2 text-theme-color flex text-left font-bold lg:text-base">
                     <p>
                         Invest in Education for Children Living In Poverty in
                         Pakistan

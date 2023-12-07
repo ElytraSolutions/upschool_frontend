@@ -15,7 +15,7 @@ const AboutProject = ({ projectData }) => {
         .trim();
     return (
         <>
-            <div className="w-full md:w-2/3">
+            <div className="w-full md:w-2/3 text-theme-color">
                 <div className="text-blue-950 text-3xl sm:text-4xl font-semibold w-11/12">
                     {projectTitle}
                 </div>
