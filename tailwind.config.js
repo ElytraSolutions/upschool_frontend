@@ -95,6 +95,7 @@ export default {
                 1450: '1450px',
                 xxxl: '1800px',
                 xlarge: '1920px',
+                somelarge: '2350px',
                 xxlarge: '2560px',
             },
             aspectRatio: {
