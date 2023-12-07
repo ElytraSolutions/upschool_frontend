@@ -1,7 +1,7 @@
 function TableForPopup() {
     return (
         <>
-            <div className="flex w-full flex-col lg:overflow-x-hidden overflow-x-scroll">
+            <div className="flex w-full flex-col overflow-x-hidden">
                 <div className="xs:-mx-6 md:-mx-8">
                     <div className="inline-block min-w-full py-2 xs:px-6 md:px-8">
                         <div className="overflow-x-auto">
@@ -11,7 +11,7 @@ function TableForPopup() {
                                 </thead>
                                 <tbody>
                                     <tr className="border-b bg-[#f4f4f4] dark:border-neutral-500">
-                                        <td className="whitespace-nowrap px-3 py-2">
+                                        <td className="px-3 py-2">
                                             Credit Card/Bank Processing Fee
                                             (2.9% + AU $0.30)
                                         </td>

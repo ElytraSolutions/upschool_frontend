@@ -11,13 +11,13 @@ function SmallProjectCard() {
                         alt="projectImage"
                     />
                 </div>
-                <div className="pl-2 pr-2 text-theme-color flex text-left font-bold lg:text-base">
+                <div className="pl-2 pr-2 text-theme-color flex text-left font-bold xm:text-base text-sm">
                     <p>
                         Invest in Education for Children Living In Poverty in
                         Pakistan
                     </p>
                 </div>
-                <div className="pl-2 pt-2 pb-2 flex text-theme-color text-left xm:text-sm lg:text-sm">
+                <div className="pl-2 pt-2 pb-2 flex text-theme-color text-left xm:text-sm xm:text-sm text-xs">
                     <p>Opportunity International Australia</p>
                 </div>
             </div>
