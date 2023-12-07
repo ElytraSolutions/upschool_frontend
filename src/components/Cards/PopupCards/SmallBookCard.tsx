@@ -12,8 +12,8 @@ function SmallBookCard() {
                     />
                 </div>
                 <div className="col-span-3 col-start-3 grid gap-1">
-                    <p className="text-lg">The Jaguar and the Tortoise</p>
-                    <p className="text-sm">Margaretha Helew</p>
+                    <p className="text-lg pl-2">The Jaguar and the Tortoise</p>
+                    <p className="text-sm pl-2">Margaretha Helew</p>
                 </div>
             </div>
         </>

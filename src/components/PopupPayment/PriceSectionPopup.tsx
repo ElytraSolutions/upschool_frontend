@@ -15,12 +15,12 @@ function PriceSectionPopup({ onclose }) {
                             />
                         </button>
                     </div>
-                    <div className="flex text-theme-color justify-center font-bold py-[24px] text-3xl text-center px-[24px]">
+                    <div className="flex text-theme-color justify-center font-extrabold py-[24px] text-3xl text-center px-[24px]">
                         <h2>Buy and Download the eBook - AU $5</h2>
                     </div>
                     <div className="md:max-w-[910px] max-h-[575px] xm:max-w-[392px] overflow-y-scroll no-scrollbar">
-                        <div className="grid md:grid-cols-5 xm:grid-flow-row gap-2 max-w-[910px] max-h-[575px] pb-[24px] px-[30px] overflow-y-scroll no-scrollbar">
-                            <div className="md:col-start-1 md:col-span-2 xm:row-span-full xm:row-start-1 flex justify-center rounded">
+                        <div className="grid md:grid-cols-5 grid-flow-row gap-2 max-w-[910px] max-h-[575px] pb-[24px] px-[30px] overflow-y-scroll no-scrollbar">
+                            <div className="md:col-start-1 md:col-span-2 row-span-full row-start-1 flex justify-center rounded">
                                 <div className="flex justify-center rounded">
                                     <SelectedSection />
                                 </div>
@@ -49,7 +49,7 @@ function PriceSectionPopup({ onclose }) {
                                             </div>
                                         </div>
                                     </div> */}
-                                    <div className="row-span-1 text-left text-theme-color font-bold text-2xl text-left">
+                                    <div className="row-span-1 text-left text-theme-color font-extrabold text-2xl text-left">
                                         Extra Donation
                                     </div>
                                     <div className="flex flex-grow text-theme-color text-lg text-left">
@@ -94,8 +94,15 @@ function PriceSectionPopup({ onclose }) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row-span-1 text-left text-theme-color font-bold text-2xl text-left">
-                                        Upschool Tip
+                                    <div className="row-span-1 flex flex-cols items-center gap-1 text-left text-theme-color font-extrabold text-2xl text-left">
+                                        <span>
+                                            <img
+                                                src="/images/logo.png"
+                                                alt="logo"
+                                                className="h-[26px] pointer-events-none"
+                                            />
+                                        </span>
+                                        <span> Tip</span>
                                     </div>
                                     <div className="row-span-1 text-left text-theme-color text-lg text-left">
                                         Please consider giving Upschool a tip to
