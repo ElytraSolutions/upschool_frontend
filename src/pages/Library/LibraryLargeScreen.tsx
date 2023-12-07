@@ -25,9 +25,9 @@ const LibraryLargeScreen: React.FC<LibraryLargeScreenProps> = ({
     return (
         <>
             {/* "h-full w-full bg-white p-3 sm:py-6 xl:px-12" */}
-            <div className="h-full w-full bg-white lg:px-16 xxxl:px-24 py-14">
+            <div className="h-full w-full bg-white lg:px-8 xl:px-16 xxxl:px-24 py-14">
                 {/* Grid container */}
-                <div className="flex flex-row justify-evenly w-full gap-1 lg:gap-5 xl:gap-3 2xl:gap-10 ">
+                <div className="flex flex-row justify-between xxlarge:justify-evenly w-full ">
                     {/* First colum: search and filter options */}
                     <div className="flex flex-row justify-end tab:w-1/3  xl:w-[25%] 1450:w-1/3 xxxl:w-fit">
                         <div className=" tab:max-w-xs  xl:max-w-md">

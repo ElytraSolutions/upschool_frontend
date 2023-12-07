@@ -65,25 +65,27 @@ const BooksDisplay = ({ filteredBooks }: BooksDisplayProps) => {
         : 'Home';
     return (
         <>
-            <div className="w-full xm:w-fit tab:w-2/3  xl:w-[75%] 1450:w-2/3 ">
+            <div className="w-fit ">
                 {/* Filter Tabs */}
                 <FilterTabs />
 
                 {/* it displays all sections (Best Sellers , Featured Books and Explore ALL Books as deafault condition) */}
                 {selectSection === 'Home' && (
-                    <div className="flex flex-col gap-5 tab:gap-12 w-full">
-                        {/* Best Sellers Section */}
-                        <HomeSectionComponent
-                            topic="Best Sellers"
-                            value="best_seller"
-                            books={bestSeller}
-                        />
-                        {/* Featured Books Section */}
-                        <HomeSectionComponent
-                            topic="Featured Books"
-                            value="featured"
-                            books={featuredBook}
-                        />
+                    <div className="w-full flex items-center justify-center">
+                        <div className=" xl:w-[850px] xxlarge:w-[1500px] flex flex-col justify-center items-center gap-5 tab:gap-12 ">
+                            {/* Best Sellers Section */}
+                            <HomeSectionComponent
+                                topic="Best Sellers"
+                                value="best_seller"
+                                books={bestSeller}
+                            />
+                            {/* Featured Books Section */}
+                            <HomeSectionComponent
+                                topic="Featured Books"
+                                value="featured"
+                                books={featuredBook}
+                            />
+                        </div>
                         {/* All Books Section */}
                         {/* <SectionShowBooks topic="All Books" books={books} /> */}
                     </div>

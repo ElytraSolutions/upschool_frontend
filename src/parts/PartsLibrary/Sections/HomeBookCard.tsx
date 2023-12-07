@@ -27,7 +27,7 @@ const HomeBookCard: React.FC<BookCardProps> = ({ book }) => {
     };
 
     return (
-        <div className=" flex flex-col gap-2 rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color flex-shrink-0 flex-grow-0 w-[80%] sm:w-[40%]  xl:w-[32%] xlarge:w-[25%] h-full ">
+        <div className="relative flex flex-col gap-2 rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color flex-shrink-0 flex-grow-0 w-[80%] sm:w-[40%]  xl:w-[32%] xlarge:w-[23%] h-[500px] ">
             <img
                 className="rounded-t-lg h-[40%] object-cover"
                 src={resolveImgURL(book.thumbnail || '/images/Books/book1.png')}
@@ -62,7 +62,7 @@ const HomeBookCard: React.FC<BookCardProps> = ({ book }) => {
                     </p>
                 </div>
             </div>
-            <div className=" mx-4 my-2 mt-4">
+            <div className="absolute bottom-3 w-full px-3 ">
                 <button
                     type="button"
                     className="p-3 my-1 bg-red-upschool text-white text-sm hover:cursor-pointer w-full"

@@ -28,7 +28,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
 
     return (
         <>
-            <div className=" relative flex flex-col rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[97%] xm:w-[235px] sm:w-[270px] h-[450px] xlarge:h-[600px] ">
+            <div className=" relative flex flex-col rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  w-[97%] xm:w-[235px] sm:w-[270px] h-[450px] xxlarge:h-[500px] ">
                 <div className="">
                     {/* TODO imgage dimesion needs to be determined  */}
                     <img
