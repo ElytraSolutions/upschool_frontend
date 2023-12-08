@@ -104,7 +104,11 @@ function CourseEnrol({ thumbnail }) {
         <>
             <div className="shrink grid border-1 border-gray-300 rounded-lg overflow-hidden shadow-2xl hover:transition hover:duration-200">
                 <img
-                    src={resolveImgURL(thumbnail)}
+                    src={
+                        thumbnail
+                            ? resolveImgURL(thumbnail)
+                            : 'https://source.unsplash.com/random'
+                    }
                     alt="courseEnrol"
                     className="xs:max-w-[340px] xs:max-h-[408px] max-w-[260px] max-h-[328px]"
                 />
