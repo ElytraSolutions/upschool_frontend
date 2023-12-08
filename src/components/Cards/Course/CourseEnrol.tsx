@@ -112,7 +112,7 @@ function CourseEnrol({ thumbnail }) {
                     alt="courseEnrol"
                     className="xs:max-w-[340px] xs:max-h-[408px] max-w-[260px] max-h-[300px]"
                 />
-                <div className="flex flex-col gap-4 justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] ">
+                <div className="flex flex-col gap-2 justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] ">
                     <button
                         className="w-full bg-theme-color text-white px-8 py-2 rounded-sm flex-grow sm:text-base text-[0.9rem] mt-2 mb-1 hover:bg-theme-color/80 "
                         onClick={handleClick}
