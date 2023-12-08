@@ -110,7 +110,7 @@ function CourseEnrol({ thumbnail }) {
                             : 'https://source.unsplash.com/random'
                     }
                     alt="courseEnrol"
-                    className="xs:max-w-[340px] xs:max-h-[408px] max-w-[260px] max-h-[328px]"
+                    className="xs:max-w-[340px] xs:max-h-[408px] max-w-[260px] max-h-[300px]"
                 />
                 <div className="flex flex-col gap-4 justify-center bg-[#F4F4F4] px-9 py-4 xs:max-w-[340px] max-w-[260px] ">
                     <button
