@@ -120,7 +120,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
     }, [searchParams.get('option')]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div className={`flex h-screen w-full pt-[3rem] md:pt-[4rem]`}>
+        <div className={`flex h-screen w-full pt-[4rem] md:pt-[6rem]`}>
             {/* Sidebar */}
             {isTabScreen ? (
                 <Sidebar

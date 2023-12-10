@@ -10,18 +10,24 @@ type NavbarProps = {
 
 function Navbar({ setIsopen }: NavbarProps) {
     const { user } = useUser();
-    const { isTabScreen } = useScreenWidthAndHeight();
+    const { isTabScreen, isXtraMedium } = useScreenWidthAndHeight();
     return (
         <>
             <div
-                className={`fixed z-10 flex items-center justify-between gap-2 bg-theme-color px-1 py-2 sm:p-4 w-full h-[3rem] md:h-full md:max-h-[4rem]`}
+                className={`fixed z-10 flex items-center justify-between h-[65px] md:h-[96px] xlarge:h-[96px]  w-full bg-white xm:bg-theme-color px-1 py-2 md:py-3 md:px-2   flex-1  `}
             >
                 <div className="flex flex-row items-center gap-5 ">
-                    <div className=" max-w-xs">
+                    <div
+                        className={` ${
+                            isXtraMedium ? 'max-w-[10rem] ' : 'max-w-xs'
+                        } `}
+                    >
                         <NavLink to="/">
                             <img
                                 src={resolveImgURL('/images/logo.png')}
-                                className="h-10 w-full"
+                                className={` ${
+                                    isXtraMedium ? '' : 'h-10'
+                                }  w-full`}
                                 alt=""
                             />
                         </NavLink>
@@ -53,20 +59,28 @@ function Navbar({ setIsopen }: NavbarProps) {
                         )}
                     </div>
                     <span
-                        className="block tab:hidden hover:cursor-pointer"
+                        className="block tab:hidden hover:cursor-pointer fill-theme-color  text-theme-color"
                         onClick={() => {
                             setIsopen((oldstate) => !oldstate);
                         }}
                     >
                         <svg //hamburger
                             xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
+                            // fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
-                            stroke="white"
-                            className="w-8 h-8  hover:cursor-pointer"
+                            stroke={
+                                isXtraMedium
+                                    ? '#242254'
+                                    : !isTabScreen
+                                    ? '#fff'
+                                    : '#242254'
+                            }
+                            style={{ fill: '#242254' }}
+                            className="w-8 h-8 fill-red-500 text-red-500 hover:cursor-pointer "
                         >
                             <path
+                                style={{ fill: '#242254' }}
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
