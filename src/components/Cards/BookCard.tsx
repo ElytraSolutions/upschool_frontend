@@ -28,7 +28,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
 
     return (
         <>
-            <div className=" relative flex flex-col rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  mx-auto w-[90%] xm:w-[235px] sm:w-[270px] xs:h-[450px] h-[500px] xxlarge:h-[500px] ">
+            <div className=" relative flex flex-col rounded-lg  text-sm lg:text-base bg-white border border-gray-300 text-theme-color  mx-auto w-[90%] xm:w-[235px] sm:w-[270px] lg:h-[450px] xm:h-[430px] h-[500px] xxlarge:h-[500px] ">
                 <div className="">
                     {/* TODO imgage dimesion needs to be determined  */}
                     <img
@@ -61,7 +61,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                                 Values this book explores:{' '}
                                 {book.categories.map((category, index) => (
                                     <span key={index} className="font-normal">
-                                        {index <= 4 && category.name}
+                                        {index < 4 && category.name}
                                         {index < 3 && ', '}
                                     </span>
                                 ))}
