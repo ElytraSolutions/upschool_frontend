@@ -5,8 +5,8 @@ function SelectedSection() {
     return (
         <>
             <div className="justify-center">
-                <div className="bg-[#F4F4F4] rounded py-4 px-2 grid gap-3">
-                    <div className="text-left text-theme-color font-bold text-2xl lg:pl-1 md:pl-2">
+                <div className="bg-[#F4F4F4] rounded py-4 px-2 tab:mx-2 mx-0 tab:my-0 my-3 grid gap-3">
+                    <div className="text-left text-theme-color font-extrabold text-2xl lg:pl-1 md:pl-2">
                         <h2>Your Selection</h2>
                     </div>
                     <div className="text-left text-theme-color font-bold text-xl lg:pl-1 md:pl-2">

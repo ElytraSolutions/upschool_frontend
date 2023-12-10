@@ -42,7 +42,7 @@ function CourseTop({ title, subtitle, thumbnail }) {
                                     />
                                 </div>
                                 {/*using a overlay to keep the container size fix */}
-                                <div className="absolute top-0 left-0 w-full h-full bg-white-100 opacity-80"></div>
+                                {/* <div className="absolute top-0 left-0 w-full h-full bg-white-100 opacity-80"></div> */}
                             </div>
                         </div>
                     </div>

@@ -50,7 +50,7 @@ export default function CourseBoxCompleted({
         <>
             {loaded && (
                 <div>
-                    <div className="p-4 bg-white h-full lg:w-[20rem] md:min-w-[15rem] md:w-[30%] sm:w-[18rem] xm:w-[17rem] w-[18rem]">
+                    <div className="p-4 bg-white h-full xl:w-[20rem] xl:min-w-[20rem] xxxl:w-[23rem] 1520:w-[26rem] lg:w-[24rem] md:min-w-[22rem] md:w-[40%] sm:w-[18rem] xm:w-[17rem] w-[18rem]">
                         <div className="flex flex-col h-full w-full gap-4 justify-between">
                             <div className="flex flex-col w-full gap-4">
                                 <div className="flex justify-center  w-full h-[15rem]">

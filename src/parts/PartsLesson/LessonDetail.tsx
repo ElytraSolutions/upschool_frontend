@@ -35,7 +35,7 @@ export default function LessonDetail({
     const [loading, setLoading] = useState<boolean>(false);
     const [showAnimation, setShowAnimation] = useState<boolean>(false);
     const config = {
-        angle: 85,
+        angle: 90,
         spread: 250,
         startVelocity: 40,
         elementCount: 200,
