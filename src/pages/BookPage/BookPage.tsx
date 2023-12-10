@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import BookImageSection from './BookImageSection';
 import BookDescriptionSection from './BookDescriptionSection';
+import axiosInstance from '../../config/Axios';
+import Loading from '../../components/Loading';
 
 const defaultBook = {
     id: 0,
@@ -20,16 +22,30 @@ const defaultBook = {
 const BookPage = () => {
     const location = useLocation();
     // console.log(location.state);
-    const { slug } = useParams();
-    console.log('you are at: ', slug);
-    const book = location.state;
+    const { id } = useParams();
+    console.log('you are at: ', id);
+    const [book, setBook] = useState<any>(null);
     console.log('book: ', book);
+
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
-    useEffect(() => {
+        if (location.state) {
+            setBook(location.state);
+        } else {
+            (async () => {
+                const res = await axiosInstance.get(`data/books/detail/${id}`);
+                setBook(res.data.data);
+            })();
+        }
+    }, [id, location.state]);
+
+    if (!book) {
+        document.title = 'Loading... | Upschool';
+        return <Loading />;
+    } else {
         document.title = `${book?.title} | Upschool`;
-    }, [book]);
+    }
+
     return (
         <>
             <div className="bg-gray-200 pb-[60px] font-lexend">
@@ -46,6 +62,7 @@ const BookPage = () => {
                     <BookImageSection book={book ? book : defaultBook} />
                     <BookDescriptionSection
                         description={book ? book.description : ''}
+                        projectData={book ? book.project : {}}
                     />
                 </div>
             </div>

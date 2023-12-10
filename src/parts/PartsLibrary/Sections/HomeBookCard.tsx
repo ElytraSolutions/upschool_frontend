@@ -23,7 +23,7 @@ const HomeBookCard: React.FC<BookCardProps> = ({ book }) => {
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
-        navigate(`/library/${book.slug}`, { state: book });
+        navigate(`/library/${book.id}`, { state: book });
     };
 
     return (

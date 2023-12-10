@@ -5,7 +5,7 @@ import ProjectPopup from '../../components/PopupPayment/ProjectPopup';
 import { Link } from 'react-router-dom';
 import ExpectPopup from './ExpectPopup';
 
-const BookDescriptionSection = ({ description }) => {
+const BookDescriptionSection = ({ description, projectData }) => {
     // replace with the book description
     const [expectPopup, setExceptPopup] = useState(false);
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -107,7 +107,7 @@ const BookDescriptionSection = ({ description }) => {
                     </div>
                 </div>
                 <div className="md:col-span-3 lg:col-span-2 md:row-span-4 xl:row-span-5 h-full w-full mt-4">
-                    <AuthorsRecommendedProject />
+                    <AuthorsRecommendedProject projectData={projectData} />
                 </div>
                 <div className="md:col-span-4 md:row-span-2 xl:row-span-3 h-full w-full">
                     <RelatedBooksComponent />

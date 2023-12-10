@@ -126,7 +126,7 @@ const router = createBrowserRouter([
                 element: <NewBrowseBooks />,
             },
             {
-                path: 'library/:slug',
+                path: 'library/:id',
                 element: <BookPage />,
             },
             {
