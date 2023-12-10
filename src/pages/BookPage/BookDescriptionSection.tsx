@@ -5,7 +5,7 @@ import ProjectPopup from '../../components/PopupPayment/ProjectPopup';
 import { Link } from 'react-router-dom';
 import ExpectPopup from './ExpectPopup';
 
-const BookDescriptionSection = () => {
+const BookDescriptionSection = ({ description }) => {
     // replace with the book description
     const [expectPopup, setExceptPopup] = useState(false);
     const [isPopupVisible, setPopupVisible] = useState(false);
@@ -34,12 +34,12 @@ const BookDescriptionSection = () => {
         document.body.style.overflow = expectPopup ? 'hidden' : 'unset';
     }, [expectPopup]);
 
-    const bookDescription =
-        'Excepteur excepteur deserunt cupidatat reprehenderit in consectetur ut magna commodo. \
-        Officia nulla aliquip proident cupidatat laboris quis eiusmod officia fugiat do anim. Dolore \
-        ad dolor consectetur dolor esse laborum in eu eu nulla exercitation nostrud laborum. Id Lorem fugiat\
-         tempor exercitation deserunt sit veniam ullamco ex officia pariatur laborum consequat. Voluptate \
-         aliqua velit laboris ad anim ut.';
+    // const bookDescription =
+    //     'Excepteur excepteur deserunt cupidatat reprehenderit in consectetur ut magna commodo. \
+    //     Officia nulla aliquip proident cupidatat laboris quis eiusmod officia fugiat do anim. Dolore \
+    //     ad dolor consectetur dolor esse laborum in eu eu nulla exercitation nostrud laborum. Id Lorem fugiat\
+    //      tempor exercitation deserunt sit veniam ullamco ex officia pariatur laborum consequat. Voluptate \
+    //      aliqua velit laboris ad anim ut.';
 
     return (
         <>
@@ -47,7 +47,7 @@ const BookDescriptionSection = () => {
             <div className="flex flex-col md:grid md:grid-cols-7 lg:grid-cols-6  md:grid-rows-4  xl:grid-rows-5 gap-x-9 gap-y-2 text-blue-950 h-full w-full">
                 <div className="md:col-span-4 md:row-span-2 h-full w-full ">
                     <div className="text-md sm:text-xl mt-4 mb-6">
-                        {bookDescription}
+                        {description}
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 my-4 font-bold flex-wrap">
                         <button

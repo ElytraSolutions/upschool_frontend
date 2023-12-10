@@ -23,6 +23,7 @@ const BookPage = () => {
     const { slug } = useParams();
     console.log('you are at: ', slug);
     const book = location.state;
+    console.log('book: ', book);
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -43,7 +44,9 @@ const BookPage = () => {
                 </div>
                 <div className="mx-auto md:10/12 w-4/5 mt-6 lg:w-2/3">
                     <BookImageSection book={book ? book : defaultBook} />
-                    <BookDescriptionSection />
+                    <BookDescriptionSection
+                        description={book ? book.description : ''}
+                    />
                 </div>
             </div>
         </>
