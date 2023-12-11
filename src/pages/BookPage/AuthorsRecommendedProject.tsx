@@ -3,7 +3,8 @@ import projectImage from '../../assets/projectimage.jpg';
 import BooksPopUp from './BooksPopUp';
 import HelpPopup from './HelpPopup';
 
-const AuthorsRecommendedProject = () => {
+const AuthorsRecommendedProject = ({ projectData }) => {
+    console.log(projectData);
     // replace with the project details
     const projectName = 'Invest in Education for Childern living in poverty';
     const projectDescription =

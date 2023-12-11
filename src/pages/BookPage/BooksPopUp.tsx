@@ -5,13 +5,13 @@ import resolveImgURL from '../../utlis/resolveImgURL';
 
 const BooksPopUp = ({ showAuthorBookPopUp, setShowAuthorBookPopUp }) => {
     return (
-        <Dialog open={showAuthorBookPopUp} className="relative">
-            <DialogTitle className="bg-gray-100">
+        <Dialog open={showAuthorBookPopUp}>
+            <DialogTitle className="bg-gray-100 relative overflow-hidden rounded-none">
                 <div className="w-full flex-row flex justify-between text-theme-color">
                     <div className="w-1/2">More from this author</div>
                     <div className="w-1/2 flex justify-end">
                         <button
-                            className="bg-white absolute right-[-1px] top-[-1px]"
+                            className="bg-white absolute right-0 top-0"
                             onClick={() => {
                                 setShowAuthorBookPopUp(false);
                             }}
