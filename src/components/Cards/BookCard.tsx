@@ -23,7 +23,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
-        navigate(`/library/${book.slug}`, { state: book });
+        navigate(`/library/${book.id}`, { state: book });
     };
 
     return (
@@ -32,7 +32,7 @@ const BookCard: React.FC<BookCardProps> = ({ book }) => {
                 <div className="">
                     {/* TODO imgage dimesion needs to be determined  */}
                     <img
-                        className="rounded-t-lg h-60 xm:h-32 sm:h-44"
+                        className="rounded-t h-60 xm:h-32 sm:h-44"
                         src={resolveImgURL(
                             book.thumbnail || '/images/Books/book1.png',
                         )}
