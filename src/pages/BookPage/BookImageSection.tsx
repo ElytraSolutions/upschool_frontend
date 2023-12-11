@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import FlipBook from './FlipBook';
+import { ImArrowRight, ImArrowLeft } from 'react-icons/im';
+
 type BookCardProps = {
     book: {
         id: number;
@@ -15,6 +17,9 @@ type BookCardProps = {
 };
 const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
     const { first_name, title, country, categories } = book;
+
+    const flipBookRef = useRef<any>(null);
+
     return (
         <>
             <div className="flex flex-col md:flex-row md:justify-between text-blue-950">
@@ -52,8 +57,24 @@ const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
                 {/* <div className="bg-gray-200 p-4 text-white flex justify-center items-center pb-6 md:pb-8 lg:pb-10">
                     <img src={image} className="w-full md:w-1/2 lg:w-1/2"></img>
                 </div> */}
-                <div className="bg-gray-300 pt-4 text-white flex flex-col items-center mt-3 py-6 md:py-8 lg:py-10 relative mb-6">
-                    <FlipBook />
+                <div className="bg-gray-300 pt-4 text-white flex flex-row items-center justify-center gap-x-2 mt-3 py-6 md:py-8 lg:py-10 relative mb-6">
+                    <div
+                        className="hover:cursor-pointer"
+                        onClick={() => {
+                            flipBookRef.current.pageFlip().flipPrev();
+                        }}
+                    >
+                        <ImArrowLeft style={{ color: '#242254' }} />
+                    </div>
+                    <FlipBook flipBookRef={flipBookRef} />
+                    <div
+                        className="hover:cursor-pointer"
+                        onClick={() => {
+                            flipBookRef.current.pageFlip().flipNext();
+                        }}
+                    >
+                        <ImArrowRight style={{ color: '#242254' }} />
+                    </div>
                 </div>
                 <div
                     className="flex justify-center items-center flex-wrap text-blue-900 font-normal"

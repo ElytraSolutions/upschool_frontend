@@ -4,7 +4,7 @@ import PageFlip from 'react-pageflip';
 import { books } from '../../data/LibraryBooks';
 import { useState } from 'react';
 
-const FlipBook = () => {
+const FlipBook = ({ flipBookRef }) => {
     const [book, _] = useState(books);
     // const [currentPage, setCurrentPage] = useState(0);
     // const pageTurnAudio = new Audio(
@@ -19,6 +19,7 @@ const FlipBook = () => {
     return (
         <>
             <PageFlip
+                ref={flipBookRef}
                 className=""
                 style={{}}
                 width={200}
