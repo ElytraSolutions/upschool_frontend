@@ -417,7 +417,7 @@ export const PersonalInformation = ({ user }) => {
                                                     size="small"
                                                     fullWidth
                                                     id="dob"
-                                                    type="text"
+                                                    type="date"
                                                     hiddenLabel
                                                     onBlur={handleBlur}
                                                     onChange={handleChange}

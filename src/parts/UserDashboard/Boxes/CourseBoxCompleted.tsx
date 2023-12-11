@@ -98,11 +98,11 @@ export default function CourseBoxCompleted({
                                         Revisit Course
                                     </div>
                                     <div
-                                        className={`text-white text-center bg-theme-color px-4 py-2 w-3/4  ${
-                                            emailSent == 0
-                                                ? 'opacity-80 pointer-events-none'
+                                        className={`text-white text-center bg-theme-color px-4 py-2 w-3/4 cursor-pointer ${
+                                            emailSent === 0
+                                                ? 'opacity-80 cursor-default'
                                                 : 'cursor-pointer'
-                                        }}`}
+                                        }`}
                                         onClick={async () => {
                                             try {
                                                 const res =
