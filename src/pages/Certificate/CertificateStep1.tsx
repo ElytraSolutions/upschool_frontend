@@ -4,6 +4,8 @@ import Box from '@mui/material/Box';
 // import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { countries } from '../../data/countries';
+import { useState } from 'react';
 
 // import Select from '@mui/material/Select';
 // import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -33,6 +35,9 @@ const CertificateStep1 = ({
     const { isLargeScreen } = useScreenWidthAndHeight();
     console.log('courses', courses);
     console.log('coursesName', coursesName);
+    const [countriesList, _setCountriesList] = useState(
+        countries.map((country) => country.name),
+    );
 
     const handleChange = (e) => {
         setFormData({
@@ -54,6 +59,7 @@ const CertificateStep1 = ({
         }
     };
     console.log('FormData', formData);
+    console.log('countries', countriesList);
 
     return (
         <div>
@@ -125,7 +131,7 @@ const CertificateStep1 = ({
                                 value={formData.school}
                                 name="school"
                             />
-                            <TextField
+                            {/* <TextField
                                 className={`${
                                     isLargeScreen ? 'col-span-2' : 'col-span-4'
                                 }`}
@@ -134,6 +140,32 @@ const CertificateStep1 = ({
                                 onChange={handleChange}
                                 value={formData.country}
                                 name="country"
+                            /> */}
+                            <Autocomplete
+                                className={`${
+                                    isLargeScreen ? 'col-span-2' : 'col-span-4'
+                                }`}
+                                disablePortal
+                                id="combo-box-demo"
+                                options={countriesList}
+                                sx={{ width: '100%' }}
+                                value={formData.country}
+                                onChange={(_, newValue) =>
+                                    handleChange({
+                                        target: {
+                                            name: 'country',
+                                            value: newValue,
+                                        },
+                                    })
+                                }
+                                renderInput={(params) => (
+                                    <TextField
+                                        {...params}
+                                        name="country"
+                                        label="Country"
+                                        onChange={handleChange}
+                                    />
+                                )}
                             />
                             <TextField
                                 className={`${
