@@ -73,7 +73,7 @@ function MyCourses({ eligibleCourses }) {
             // fetch data from  /data/user/courses
             // /data/courses/:slug/checkenrollment
             const res = await axiosInstance.get('/data/user/courses');
-            console.log(res.data.data);
+            // console.log('User course Data', res.data.data);
             setMyCourses(res.data.data);
             // {
             //     id: '9a5a38fe-c690-4854-8459-882261ae3806',

@@ -32,12 +32,12 @@ export default function CourseBox({ detail }) {
                         <div className="flex flex-col w-full gap-4">
                             <div className="flex flex-col w-full gap-1">
                                 <div className="text-base sm:text-lg">
-                                    {detail.completedLessons}/
-                                    {detail.totalLessons} Lessons
+                                    {detail.CompletedLessons}/
+                                    {detail.TotalLessons} Lessons
                                 </div>
                                 <ProgressBar
-                                    completedLessons={detail.completedLessons}
-                                    totalLessons={detail.totalLessons}
+                                    completedLessons={detail.CompletedLessons}
+                                    totalLessons={detail.TotalLessons}
                                 />
                             </div>
 
