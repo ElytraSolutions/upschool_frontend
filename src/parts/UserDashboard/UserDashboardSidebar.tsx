@@ -20,13 +20,13 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
     return (
         <>
             <div
-                className={`fixed z-[3] bg-white border p-4 pt-2 text-[#A9A9A9] w-[80%]  xs:w-2/3 xm:w-1/3 tab:w-1/5 lg:w-[17%] h-full flex flex-row justify-between  overflow-auto`}
+                className={`fixed z-[3] bg-white border p-4 pt-2 text-[#242254] w-[80%]  xs:w-2/3 xm:w-1/3 tab:w-1/5 lg:w-[17%] h-full flex flex-row justify-between  overflow-auto`}
             >
                 <ul className="flex flex-col gap-4">
                     <li
-                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-md  p-2 box-border ${
                             selectedOption === 'Dashboard'
-                                ? 'border-[#242254] text-[#242254]'
+                                ? 'border-[#242254] border  text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => {
@@ -39,9 +39,9 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                         <i className="fa fa-dashboard"></i> Dashboard
                     </li>
                     <li
-                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-md  p-2 box-border ${
                             selectedOption === 'My Courses'
-                                ? 'border-[#242254] text-[#242254]'
+                                ? 'border-[#242254] border  text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => {
@@ -55,9 +55,9 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                         <i className="fa fa-desktop"></i> My Courses
                     </li>
                     <li
-                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-md  p-2 box-border ${
                             selectedOption === 'My Books'
-                                ? 'border-[#242254] text-[#242254]'
+                                ? 'border-[#242254] border  text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => {
@@ -70,9 +70,9 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                         <i className="fa fa-book"></i> My Books
                     </li>
                     <li
-                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-md  p-2 box-border ${
                             selectedOption === 'My Donations And Purchase'
-                                ? 'border-[#242254] text-[#242254]'
+                                ? 'border-[#242254] border  text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => {
@@ -85,9 +85,9 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                         <i className="fa fa-table"></i> My Donations & Purchase
                     </li>
                     <li
-                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-md  p-2 box-border ${
                             selectedOption === 'Setting'
-                                ? 'border-[#242254] text-[#242254]'
+                                ? 'border-[#242254] border  text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => {
@@ -100,9 +100,9 @@ export const UserDashboardSidebar: React.FC<SidebarProps> = ({
                         <i className="fa fa-gear"></i> Settings
                     </li>
                     <li
-                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-lg border-2 border-white p-2 ${
+                        className={`flex cursor-pointer flex-row items-center gap-3 rounded-md  p-2 box-border ${
                             selectedOption === 'Logout'
-                                ? 'border-[#242254] text-[#242254]'
+                                ? 'border-[#242254] border  text-[#242254]'
                                 : 'hover:border-[#242254] hover:text-[#242254]'
                         }`}
                         onClick={() => {
