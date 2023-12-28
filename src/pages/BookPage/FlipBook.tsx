@@ -4,16 +4,28 @@ import PageFlip from 'react-pageflip';
 import { books } from '../../data/LibraryBooks';
 import { useState } from 'react';
 
-const FlipBook = ({ flipBookRef }) => {
+const FlipBook = ({ flipBookRef, setCurrentPage, setTotalPage }) => {
     const [book, _] = useState(books);
     // const [currentPage, setCurrentPage] = useState(0);
     // const pageTurnAudio = new Audio(
     //     '../../../public/audio/BookPage/pageturn.mp3',
     // );
 
-    const OnFlip = () => {
-        // pageTurnAudio.play();
-        // console.log('Audio');
+    // useEffect(() => {
+    //     if (flipBookRef.current.pageFlip()) {
+    //         // console.log(flipBookRef.current.pageFlip());
+    //         setCurrentPage(
+    //             flipBookRef.current.pageFlip().getCurrentPageIndex(),
+    //         );
+    //         setTotalPage(flipBookRef.current.pageFlip().getPageCount());
+    //     }
+    // }, [flipBookRef]);
+
+    const updatePageNumbers = () => {
+        setCurrentPage(
+            flipBookRef.current.pageFlip().getCurrentPageIndex() + 1,
+        );
+        setTotalPage(flipBookRef.current.pageFlip().getPageCount());
     };
 
     return (
@@ -44,7 +56,9 @@ const FlipBook = ({ flipBookRef }) => {
                 useMouseEvents={true}
                 showPageCorners={false}
                 disableFlipByClick={false}
-                onFlip={OnFlip}
+                onFlip={updatePageNumbers}
+                onInit={updatePageNumbers}
+                onUpdate={updatePageNumbers}
             >
                 {book.map((page, index) => {
                     return (
