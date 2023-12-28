@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import FlipBook from './FlipBook';
-import { ImArrowRight, ImArrowLeft } from 'react-icons/im';
+import { CgArrowLeftR, CgArrowRightR } from 'react-icons/cg';
 
 type BookCardProps = {
     book: {
@@ -19,6 +19,9 @@ const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
     const { first_name, title, country, categories } = book;
 
     const flipBookRef = useRef<any>(null);
+
+    const [currentPageIndex, setCurrentPageIndex] = useState<any>(null);
+    const [totalPage, setTotalPage] = useState<any>(null);
 
     return (
         <>
@@ -57,23 +60,34 @@ const BookImageSection: React.FC<BookCardProps> = ({ book }) => {
                 {/* <div className="bg-gray-200 p-4 text-white flex justify-center items-center pb-6 md:pb-8 lg:pb-10">
                     <img src={image} className="w-full md:w-1/2 lg:w-1/2"></img>
                 </div> */}
-                <div className="bg-gray-300 pt-4 text-white flex flex-row items-center justify-center gap-x-2 mt-3 py-6 md:py-8 lg:py-10 relative mb-6">
-                    <div
-                        className="hover:cursor-pointer"
-                        onClick={() => {
-                            flipBookRef.current.pageFlip().flipPrev();
-                        }}
-                    >
-                        <ImArrowLeft style={{ color: '#242254' }} />
+                <div className="flex flex-col bg-gray-300 py-4 md:py-4 lg:py-4 pt-4 my-3 w-full">
+                    <div className="text-white flex flex-row items-center justify-between gap-x-2 relative mb-4">
+                        <div
+                            className="hover:cursor-pointer"
+                            onClick={() => {
+                                flipBookRef.current.pageFlip().flipPrev();
+                            }}
+                        >
+                            <CgArrowLeftR style={{ color: '#242254' }} />
+                        </div>
+                        <FlipBook
+                            flipBookRef={flipBookRef}
+                            setCurrentPage={setCurrentPageIndex}
+                            setTotalPage={setTotalPage}
+                        />
+                        <div
+                            className="hover:cursor-pointer"
+                            onClick={() => {
+                                flipBookRef.current.pageFlip().flipNext();
+                            }}
+                        >
+                            <CgArrowRightR style={{ color: '#242254' }} />
+                        </div>
                     </div>
-                    <FlipBook flipBookRef={flipBookRef} />
-                    <div
-                        className="hover:cursor-pointer"
-                        onClick={() => {
-                            flipBookRef.current.pageFlip().flipNext();
-                        }}
-                    >
-                        <ImArrowRight style={{ color: '#242254' }} />
+                    <div className="w-full flex items-center justify-center">
+                        <div className="bg-gray-200 px-1 text-sm">
+                            {currentPageIndex}/{totalPage}
+                        </div>
                     </div>
                 </div>
                 <div
