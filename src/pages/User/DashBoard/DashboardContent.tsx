@@ -119,7 +119,7 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                             </div>
 
                             <div
-                                className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer "
+                                className=" block underline font-semibold text-theme-color text-[1.1rem] underline-offset-4 font-nunito w-fit h-fit p-2 text-center hover:cursor-pointer "
                                 onClick={() => {
                                     handleOptionClick('My Courses');
                                 }}
@@ -143,7 +143,7 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                             </div>
 
                             <div
-                                className="rounded-lg block bg-theme-color text-white w-fit h-fit p-2 text-center text-sm hover:cursor-pointer"
+                                className=" block underline font-semibold text-theme-color text-[1.1rem] underline-offset-4 font-nunito w-fit h-fit p-2 text-center hover:cursor-pointer "
                                 onClick={() => {
                                     handleOptionClick('My Books');
                                 }}
