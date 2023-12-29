@@ -129,28 +129,33 @@ function DashboardContent({ handleOptionClick }: DashboardContentProps) {
                         </div>
 
                         {/* Third row : Books uploaded by user */}
-                        <div className="flex flex-col items-start w-full gap-3 max-w-[80rem]">
-                            <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
-                                Your Books
-                            </h1>
+                        {userBooksData?.length > 0 && (
+                            <div className="flex flex-col items-start w-full gap-3 max-w-[80rem]">
+                                <h1 className=" text-base md:text-lg xl:text-xl 2xl:text-2xl font-bold font-lexend">
+                                    Your Books
+                                </h1>
 
-                            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 w-full">
-                                {userBooksData
-                                    ?.slice(0, 3)
-                                    .map((course, index) => (
-                                        <BookBox key={index} detail={course} />
-                                    ))}
-                            </div>
+                                <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 w-full">
+                                    {userBooksData
+                                        ?.slice(0, 3)
+                                        .map((course, index) => (
+                                            <BookBox
+                                                key={index}
+                                                detail={course}
+                                            />
+                                        ))}
+                                </div>
 
-                            <div
-                                className=" block underline font-semibold text-theme-color text-[1.1rem] underline-offset-4 font-nunito w-fit h-fit p-2 text-center hover:cursor-pointer "
-                                onClick={() => {
-                                    handleOptionClick('My Books');
-                                }}
-                            >
-                                See more {'>>'}
+                                <div
+                                    className=" block underline font-semibold text-theme-color text-[1.1rem] underline-offset-4 font-nunito w-fit h-fit p-2 text-center hover:cursor-pointer "
+                                    onClick={() => {
+                                        handleOptionClick('My Books');
+                                    }}
+                                >
+                                    See more {'>>'}
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>
